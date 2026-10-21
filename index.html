@@ -29,6 +29,7 @@ main{width:100%;max-width:520px}
 .note{font-size:13px;color:var(--mut);text-align:center;margin:0;line-height:1.5}
 .row2{display:flex;gap:8px}.row2>*{flex:1}
 /* 타이틀 */
+#s0>.prod{position:absolute;right:14px;bottom:10px;z-index:2;font-size:11px;letter-spacing:.08em;color:var(--mut);opacity:.85;pointer-events:none}
 #s0{position:relative;overflow:hidden;align-items:center;text-align:center;justify-content:center;min-height:min(80vh,660px);border:1px solid var(--line);border-radius:20px;background:linear-gradient(#fff,#ececec);padding:28px 18px;gap:10px}
 #s0 .floor{position:absolute;left:-60%;right:-60%;bottom:-8%;height:44%;background:conic-gradient(#111 25%,#fff 0 50%,#111 0 75%,#fff 0) 0 0/84px 84px;transform:perspective(280px) rotateX(62deg);transform-origin:50% 100%;animation:flr 2s linear infinite;-webkit-mask-image:linear-gradient(transparent,#000 75%);mask-image:linear-gradient(transparent,#000 75%);opacity:.9}
 @keyframes flr{to{background-position:0 84px}}
@@ -341,6 +342,22 @@ body.tuting .c.hf,body.tuting .c.ht{animation:tpl 1s ease-in-out infinite}@keyfr
 @media (prefers-reduced-motion:reduce){#skAl{transition:none}}
 #phaseAl{position:fixed;left:50%;top:38%;transform:translate(-50%,-50%) scale(.8);z-index:60;pointer-events:none;opacity:0;text-align:center;background:#111;color:#fff;border-radius:18px;padding:18px 28px;box-shadow:0 10px 40px rgba(0,0,0,.35);max-width:88vw;transition:opacity .25s,transform .25s}
 #phaseAl.on{opacity:.96;transform:translate(-50%,-50%) scale(1)}
+/* 자기장 · 서든데스 */
+.c.stm{background-image:linear-gradient(115deg,rgba(255,214,0,.62) 0%,rgba(20,110,255,.62) 50%,rgba(255,214,0,.62) 100%)!important;background-size:220% 220%;animation:stormSh 1.5s linear infinite}
+@keyframes stormSh{from{background-position:0 0}to{background-position:220% 0}}
+.c.stn{box-shadow:inset 0 0 0 2px rgba(255,214,0,.9),inset 0 0 12px 2px rgba(20,110,255,.65);animation:stormPv 1s ease-in-out infinite alternate}
+@keyframes stormPv{from{box-shadow:inset 0 0 0 2px rgba(255,214,0,.35),inset 0 0 8px 1px rgba(20,110,255,.2)}to{box-shadow:inset 0 0 0 2px rgba(255,214,0,.95),inset 0 0 14px 2px rgba(20,110,255,.7)}}
+.zb{position:absolute;left:50%;top:-9px;transform:translateX(-50%);z-index:6;font:900 11px/1 system-ui,sans-serif;padding:2px 5px;border-radius:8px;background:#ffd400;color:#111;border:1.5px solid #1d5cff;box-shadow:0 0 5px rgba(29,92,255,.9);pointer-events:none;white-space:nowrap}
+#stormAl{position:fixed;left:50%;top:58%;transform:translate(-50%,-50%) scale(.8);z-index:61;pointer-events:none;opacity:0;text-align:center;background:linear-gradient(135deg,#1a1a1a,#0b2a66);color:#fff;border:3px solid #ffd400;border-radius:18px;padding:14px 24px;box-shadow:0 10px 40px rgba(0,0,0,.4),0 0 24px rgba(255,212,0,.5);max-width:90vw;transition:opacity .25s,transform .25s}
+#stormAl.on{opacity:.97;transform:translate(-50%,-50%) scale(1)}
+#stormAl small{display:block;font-size:12px;letter-spacing:.12em;color:#ffd400;margin-bottom:3px}
+#stormAl b{display:block;font-size:clamp(18px,5.2vw,28px);line-height:1.25}
+#stormAl em{display:block;font-style:normal;font-size:12.5px;opacity:.85;margin-top:4px}
+#stormAl.sd{border-color:#ff3b30;background:linear-gradient(135deg,#2b0000,#0b2a66);box-shadow:0 10px 40px rgba(0,0,0,.5),0 0 30px rgba(255,59,48,.7)}
+#stormAl.sd small{color:#ff8a80}
+@media (prefers-reduced-motion:reduce){#stormAl,.c.stm,.c.stn{transition:none;animation:none}}
+.skb button.slk{opacity:.45;text-decoration:line-through}
+
 #phaseAl small{display:block;font-size:13px;letter-spacing:.12em;opacity:.7;margin-bottom:4px}
 #phaseAl b{display:block;white-space:nowrap;font-size:clamp(20px,5.6vw,30px);line-height:1.25}
 @media (prefers-reduced-motion:reduce){#phaseAl{transition:none}}
@@ -403,7 +420,7 @@ button.inf,.pcard button.inf{min-height:34px;padding:6px 10px}.skb button,.act2 
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <p class="note">39 코스트로 나만의 군대를 만들어 싸워라</p>
- <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 10.8.1</div>
+ <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 11.1.1</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -470,7 +487,7 @@ button.inf,.pcard button.inf{min-height:34px;padding:6px 10px}.skb button,.act2 
  <aside class="side" id="side"></aside>
  <div class="lg"><span><i style="background:var(--blue)"></i>이동</span><span><i style="background:var(--purple)"></i>잡기</span><span><i style="background:var(--red)"></i>원거리 공격</span><span><i style="background:var(--orange)"></i>스킬</span></div>
  <div class="acts act1"><button id="skip" style="display:none">추가 이동 건너뛰기</button><button id="pkok" style="display:none">스킬 확정</button><button id="pkx" style="display:none">스킬 취소</button></div>
- <div class="acts skb" id="skb" style="display:none"><span class="skl">사용 스킬 · 각 1회</span><button data-sk="ret">↩️ 원위치!</button><button data-sk="rush">⚡ 돌격 앞으로!</button><button data-sk="fin">🏁 상황 종결!</button></div>
+ <div class="acts skb" id="skb" style="display:none"><span class="skl">사용 스킬 · 각 1회</span><button data-sk="ret">↩️ 원위치!</button><button data-sk="rush">⚡ 돌격 앞으로!</button><button data-sk="fin">🏁 상황 종결!</button><button data-sk="fever">🔥 피버!</button></div>
  <div class="acts act2"><button id="bPause" style="display:none">⏸ 일시정지</button><button id="bSpd" style="display:none">속도</button><button id="bHint">💡 좋은 수 표시: 꺼짐</button><button id="bFlip">보드 뒤집기</button><button id="bRes" style="display:none">결과 보기</button><button id="bResign">항복</button><button id="re">처음으로</button></div>
 </section>
 
@@ -489,7 +506,7 @@ button.inf,.pcard button.inf{min-height:34px;padding:6px 10px}.skb button,.act2 
 <input id="cmNick" maxlength="12" placeholder="닉네임" style="width:100%;padding:9px;border:1px solid var(--line);border-radius:10px;font-size:14px;margin:6px 0 0;background:var(--card);color:var(--ink)"><select id="fbCat" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin:6px 0"><option>🐞 버그 제보</option><option>⚖️ 밸런스 의견</option><option>💡 기능 건의</option><option>👍 칭찬·응원</option></select><textarea id="fbMsg" rows="4" maxlength="500" placeholder="어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;resize:vertical;font-family:inherit"></textarea><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin:4px 0"><span></span><span id="fbCnt">0 / 500</span></div><p class="note" id="fbNote"></p><div class="row2" style="margin-top:10px"><button class="pri" id="cmPost">댓글 등록</button><button id="fbX">닫기</button></div></div></div>
 <div class="modal" id="mLog" role="dialog" aria-modal="true" aria-labelledby="lgT"><div class="mc res"><h2 id="lgT">행동 로그</h2><p class="note" id="lgN"></p><div id="lgAll"></div><div class="row2" style="margin-top:14px"><button class="pri" id="lgX" style="width:auto">닫기</button></div></div></div>
 <div id="cdAl" aria-hidden="true"></div>
-<div id="phaseAl" role="status" aria-live="polite"></div><div id="coach" hidden><div class="chd"><span class="cav">🧑‍🏫</span><span class="cnm" id="chNm">도우미</span><span class="cpg" id="chN"></span><button class="cx" id="chX" aria-label="종료">✕</button></div><div class="cbar"><i id="chBar"></i></div><div id="chB"></div><div class="cbt" id="chBt"></div></div>
+<div id="phaseAl" role="status" aria-live="polite"></div><div id="stormAl" role="status" aria-live="polite"></div><div id="coach" hidden><div class="chd"><span class="cav">🧑‍🏫</span><span class="cnm" id="chNm">도우미</span><span class="cpg" id="chN"></span><button class="cx" id="chX" aria-label="종료">✕</button></div><div class="cbar"><i id="chBar"></i></div><div id="chB"></div><div class="cbt" id="chBt"></div></div>
 <div id="skAl" role="status" aria-live="polite"></div>
 <div class="modal" id="mPro" role="dialog" aria-modal="true" aria-labelledby="prT"><div class="mc res"><h2 id="prT">승급할 기물 선택</h2><p class="note" id="prD">기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?</p><div class="row2" id="prB" style="margin-top:14px;gap:8px;flex-wrap:wrap"></div></div></div>
 <div class="modal" id="mName" role="dialog" aria-modal="true" aria-labelledby="nmT"><div class="mc res"><h2 id="nmT">프리셋 이름</h2><p class="note" id="nmD"></p><input id="nmIn" maxlength="20" autocomplete="off" aria-label="프리셋 이름"><div class="row2" style="margin-top:14px"><button id="nmNo">취소</button><button class="pri" id="nmOk" style="width:auto">저장</button></div></div></div>
@@ -532,7 +549,7 @@ const DEF={
  Y:{n:'이글',e:'🦅',c:3,p:'fb',av:5.5,d:'상하로 최대 3칸 이동·잡기 · 특수: 적을 처치하면 도착한 칸에서 대각선 4방향 중 빈 1칸으로 한 번 더 이동할 수 있음(잡기 불가)'},
  J:{n:'스나이퍼',e:'🎯',c:3,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 주변 7x7(거리 3칸 이내)의 적 1기를 지정, 다음 턴에도 그 칸에 남아 있으면 자동 원거리 저격'},
  U:{n:'크로스보우',e:'🔱',c:3,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우 2칸 이내 적을 관통 사격(사이에 적이 있으면 둘 다 처치, 아군이 있으면 사격 불가) · 대각선 4방향 1칸 원거리 공격'},
- O:{n:'머신건',e:'🔫',c:5,p:'fb',av:5.5,d:'좌우 1칸 이동(잡기 불가) · 8방향 2칸 이내 적에게 원거리 공격'},
+ O:{n:'머신건',e:'🔫',c:5,p:'fb',av:5.5,d:'좌우·전방 1칸 이동(잡기 불가) · 8방향 2칸 이내 적에게 원거리 공격'},
  I:{n:'메딕',e:'💉',c:3,p:'b',av:2.5,d:'상하좌우 1칸 이동(공격 불가) · 스킬: 처치된 아군 1기(킹·퀸 계열 제외, 부활한 기물 제외)를 자기 칸에 부활시키고 메딕은 사라짐'},
  g:{n:'갓',e:'🌞',c:0,p:'b',av:0,d:'킹 대신 사용 · 주변 5x5의 원하는 빈칸으로 이동(공격 불가) · 주변 3x3 안에 적 기물이 있으면 이동 범위가 3x3으로 줄어듦 · 원거리 공격 면역 · 잡히면 패배'},
  q:{n:'프린세스',e:'🧚',c:2,p:'b',av:3.5,d:'퀸·메두사 대신 사용 · 주변 5x5의 원하는 빈칸으로 이동(공격 불가) · 스킬: 아군 1기를 지정, 다음 턴에 그 기물이 두 번 행동'},
@@ -557,7 +574,7 @@ const DEF={
  z:{n:'매지션',e:'🎩',c:4,p:'b',av:4.8,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우·대각선 1칸 원거리 공격 · 스킬: 양 진영을 제외한 중앙 4줄의 적 2기(킹 계열 제외)를 지정 — 상대의 다음 턴 동안 그 기물은 상하좌우 1칸 이동(잡기 불가)만 가능(스킬·원거리 공격은 가능)'},
  p:{n:'바드',e:'🎻',c:2,p:'b',av:3.2,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 자신을 뺀 주변 3x3의 아군 2기에게 노래로 보호막을 부여 — 보호막은 원거리 공격이나 처치 스킬을 한 번 막고 사라짐'},
  k:{n:'워해머',e:'🔨',c:6,p:'f',av:6.6,d:'앞·왼쪽·오른쪽 직선 최대 3칸 이동·잡기(후진 불가) · 특수: 적을 처치하면 50% 확률로 도착한 칸에서 같은 방식으로 한 번 더 잡을 수 있음(잡기만 가능, 이동만은 불가)'},
- u:{n:'볼티지',e:'⚡',c:3,p:'fb',av:4.8,d:'상하좌우·대각선 최대 5칸 이동 · 코스트 2 이하 기물만 잡기 가능(킹 계열 제외, 첫 행동에서는 잡기 불가) · 특수: 이동·잡기 뒤 주변 3x3에 다른 볼티지(아군·적군)가 있으면 한 번 더 행동할 수 있음(추가 행동은 1번뿐)'},
+ u:{n:'볼티지',e:'⚡',c:3,p:'fb',av:4.8,d:'상하좌우·대각선 최대 5칸 이동 · 코스트 2 이하 기물만 잡기 가능(킹 계열 제외, 첫 행동에서는 잡기 불가) · 특수: 이동·잡기 뒤 주변 3x3에 다른 볼티지(아군·적군)가 있으면 한 번 더 행동할 수 있음(추가 행동은 1번뿐) · 자기장 면역'},
  t:{n:'호퍼',e:'🦗',c:2,p:'f',av:2.9,d:'나이트보다 긴 L자(1x3) 이동, 기물을 뛰어넘음(잡기 불가) · 스킬: 메뚜기 떼 모드 — 턴을 쓰고 발동하면 이후 같은 이동으로 잡기도 가능(계속 유지, 부활하면 초기화)'}
 };
 const TYPES=Object.keys(DEF);
@@ -588,8 +605,8 @@ function randomArmy(rng){
 /* ---------- 보드 ---------- */
 const newPiece=(t,s)=>({t,s,m:0,inv:0,frz:0,db:0,rv:0,md:0,kc:0,sh:0,slw:0});
 const emptyBoard=()=>{const a=new Array(64).fill(null);a.dead={w:[],b:[]};return a};
-const cp=p=>({t:p.t,s:p.s,m:p.m,inv:p.inv,frz:p.frz,db:p.db||0,rv:p.rv||0,md:p.md||0,kc:p.kc||0,sh:p.sh||0,slw:p.slw||0});
-function cloneBoard(b){const n=b.map(p=>p?cp(p):null);const d=b.dead||{w:[],b:[]};n.dead={w:d.w.map(cp),b:d.b.map(cp)};n.mg=b.mg||null;
+const cp=p=>({t:p.t,s:p.s,m:p.m,inv:p.inv,frz:p.frz,db:p.db||0,rv:p.rv||0,md:p.md||0,kc:p.kc||0,sh:p.sh||0,slw:p.slw||0,zh:p.zh||0});
+function cloneBoard(b){const n=b.map(p=>p?cp(p):null);const d=b.dead||{w:[],b:[]};n.dead={w:d.w.map(cp),b:d.b.map(cp)};n.mg=b.mg||null;n.pl=b.pl||0;
  for(let i=0;i<64;i++){const p=b[i];if(p&&p.tp){n[i].tp=b[p.ts]===p.tp?n[p.ts]:null;n[i].ts=p.ts}}
  return n}
 
@@ -656,6 +673,7 @@ function gen0(b,s,opt){
      if(kl.length){gout.push([i,t1,6,undefined,kl]);if(both&&!gai)gout.push([i,t2,6,undefined,kl])}}
     else if(q1===null&&q2&&q2.s!==s&&!rimm(b,t2))gout.push([i,t2,6,undefined,[t2]])}break}
    case'O':{for(const dc of[-1,1])if(!gcap&&at(r,c+dc)===null)mv(r,c+dc,0);
+    if(!gcap&&at(r+f,c)===null)mv(r+f,c,0);
     for(const[dr,dc]of D8)for(let k=1;k<=2;k++){const q=at(r+dr*k,c+dc*k);if(q&&q.s!==s)mv(r+dr*k,c+dc*k,1)}break}
    case'E':{for(let dc=-2;dc<=2;dc++){const q=at(r+f,c+dc);if(q===null||(q&&q.s!==s))mv(r+f,c+dc,0)}break}
    case'G':{for(const[dr,dc]of D4){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s))mv(r+dr,c+dc,0)}
@@ -775,6 +793,19 @@ function gen(b,s,opt){
    unmake(b,u1)}}
  return out}
 /* ---------- 수 적용 / 되돌리기 ---------- */
+/* ---------- 자기장: 60수 1줄 · 80수 2줄 · 90수 3줄, 자기 턴이 끝날 때 안에 있으면 1대, 3대를 맞고 한 턴을 더 버티면 사망(밖으로 나오면 초기화) ---------- */
+const STORM_DIE=4;   // 3대를 맞고 한 턴 더 자기장 안에 있으면(4번째 턴 끝) 소멸
+const stormW=n=>n>=90?3:n>=80?2:n>=60?1:0;
+const inStorm=(i,w)=>{if(!w)return false;const r=i>>3,c=i&7;return Math.min(r,c,7-r,7-c)<w};
+function stormTick(b,s,u){
+ const w=stormW(b.pl||0);if(!w)return;
+ const ch=[],kl=[];
+ for(let j=0;j<64;j++){const q=b[j];if(!q||q.s!==s||q.t==='u')continue;   // 볼티지(u)는 자기장 면역
+  if(inStorm(j,w)){ch.push([q,q.zh||0]);q.zh=(q.zh||0)+1;if(q.zh>=STORM_DIE)kl.push([j,q])}
+  else if(q.zh){ch.push([q,q.zh]);q.zh=0}}
+ if(ch.length)u.zc=ch;
+ if(kl.length){u.zk=kl;for(const[j,q]of kl){b[j]=null;u.n=(u.n||0)+1;if(isKing(q.t))u.sk=1;if(b.dead&&!q.rv){b.dead[q.s].push(q);(u.zdp||(u.zdp=[])).push(q)}q.zh=0}}
+}
 function boom(b,loc){const p=b[loc];b[loc]=null;if(b.dead&&!p.rv)b.dead[p.s].push(p);return p}
 const mgImm=t=>t==='D'||t==='W'||isKing(t)||isQueenCl(t);
 function magPre(b,s){const mg=b.mg,o=[];for(let j=0;j<64;j++)if(mg[j]){const q=b[j];if(q&&q.s===s)o.push([j,q])}return o}
@@ -833,6 +864,7 @@ function make(b,m,nf){
  if(p.t==='d'){let dk=0;if(k===0&&u.cap)dk=1;else if(k===14)for(const x of u.kl)if(x[1].s!==p.s)dk++;if(dk){p.kc=(p.kc||0)+dk;u.dk=dk}}
  if(!nf)fireStage(b,p.s,u);
  if(!nf&&b.mg)magTick(b,preM,u);
+ if(!nf){stormTick(b,p.s,u);b.pl=(b.pl||0)+1;u.pl=1}
  return u;
 }
 function fireStage(b,mover,u){
@@ -842,6 +874,10 @@ function fireStage(b,mover,u){
    if(b[ts]===tp&&!rimm(b,ts)){if(tp.sh){tp.sh=0;(u.shb||(u.shb=[])).push(tp)}else{(u.sn||(u.sn=[])).push([ts,tp]);b[ts]=null;if(!tp.rv&&b.dead){b.dead[tp.s].push(tp);u.sd=(u.sd||[]).concat([tp])}u.n=(u.n||0)+1;if(isKing(tp.t))u.sk=1}}}}
 }
 function unmake(b,u){
+ if(u.pl)b.pl--;
+ if(u.zdp)for(let j=u.zdp.length-1;j>=0;j--)b.dead[u.zdp[j].s].pop();
+ if(u.zk)for(const[j,q]of u.zk)b[j]=q;
+ if(u.zc)for(let j=u.zc.length-1;j>=0;j--)u.zc[j][0].zh=u.zc[j][1];
  if(u.mgs){if(u.mdp)for(let j=u.mdp.length-1;j>=0;j--)b.dead[u.mdp[j].s].pop();if(u.mk)for(const[j,q]of u.mk)b[j]=q;b.mg=u.mg0}
  if(u.k9){for(let j=u.k9.length-1;j>=0;j--)unmake(b,u.k9[j]);return}
  if(u.sd)for(let j=u.sd.length-1;j>=0;j--)b.dead[u.sd[j].s].pop();
@@ -899,7 +935,9 @@ function hash(b,s){
   if(p.db){const dc=(i*TYPES.length+TI[p.t])*16+10;h1^=Z1[dc];h2^=Z2[dc]}
   if(p.sh){const sc=(i*TYPES.length+TI[p.t])*16+14;h1^=Z1[sc];h2^=Z2[sc]}
   if(p.slw){const sl=(i*TYPES.length+TI[p.t])*16+15;h1^=Z1[sl];h2^=Z2[sl]}
+  if(p.zh){h1^=Math.imul(i*3+p.zh+1,0x27d4eb2d);h2^=Math.imul(i*5+p.zh+3,0x165667b1)}
   if(p.tp){const lc=(p.ts*TYPES.length+TI.J)*16+8+(p.s==='w'?0:1);h1^=Z1[lc];h2^=Z2[lc]}}
+ {const sg=stormW(b.pl||0);if(sg){h1^=Math.imul(sg,0x9e3779b1);h2^=Math.imul(sg,0x85ebca6b)}}
  if(b.mg)for(let j=0;j<64;j++){const t=b.mg[j];if(t){const k=(j*TYPES.length)*16+11;h1^=Z1[k]^Math.imul(t,0x9e3779b1);h2^=Z2[k]^Math.imul(t,0x85ebca6b)}}
  return (h1&0x1FFFFF)*4294967296+(h2>>>0);
 }
@@ -907,11 +945,12 @@ function hash(b,s){
 /* ---------- 평가 ---------- */
 const AV={};TYPES.forEach(t=>AV[t]=DEF[t].av);
 const MATE=100000;
-let EVP={near:0.06,cnt:0.1,adv:1,inv:1.0,frz:1,sk:0,skl:1,skt:1,lmr:0,hist:0,skw:1,sk2:0,pvs:0};
+let EVP={near:0.06,cnt:0.1,adv:1,inv:1.0,frz:1,sk:0,skl:1,skt:1,lmr:0,hist:0,skw:1,sk2:0,pvs:0,s1:0,s1b:0,s3:0,s4:0};
 function ev(b,s){
  let kw=-1,kb=-1;
  for(let i=0;i<64;i++){const p=b[i];if(p&&isKing(p.t)){if(p.s==='w')kw=i;else kb=i}}
  let v=0;
+ const spl=b.pl||0,sw0=stormW(spl),sw1=stormW(spl+8);
  for(let i=0;i<64;i++){const p=b[i];if(!p)continue;
   const t=p.t,r=i>>3,c=i&7,adv=p.s==='w'?7-r:r;
   let x=AV[t]+EVP.cnt;
@@ -931,8 +970,9 @@ function ev(b,s){
   if(t==='t'&&p.md)x+=1.2;
   if(t==='b'&&p.md){let a1=0,a2=0;for(const[dr,dc]of D8)for(let k=1;k<=2;k++){const x0=r+dr*k,y0=c+dc*k;if(x0<0||x0>7||y0<0||y0>7)continue;const q=b[x0*8+y0];if(q&&q.s!==p.s&&!q.inv){const v=isKing(q.t)?9:Math.min(AV[q.t],7);if(v>a1){a2=a1;a1=v}else if(v>a2)a2=v}}x+=a1||a2?(a1+a2)*.45:-.9}
   if(p.inv)x+=EVP.skl?.3:EVP.inv;
-  if(EVP.skl&&t==='f'&&p.md){let vv=0;const r0=i>>3,c0=i&7;for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){const x0=r0+dr,y0=c0+dc;if((!dr&&!dc)||x0<0||x0>7||y0<0||y0>7)continue;const q=b[x0*8+y0];if(q&&q.s!==p.s&&!isKing(q.t)&&!isQueenCl(q.t))vv+=Math.min(AV[q.t],6)*.3}x+=vv>0?vv:-1.2}
+  if(EVP.skl&&t==='f'&&p.md){let vv=0,av=0;const r0=i>>3,c0=i&7;for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){const x0=r0+dr,y0=c0+dc;if((!dr&&!dc)||x0<0||x0>7||y0<0||y0>7)continue;const q=b[x0*8+y0];if(q&&!isKing(q.t)&&!isQueenCl(q.t)){if(q.s!==p.s)vv+=Math.min(AV[q.t],6)*.3;else if(EVP.s1)av+=Math.min(AV[q.t],6)*.3}}x+=vv>0?vv-av:-1.2-av}
   if(p.frz)x-=Math.max(.8,AV[t]*.35)*EVP.frz;
+  if(sw1&&t!=='u'){const dd=Math.min(r,c,7-r,7-c),pv=Math.min(AV[t],8)+(isKing(t)?8:0);if(dd<sw0)x-=pv*(.25+.3*(p.zh||0));else if(dd<sw1)x-=pv*.12}
   if(b.mg&&b.mg[i])x-=AV[t]*.45;
   if(EVP.sk){
    const K=EVP.sk,dir=p.s==='w'?-1:1;let a=0;
@@ -950,6 +990,8 @@ function ev(b,s){
    else if(EVP.sk2&&t==='G'){let n=0,sv=0;for(const[dr,dc]of D8){const q=at(r+dr,c+dc);const v=tv(q);if(v){n++;sv+=v}}a+=n?.25*sv/n*Math.min(n,3)*.8+.15*n:0}
    else if(EVP.sk2&&t==='M'){let sv=0;for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){const q=at(r+dr,c+dc);if(q&&q.s!==p.s&&!isKing(q.t)&&!isQueenCl(q.t)&&!q.frz)sv+=Math.min(AV[q.t],6)}a+=.12*sv}
    else if(EVP.sk2&&t==='J'){let sv=0;for(let dr=-3;dr<=3;dr++)for(let dc=-3;dc<=3;dc++)sv=Math.max(sv,tv(at(r+dr,c+dc)));a+=.15*sv}
+   else if(EVP.s1b&&t==='v'&&p.m>0){let mx=0;for(let rr=0;rr<8;rr++){const q=b[rr*8+c];if(q&&q.s!==p.s&&!q.inv&&!isKing(q.t)&&!rimm(b,rr*8+c))mx=Math.max(mx,tv(q))}a+=.3*mx}
+   else if(EVP.s1b&&t==='o'){let mx=0;for(let cc=0;cc<8;cc++){const q=b[r*8+cc];if(q&&q.s!==p.s&&!q.inv&&!isKing(q.t)&&!rimm(b,r*8+cc))mx=Math.max(mx,tv(q))}a+=.3*mx}
    else if(t==='d')a+=(p.kc||0)*.4;
    if(isKing(t)){let n=0;for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q&&q.s===p.s)n++}a+=.2*Math.min(n,4)}
    x+=a*K*EVP.skw;
@@ -958,7 +1000,7 @@ function ev(b,s){
  }
  return v;
 }
-function setEvp(o){EVP=Object.assign({near:0.06,cnt:0.1,adv:1,inv:1.0,frz:1,sk:0,skl:1,skt:1,lmr:0,hist:0,skw:1,sk2:0,pvs:0},o||{})}
+function setEvp(o){EVP=Object.assign({near:0.06,cnt:0.1,adv:1,inv:1.0,frz:1,sk:0,skl:1,skt:1,lmr:0,hist:0,skw:1,sk2:0,pvs:0,s1:0,s1b:0,s3:0,s4:0},o||{})}
 
 /* ---------- 탐색 ---------- */
 let LASTD=0,TT=new Map(),HIST=new Map(),nodes=0,stopFlag=false,deadline=0,KIL=[];
@@ -974,6 +1016,7 @@ function orderMoves(b,ms,ttk,ply){
    const tv=tacticalVal(b,m);
    if(tv>0){v=1e5+tv*10-(AV[b[m[0]].t]||0)}
    else if(KIL[ply]&&(KIL[ply][0]===key||KIL[ply][1]===key))v=5e4;
+   else if(EVP.s3&&k!==0&&k!==1&&k!==16&&k!==20&&k!==21&&k!==9){const e0=ev(b,m.s||b[m[0]].s);const sd=b[m[0]].s;const u=make(b,m);const e1=ev(b,sd);unmake(b,u);const g=e1-e0;v=g>0.05?3e3+Math.min(g,20)*100:(k===5?1:1e3)}
    else if(k===2||k===3||k===7||k===8||k===10||k===12||k===13||k===22||k===23||k===24||k===26)v=2e3;
    else if(k===5)v=1;
    else{const p=b[m[0]];const tr=m[1]>>3;const adv=p.s==='w'?7-tr:tr;v=adv+10;if(EVP.hist){const hh=HIST.get(key);if(hh)v+=Math.min(hh,4e4)}}
@@ -1006,7 +1049,7 @@ function qs(b,s,alpha,beta,ply,qd){
 function golemT(b,i){const r=i>>3,c=i&7,T=[];for(const[dr,dc]of D8){const x=r+dr,y=c+dc;if(x<0||x>7||y<0||y>7)continue;const q=b[x*8+y];if(q&&q.s!==b[i].s&&!q.inv)T.push(x*8+y)}return T}
 function golemRoll(b,m,rng){const T=golemT(b,m[0]);if(!T.length)return m;const n=Math.min(T.length,1+(rng()*3|0));shuffle(T,rng);return[m[0],m[0],4,undefined,T.slice(0,n).sort((x,y)=>x-y)]}
 function chance(b,m,s){if(m[2]===4){const T=golemT(b,m[0]);if(!T.length)return 0;const vv=j=>isKing(b[j].t)?10:Math.min(AV[b[j].t],10);let tot=0;for(const j of T)tot+=vv(j);const en=T.length>=3?2:T.length===2?5/3:1;let got=0;for(const j of m[4])got+=vv(j);return en*tot/T.length-got}
- if(m[2]===15||(m[2]===9&&m[4][0][2]===15))return luckyBonus(b,s);if(m[2]===0){const q=b[m[1]],a=b[m[0]];if(q&&q.t==='i'&&DEF[a.t].c>DEF.i.c)return -.5*AV[a.t]}return EVP.skl?skb(b,m,s):0}
+ if(m[2]===15||(m[2]===9&&m[4][0][2]===15))return EVP.s4?0:luckyBonus(b,s);if(m[2]===0){const q=b[m[1]],a=b[m[0]];if(q&&q.t==='i'&&DEF[a.t].c>DEF.i.c)return -.5*AV[a.t]}return EVP.skl?skb(b,m,s):0}
 function thr(b,o,sq){for(const x of gen(b,o,{ai:true,cap:true,noDbl:true})){const k=x[2];if(((k===0||k===1||k===11)&&x[1]===sq)||((k===4||k===6||k===14||k===25)&&x[4]&&x[4].indexOf(sq)>=0))return true}return false}
 function skb(b,m,s){const k=m[2];
  if(k===2){const t=b[m[1]];return thr(b,s==='w'?'b':'w',m[1])?.4*Math.min(AV[t.t],8):-.8}
@@ -1017,6 +1060,7 @@ function skb(b,m,s){const k=m[2];
 // k20: 원위치 [from,to,20] / k21: 상황 종결 [킹위치,부활칸,21,undefined,[죽은목록 인덱스]] / 돌격: [a,b,9,undefined,[수들],'R']
 const inZ=(s,i)=>{const z=zone(s),r=i>>3;return r===z[0]||r===z[1]};
 function skillCands(b,s,sk){
+ {const sd=(b.pl||0)>=90;sk=sd?{ret:0,rush:0,fin:0,fever:sk.fever}:{ret:sk.ret,rush:sk.rush,fin:sk.fin,fever:0}}
  const o=s==='w'?'b':'w',out=[];
  const cells=[];for(let i=0;i<64;i++)if(!b[i]&&inZ(s,i))cells.push(i);
  let ksq=-1,en=0;for(let i=0;i<64;i++){const p=b[i];if(!p)continue;if(p.s===s&&isKing(p.t))ksq=i;if(p.s!==s)en++}
@@ -1050,8 +1094,29 @@ function skillCands(b,s,sk){
   fin.sort((x,y)=>y.v-x.v);
   const uniq=new Set();let n=0;
   for(const q of fin){const key=q.L.map(mkey).join('|');if(uniq.has(key))continue;uniq.add(key);if(!q.tv&&n>=2)continue;out.push([q.L[0][0],q.L[0][1],9,undefined,q.L,'R']);if(++n>=10)break}}
+ if(sk.fever){
+  const okK=m=>m[2]!==16&&m[2]!==15&&m[2]!==4&&m[2]!==9&&m[2]!==20&&m[2]!==21&&m[2]!==10;
+  const ms=gen(b,s,{noDbl:true}).filter(okK),sc=[];
+  for(const m of ms){const pc=b[m[0]],tv=tacticalVal(b,m),u=make(b,m,1),e=ev(b,s);unmake(b,u);sc.push([tv>=1e4?1e9:tv*10+e*.3,m,pc,tv])}
+  sc.sort((x,y)=>y[0]-x[0]);const fin=[];
+  for(const[v1,m1,pc1,tv1]of sc.slice(0,8)){
+   if(tv1>=1e4){fin.push([v1,[m1],tv1]);continue}
+   const u1=make(b,m1,1),sc2=[];
+   for(const x of gen(b,s,{noDbl:true})){if(!okK(x)||b[x[0]]===pc1)continue;const tv=tacticalVal(b,x),u2=make(b,x,1),e=ev(b,s);unmake(b,u2);sc2.push([tv>=1e4?1e9:tv*10+e*.3,x,tv])}
+   unmake(b,u1);sc2.sort((x,y)=>y[0]-x[0]);
+   for(const[v2,x,tv2]of sc2.slice(0,3))fin.push([v1+v2,[m1,x],tv1+tv2])}
+  fin.sort((x,y)=>y[0]-x[0]);const uq=new Set();let n=0;
+  for(const q of fin){const key=q[1].map(mkey).join('|');if(uq.has(key))continue;uq.add(key);out.push([q[1][0][0],q[1][0][1],9,undefined,q[1],'F']);if(++n>=10)break}}
  return out}
 function luckyBonus(b,s){const o=s==='w'?'b':'w';let mx=0;for(const x of gen(b,o,{ai:true,cap:true,noDbl:true})){const v=tacticalVal(b,x);if(v>mx)mx=v}return .5*Math.min(mx,10)*.8}
+const isLk=m=>m[2]===15||(m[2]===9&&m[4]&&m[4][0][2]===15);
+// 럭키: 성공(50%: 적 전체 행동불가)/실패 두 결과의 기대값으로 평가
+function luckyEval(b,m,s,d,ply){const o=s==='w'?'b':'w';let tot=0;
+ for(const succ of[1,0]){const mm=m[2]===15?[m[0],m[1],15,succ]:[m[0],m[1],9,undefined,[[m[4][0][0],m[4][0][1],15,succ],m[4][1]]];
+  const u=make(b,mm);let v;
+  if(u.cap&&isKing(u.cap.t))v=MATE-ply;else if(u.sk)v=-(MATE-ply);else if(d<=1)v=-ev(b,o);else v=-nega(b,o,d-1,-1e9,1e9,ply+1);
+  unmake(b,u);if(stopFlag)return 0;tot+=v}
+ return tot/2}
 function nega(b,s,d,alpha,beta,ply){
  if((++nodes&1023)===0&&Date.now()>deadline)stopFlag=true;
  if(stopFlag)return 0;
@@ -1067,9 +1132,10 @@ function nega(b,s,d,alpha,beta,ply){
  let best=-Infinity,bm=0;const a0=alpha;
  let mi=0;
  for(const m of ms){
+  if(EVP.s4===1&&isLk(m)){const lv=luckyEval(b,m,s,d,ply);mi++;if(stopFlag)return 0;if(lv>best){best=lv;bm=mkey(m)}if(lv>alpha)alpha=lv;if(alpha>=beta)break;continue}
   const lk=chance(b,m,s);const tvm=EVP.lmr?tacticalVal(b,m):1;const u=make(b,m);let v;
   if(u.cap&&isKing(u.cap.t))v=MATE-ply;else if(u.sk)v=-(MATE-ply);
-  else if(EVP.lmr&&mi>=EVP.lmr&&d>=3&&!tvm&&!(KIL[ply]&&(KIL[ply][0]===mkey(m)||KIL[ply][1]===mkey(m)))){
+  else if(EVP.lmr&&mi>=EVP.lmr&&d>=3&&!tvm&&!(EVP.s3&&m[2]!==0&&m[2]!==1)&&!(KIL[ply]&&(KIL[ply][0]===mkey(m)||KIL[ply][1]===mkey(m)))){
    const rd=(mi>=EVP.lmr*3&&d>=5)?2:1;
    v=-nega(b,o,d-1-rd,-alpha-1,-alpha,ply+1);
    if(v>alpha&&!stopFlag)v=-nega(b,o,d-1,-beta,-alpha,ply+1)}
@@ -1089,14 +1155,14 @@ const LVL=[
  {kind:'shallow',depth:2,noise:1.6,q:false,time:500,know:.6,sp:.15},
  {kind:'shallow',depth:2,noise:.9,q:true,time:700,know:.9,sk:.3,sp:.4},
  {kind:'shallow',depth:2,noise:.5,q:true,time:900,know:1,sk:.6,sp:.7},
- {kind:'deep',maxDepth:3,noise:.3,fullRoot:true,time:1100,know:1,sk:.8},
- {kind:'deep',maxDepth:6,noise:.1,fullRoot:true,time:2200,know:1,sk:1,lmr:3,hist:1,sk2:1,skw:2},
- {kind:'deep',maxDepth:9,noise:0,time:3500,know:1,sk:1,lmr:3,hist:1,sk2:1,skw:2},
- {kind:'deep',maxDepth:16,noise:0,time:6000,know:1,sk:1,lmr:3,hist:1,sk2:1,skw:2}
+ {kind:'deep',maxDepth:3,noise:.3,fullRoot:true,time:1100,know:1,sk:.8,s1:1,s4:2},
+ {kind:'deep',maxDepth:6,noise:.1,fullRoot:true,time:2200,know:1,sk:1,lmr:3,hist:1,sk2:1,skw:2,s1:1,s4:2},
+ {kind:'deep',maxDepth:9,noise:0,time:3500,know:1,sk:1,lmr:3,hist:1,sk2:1,skw:2,s1:1,s4:2},
+ {kind:'deep',maxDepth:16,noise:0,time:6000,know:1,sk:1,lmr:3,hist:1,sk2:1,skw:2,s1:1,s4:2}
 ];
-const SKM={ret:1.0,rush:1.4,fin:.8};
+const SKM={ret:1.0,rush:1.4,fin:.8,fever:1.0};
 const PSM={5:.6,19:.3,13:.2,17:.2,18:.2,22:.2,23:.2,24:.15,26:.1};
-const skm=m=>(m[2]===20?SKM.ret:m[2]===21?SKM.fin:(m[2]===9&&m[5]==='R')?SKM.rush:0)+(EVP.skt?(PSM[m[2]]||0):0);
+const skm=m=>(m[2]===20?SKM.ret:m[2]===21?SKM.fin:(m[2]===9&&m[5]==='R')?SKM.rush:(m[2]===9&&m[5]==='F')?SKM.fever:0)+(EVP.skt?(PSM[m[2]]||0):0)+(EVP.pen?(EVP.pen[m[2]]||0):0);
 function shuffle(a,rng){for(let i=a.length-1;i>0;i--){const j=rng()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a}
 // 반환: 수 (배열) 또는 null
 function chooseMove(b0,s,lv,opt){
@@ -1108,7 +1174,7 @@ function chooseMove(b0,s,lv,opt){
  if(!ms.length)return null;
  shuffle(ms,rng);
  EVP.sk=cfg.sk||0;TT.clear();HIST.clear();
- for(const k of['lmr','hist','sk2','skw','pvs'])if(cfg[k]!==undefined&&!(opt.evp&&k in opt.evp))EVP[k]=cfg[k];
+ {const DF={lmr:0,hist:0,sk2:0,skw:1,pvs:0,s1:0,s1b:0,s3:0,s4:0};for(const k in DF)if(!(opt.evp&&k in opt.evp))EVP[k]=cfg[k]!==undefined?cfg[k]:DF[k]}
  if(cfg.know&&cfg.know<1){   // 능력을 일부만 아는 초보: 모르는 기물은 기본 이동·잡기만 쓴다
   const sd=opt.seed||0;
   const kn=t=>(((t.charCodeAt(0)*2654435761+sd*40503)>>>0)%1000)/1000<cfg.know;
@@ -1132,6 +1198,7 @@ function chooseMove(b0,s,lv,opt){
  if(cfg.kind==='shallow'){
   const sc=[];
   for(const m of pool){
+   if(EVP.s4&&isLk(m)){sc.push([luckyEval(b,m,s,cfg.depth,0)+(rng()-.5)*2*cfg.noise*2,m]);continue}
    const lk=chance(b,m,s);const u=make(b,m);let v;
    if(u.cap&&isKing(u.cap.t))v=MATE;
    else if(u.sk)v=-MATE;
@@ -1150,6 +1217,7 @@ function chooseMove(b0,s,lv,opt){
   let alpha=-1e9,curBest=null,curv=-Infinity,done=true;
   const sc=[];
   for(const m of order){
+   if(EVP.s4&&isLk(m)){const lv=luckyEval(b,m,s,d,0);if(stopFlag){done=false;break}sc.push([lv,m]);if(lv>curv){curv=lv;curBest=m}if(!cfg.fullRoot&&lv>alpha)alpha=lv;continue}
    const lk=chance(b,m,s);const u=make(b,m);let v;
    OPT.noTor=false;
    if(u.cap&&isKing(u.cap.t))v=MATE;
@@ -1228,7 +1296,7 @@ function aiPlace(types,s,rng,lv){
 /* 판정: 무승부 조건(무진행·반복)에서 남은 전력(코스트 합) > 기물 수 순으로 승자를 가림. 완전 동률일 때만 무승부 */
 function power(b,s){let p=0;for(let i=0;i<64;i++){const q=b[i];if(q&&q.s===s)p+=DEF[q.t].c}return p}
 function adjudicate(b){const pw=power(b,'w'),pb=power(b,'b');if(pw!==pb)return pw>pb?'w':'b';let nw=0,nb=0;for(let i=0;i<64;i++){const q=b[i];if(q){if(q.s==='w')nw++;else nb++}}if(nw!==nb)return nw>nb?'w':'b';return null}
-return {lastDepth:()=>LASTD,nodesN:()=>nodes,power,adjudicate,skillCands,SKM,armyScore,smartArmy,WV,placeScore,fireStage,rimm,setEvp,DEF,TYPES,BUDGET,MAXN,D4,DD,D8,KN,isKing,frontRow,backRow,zone,okSq,okAdd,armyCost,randomArmy,boom,zoneLocked,momProt,chance,golemRoll,golemT,magPre,magTick,newPiece,emptyBoard,cloneBoard,gen,make,unmake,applyExtra,hash,ev,chooseMove,aiArmy,aiPlace,tacticalVal,LVL,MATE,shuffle};
+return {stormW,inStorm,stormTick,STORM_DIE,lastDepth:()=>LASTD,nodesN:()=>nodes,power,adjudicate,skillCands,SKM,armyScore,smartArmy,WV,placeScore,fireStage,rimm,setEvp,DEF,TYPES,BUDGET,MAXN,D4,DD,D8,KN,isKing,frontRow,backRow,zone,okSq,okAdd,armyCost,randomArmy,boom,zoneLocked,momProt,chance,golemRoll,golemT,magPre,magTick,newPiece,emptyBoard,cloneBoard,gen,make,unmake,applyExtra,hash,ev,chooseMove,aiArmy,aiPlace,tacticalVal,LVL,MATE,shuffle};
 })();
 if(typeof module!=='undefined')module.exports=BC;
 
@@ -1372,7 +1440,7 @@ const EN_DEF={
  Y:['Eagle','Moves or captures up to 3 squares vertically · Special: After eliminating an enemy, may move once more to an empty diagonal square next to the landing square (no capture)'],
  J:['Sniper','Moves 1 square in any direction (cannot capture by moving) · Skill: Marks 1 enemy within the 7x7 area (up to 3 squares away); if it is still on that square next turn, it is shot automatically'],
  U:['Crossbow','Moves 1 square in any direction (cannot capture by moving) · Pierce-shoots enemies within 2 squares orthogonally (if enemies are in between, both are eliminated; cannot shoot if a friendly piece is in the way) · Ranged attack on the 4 diagonal squares 1 away'],
- O:['Machine Gun','Moves 1 square left or right (cannot capture by moving) · Ranged attack on enemies within 2 squares in all 8 directions'],
+ O:['Machine Gun','Moves 1 square left, right or forward (cannot capture by moving) · Ranged attack on enemies within 2 squares in all 8 directions'],
  I:['Medic','Moves 1 square orthogonally (cannot attack) · Skill: Revives 1 fallen friendly piece (not King- or Queen-class, not already-revived pieces) on its own square, and the Medic disappears'],
  g:['God','Used instead of the King · Moves to any empty square in the surrounding 5x5 (cannot attack) · If an enemy is within the surrounding 3x3, its movement range shrinks to 3x3 · Immune to ranged attacks · Lose the game if captured'],
  q:['Princess','Used instead of Queen or Medusa · Moves to any empty square in the surrounding 5x5 (cannot attack) · Skill: Choose 1 friendly piece; it acts twice next turn'],
@@ -1396,12 +1464,12 @@ const EN_DEF={
  z:['Magician','Moves 1 square in any direction (cannot capture) · Ranged attack on 1 square in any direction · Skill: Pick 2 enemies (not King-class) in the 4 middle rows between the zones — during the opponent\'s next turn they can only move 1 square orthogonally (cannot capture); skills and ranged attacks still work'],
  p:['Bard','Moves up to 2 squares in any direction (cannot capture) · Skill: Sing a protective shield onto 2 friendly pieces in the surrounding 3x3 (not herself) — a shield blocks one ranged attack or kill skill, then disappears'],
  k:['Warhammer','Moves or captures up to 3 squares straight forward, left or right (cannot retreat) · Special: After eliminating an enemy, 50% chance to capture once more from the landing square the same way (capture only, no plain move)'],
- u:['Voltage','Moves up to 5 squares in any direction · Can only capture pieces of cost 2 or less (not King-class, and cannot capture on its first action) · Special: After moving or capturing, if another Voltage (friend or foe) is within the surrounding 3x3, may act once more (only one extra action)'],
+ u:['Voltage','Moves up to 5 squares in any direction · Can only capture pieces of cost 2 or less (not King-class, and cannot capture on its first action) · Special: After moving or capturing, if another Voltage (friend or foe) is within the surrounding 3x3, may act once more (only one extra action) · Immune to the storm'],
  t:['Hopper','Jumps in a long L-shape (1x3), over pieces (cannot capture) · Skill: Locust Swarm — spend the turn to activate; afterwards the same move can also capture (stays active; resets if revived)']
 };
 
 if(EN)TYPES.forEach(t=>{DEF[t].n=EN_DEF[t][0];DEF[t].dd=EN_DEF[t][1]});
-const TPL={"기물 도감 / 규칙": "Piece Codex / Rules", "기물 도감": "Piece Codex", "설정": "Settings", "배경음악": "Music", "효과음": "Sound effects", "배 틀 체 스": "ARMY BUILDER", "39 코스트로 나만의 군대를 만들어 싸워라": "Build your own army with 39 cost and fight", "📖 튜토리얼 · 처음이라면 여기!": "📖 Tutorial · Start here if you're new!", "🌐 온라인 대전": "🌐 Online Play", "기물 도감 · 규칙": "Piece Codex · Rules", "📢 공지·패치": "📢 News · Patches", "💬 건의하기": "💬 Feedback", "📤 공유": "📤 Share", "연결 확인 중…": "Checking connection…", "닉네임": "Nickname", "닉네임 (최대 12자)": "Nickname (max 12 chars)", "출전 구성 · 배치": "Army & Placement", "미리 저장한 “구성·배치”로 상대와 싸웁니다. 매칭이 잡히면 색(백/흑)만 정해지고 배치는 그대로 적용됩니다.": "You fight with a saved “build & placement”. When a match is found only your color (White/Black) is decided; your placement is used as is.", "➕ 내 기물 선택·배치로 새 프리셋 만들기": "➕ Make a new preset by picking & placing pieces", "상대를 찾는 중…": "Looking for an opponent…", "⏳ 지금은 접속자가 적어요. 친구에게 공유해서 같은 시간에 접속해 보세요!": "⏳ Few people are online right now. Share it with a friend and connect at the same time!", "📤 친구에게 공유하기": "📤 Share with a friend", "매칭 취소": "Cancel matching", "⚔️ 매칭 시작": "⚔️ Start Matching", "뒤로": "Back", "온라인 대전은 이 페이지를 로그인 상태로 열고, 같은 페이지를 연 다른 사람과 연결됩니다. 상대 기물은 대전 시작 때 공개됩니다.": "Online play connects you with other people who have this same page open. Your opponent's pieces are revealed when the match starts.", "게임 설정": "Game Setup", "🏠 메뉴로": "🏠 Menu", "게임 모드": "Game Mode", "PvE · AI 대전": "PvE · vs AI", "PvP · 한 기기 2인 대전": "PvP · 2 players, one device", "🤖 AI 관전": "🤖 AI Spectate", "AI 난이도": "AI Difficulty", "내 색깔": "My Color", "백 (선공)": "White (first)", "흑 (후공)": "Black (second)", "랜덤": "Random", "⚪ 백 AI 난이도": "⚪ White AI difficulty", "⚫ 흑 AI 난이도": "⚫ Black AI difficulty", "관전 속도": "Spectate speed", "백·흑 군대의 기물 선택과 배치는 내가 직접 정하고, 전투는 AI끼리 진행합니다.": "You choose both armies and their placement; the AIs fight the battle.", "다음: 기물 선택": "Next: Pick Pieces", "코스트 39 · 킹 필수(킹·갓은 무료, 엠페러·데몬으로 대체 가능) · 킹을 잡으면 승리": "Cost 39 · King required (King and God are free; can be replaced by Emperor or Demon) · Capture the King to win", "다음: 기물 배치 ▶": "Next: Place Pieces ▶", "구성 도우미": "Build Helper", "내 프리셋": "My Presets", "현재 구성 저장": "Save current build", "프리셋 관리 · 공유": "Manage / Share presets", "선택한 기물이 놓일 수 있는 칸이 연두색으로 표시됩니다 · 놓인 기물을 누르면 회수": "Squares where the selected piece can go are shown in green · tap a placed piece to take it back", "배치 초기화": "Clear placement", "자동 배치": "Auto-place", "이 구성·배치를 프리셋으로 저장": "Save this build & placement as a preset", "배치 완료": "Done placing", "진행 상황": "Progress", "추가 이동 건너뛰기": "Skip extra move", "스킬 확정": "Confirm skill", "스킬 취소": "Cancel skill", "사용 스킬 · 각 1회": "Player Skills · once each", "↩️ 원위치!": "↩️ Fall Back!", "⚡ 돌격 앞으로!": "⚡ Charge!", "🏁 상황 종결!": "🏁 Finish It!", "⏸ 일시정지": "⏸ Pause", "속도": "Speed", "💡 좋은 수 표시: 꺼짐": "💡 Best-move hints: Off", "보드 뒤집기": "Flip board", "결과 보기": "View result", "항복": "Resign", "처음으로": "Main menu", "새로고침": "Refresh", "닫기": "Close", "◀ 이전": "◀ Back", "다음 ▶": "Next ▶", "📤 결과 공유하기": "📤 Share result", "🌐 다시 매칭하기": "🌐 Match again", "같은 구성·배치로 다시 하기": "Play again with the same build & placement", "배치로 돌아가기": "Back to placement", "기물 선택으로": "Back to piece selection", "메인 메뉴": "Main menu", "판 확인하기": "Review the board", "📢 공지 · 패치 노트": "📢 News · Patch Notes", "공지": "News", "패치 노트": "Patch Notes", "불러오는 중…": "Loading…", "🔄 새로고침": "🔄 Refresh", "버그, 밸런스, 아이디어, 칭찬 모두 환영합니다!": "Bugs, balance, ideas, praise — everything is welcome!", "🐞 버그 제보": "🐞 Bug report", "⚖️ 밸런스 의견": "⚖️ Balance", "💡 기능 건의": "💡 Idea", "👍 칭찬·응원": "👍 Praise", "어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)": "Tell us which piece/situation and what happened (e.g. after using the Golem skill ...)", "댓글 등록": "Post comment", "행동 로그": "Action Log", "승급할 기물 선택": "Choose a piece to promote to", "기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?": "Your piece reached the last row. Which piece should it promote to?", "프리셋 이름": "Preset name", "취소": "Cancel", "저장": "Save", "프리셋 관리": "Manage Presets", "공유 코드로 가져오기": "Import from a share code", "다른 기기에서 복사한 코드를 붙여넣으면 프리셋이 추가됩니다.": "Paste a code copied from another device to add a preset.", "프리셋 공유 코드": "Preset share code", "가져오기": "Import", "매칭 성사!": "Match found!", "내 구성": "My army", "상대 구성": "Opponent's army", "상대가 화면을 보지 않도록 기기를 넘겨 주세요.": "Pass the device over so the other player cannot see the screen.", "준비 완료": "Ready", "확인": "OK", "배틀체스": "Battle Chess", "📲 앱으로 설치 · 홈 화면에 추가": "📲 Install app · Add to Home Screen", "📲 홈 화면에 추가": "📲 Add to Home Screen", "🎮 체험형 튜토리얼 · 직접 해보기": "🎮 Guided Tutorial · Learn by Playing", "도우미": "Guide"};
+const TPL={"기물 도감 / 규칙": "Piece Codex / Rules", "기물 도감": "Piece Codex", "설정": "Settings", "배경음악": "Music", "효과음": "Sound effects", "배 틀 체 스": "ARMY BUILDER", "39 코스트로 나만의 군대를 만들어 싸워라": "Build your own army with 39 cost and fight", "📖 튜토리얼 · 처음이라면 여기!": "📖 Tutorial · Start here if you're new!", "🌐 온라인 대전": "🌐 Online Play", "기물 도감 · 규칙": "Piece Codex · Rules", "📢 공지·패치": "📢 News · Patches", "💬 건의하기": "💬 Feedback", "📤 공유": "📤 Share", "연결 확인 중…": "Checking connection…", "닉네임": "Nickname", "닉네임 (최대 12자)": "Nickname (max 12 chars)", "출전 구성 · 배치": "Army & Placement", "미리 저장한 “구성·배치”로 상대와 싸웁니다. 매칭이 잡히면 색(백/흑)만 정해지고 배치는 그대로 적용됩니다.": "You fight with a saved “build & placement”. When a match is found only your color (White/Black) is decided; your placement is used as is.", "➕ 내 기물 선택·배치로 새 프리셋 만들기": "➕ Make a new preset by picking & placing pieces", "상대를 찾는 중…": "Looking for an opponent…", "⏳ 지금은 접속자가 적어요. 친구에게 공유해서 같은 시간에 접속해 보세요!": "⏳ Few people are online right now. Share it with a friend and connect at the same time!", "📤 친구에게 공유하기": "📤 Share with a friend", "매칭 취소": "Cancel matching", "⚔️ 매칭 시작": "⚔️ Start Matching", "뒤로": "Back", "온라인 대전은 이 페이지를 로그인 상태로 열고, 같은 페이지를 연 다른 사람과 연결됩니다. 상대 기물은 대전 시작 때 공개됩니다.": "Online play connects you with other people who have this same page open. Your opponent's pieces are revealed when the match starts.", "게임 설정": "Game Setup", "🏠 메뉴로": "🏠 Menu", "게임 모드": "Game Mode", "PvE · AI 대전": "PvE · vs AI", "PvP · 한 기기 2인 대전": "PvP · 2 players, one device", "🤖 AI 관전": "🤖 AI Spectate", "AI 난이도": "AI Difficulty", "내 색깔": "My Color", "백 (선공)": "White (first)", "흑 (후공)": "Black (second)", "랜덤": "Random", "⚪ 백 AI 난이도": "⚪ White AI difficulty", "⚫ 흑 AI 난이도": "⚫ Black AI difficulty", "관전 속도": "Spectate speed", "백·흑 군대의 기물 선택과 배치는 내가 직접 정하고, 전투는 AI끼리 진행합니다.": "You choose both armies and their placement; the AIs fight the battle.", "다음: 기물 선택": "Next: Pick Pieces", "코스트 39 · 킹 필수(킹·갓은 무료, 엠페러·데몬으로 대체 가능) · 킹을 잡으면 승리": "Cost 39 · King required (King and God are free; can be replaced by Emperor or Demon) · Capture the King to win", "다음: 기물 배치 ▶": "Next: Place Pieces ▶", "구성 도우미": "Build Helper", "내 프리셋": "My Presets", "현재 구성 저장": "Save current build", "프리셋 관리 · 공유": "Manage / Share presets", "선택한 기물이 놓일 수 있는 칸이 연두색으로 표시됩니다 · 놓인 기물을 누르면 회수": "Squares where the selected piece can go are shown in green · tap a placed piece to take it back", "배치 초기화": "Clear placement", "자동 배치": "Auto-place", "이 구성·배치를 프리셋으로 저장": "Save this build & placement as a preset", "배치 완료": "Done placing", "진행 상황": "Progress", "추가 이동 건너뛰기": "Skip extra move", "스킬 확정": "Confirm skill", "스킬 취소": "Cancel skill", "사용 스킬 · 각 1회": "Player Skills · once each", "↩️ 원위치!": "↩️ Fall Back!", "⚡ 돌격 앞으로!": "⚡ Charge!", "🏁 상황 종결!": "🏁 Finish It!", "🔥 피버!": "🔥 Fever!", "이동": "Move", "잡기": "Capture", "원거리 공격": "Ranged", "스킬": "Skill", "⏸ 일시정지": "⏸ Pause", "속도": "Speed", "💡 좋은 수 표시: 꺼짐": "💡 Best-move hints: Off", "보드 뒤집기": "Flip board", "결과 보기": "View result", "항복": "Resign", "처음으로": "Main menu", "새로고침": "Refresh", "닫기": "Close", "◀ 이전": "◀ Back", "다음 ▶": "Next ▶", "📤 결과 공유하기": "📤 Share result", "🌐 다시 매칭하기": "🌐 Match again", "같은 구성·배치로 다시 하기": "Play again with the same build & placement", "배치로 돌아가기": "Back to placement", "기물 선택으로": "Back to piece selection", "메인 메뉴": "Main menu", "판 확인하기": "Review the board", "📢 공지 · 패치 노트": "📢 News · Patch Notes", "공지": "News", "패치 노트": "Patch Notes", "불러오는 중…": "Loading…", "🔄 새로고침": "🔄 Refresh", "버그, 밸런스, 아이디어, 칭찬 모두 환영합니다!": "Bugs, balance, ideas, praise — everything is welcome!", "🐞 버그 제보": "🐞 Bug report", "⚖️ 밸런스 의견": "⚖️ Balance", "💡 기능 건의": "💡 Idea", "👍 칭찬·응원": "👍 Praise", "어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)": "Tell us which piece/situation and what happened (e.g. after using the Golem skill ...)", "댓글 등록": "Post comment", "행동 로그": "Action Log", "승급할 기물 선택": "Choose a piece to promote to", "기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?": "Your piece reached the last row. Which piece should it promote to?", "프리셋 이름": "Preset name", "취소": "Cancel", "저장": "Save", "프리셋 관리": "Manage Presets", "공유 코드로 가져오기": "Import from a share code", "다른 기기에서 복사한 코드를 붙여넣으면 프리셋이 추가됩니다.": "Paste a code copied from another device to add a preset.", "프리셋 공유 코드": "Preset share code", "가져오기": "Import", "매칭 성사!": "Match found!", "내 구성": "My army", "상대 구성": "Opponent's army", "상대가 화면을 보지 않도록 기기를 넘겨 주세요.": "Pass the device over so the other player cannot see the screen.", "준비 완료": "Ready", "확인": "OK", "배틀체스": "Battle Chess", "📲 앱으로 설치 · 홈 화면에 추가": "📲 Install app · Add to Home Screen", "📲 홈 화면에 추가": "📲 Add to Home Screen", "🎮 체험형 튜토리얼 · 직접 해보기": "🎮 Guided Tutorial · Learn by Playing", "도우미": "Guide"};
 if(EN){(()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const ns=[];let n;while(n=w.nextNode())ns.push(n);
  ns.forEach(n=>{const pn=n.parentNode;if(pn&&/^(SCRIPT|STYLE)$/.test(pn.nodeName))return;const s=n.nodeValue,t=s.trim();if(t&&TPL[t]!==undefined)n.nodeValue=s.replace(t,()=>TPL[t])});
  document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(e=>['placeholder','aria-label','title'].forEach(at=>{const v=e.getAttribute(at);if(v&&TPL[v]!==undefined)e.setAttribute(at,TPL[v])}));
@@ -1507,14 +1575,16 @@ function dexList(f){
 function helpRule(){return TR(`
 <div class="hc"><h4>🚩 빠른 시작</h4><ol><li><b>게임 설정</b> — 모드(AI 대전 · 한 기기 2인 대전 · AI 관전)와 난이도를 고릅니다.</li><li><b>기물 선택</b> — 39 코스트 안에서 자유롭게 군대를 짭니다. 추천 구성이나 <b>내 프리셋</b>에서 불러와도 됩니다.</li><li><b>기물 배치</b> — 내 진영에 기물을 놓습니다. 마음에 들면 <b>프리셋으로 저장</b>해 두세요.</li><li><b>대국</b> — 기물을 눌러 이동합니다. 체스가 처음이면 <b>좋은 수 표시</b>를 켜 보세요.</li></ol></div>
 <div class="hc"><h4>🎯 목표</h4><p>상대의 <b>킹</b>(또는 엠페러·갓·데몬 같은 킹 계열)을 잡으면 승리합니다. 킹이 공격받으면 <b>체크</b>, 피할 방법이 없으면 <b>체크메이트</b> 경고가 뜨지만 강제 규칙은 아니며, 킹을 그냥 두면 그대로 잡힙니다.</p></div>
-<div class="hc"><h4>⚡ 사용 스킬 (플레이어 스킬)</h4><p>기물 스킬과 별개로, 각 플레이어는 아래 세 가지를 <b>한 판에 한 번씩</b> 쓸 수 있습니다. 쓰면 그 턴의 행동을 대신합니다.</p><ul><li><b>↩️ 원위치!</b> — 아군 진영 밖에 있는 아군 기물 1기를 아군 진영의 빈 칸으로 옮깁니다.</li><li><b>⚡ 돌격 앞으로!</b> — 이번 턴에 2코스트 이하 아군 기물을 최대 3기까지(기물마다 1번) 행동시킵니다.</li><li><b>🏁 상황 종결!</b> — 적 기물이 3개 이하일 때, 7코스트 이하 아군 기물 1기를 아군 진영의 빈 칸에 부활시킵니다.</li></ul></div>
+<div class="hc"><h4>⚡ 사용 스킬 (플레이어 스킬)</h4><p>기물 스킬과 별개로, 각 플레이어는 아래 세 가지를 <b>한 판에 한 번씩</b> 쓸 수 있습니다. 쓰면 그 턴의 행동을 대신합니다.</p><ul><li><b>↩️ 원위치!</b> — 아군 진영 밖에 있는 아군 기물 1기를 아군 진영의 빈 칸으로 옮깁니다.</li><li><b>⚡ 돌격 앞으로!</b> — 이번 턴에 2코스트 이하 아군 기물을 최대 3기까지(기물마다 1번) 행동시킵니다.</li><li><b>🏁 상황 종결!</b> — 적 기물이 3개 이하일 때, 7코스트 이하 아군 기물 1기를 아군 진영의 빈 칸에 부활시킵니다.</li><li><b>🔥 피버!</b> — 서든데스(90수)부터 1번만: 이번 턴에 서로 다른 아군 기물 2개를 행동시킵니다. 서든데스가 되면 위의 세 스킬은 잠깁니다.</li></ul></div>
+<div class="hc"><h4>⚡ 자기장 · 서든데스</h4><ul><li>60수에 바깥 1줄, 80수에 2줄, 90수에 3줄이 자기장(노랑/파랑으로 반짝임)이 됩니다. 5턴 전부터 알림이 뜹니다.</li><li>자기 턴이 끝날 때 자기장 안에 있는 기물은 1대씩 맞고(기물 위 ⚡숫자), 3대를 맞은 뒤 한 턴을 더 버티면(그 턴 끝에도 안에 있으면) 소멸합니다. 밖으로 나오면 맞은 횟수가 0으로 돌아갑니다. 킹도 예외가 아닙니다.</li><li>90수는 서든데스: 사용 스킬(원위치·돌격·상황 종결)이 잠기고 🔥 피버!를 쓸 수 있습니다.</li><li>100수가 지나면 남은 전력으로 승패를 가립니다.</li></ul></div>
 <div class="hc"><h4>🕹 한 턴에 할 수 있는 것</h4><ul><li><b>이동</b> — 기물을 빈칸으로 옮깁니다.</li><li><b>잡기</b> — 적이 있는 칸으로 이동하며 잡습니다.</li><li><b>원거리 공격</b> — 제자리에서 대상만 제거합니다.</li><li><b>스킬</b> — 기물 고유 능력입니다.</li></ul><p class="note">한 턴에는 위 중 <b>하나</b>만 합니다. (기물 설명에 적힌 추가 이동·두 번 행동 같은 예외 제외)</p></div>
 <div class="hc"><h4>🧩 군대 구성 (코스트 39)</h4><table class="lim"><tr><th>기물 수</th><td>킹 포함 최대 16기 (킹·갓은 무료)</td></tr><tr><th>킹 계열</th><td>킹·엠페러·갓·데몬 중 1기 (킹을 대체, 엠페러 3코스트·갓 무료·데몬 6코스트)</td></tr><tr><th>퀸 계열</th><td>퀸·메두사·프린세스·마더 중 1기</td></tr><tr><th>전열 전용</th><td>최대 8기</td></tr><tr><th>후열 전용</th><td>최대 7기 (킹 계열을 쓰면 8기)</td></tr><tr><th>흑룡·백룡</th><td>각각 최대 4기 · 후열의 같은 색 칸에만 배치</td></tr></table><p class="note">배치는 내 진영의 앞 두 줄(전열·후열)에 합니다.</p></div>
 <div class="hc"><h4>🎖️ 승급</h4><ul><li><b>폰</b>이 상대 끝줄에 닿으면 <b>룩·비숍·나이트</b> 중 하나로 승급합니다.</li><li><b>솔저</b>가 상대 끝줄에 닿으면 <b>뱅가드·샷건</b> 중 하나로 승급합니다.</li><li>직접 플레이할 때는 선택 창에서 고르고, AI는 상황에 맞게 스스로 고릅니다.</li></ul></div><div class="hc"><h4>🏁 승패와 판정</h4><ul><li>상대 킹을 잡으면 승리합니다.</li><li>움직일 수 있는 수가 없으면 패배합니다.</li><li><b>100수</b>(백·흑 합산)가 지나면 <b>남은 전력(코스트 합)이 큰 쪽이 판정승</b>합니다. 전력이 같으면 기물 수가 많은 쪽, 그것도 같으면 무승부입니다.</li><li>20수마다 초반·중반·후반 진행 알림이 화면에 크게 표시됩니다.</li></ul></div>
 <div class="hc"><h4>🎮 게임 모드</h4><ul><li><b>PvE</b> — AI와 대전 (7단계 난이도)</li><li><b>PvP</b> — 한 기기에서 번갈아 가며 둘이 대전</li><li><b>AI 관전</b> — 군대와 배치만 내가 정하고 AI끼리 대전</li></ul></div>`,`
 <div class="hc"><h4>🚩 Quick Start</h4><ol><li><b>Game Setup</b> — Choose a mode (vs AI · 2 players on one device · AI spectate) and a difficulty.</li><li><b>Pick Pieces</b> — Build your army freely within 39 cost. You can also load a suggested build or one of <b>My Presets</b>.</li><li><b>Place Pieces</b> — Put your pieces in your zone. If you like the result, <b>save it as a preset</b>.</li><li><b>Play</b> — Tap a piece to move it. New to chess? Turn on <b>Best-move hints</b>.</li></ol></div>
 <div class="hc"><h4>🎯 Goal</h4><p>Capture the enemy <b>King</b> (or a King-class piece such as the Emperor, God or Demon) to win. When your King is attacked you get a <b>Check</b> warning, and a <b>Checkmate</b> warning when it cannot escape — but these are not enforced rules: if you leave your King hanging, it simply gets captured.</p></div>
-<div class="hc"><h4>⚡ Player Skills</h4><p>Separate from piece skills, each player may use these three <b>once per game</b>. Using one replaces your action for that turn.</p><ul><li><b>↩️ Fall Back!</b> — Move 1 friendly piece outside your zone to an empty square in your zone.</li><li><b>⚡ Charge!</b> — This turn, let up to 3 friendly pieces of cost 2 or less act (once per piece).</li><li><b>🏁 Finish It!</b> — When the enemy has 3 pieces or fewer, revive 1 friendly piece of cost 7 or less on an empty square in your zone.</li></ul></div>
+<div class="hc"><h4>⚡ Player Skills</h4><p>Separate from piece skills, each player may use these three <b>once per game</b>. Using one replaces your action for that turn.</p><ul><li><b>↩️ Fall Back!</b> — Move 1 friendly piece outside your zone to an empty square in your zone.</li><li><b>⚡ Charge!</b> — This turn, let up to 3 friendly pieces of cost 2 or less act (once per piece).</li><li><b>🏁 Finish It!</b> — When the enemy has 3 pieces or fewer, revive 1 friendly piece of cost 7 or less on an empty square in your zone.</li><li><b>🔥 Fever!</b> — Once, from Sudden Death (move 90): let 2 different friendly pieces act this turn. When Sudden Death starts, the three skills above are locked.</li></ul></div>
+<div class="hc"><h4>⚡ Storm &amp; Sudden Death</h4><ul><li>At move 60 the outer 1 ring, at move 80 the outer 2 rings and at move 90 the outer 3 rings become storm (shimmering yellow/blue). A warning appears 5 turns ahead.</li><li>A piece standing in the storm at the end of its owner's turn takes 1 hit (shown as ⚡ number on the piece); after the 3rd hit it is destroyed if it is still inside at the end of its next turn. Leaving the storm resets the count. Kings are not exempt.</li><li>Move 90 is Sudden Death: Player Skills (Fall Back / Charge / Finish It) are locked and you may use 🔥 Fever!.</li><li>After move 100, the winner is decided by remaining strength.</li></ul></div>
 <div class="hc"><h4>🕹 What You Can Do in a Turn</h4><ul><li><b>Move</b> — Move a piece to an empty square.</li><li><b>Capture</b> — Move onto an enemy's square and capture it.</li><li><b>Ranged attack</b> — Eliminate a target without moving.</li><li><b>Skill</b> — A piece's unique ability.</li></ul><p class="note">You do only <b>one</b> of these per turn (except for extra moves or double actions described in a piece's text).</p></div>
 <div class="hc"><h4>🧩 Army Building (Cost 39)</h4><table class="lim"><tr><th>Piece count</th><td>Up to 16 including the King (King and God are free)</td></tr><tr><th>King class</th><td>Pick 1 of King, Emperor, God or Demon (replaces the King; Emperor costs 3, God is free, Demon costs 6)</td></tr><tr><th>Queen class</th><td>Pick 1 of Queen, Medusa, Princess or Mother</td></tr><tr><th>Front-row only</th><td>Up to 8</td></tr><tr><th>Back-row only</th><td>Up to 7 (8 if you use a King-class piece)</td></tr><tr><th>Black/White Dragon</th><td>Up to 4 each · placed only on same-colored squares of the back row</td></tr></table><p class="note">You place pieces in the first two rows of your side (front row and back row).</p></div>
 <div class="hc"><h4>🎖️ Promotion</h4><ul><li>When a <b>Pawn</b> reaches the enemy's last row it promotes to a <b>Rook, Bishop or Knight</b>.</li><li>When a <b>Soldier</b> reaches the enemy's last row it promotes to a <b>Vanguard or Shotgun</b>.</li><li>When you play, you choose in a popup; the AI chooses for itself.</li></ul></div><div class="hc"><h4>🏁 Winning and Judgment</h4><ul><li>Capture the enemy King to win.</li><li>If you have no legal move, you lose.</li><li>After <b>100 moves</b> (White and Black combined), the side with the <b>greater remaining strength (total cost) wins by judgment</b>. If tied, the side with more pieces wins; if that is tied too, it is a draw.</li><li>Every 20 moves a large early / mid / late game notice appears on screen.</li></ul></div>
@@ -1601,7 +1671,7 @@ $('#n2').onclick=()=>{left={};if(!kcOf())left.K=1;for(const t in army)if(army[t]
 function board(el,arr,fl,cls){let h='';
  for(let y=0;y<8;y++)for(let x=0;x<8;x++){const r=fl?7-y:y,c=fl?7-x:x,i=r*8+c,p=arr[i];
   const co=(x===0?`<i class="co r">${8-r}</i>`:'')+(y===7?`<i class="co f">${'abcdefgh'[c]}</i>`:'');
-  h+=`<div class="c ${(r+c)%2?'dk':'l'} ${cls(i)}" data-i="${i}" role="button" tabindex="-1" aria-label="${pos(i)} ${p?SN[p.s]+' '+DEF[p.t].n:TR('빈 칸','empty square')}">${co}${p?`<span class="pc p${p.s}${p.inv?' inv':''}${p.frz?' frz':''}${p.db?' db':''}${p.rv?' rvd':''}${p.md?(p.t==='f'?' fzm':p.t==='m'?' mmd':p.t==='b'?' shth':p.t==='t'?' swm':' mdm'):''}${p.sh?' shd':''}${p.slw?' slwd':''}${p.t==='d'&&p.kc>=3?' dmn':''}${G.pf&&G.pf[i]?' '+G.pf[i]:''} ${TC(p.t)}" title="${DEF[p.t].n}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i>${p.sh?'<b class="bdg sh">♪</b>':''}${p.slw?'<b class="bdg sl">⛓</b>':''}</span>`:''}</div>`}
+  h+=`<div class="c ${(r+c)%2?'dk':'l'} ${cls(i)}" data-i="${i}" role="button" tabindex="-1" aria-label="${pos(i)} ${p?SN[p.s]+' '+DEF[p.t].n:TR('빈 칸','empty square')}">${co}${p?`<span class="pc p${p.s}${p.inv?' inv':''}${p.frz?' frz':''}${p.db?' db':''}${p.rv?' rvd':''}${p.md?(p.t==='f'?' fzm':p.t==='m'?' mmd':p.t==='b'?' shth':p.t==='t'?' swm':' mdm'):''}${p.sh?' shd':''}${p.slw?' slwd':''}${p.t==='d'&&p.kc>=3?' dmn':''}${G.pf&&G.pf[i]?' '+G.pf[i]:''} ${TC(p.t)}" title="${DEF[p.t].n}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i>${p.sh?'<b class="bdg sh">♪</b>':''}${p.slw?'<b class="bdg sl">⛓</b>':''}${p.zh?`<b class="zb" aria-label="${TR('자기장 피격','Storm hits')} ${p.zh}/3">⚡${p.zh}</b>`:''}</span>`:''}</div>`}
  const hf=el._f!=null&&el.contains(document.activeElement);el.innerHTML=h;{const cs=el.children;let f=el._f!=null&&el.querySelector('[data-i="'+el._f+'"]')||cs[0];if(f){f.tabIndex=0;if(hf)f.focus({preventScroll:true})}}}
 function drawPlace(){
  $('#t3').textContent=(G.mode==='pvp'?SN[side]+TR(' 플레이어 · ',' Player · '):G.mode==='sim'?SN[side]+TR(' AI 군대 · ',' AI Army · '):'')+TR('기물 배치','Place Pieces');
@@ -1630,7 +1700,7 @@ $('#n3').onclick=()=>{if(G.mk){G.mk=false;saveCur(true);setTimeout(netOpen,60);r
 /* ===== 4. 대전 ===== */
 function startGame(){
  G.ret=null;{const br=$('#bRes');if(br)br.style.display='none'}
- G.b=BC.cloneBoard(startBoard);G.turn='w';G.sel=null;G.legal=[];G.pk=null;G.xm=null;G.lm=null;G.over=false;G.busy=false;G.since=0;G.plies=0;G.seen={};G.lost={w:[],b:[]};G.hist=[];G.insp=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;G.log=[];G.dx=false;G.dbq=0;G.tc=false;G.sk={w:{ret:1,rush:1,fin:1},b:{ret:1,rush:1,fin:1}};G.skp=null;G.rush=null;G.pre=null;
+ G.b=BC.cloneBoard(startBoard);G.turn='w';G.sel=null;G.legal=[];G.pk=null;G.xm=null;G.lm=null;G.over=false;G.busy=false;G.since=0;G.plies=0;G.b.pl=0;G.seen={};G.lost={w:[],b:[]};G.hist=[];G.insp=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;G.log=[];G.dx=false;G.dbq=0;G.tc=false;G.sk={w:{ret:1,rush:1,fin:1,fever:1},b:{ret:1,rush:1,fin:1,fever:1}};G.skp=null;G.rush=null;G.pre=null;
  G.flip=(G.mode==='pve'&&G.human==='b')||(!!G.net&&G.net.me==='b');G.seen[BC.hash(G.b,'w')]=1;G.lastTxt='';
  show('s4');draw();aiCheck();window.scrollTo(0,0)}
 function pbarHtml(s){if(G.net){const mine=s===G.net.me;return `<span class="dot ${s}"></span><span class="who">${SN[s]} · ${mine?TR('나','Me'):TR('상대','Opponent')} · ${esc(mine?G.net.myNk:G.net.nk)}</span><span class="lost">${G.lost[s].map(t=>`<i class="ic lg">${gl(t)}</i>`).join('')}</span><span class="tick">${G.turn===s&&!G.over?TR('● 차례','● Turn'):''}</span>`}
@@ -1638,6 +1708,7 @@ function pbarHtml(s){if(G.net){const mine=s===G.net.me;return `<span class="dot 
  const who=G.mode==='sim'?`AI · ${LVN[G.lvs[s]]}`:G.mode==='pve'?(isAI?`AI · ${LVN[G.lv]}`:TR('플레이어','Player')):TR(`${SN[s]} 플레이어`,` ${SN[s]} Player`);
  return `<span class="dot ${s}"></span><span class="who">${SN[s]} ${G.mode!=='pvp'?'· '+who:''}</span><span class="lost">${G.lost[s].map(t=>`<i class="ic lg">${gl(t)}</i>`).join('')}</span><span class="tick">${G.turn===s&&!G.over?TR('● 차례','● Turn'):''}</span>`}
 function cellClass(i){let c='';if(G.b.mg&&G.b.mg[i])c+='mg ';
+ {const sw=BC.stormW(G.plies||0);if(BC.inStorm(i,sw))c+='stm ';else{const sn=BC.stormW((G.plies||0)+5);if(sn>sw&&BC.inStorm(i,sn))c+='stn '}}
  if(G.skp){const w=G.turn,p=G.b[i],k=G.skp;if(i===k.a)c+='sel ';
   if(k.t==='ret'){if(k.a==null){if(p&&p.s===w&&!inZone(w,i))c+='sk '}else if(!p&&inZone(w,i))c+='mv ';else if(p&&p.s===w&&!inZone(w,i)&&i!==k.a)c+='sk '}
   else if(k.a!=null&&!p&&inZone(w,i))c+='mv ';
@@ -1666,7 +1737,7 @@ function chkInfo(){
  if(k>=0&&attackedBy(G.b,e,k)){
   let esc=false;
   for(const m of BC.gen(G.b,X,{noDbl:true})){if(m[2]===16)continue;const c=BC.cloneBoard(G.b);const u=BC.make(c,m);let bad=!!u.sk;if(!bad){const kk=kingSq(c,X);bad=kk<0||attackedBy(c,e,kk)}if(!bad){esc=true;break}}
-  const sk=G.sk&&G.sk[X]&&(G.sk[X].ret||G.sk[X].rush||G.sk[X].fin);
+  const sk=G.sk&&G.sk[X]&&((G.plies||0)>=SUDDEN?G.sk[X].fever:(G.sk[X].ret||G.sk[X].rush||G.sk[X].fin));
   r={side:X,k,mate:!esc&&!sk,maybe:!esc&&!!sk}}
  G.chk=r;return r}
 function chkBanner(ci){
@@ -1686,6 +1757,7 @@ function hintFor(m){
  if(m[2]===20){const p=G.b[m[0]];return{from:m[0],to:m[1],sk:'ret',txt:TR(`💡 추천: ↩️ 원위치! 사용 — ${DEF[p.t].n} ${pos(m[0])} → ${pos(m[1])} · ${attackedBy(G.b,OP(G.turn),m[0])?TR('공격받는 기물을 안전한 진영으로 되돌립니다','moves an attacked piece back to a safe zone'):TR('위험한 위치의 기물을 진영으로 되돌립니다','moves a piece in a dangerous spot back to your zone')}`,`💡 Tip: use ↩️ Fall Back! — ${DEF[p.t].n} ${pos(m[0])} → ${pos(m[1])} · ${attackedBy(G.b,OP(G.turn),m[0])?TR('공격받는 기물을 안전한 진영으로 되돌립니다','moves an attacked piece back to a safe zone'):TR('위험한 위치의 기물을 진영으로 되돌립니다','moves a piece in a dangerous spot back to your zone')}`)}}
  if(m[2]===21){const d=G.b.dead[G.turn][m[4][0]];return{from:m[1],to:m[1],sk:'fin',txt:TR(`💡 추천: 🏁 상황 종결! 사용 — ${DEF[d.t].n} 부활 → ${pos(m[1])} · 적이 얼마 안 남았으니 전력을 보충하세요`,`💡 Tip: use 🏁 Finish It! — revive ${DEF[d.t].n} → ${pos(m[1])} · the enemy is nearly gone, so bring your strength back`)}}
  if(m[2]===9&&m[5]==='R'){const mv=m[4].map(x=>{const p=G.b[x[0]];return `${DEF[p.t].n} ${pos(x[0])}→${pos(x[1])}`});const cp=m[4].filter(x=>BC.tacticalVal(G.b,x)>0).length;return{from:m[4][0][0],to:m[4][0][1],sk:'rush',txt:TR(`💡 추천: ⚡ 돌격 앞으로! 사용 — ${mv.join(' · ')}${cp?TR(` (잡기 ${cp}회)`,` (${cp} captures)`):''}`,`💡 Tip: use ⚡ Charge! — ${mv.join(' · ')}${cp?TR(` (잡기 ${cp}회)`,` (${cp} captures)`):''}`)}}
+ if(m[2]===9&&m[5]==='F'){const mv=m[4].map(x=>{const p=G.b[x[0]];return `${DEF[p.t].n} ${pos(x[0])}→${pos(x[1])}`});return{from:m[4][0][0],to:m[4][0][1],sk:'fever',txt:TR(`💡 추천: 🔥 피버! 사용 — ${mv.join(' · ')}`,`💡 Tip: use 🔥 Fever! — ${mv.join(' · ')}`)}}
  if(m[2]===9)m=m[4][0];
  const b=G.b,X=G.turn,p=b[m[0]];if(!p)return null;
  const from=m[2]===12?m[1]:m[0],to=m[2]===12?m[3]:(m[2]===4?m[0]:m[1]),nm=DEF[p.t].n;
@@ -1719,7 +1791,7 @@ function hint2For(){
   const L=rushList();if(!L.length)return null;
   let best=null,bs=-1e9,btv=0;
   for(const m of L){const tv=BC.tacticalVal(G.b,m);const u=BC.make(G.b,m,1);const e=BC.ev(G.b,who);BC.unmake(G.b,u);const sc=(tv>=1e4?1e9:tv*10)+e*.3;if(sc>bs){bs=sc;best=m;btv=tv}}
-  const p=G.b[best[0]],nm=DEF[p.t].n,tag=G.rush.lk?TR('🍀 럭키 추가 행동','🍀 Lucky bonus action'):TR('⚡ 돌격','⚡ Charge');
+  const p=G.b[best[0]],nm=DEF[p.t].n,tag=G.rush.lk?TR('🍀 럭키 추가 행동','🍀 Lucky bonus action'):G.rush.fv?TR('🔥 피버','🔥 Fever'):TR('⚡ 돌격','⚡ Charge');
   if(btv>0){const q=G.b[best[1]];return{from:best[0],to:best[1],txt:TR(`💡 ${tag} 추천: ${nm} ${pos(best[0])} → ${pos(best[1])}${q?TR(' · 상대 ',' · capture enemy ')+DEF[q.t].n+TR(' 잡기',''):''} (남은 ${G.rush.left}회)`,`💡 ${tag} tip: ${nm} ${pos(best[0])} → ${pos(best[1])}${q?TR(' · 상대 ',' · capture enemy ')+DEF[q.t].n+TR(' 잡기',''):''} (${G.rush.left} left)`)}}
   return{from:best[0],to:best[1],txt:TR(`💡 ${tag}: 더 잡을 수 있는 상대가 없습니다 — ${G.rush.used.length||G.rush.lk?TR('아래 버튼으로 마치거나','finish with the button below or'):TR('원하면','if you like,')} ${nm} ${pos(best[0])} → ${pos(best[1])} 같은 수로 위치를 다듬으세요`,`💡 ${tag}: no more enemies to capture — ${G.rush.used.length||G.rush.lk?TR('아래 버튼으로 마치거나','finish with the button below or'):TR('원하면','if you like,')} fine-tune with a move like ${nm} ${pos(best[0])} → ${pos(best[1])}`)}}
  const k=G.skp;if(!k)return null;
@@ -1744,7 +1816,7 @@ function hintUpdate(){
   const done=m=>{if(id!==hintId||G.hintK!==key||!m)return;G.hint=hintFor(m);draw()};
   const req={id,b:BC.cloneBoard(G.b),s:G.turn,lv:4,seen:G.seen,seed:G.seed,h:1,skills:skFlags(),sa:1};
   hcb[id]=done;
-  if(worker)worker.postMessage({id,b:req.b,dead:req.b.dead,s:req.s,lv:5,seen:req.seen,seed:req.seed,h:1,skills:req.skills,sa:1,tm:1500});
+  if(worker)worker.postMessage({id,b:req.b,dead:req.b.dead,pl:req.b.pl||0,s:req.s,lv:5,seen:req.seen,seed:req.seed,h:1,skills:req.skills,sa:1,tm:1500});
   else setTimeout(()=>{if(id!==hintId)return;delete hcb[id];done(BC.chooseMove(req.b,req.s,5,{seen:req.seen,seed:req.seed,time:1100,skills:req.skills,skillAll:1}))},80)}
  {const sb=$('#skb');if(sb)sb.querySelectorAll('button').forEach(b=>b.classList.toggle('hs',hintShown()&&!!G.hint&&G.hint.sk===b.dataset.sk))}
  if(hb){const sh=hintShown()||(hintOn()&&G.pk&&G.hint);hb.style.display=sh?'':'none';hb.textContent=sh?(G.hint?G.hint.txt:TR('💡 좋은 수를 찾는 중…','💡 Looking for a good move…')):''}}
@@ -1773,6 +1845,7 @@ function draw(msg){
  let t=msg;
  if(!t){if(G.skp)t=G.skp.t==='ret'?(G.skp.a==null?TR('원위치!: 옮길 아군 기물을 선택 (아군 진영 밖에 있는 기물)','Fall Back!: select a friendly piece to move (one outside your zone)'):TR('원위치!: 아군 진영의 빈 칸을 선택 (다른 기물을 누르면 변경)','Fall Back!: select an empty square in your zone (tap another piece to change)')):(G.skp.a==null?TR('상황 종결!: 오른쪽(아래) 전황 패널에서 부활시킬 기물을 선택','Finish It!: select a piece to revive in the status panel on the right (below)'):TR('상황 종결!: 부활시킬 아군 진영의 빈 칸을 선택','Finish It!: select an empty square in your zone to revive it on'));
   else if(G.rush&&G.rush.lk)t=TR('🍀 럭키 추가 행동: 2코스트 이하 아군 1기가 행동할 수 있습니다 (건너뛰기 가능)','🍀 Lucky bonus action: 1 friendly piece of cost 2 or less may act (can skip)');
+  else if(G.rush&&G.rush.fv)t=TR(`피버!: 서로 다른 기물 2개가 행동합니다 (남은 ${G.rush.left}회 · 같은 기물은 한 번만)`,`Fever!: 2 different pieces act (${G.rush.left} left · each piece only once)`);
   else if(G.rush)t=TR(`돌격 앞으로!: 2코스트 이하 기물로 행동 (남은 ${G.rush.left}회 · 같은 기물은 한 번만)`,`Charge!: act with pieces of cost 2 or less (${G.rush.left} left · each piece only once)`);
   else if(G.pk)t=G.pk.t==='Z'?pkMsg():G.pk.t==='F'?TR('플레임 스킬: 마그마로 만들 2x2 구역을 눌러 고르고 확정 (눌러서 위치 변경 가능)','Flame skill: tap to pick the 2x2 area to turn into magma, then confirm (tap again to move it)'):G.pk.t==='H'?TR('핸드 스킬: 아군을 옮길 빈칸을 선택 (다른 아군을 누르면 대상 변경)','Hand skill: select an empty square to move the ally to (tap another ally to change)'):G.pk.t==='G'?TR('골렘 스킬: 처치할 적을 최대 2기 선택 후 확정','Golem skill: select up to 2 enemies to eliminate, then confirm'):G.pk.a==null?TR('토네이도 스킬: 옮길 기물을 선택','Tornado skill: select a piece to move')+(G.pk.sw.length?TR(' (계속 재배치하거나 확정)',' (keep rearranging or confirm)'):TR(' (주변 3x3 아군·적군 모두 가능)',' (friend or foe in the surrounding 3x3)')):TR('옮길 칸을 선택 (기물이 있으면 서로 교체)','Select a square to move it to (swaps with any piece there)');
   else if(G.gsw)t=TR(`제네시스 연속 이동 (남은 ${G.gs.left}번 · 적을 잡으면 함께 폭멸! · 건너뛰려면 '이동 종료')`,`Genesis chain move (${G.gs.left} left · capturing an enemy makes it explode! · to skip, press ‘End moves’)`);
@@ -1785,7 +1858,7 @@ function draw(msg){
  
  $('#info').textContent=inf;
  chkBanner(ci);hintUpdate();
- $('#skip').style.display=((G.xm||G.dx||G.gsw)||(G.rush&&(G.rush.used.length||G.rush.lk)))&&!G.over&&!aiTurn?'':'none';$('#skip').textContent=G.rush&&!(G.xm||G.dx||G.gsw)?(G.rush.lk?TR('추가 행동 건너뛰기','Skip extra action'):TR('돌격 종료','End Charge')):G.gsw?TR('이동 종료','End moves'):G.dx?TR('추가 행동 건너뛰기','Skip extra action'):TR('추가 이동 건너뛰기','Skip extra move');
+ $('#skip').style.display=((G.xm||G.dx||G.gsw)||(G.rush&&(G.rush.used.length||G.rush.lk)))&&!G.over&&!aiTurn?'':'none';$('#skip').textContent=G.rush&&!(G.xm||G.dx||G.gsw)?(G.rush.lk?TR('추가 행동 건너뛰기','Skip extra action'):G.rush.fv?TR('피버 종료','End Fever'):TR('돌격 종료','End Charge')):G.gsw?TR('이동 종료','End moves'):G.dx?TR('추가 행동 건너뛰기','Skip extra action'):TR('추가 이동 건너뛰기','Skip extra move');
  $('#pkok').style.display=G.pk&&((G.pk.t==='G'&&G.pk.s.length)||(G.pk.t==='Z'&&G.pk.s.length&&pkZ().some(x=>x[4].length===G.pk.s.length))||(G.pk.t==='X'&&G.pk.sw.length)||G.pk.t==='F')?'':'none';
  $('#pkx').style.display=G.pk||G.skp||(G.rush&&!G.rush.used.length&&!G.rush.lk)?'':'none';
  skUpdate();
@@ -1817,7 +1890,7 @@ $('#bd4').onclick=e=>{const c=e.target.closest('[data-i]');if(!c)return;const i=
   return play(ms[0])}
  if(G.gsw)return;
  const p=G.b[i];
- if(p&&p.s===G.turn&&G.rush&&!rushOK(p)){sfx('rm');return draw(TR('돌격 앞으로!: 아직 행동하지 않은 2코스트 이하 기물만 움직일 수 있습니다','Charge!: only pieces of cost 2 or less that have not acted yet can move'))}
+ if(p&&p.s===G.turn&&G.rush&&!rushOK(p)){sfx('rm');return draw(G.rush.fv?TR('피버!: 아직 행동하지 않은 기물만 움직일 수 있습니다','Fever!: only pieces that have not acted yet can move'):TR('돌격 앞으로!: 아직 행동하지 않은 2코스트 이하 기물만 움직일 수 있습니다','Charge!: only pieces of cost 2 or less that have not acted yet can move'))}
  if(p&&p.s===G.turn){G.sel=i;G.legal=BC.gen(G.b,G.turn,{noDbl:true}).filter(x=>x[0]===i);sfx('sel')}else{G.sel=null;G.legal=[];sfx('rm')}
  draw()};
 function pkZ(){const pk=G.pk;return G.legal.filter(x=>x[0]===pk.f&&x[2]===pk.k&&x[4])}
@@ -1854,7 +1927,7 @@ $('#pkok').onclick=()=>{const pk=G.pk;
  if(!pk||pk.t!=='G'||!pk.s.length||G.over||G.busy)return;
  const t=pk.s.slice().sort((x,y)=>x-y),m=G.legal.find(x=>x[2]===4&&x[4].length===t.length&&x[4].slice().sort((p,q)=>p-q).every((v,j)=>v===t[j]));
  G.pk=null;if(m)play(m);else draw()};
-$('#pkx').onclick=()=>{if(G.skp){G.skp=null;sfx('rm');draw();return}if(G.rush&&!G.rush.used.length){G.sk[G.turn].rush=1;G.rush=null;G.lastTxt='';sfx('rm');draw();return}cancelPk();G.sel=null;G.legal=[];draw()};
+$('#pkx').onclick=()=>{if(G.skp){G.skp=null;sfx('rm');draw();return}if(G.rush&&!G.rush.used.length){G.sk[G.turn][G.rush.fv?'fever':'rush']=1;G.rush=null;G.lastTxt='';sfx('rm');draw();return}cancelPk();G.sel=null;G.legal=[];draw()};
 $('#skip').onclick=()=>{if(G.net&&G.turn!==G.net.me)return;doSkip()};
 function doSkip(){if(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human))return;if(!(G.over||G.busy)&&G.net&&!G._rem)netSend({k:'skip'});if(G.rush&&!(G.xm||G.dx||G.gsw)&&!G.over&&!G.busy){rushEnd();return}
  if(G.gsw&&!G.over&&!G.busy){gsEnd(G.turn);return}
@@ -1916,6 +1989,7 @@ function play(m,hold,seq){
  const killed=[];if(u.cap&&(m[2]<2||m[2]===11))killed.push(u.cap);if(u.kl)u.kl.forEach(x=>killed.push(x[1]));
  killed.forEach(q=>G.lost[q.s].push(q.t));if(m[5])G.lost[who].push(p.t);
  if(u.mk){u.mk.forEach(x=>G.lost[x[1].s].push(x[1].t));const mk=u.mk.slice();setTimeout(()=>{mk.forEach(x=>killFx(x[0],x[1].s,mk.length,'e',null));sfx('magmaDie')},520)}
+ if(u.zk)stormReport(u,who);
  {const ks=[],kty=m[2]===0?u.pt:p.t,kfrom=m[2]===12?null:m[0];if(u.cap&&(m[2]<2||m[2]===11))ks.push([m[1],u.cap.s]);if(u.kl)u.kl.forEach(x=>ks.push([x[0],x[1].s]));
   if(ks.length){setTimeout(()=>ks.forEach(x=>killFx(x[0],x[1],ks.length,kty,kfrom)),90);setTimeout(()=>killSfx(kty,ks.length),70);G.kfx=1}
   if(m[2]===0&&m[4]&&p.t==='c')setTimeout(()=>{critFx(m[4][0]);sfx('crit')},330);
@@ -1923,7 +1997,7 @@ function play(m,hold,seq){
   if(dem)setTimeout(()=>{demonFx(m[1]);sfx('demon')},600)}
  if(u.rv){const ls=G.lost[who],ix=ls.lastIndexOf(rvT);if(ix>=0)ls.splice(ix,1);ls.push('I')}
  const tx=mvTxt(m,p,rvT)+(hold&&p.t==='k'?TR(' · 🔨 추가 공격 기회!',' · 🔨 Bonus strike!'):'')+(G.vxFx!=null&&G.vxFx===m[1]&&p.t==='u'?TR(' · ⚡ 가까운 볼티지 공명! 한 번 더 행동',' · ⚡ Voltage resonance! one more action'):'')+(u.shb&&u.shb.length?TR(` · 🛡️ 보호막이 공격을 막았습니다: ${u.shb.map(q=>DEF[q.t].n).join('·')}`,` · 🛡️ A shield blocked the hit: ${u.shb.map(q=>DEF[q.t].n).join('·')}`):'')+(u.blk?TR(` · 🛡️ 보호막이 공격을 막았습니다: ${DEF[u.blk.t].n}`,` · 🛡️ A shield blocked the hit: ${DEF[u.blk.t].n}`):'')+(u.pt!==p.t?TR(' · 승급: ',' · promoted: ')+DEF[p.t].n+'!':'')+(m[5]?TR(' · 💢 인파이터의 반격! 공격한 기물도 함께 처치',' · 💢 Infighter\'s counter! The attacker is eliminated too'):'')+(dem?TR(' · 😈 악마화! (대각선도 2칸 이동·잡기 가능)',' · 😈 Demon form! (can also move and capture 2 squares diagonally)'):'')+(u.mk?TR(` · 🌋 마그마에 소멸: ${u.mk.map(x=>DEF[x[1].t].n).join('·')}`,` · 🌋 Burned up in magma: ${u.mk.map(x=>DEF[x[1].t].n).join('·')}`):'');
- if(G.xm&&!hold)G.lastTxt+=' → '+pos(m[1]);else if(G.tc)G.lastTxt+=' ⚡ '+tx;else G.lastTxt=SN[who]+' '+(G.rush&&!G.rush.used.length&&!G.rush.lk?TR('⚡ 돌격 앞으로! ','⚡ Charge! '):'')+tx;
+ if(G.xm&&!hold)G.lastTxt+=' → '+pos(m[1]);else if(G.tc)G.lastTxt+=' ⚡ '+tx;else G.lastTxt=SN[who]+' '+(G.rush&&!G.rush.used.length&&!G.rush.lk?(G.rush.fv?TR('🔥 피버! ','🔥 Fever! '):TR('⚡ 돌격 앞으로! ','⚡ Charge! ')):'')+tx;
  G.tc=more;
  {const pf={},P=(j,c)=>{pf[j]=c},nb=(j,f)=>{const r=j>>3,c=j&7;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){const x=r+dr,y=c+dc;if(x>=0&&x<8&&y>=0&&y<8)f(x*8+y)}},k=m[2],fl=[];shoutFx(m,p);
   if(k===8){P(m[0],'rise');fl.push([m[0],'✨'],[m[0],'🕊️'])}
@@ -1957,7 +2031,7 @@ function play(m,hold,seq){
  G.lm=m[2]===12?[m[1],m[3]]:[m[0],m[1]];G.sel=null;G.legal=[];G.pk=null;
  if(u.n>0)G.since=0;
  if(u.cap&&isKing(u.cap.t)){G.dbq=0;finish(who,'king');return}
- if(u.mk&&u.sk){G.dbq=0;finish(OP(who),'king');return}
+ if((u.mk||u.zk)&&u.sk){G.dbq=0;finish(OP(who),u.zk?'storm':'king');return}
  if(u.sn&&afterFire(u,who))return;
  if(gsStep){const g=G.gs||(G.gs={left:3,n:0});g.left--;if(u.cap)g.n++;g.loc=m[1];g.p=p;
   if(seq){draw();return}
@@ -2229,7 +2303,8 @@ function wrapUp(who,p,loc,needFire){
  if(G.dbq>0){G.dbq=0;if(p&&G.b[loc]===p){const lg=BC.gen(G.b,who,{noDbl:true}).filter(x=>x[0]===loc);
    if(lg.length){G.dx=true;G.xm=null;G.sel=loc;G.legal=lg;draw();return}}}
  if(needFire){const u2={n:0};BC.fireStage(G.b,who,u2);if(u2.sn){G.fx=u2.sn.map(x=>[x[0],x[1].s]);if(u2.n>0)G.since=0;if(afterFire(u2,who))return}
-  if(G.b.mg){const u3={n:0};BC.magTick(G.b,G.pre,u3);if(u3.mk){u3.mk.forEach(x=>G.lost[x[1].s].push(x[1].t));G.since=0;G.lastTxt+=TR(` · 🌋 마그마에 소멸: ${u3.mk.map(x=>DEF[x[1].t].n).join('·')}`,` · 🌋 Burned up in magma: ${u3.mk.map(x=>DEF[x[1].t].n).join('·')}`);const mk=u3.mk.slice();setTimeout(()=>{mk.forEach(x=>killFx(x[0],x[1].s,mk.length,'e',null));sfx('magmaDie')},300);if(u3.sk){finish(OP(who),'king');return}}}}
+  if(G.b.mg){const u3={n:0};BC.magTick(G.b,G.pre,u3);if(u3.mk){u3.mk.forEach(x=>G.lost[x[1].s].push(x[1].t));G.since=0;G.lastTxt+=TR(` · 🌋 마그마에 소멸: ${u3.mk.map(x=>DEF[x[1].t].n).join('·')}`,` · 🌋 Burned up in magma: ${u3.mk.map(x=>DEF[x[1].t].n).join('·')}`);const mk=u3.mk.slice();setTimeout(()=>{mk.forEach(x=>killFx(x[0],x[1].s,mk.length,'e',null));sfx('magmaDie')},300);if(u3.sk){finish(OP(who),'king');return}}}
+  {const u4={n:0};BC.stormTick(G.b,who,u4);stormReport(u4,who);if(u4.sk){finish(OP(who),'storm');return}}}
  endTurn()}
 function showCard(){
  const el=$('#pcard');if(!el)return;
@@ -2237,6 +2312,7 @@ function showCard(){
  if(!p){el.style.display='none';return}
  const D=DEF[p.t],tg=[];
  if(p.inv)tg.push(TR('무적','Invincible'));if(p.frz)tg.push(p.frz===2?TR('행동 불가','Cannot act'):TR('이동 불가','Cannot move'));if(p.db===1)tg.push(TR('다음 턴 두 번 행동','Acts twice next turn'));if(p.rv)tg.push(TR('부활한 기물','Revived piece'));if(p.md)(p.t==='f')?tg.push(TR('빙결 영역 발동 중','Freeze Zone active')):(p.t==='m')?0:(p.t==='b')?tg.push(TR('납도 상태 (상하좌우 1칸 · 스킬로 발도술)','Sheathed (1 orthogonal step · skill unleashes Iaido)')):(p.t==='t')?tg.push(TR('메뚜기 떼 모드 (잡기 가능)','Locust Swarm mode (can capture)')):tg.push(TR('마검 모드 (이동 불가)','Sword Mode (cannot move)'));if(p.sh)tg.push(TR('보호막 (원거리·처치 스킬 1회 방어)','Shielded (blocks one ranged attack / kill skill)'));if(p.slw)tg.push(TR('둔화 (다음 턴 상하좌우 1칸 이동만)','Slowed (only 1 orthogonal step next turn)'));if(BC.zoneLocked(G.b,i))tg.push(TR('빙결 영역 안 (이동·잡기 불가)','Inside Freeze Zone (cannot move or capture)'));if(BC.momProt(G.b,i))tg.push(TR('보호막 안 (잡기 불가)','Under Shield (cannot be captured)'));if(p.t==='m'&&p.md)tg.push(TR('보호막 발동 중 (이동 불가)','Shield active (cannot move)'));if(p.t==='d')tg.push(p.kc>=3?TR('악마화 (사거리 3칸)','Demon form (range 3)'):TR('처치 ','Eliminated ')+(p.kc||0)+'/3')
+ if(p.zh)tg.push(p.zh>=3?TR('자기장 3대 — 이번 턴에 벗어나지 않으면 소멸','Storm hit 3 — destroyed unless it leaves this turn'):TR(`자기장 피격 ${p.zh}/3`,`Storm hits ${p.zh}/3`));else if(p.t==='u')tg.push(TR('자기장 면역','Storm immune'));else if(BC.inStorm(i,BC.stormW(G.plies||0)))tg.push(TR('자기장 안 — 턴이 끝나면 1대','In the storm — hit at end of turn'));
  if(isLocked(i))tg.push(TR('저격 대상으로 지정됨','Targeted by a Sniper'));if(p.tp&&G.b[p.ts]===p.tp)tg.push(TR('저격 대기 중 → ','Sniper aiming → ')+pos(p.ts));
  el.style.display='';
  el.innerHTML=TR(`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">${D.c} 코스트</span> <span class="tg ${tagCls(p.t)}">${PLN(p.t)}</span> <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcx" aria-label="설명 닫기">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">이동 범위 보기</button>`,`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">Cost ${D.c}</span> <span class="tg ${tagCls(p.t)}">${PLN(p.t)}</span> <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcx" aria-label="Close description">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">Show move range</button>`);
@@ -2270,10 +2346,12 @@ function fxCell(j,e){const c=cell(j);if(c){const g=document.createElement('span'
 const inZone=(s,i)=>{const z=BC.zone(s),r=i>>3;return r===z[0]||r===z[1]};
 const emptyZone=s=>{const o=[];for(let i=0;i<64;i++)if(!G.b[i]&&inZone(s,i))o.push(i);return o};
 const skHuman=()=>!G.over&&!G.busy&&G.sk&&(G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human))&&(!G.net||G.turn===G.net.me)&&!G.pk&&!G.xm&&!G.dx&&!G.gsw&&!G.rush&&!G.skp;
-const rushOK=p=>G.rush&&p&&p.s===G.turn&&DEF[p.t].c<=2&&!G.rush.used.includes(p);
-function rushList(){const who=G.turn;return BC.gen(G.b,who,{noDbl:true}).filter(m=>m[2]!==16&&rushOK(G.b[m[0]]))}
+const rushOK=p=>G.rush&&p&&p.s===G.turn&&(G.rush.fv||DEF[p.t].c<=2)&&!G.rush.used.includes(p);
+function rushList(){const who=G.turn;return BC.gen(G.b,who,{noDbl:true}).filter(m=>m[2]!==16&&!(G.rush.fv&&m[2]===15)&&rushOK(G.b[m[0]]))}
 function finList(who){const o=[];G.b.dead[who].forEach((d,x)=>{if(!isKing(d.t)&&DEF[d.t].c<=7)o.push(x)});return o}
 function skAvail(k){const who=G.turn;if(!G.sk||!G.sk[who][k])return false;
+ if((G.plies||0)>=SUDDEN?k!=='fever':k==='fever')return false;
+ if(k==='fever'){G.rush={left:2,used:[],fv:1};const ok=rushList().length>0;G.rush=null;return ok}
  if(k==='ret'){if(!emptyZone(who).length)return false;for(let i=0;i<64;i++){const p=G.b[i];if(p&&p.s===who&&!inZone(who,i))return true}return false}
  if(k==='rush'){G.rush={left:3,used:[]};const ok=rushList().length>0;G.rush=null;return ok}
  if(k==='fin'){let en=0;for(let i=0;i<64;i++){const p=G.b[i];if(p&&p.s!==who)en++}return en<=3&&finList(who).length>0&&emptyZone(who).length>0}
@@ -2284,15 +2362,16 @@ function skUpdate(){const el=$('#skb');if(!el)return;
  const idle=skHuman();
  el.querySelector('.skl').textContent=TR(`사용 스킬 · ${SN[G.turn]} · 각 1회 (쓰면 이번 턴을 사용)`,`Player Skills · ${SN[G.turn]} · once each (using one takes this turn)`);
  el.querySelectorAll('button').forEach(b=>{const k=b.dataset.sk,used=!G.sk[G.turn][k];
-  const act=(G.skp&&G.skp.t===k)||(G.rush&&k==='rush');
-  b.disabled=!act&&(used||!idle||!skAvail(k));b.classList.toggle('on',!!act);
-  b.title=used?TR('이미 사용함','Already used'):k==='ret'?TR('아군 진영 밖의 아군 기물 1기를 아군 진영 빈 칸으로 옮깁니다','Move 1 friendly piece outside your zone to an empty square in your zone'):k==='rush'?TR('이번 턴에 2코스트 이하 아군 기물을 최대 3기까지 행동시킵니다','This turn, let up to 3 friendly pieces of cost 2 or less act'):TR('적 기물이 3개 이하일 때, 7코스트 이하 아군 기물 1기를 아군 진영 빈 칸에 부활시킵니다','When the enemy has 3 pieces or fewer, revive 1 friendly piece of cost 7 or less on an empty square in your zone')})}
+  const act=(G.skp&&G.skp.t===k)||(G.rush&&((k==='rush'&&!G.rush.fv&&!G.rush.lk)||(k==='fever'&&G.rush.fv)));
+  b.disabled=!act&&(used||!idle||!skAvail(k));b.classList.toggle('on',!!act);const sdn=(G.plies||0)>=SUDDEN,lk=sdn?k!=='fever':k==='fever';b.classList.toggle('slk',lk);
+  b.title=lk?(sdn?TR('서든데스: 잠금','Sudden Death: locked'):TR(`${SUDDEN}수(서든데스)부터 사용 가능`,`Available from move ${SUDDEN} (Sudden Death)`)):used?TR('이미 사용함','Already used'):k==='fever'?TR('이번 턴에 서로 다른 아군 기물 2개를 행동시킵니다','This turn, let 2 different friendly pieces act'):k==='ret'?TR('아군 진영 밖의 아군 기물 1기를 아군 진영 빈 칸으로 옮깁니다','Move 1 friendly piece outside your zone to an empty square in your zone'):k==='rush'?TR('이번 턴에 2코스트 이하 아군 기물을 최대 3기까지 행동시킵니다','This turn, let up to 3 friendly pieces of cost 2 or less act'):TR('적 기물이 3개 이하일 때, 7코스트 이하 아군 기물 1기를 아군 진영 빈 칸에 부활시킵니다','When the enemy has 3 pieces or fewer, revive 1 friendly piece of cost 7 or less on an empty square in your zone')})}
 $('#skb').onclick=e=>{const b=e.target.closest('[data-sk]');if(!b||b.disabled||!skHuman())return;const k=b.dataset.sk;if(!skAvail(k))return;
  G.sel=null;G.legal=[];G.insp=null;
  if(k==='rush')startRush();
+ else if(k==='fever')startRush(1);
  else{G.skp={t:k,a:null};sfx('sel')}
  draw()};
-function startRush(){skillAlert('rush',G.turn);if(G.net&&!G._rem)netSend({k:'rush'});G.sel=null;G.legal=[];G.sk[G.turn].rush=0;G.rush={left:3,used:[]};G.lastTxt=SN[G.turn]+TR(' 사용 스킬 ⚡ 돌격 앞으로!',' Player Skill ⚡ Charge!');sfx('empower');draw()}
+function startRush(fv){skillAlert(fv?'fever':'rush',G.turn);if(G.net&&!G._rem)netSend(fv?{k:'rush',fv:1}:{k:'rush'});G.sel=null;G.legal=[];G.sk[G.turn][fv?'fever':'rush']=0;G.rush=fv?{left:2,used:[],fv:1}:{left:3,used:[]};G.lastTxt=SN[G.turn]+(fv?TR(' 사용 스킬 🔥 피버!',' Player Skill 🔥 Fever!'):TR(' 사용 스킬 ⚡ 돌격 앞으로!',' Player Skill ⚡ Charge!'));sfx('empower');draw()}
 function skClick(i){const k=G.skp,w=G.turn,p=G.b[i];
  if(k.t==='ret'){
   if(p&&p.s===w&&!inZone(w,i)){if(i===k.a){k.a=null;sfx('rm')}else{k.a=i;sfx('sel')}return draw()}
@@ -2312,10 +2391,10 @@ function rushEnd(){const who=G.turn;G.busy=false;G.rush=null;G.since=0;wrapUp(wh
 const capsOn=(b,m,sq)=>{const k=m[2];if(k===0||k===1||k===11)return m[1]===sq;if(k===4||k===6||k===14||k===25)return !!m[4]&&m[4].indexOf(sq)>=0;if(k===0)return false;return false};
 function attackedBy(b,e,sq){for(const m of BC.gen(b,e,{ai:true,cap:true,noDbl:true}))if(capsOn(b,m,sq))return true;return false}
 function aiSkillRun(m){const who=G.turn;
- if(m[2]===20){if(!G.sk[who].ret||!G.b[m[0]]||G.b[m[1]]){G.busy=false;return false}G.busy=true;setTimeout(()=>{if(G.over)return;G.busy=false;skApply('ret',m[0],m[1])},650);return true}
- if(m[2]===21){const d=G.b.dead[who][m[4][0]];if(!G.sk[who].fin||!d||G.b[m[1]]){G.busy=false;return false}G.busy=true;setTimeout(()=>{if(G.over)return;G.busy=false;skApply('fin',m[4][0],m[1])},650);return true}
- if(!G.sk[who].rush){G.busy=false;return false}
- const L=m[4];skillAlert('rush',who);G.sk[who].rush=0;G.rush={left:3,used:[]};G.lastTxt=SN[who]+TR(' 사용 스킬 ⚡ 돌격 앞으로!',' Player Skill ⚡ Charge!');sfx('empower');G.busy=true;draw();
+ if(m[2]===20){if((G.plies||0)>=SUDDEN||!G.sk[who].ret||!G.b[m[0]]||G.b[m[1]]){G.busy=false;return false}G.busy=true;setTimeout(()=>{if(G.over)return;G.busy=false;skApply('ret',m[0],m[1])},650);return true}
+ if(m[2]===21){const d=G.b.dead[who][m[4][0]];if((G.plies||0)>=SUDDEN||!G.sk[who].fin||!d||G.b[m[1]]){G.busy=false;return false}G.busy=true;setTimeout(()=>{if(G.over)return;G.busy=false;skApply('fin',m[4][0],m[1])},650);return true}
+ const fv=m[5]==='F',fk=fv?'fever':'rush';if(!G.sk[who][fk]||(fv?(G.plies||0)<SUDDEN:(G.plies||0)>=SUDDEN)){G.busy=false;return false}
+ const L=m[4];skillAlert(fk,who);G.sk[who][fk]=0;G.rush=fv?{left:2,used:[],fv:1}:{left:3,used:[]};G.lastTxt=SN[who]+(fv?TR(' 사용 스킬 🔥 피버!',' Player Skill 🔥 Fever!'):TR(' 사용 스킬 ⚡ 돌격 앞으로!',' Player Skill ⚡ Charge!'));sfx('empower');G.busy=true;draw();
  let k=0;
  const step=()=>{if(G.over){G.busy=false;return}if(!G.rush)return;
   if(k>=L.length){G.busy=false;rushEnd();return}
@@ -2329,9 +2408,9 @@ function endTurn(){
  G.xm=null;G.sel=null;G.legal=[];
  G.turn=OP(G.turn);G.since++;G.pre=G.b.mg?BC.magPre(G.b,G.turn):null;
  const h=BC.hash(G.b,G.turn);G.seen[h]=(G.seen[h]||0)+1;
- G.plies=(G.plies||0)+1;
+ G.plies=(G.plies||0)+1;G.b.pl=G.plies;
  if(G.plies>=LIMIT){finish(BC.adjudicate(G.b),'lim');return}
- if(G.plies%20===0)phaseAlert(G.plies);else if(G.plies>=LIMIT-5)countdown(LIMIT-G.plies);
+ stormAlert(G.plies);if(G.plies%20===0)phaseAlert(G.plies);else if(G.plies>=LIMIT-5)countdown(LIMIT-G.plies);
  const lg0=BC.gen(G.b,G.turn,{noDbl:true});
  if(!lg0.length){const human=G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human);if(human&&G.sk&&(skAvail('ret')||skAvail('fin'))){draw(TR('이동할 수 있는 기물이 없습니다 — 사용 스킬을 쓰지 않으면 패배합니다','You have no piece that can move — if you do not use a Player Skill, you lose'));return}finish(OP(G.turn),'stalemate');return}
  if(lg0.length===1&&lg0[0][2]===16&&!(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me))){G.busy=true;draw(TR('🍀 이동·잡기 불가 — 턴을 넘깁니다','🍀 Cannot move or capture — turn passed'));setTimeout(()=>{G.busy=false;if(!G.over)play(lg0[0])},1000);return}
@@ -2344,7 +2423,7 @@ function finish(w,why){
  if(!w){em='🤝';t=TR('무승부','Draw');d=LIMIT+TR('수가 지났고 남은 전력과 기물 수가 같습니다.',' moves have passed and the remaining strength and piece counts are equal.')}
  else{
   if(solo){em=humanWins?'🏆':'💀';t=humanWins?TR('승리!','Victory!'):TR('패배...','Defeat...')}else if(G.mode==='sim'){em='🏁';t=SN[w]+TR(' AI 승리!',' AI wins!')}else{em='🎉';t=SN[w]+TR(' 승리!',' wins!')}
-  d=why==='lim'?TR(`${LIMIT}수가 지나 남은 전력으로 판정합니다 (백 ${BC.power(G.b,'w')} : 흑 ${BC.power(G.b,'b')}).`,`${LIMIT} moves have passed — judged on remaining strength (White ${BC.power(G.b,'w')} : Black ${BC.power(G.b,'b')}).`):why==='king'?TR(`${SN[w]}이(가) 상대의 킹을 잡았습니다.`,`${SN[w]} captured the enemy King.`):why==='dc'?TR('상대의 연결이 끊어져 승리했습니다.','You won because your opponent disconnected.'):why==='resign'?TR(`${SN[OP(w)]}이(가) 항복했습니다.`,`${SN[OP(w)]} resigned.`):TR(`${SN[OP(w)]}은(는) 더 이상 둘 수 있는 수가 없습니다.`,`${SN[OP(w)]} has no legal moves left.`)}
+  d=why==='lim'?TR(`${LIMIT}수가 지나 남은 전력으로 판정합니다 (백 ${BC.power(G.b,'w')} : 흑 ${BC.power(G.b,'b')}).`,`${LIMIT} moves have passed — judged on remaining strength (White ${BC.power(G.b,'w')} : Black ${BC.power(G.b,'b')}).`):why==='storm'?TR(`${SN[OP(w)]}의 킹이 자기장에 소멸했습니다.`,`${SN[OP(w)]}'s King was destroyed by the storm.`):why==='king'?TR(`${SN[w]}이(가) 상대의 킹을 잡았습니다.`,`${SN[w]} captured the enemy King.`):why==='dc'?TR('상대의 연결이 끊어져 승리했습니다.','You won because your opponent disconnected.'):why==='resign'?TR(`${SN[OP(w)]}이(가) 항복했습니다.`,`${SN[OP(w)]} resigned.`):TR(`${SN[OP(w)]}은(는) 더 이상 둘 수 있는 수가 없습니다.`,`${SN[OP(w)]} has no legal moves left.`)}
  if(G.mode==='sim'){if(w)simTally[w]++;else simTally.d++;d+=TR(` · 누적 전적 백 ${simTally.w}승 · 흑 ${simTally.b}승 · 무 ${simTally.d}`,` · Running tally: White ${simTally.w} wins · Black ${simTally.b} wins · Draws ${simTally.d}`)}
  draw(t+' · '+d);
  setTimeout(()=>sfx(!w?'rm':solo&&!humanWins?'lose':'win'),350);
@@ -2362,7 +2441,7 @@ $('#bResign').onclick=()=>{if(G.over)return;const s=G.net?G.net.me:G.mode==='pve
 /* ===== AI (웹 워커 + 동기 대체) ===== */
 let worker=null,reqId=0,pending=null,wdog=null;
 function initWorker(){try{
- const src=$('#eng').textContent+'\n;self.onmessage=function(e){var d=e.data;d.b.dead=d.dead;var m=BC.chooseMove(d.b,d.s,d.lv,{seen:d.seen,seed:d.seed,skills:d.skills,skillAll:d.sa,time:d.tm});self.postMessage({id:d.id,m:m,h:d.h})};';
+ const src=$('#eng').textContent+'\n;self.onmessage=function(e){var d=e.data;d.b.dead=d.dead;if(d.pl!==undefined)d.b.pl=d.pl;var m=BC.chooseMove(d.b,d.s,d.lv,{seen:d.seen,seed:d.seed,skills:d.skills,skillAll:d.sa,time:d.tm});self.postMessage({id:d.id,m:m,h:d.h})};';
  const url=URL.createObjectURL(new Blob([src],{type:'text/javascript'}));
  worker=new Worker(url);
  worker.onmessage=e=>{if(e.data.h){const f=hcb[e.data.id];delete hcb[e.data.id];f&&f(e.data.m);return}if(pending&&e.data.id===pending.id){const r=pending;pending=null;clearTimeout(wdog);r.cb(e.data.m)}};
@@ -2370,9 +2449,9 @@ function initWorker(){try{
 }catch(e){worker=null}}
 function runSync(req){setTimeout(()=>{if(!pending||pending.id!==req.id)return;const m=BC.chooseMove(req.b,req.s,req.lv,{seen:req.seen,seed:req.seed,skills:req.skills,skillAll:req.sa,time:worker?undefined:1500});pending=null;clearTimeout(wdog);req.cb(m)},40)}
 function cancelAI(){pending=null;clearTimeout(wdog);reqId++}
-function skFlags(){const s=G.sk&&G.sk[G.turn];return s?{ret:!!s.ret,rush:!!s.rush,fin:!!s.fin}:null}
+function skFlags(){const s=G.sk&&G.sk[G.turn];return s?{ret:!!s.ret,rush:!!s.rush,fin:!!s.fin,fever:!!s.fever}:null}
 function askAI(cb){const id=++reqId;const req={id,cb,b:BC.cloneBoard(G.b),s:G.turn,lv:G.mode==='sim'?G.lvs[G.turn]:G.lv,seen:G.seen,seed:G.seed,skills:skFlags()};pending=req;
- if(worker){worker.postMessage({id:req.id,b:req.b,dead:req.b.dead,s:req.s,lv:req.lv,seen:req.seen,seed:req.seed,skills:req.skills});wdog=setTimeout(()=>{if(pending&&pending.id===id){worker=null;runSync(pending)}},14000)}
+ if(worker){worker.postMessage({id:req.id,b:req.b,dead:req.b.dead,pl:req.b.pl||0,s:req.s,lv:req.lv,seen:req.seen,seed:req.seed,skills:req.skills});wdog=setTimeout(()=>{if(pending&&pending.id===id){worker=null;runSync(pending)}},14000)}
  else runSync(req)}
 function aiCheck(){
  if((G.mode!=='pve'&&G.mode!=='sim')||G.over||(G.mode==='pve'&&G.turn===G.human))return;
@@ -2382,8 +2461,8 @@ function aiCheck(){
  setTimeout(()=>{if(G.over)return;if(G.pause){G.busy=false;return}askAI(m=>{
   if(G.over){G.busy=false;return}
   if(!m){G.busy=false;finish(G.mode==='sim'?OP(G.turn):G.human,'stalemate');return}
-  if((m[2]===20||m[2]===21||(m[2]===9&&m[5]==='R'))&&aiSkillRun(m))return;
-  if(m[2]===20||m[2]===21||(m[2]===9&&m[5]==='R')){G.sk[G.turn][m[2]===20?'ret':m[2]===21?'fin':'rush']=0;return setTimeout(aiCheck,50)}
+  if((m[2]===20||m[2]===21||(m[2]===9&&(m[5]==='R'||m[5]==='F')))&&aiSkillRun(m))return;
+  if(m[2]===20||m[2]===21||(m[2]===9&&(m[5]==='R'||m[5]==='F'))){G.sk[G.turn][m[2]===20?'ret':m[2]===21?'fin':m[5]==='F'?'fever':'rush']=0;return setTimeout(aiCheck,50)}
   if(m[2]===9){const L=[];for(const mm of m[4]){if(mm[2]===0&&mm[3]!==undefined){L.push([mm[0],mm[1],0],[mm[1],mm[3],0])}else L.push(mm)}
    G.busy=true;const step=k=>{if(G.over){G.busy=false;return}
     play(L[k],undefined,k<L.length-1);
@@ -2445,12 +2524,22 @@ document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('but
 
 /* ===== 9.0: 토스트 · 기물명 아이콘 · 프리셋 · 설정 · 접근성 ===== */
 let toastT=null;
-const LIMIT=100,PHASE={20:TR('초반을 넘겼습니다!','The opening is over!'),40:TR('중반을 진행 중입니다!','The midgame is under way!'),60:TR('후반이 다가옵니다!','The endgame is approaching!'),80:TR('후반입니다!','It\'s the endgame!')};
-const PHL=n=>n<20?TR('초반','Opening'):n<40?TR('중반 진입','Entering midgame'):n<60?TR('중반','Midgame'):n<80?TR('후반 임박','Endgame near'):TR('후반','Endgame');
+const SUDDEN=90,LIMIT=100,PHASE={20:TR('초반을 넘겼습니다!','The opening is over!'),40:TR('중반을 진행 중입니다!','The midgame is under way!'),60:TR('후반이 다가옵니다!','The endgame is approaching!'),80:TR('후반입니다!','It\'s the endgame!')};
+const PHL=n=>n<20?TR('초반','Opening'):n<40?TR('중반 진입','Entering midgame'):n<60?TR('중반','Midgame'):n<80?TR('후반 임박','Endgame near'):n<90?TR('후반','Endgame'):TR('서든데스','Sudden Death');
 function hudDraw(){const n=Math.min(G.plies||0,LIMIT),h=$('#tHud');if(!h)return;$('#thN').textContent=n+' / '+LIMIT+TR('수',' moves');const left=LIMIT-n;$('#thP').textContent=left<=5&&!G.over?TR('종료까지 ','Ends in ')+left+TR('수',' moves'):PHL(n);$('#thF').style.width=(n/LIMIT*100)+'%';h.classList.toggle('hot',n>=LIMIT-5&&!G.over)}
 function countdown(left){const e=$('#cdAl');if(!e)return;e.innerHTML=left+TR('<small>수 남음</small>','<small>moves left</small>');e.classList.remove('on');void e.offsetWidth;e.classList.add('on');sfx('sel')}
-let skAT;function skillAlert(k,who){const e=$('#skAl');if(!e)return;const N={ret:['↩️',TR('원위치!','Fall Back!'),TR('아군 1기를 진영 안으로 후퇴','Pull 1 ally back into the zone')],rush:['⚡',TR('돌격 앞으로!','Charge!'),TR('2코스트 이하 기물이 연속 행동','Cost-2 pieces act in a row')],fin:['🏁',TR('상황 종결!','Finish It!'),TR('처치된 아군 1기를 부활','Revive a fallen ally')]}[k];if(!N)return;
+let skAT;function skillAlert(k,who){const e=$('#skAl');if(!e)return;const N={ret:['↩️',TR('원위치!','Fall Back!'),TR('아군 1기를 진영 안으로 후퇴','Pull 1 ally back into the zone')],rush:['⚡',TR('돌격 앞으로!','Charge!'),TR('2코스트 이하 기물이 연속 행동','Cost-2 pieces act in a row')],fin:['🏁',TR('상황 종결!','Finish It!'),TR('처치된 아군 1기를 부활','Revive a fallen ally')],fever:['🔥',TR('피버!','Fever!'),TR('서로 다른 기물 2개가 행동','2 different pieces act')]}[k];if(!N)return;
  e.className=who==='w'?'wh':'bk';e.innerHTML=`<small>${SN[who]} · ${TR('사용 스킬','Player Skill')}</small><span>${N[0]}</span><b>${N[1]}</b><em>${N[2]}</em>`;void e.offsetWidth;e.classList.add('on');clearTimeout(skAT);skAT=setTimeout(()=>e.classList.remove('on'),1900)}
+let stormT;
+function stormAlert(n){const e=$('#stormAl');if(!e)return;const T=[[60,1],[80,2],[90,3]];let ko=null,en=null,sub=null,sd=false;
+ for(const[t,k]of T){
+  if(n>=t-5&&n<t){const x=t-n;ko=`자기장이 ${x}턴 후에 다가옵니다!`;en=`The storm arrives in ${x} turn${x>1?'s':''}!`;sub=TR(`바깥 ${k}줄 · 자기 턴이 끝날 때 안에 있으면 1대 · 3대를 맞고 한 턴 더 있으면 소멸`,`Outer ${k} ring${k>1?'s':''} · hit at the end of your turn while inside · destroyed if it stays one more turn after the 3rd hit`);break}
+  if(n===t){ko=t===90?'서든데스!':'자기장 발생!';en=t===90?'SUDDEN DEATH!':'The storm is here!';sub=t===90?TR('바깥 3줄 자기장 · 기존 사용 스킬 잠금 · 🔥 피버! 해금','Outer 3 rings · Player Skills locked · 🔥 Fever! unlocked'):TR(`바깥 ${k}줄이 자기장이 되었습니다`,`The outer ${k} ring${k>1?'s':''} became storm`);sd=t===90;break}}
+ if(!ko){e.classList.remove('on');return}
+ e.className=sd?'sd':'';e.innerHTML=`<small>${sd?TR('🔥 서든데스','🔥 Sudden Death'):TR('⚡ 자기장 경보','⚡ Storm Warning')}</small><b>${TR(ko,en)}</b><em>${sub}</em>`;void e.offsetWidth;e.classList.add('on');sfx(sd||n===60||n===80?'empower':'sel');clearTimeout(stormT);stormT=setTimeout(()=>e.classList.remove('on'),sd?3200:2300)}
+function stormReport(u,who){if(!u||!u.zk)return;u.zk.forEach(x=>G.lost[x[1].s].push(x[1].t));G.since=0;
+ const nm=u.zk.map(x=>DEF[x[1].t].n).join('·');G.lastTxt=(G.lastTxt||'')+TR(` · ⚡ 자기장에 소멸: ${nm}`,` · ⚡ Destroyed by the storm: ${nm}`);
+ const zk=u.zk.slice();setTimeout(()=>{zk.forEach(x=>killFx(x[0],x[1].s,zk.length,'e',null));sfx('magmaDie')},300)}
 let phaseT;function phaseAlert(n){const t=PHASE[n];if(!t)return;const e=$('#phaseAl');if(!e)return;e.innerHTML=TR(`<small>${n}수 경과</small><b>${t}</b>`,`<small>${n} moves played</small><b>${t}</b>`);e.classList.remove('on');void e.offsetWidth;e.classList.add('on');sfx('sel');clearTimeout(phaseT);phaseT=setTimeout(()=>e.classList.remove('on'),2400)}
 function toast(m){const e=$('#toast');e.textContent=m;e.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>e.classList.remove('on'),2200)}
 const PNRE=(()=>{const ns=TYPES.map(t=>DEF[t].n).sort((a,b)=>b.length-a.length);return EN?new RegExp('(?<![A-Za-z])('+ns.join('|')+')(?![A-Za-z]|-class| class)','g'):new RegExp('(?<![가-힣A-Za-z])('+ns.join('|')+')(?! 계열)','g')})();
@@ -2828,8 +2917,8 @@ function netApply(a){
    const m=Array.isArray(a.m)?a.m.map(x=>x===null?undefined:x):null;
    if(!m||G.turn!==opc||!Number.isInteger(m[0])||!G.b[m[0]]||!Number.isInteger(m[1]))throw new Error('bad move');
    play(m,Array.isArray(a.h)?{d:a.h}:null,a.s?true:undefined)}
-  else if(a.k==='sk'){if((a.t!=='ret'&&a.t!=='fin')||G.turn!==opc||!G.sk[opc][a.t])throw new Error('bad skill');skApply(a.t,a.a,a.to)}
-  else if(a.k==='rush'){if(G.turn!==opc||!G.sk[opc].rush)throw new Error('bad rush');startRush()}
+  else if(a.k==='sk'){if((a.t!=='ret'&&a.t!=='fin')||G.turn!==opc||!G.sk[opc][a.t]||(G.plies||0)>=SUDDEN)throw new Error('bad skill');skApply(a.t,a.a,a.to)}
+  else if(a.k==='rush'){const fv=!!a.fv;if(G.turn!==opc||!G.sk[opc][fv?'fever':'rush']||(fv?(G.plies||0)<SUDDEN:(G.plies||0)>=SUDDEN))throw new Error('bad rush');startRush(fv?1:0)}
   else if(a.k==='skip'){if(G.turn!==opc)throw new Error('bad skip');doSkip()}
   else if(a.k==='res'){G.lastTxt=SN[opc]+TR(' 항복',' resigned');finish(G.net.me,'resign')}
  }catch(e){console.error(e);toast(TR('상대 행동을 처리하지 못했습니다 (동기화 오류)','Could not process the opponent\'s action (sync error)'))}
@@ -2845,10 +2934,10 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='10.8.1';
+const APP_VER='11.1.1';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
- ['10.8.1',TR('신규 기물 6종','6 New Pieces'),[TR('⛩️ 부시도: 납도(칼집에 넣기) 후 발도술로 주변 2칸 이내 적 최대 2기를 베어 처치','⛩️ Bushido: sheathe the blade, then unleash Iaido to cut down up to 2 enemies within 2 squares'),TR('🎩 매지션: 중앙 4줄의 적 2기를 둔화시켜 다음 턴 상하좌우 1칸만 움직이게 함','🎩 Magician: slows 2 enemies in the middle 4 rows so they can only step 1 square orthogonally next turn'),TR('🎻 바드: 주변 아군 2기에게 보호막 (원거리·처치 스킬 1회 방어)','🎻 Bard: shields 2 nearby allies (blocks one ranged attack or kill skill)'),TR('🔨 워해머: 적을 처치하면 50% 확률로 한 번 더 잡기','🔨 Warhammer: 50% chance to capture again after a kill'),TR('⚡ 볼티지: 5칸 이동, 코스트 2 이하만 잡기 · 주변에 다른 볼티지가 있으면 추가 행동','⚡ Voltage: moves 5 squares, captures cost-2-or-less only · extra action when another Voltage is nearby'),TR('🦗 호퍼: 긴 L자 점프, 메뚜기 떼 모드로 잡기 해금','🦗 Hopper: long L-shaped jump; Locust Swarm mode unlocks capturing'),TR('💬 스킬을 쓰는 기물은 이펙트와 함께 대사를 외쳐요','💬 Pieces with skills now shout a line with an effect when they use them'),TR('🧩 기존 체스 + 신규 기물을 섞은 추천 프리셋 16종','🧩 16 new presets mixing classic and new pieces'),TR('❓ 게임 설정·기물 선택·배치·온라인·기물 도감에 도우미 투어 (강조하며 안내)','❓ Helper tours for Game Setup, Pick, Placement, Online and Piece Codex (highlight step by step)'),TR('🛠 핸드 스킬을 AI가 쓸 때 아군이 사라지던 버그 수정','🛠 Fixed a bug where an AI Hand skill could delete an ally'),TR('😈 데몬 악마화 연출 강화 · 아이콘 변경','😈 Stronger Demon transformation effect and a new icon'),TR('🎵 평화로운 새 배경음악 · 기물 선택/배치/메뉴에서 재생','🎵 New calm BGM for menus, piece selection and placement'),TR('🌐 온라인 매칭이 20초 안에 잡히지 않으면 자동으로 AI와 대전','🌐 If online matching finds no opponent within 20 seconds, you are matched with an AI automatically')]],
+ ['11.1.1',TR('자기장 · 서든데스 · 신규 기물 6종','Storm, Sudden Death & 6 New Pieces'),[TR('⛩️ 부시도: 납도(칼집에 넣기) 후 발도술로 주변 2칸 이내 적 최대 2기를 베어 처치','⛩️ Bushido: sheathe the blade, then unleash Iaido to cut down up to 2 enemies within 2 squares'),TR('🎩 매지션: 중앙 4줄의 적 2기를 둔화시켜 다음 턴 상하좌우 1칸만 움직이게 함','🎩 Magician: slows 2 enemies in the middle 4 rows so they can only step 1 square orthogonally next turn'),TR('🎻 바드: 주변 아군 2기에게 보호막 (원거리·처치 스킬 1회 방어)','🎻 Bard: shields 2 nearby allies (blocks one ranged attack or kill skill)'),TR('🔨 워해머: 적을 처치하면 50% 확률로 한 번 더 잡기','🔨 Warhammer: 50% chance to capture again after a kill'),TR('⚡ 볼티지: 5칸 이동, 코스트 2 이하만 잡기 · 주변에 다른 볼티지가 있으면 추가 행동','⚡ Voltage: moves 5 squares, captures cost-2-or-less only · extra action when another Voltage is nearby'),TR('🦗 호퍼: 긴 L자 점프, 메뚜기 떼 모드로 잡기 해금','🦗 Hopper: long L-shaped jump; Locust Swarm mode unlocks capturing'),TR('💬 스킬을 쓰는 기물은 이펙트와 함께 대사를 외쳐요','💬 Pieces with skills now shout a line with an effect when they use them'),TR('🧩 기존 체스 + 신규 기물을 섞은 추천 프리셋 16종','🧩 16 new presets mixing classic and new pieces'),TR('❓ 게임 설정·기물 선택·배치·온라인·기물 도감에 도우미 투어 (강조하며 안내)','❓ Helper tours for Game Setup, Pick, Placement, Online and Piece Codex (highlight step by step)'),TR('🛠 핸드 스킬을 AI가 쓸 때 아군이 사라지던 버그 수정','🛠 Fixed a bug where an AI Hand skill could delete an ally'),TR('😈 데몬 악마화 연출 강화 · 아이콘 변경','😈 Stronger Demon transformation effect and a new icon'),TR('🎵 평화로운 새 배경음악 · 기물 선택/배치/메뉴에서 재생','🎵 New calm BGM for menus, piece selection and placement'),TR('🌐 온라인 매칭이 20초 안에 잡히지 않으면 자동으로 AI와 대전','🌐 If online matching finds no opponent within 20 seconds, you are matched with an AI automatically'),TR('⚡ 자기장: 60수에 바깥 1줄, 80수에 2줄, 90수에 3줄이 자기장이 돼요. 자기 턴이 끝날 때 안에 있으면 1대씩 맞고, 3대를 맞은 뒤 한 턴 더 버티면 소멸하며(킹 포함) 밖으로 나오면 초기화돼요. ⚡볼티지는 자기장에 면역이에요. 5턴 전부터 알림이 떠요','⚡ Storm: at move 60 / 80 / 90 the outer 1 / 2 / 3 rings become storm. A piece inside at the end of its turn takes a hit; after the 3rd hit it is destroyed if it stays one more turn (Kings too). Leaving resets the count. Voltage is immune. Warnings start 5 turns ahead'),TR('🔥 서든데스(90수): 기존 사용 스킬은 잠기고 피버!(1회, 한 턴에 서로 다른 기물 2개 행동)가 열려요','🔥 Sudden Death (move 90): Player Skills are locked and 🔥 Fever! (once, 2 different pieces act in one turn) unlocks'),TR('❄️ 프로즌의 영역: 안에 있는 아군·적 기물(킹·퀸 계열 제외)은 이동도 잡기도 할 수 없어요','❄️ Frozen: pieces in its zone (allies and enemies, except King/Queen class) can neither move nor capture'),TR('🔫 머신건: 좌우뿐 아니라 전방으로도 1칸 이동할 수 있어요','🔫 Machine Gun: can now also move 1 square forward, not just sideways'),TR('🤖 AI 개선: 럭키를 상황에 맞게 쓰고, 자기장을 피해 안쪽으로 이동해요','🤖 AI: uses Lucky when it pays off and moves inward to avoid the storm')]],
  ['10.7.0',TR('체험형 튜토리얼 · 기물 밸런스','Guided Tutorial & Balance'),[TR('🎮 체험형 튜토리얼 추가: 첫 접속 때 튜토리얼 창을 닫으면 예시 대국으로 들어가 도우미가 한 수씩 안내해요 (메인 메뉴에서 언제든 다시 가능)','🎮 Added a guided tutorial: on your first visit, closing the tutorial window drops you into a practice game where a helper guides you move by move (replay any time from the main menu)'),TR('🏹 아처: 사거리 3칸으로 증가 + 곡사 공격 (사이에 기물이 있어도 공격 가능)','🏹 Archer: range increased to 3 squares + lobbed shots (can hit over pieces in between)'),TR('🔱 크로스보우: 대각선 4방향 1칸 원거리 공격 추가','🔱 Crossbow: added 1-square ranged attacks in the 4 diagonal directions'),TR('🧨 샷건: 이동 상하좌우 최대 1칸으로 너프 · 공격 범위는 앞 가로 3칸 + 정면 한 칸 더','🧨 Shotgun: nerfed to move up to 1 square orthogonally · attack range is now the 3 squares ahead plus the 1 square straight beyond'),TR('🗼 버티컬: 한 번 이동하기 전까지는 스킬 사용 불가','🗼 Vertical: its skill cannot be used until it has moved once'),TR('💂 솔저: 첫 이동에서만 앞으로 2칸 이동 가능','💂 Soldier: may move 2 squares forward on its first move only'),TR('⚡ 사용 스킬(원위치·돌격·상황 종결)을 쓰면 양쪽 모두 화면 중앙에 이펙트가 떠요','⚡ Player Skills (Fall Back · Charge · Finish It) now show a centered effect for both sides'),TR('🤖 AI가 추가 행동(럭키·기물 스킬 등)을 직접 선택해서 처리해요 (더 이상 내가 건너뛰기를 누를 필요 없음)','🤖 The AI now picks its own extra actions (Lucky, piece skills, etc.) — no more skipping them for the AI'),TR('📲 홈 화면에 추가해서 앱처럼 설치 가능 · 갤럭시 S23/S24/S25 화면 최적화 · 접속하면 BGM이 더 빨리 시작','📲 Installable to your home screen like an app · optimized for Galaxy S23/S24/S25 screens · music starts sooner'),TR('게임 규칙이 바뀌어 온라인 대전은 같은 버전끼리만 가능해요 (새로고침하면 최신 버전이 됩니다)','Game rules changed, so online matches only work between the same version (refresh to update)')]],
  ['10.6.0',TR('영어 지원','English Support'),[TR('🌐 English / 한국어 언어 선택 추가 (첫 접속 때 선택, 메인 메뉴의 🌐 버튼에서 언제든 변경)','🌐 Added English / Korean language selection (choose on your first visit; change it any time with the 🌐 button on the main menu)'),TR('게임 화면 · 기물 도감 · 튜토리얼 · 도움말 · 공지까지 전부 영어로 번역','Everything — game screens, piece codex, tutorial, help and notices — is translated into English'),TR('서로 언어가 달라도 온라인 대전을 함께 할 수 있어요','Online play works between players using different languages'),TR('버전이 올라가 온라인 대전은 10.6.0끼리만 매칭됩니다 — 예전 화면이면 새로고침해 주세요','Online matching is now between 10.6.0 players only — refresh if you still see the old screen')]],
  ['10.5.1',TR('정식 출시','Official Launch'),[TR('패치 노트 · 건의하기 · 게임 공유 기능 추가','Added patch notes, feedback board and game sharing'),TR('온라인 대전 · 랭크 · 내 프리셋 출전 · 기물 선택/배치 단계의 메뉴 버튼 정식 포함','Online play, ranked mode, preset support for online games, and menu buttons on the piece-selection/placement screens are now officially included')]],
@@ -3026,10 +3115,10 @@ const TUT=[
 [TR('킹, 체크, 승패','King, Check and Winning'),()=>TR(`<div class="hc"><h4>🎯 이기는 법</h4><p>상대의 <b>킹을 잡으면 즉시 승리</b>! (엠페러·갓·데몬처럼 킹을 대신하는 기물도 똑같이 적용돼요)</p></div>
 <div class="hc"><h4>⚠️ 체크</h4><p>내 킹이 적에게 공격받는 상태가 <b>체크</b>예요. 경고가 뜨면 킹을 옮기거나, 공격하는 적을 잡거나, 사이를 막으세요. 일반 체스와 달리 강제는 아니지만, <b>그냥 두면 킹이 잡혀 패배</b>합니다.</p></div>
 <div class="hc"><h4>📉 이 외에 지는 경우</h4><ul><li>움직일 수 있는 수가 하나도 없으면 패배</li><li>항복을 누르면 패배</li></ul></div>
-<div class="hc"><h4>⏱ 100수 판정</h4><p>백·흑을 합쳐 <b>100수</b>가 지나면 판정으로 끝나요. <b>남은 기물의 코스트 합이 큰 쪽</b>이 승리! 같으면 기물 수, 그것도 같으면 무승부입니다. 그러니 <b>끝까지 도망만 다니면 안 되고</b>, 유리하게 교환하는 게 중요해요.</p></div>`,`<div class="hc"><h4>🎯 How to win</h4><p><b>Capture the enemy King and you win immediately!</b> (The same applies to pieces that stand in for the King, like the Emperor, God and Demon.)</p></div>
+<div class="hc"><h4>⏱ 100수 판정</h4><p>백·흑을 합쳐 <b>100수</b>가 지나면 판정으로 끝나요. <b>남은 기물의 코스트 합이 큰 쪽</b>이 승리! 같으면 기물 수, 그것도 같으면 무승부입니다. 그러니 <b>끝까지 도망만 다니면 안 되고</b>, 유리하게 교환하는 게 중요해요. 또 60수부터는 <b>자기장</b>이 바깥쪽부터 조여 와서 가장자리에 오래 있으면 기물이 사라지고, 90수부터는 서든데스예요!</p></div>`,`<div class="hc"><h4>🎯 How to win</h4><p><b>Capture the enemy King and you win immediately!</b> (The same applies to pieces that stand in for the King, like the Emperor, God and Demon.)</p></div>
 <div class="hc"><h4>⚠️ Check</h4><p>When your King is under attack, that is <b>check</b>. When the warning appears, move your King, capture the attacker, or block the way. Unlike regular chess it is not enforced, but <b>if you ignore it your King gets captured and you lose</b>.</p></div>
 <div class="hc"><h4>📉 Other ways to lose</h4><ul><li>You have no legal move at all</li><li>You press Resign</li></ul></div>
-<div class="hc"><h4>⏱ The 100-move judgment</h4><p>Once <b>100 moves</b> have been played in total (White and Black combined), the game ends by judgment. <b>The side whose remaining pieces have the larger total cost</b> wins! If tied, more pieces wins; if that is tied too, it is a draw. So <b>you cannot just run away forever</b> — making favorable trades matters.</p></div>`)],
+<div class="hc"><h4>⏱ The 100-move judgment</h4><p>Once <b>100 moves</b> have been played in total (White and Black combined), the game ends by judgment. <b>The side whose remaining pieces have the larger total cost</b> wins! If tied, more pieces wins; if that is tied too, it is a draw. So <b>you cannot just run away forever</b> — making favorable trades matters. Also, from move 60 the <b>storm</b> closes in from the edges and destroys pieces that linger there, and move 90 is Sudden Death!</p></div>`)],
 [TR('승급: 폰이 변신!','Promotion: Pawns Transform!'),()=>TR(`<div class="hc"><h4>끝줄에 닿으면 강해져요</h4><ul><li>🚶 <b>폰</b>이 상대 쪽 끝줄에 닿으면 → <b>룩 · 비숍 · 나이트</b> 중 하나로 변신</li><li>💂 <b>솔저</b>가 끝줄에 닿으면 → <b>뱅가드 · 샷건</b> 중 하나로 변신</li></ul><p>플레이어는 선택 창에서 직접 고르고, AI는 알아서 골라요.</p></div>
 <div class="hc"><h4>활용 팁</h4><p>1코스트짜리 폰이 끝줄까지 살아가면 공짜로 큰 전력이 생기는 셈이에요. 폰을 한두 개 몰래 전진시켜 보세요!</p></div>`,`<div class="hc"><h4>Reach the last row and get stronger</h4><ul><li>🚶 When a <b>Pawn</b> reaches the enemy's last row → it becomes a <b>Rook · Bishop · Knight</b> (your choice)</li><li>💂 When a <b>Soldier</b> reaches the last row → it becomes a <b>Vanguard · Shotgun</b> (your choice)</li></ul><p>You choose in a popup yourself, and the AI chooses on its own.</p></div>
 <div class="hc"><h4>A handy tip</h4><p>If a 1-cost Pawn survives all the way to the last row, you get a lot of strength for free. Try sneaking a Pawn or two forward!</p></div>`)],
@@ -3322,7 +3411,7 @@ function rtdbRoom(){
    join:async nm=>{const r=await make(nm);return r}})})().catch(e=>{rtdbLobby=null;throw e});
  return rtdbLobby}
 
-window.__BC_APP={get G(){return G},U,play,draw,aiCheck};
+/*DBG*/
 })();
 
 (function heroIcons(){document.querySelectorAll('.fl .ic').forEach(el=>{const m=el.textContent.match(/^@(\w)$/);if(m)el.innerHTML=gl(m[1])})})();
