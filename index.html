@@ -321,6 +321,9 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
 .rk .rbar{height:6px;border-radius:3px;background:var(--line);margin-top:5px;overflow:hidden}.rk .rbar i{display:block;height:100%;background:#1f6feb}
 .mmR{font-size:13px;color:var(--mut);margin:2px 0}
 .hrow{display:flex;align-items:center;justify-content:space-between;gap:8px}.hrow h2{margin:0}.hbtn{padding:7px 11px;font-size:13px;white-space:nowrap}
+.mrow{display:flex;gap:6px}.mrow button{flex:1;padding:10px 4px;font-size:13px}
+.pnb{max-height:58vh;overflow:auto}.pnv{border-left:3px solid var(--line);padding:2px 0 2px 12px;margin-bottom:14px}.pnv.cur{border-color:#1f6feb}.pnv h4{margin:0 0 4px;font-size:15px}.pnv h4 small{font-weight:400;color:var(--mut)}.pnv ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.55}
+#upBn{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:80;background:#111;color:#fff;border-radius:14px;padding:9px 10px 9px 14px;display:flex;align-items:center;gap:8px;font-size:13.5px;box-shadow:0 8px 28px rgba(0,0,0,.4);max-width:calc(100vw - 24px)}#upBn button{padding:7px 12px;font-size:13px;width:auto}#upBn #upX{background:transparent;color:#fff;border:0;font-size:18px}
 .btns2{display:flex;gap:8px}.btns2 button{flex:1}
 .nspin{width:38px;height:38px;margin:4px auto 8px;border:4px solid var(--line);border-top-color:#1f6feb;border-radius:50%;animation:nsp 1s linear infinite}
 @keyframes nsp{to{transform:rotate(360deg)}}
@@ -338,7 +341,7 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <p class="note">39 코스트로 나만의 군대를 만들어 싸워라</p>
- <div class="btns"><button class="pri" id="go0">▶ START</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><div class="ver">VERSION 10.5</div>
+ <div class="btns"><button class="pri" id="go0">▶ START</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button></div></div><div class="ver">VERSION 10.5.1</div>
 </section>
 
 <section class="scr" id="s5">
@@ -351,7 +354,7 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
   <div id="nList" class="nlist"></div><button id="nMake" style="margin-top:8px">➕ 내 기물 선택·배치로 새 프리셋 만들기</button>
  </div>
  <div class="card" id="nQ" style="display:none;text-align:center">
-  <div class="nspin"></div><h3 id="nQT">상대를 찾는 중…</h3><p class="note" id="nQD"></p>
+  <div class="nspin"></div><h3 id="nQT">상대를 찾는 중…</h3><p class="note" id="nQD"></p><p class="note" id="nQTip" style="display:none">⏳ 지금은 접속자가 적어요. 친구에게 공유해서 같은 시간에 접속해 보세요!</p><button id="nShare" style="display:none;margin-top:6px">📤 친구에게 공유하기</button><br>
   <button id="nCancel" style="margin-top:8px">매칭 취소</button>
  </div>
  <div class="btns2"><button class="pri" id="nGo">⚔️ 매칭 시작</button><button id="nBack">뒤로</button></div>
@@ -410,10 +413,13 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
 </section>
 
 </main>
+<div id="upBn" role="status" style="display:none"><span id="upTx"></span><button id="upGo" class="pri">새로고침</button><button id="upX" aria-label="닫기">×</button></div>
 
 <div class="modal" id="mPiece" role="dialog" aria-modal="true"><div class="mc"><button class="x" data-close>닫기</button><div id="pieceBody"></div></div></div>
 <div class="modal" id="mHelp" role="dialog" aria-modal="true"><div class="mc"><button class="x" data-close>닫기</button><div id="helpBody"></div></div></div>
-<div class="modal" id="mOver" role="dialog" aria-modal="true"><div class="mc res"><div class="em" id="ovEm"></div><h2 id="ovT"></h2><p id="ovD" class="note"></p><div class="ovs" id="ovS"></div><button class="pri" id="ovNet" style="display:none;margin-top:14px">🌐 다시 매칭하기</button><button class="pri" id="ovAgain" style="margin-top:14px">같은 구성·배치로 다시 하기</button><div class="row2" style="margin-top:8px"><button id="ovPlace">배치로 돌아가기</button><button id="ovSel">기물 선택으로</button></div><div class="row2" style="margin-top:8px"><button id="ovHome">메인 메뉴</button><button class="ghost" id="ovView">판 확인하기</button></div></div></div>
+<div class="modal" id="mOver" role="dialog" aria-modal="true"><div class="mc res"><div class="em" id="ovEm"></div><h2 id="ovT"></h2><p id="ovD" class="note"></p><div class="ovs" id="ovS"></div><button id="ovShare" style="margin-top:8px;width:100%">📤 결과 공유하기</button><button class="pri" id="ovNet" style="display:none;margin-top:14px">🌐 다시 매칭하기</button><button class="pri" id="ovAgain" style="margin-top:14px">같은 구성·배치로 다시 하기</button><div class="row2" style="margin-top:8px"><button id="ovPlace">배치로 돌아가기</button><button id="ovSel">기물 선택으로</button></div><div class="row2" style="margin-top:8px"><button id="ovHome">메인 메뉴</button><button class="ghost" id="ovView">판 확인하기</button></div></div></div>
+<div class="modal" id="mPatch" role="dialog" aria-modal="true" aria-labelledby="pnT"><div class="mc res" style="text-align:left"><h2 id="pnT" style="text-align:center">📢 공지 · 패치 노트</h2><div class="seg" id="pnTab" style="margin-bottom:10px"><button data-v="n" class="on">공지</button><button data-v="p">패치 노트</button></div><div id="pnB" class="pnb"></div><div class="row2" style="margin-top:14px"><button class="pri" id="pnX" style="width:auto">닫기</button></div></div></div>
+<div class="modal" id="mFb" role="dialog" aria-modal="true" aria-labelledby="fbT"><div class="mc res" style="text-align:left"><h2 id="fbT" style="text-align:center">💬 건의하기</h2><p class="note" style="text-align:center">버그, 밸런스, 아이디어, 칭찬 모두 환영합니다!</p><select id="fbCat" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin:8px 0"><option>🐞 버그 제보</option><option>⚖️ 밸런스 의견</option><option>💡 기능 건의</option><option>👍 칭찬·응원</option></select><textarea id="fbMsg" rows="6" maxlength="1000" placeholder="어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;resize:vertical;font-family:inherit"></textarea><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin:4px 0"><label><input type="checkbox" id="fbInfo" checked> 버전·기기 정보 포함</label><span id="fbCnt">0 / 1000</span></div><p class="note" id="fbNote"></p><div class="row2" style="margin-top:10px"><button class="pri" id="fbSend">보내기</button><button id="fbCopy">내용 복사</button><button id="fbX">닫기</button></div></div></div>
 <div class="modal" id="mLog" role="dialog" aria-modal="true" aria-labelledby="lgT"><div class="mc res"><h2 id="lgT">행동 로그</h2><p class="note" id="lgN"></p><div id="lgAll"></div><div class="row2" style="margin-top:14px"><button class="pri" id="lgX" style="width:auto">닫기</button></div></div></div>
 <div id="cdAl" aria-hidden="true"></div>
 <div id="phaseAl" role="status" aria-live="polite"></div>
@@ -2140,7 +2146,7 @@ function applyPf(){document.body.classList.toggle('rm',!!PF.rm);document.body.cl
 function applyBv(){try{if(tg)tg.gain.value=.9*bv;if(mg)mg.gain.value=.3*bv}catch(e){}}
 function swRow(id,t,d,on){return `<div class="setr"><label for="${id}"><b>${t}</b><span class="d">${d}</span></label><button class="sw" id="${id}" role="switch" aria-checked="${on}"></button></div>`}
 function buildSet(){$('#setBody').innerHTML=swRow('swSfx','효과음','이동·잡기·스킬 소리',sfxOn)+swRow('swBgm','배경음악','',music)+`<div class="setr"><label for="bvR"><b>배경음악 크기 <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">기본 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="배경음악 크기"></div>`+swRow('swHint','좋은 수 표시','체스 초보를 위한 추천 수와 체크 안내 (대국 중에도 바꿀 수 있습니다)',!!U.hint)+swRow('swRm','애니메이션 줄이기','화면 효과와 움직임을 최소화합니다',!!PF.rm)+swRow('swLt','큰 글씨 · 큰 화면','전체 화면을 12% 키웁니다',!!PF.lt)
- +`<div class="setr"><div><b>저장 데이터 삭제</b><span class="d">설정과 내 프리셋을 모두 지웁니다</span></div><button id="swClr">삭제</button></div><p class="note" style="text-align:center;margin-top:10px">배틀체스 · VERSION 10.5</p>`;
+ +`<div class="setr"><div><b>저장 데이터 삭제</b><span class="d">설정과 내 프리셋을 모두 지웁니다</span></div><button id="swClr">삭제</button></div><p class="note" style="text-align:center;margin-top:10px">배틀체스 · VERSION 10.5.1</p>`;
  const tg=(id,fn)=>$('#'+id).onclick=()=>{fn();buildSet()};
  {const r=$('#bvR');r.oninput=()=>{bv=r.value/100;$('#bvP').textContent=r.value+'%';applyBv()};r.onchange=()=>store.set('bv',bv)}
  tg('swSfx',()=>$('#sf').click());tg('swBgm',()=>$('#bm').click());
@@ -2214,14 +2220,14 @@ async function netInit(){
   return true}catch(e){NT.ok=false;return false}}
 
 /* --- 랭크 (이 기기에 저장되는 점수) --- */
-const RANKS=[['언랭크','🥚'],['브론즈','🥉'],['실버','🥈'],['골드','🥇'],['플래티넘','💠'],['다이아','💎'],['마스터','🔮'],['그랜드마스터','👑'],['챌린저','🏆']];
+const RANKS=[['언랭크','🍑'],['브론즈','🥉'],['실버','🥈'],['골드','🥇'],['플래티넘','💠'],['다이아','💎'],['마스터','🔮'],['그랜드마스터','👑'],['챌린저','🏆']];
 const RK_WIN=20,RK_LOSS=8;
 let rkPts=Math.max(0,Math.min(2000,Math.floor(+store.get('rk',0))||0));
 const rkTier=p=>Math.min(8,Math.floor(Math.max(0,p)/100));
 const rkName=p=>RANKS[rkTier(p)][1]+' '+RANKS[rkTier(p)][0];
 function rkDraw(){const t=rkTier(rkPts),el=$('#nRank');if(!el)return;
  const nx=t<8?`${RANKS[t+1][0]}까지 ${(t+1)*100-rkPts}점`:'최고 등급!';
- el.innerHTML=`<div class="rb">${RANKS[t][1]}</div><div class="rt"><b>${RANKS[t][0]} · ${rkPts}점</b><small>승리 +${RK_WIN} · 패배 −${RK_LOSS} · ${nx}</small><div class="rbar"><i style="width:${t<8?rkPts%100:100}%"></i></div></div>`}
+ el.innerHTML=`<div class="rb">${RANKS[t][1]}</div><div class="rt"><b>${RANKS[t][0]} · ${rkPts}점</b><small>승리 +${RK_WIN} · 패배 −${RK_LOSS} · ${nx}</small><div class="rbar"><i style="width:${t<8?rkPts%100:100}%${t===0?';background:#F4A97F':''}"></i></div></div>`}
 function netResult(w){
  if(!G.net||G.net.rk)return;G.net.rk=1;
  const before=rkPts;let d=0;
@@ -2253,7 +2259,8 @@ function netStat(){
  const pv=NT.room.peers().filter(p=>p.kind==='viewer'),wt=pv.filter(p=>p.presence&&typeof p.presence.w==='number').length;
  el.textContent=NT.conn?`🟢 온라인 · 접속 ${pv.length}명 · 매칭 대기 ${wt}명`:'🟠 연결이 불안정합니다. 다시 연결 중…';
  go.disabled=NT.phase!=='idle';
- if(NT.phase==='queue'){const s=Math.floor((Date.now()-NT.since)/1000);$('#nQD').textContent=`${s}초째 대기 중 · 접속자 ${pv.length}명 (자기 자신 포함) · 같은 페이지를 연 다른 사람이 매칭을 누르면 바로 연결됩니다`}}
+ if(NT.phase==='queue'){const s=Math.floor((Date.now()-NT.since)/1000);{const tp=$('#nQTip'),sh=$('#nShare');if(tp){tp.style.display=s>=30&&pv.length<=2?'':'none';sh.style.display=s>=30&&pv.length<=2?'':'none'}}
+  $('#nQD').textContent=`${s}초째 대기 중 · 접속자 ${pv.length}명 (자기 자신 포함) · 같은 페이지를 연 다른 사람이 매칭을 누르면 바로 연결됩니다`}}
 function netUI(){const q=NT.phase!=='idle';$('#nSetup').style.display=q?'none':'';$('#nQ').style.display=q?'':'none';$('#nGo').style.display=q?'none':'';$('#nBack').style.display=q?'none':'';
  $('#nQT').textContent=NT.phase==='joining'?'상대를 찾았습니다! 연결 중…':'상대를 찾는 중…';$('#nCancel').style.display=NT.phase==='queue'?'':'none'}
 function netOpen(){
@@ -2346,7 +2353,7 @@ async function netEnter(op,id,role){
  NT.failT=setTimeout(()=>{if(!NT.started&&NT.phase==='joining')netFail('상대가 응답하지 않습니다')},20000)}
 function netSendHi(){
  if(!NT.gr)return;
- const d={nk:NT.nk,l:NT.mine.l,pl:NT.mine.pl,rk:rkPts};if(NT.role==='host'){d.hc=NT.hc;d.seed=NT.seed}
+ const d={nk:NT.nk,l:NT.mine.l,pl:NT.mine.pl,rk:rkPts,av:APP_VER};if(NT.role==='host'){d.hc=NT.hc;d.seed=NT.seed}
  NT.gr.emit('hi',d).catch(()=>{})}
 function netFail(msg){
  toast(msg+' — 다시 상대를 찾습니다');
@@ -2355,6 +2362,7 @@ function netFail(msg){
 function onHi(msg){
  if(msg.sameTab||!NT.opp||msg.peer!==NT.opp.peer||NT.started)return;
  const d=msg.data;if(!d)return;
+ if(d.av!==APP_VER){netFail('상대와 게임 버전이 달라요 (상대 v'+String(d.av||'?').slice(0,10)+', 나 v'+APP_VER+') — 새로고침 후 다시 시도해 주세요');return}
  const nk=nkClean(d.nk);if(!nk||typeof d.l!=='string'||!Array.isArray(d.pl))return;
  const first=!NT.gotHi;
  NT.opp.rk=Math.max(0,Math.min(2000,Math.floor(+d.rk)||0));NT.opp.nk=nk;NT.opp.l=d.l;NT.opp.pl=d.pl;
@@ -2371,7 +2379,7 @@ function netBegin(){
  $('#mmC').textContent=`당신은 ${me==='w'?'백 (선공)':'흑 (후공)'} 입니다`;
  const row=l=>l.split('').concat(/[Egd]/.test(l)?[]:['K']).map(t=>icon(t)).join('');
  $('#mmMy').innerHTML=row(NT.mine.l);$('#mmOp').innerHTML=row(NT.opp.l);
- openM('mMatch');sfx('promo');
+ openM('mMatch');sfx('promo');if(document.hidden){const t0=document.title;let k=0;const iv=setInterval(()=>{document.title=k++%2?t0:'⚔️ 매칭 성사!';if(!document.hidden||k>30){clearInterval(iv);document.title=t0}},700)}
  let n=3;const cd=()=>{$('#mmCd').textContent=n>0?`${n}초 후 시작…`:'시작!';if(n<=0){setTimeout(()=>netGo(me,mp,pp),350);return}n--;setTimeout(cd,1000)};cd()}
 function netGo(me,mp,pp){
  if(NT.phase!=='joining'||!NT.gr){NT.beginning=false;closeM('mMatch');return}
@@ -2450,6 +2458,80 @@ function netLeave(keepNet){
  closeM('mMatch');
  if(!keepNet){NT.phase='idle';if(NT.room)NT.room.presence({w:null}).catch(()=>{})}}
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
+
+/* ===== 패치 노트 · 건의하기 · 공유 ===== */
+const APP_VER='10.5.1';
+/* 제작자 설정: 아래 두 값을 채우면 '건의하기'가 해당 주소로 연결됩니다 (비워두면 내용 복사만 제공) */
+const FEEDBACK_FORM='';   // 예: 구글 폼 주소 'https://forms.gle/....'
+const FEEDBACK_MAIL='sung040904@naver.com';   // 예: 'me@example.com'
+const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
+const PATCH=[
+ ['10.5.1','정식 출시',['패치 노트 · 건의하기 · 게임 공유 기능 추가','온라인 대전 · 랭크 · 내 프리셋 출전 · 기물 선택/배치 단계의 메뉴 버튼 정식 포함']],
+ ['10.5','온라인 대전과 랭크',['🌐 온라인 대전: 미리 저장한 구성·배치로 다른 사람과 실시간 매칭, “매칭 성사!” 창 후 바로 시작','랭크: 승리 +20 / 패배 −8, 브론즈(100) ~ 챌린저(800) 8단계','온라인에서 내 기물 선택·배치 프리셋 사용, 로비에서 새 프리셋 바로 만들기','기물 선택·배치 화면에 🏠 메뉴로 돌아가기 버튼','연결이 끊기면 30초 후 승리 처리, 메시지 유실 자동 복구']],
+ ['10.4','규칙·표시 정리',['승패 판정: 3회 반복 규칙 제거, 100수가 지나면 남은 전력(코스트 합)으로 판정','20수마다 초반/중반/후반 알림, 95~99수 카운트다운, 보드 위 진행 표시줄','행동 로그: 대전 중 언제든 지금까지의 행동 전체 보기','기물 설명창·도움말을 최신 밸런스로 전면 갱신']],
+ ['10.3','승급과 프리셋',['폰이 끝줄에 닿으면 룩·비숍·나이트 중 선택해 승급 (AI는 자동 선택)','솔저가 끝줄에 닿으면 뱅가드 또는 샷건으로 승급','기존 체스를 제외한 새 프리셋 9종 (이름과 조합 전면 개편)','퀸의 첫 이동은 상하좌우·대각선 2칸까지로 제한 (코스트 9 유지)']],
+ ['10.2','밸런스 대개편',['코스트 조정: 룩 5 · 샷건 7 · 메딕 3 · 갓 0 (그 외 다수 미세 조정)','갓: 기물을 잡지 못하는 대신 코스트 0, 원거리 공격 면역','대규모 시뮬레이션 수천 판 결과로 약한 기물 보강·강한 기물 조정']],
+ ['10.1','AI와 도우미 강화',['AI 탐색 강화: 더 깊게, 더 오래 생각하고 스킬·원거리 공격·기동을 더 잘 활용','도우미(좋은 수 표시): 스킬·부활·승급까지 이유를 설명하고 추천 수 강조','AI 관전 모드 유지, 7단계 난이도']],
+ ['10.0','기본 구성',['39코스트로 군대를 짜고 직접 배치하는 커스텀 체스','PvE(AI 7단계) · 한 기기 PvP · AI 관전','기물 도감, 내 프리셋 저장·가져오기, 사용 스킬(원위치 / 돌격 앞으로 / 상황 종결)']]];
+const NOTICES=[
+ ['🔄 업데이트 후 화면이 그대로라면','게임이 업데이트되었는데도 예전 화면이 보이면 브라우저가 옛 파일을 기억하고 있는 것입니다. PC는 Ctrl+Shift+R(맥은 Cmd+Shift+R)로 강력 새로고침, 폰은 탭을 완전히 닫았다가 다시 열어 주세요. 새 버전이 나오면 화면 아래에 “새로고침” 알림이 뜹니다.'],
+ ['🌐 온라인 대전은 같은 버전끼리만','규칙이 다른 버전끼리는 판이 어긋날 수 있어, 버전이 다르면 매칭이 취소됩니다. 매칭이 안 잡히면 먼저 새로고침해 보세요. 상대가 적을 땐 친구에게 공유해 같은 시간에 접속하면 가장 빠릅니다.'],
+ ['💾 저장되는 것과 안 되는 것','내 프리셋, 랭크 점수, 설정은 지금 쓰는 브라우저에만 저장됩니다. 다른 기기·다른 브라우저로는 이어지지 않고, 브라우저 데이터를 지우면 사라집니다. 프리셋은 “프리셋 관리”의 코드 복사로 백업할 수 있습니다.'],
+ ['📶 연결이 불안정할 때','온라인 대전은 사용자끼리 직접 연결하는 방식이라 학교·회사 와이파이나 일부 통신사에서는 안 붙을 수 있습니다. 와이파이↔데이터를 바꿔 보거나 잠시 뒤 다시 시도해 주세요. 대전 중 연결이 끊기면 30초 뒤 상대 승리로 처리됩니다.'],
+ ['💬 의견을 들려주세요','버그, 밸런스, 아이디어는 메인 화면의 “건의하기”로 보내 주세요. 어떤 기물에서 어떤 일이 있었는지 적어 주시면 가장 큰 도움이 됩니다.']];
+let pnTab='n';
+function pnDraw(){
+ $$('#pnTab button').forEach(b=>b.classList.toggle('on',b.dataset.v===pnTab));
+ $('#pnB').innerHTML=pnTab==='n'?NOTICES.map(n=>`<div class="pnv"><h4>${esc(n[0])}</h4><p style="margin:0;font-size:13.5px;line-height:1.6">${esc(n[1])}</p></div>`).join(''):PATCH.map((p,i)=>`<div class="pnv ${i===0?'cur':''}"><h4>v${p[0]} <small>· ${esc(p[1])}${i===0?' · 현재 버전':''}</small></h4><ul>${p[2].map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`).join('')}
+function patchOpen(tab){pnTab=tab==='p'?'p':'n';pnDraw();openM('mPatch');sfx('sel');store.set('seenVer',APP_VER)}
+$('#pnTab').onclick=e=>{const b=e.target.closest('button');if(b){pnTab=b.dataset.v;pnDraw();$('#pnB').scrollTop=0}};
+$('#goPatch').onclick=()=>patchOpen('n');$('#pnX').onclick=()=>closeM('mPatch');
+/* 첫 실행(또는 새 버전 첫 실행)이면 공지를 자동으로 보여 줌 */
+setTimeout(()=>{if(store.get('seenVer','')!==APP_VER&&$('#s0').classList.contains('on'))patchOpen('n')},900);
+/* 새 버전 자동 감지 */
+const vnum=v=>v.split('.').map(Number);
+const newer=(a,b)=>{const x=vnum(a),y=vnum(b);for(let i=0;i<Math.max(x.length,y.length);i++){const p=x[i]||0,q=y[i]||0;if(p!==q)return p>q}return false};
+let upShown=false;
+async function chkUpdate(){
+ if(upShown||!location.protocol.startsWith('http'))return;
+ try{const r=await fetch(location.href.split('#')[0].split('?')[0]+'?_='+Date.now(),{cache:'no-store'});if(!r.ok)return;
+  const t=await r.text(),m=t.match(/VERSION (\d+(?:\.\d+)+)/);
+  if(m&&newer(m[1],APP_VER)){upShown=true;$('#upTx').textContent='🔔 새 버전 v'+m[1]+'이 나왔어요!';$('#upBn').style.display='flex'}}catch(e){}}
+$('#upGo').onclick=()=>{if(G&&G.b&&!G.over&&$('#s4').classList.contains('on')){ask('새로고침','진행 중인 대전이 종료됩니다. 그래도 새로고침할까요?',()=>location.reload())}else location.reload()};
+$('#upX').onclick=()=>{$('#upBn').style.display='none'};
+setTimeout(chkUpdate,4000);setInterval(chkUpdate,300000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)chkUpdate()});
+/* 오프라인 안내 */
+window.addEventListener('offline',()=>toast('인터넷 연결이 끊겼습니다 — 온라인 대전을 쓸 수 없습니다'));
+$('#nShare').onclick=()=>doShare();
+/* 건의하기 */
+function fbText(){
+ const cat=$('#fbCat').value,msg=$('#fbMsg').value.trim();
+ let t=`[배틀체스 ${APP_VER}] ${cat}\n${msg}`;
+ if($('#fbInfo').checked)t+=`\n\n(버전 ${APP_VER} · ${rkName(rkPts)} · ${/Mobi|Android|iPhone/i.test(navigator.userAgent)?'모바일':'PC'} · ${innerWidth}x${innerHeight})`;
+ return t}
+function copyTxt(t,ok){let done=false;
+ try{navigator.clipboard.writeText(t).then(()=>toast(ok),()=>fb())}catch(e){fb()}
+ function fb(){if(done)return;done=true;const a=$('#fbMsg');a.focus();a.select();toast('내용을 직접 복사해 주세요')}}
+function fbOpen(){
+ $('#fbMsg').value='';$('#fbCnt').textContent='0 / 1000';
+ const dest=FEEDBACK_FORM||FEEDBACK_MAIL;
+ $('#fbSend').style.display=dest?'':'none';
+ $('#fbNote').textContent=dest?'보내기를 누르면 내용이 복사되고 '+(FEEDBACK_FORM?'건의 양식':'메일')+'이 열립니다. 열린 곳에 붙여넣어 제출해 주세요.':'내용을 복사해서 제작자가 알려 준 곳(커뮤니티·채팅방 등)에 붙여넣어 주세요.';
+ openM('mFb');setTimeout(()=>$('#fbMsg').focus(),50)}
+$('#goFb').onclick=fbOpen;$('#fbX').onclick=()=>closeM('mFb');
+$('#fbMsg').oninput=()=>{const v=$('#fbMsg').value;if(v.length>1000)$('#fbMsg').value=v.slice(0,1000);$('#fbCnt').textContent=$('#fbMsg').value.length+' / 1000'};
+function fbOk(){if(!$('#fbMsg').value.trim()){toast('내용을 입력해 주세요');return false}return true}
+$('#fbCopy').onclick=()=>{if(fbOk())copyTxt(fbText(),'건의 내용을 복사했습니다')};
+$('#fbSend').onclick=()=>{if(!fbOk())return;const t=fbText();copyTxt(t,'내용을 복사했습니다 — 열린 곳에 붙여넣어 주세요');
+ try{if(FEEDBACK_FORM)window.open(FEEDBACK_FORM,'_blank','noopener');else if(FEEDBACK_MAIL)window.open('mailto:'+FEEDBACK_MAIL+'?subject='+encodeURIComponent('[배틀체스 건의] '+$('#fbCat').value)+'&body='+encodeURIComponent(t),'_blank')}catch(e){}};
+/* 공유 */
+function shareUrl(){return SHARE_URL||(location.protocol.startsWith('http')?location.href.split('#')[0]:'')}
+function shareTxt(extra){const u=shareUrl();return (extra||'배틀체스 — 39코스트로 나만의 군대를 짜서 싸우는 커스텀 체스! 온라인 대전과 랭크도 있어요.')+(u?'\n'+u:'')}
+function doShare(extra){const t=shareTxt(extra),u=shareUrl();
+ if(navigator.share){navigator.share(u?{title:'배틀체스',text:t.replace('\n'+u,''),url:u}:{title:'배틀체스',text:t}).catch(()=>{})}
+ else copyTxt(t,'소개 문구와 주소를 복사했습니다. 친구에게 붙여넣어 보내세요!')}
+$('#goShare').onclick=()=>doShare();
+$('#ovShare').onclick=()=>{const w=G&&G.net?(G.over&&$('#ovT').textContent):'';doShare('배틀체스 '+(G&&G.net?'온라인 대전 결과: '+($('#ovT').textContent||'')+' ('+rkName(rkPts)+' '+rkPts+'점) — 도전해 보세요!':'한 판 해 보세요!'))};
 
 window.__BC_APP={get G(){return G},U,play,draw,aiCheck};
 })();
