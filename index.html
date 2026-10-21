@@ -2,7 +2,7 @@
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="theme-color" content="#ffffff"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="배틀체스"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="color-scheme" content="light"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>배틀체스</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Archivo+Black&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#fff;--fg:#111;--mut:#6b6b6b;--line:#d6d6d6;--card:#fafafa;--ink:#111;
  --sl:#f2f2f2;--sd:#a9a9a9;--blue:#1e6eff;--red:#e61e1e;--purple:#9632e6;--orange:#ff9600;--lime:#a3e635;--sel:#ffd600;
@@ -11,8 +11,8 @@
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{overscroll-behavior-y:contain;margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans)}
 body{padding:calc(env(safe-area-inset-top,0px) + 54px) 14px calc(env(safe-area-inset-bottom,0px) + 24px);display:flex;justify-content:center;min-height:100vh}
-button{font:inherit;color:var(--fg);background:#fff;border:1px solid #999;border-radius:10px;padding:9px 14px;cursor:pointer;transition:background .12s,border-color .12s,transform .05s}
-button:hover:not(:disabled){border-color:var(--ink)}button:active:not(:disabled){transform:scale(.97)}
+button{font:inherit;color:var(--fg);background:#fff;border:1px solid #999;border-radius:10px;padding:9px 14px;cursor:pointer;transition:background .12s}
+button:hover:not(:disabled){border-color:var(--ink)}
 button:disabled{opacity:.35;cursor:not-allowed}
 button.pri{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700;padding:13px 16px;width:100%}
 button.ghost{background:transparent}
@@ -30,15 +30,34 @@ main{width:100%;max-width:520px}
 .row2{display:flex;gap:8px}.row2>*{flex:1}
 /* 타이틀 */
 #s0>.prod{position:absolute;right:14px;bottom:10px;z-index:2;font-size:11px;letter-spacing:.08em;color:var(--mut);opacity:.85;pointer-events:none}
-#s0{position:relative;overflow:hidden;align-items:center;text-align:center;justify-content:center;min-height:min(80vh,660px);border:1px solid var(--line);border-radius:20px;background:linear-gradient(#fff,#ececec);padding:28px 18px;gap:10px}
-#s0 .floor{position:absolute;left:-60%;right:-60%;bottom:-8%;height:44%;background:conic-gradient(#111 25%,#fff 0 50%,#111 0 75%,#fff 0) 0 0/84px 84px;transform:perspective(280px) rotateX(62deg);transform-origin:50% 100%;animation:flr 2s linear infinite;-webkit-mask-image:linear-gradient(transparent,#000 75%);mask-image:linear-gradient(transparent,#000 75%);opacity:.9}
-@keyframes flr{to{background-position:0 84px}}
-#s0>*{position:relative;z-index:1}#s0>.floor{position:absolute;z-index:0}
-.sub{font-size:12px;letter-spacing:5px;color:#555;margin:0}
-.big{font-family:var(--serif);font-weight:800;font-size:clamp(46px,15vw,88px);line-height:1;letter-spacing:5px;margin:0;text-shadow:3px 3px 0 #bbb}
-.kr{font-family:var(--serif);font-size:22px;letter-spacing:6px;margin:2px 0 6px}
-.ver{margin-top:14px;text-align:center;font-size:11px;letter-spacing:.18em;color:var(--mut)}.fl{display:flex;gap:12px;font-size:32px;margin:8px 0}.fl span{animation:fy 2.6s ease-in-out infinite}.fl span:nth-child(even){animation-delay:.8s}
-@keyframes fy{50%{transform:translateY(-11px)}}
+#s0{position:relative;overflow:hidden;align-items:center;text-align:center;justify-content:center;min-height:min(80vh,660px);border:2.5px solid #111;border-radius:20px;background:#fff;background-image:radial-gradient(#d9d9d9 1.2px,transparent 1.4px);background-size:16px 16px;padding:78px 18px 34px;gap:8px}
+#s0>*{position:relative;z-index:1}#s0>.tape,#s0>.blob{position:absolute}
+#s0 .blob{z-index:0;width:130%;height:150px;left:-15%;top:30%;background:#c8ff00;transform:rotate(-7deg);border-block:2.5px solid #111}
+#s0 .tape{left:-10%;width:120%;overflow:hidden;white-space:nowrap;z-index:2;font:900 11px/1 'Archivo Black',Impact,'Arial Black',sans-serif;letter-spacing:.16em;padding:7px 0;border-block:2px solid #111}
+#s0 .tape i{display:inline-block;font-style:normal;animation:mq 16s linear infinite}
+#s0 .t1{top:14px;transform:rotate(-3deg);background:#111;color:#c8ff00}
+#s0 .t2{top:38px;transform:rotate(2.5deg);background:#ff2e63;color:#fff}#s0 .t2 i{animation-direction:reverse;animation-duration:20s}
+@keyframes mq{to{transform:translateX(-50%)}}
+.sub{font-size:11px;letter-spacing:.32em;color:#111;margin:0;font-weight:800;background:#fff;border:2px solid #111;padding:3px 9px;transform:rotate(-2deg)}
+.big{display:flex;flex-direction:column;align-items:center;font-family:'Archivo Black',Impact,'Arial Black',var(--serif);font-weight:900;font-style:italic;font-size:clamp(50px,17vw,96px);line-height:.88;letter-spacing:-.01em;margin:6px 0 0;transform:skewX(-7deg)}
+.big b{position:relative;display:block;font-weight:inherit;color:#111;text-shadow:4px 4px 0 #ff2e63}
+.big b.o{color:#fff;-webkit-text-stroke:3px #111;paint-order:stroke fill;text-shadow:5px 5px 0 #111}
+.big b::before,.big b::after{content:attr(data-t);position:absolute;left:0;top:0;width:100%;opacity:0;pointer-events:none}
+.big b::before{color:#00e5ff;-webkit-text-stroke:0;text-shadow:none;animation:gl1 4.2s steps(1) infinite}
+.big b::after{color:#ff2e63;-webkit-text-stroke:0;text-shadow:none;animation:gl2 4.2s steps(1) infinite}
+@keyframes gl1{0%,90%,100%{opacity:0;transform:none}92%{opacity:.9;transform:translate(-5px,1px);clip-path:inset(15% 0 55% 0)}95%{opacity:.9;transform:translate(4px,-1px);clip-path:inset(60% 0 8% 0)}}
+@keyframes gl2{0%,91%,100%{opacity:0;transform:none}93%{opacity:.9;transform:translate(5px,-1px);clip-path:inset(50% 0 20% 0)}96%{opacity:.9;transform:translate(-4px,1px);clip-path:inset(5% 0 70% 0)}}
+.kr{font-size:13px;font-weight:900;letter-spacing:.5em;margin:10px 0 2px;background:#111;color:#c8ff00;padding:5px 6px 5px 12px;border-radius:4px;transform:rotate(1.5deg)}
+.ver{margin-top:14px;text-align:center;font-size:11px;letter-spacing:.18em;color:var(--mut)}
+.fl{display:flex;gap:7px;font-size:26px;margin:12px 0 6px}.fl span{display:grid;place-items:center;width:44px;height:44px;background:#fff;border:2.5px solid #111;border-radius:10px;box-shadow:3px 3px 0 #111;animation:fy 2.4s ease-in-out infinite}
+.fl span:nth-child(1){transform:rotate(-6deg)}.fl span:nth-child(2){transform:rotate(4deg);animation-delay:.2s}.fl span:nth-child(3){transform:rotate(-3deg);animation-delay:.4s}.fl span:nth-child(4){transform:rotate(5deg);animation-delay:.6s}.fl span:nth-child(5){transform:rotate(-5deg);animation-delay:.8s}.fl span:nth-child(6){transform:rotate(3deg);animation-delay:1s}
+@keyframes fy{50%{margin-top:-9px}}
+#s0 .note{font-weight:800;color:#111;font-size:13px;margin:2px 0 4px}
+#s0 #go0{background:#c8ff00;color:#111;border:2.5px solid #111;box-shadow:5px 5px 0 #111;font-weight:900;font-size:18px;letter-spacing:.12em;padding:15px 16px;}
+#s0 #go0:hover:not(:disabled){background:#d8ff4d}
+#s0 .btns>button:not(#go0):not(#goNet){box-shadow:3px 3px 0 #111}
+#s0 .btns>#goNet{border:2.5px solid #111;box-shadow:3px 3px 0 #111}
+@media(prefers-reduced-motion:reduce){#s0 .tape i,.fl span,.big b::before,.big b::after{animation:none}}
 #s0 .btns{width:100%;max-width:300px;display:flex;flex-direction:column;gap:9px;margin-top:6px}
 #go0{font-size:19px;letter-spacing:3px;animation:pl 1.8s ease-in-out infinite}@keyframes pl{50%{box-shadow:0 0 0 5px rgba(0,0,0,.12)}}
 /* 설정 */
@@ -419,18 +438,66 @@ button.inf,.pcard button.inf{min-height:34px;padding:6px 10px}.skb button,.act2 
 #skAl span{display:inline;font-size:16px;margin:0 4px 0 0}
 #skAl b,#stormAl b,#phaseAl b{display:inline;font-size:14px;white-space:normal}
 #skAl em,#stormAl em{display:none}
+
+/*SICK*/
+:root{--disp:'Archivo Black',Impact,'Arial Black',var(--sans);--lm:#c8ff00;--pk:#ff2e63}
+body{background-color:#fff;background-image:radial-gradient(#dcdcdc 1.2px,transparent 1.4px);background-size:16px 16px;background-attachment:fixed}
+button{border:2px solid #111;border-radius:9px;font-weight:700;box-shadow:3px 3px 0 #111;transition:background .1s}
+button:hover:not(:disabled){border-color:#111;background:#f3ffc2}button:active:not(:disabled){transform:none!important;background:var(--lm)}
+button:disabled{box-shadow:none;border-color:#999}
+button.pri{background:var(--lm);color:#111;border-color:#111;font-weight:900;letter-spacing:.04em}
+button.pri:hover:not(:disabled){background:#d8ff4d}
+button.sw,.sw{box-shadow:none;border:2px solid #111}
+.top{background:rgba(255,255,255,.96);border-bottom:2.5px solid #111}
+.top button{box-shadow:2px 2px 0 #111;border-radius:8px}
+.top .logo,.top b,.top h1{font-family:var(--disp);letter-spacing:.14em}
+h2{font-family:var(--disp);font-weight:400;font-size:20px;letter-spacing:.02em;display:inline-block;background:linear-gradient(transparent 58%,var(--lm) 58%);padding:0 4px;margin-left:-4px}
+.mc h2{margin-bottom:12px}
+.card{background:#fff;border:2.5px solid #111;border-radius:14px;box-shadow:4px 4px 0 #111}
+.hc,.mpr{background:#fff;border:2px solid #111;border-left:8px solid var(--lm);border-radius:10px;box-shadow:3px 3px 0 #111}
+.hc h4{font-family:var(--disp);font-weight:400;letter-spacing:.02em}
+.modal{background:rgba(17,17,17,.62)}
+.mc{border:2.5px solid #111;border-radius:16px;box-shadow:7px 7px 0 var(--lm),7px 7px 0 2px #111;background:#fff}
+.mc .x{box-shadow:2px 2px 0 #111;background:var(--pk);color:#fff;border-color:#111;font-weight:900}
+.tabs{background:#fff;border-bottom:2px solid #111}
+.tabs button,.chips button{box-shadow:2px 2px 0 #111}
+.tabs button.on,.chips button.on{background:var(--lm);color:#111;border-color:#111;font-weight:900}
+input,select,textarea{border:2px solid #111!important;border-radius:9px;font:inherit;background:#fff;box-shadow:inset 3px 3px 0 #eee}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--lm);outline-offset:0}
+.hp{border-bottom:2px dashed #ccc}
+.lim td{border-bottom:2px dashed #ddd}
+.note{color:#444}
+#s0 #go0{box-shadow:5px 5px 0 #111}#s0 #go0:active:not(:disabled){transform:none!important;box-shadow:5px 5px 0 #111;background:#e6ff80}
+#s0 .btns>button:not(#go0):not(#goNet),#s0 .btns>#goNet{box-shadow:3px 3px 0 #111}
+.tut .tutf{border-top:2px solid #111}
+.res h2{font-size:30px}
+.seg button.on,.lvb button.on,.pal button.on{background:var(--lm);color:#111;border-color:#111;font-weight:900}
+.cb{background:#111;color:var(--lm)}
+h2{font-weight:900}
+#coach{border:2.5px solid #111;border-radius:14px;box-shadow:5px 5px 0 #111}
+#coach .cx{box-shadow:none;border:0}
+#coach .cnm{font-family:var(--disp);font-weight:400;letter-spacing:.04em}
+.mc h2{font-size:21px}
+h2{align-self:flex-start;width:fit-content;max-width:100%}
+.rkc{border:2.5px solid #111;border-radius:12px;background:#fff;box-shadow:4px 4px 0 #111}
+.rkc .rt b{font-family:var(--disp);font-weight:400}
+.rkc .rbar{height:10px;border:2px solid #111;background:#fff;border-radius:6px}.rkc .rbar i{background:var(--lm)}
+.pre .mp{border:2px solid #111;box-shadow:2px 2px 0 #111}.pre .mp button{box-shadow:none}
+.pre .mp .pl{background:#111;color:var(--lm)}
+.nspin{border-color:#111}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
 
 <section class="scr on" id="s0">
- <div class="floor"></div>
+ <div class="blob"></div>
+ <div class="tape t1"><i>BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ </i></div><div class="tape t2"><i>KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ </i></div>
  <p class="sub">CUSTOM CHESS · COST 39</p>
- <h1 class="big">BATTLE<br>CHESS</h1>
+ <h1 class="big"><b data-t="BATTLE">BATTLE</b><b class="o" data-t="CHESS">CHESS</b></h1>
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <p class="note">39 코스트로 나만의 군대를 만들어 싸워라</p>
- <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 11.1.2</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 11.1.4</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -1080,7 +1147,7 @@ function skillCands(b,s,sk){
   const ps=[];for(let i=0;i<64;i++){const p=b[i];if(p&&p.s===s&&!inZ(s,i)){const th=thr(b,o,i);if(th||p.frz||AV[p.t]>=5||isKing(p.t))ps.push([(th?100:0)+(p.frz?20:0)+(isKing(p.t)?30:AV[p.t]),i])}}
   ps.sort((x,y)=>y[0]-x[0]);
   for(const[,i]of ps.slice(0,6)){const p=b[i];for(const c of cellRank(p,cells,2))out.push([i,c,20])}}
- if(sk.fin&&en<=3&&ksq>=0&&cells.length&&b.dead){
+ if(sk.fin&&en<=5&&ksq>=0&&cells.length&&b.dead){
   const seen=new Set(),ds=[];b.dead[s].forEach((d,x)=>{if(!isKing(d.t)&&DEF[d.t].c<=7&&!seen.has(d.t)){seen.add(d.t);ds.push([AV[d.t],x])}});
   ds.sort((x,y)=>y[0]-x[0]);
   for(const[,x]of ds.slice(0,3)){const d=b.dead[s][x];for(const c of cellRank(d,cells,2))out.push([ksq,c,21,undefined,[x]])}}
@@ -1585,7 +1652,7 @@ function dexList(f){
 function helpRule(){return TR(`
 <div class="hc"><h4>🚩 빠른 시작</h4><ol><li><b>게임 설정</b> — 모드(AI 대전 · 한 기기 2인 대전 · AI 관전)와 난이도를 고릅니다.</li><li><b>기물 선택</b> — 39 코스트 안에서 자유롭게 군대를 짭니다. 추천 구성이나 <b>내 프리셋</b>에서 불러와도 됩니다.</li><li><b>기물 배치</b> — 내 진영에 기물을 놓습니다. 마음에 들면 <b>프리셋으로 저장</b>해 두세요.</li><li><b>대국</b> — 기물을 눌러 이동합니다. 체스가 처음이면 <b>좋은 수 표시</b>를 켜 보세요.</li></ol></div>
 <div class="hc"><h4>🎯 목표</h4><p>상대의 <b>킹</b>(또는 엠페러·갓·데몬 같은 킹 계열)을 잡으면 승리합니다. 킹이 공격받으면 <b>체크</b>, 피할 방법이 없으면 <b>체크메이트</b> 경고가 뜨지만 강제 규칙은 아니며, 킹을 그냥 두면 그대로 잡힙니다.</p></div>
-<div class="hc"><h4>⚡ 사용 스킬 (플레이어 스킬)</h4><p>기물 스킬과 별개로, 각 플레이어는 아래 세 가지를 <b>한 판에 한 번씩</b> 쓸 수 있습니다. 쓰면 그 턴의 행동을 대신합니다.</p><ul><li><b>↩️ 원위치!</b> — 아군 진영 밖에 있는 아군 기물 1기를 아군 진영의 빈 칸으로 옮깁니다.</li><li><b>⚡ 돌격 앞으로!</b> — 이번 턴에 2코스트 이하 아군 기물을 최대 3기까지(기물마다 1번) 행동시킵니다.</li><li><b>🏁 상황 종결!</b> — 적 기물이 3개 이하일 때, 7코스트 이하 아군 기물 1기를 아군 진영의 빈 칸에 부활시킵니다.</li><li><b>🔥 피버!</b> — 서든데스(90수)부터 1번만: 이번 턴에 서로 다른 아군 기물 2개를 행동시킵니다. 서든데스가 되면 위의 세 스킬은 잠깁니다.</li></ul></div>
+<div class="hc"><h4>⚡ 사용 스킬 (플레이어 스킬)</h4><p>기물 스킬과 별개로, 각 플레이어는 아래 세 가지를 <b>한 판에 한 번씩</b> 쓸 수 있습니다. 쓰면 그 턴의 행동을 대신합니다.</p><ul><li><b>↩️ 원위치!</b> — 아군 진영 밖에 있는 아군 기물 1기를 아군 진영의 빈 칸으로 옮깁니다.</li><li><b>⚡ 돌격 앞으로!</b> — 이번 턴에 2코스트 이하 아군 기물을 최대 3기까지(기물마다 1번) 행동시킵니다.</li><li><b>🏁 상황 종결!</b> — 적 기물이 5개 이하일 때, 7코스트 이하 아군 기물 1기를 아군 진영의 빈 칸에 부활시킵니다.</li><li><b>🔥 피버!</b> — 서든데스(90수)부터 1번만: 이번 턴에 서로 다른 아군 기물 2개를 행동시킵니다. 서든데스가 되면 위의 세 스킬은 잠깁니다.</li></ul></div>
 <div class="hc"><h4>⚡ 자기장 · 서든데스</h4><ul><li>60수에 바깥 1줄, 80수에 2줄, 90수에 3줄이 자기장(노랑/파랑으로 반짝임)이 됩니다. 5턴 전부터 알림이 뜹니다.</li><li>자기 턴이 끝날 때 자기장 안에 있는 기물은 1대씩 맞고(기물 위 ⚡숫자), 3대를 맞은 뒤 한 턴을 더 버티면(그 턴 끝에도 안에 있으면) 소멸합니다. 밖으로 나오면 맞은 횟수가 0으로 돌아갑니다. 킹도 예외가 아닙니다.</li><li>90수는 서든데스: 사용 스킬(원위치·돌격·상황 종결)이 잠기고 🔥 피버!를 쓸 수 있습니다.</li><li>100수가 지나면 남은 전력으로 승패를 가립니다.</li></ul></div>
 <div class="hc"><h4>🕹 한 턴에 할 수 있는 것</h4><ul><li><b>이동</b> — 기물을 빈칸으로 옮깁니다.</li><li><b>잡기</b> — 적이 있는 칸으로 이동하며 잡습니다.</li><li><b>원거리 공격</b> — 제자리에서 대상만 제거합니다.</li><li><b>스킬</b> — 기물 고유 능력입니다.</li></ul><p class="note">한 턴에는 위 중 <b>하나</b>만 합니다. (기물 설명에 적힌 추가 이동·두 번 행동 같은 예외 제외)</p></div>
 <div class="hc"><h4>🧩 군대 구성 (코스트 39)</h4><table class="lim"><tr><th>기물 수</th><td>킹 포함 최대 16기 (킹·갓은 무료)</td></tr><tr><th>킹 계열</th><td>킹·엠페러·갓·데몬 중 1기 (킹을 대체, 엠페러 3코스트·갓 무료·데몬 6코스트)</td></tr><tr><th>퀸 계열</th><td>퀸·메두사·프린세스·마더 중 1기</td></tr><tr><th>전열 전용</th><td>최대 8기</td></tr><tr><th>후열 전용</th><td>최대 7기 (킹 계열을 쓰면 8기)</td></tr><tr><th>흑룡·백룡</th><td>각각 최대 4기 · 후열의 같은 색 칸에만 배치</td></tr></table><p class="note">배치는 내 진영의 앞 두 줄(전열·후열)에 합니다.</p></div>
@@ -1593,7 +1660,7 @@ function helpRule(){return TR(`
 <div class="hc"><h4>🎮 게임 모드</h4><ul><li><b>PvE</b> — AI와 대전 (7단계 난이도)</li><li><b>PvP</b> — 한 기기에서 번갈아 가며 둘이 대전</li><li><b>AI 관전</b> — 군대와 배치만 내가 정하고 AI끼리 대전</li></ul></div>`,`
 <div class="hc"><h4>🚩 Quick Start</h4><ol><li><b>Game Setup</b> — Choose a mode (vs AI · 2 players on one device · AI spectate) and a difficulty.</li><li><b>Pick Pieces</b> — Build your army freely within 39 cost. You can also load a suggested build or one of <b>My Presets</b>.</li><li><b>Place Pieces</b> — Put your pieces in your zone. If you like the result, <b>save it as a preset</b>.</li><li><b>Play</b> — Tap a piece to move it. New to chess? Turn on <b>Best-move hints</b>.</li></ol></div>
 <div class="hc"><h4>🎯 Goal</h4><p>Capture the enemy <b>King</b> (or a King-class piece such as the Emperor, God or Demon) to win. When your King is attacked you get a <b>Check</b> warning, and a <b>Checkmate</b> warning when it cannot escape — but these are not enforced rules: if you leave your King hanging, it simply gets captured.</p></div>
-<div class="hc"><h4>⚡ Player Skills</h4><p>Separate from piece skills, each player may use these three <b>once per game</b>. Using one replaces your action for that turn.</p><ul><li><b>↩️ Fall Back!</b> — Move 1 friendly piece outside your zone to an empty square in your zone.</li><li><b>⚡ Charge!</b> — This turn, let up to 3 friendly pieces of cost 2 or less act (once per piece).</li><li><b>🏁 Finish It!</b> — When the enemy has 3 pieces or fewer, revive 1 friendly piece of cost 7 or less on an empty square in your zone.</li><li><b>🔥 Fever!</b> — Once, from Sudden Death (move 90): let 2 different friendly pieces act this turn. When Sudden Death starts, the three skills above are locked.</li></ul></div>
+<div class="hc"><h4>⚡ Player Skills</h4><p>Separate from piece skills, each player may use these three <b>once per game</b>. Using one replaces your action for that turn.</p><ul><li><b>↩️ Fall Back!</b> — Move 1 friendly piece outside your zone to an empty square in your zone.</li><li><b>⚡ Charge!</b> — This turn, let up to 3 friendly pieces of cost 2 or less act (once per piece).</li><li><b>🏁 Finish It!</b> — When the enemy has 5 pieces or fewer, revive 1 friendly piece of cost 7 or less on an empty square in your zone.</li><li><b>🔥 Fever!</b> — Once, from Sudden Death (move 90): let 2 different friendly pieces act this turn. When Sudden Death starts, the three skills above are locked.</li></ul></div>
 <div class="hc"><h4>⚡ Storm &amp; Sudden Death</h4><ul><li>At move 60 the outer 1 ring, at move 80 the outer 2 rings and at move 90 the outer 3 rings become storm (shimmering yellow/blue). A warning appears 5 turns ahead.</li><li>A piece standing in the storm at the end of its owner's turn takes 1 hit (shown as ⚡ number on the piece); after the 3rd hit it is destroyed if it is still inside at the end of its next turn. Leaving the storm resets the count. Kings are not exempt.</li><li>Move 90 is Sudden Death: Player Skills (Fall Back / Charge / Finish It) are locked and you may use 🔥 Fever!.</li><li>After move 100, the winner is decided by remaining strength.</li></ul></div>
 <div class="hc"><h4>🕹 What You Can Do in a Turn</h4><ul><li><b>Move</b> — Move a piece to an empty square.</li><li><b>Capture</b> — Move onto an enemy's square and capture it.</li><li><b>Ranged attack</b> — Eliminate a target without moving.</li><li><b>Skill</b> — A piece's unique ability.</li></ul><p class="note">You do only <b>one</b> of these per turn (except for extra moves or double actions described in a piece's text).</p></div>
 <div class="hc"><h4>🧩 Army Building (Cost 39)</h4><table class="lim"><tr><th>Piece count</th><td>Up to 16 including the King (King and God are free)</td></tr><tr><th>King class</th><td>Pick 1 of King, Emperor, God or Demon (replaces the King; Emperor costs 3, God is free, Demon costs 6)</td></tr><tr><th>Queen class</th><td>Pick 1 of Queen, Medusa, Princess or Mother</td></tr><tr><th>Front-row only</th><td>Up to 8</td></tr><tr><th>Back-row only</th><td>Up to 7 (8 if you use a King-class piece)</td></tr><tr><th>Black/White Dragon</th><td>Up to 4 each · placed only on same-colored squares of the back row</td></tr></table><p class="note">You place pieces in the first two rows of your side (front row and back row).</p></div>
@@ -2365,7 +2432,7 @@ function skAvail(k){const who=G.turn;if(!G.sk||!G.sk[who][k])return false;
  if(k==='fever'){G.rush={left:2,used:[],fv:1};const ok=rushList().length>0;G.rush=null;return ok}
  if(k==='ret'){if(!emptyZone(who).length)return false;for(let i=0;i<64;i++){const p=G.b[i];if(p&&p.s===who&&!inZone(who,i))return true}return false}
  if(k==='rush'){G.rush={left:3,used:[]};const ok=rushList().length>0;G.rush=null;return ok}
- if(k==='fin'){let en=0;for(let i=0;i<64;i++){const p=G.b[i];if(p&&p.s!==who)en++}return en<=3&&finList(who).length>0&&emptyZone(who).length>0}
+ if(k==='fin'){let en=0;for(let i=0;i<64;i++){const p=G.b[i];if(p&&p.s!==who)en++}return en<=5&&finList(who).length>0&&emptyZone(who).length>0}
  return false}
 function skUpdate(){const el=$('#skb');if(!el)return;
  const show=G.sk&&G.mode!=='sim'&&!G.over&&(G.mode==='pvp'||G.turn===G.human)&&(!G.net||G.turn===G.net.me);
@@ -2375,7 +2442,7 @@ function skUpdate(){const el=$('#skb');if(!el)return;
  el.querySelectorAll('button').forEach(b=>{const k=b.dataset.sk,used=!G.sk[G.turn][k];
   const act=(G.skp&&G.skp.t===k)||(G.rush&&((k==='rush'&&!G.rush.fv&&!G.rush.lk)||(k==='fever'&&G.rush.fv)));
   b.disabled=!act&&(used||!idle||!skAvail(k));b.classList.toggle('on',!!act);const sdn=(G.plies||0)>=SUDDEN,lk=sdn?k!=='fever':k==='fever';b.classList.toggle('slk',lk);
-  b.title=lk?(sdn?TR('서든데스: 잠금','Sudden Death: locked'):TR(`${SUDDEN}수(서든데스)부터 사용 가능`,`Available from move ${SUDDEN} (Sudden Death)`)):used?TR('이미 사용함','Already used'):k==='fever'?TR('이번 턴에 서로 다른 아군 기물 2개를 행동시킵니다','This turn, let 2 different friendly pieces act'):k==='ret'?TR('아군 진영 밖의 아군 기물 1기를 아군 진영 빈 칸으로 옮깁니다','Move 1 friendly piece outside your zone to an empty square in your zone'):k==='rush'?TR('이번 턴에 2코스트 이하 아군 기물을 최대 3기까지 행동시킵니다','This turn, let up to 3 friendly pieces of cost 2 or less act'):TR('적 기물이 3개 이하일 때, 7코스트 이하 아군 기물 1기를 아군 진영 빈 칸에 부활시킵니다','When the enemy has 3 pieces or fewer, revive 1 friendly piece of cost 7 or less on an empty square in your zone')})}
+  b.title=lk?(sdn?TR('서든데스: 잠금','Sudden Death: locked'):TR(`${SUDDEN}수(서든데스)부터 사용 가능`,`Available from move ${SUDDEN} (Sudden Death)`)):used?TR('이미 사용함','Already used'):k==='fever'?TR('이번 턴에 서로 다른 아군 기물 2개를 행동시킵니다','This turn, let 2 different friendly pieces act'):k==='ret'?TR('아군 진영 밖의 아군 기물 1기를 아군 진영 빈 칸으로 옮깁니다','Move 1 friendly piece outside your zone to an empty square in your zone'):k==='rush'?TR('이번 턴에 2코스트 이하 아군 기물을 최대 3기까지 행동시킵니다','This turn, let up to 3 friendly pieces of cost 2 or less act'):TR('적 기물이 5개 이하일 때, 7코스트 이하 아군 기물 1기를 아군 진영 빈 칸에 부활시킵니다','When the enemy has 5 pieces or fewer, revive 1 friendly piece of cost 7 or less on an empty square in your zone')})}
 $('#skb').onclick=e=>{const b=e.target.closest('[data-sk]');if(!b||b.disabled||!skHuman())return;const k=b.dataset.sk;if(!skAvail(k))return;
  G.sel=null;G.legal=[];G.insp=null;
  if(k==='rush')startRush();
@@ -3227,9 +3294,11 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='11.1.2';
+const APP_VER='11.1.4';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['11.1.4',TR('전체 화면 리디자인','Full UI Redesign'),[TR('🎨 설정·기물 선택·배치·도감·튜토리얼·건의·공지·공유·언어·온라인 대전까지 모든 창을 타이틀 화면과 같은 스타일로 통일했어요','🎨 Every screen and window now matches the new title style'),TR('👆 누르는 버튼은 눌러도 움직이지 않아요 (누르기 편하게)','👆 Buttons no longer move when pressed')]],
+ ['11.1.3',TR('타이틀 화면 리뉴얼 · 상황 종결 완화','New Title Screen · Easier Finish It'),[TR('🏁 상황 종결! 사용 조건이 적 기물 3개 이하 → 5개 이하로 넓어졌어요','🏁 Finish It! now unlocks when the enemy has 5 pieces or fewer (was 3)'),TR('🎨 타이틀 화면을 가볍고 힙한 스타일로 새로 꾸몄어요 (움직이는 띠, 글리치 로고, 스티커 기물)','🎨 Fresh, punchy title screen: scrolling tapes, glitch logo and sticker pieces')]],
  ['11.1.2',TR('연출·사운드 대개편','Cinematic FX & Sound Overhaul'),[TR('🎬 스킬 연출을 부시도 수준으로: 프리스트(기도) · 메두사(석화) · 골렘(대지진) · 토네이도(소용돌이) · 스나이퍼(조준) · 메딕(소생) · 프린세스(가호) · 버티컬/호라이즌 · 핸드 · 마검사 · 럭키 · 프로즌 · 마더 · 플레임 · 매지션 · 바드 · 호퍼가 어두워지는 장면과 한자 타이틀로 등장해요','🎬 Skills now get Bushido-level cinematics: Priest (prayer), Medusa (petrify), Golem (quake), Tornado, Sniper (scope), Medic (revive), Princess, Vertical/Horizon, Hand, Sword Master, Lucky, Frozen, Mother, Flame, Magician, Bard and Hopper'),TR('✨ 기믹 연출: 늑대·이글·샤크·워해머 추가 행동, 볼티지 공명, 론도 백도어, 흑룡·백룡 순간이동, 제네시스 폭발, 승급','✨ Gimmick effects: bonus actions (Wolf/Eagle/Shark/Warhammer), Voltage resonance, Rondo backdoor, Dragon teleports, Genesis blast, promotion'),TR('🔊 효과음을 새로 합성: 리버브·컴프레서·필터 적용, 모든 스킬에 전용 사운드, 사용 스킬(원위치·돌격·상황 종결·피버)·자기장·서든데스 사운드와 연출','🔊 Rebuilt sound effects with reverb, compression and filters; every skill has its own sound, plus Player Skills, storm and Sudden Death'),TR('🥊 타격감: 기물을 잡으면 화면이 살짝 흔들리고, 비싼 기물일수록 소리와 흔들림이 조금 더 커져요','🥊 Impact: captures give a slight screen shake, and more expensive pieces hit a bit harder in sound and shake'),TR('🛠 빨간 점선 원이 대국 화면에 나타나던 문제 수정','🛠 Fixed a red dashed circle appearing on the game screen')]],
  ['11.1.1',TR('자기장 · 서든데스 · 신규 기물 6종','Storm, Sudden Death & 6 New Pieces'),[TR('⛩️ 부시도: 납도(칼집에 넣기) 후 발도술로 주변 2칸 이내 적 최대 2기를 베어 처치','⛩️ Bushido: sheathe the blade, then unleash Iaido to cut down up to 2 enemies within 2 squares'),TR('🎩 매지션: 중앙 4줄의 적 2기를 둔화시켜 다음 턴 상하좌우 1칸만 움직이게 함','🎩 Magician: slows 2 enemies in the middle 4 rows so they can only step 1 square orthogonally next turn'),TR('🎻 바드: 주변 아군 2기에게 보호막 (원거리·처치 스킬 1회 방어)','🎻 Bard: shields 2 nearby allies (blocks one ranged attack or kill skill)'),TR('🔨 워해머: 적을 처치하면 50% 확률로 한 번 더 잡기','🔨 Warhammer: 50% chance to capture again after a kill'),TR('⚡ 볼티지: 5칸 이동, 코스트 2 이하만 잡기 · 주변에 다른 볼티지가 있으면 추가 행동','⚡ Voltage: moves 5 squares, captures cost-2-or-less only · extra action when another Voltage is nearby'),TR('🦗 호퍼: 긴 L자 점프, 메뚜기 떼 모드로 잡기 해금','🦗 Hopper: long L-shaped jump; Locust Swarm mode unlocks capturing'),TR('💬 스킬을 쓰는 기물은 이펙트와 함께 대사를 외쳐요','💬 Pieces with skills now shout a line with an effect when they use them'),TR('🧩 기존 체스 + 신규 기물을 섞은 추천 프리셋 16종','🧩 16 new presets mixing classic and new pieces'),TR('❓ 게임 설정·기물 선택·배치·온라인·기물 도감에 도우미 투어 (강조하며 안내)','❓ Helper tours for Game Setup, Pick, Placement, Online and Piece Codex (highlight step by step)'),TR('🛠 핸드 스킬을 AI가 쓸 때 아군이 사라지던 버그 수정','🛠 Fixed a bug where an AI Hand skill could delete an ally'),TR('😈 데몬 악마화 연출 강화 · 아이콘 변경','😈 Stronger Demon transformation effect and a new icon'),TR('🎵 평화로운 새 배경음악 · 기물 선택/배치/메뉴에서 재생','🎵 New calm BGM for menus, piece selection and placement'),TR('🌐 온라인 매칭이 20초 안에 잡히지 않으면 자동으로 AI와 대전','🌐 If online matching finds no opponent within 20 seconds, you are matched with an AI automatically'),TR('⚡ 자기장: 60수에 바깥 1줄, 80수에 2줄, 90수에 3줄이 자기장이 돼요. 자기 턴이 끝날 때 안에 있으면 1대씩 맞고, 3대를 맞은 뒤 한 턴 더 버티면 소멸하며(킹 포함) 밖으로 나오면 초기화돼요. ⚡볼티지는 자기장에 면역이에요. 5턴 전부터 알림이 떠요','⚡ Storm: at move 60 / 80 / 90 the outer 1 / 2 / 3 rings become storm. A piece inside at the end of its turn takes a hit; after the 3rd hit it is destroyed if it stays one more turn (Kings too). Leaving resets the count. Voltage is immune. Warnings start 5 turns ahead'),TR('🔥 서든데스(90수): 기존 사용 스킬은 잠기고 피버!(1회, 한 턴에 서로 다른 기물 2개 행동)가 열려요','🔥 Sudden Death (move 90): Player Skills are locked and 🔥 Fever! (once, 2 different pieces act in one turn) unlocks'),TR('❄️ 프로즌의 영역: 안에 있는 아군·적 기물(킹·퀸 계열 제외)은 이동도 잡기도 할 수 없어요','❄️ Frozen: pieces in its zone (allies and enemies, except King/Queen class) can neither move nor capture'),TR('🔫 머신건: 좌우뿐 아니라 전방으로도 1칸 이동할 수 있어요','🔫 Machine Gun: can now also move 1 square forward, not just sideways'),TR('🤖 AI 개선: 럭키를 상황에 맞게 쓰고, 자기장을 피해 안쪽으로 이동해요','🤖 AI: uses Lucky when it pays off and moves inward to avoid the storm')]],
  ['10.7.0',TR('체험형 튜토리얼 · 기물 밸런스','Guided Tutorial & Balance'),[TR('🎮 체험형 튜토리얼 추가: 첫 접속 때 튜토리얼 창을 닫으면 예시 대국으로 들어가 도우미가 한 수씩 안내해요 (메인 메뉴에서 언제든 다시 가능)','🎮 Added a guided tutorial: on your first visit, closing the tutorial window drops you into a practice game where a helper guides you move by move (replay any time from the main menu)'),TR('🏹 아처: 사거리 3칸으로 증가 + 곡사 공격 (사이에 기물이 있어도 공격 가능)','🏹 Archer: range increased to 3 squares + lobbed shots (can hit over pieces in between)'),TR('🔱 크로스보우: 대각선 4방향 1칸 원거리 공격 추가','🔱 Crossbow: added 1-square ranged attacks in the 4 diagonal directions'),TR('🧨 샷건: 이동 상하좌우 최대 1칸으로 너프 · 공격 범위는 앞 가로 3칸 + 정면 한 칸 더','🧨 Shotgun: nerfed to move up to 1 square orthogonally · attack range is now the 3 squares ahead plus the 1 square straight beyond'),TR('🗼 버티컬: 한 번 이동하기 전까지는 스킬 사용 불가','🗼 Vertical: its skill cannot be used until it has moved once'),TR('💂 솔저: 첫 이동에서만 앞으로 2칸 이동 가능','💂 Soldier: may move 2 squares forward on its first move only'),TR('⚡ 사용 스킬(원위치·돌격·상황 종결)을 쓰면 양쪽 모두 화면 중앙에 이펙트가 떠요','⚡ Player Skills (Fall Back · Charge · Finish It) now show a centered effect for both sides'),TR('🤖 AI가 추가 행동(럭키·기물 스킬 등)을 직접 선택해서 처리해요 (더 이상 내가 건너뛰기를 누를 필요 없음)','🤖 The AI now picks its own extra actions (Lucky, piece skills, etc.) — no more skipping them for the AI'),TR('📲 홈 화면에 추가해서 앱처럼 설치 가능 · 갤럭시 S23/S24/S25 화면 최적화 · 접속하면 BGM이 더 빨리 시작','📲 Installable to your home screen like an app · optimized for Galaxy S23/S24/S25 screens · music starts sooner'),TR('게임 규칙이 바뀌어 온라인 대전은 같은 버전끼리만 가능해요 (새로고침하면 최신 버전이 됩니다)','Game rules changed, so online matches only work between the same version (refresh to update)')]],
@@ -3419,10 +3488,10 @@ const TUT=[
 [TR('플레이어 스킬 3가지','The 3 Player Skills'),()=>TR(`<div class="hc"><h4>기물 능력과는 별개!</h4><p>각 플레이어는 아래 세 가지를 <b>한 판에 딱 한 번씩</b> 쓸 수 있어요. 쓰면 그 턴의 행동을 대신합니다. 대국 화면 아래 <b>‘사용 스킬’</b> 줄에 버튼이 있어요.</p></div>
 <div class="hc"><h4>↩️ 원위치!</h4><p>내 진영 밖으로 나가 있는 아군 기물 1기를 <b>내 진영의 빈 칸</b>으로 되돌려요. 위기에 몰린 기물을 구하거나 방어를 보강할 때 좋아요.</p></div>
 <div class="hc"><h4>⚡ 돌격 앞으로!</h4><p>이번 턴에 <b>2코스트 이하</b> 아군 기물을 최대 <b>3기</b>까지 (기물마다 1번씩) 행동시켜요. 폰 같은 싼 기물로 한꺼번에 몰아칠 때 쓰세요.</p></div>
-<div class="hc"><h4>🏁 상황 종결!</h4><p>적 기물이 <b>3개 이하</b>로 줄었을 때, <b>7코스트 이하</b>의 아군 기물 1기를 내 진영 빈 칸에 <b>부활</b>시켜요. 역전의 한 방!</p></div>`,`<div class="hc"><h4>Separate from piece abilities!</h4><p>Each player can use the three skills below <b>once per game</b>. Using one replaces your action for that turn. The buttons are in the <b>‘Player Skills’</b> row at the bottom of the game screen.</p></div>
+<div class="hc"><h4>🏁 상황 종결!</h4><p>적 기물이 <b>5개 이하</b>로 줄었을 때, <b>7코스트 이하</b>의 아군 기물 1기를 내 진영 빈 칸에 <b>부활</b>시켜요. 역전의 한 방!</p></div>`,`<div class="hc"><h4>Separate from piece abilities!</h4><p>Each player can use the three skills below <b>once per game</b>. Using one replaces your action for that turn. The buttons are in the <b>‘Player Skills’</b> row at the bottom of the game screen.</p></div>
 <div class="hc"><h4>↩️ Fall Back!</h4><p>Moves 1 friendly piece that is outside your zone back to <b>an empty square in your zone</b>. Great for rescuing a piece in trouble or strengthening your defense.</p></div>
 <div class="hc"><h4>⚡ Charge!</h4><p>This turn, let up to <b>3</b> friendly pieces of <b>cost 2 or less</b> act (once each). Use it to rush in with cheap pieces like Pawns all at once.</p></div>
-<div class="hc"><h4>🏁 Finish It!</h4><p>When the enemy is down to <b>3 pieces or fewer</b>, <b>revive</b> 1 friendly piece of <b>cost 7 or less</b> on an empty square in your zone. A comeback move!</p></div>`)],
+<div class="hc"><h4>🏁 Finish It!</h4><p>When the enemy is down to <b>5 pieces or fewer</b>, <b>revive</b> 1 friendly piece of <b>cost 7 or less</b> on an empty square in your zone. A comeback move!</p></div>`)],
 [TR('게임 모드와 난이도','Game Modes and Difficulty'),()=>TR(`<div class="hc"><h4>세 가지 모드</h4><ul><li>🤖 <b>PvE · AI 대전</b> — 컴퓨터와 대결. 처음엔 이걸로!</li><li>👫 <b>PvP · 한 기기 2인 대전</b> — 한 화면에서 친구와 번갈아 둬요.</li><li>🍿 <b>AI 관전</b> — 군대와 배치만 내가 짜고, 싸움은 AI끼리. 내 군대를 시험해 볼 때 좋아요.</li><li>🌐 <b>온라인 대전</b> — 전 세계 사람과 실시간 대결 (다음 장 참고)</li></ul></div>
 <div class="hc"><h4>AI 난이도 (7단계)</h4><table class="lim">${LVN.map((n,i)=>`<tr><th>${n}</th><td>${LVD[i]}</td></tr>`).join('')}</table><p class="note">처음엔 <b>최하~중하</b>로 시작해서 이기면 올려 보세요.</p></div>`,`<div class="hc"><h4>Four ways to play</h4><ul><li>🤖 <b>PvE · vs AI</b> — play the computer. Start here!</li><li>👫 <b>PvP · 2 players on one device</b> — take turns with a friend on the same screen.</li><li>🍿 <b>AI Spectate</b> — you build the armies and placements, the AIs do the fighting. Great for testing an army.</li><li>🌐 <b>Online Play</b> — play real people in real time (see a later chapter)</li></ul></div>
 <div class="hc"><h4>AI difficulty (7 levels)</h4><table class="lim">${LVN.map((n,i)=>`<tr><th>${n}</th><td>${LVD[i]}</td></tr>`).join('')}</table><p class="note">Start at <b>Lowest to Low-Mid</b>, then raise it when you start winning.</p></div>`)],
