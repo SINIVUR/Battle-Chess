@@ -437,67 +437,6 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
 <div class="modal" id="mPass" role="dialog" aria-modal="true"><div class="mc res"><div class="em">🔄</div><h2 id="passT"></h2><p class="note">상대가 화면을 보지 않도록 기기를 넘겨 주세요.</p><button class="pri" id="passOk" style="margin-top:14px">준비 완료</button></div></div>
 <div class="modal" id="mAsk" role="dialog" aria-modal="true"><div class="mc res"><h2 id="askT"></h2><p class="note" id="askD"></p><div class="row2" style="margin-top:14px"><button id="askNo">취소</button><button class="pri" id="askYes" style="width:auto">확인</button></div></div></div>
 
-<script>/* 공개 배포용: claude.ai 밖에서 `room` 기능을 WebRTC(Trystero)로 대신하는 어댑터 */
-(function(){
- if(window.claude)return;
- const APP='battlechess-online-v105';
- const LIBS=['https://cdn.jsdelivr.net/npm/trystero/+esm','https://esm.sh/trystero','https://esm.run/trystero','https://cdn.jsdelivr.net/npm/trystero@0.21.5/+esm'];
- let lib=null;
- async function getLib(){
-  if(window.__joinRoom)return {joinRoom:window.__joinRoom,selfId:window.__selfId};
-  if(lib)return lib;
-  const errs=[];
-  for(const u of LIBS){
-   try{
-    const m=await Promise.race([import(u),new Promise((_,j)=>setTimeout(()=>j(new Error('timeout')),12000))]);
-    if(m&&typeof m.joinRoom==='function'){lib=m;return m}
-    errs.push(u.split('/')[2]+': no joinRoom')}
-   catch(e){errs.push(u.split('/')[2]+': '+String(e&&e.message||e).slice(0,40))}}
-  window.__rtcErr=errs.join(' | ');
-  throw new Error(window.__rtcErr)}
- const frz=Object.freeze;
- async function make(joinRoom,selfId,name){
-  const room=joinRoom({appId:APP},name);
-  const act=t=>{const x=room.makeAction(t);return Array.isArray(x)?[x[0],x[1]]:[x.send,x.receive||x.onReceive||x.get]};
-  const [sendPr,getPr]=act('pr');
-  const [sendEv,getEv]=act('ev');
-  const others=new Map(),hs={},pls=[],cls=[];let myp={},conn=true,dead=false;
-  const mkp=(peer,p,self)=>frz({peer,by:null,isMe:self,sameTab:self,kind:'viewer',guest:false,presence:frz(Object.assign({},p)),updatedAt:Date.now()});
-  let cache=null;
-  const snap=()=>{if(!cache){cache=frz([mkp(selfId,myp,true)].concat([...others.entries()].map(([id,o])=>mkp(id,o.p,false))))}return cache};
-  const notify=left=>{cache=null;const s=snap();pls.forEach(f=>{try{f({peers:s,joined:[],left:left||[],updated:[]})}catch(e){}})};
-  const push=to=>{try{sendPr(myp,to)}catch(e){}};
-  getPr((p,id)=>{if(!p||typeof p!=='object')return;const o=others.get(id);others.set(id,{p,t:Date.now()});if(!o||JSON.stringify(o.p)!==JSON.stringify(p))notify()});
-  getEv((d,id)=>{if(!d||typeof d.topic!=='string')return;(hs[d.topic]||[]).slice().forEach(f=>{try{f({topic:d.topic,data:d.data,peer:id,by:null,isMe:false,sameTab:false,kind:'viewer',guest:false})}catch(e){}})});
-  room.onPeerJoin(id=>{if(!others.has(id))others.set(id,{p:{},t:Date.now()});push(id);notify()});
-  room.onPeerLeave(id=>{const o=others.get(id);others.delete(id);notify(o?[mkp(id,o.p,false)]:[])});
-  const hb=setInterval(()=>push(),3000);
-  const api={
-   emit(topic,data){return new Promise(r=>{if(dead){r();return}
-     try{sendEv({topic,data:data===undefined?null:data})}catch(e){}
-     setTimeout(()=>{(hs[topic]||[]).slice().forEach(f=>{try{f({topic,data,peer:selfId,by:null,isMe:true,sameTab:true,kind:'viewer',guest:false})}catch(e){}});r()},0)})},
-   on(topic,f){(hs[topic]=hs[topic]||[]).push(f);return()=>{hs[topic]=(hs[topic]||[]).filter(x=>x!==f)}},
-   presence(patch){myp=Object.assign({},myp,patch);Object.keys(myp).forEach(k=>{if(myp[k]===null)delete myp[k]});push();notify();return Promise.resolve()},
-   peers:snap,
-   onPeers(f){pls.push(f);setTimeout(()=>f({peers:snap(),joined:snap().slice(),left:[],updated:[]}),0);return()=>{const i=pls.indexOf(f);if(i>=0)pls.splice(i,1)}},
-   connected:()=>conn,
-   onConnection(f){cls.push(f);setTimeout(()=>f(conn),0);return()=>{const i=cls.indexOf(f);if(i>=0)cls.splice(i,1)}},
-   leave(){dead=true;clearInterval(hb);try{room.leave()}catch(e){}return Promise.resolve()},
-   name};
-  return api}
- let lobby=null;
- window.claude={use:async n=>{
-  if(n!=='room')return null;
-  if(lobby)return lobby;
-  lobby=(async()=>{
-   try{const L=await getLib();const joinRoom=L.joinRoom,selfId=L.selfId||(await getLib()).selfId;
-    const lb=await make(joinRoom,selfId,'bc-lobby');
-    const ns={emit:lb.emit,on:lb.on,presence:lb.presence,peers:lb.peers,onPeers:lb.onPeers,connected:lb.connected,onConnection:lb.onConnection,
-     join:async nm=>make(joinRoom,selfId,nm)};
-    return frz(ns)}catch(e){console.error('room init failed',e);window.__rtcErr=window.__rtcErr||String(e&&e.message||e).slice(0,120);lobby=null;return null}})();
-  return lobby}};
-})();
-</script>
 <script id="eng">
 /* ===== 배틀체스 엔진 (규칙 + AI). DOM 의존 없음 ===== */
 const BC=(function(){
@@ -2225,15 +2164,16 @@ const myPeer=()=>{const m=NT.room&&NT.room.peers().find(p=>p.sameTab);return m?m
 async function netInit(){
  if(NT.ok!==null)return NT.ok;
  try{
-  if(!window.claude||typeof claude.use!=='function'){NT.ok=false;NT.err='no-claude';return false}
-  const r=await claude.use('room');
-  if(!r){NT.ok=false;NT.err=window.__rtcErr||'room-null';return false}
+  let r=null;
+  if(window.claude&&typeof claude.use==='function')r=await claude.use('room');
+  if(!r&&cmOn()&&FB_KEY)r=await rtdbRoom();
+  if(!r){NT.ok=false;if(!NT.err)NT.err='연결 실패';return false}
   NT.room=r;NT.ok=true;
   const bad=()=>{NT.ok=false;if(NT.phase!=='idle')netCancel();netStat()};
   r.on('mt',onOffer,bad);r.on('mk',onAccept,bad);
   r.onPeers(()=>{netStat();netTick()},bad);
   r.onConnection(c=>{NT.conn=c;netStat()},bad);
-  return true}catch(e){NT.ok=false;return false}}
+  return true}catch(e){NT.ok=false;NT.err=String(e&&e.message||e).slice(0,120);return false}}
 
 /* --- 랭크 (이 기기에 저장되는 점수) --- */
 const RANKS=[['언랭크','🍑'],['브론즈','🥉'],['실버','🥈'],['골드','🥇'],['플래티넘','💠'],['다이아','💎'],['마스터','🔮'],['그랜드마스터','👑'],['챌린저','🏆']];
@@ -2578,6 +2518,85 @@ function doShare(extra){const t=shareTxt(extra),u=shareUrl();
  else copyTxt(t,'소개 문구와 주소를 복사했습니다. 친구에게 붙여넣어 보내세요!')}
 $('#goShare').onclick=()=>doShare();
 $('#ovShare').onclick=()=>{const w=G&&G.net?(G.over&&$('#ovT').textContent):'';doShare('배틀체스 '+(G&&G.net?'온라인 대전 결과: '+($('#ovT').textContent||'')+' ('+rkName(rkPts)+' '+rkPts+'점) — 도전해 보세요!':'한 판 해 보세요!'))};
+
+
+/* ===== Firebase Realtime Database 기반 실시간 방 (claude.ai 밖 공개 배포용) ===== */
+let rtdbLobby=null;
+function rtdbRoom(){
+ if(rtdbLobby)return rtdbLobby;
+ rtdbLobby=(async()=>{
+  const t0=await cmToken();if(!t0||!cmAuth)throw new Error('익명 로그인 실패 (Firebase 인증 설정 확인)');
+  const uid=cmAuth.uid,selfPeer=uid+'_'+rid().slice(0,4),base=cmBase(),frz=Object.freeze;
+  async function make(name){
+   const peers=new Map(),hs={},pls=[],cls=[],streams=[];let myp={},open=0,dead=false,cache=null,lastConn=null,off=null;
+   const alive=o=>off===null||typeof o.t!=='number'||Date.now()+off-o.t<18000;
+   const path=p=>base+'/rt/'+name+(p?'/'+p:'')+'.json';
+   const tq=async()=>'auth='+encodeURIComponent(await cmToken());
+   const mkp=(peer,p,self)=>frz({peer,by:null,isMe:false,sameTab:self,kind:'viewer',guest:false,presence:frz(Object.assign({},p)),updatedAt:Date.now()});
+   const snap=()=>{if(!cache)cache=frz([mkp(selfPeer,myp,true)].concat([...peers.entries()].filter(([k,o])=>alive(o)).map(([k,o])=>mkp(k,o.p,false))));return cache};
+   const notify=left=>{cache=null;const s=snap();pls.slice().forEach(f=>{try{f({peers:s,joined:[],left:left||[],updated:[]})}catch(e){}})};
+   const setConn=()=>{const c=open>=1;if(c!==lastConn){lastConn=c;cls.slice().forEach(f=>{try{f(c)}catch(e){}})}};
+   function stream(p,onPut){
+    let es=null,closed=false,retry=0,isOpen=false;
+    const go=async()=>{if(closed||dead)return;let q;
+     try{q=await tq()}catch(e){setTimeout(go,3000);return}
+     es=new EventSource(path(p)+'?'+q);
+     es.addEventListener('put',e=>{try{const d=JSON.parse(e.data);onPut(d.path,d.data)}catch(x){}});
+     es.addEventListener('patch',e=>{try{const d=JSON.parse(e.data);for(const k in d.data)onPut((d.path==='/'?'':d.path)+'/'+k,d.data[k])}catch(x){}});
+     es.addEventListener('auth_revoked',()=>{cmTok.t='';es.close();if(isOpen){isOpen=false;open--;setConn()}setTimeout(go,300)});
+     es.onopen=()=>{retry=0;if(!isOpen){isOpen=true;open++;setConn()}};
+     es.onerror=()=>{if(isOpen){isOpen=false;open--;setConn()}es.close();if(!closed)setTimeout(go,1500+Math.min(8,retry++)*1000)}};
+    go();
+    return()=>{closed=true;if(es)es.close();if(isOpen){isOpen=false;open--;setConn()}}};
+   const seenK=k=>{const o=peers.get(k);if(o)o.seen=Date.now()};
+   const presSnap=data=>{const nm=new Map();if(data&&typeof data==='object')for(const k in data){if(k===selfPeer||!data[k]||typeof data[k]!=='object')continue;const p=Object.assign({},data[k]);const tt=p.t;delete p.t;nm.set(k,{p,t:tt,seen:Date.now()})}
+    peers.clear();nm.forEach((v,k)=>peers.set(k,v));notify()};
+   const presPut=(k,data)=>{
+    if(!k||k===selfPeer)return;
+    if(data==null){const o=peers.get(k);if(o){peers.delete(k);notify([mkp(k,o.p,false)])}return}
+    if(typeof data!=='object')return;
+    const p=Object.assign({},data);const tt=p.t;delete p.t;const o=peers.get(k);
+    if(o&&JSON.stringify(o.p)===JSON.stringify(p)){o.seen=Date.now();o.t=tt;return}
+    peers.set(k,{p,t:tt,seen:Date.now()});notify()};
+   let init=false;const old=new Set(),got=new Set();
+   const evPut=(k,data)=>{
+    if(!k||old.has(k)||got.has(k)||!data||typeof data!=='object')return;
+    got.add(k);if(got.size>400){got.clear();}
+    if(typeof data.f!=='string'||data.f===selfPeer||typeof data.k!=='string')return;
+    (hs[data.k]||[]).slice().forEach(f=>{try{f({topic:data.k,data:data.d,peer:data.f,by:null,isMe:false,sameTab:false,kind:'viewer',guest:false})}catch(e){}})};
+   const evSnap=data=>{
+    if(!init){init=true;if(data&&typeof data==='object')for(const k in data){old.add(k);const d=data[k];if(d&&typeof d.t==='number'&&Date.now()-d.t>60000)tq().then(q=>fetch(path('e/'+k)+'?'+q,{method:'DELETE'})).catch(()=>{})}return}
+    if(data&&typeof data==='object')for(const k in data)evPut(k,data[k])};
+   streams.push(stream('',(pth,data)=>{
+    const ps=String(pth).split('/').filter(Boolean);
+    if(!ps.length){const d=data&&typeof data==='object'?data:{};presSnap(d.p);evSnap(d.e);return}
+    if(ps[0]==='p'){if(ps.length===1)presSnap(data);else if(ps.length===2)presPut(ps[1],data)}
+    else if(ps[0]==='e'){if(ps.length===1)evSnap(data);else if(ps.length===2)evPut(ps[1],data)}}));
+   const putPres=async()=>{if(dead)return;try{const q=await tq();const rs=await fetch(path('p/'+selfPeer)+'?'+q,{method:'PUT',body:JSON.stringify(Object.assign({},myp,{t:{'.sv':'timestamp'}}))});const j=await rs.json();if(j&&typeof j.t==='number'){const first=off===null;off=j.t-Date.now();if(first)notify()}}catch(e){}};
+   putPres();
+   const hb=setInterval(()=>{putPres();const n=Date.now();peers.forEach((o,k)=>{if(!alive(o)||n-o.seen>40000){peers.delete(k);notify([mkp(k,o.p,false)]);if(n-o.seen>70000)tq().then(q=>fetch(path('p/'+k)+'?'+q,{method:'DELETE'})).catch(()=>{})}})},5000);
+   const bye=()=>{try{if(cmTok.t)fetch(path('p/'+selfPeer)+'?auth='+encodeURIComponent(cmTok.t),{method:'DELETE',keepalive:true})}catch(e){}};
+   window.addEventListener('pagehide',bye);
+   const api={
+    emit(topic,data){return new Promise(r=>{
+     if(dead){r();return}
+     setTimeout(()=>{(hs[topic]||[]).slice().forEach(f=>{try{f({topic,data,peer:selfPeer,by:null,isMe:true,sameTab:true,kind:'viewer',guest:false})}catch(e){}})},0);
+     (async()=>{try{const q=await tq();const rs=await fetch(path('e')+'?'+q,{method:'POST',body:JSON.stringify({f:selfPeer,k:topic,d:data===undefined?null:data,t:{'.sv':'timestamp'},u:uid})});
+       const j=await rs.json();if(j&&j.name)setTimeout(()=>tq().then(q2=>fetch(path('e/'+j.name)+'?'+q2,{method:'DELETE'})).catch(()=>{}),25000)}catch(e){}})();
+     r()})},
+    on(topic,f){(hs[topic]=hs[topic]||[]).push(f);return()=>{hs[topic]=(hs[topic]||[]).filter(x=>x!==f)}},
+    presence(patch){myp=Object.assign({},myp,patch);Object.keys(myp).forEach(k=>{if(myp[k]===null)delete myp[k]});notify();putPres();return Promise.resolve()},
+    peers:snap,
+    onPeers(f){pls.push(f);setTimeout(()=>f({peers:snap(),joined:snap().slice(),left:[],updated:[]}),0);return()=>{const i=pls.indexOf(f);if(i>=0)pls.splice(i,1)}},
+    connected:()=>open>=1,
+    onConnection(f){cls.push(f);setTimeout(()=>f(open>=1),0);return()=>{const i=cls.indexOf(f);if(i>=0)cls.splice(i,1)}},
+    leave(){if(dead)return Promise.resolve();dead=true;clearInterval(hb);streams.forEach(f=>f());window.removeEventListener('pagehide',bye);
+     tq().then(q=>fetch(path('p/'+selfPeer)+'?'+q,{method:'DELETE'})).catch(()=>{});return Promise.resolve()}};
+   return api}
+  const lobby=await make('bc-lobby');
+  return frz({emit:lobby.emit,on:lobby.on,presence:lobby.presence,peers:lobby.peers,onPeers:lobby.onPeers,connected:lobby.connected,onConnection:lobby.onConnection,
+   join:async nm=>{const r=await make(nm);return r}})})().catch(e=>{rtdbLobby=null;throw e});
+ return rtdbLobby}
 
 window.__BC_APP={get G(){return G},U,play,draw,aiCheck};
 })();
