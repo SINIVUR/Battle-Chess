@@ -2172,7 +2172,7 @@ async function netInit(){
   const bad=()=>{NT.ok=false;if(NT.phase!=='idle')netCancel();netStat()};
   r.on('mt',onOffer,bad);r.on('mk',onAccept,bad);
   r.onPeers(()=>{netStat();netTick()},bad);
-  r.onConnection(c=>{NT.conn=c;netStat()},bad);
+  let cT=0;r.onConnection(c=>{clearTimeout(cT);if(c){NT.conn=true;netStat()}else cT=setTimeout(()=>{NT.conn=r.connected();netStat()},6000)},bad);
   return true}catch(e){NT.ok=false;NT.err=String(e&&e.message||e).slice(0,120);return false}}
 
 /* --- 랭크 (이 기기에 저장되는 점수) --- */
@@ -2537,7 +2537,7 @@ function rtdbRoom(){
    const notify=left=>{cache=null;const s=snap();pls.slice().forEach(f=>{try{f({peers:s,joined:[],left:left||[],updated:[]})}catch(e){}})};
    const setConn=()=>{const c=open>=1;if(c!==lastConn){lastConn=c;cls.slice().forEach(f=>{try{f(c)}catch(e){}})}};
    function stream(p,onPut){
-    let es=null,closed=false,retry=0,isOpen=false;
+    let es=null,closed=false,retry=0,isOpen=false,rt_=0;
     const go=async()=>{if(closed||dead)return;let q;
      try{q=await tq()}catch(e){setTimeout(go,3000);return}
      es=new EventSource(path(p)+'?'+q);
@@ -2545,7 +2545,8 @@ function rtdbRoom(){
      es.addEventListener('patch',e=>{try{const d=JSON.parse(e.data);for(const k in d.data)onPut((d.path==='/'?'':d.path)+'/'+k,d.data[k])}catch(x){}});
      es.addEventListener('auth_revoked',()=>{cmTok.t='';es.close();if(isOpen){isOpen=false;open--;setConn()}setTimeout(go,300)});
      es.onopen=()=>{retry=0;if(!isOpen){isOpen=true;open++;setConn()}};
-     es.onerror=()=>{if(isOpen){isOpen=false;open--;setConn()}es.close();if(!closed)setTimeout(go,1500+Math.min(8,retry++)*1000)}};
+     es.addEventListener('cancel',()=>{es.onerror()});
+     es.onerror=()=>{if(isOpen){isOpen=false;open--;setConn()}try{es.close()}catch(x){}if(!closed&&!rt_)rt_=setTimeout(()=>{rt_=0;go()},400+Math.min(8,retry++)*700)}};
     go();
     return()=>{closed=true;if(es)es.close();if(isOpen){isOpen=false;open--;setConn()}}};
    const seenK=k=>{const o=peers.get(k);if(o)o.seen=Date.now()};
