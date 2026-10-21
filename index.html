@@ -441,12 +441,20 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
 (function(){
  if(window.claude)return;
  const APP='battlechess-online-v105';
- const LIB='https://esm.run/trystero';
+ const LIBS=['https://cdn.jsdelivr.net/npm/trystero/+esm','https://esm.sh/trystero','https://esm.run/trystero','https://cdn.jsdelivr.net/npm/trystero@0.21.5/+esm'];
  let lib=null;
  async function getLib(){
   if(window.__joinRoom)return {joinRoom:window.__joinRoom,selfId:window.__selfId};
-  if(!lib)lib=import(LIB);
-  return lib}
+  if(lib)return lib;
+  const errs=[];
+  for(const u of LIBS){
+   try{
+    const m=await Promise.race([import(u),new Promise((_,j)=>setTimeout(()=>j(new Error('timeout')),12000))]);
+    if(m&&typeof m.joinRoom==='function'){lib=m;return m}
+    errs.push(u.split('/')[2]+': no joinRoom')}
+   catch(e){errs.push(u.split('/')[2]+': '+String(e&&e.message||e).slice(0,40))}}
+  window.__rtcErr=errs.join(' | ');
+  throw new Error(window.__rtcErr)}
  const frz=Object.freeze;
  async function make(joinRoom,selfId,name){
   const room=joinRoom({appId:APP},name);
@@ -485,7 +493,7 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
     const lb=await make(joinRoom,selfId,'bc-lobby');
     const ns={emit:lb.emit,on:lb.on,presence:lb.presence,peers:lb.peers,onPeers:lb.onPeers,connected:lb.connected,onConnection:lb.onConnection,
      join:async nm=>make(joinRoom,selfId,nm)};
-    return frz(ns)}catch(e){console.error('room init failed',e);return null}})();
+    return frz(ns)}catch(e){console.error('room init failed',e);window.__rtcErr=window.__rtcErr||String(e&&e.message||e).slice(0,120);lobby=null;return null}})();
   return lobby}};
 })();
 </script>
@@ -2206,7 +2214,7 @@ document.addEventListener('visibilitychange',()=>{try{if(!AC)return;if(document.
 syncSnd();syncSetup();initWorker();
 
 /* ===== 온라인 대전 (room 기능 기반 · 결정적 락스텝) ===== */
-const NT={room:null,ok:null,conn:true,sel:store.get('netSel',''),nick:store.get('netNick',''),phase:'idle',since:0,mine:null,nk:'',
+const NT={room:null,ok:null,err:'',conn:true,sel:store.get('netSel',''),nick:store.get('netNick',''),phase:'idle',since:0,mine:null,nk:'',
  opp:null,role:null,gr:null,unsubs:[],out:[],inN:0,inbuf:{},queue:[],pumping:false,started:false,heard:0,hc:null,seed:0,gotHi:null,
  offerTo:null,offerAt:0,mid:null,tick:null,hiT:null,hbT:null,failT:null,dcT:null,ndAt:0,rsAt:0};
 const nkClean=v=>String(v==null?'':v).replace(/[\u0000-\u001f\u007f-\u009f​-‏‪-‮⁠-⁯﻿]/g,'').trim().slice(0,12);
@@ -2216,9 +2224,9 @@ const myPeer=()=>{const m=NT.room&&NT.room.peers().find(p=>p.sameTab);return m?m
 async function netInit(){
  if(NT.ok!==null)return NT.ok;
  try{
-  if(!window.claude||typeof claude.use!=='function'){NT.ok=false;return false}
+  if(!window.claude||typeof claude.use!=='function'){NT.ok=false;NT.err='no-claude';return false}
   const r=await claude.use('room');
-  if(!r){NT.ok=false;return false}
+  if(!r){NT.ok=false;NT.err=window.__rtcErr||'room-null';return false}
   NT.room=r;NT.ok=true;
   const bad=()=>{NT.ok=false;if(NT.phase!=='idle')netCancel();netStat()};
   r.on('mt',onOffer,bad);r.on('mk',onAccept,bad);
@@ -2262,7 +2270,7 @@ function netList(){
 $('#nList').onclick=e=>{const b=e.target.closest('.ni');if(!b)return;NT.sel=b.dataset.id;store.set('netSel',NT.sel);sfx('sel');netList()};
 function netStat(){
  const el=$('#nStat'),go=$('#nGo');if(!el)return;
- if(NT.ok===false){el.textContent='이 화면에서는 온라인 대전을 쓸 수 없습니다. 게시된 페이지를 로그인한 상태로 열어 주세요 (파일로 저장했거나 로그아웃 상태면 연결되지 않습니다).';go.disabled=true;return}
+ if(NT.ok===false){el.innerHTML='⚠️ 온라인 연결 서버를 불러오지 못했습니다. 와이파이↔데이터를 바꾸거나 잠시 뒤 <b>다시 시도</b>를 눌러 주세요.<br><small style="color:#999">'+esc(String(NT.err||'').slice(0,160))+'</small><br><button id="nRetry" style="margin-top:6px">🔄 다시 시도</button>';go.disabled=true;const rb=$('#nRetry');if(rb)rb.onclick=()=>{NT.ok=null;NT.room=null;netStat();netInit().then(()=>{netStat();netUI()})};return}
  if(NT.ok===null){el.textContent='온라인 연결 확인 중…';go.disabled=true;return}
  const pv=NT.room.peers().filter(p=>p.kind==='viewer'),wt=pv.filter(p=>p.presence&&typeof p.presence.w==='number').length;
  el.textContent=NT.conn?`🟢 온라인 · 접속 ${pv.length}명 · 매칭 대기 ${wt}명`:'🟠 연결이 불안정합니다. 다시 연결 중…';
