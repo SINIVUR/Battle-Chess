@@ -316,14 +316,17 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
 .nlist .ni.on{border-color:#1f6feb;box-shadow:0 0 0 3px rgba(31,111,235,.18)}
 .nlist .ni b{font-size:14.5px}.nlist .ni .sm{font-size:12px;color:var(--mut)}.nlist .ni .tt{display:flex;gap:2px;flex-wrap:wrap}
 .nlist .gh{font-size:12px;font-weight:700;color:var(--mut);margin-top:4px}
-.rk{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px;background:var(--card)}
-.rk .rb{font-size:30px;line-height:1}.rk .rt{flex:1;min-width:0}.rk .rt b{font-size:16px}.rk .rt small{display:block;color:var(--mut);font-size:12px}
-.rk .rbar{height:6px;border-radius:3px;background:var(--line);margin-top:5px;overflow:hidden}.rk .rbar i{display:block;height:100%;background:#1f6feb}
+.rkc{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px;background:var(--card)}
+.rkc .rb{font-size:30px;line-height:1}.rkc .rt{flex:1;min-width:0}.rkc .rt b{font-size:16px}.rkc .rt small{display:block;color:var(--mut);font-size:12px}
+.rkc .rbar{height:6px;border-radius:3px;background:var(--line);margin-top:5px;overflow:hidden}.rkc .rbar i{display:block;height:100%;background:#1f6feb}
 .mmR{font-size:13px;color:var(--mut);margin:2px 0}
 .hrow{display:flex;align-items:center;justify-content:space-between;gap:8px}.hrow h2{margin:0}.hbtn{padding:7px 11px;font-size:13px;white-space:nowrap}
 .mrow{display:flex;gap:6px}.mrow button{flex:1;padding:10px 4px;font-size:13px}
 .pnb{max-height:58vh;overflow:auto}.pnv{border-left:3px solid var(--line);padding:2px 0 2px 12px;margin-bottom:14px}.pnv.cur{border-color:#1f6feb}.pnv h4{margin:0 0 4px;font-size:15px}.pnv h4 small{font-weight:400;color:var(--mut)}.pnv ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.55}
 #upBn{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:80;background:#111;color:#fff;border-radius:14px;padding:9px 10px 9px 14px;display:flex;align-items:center;gap:8px;font-size:13.5px;box-shadow:0 8px 28px rgba(0,0,0,.4);max-width:calc(100vw - 24px)}#upBn button{padding:7px 12px;font-size:13px;width:auto}#upBn #upX{background:transparent;color:#fff;border:0;font-size:18px}
+.rdot{display:inline-block;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE6D5,#FBCEB1 65%,#F3B58F);border:2px solid #E9A57C;box-shadow:0 1px 3px rgba(0,0,0,.18);vertical-align:middle}.rdot.s{width:14px;height:14px;border-width:1.5px;margin-right:4px}
+.apr{color:#F7B089 !important;font-weight:800;-webkit-text-stroke:.5px #D98E64;paint-order:stroke fill}
+.cml{max-height:30vh;overflow:auto;border:1px solid var(--line);border-radius:12px;margin:6px 0;background:var(--card)}.cmi{padding:8px 11px;border-bottom:1px solid var(--line);font-size:13px;line-height:1.5}.cmi:last-child{border:0}.cmi b{font-size:13px}.cmi small{color:var(--mut);margin-left:6px}.cmi .ct{display:inline-block;font-size:11px;padding:0 6px;border-radius:6px;background:var(--line);margin-right:4px}.cmi p{margin:2px 0 0;white-space:pre-wrap;word-break:break-word}.cme{padding:16px;text-align:center;color:var(--mut);font-size:13px}
 .btns2{display:flex;gap:8px}.btns2 button{flex:1}
 .nspin{width:38px;height:38px;margin:4px auto 8px;border:4px solid var(--line);border-top-color:#1f6feb;border-radius:50%;animation:nsp 1s linear infinite}
 @keyframes nsp{to{transform:rotate(360deg)}}
@@ -348,7 +351,7 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
  <h2>🌐 온라인 대전</h2>
  <p class="note" id="nStat">연결 확인 중…</p>
  <div class="card" id="nSetup">
-  <div id="nRank" class="rk"></div><h3>닉네임</h3><input id="nNick" maxlength="12" autocomplete="off" placeholder="닉네임 (최대 12자)" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;background:var(--card);color:var(--ink)">
+  <div id="nRank" class="rkc"></div><h3>닉네임</h3><input id="nNick" maxlength="12" autocomplete="off" placeholder="닉네임 (최대 12자)" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;background:var(--card);color:var(--ink)">
   <h3 style="margin-top:14px">출전 구성 · 배치</h3>
   <p class="note">미리 저장한 “구성·배치”로 상대와 싸웁니다. 매칭이 잡히면 색(백/흑)만 정해지고 배치는 그대로 적용됩니다.</p>
   <div id="nList" class="nlist"></div><button id="nMake" style="margin-top:8px">➕ 내 기물 선택·배치로 새 프리셋 만들기</button>
@@ -419,7 +422,10 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
 <div class="modal" id="mHelp" role="dialog" aria-modal="true"><div class="mc"><button class="x" data-close>닫기</button><div id="helpBody"></div></div></div>
 <div class="modal" id="mOver" role="dialog" aria-modal="true"><div class="mc res"><div class="em" id="ovEm"></div><h2 id="ovT"></h2><p id="ovD" class="note"></p><div class="ovs" id="ovS"></div><button id="ovShare" style="margin-top:8px;width:100%">📤 결과 공유하기</button><button class="pri" id="ovNet" style="display:none;margin-top:14px">🌐 다시 매칭하기</button><button class="pri" id="ovAgain" style="margin-top:14px">같은 구성·배치로 다시 하기</button><div class="row2" style="margin-top:8px"><button id="ovPlace">배치로 돌아가기</button><button id="ovSel">기물 선택으로</button></div><div class="row2" style="margin-top:8px"><button id="ovHome">메인 메뉴</button><button class="ghost" id="ovView">판 확인하기</button></div></div></div>
 <div class="modal" id="mPatch" role="dialog" aria-modal="true" aria-labelledby="pnT"><div class="mc res" style="text-align:left"><h2 id="pnT" style="text-align:center">📢 공지 · 패치 노트</h2><div class="seg" id="pnTab" style="margin-bottom:10px"><button data-v="n" class="on">공지</button><button data-v="p">패치 노트</button></div><div id="pnB" class="pnb"></div><div class="row2" style="margin-top:14px"><button class="pri" id="pnX" style="width:auto">닫기</button></div></div></div>
-<div class="modal" id="mFb" role="dialog" aria-modal="true" aria-labelledby="fbT"><div class="mc res" style="text-align:left"><h2 id="fbT" style="text-align:center">💬 건의하기</h2><p class="note" style="text-align:center">버그, 밸런스, 아이디어, 칭찬 모두 환영합니다!</p><select id="fbCat" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin:8px 0"><option>🐞 버그 제보</option><option>⚖️ 밸런스 의견</option><option>💡 기능 건의</option><option>👍 칭찬·응원</option></select><textarea id="fbMsg" rows="6" maxlength="1000" placeholder="어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;resize:vertical;font-family:inherit"></textarea><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin:4px 0"><label><input type="checkbox" id="fbInfo" checked> 버전·기기 정보 포함</label><span id="fbCnt">0 / 1000</span></div><p class="note" id="fbNote"></p><div class="row2" style="margin-top:10px"><button class="pri" id="fbSend">보내기</button><button id="fbCopy">내용 복사</button><button id="fbX">닫기</button></div></div></div>
+<div class="modal" id="mFb" role="dialog" aria-modal="true" aria-labelledby="fbT"><div class="mc res" style="text-align:left"><h2 id="fbT" style="text-align:center">💬 건의하기</h2><div class="seg" id="fbTab" style="margin-bottom:8px"><button data-v="b" class="on">댓글 게시판</button><button data-v="m">메일로 보내기</button></div>
+<div id="cmWrap"><div style="display:flex;justify-content:space-between;align-items:center"><span class="note" id="cmInfo">불러오는 중…</span><button id="cmRef" style="padding:5px 10px;font-size:12px;width:auto">🔄 새로고침</button></div><div id="cmList" class="cml"></div></div>
+<p class="note" id="fbHead" style="text-align:center;margin:6px 0 2px">버그, 밸런스, 아이디어, 칭찬 모두 환영합니다!</p>
+<input id="cmNick" maxlength="12" placeholder="닉네임" style="width:100%;padding:9px;border:1px solid var(--line);border-radius:10px;font-size:14px;margin:6px 0 0;background:var(--card);color:var(--ink)"><select id="fbCat" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin:6px 0"><option>🐞 버그 제보</option><option>⚖️ 밸런스 의견</option><option>💡 기능 건의</option><option>👍 칭찬·응원</option></select><textarea id="fbMsg" rows="4" maxlength="500" placeholder="어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;resize:vertical;font-family:inherit"></textarea><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin:4px 0"><label id="fbInfoL"><input type="checkbox" id="fbInfo" checked> 버전·기기 정보 포함</label><span id="fbCnt">0 / 500</span></div><p class="note" id="fbNote"></p><div class="row2" style="margin-top:10px"><button class="pri" id="cmPost">댓글 등록</button><button class="pri" id="fbSend">메일 보내기</button><button id="fbCopy">내용 복사</button><button id="fbX">닫기</button></div></div></div>
 <div class="modal" id="mLog" role="dialog" aria-modal="true" aria-labelledby="lgT"><div class="mc res"><h2 id="lgT">행동 로그</h2><p class="note" id="lgN"></p><div id="lgAll"></div><div class="row2" style="margin-top:14px"><button class="pri" id="lgX" style="width:auto">닫기</button></div></div></div>
 <div id="cdAl" aria-hidden="true"></div>
 <div id="phaseAl" role="status" aria-live="polite"></div>
@@ -2146,7 +2152,8 @@ function applyPf(){document.body.classList.toggle('rm',!!PF.rm);document.body.cl
 function applyBv(){try{if(tg)tg.gain.value=.9*bv;if(mg)mg.gain.value=.3*bv}catch(e){}}
 function swRow(id,t,d,on){return `<div class="setr"><label for="${id}"><b>${t}</b><span class="d">${d}</span></label><button class="sw" id="${id}" role="switch" aria-checked="${on}"></button></div>`}
 function buildSet(){$('#setBody').innerHTML=swRow('swSfx','효과음','이동·잡기·스킬 소리',sfxOn)+swRow('swBgm','배경음악','',music)+`<div class="setr"><label for="bvR"><b>배경음악 크기 <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">기본 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="배경음악 크기"></div>`+swRow('swHint','좋은 수 표시','체스 초보를 위한 추천 수와 체크 안내 (대국 중에도 바꿀 수 있습니다)',!!U.hint)+swRow('swRm','애니메이션 줄이기','화면 효과와 움직임을 최소화합니다',!!PF.rm)+swRow('swLt','큰 글씨 · 큰 화면','전체 화면을 12% 키웁니다',!!PF.lt)
- +`<div class="setr"><div><b>저장 데이터 삭제</b><span class="d">설정과 내 프리셋을 모두 지웁니다</span></div><button id="swClr">삭제</button></div><p class="note" style="text-align:center;margin-top:10px">배틀체스 · VERSION 10.5.1</p>`;
+ +`<div class="setr"><div><b>저장 데이터 삭제</b><span class="d">설정과 내 프리셋을 모두 지웁니다</span></div><button id="swClr">삭제</button></div>${$('#s0').classList.contains('on')?'':'<div class="setr"><div><b>메인 메뉴로 돌아가기</b><span class="d">지금 화면을 나가 처음 화면으로 이동합니다</span></div><button id="swHome">🏠 메뉴로</button></div>'}<p class="note" style="text-align:center;margin-top:10px">배틀체스 · VERSION 10.5.1</p>`;
+ {const hb=$('#swHome');if(hb)hb.onclick=()=>{const inGame=G&&G.b&&!G.over&&$('#s4').classList.contains('on'),inNet=inGame&&G.net;ask('메뉴로 돌아가기',inNet?'온라인 대전 중에 나가면 항복(패배) 처리됩니다. 나갈까요?':inGame?'진행 중인 게임이 종료됩니다. 메인 메뉴로 돌아갈까요?':'지금까지 고른 내용은 저장되지 않습니다. 메인 메뉴로 돌아갈까요?',()=>{closeM('mSet');if(G)G.mk=false;sfx('rm');toHome()})}}
  const tg=(id,fn)=>$('#'+id).onclick=()=>{fn();buildSet()};
  {const r=$('#bvR');r.oninput=()=>{bv=r.value/100;$('#bvP').textContent=r.value+'%';applyBv()};r.onchange=()=>store.set('bv',bv)}
  tg('swSfx',()=>$('#sf').click());tg('swBgm',()=>$('#bm').click());
@@ -2225,9 +2232,10 @@ const RK_WIN=20,RK_LOSS=8;
 let rkPts=Math.max(0,Math.min(2000,Math.floor(+store.get('rk',0))||0));
 const rkTier=p=>Math.min(8,Math.floor(Math.max(0,p)/100));
 const rkName=p=>RANKS[rkTier(p)][1]+' '+RANKS[rkTier(p)][0];
+const rkHtml=p=>{const t=rkTier(p);return t===0?`<span class="rdot s"></span><b class="apr">언랭크</b>`:esc(RANKS[t][1]+' '+RANKS[t][0])};
 function rkDraw(){const t=rkTier(rkPts),el=$('#nRank');if(!el)return;
  const nx=t<8?`${RANKS[t+1][0]}까지 ${(t+1)*100-rkPts}점`:'최고 등급!';
- el.innerHTML=`<div class="rb">${RANKS[t][1]}</div><div class="rt"><b>${RANKS[t][0]} · ${rkPts}점</b><small>승리 +${RK_WIN} · 패배 −${RK_LOSS} · ${nx}</small><div class="rbar"><i style="width:${t<8?rkPts%100:100}%${t===0?';background:#F4A97F':''}"></i></div></div>`}
+ el.innerHTML=`<div class="rb">${t===0?'<span class="rdot"></span>':RANKS[t][1]}</div><div class="rt"><b${t===0?' class="apr"':''}>${RANKS[t][0]} · ${rkPts}점</b><small>승리 +${RK_WIN} · 패배 −${RK_LOSS} · ${nx}</small><div class="rbar"><i style="width:${t<8?rkPts%100:100}%${t===0?';background:#F7BC98':''}"></i></div></div>`}
 function netResult(w){
  if(!G.net||G.net.rk)return;G.net.rk=1;
  const before=rkPts;let d=0;
@@ -2375,7 +2383,7 @@ function netBegin(){
  const mp=netCheck(NT.mine.l,NT.mine.pl,me),pp=netCheck(NT.opp.l,NT.opp.pl,op);
  if(!mp||!pp){netFail('상대의 구성이 올바르지 않습니다');return}
  NT.beginning=true;clearTimeout(NT.failT);
- $('#mmO').textContent='상대: '+NT.opp.nk;$('#mmR').textContent=`상대 ${rkName(NT.opp.rk)} (${NT.opp.rk}점) · 나 ${rkName(rkPts)} (${rkPts}점)`;
+ $('#mmO').textContent='상대: '+NT.opp.nk;$('#mmR').innerHTML=`상대 ${rkHtml(NT.opp.rk)} (${NT.opp.rk}점) · 나 ${rkHtml(rkPts)} (${rkPts}점)`;
  $('#mmC').textContent=`당신은 ${me==='w'?'백 (선공)':'흑 (후공)'} 입니다`;
  const row=l=>l.split('').concat(/[Egd]/.test(l)?[]:['K']).map(t=>icon(t)).join('');
  $('#mmMy').innerHTML=row(NT.mine.l);$('#mmOp').innerHTML=row(NT.opp.l);
@@ -2512,14 +2520,45 @@ function fbText(){
 function copyTxt(t,ok){let done=false;
  try{navigator.clipboard.writeText(t).then(()=>toast(ok),()=>fb())}catch(e){fb()}
  function fb(){if(done)return;done=true;const a=$('#fbMsg');a.focus();a.select();toast('내용을 직접 복사해 주세요')}}
+/* 댓글 게시판: Firebase Realtime Database(REST)를 쓰는 공용 댓글. 주소를 비워 두면 메일 방식만 제공됩니다. */
+const COMMENT_DB='';   // 예: 'https://내프로젝트-default-rtdb.firebasedatabase.app'
+let fbMode='b',cmT=null,cmLast=0;
+const cmOn=()=>!!COMMENT_DB&&location.protocol.startsWith('http');
+function fbMode_(m){
+ fbMode=(m==='b'&&cmOn())?'b':'m';
+ $$('#fbTab button').forEach(x=>x.classList.toggle('on',x.dataset.v===fbMode));
+ const b=fbMode==='b';
+ $('#cmWrap').style.display=b?'':'none';$('#cmNick').style.display=b?'':'none';$('#cmPost').style.display=b?'':'none';
+ $('#fbSend').style.display=(!b&&(FEEDBACK_FORM||FEEDBACK_MAIL))?'':'none';$('#fbCopy').style.display=b?'none':'';$('#fbInfoL').style.display=b?'none':'';
+ $('#fbHead').textContent=b?'모두가 볼 수 있는 댓글입니다. 개인정보는 적지 마세요.':'제작자에게만 메일로 전달됩니다.';
+ $('#fbNote').textContent=b?'':(FEEDBACK_FORM||FEEDBACK_MAIL?'메일 보내기를 누르면 내용이 복사되고 메일 앱이 열립니다.':'내용을 복사해서 제작자가 알려 준 곳에 붙여넣어 주세요.');
+ clearInterval(cmT);if(b){cmLoad();cmT=setInterval(cmLoad,30000)}}
+$('#fbTab').onclick=e=>{const x=e.target.closest('button');if(!x)return;if(x.dataset.v==='b'&&!cmOn()){toast('댓글 게시판은 공개 배포 주소에서만 쓸 수 있습니다');return}fbMode_(x.dataset.v)};
+function ago(ts){const s=Math.max(0,(Date.now()-ts)/1000|0);if(s<60)return '방금';if(s<3600)return (s/60|0)+'분 전';if(s<86400)return (s/3600|0)+'시간 전';return (s/86400|0)+'일 전'}
+async function cmLoad(){
+ if(!cmOn())return;
+ try{const r=await fetch(COMMENT_DB.replace(/\/$/,'')+'/comments.json?orderBy=%22$key%22&limitToLast=60',{cache:'no-store'});if(!r.ok)throw 0;
+  const o=await r.json()||{},L=Object.keys(o).map(k=>o[k]).filter(x=>x&&typeof x.t==='string'&&x.h!==true).reverse();
+  $('#cmInfo').textContent=L.length?`최근 댓글 ${L.length}개`:'아직 댓글이 없어요. 첫 댓글을 남겨 주세요!';
+  $('#cmList').innerHTML=L.length?L.map(x=>`<div class="cmi"><b>${esc(String(x.n||'익명').slice(0,12))}</b><small>${typeof x.ts==='number'?ago(x.ts):''}${x.r?' · '+esc(String(x.r).slice(0,10)):''}</small><p><span class="ct">${esc(String(x.c||'').slice(0,12))}</span>${esc(String(x.t).slice(0,500))}</p></div>`).join(''):'<div class="cme">💬</div>'}
+ catch(e){$('#cmInfo').textContent='댓글을 불러오지 못했습니다';$('#cmList').innerHTML='<div class="cme">연결을 확인하고 새로고침해 주세요</div>'}}
+$('#cmRef').onclick=()=>{$('#cmInfo').textContent='불러오는 중…';cmLoad()};
+$('#cmPost').onclick=async()=>{
+ if(!cmOn())return;const t=$('#fbMsg').value.trim(),n=nkClean($('#cmNick').value);
+ if(!n){toast('닉네임을 입력해 주세요');return}if(!t){toast('내용을 입력해 주세요');return}
+ if(Date.now()-cmLast<20000){toast('잠시 후 다시 등록해 주세요 (20초 간격)');return}
+ const bt=$('#cmPost');bt.disabled=true;
+ try{const r=await fetch(COMMENT_DB.replace(/\/$/,'')+'/comments.json',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({n,t:t.slice(0,500),c:$('#fbCat').value.slice(0,12),ts:{'.sv':'timestamp'},v:APP_VER,r:RANKS[rkTier(rkPts)][0]})});
+  if(!r.ok)throw 0;cmLast=Date.now();NT.nick=n;store.set('netNick',n);$('#fbMsg').value='';$('#fbCnt').textContent='0 / 500';toast('댓글을 등록했습니다');sfx('place');cmLoad()}
+ catch(e){toast('등록하지 못했습니다. 잠시 후 다시 시도해 주세요')}
+ bt.disabled=false};
 function fbOpen(){
- $('#fbMsg').value='';$('#fbCnt').textContent='0 / 1000';
- const dest=FEEDBACK_FORM||FEEDBACK_MAIL;
- $('#fbSend').style.display=dest?'':'none';
- $('#fbNote').textContent=dest?'보내기를 누르면 내용이 복사되고 '+(FEEDBACK_FORM?'건의 양식':'메일')+'이 열립니다. 열린 곳에 붙여넣어 제출해 주세요.':'내용을 복사해서 제작자가 알려 준 곳(커뮤니티·채팅방 등)에 붙여넣어 주세요.';
- openM('mFb');setTimeout(()=>$('#fbMsg').focus(),50)}
-$('#goFb').onclick=fbOpen;$('#fbX').onclick=()=>closeM('mFb');
-$('#fbMsg').oninput=()=>{const v=$('#fbMsg').value;if(v.length>1000)$('#fbMsg').value=v.slice(0,1000);$('#fbCnt').textContent=$('#fbMsg').value.length+' / 1000'};
+ $('#fbMsg').value='';$('#fbCnt').textContent='0 / 500';$('#cmNick').value=NT.nick||'';
+ $('#fbTab button[data-v="b"]').style.display=cmOn()?'':'none';
+ fbMode_(cmOn()?'b':'m');
+ openM('mFb');setTimeout(()=>{if(fbMode==='m')$('#fbMsg').focus()},50)}
+$('#goFb').onclick=fbOpen;$('#fbX').onclick=()=>{closeM('mFb');clearInterval(cmT)};
+$('#fbMsg').oninput=()=>{const v=$('#fbMsg').value;if(v.length>500)$('#fbMsg').value=v.slice(0,500);$('#fbCnt').textContent=$('#fbMsg').value.length+' / 500'};
 function fbOk(){if(!$('#fbMsg').value.trim()){toast('내용을 입력해 주세요');return false}return true}
 $('#fbCopy').onclick=()=>{if(fbOk())copyTxt(fbText(),'건의 내용을 복사했습니다')};
 $('#fbSend').onclick=()=>{if(!fbOk())return;const t=fbText();copyTxt(t,'내용을 복사했습니다 — 열린 곳에 붙여넣어 주세요');
