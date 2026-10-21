@@ -579,7 +579,7 @@ body.lab #tHud,body.lab #s4 .skb,body.lab #s4 .act2,body.lab #side .pwr,body.lab
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <p class="note">39 코스트로 나만의 군대를 만들어 싸워라</p>
- <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 11.1.15</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 11.1.16</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -697,7 +697,7 @@ const DEF={
  S:{n:'솔저',e:'💂',c:1,p:'f',av:1.4,d:'전진 1칸 이동(첫 이동에서만 2칸 가능, 잡기 불가) · 전방 1칸 원거리 공격 · 스킬: 끝줄에 닿으면 뱅가드·샷건 중 하나로 승급(직접 선택)'},
  L:{n:'슬링',e:'🥌',c:2,p:'f',av:2,d:'대각선 1칸 이동(첫 이동은 2칸 가능, 잡기 불가) · 대각선 1칸 원거리 공격'},
  F:{n:'울프',e:'🐺',c:5,p:'f',av:4,d:'나이트 이동 · 특수: 적을 처치하면 도착한 칸에서 나이트 이동으로 갈 수 있는 빈 칸 중 한 곳으로 한 번 더 이동할 수 있음(잡기 불가)'},
- T:{n:'스트라이커',e:'🏃',c:3,p:'f',av:5,d:'전방 직선 최대 6칸 이동·잡기 · 돌파: 경로에 아군이 없으면 지나가는 적을 모두 관통해 처치(무적 기물·킹 계열은 관통 불가, 그 앞에서 멈춤) · 아직 움직이지 않은 첫 행동에서는 킹 계열을 잡을 수 없음'},
+ T:{n:'스트라이커',e:'🏃',c:5,p:'f',av:5,d:'전방 직선 최대 6칸 이동·잡기 · 돌파: 경로에 아군이 없으면 지나가는 적을 모두 관통해 처치(무적 기물·킹 계열은 관통 불가, 그 앞에서 멈춤) · 아직 움직이지 않은 첫 행동에서는 적을 잡을 수 없음(이동만 가능, 적을 만나면 멈춤)'},
  V:{n:'뱅가드',e:'🛡️',c:7,p:'f',av:6,d:'상하좌우 최대 3칸 이동·잡기 · 패시브: 주변 3x3 아군은 원거리 공격 면역(본인 제외)'},
  G:{n:'골렘',e:'🧱',c:4,p:'fb',av:5.5,d:'상하좌우 1칸 이동·잡기 · 스킬: 주변 3x3 적을 랜덤으로 1~3기 처치(무적 기물 제외)'},
  H:{n:'프리스트',e:'🙏',c:1,p:'b',av:3,d:'상하좌우·대각선 1칸 이동(공격 불가) · 스킬: 주변 3x3 아군 1기를 상대 1턴 무적으로'},
@@ -813,7 +813,7 @@ function gen0(b,s,opt){
    case'A':for(const[dr,dc]of D4){if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
     for(let k=1;k<=3;k++){const q=at(r+dr*k,c+dc*k);if(q&&q.s!==s)mv(r+dr*k,c+dc*k,1)}}
     for(const[dr,dc]of DD)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);break;
-   case'T':{let rr=r+f,k=0;const kl=[];while(k<6){const q=at(rr,c);if(q===undefined)break;const t=rr*8+c;if(q===null){if(kl.length)gout.push([i,t,14,undefined,kl.slice()]);else mv(rr,c,0)}else if(q.s===s||q.inv||momProt(gb,t))break;else if(isKing(q.t)){if(!kl.length&&p.m)gout.push([i,t,0]);break}else{kl.push(t);if(kl.length===1)gout.push([i,t,0]);else gout.push([i,t,14,undefined,kl.slice()])}rr+=f;k++}break}
+   case'T':{let rr=r+f,k=0;const kl=[];while(k<6){const q=at(rr,c);if(q===undefined)break;const t=rr*8+c;if(q===null){if(kl.length)gout.push([i,t,14,undefined,kl.slice()]);else mv(rr,c,0)}else if(q.s===s||q.inv||momProt(gb,t))break;else if(!p.m)break;else if(isKing(q.t)){if(!kl.length&&p.m)gout.push([i,t,0]);break}else{kl.push(t);if(kl.length===1)gout.push([i,t,0]);else gout.push([i,t,14,undefined,kl.slice()])}rr+=f;k++}break}
    case'H':{for(const[dr,dc]of D8)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
     if(!gcap)for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q&&q.s===s&&!q.inv)gout.push([i,(r+dr)*8+c+dc,2])}break}
    case'Z':for(const[dr,dc]of DD){let rr=r+dr,cc=c+dc,k=0,q;while(k<3&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}
@@ -1588,7 +1588,7 @@ const EN_DEF={
  S:['Soldier','Moves 1 square forward (2 squares on its first move only; cannot capture by moving) · Ranged attack on the square 1 ahead · Skill: On reaching the far row, promotes to Vanguard or Shotgun (your choice)'],
  L:['Sling','Moves 1 square diagonally (2 on its first move; cannot capture by moving) · Ranged attack on diagonal squares 1 away'],
  F:['Wolf','Moves like a Knight · Special: After eliminating an enemy, may move once more from the landing square to an empty Knight-move square (no capture)'],
- T:['Striker','Moves or captures up to 6 squares straight forward · Breakthrough: If no friendly piece is in the way, eliminates every enemy it passes through (invincible pieces and King-class pieces cannot be pierced and stop it) · On its first, unmoved action it cannot capture King-class pieces'],
+ T:['Striker','Moves or captures up to 6 squares straight forward · Breakthrough: If no friendly piece is in the way, eliminates every enemy it passes through (invincible pieces and King-class pieces cannot be pierced and stop it) · On its first, unmoved action it cannot capture anything (it can only move, and stops at the first enemy)'],
  V:['Vanguard','Moves or captures up to 3 squares orthogonally · Passive: Friendly pieces in the surrounding 3x3 are immune to ranged attacks (not itself)'],
  G:['Golem','Moves or captures 1 square orthogonally · Skill: Randomly eliminates 1-3 enemies in the surrounding 3x3 (invincible pieces excluded)'],
  H:['Priest','Moves 1 square in any direction (cannot attack) · Skill: Makes 1 friendly piece in the surrounding 3x3 invincible for the opponent\'s next turn'],
@@ -1668,18 +1668,18 @@ const PRESETS=[
  {n:TR('기존 체스','Classic Chess'),l:'QRRBBNNPPPPPPPP'},
  {n:TR('검성과 여왕','Blademaster & Queen'),l:'QbRRNNHHPPPPP'},
  {n:TR('근위 정예','Elite Guard'),l:'bRAzENBNqHHPPS'},
- {n:TR('마술사와 포병대','Mages & Artillery'),l:'CzzAAJNTTqPPPP'},
- {n:TR('철벽 성가대','Iron Choir'),l:'VRRBNTTqppHPPP'},
- {n:TR('번개 기병대','Lightning Riders'),l:'ZRuuYNNqTGPPPSH'},
+ {n:TR('마술사와 포병대','Mages & Artillery'),l:'CzzAAJNTPqPPPP'},
+ {n:TR('철벽 성가대','Iron Choir'),l:'VRRBNTPqppHPPP'},
+ {n:TR('번개 기병대','Lightning Riders'),l:'ZRuuYNNqNGPPPSH'},
  {n:TR('해머와 모루','Hammer & Anvil'),l:'QVkRBNPHPPPH'},
- {n:TR('메뚜기 군단','Locust Legion'),l:'FZZTNNNqtttHSHS'},
+ {n:TR('메뚜기 군단','Locust Legion'),l:'FZZBNNNqtttHSHS'},
  {n:TR('불과 얼음','Fire & Ice'),l:'QeeRNNffPPPPP'},
- {n:TR('용의 계약','Dragon Pact'),l:'bEDDWWNNTTPPPSS'},
- {n:TR('신탁의 검','Oracle\'s Blade'),l:'bbRzNNTqHHPPSg'},
- {n:TR('질풍 특공','Gale Strike'),l:'FFZTTYNuuqPPSP'},
+ {n:TR('용의 계약','Dragon Pact'),l:'bEDDWWNNTPPPPSS'},
+ {n:TR('신탁의 검','Oracle\'s Blade'),l:'bbRzNNNqHHPPSg'},
+ {n:TR('질풍 특공','Gale Strike'),l:'FFZTPYNuuqPPSP'},
  {n:TR('저격수의 만찬','Sniper\'s Feast'),l:'AJJUUGZNNqpPPPP'},
- {n:TR('불굴의 요새','Unyielding Fortress'),l:'XmzzGGTTpHPPPPP'},
- {n:TR('재생의 군단','Legion of Renewal'),l:'MRIINNBTTHHPSPP'},
+ {n:TR('불굴의 요새','Unyielding Fortress'),l:'XmzzGGTPpHPPPPP'},
+ {n:TR('재생의 군단','Legion of Renewal'),l:'MRIINNBTPHHPSPP'},
  {n:TR('혼돈의 도박','Gamble of Chaos'),l:'aXllluNNqtPPSS'}
 ];
 const PAT={};
@@ -3448,9 +3448,10 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='11.1.15';
+const APP_VER='11.1.16';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['11.1.16',TR('스트라이커 조정','Striker Adjustment'),[TR('🏃 스트라이커 코스트 3 → 5','🏃 Striker cost 3 → 5'),TR('🏃 스트라이커는 아직 움직이지 않은 첫 행동에서는 적을 잡을 수 없어요 (이동만 가능)','🏃 An unmoved Striker cannot capture on its first action (move only)'),TR('스트라이커가 들어간 추천 프리셋을 코스트 39에 맞게 조정','Presets with Strikers re-balanced to cost 39')]],
  ['11.1.15',TR('온라인 대전 버튼 위치','Online Play Buttons'),[TR('🌐 온라인 대전 화면에서 "매칭 시작"과 "뒤로" 버튼을 랭크 표시 위로 올렸어요','🌐 Moved the Start Match and Back buttons above the rank display on the Online screen')]],
  ['11.1.14',TR('🧪 기물 체험하기 추가','🧪 Piece Lab Added'),[TR('🧪 타이틀에 "기물 체험하기" 추가! 내 기물 1개와 연습용 봇(적군/아군) 1개를 골라 원하는 칸에 놓고 이동·공격·스킬을 마음껏 연습할 수 있어요','🧪 New "Piece Lab" on the title: pick your piece and a practice dummy (enemy or ally), place it anywhere and practice moves, attacks and skills freely'),TR('봇 재배치 · 봇 진영 바꾸기 · 내 기물 위치 바꾸기 · 처음 상태 · 턴 넘기기 · 기물 바꾸기 · 메뉴로 버튼 제공, 봇이 쓰러지면 자동으로 다시 놓게 해요','Buttons: re-place dummy, switch dummy side, move my piece, reset, pass turn, change pieces, menu. When the dummy falls you are asked to place it again'),TR('📐 튜토리얼 "기본 기물 움직여보기" 체스보드가 기울어져 보이던 문제를 고쳤어요','📐 Fixed the skewed chess board in the tutorial piece practice')]],
  ['11.1.13',TR('체험 튜토리얼 문구·위치 다듬기','Tutorial Text & Position Polish'),[TR('✏️ 돌격·피버 체험에서 두 번째·세 번째 기물을 고를 때 "두 번째 폰", "세 번째 폰"처럼 순서에 맞게 안내해요','✏️ Charge/Fever lessons now say "2nd Pawn", "3rd Pawn" etc. for each step'),TR('📍 컴퓨터 화면의 도우미 위치를 체스보드 중간쯤으로 올렸어요','📍 Desktop helper now sits around the middle of the board')]],
