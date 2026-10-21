@@ -579,7 +579,7 @@ body.lab #tHud,body.lab #s4 .skb,body.lab #s4 .act2,body.lab #side .pwr,body.lab
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <p class="note">39 코스트로 나만의 군대를 만들어 싸워라</p>
- <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 11.1.16</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 11.1.17</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -2329,8 +2329,11 @@ function fxBox(j){const c=cell(j);if(!c)return null;const R=c.getBoundingClientR
  return{w,R,sz:R.width,mk,end:ms=>setTimeout(()=>w.remove(),ms)}}
 const ctr=j=>{const c=cell(j);if(!c)return null;const R=c.getBoundingClientRect();return{x:R.left+R.width/2,y:R.top+R.height/2,sz:R.width}};
 function shakeBd(ms){const bd=$('#bd4');if(bd){bd.classList.add('shk');setTimeout(()=>bd.classList.remove('shk'),ms||650)}}
-function bdOv(){const bd=$('#bd4');if(!bd)return null;const BR=bd.getBoundingClientRect(),ov=document.createElement('div');ov.className='kfx';
- ov.style.cssText=`left:${BR.left}px;top:${BR.top}px;width:${BR.width}px;height:${BR.height}px;overflow:hidden;border-radius:6px`;document.body.appendChild(ov);ov._t=setInterval(()=>{const R=bd.getBoundingClientRect();ov.style.left=R.left+'px';ov.style.top=R.top+'px'},40);
+function bdOv(){const bd=$('#bd4');if(!bd)return null;
+ /* 흔들림(shk) 중에도 변환 없는 원래 크기·중심을 기준으로 덮는다 */
+ const geo=()=>{const R=bd.getBoundingClientRect(),w=bd.offsetWidth||R.width,h=bd.offsetHeight||R.height,cx=R.left+R.width/2,cy=R.top+R.height/2;return{left:cx-w/2,top:cy-h/2,width:w,height:h}};
+ const BR=geo(),ov=document.createElement('div');ov.className='kfx';
+ ov.style.cssText=`left:${BR.left}px;top:${BR.top}px;width:${BR.width}px;height:${BR.height}px;overflow:hidden;border-radius:6px`;document.body.appendChild(ov);ov._t=setInterval(()=>{const R=geo();ov.style.left=R.left+'px';ov.style.top=R.top+'px';ov.style.width=R.width+'px';ov.style.height=R.height+'px'},16);
  const mk=(css,kf,o)=>{const e=document.createElement('i');e.style.cssText='position:absolute;pointer-events:none;'+css;ov.appendChild(e);if(kf)e.animate(kf,Object.assign({fill:'both'},o));return e};
  return{ov,BR,mk,W:BR.width,H:BR.height}}
 /* 보드 한가운데에 큰 일본도: 칼날·칼집·날밑·손잡이. 반환: 칼날 묶음(sw), 칼집(sy), 전체(wrap) */
@@ -3448,9 +3451,10 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='11.1.16';
+const APP_VER='11.1.17';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['11.1.17',TR('스킬 암전 수정','Skill Blackout Fix'),[TR('폰 화면에서 스킬 연출 암전이 보드 전체를 덮도록 수정 (위쪽이 비던 문제)','Fixed the skill blackout not covering the whole board on phones (top gap)')]],
  ['11.1.16',TR('스트라이커 조정','Striker Adjustment'),[TR('🏃 스트라이커 코스트 3 → 5','🏃 Striker cost 3 → 5'),TR('🏃 스트라이커는 아직 움직이지 않은 첫 행동에서는 적을 잡을 수 없어요 (이동만 가능)','🏃 An unmoved Striker cannot capture on its first action (move only)'),TR('스트라이커가 들어간 추천 프리셋을 코스트 39에 맞게 조정','Presets with Strikers re-balanced to cost 39')]],
  ['11.1.15',TR('온라인 대전 버튼 위치','Online Play Buttons'),[TR('🌐 온라인 대전 화면에서 "매칭 시작"과 "뒤로" 버튼을 랭크 표시 위로 올렸어요','🌐 Moved the Start Match and Back buttons above the rank display on the Online screen')]],
  ['11.1.14',TR('🧪 기물 체험하기 추가','🧪 Piece Lab Added'),[TR('🧪 타이틀에 "기물 체험하기" 추가! 내 기물 1개와 연습용 봇(적군/아군) 1개를 골라 원하는 칸에 놓고 이동·공격·스킬을 마음껏 연습할 수 있어요','🧪 New "Piece Lab" on the title: pick your piece and a practice dummy (enemy or ally), place it anywhere and practice moves, attacks and skills freely'),TR('봇 재배치 · 봇 진영 바꾸기 · 내 기물 위치 바꾸기 · 처음 상태 · 턴 넘기기 · 기물 바꾸기 · 메뉴로 버튼 제공, 봇이 쓰러지면 자동으로 다시 놓게 해요','Buttons: re-place dummy, switch dummy side, move my piece, reset, pass turn, change pieces, menu. When the dummy falls you are asked to place it again'),TR('📐 튜토리얼 "기본 기물 움직여보기" 체스보드가 기울어져 보이던 문제를 고쳤어요','📐 Fixed the skewed chess board in the tutorial piece practice')]],
