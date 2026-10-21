@@ -458,8 +458,9 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
  const frz=Object.freeze;
  async function make(joinRoom,selfId,name){
   const room=joinRoom({appId:APP},name);
-  const [sendPr,getPr]=room.makeAction('pr');
-  const [sendEv,getEv]=room.makeAction('ev');
+  const act=t=>{const x=room.makeAction(t);return Array.isArray(x)?[x[0],x[1]]:[x.send,x.receive||x.onReceive||x.get]};
+  const [sendPr,getPr]=act('pr');
+  const [sendEv,getEv]=act('ev');
   const others=new Map(),hs={},pls=[],cls=[];let myp={},conn=true,dead=false;
   const mkp=(peer,p,self)=>frz({peer,by:null,isMe:self,sameTab:self,kind:'viewer',guest:false,presence:frz(Object.assign({},p)),updatedAt:Date.now()});
   let cache=null;
