@@ -2234,7 +2234,9 @@ function playScene(k){if(!music)return;try{if(!ac())return;
 function setScene(k){if(scene===k)return;scene=k;if(music&&AC&&AC.state!=='suspended')playScene(k)}
 {const _show=show;show=function(id){_show(id);setScene(id==='s4'?'game':'menu')}}
 $('#bm').onclick=e=>{e.stopPropagation();music=!music;store.set('music',music);syncSnd();if(music)playScene(scene);else stopMusic()};
-document.addEventListener('click',e=>{if(music&&!curSrc&&!tmr)playScene(scene)});
+function tryMusic(){if(!music)return;try{const a=ac();if(!a)return;const go=()=>{if(music&&!curSrc&&!tmr)playScene(scene)};if(a.state==='running')go();else a.resume().then(go,()=>{})}catch(e){}}
+['pointerdown','pointerup','touchend','mouseup','keydown','click'].forEach(ev=>document.addEventListener(ev,tryMusic,{passive:true,capture:true}));
+setTimeout(tryMusic,0);addEventListener('load',()=>setTimeout(tryMusic,300));
 document.addEventListener('visibilitychange',()=>{try{if(!AC)return;if(document.hidden)AC.suspend();else if(music)AC.resume()}catch(e){}});
 
 syncSnd();syncSetup();initWorker();
