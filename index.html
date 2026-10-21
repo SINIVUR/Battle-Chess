@@ -2521,7 +2521,7 @@ function copyTxt(t,ok){let done=false;
  try{navigator.clipboard.writeText(t).then(()=>toast(ok),()=>fb())}catch(e){fb()}
  function fb(){if(done)return;done=true;const a=$('#fbMsg');a.focus();a.select();toast('내용을 직접 복사해 주세요')}}
 /* 댓글 게시판: Firebase Realtime Database(REST)를 쓰는 공용 댓글. 주소를 비워 두면 메일 방식만 제공됩니다. */
-const COMMENT_DB='';   // 예: 'https://내프로젝트-default-rtdb.firebasedatabase.app'
+const COMMENT_DB='https://battlechess-e58ac-default-rtdb.asia-southeast1.firebasedatabase.app';   // 예: 'https://내프로젝트-default-rtdb.firebasedatabase.app'
 let fbMode='b',cmT=null,cmLast=0;
 const cmOn=()=>!!COMMENT_DB&&location.protocol.startsWith('http');
 function fbMode_(m){
