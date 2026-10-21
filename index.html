@@ -1,4 +1,3 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="theme-color" content="#ffffff"><meta name="color-scheme" content="light"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -95,7 +94,7 @@ main{width:100%;max-width:520px}
 .sl{display:flex;flex-wrap:wrap;gap:4px;min-height:30px;align-items:center}.lc{display:inline-flex;align-items:center;gap:1px;font-size:20px;padding:2px 5px;border:1px solid var(--line);border-radius:8px;background:#fafafa;font:inherit;font-size:20px;color:inherit}.lc b{font-size:11px}
 button.lc.rv{border-color:var(--orange);box-shadow:0 0 0 2px var(--orange);cursor:pointer;background:#fff7e6}
 .side .none{color:var(--mut);font-size:12px}.side .hint{margin:0;color:#b36b00;font-weight:700}
-.lgl{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:2px;font-size:12px;color:#333}.lgl li:first-child{font-weight:700;color:var(--ink)}
+.lgl{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:2px;font-size:12px;color:#333}.lgl li.none{list-style:none;margin-left:-18px}.lgl li:first-child{font-weight:700;color:var(--ink)}.lgl{max-height:170px;overflow-y:auto;overscroll-behavior:contain;padding-right:6px}.lgh{display:flex;align-items:center;justify-content:space-between;gap:8px}.lgh button{font-size:12px;padding:4px 10px;min-height:0}#lgAll ol{text-align:left;margin:0;padding-left:26px;display:flex;flex-direction:column;gap:5px;font-size:13px;max-height:55vh;overflow-y:auto}
 .pc.db::after{content:"⚡";position:absolute;right:-3px;top:-5px;font-size:15px;z-index:4}.pc.rvd::before{content:"✚";position:absolute;left:1px;top:-2px;font-size:11px;color:#1ea84b;font-weight:900;z-index:4}
 @media(min-width:900px){main:has(#s4.on){max-width:900px}#s4.on{display:grid;grid-template-columns:minmax(0,520px) 340px;column-gap:20px;align-items:start}#s4.on>*{grid-column:1}#s4.on>#side{grid-column:2;grid-row:1/span 9}}
 .pcard{border:1px solid var(--ink);border-radius:12px;padding:10px 12px;background:#fff;display:flex;flex-direction:column;gap:6px}
@@ -193,11 +192,11 @@ button.lc.rv{border-color:var(--orange);box-shadow:0 0 0 2px var(--orange);curso
  #s4 .act1{order:3}#s4 .act1:not(:has(button:not([style*="none"]))){display:none}
  #s4 .acts button{padding:5px 8px;font-size:13px;border-radius:9px}
  #s4 .act2{order:9}
- #s4>#pTop{order:0}#s4>#st{order:1}#s4>#bd4{order:2}#s4>#pBot{order:3}#s4>.act1{order:4}#s4>.skb{order:4}#s4>#info{order:5}#s4>#pcard{order:6}#s4>#side{order:7}#s4>.lg{order:8}
+ #s4>#pTop{order:0}#s4>#tHud{order:1}#s4>#st{order:1}#s4>#bd4{order:2}#s4>#pBot{order:3}#s4>.act1{order:4}#s4>.skb{order:4}#s4>#info{order:5}#s4>#pcard{order:6}#s4>#side{order:7}#s4>.lg{order:8}
  .pcard{padding:5px 8px;gap:3px;border-radius:10px}.pk1 .pc{width:32px;font-size:17px;border-width:2px}.pk2{font-size:13px;gap:4px}.pk3{font-size:12px;line-height:1.35}.x2{font-size:20px;padding:0 6px}
- .side{padding:5px 8px;gap:3px;font-size:12px;border-radius:10px}.side h3,.side .gt2{display:none}.side .sh .sn{font-size:11px}
+ .side{padding:5px 8px;gap:3px;font-size:12px;border-radius:10px}.side h3,.side .gt2:not(.lgh){display:none}.side .sh .sn{font-size:11px}
  .sl{min-height:22px;gap:3px}.lc{font-size:15px;padding:0 4px;border-radius:7px}
- .lgl{font-size:11px}.lgl li:nth-child(n+3){display:none}
+ .lgl{font-size:11px}
  .pwr{height:8px;border-width:1px}.pwl{font-size:11px}
  .pc2{grid-template-columns:34px 1fr auto;gap:7px;padding:6px 8px;margin-top:5px}.pc2 .ib{font-size:25px}.pc2 .ds{font-size:11px;line-height:1.3;margin-top:2px}
  .stp button{width:30px;height:30px}.stp{gap:4px}
@@ -295,6 +294,39 @@ body.lt{zoom:1.12}
 body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 .acts2x{display:flex;gap:8px;flex-wrap:wrap}
+#phaseAl{position:fixed;left:50%;top:38%;transform:translate(-50%,-50%) scale(.8);z-index:60;pointer-events:none;opacity:0;text-align:center;background:#111;color:#fff;border-radius:18px;padding:18px 28px;box-shadow:0 10px 40px rgba(0,0,0,.35);max-width:88vw;transition:opacity .25s,transform .25s}
+#phaseAl.on{opacity:.96;transform:translate(-50%,-50%) scale(1)}
+#phaseAl small{display:block;font-size:13px;letter-spacing:.12em;opacity:.7;margin-bottom:4px}
+#phaseAl b{display:block;white-space:nowrap;font-size:clamp(20px,5.6vw,30px);line-height:1.25}
+@media (prefers-reduced-motion:reduce){#phaseAl{transition:none}}
+#tHud{display:none;flex-direction:column;gap:4px;margin:0 auto 4px;width:100%;max-width:560px}
+#s4.on #tHud{display:flex}
+.thr{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--mut)}.thr b{font-size:15px;color:var(--ink);font-variant-numeric:tabular-nums}
+.thb{height:6px;border-radius:4px;background:#e6e6e6;overflow:hidden}.thb i{display:block;height:100%;width:0;background:#111;transition:width .4s}
+#tHud.hot .thb i{background:#c0261b}#tHud.hot .thr b,#tHud.hot .thr span{color:#c0261b;font-weight:800}#tHud.hot .thb{animation:thp .8s infinite}
+@keyframes thp{50%{opacity:.45}}
+#cdAl{position:fixed;left:50%;top:40%;z-index:61;pointer-events:none;transform:translate(-50%,-50%);font-size:min(46vw,220px);font-weight:900;line-height:1;color:#c0261b;text-shadow:0 4px 30px rgba(192,38,27,.35),0 0 0 #fff;opacity:0}
+#cdAl small{display:block;width:max-content;margin:6px auto 0;padding:4px 14px;border-radius:999px;background:#111;text-align:center;font-size:clamp(14px,4vw,20px);letter-spacing:.2em;color:#fff;font-weight:700;text-shadow:none}
+#cdAl.on{animation:cdz 1.1s ease-out forwards}
+@keyframes cdz{0%{opacity:0;transform:translate(-50%,-50%) scale(1.8)}18%{opacity:.95;transform:translate(-50%,-50%) scale(1)}75%{opacity:.9}100%{opacity:0;transform:translate(-50%,-50%) scale(.85)}}
+@media (prefers-reduced-motion:reduce){#cdAl.on{animation:none;opacity:.9}#tHud.hot .thb{animation:none}}
+
+.nlist{display:flex;flex-direction:column;gap:8px;max-height:46vh;overflow:auto}
+.nlist .ni{display:flex;flex-direction:column;gap:4px;text-align:left;border:2px solid var(--line);border-radius:12px;padding:9px 11px;background:var(--card);color:var(--ink);cursor:pointer}
+.nlist .ni.on{border-color:#1f6feb;box-shadow:0 0 0 3px rgba(31,111,235,.18)}
+.nlist .ni b{font-size:14.5px}.nlist .ni .sm{font-size:12px;color:var(--mut)}.nlist .ni .tt{display:flex;gap:2px;flex-wrap:wrap}
+.nlist .gh{font-size:12px;font-weight:700;color:var(--mut);margin-top:4px}
+.rk{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px;background:var(--card)}
+.rk .rb{font-size:30px;line-height:1}.rk .rt{flex:1;min-width:0}.rk .rt b{font-size:16px}.rk .rt small{display:block;color:var(--mut);font-size:12px}
+.rk .rbar{height:6px;border-radius:3px;background:var(--line);margin-top:5px;overflow:hidden}.rk .rbar i{display:block;height:100%;background:#1f6feb}
+.mmR{font-size:13px;color:var(--mut);margin:2px 0}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:8px}.hrow h2{margin:0}.hbtn{padding:7px 11px;font-size:13px;white-space:nowrap}
+.btns2{display:flex;gap:8px}.btns2 button{flex:1}
+.nspin{width:38px;height:38px;margin:4px auto 8px;border:4px solid var(--line);border-top-color:#1f6feb;border-radius:50%;animation:nsp 1s linear infinite}
+@keyframes nsp{to{transform:rotate(360deg)}}
+.mmA{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left;margin-top:8px}.mmA small{color:var(--mut)}.mmA .tt{display:flex;flex-wrap:wrap;gap:1px}
+.mmA .tt .ic{width:24px;height:24px}
+@media (prefers-reduced-motion:reduce){.nspin{animation:none}}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -306,7 +338,24 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <p class="note">39 코스트로 나만의 군대를 만들어 싸워라</p>
- <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goHelp">기물 도감 · 규칙</button></div><div class="ver">VERSION 9.0</div>
+ <div class="btns"><button class="pri" id="go0">▶ START</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><div class="ver">VERSION 10.5</div>
+</section>
+
+<section class="scr" id="s5">
+ <h2>🌐 온라인 대전</h2>
+ <p class="note" id="nStat">연결 확인 중…</p>
+ <div class="card" id="nSetup">
+  <div id="nRank" class="rk"></div><h3>닉네임</h3><input id="nNick" maxlength="12" autocomplete="off" placeholder="닉네임 (최대 12자)" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;background:var(--card);color:var(--ink)">
+  <h3 style="margin-top:14px">출전 구성 · 배치</h3>
+  <p class="note">미리 저장한 “구성·배치”로 상대와 싸웁니다. 매칭이 잡히면 색(백/흑)만 정해지고 배치는 그대로 적용됩니다.</p>
+  <div id="nList" class="nlist"></div><button id="nMake" style="margin-top:8px">➕ 내 기물 선택·배치로 새 프리셋 만들기</button>
+ </div>
+ <div class="card" id="nQ" style="display:none;text-align:center">
+  <div class="nspin"></div><h3 id="nQT">상대를 찾는 중…</h3><p class="note" id="nQD"></p>
+  <button id="nCancel" style="margin-top:8px">매칭 취소</button>
+ </div>
+ <div class="btns2"><button class="pri" id="nGo">⚔️ 매칭 시작</button><button id="nBack">뒤로</button></div>
+ <p class="note" id="nNote">온라인 대전은 이 페이지를 로그인 상태로 열고, 같은 페이지를 연 다른 사람과 연결됩니다. 상대 기물은 대전 시작 때 공개됩니다.</p>
 </section>
 
 <section class="scr" id="s1">
@@ -322,18 +371,18 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
   <div class="card"><h3>관전 속도</h3><div class="seg" id="gsp"></div><p class="note" style="margin-top:7px">백·흑 군대의 기물 선택과 배치는 내가 직접 정하고, 전투는 AI끼리 진행합니다.</p></div>
  </div>
  <button class="pri" id="go">다음: 기물 선택</button>
- <p class="note">코스트 39 · 킹 필수(무료, 엠페러·갓으로 대체 가능) · 킹을 잡으면 승리</p>
+ <p class="note">코스트 39 · 킹 필수(킹·갓은 무료, 엠페러·데몬으로 대체 가능) · 킹을 잡으면 승리</p>
 </section>
 
 <section class="scr" id="s2">
- <h2 id="t2"></h2>
+ <div class="hrow"><h2 id="t2"></h2><button id="home2" class="hbtn">🏠 메뉴로</button></div>
  <div class="card stk"><div class="bar"><i id="bar2"></i></div><div class="s2h"><p class="note" id="cost2"></p><button class="pri" id="n2">다음: 기물 배치 ▶</button></div><div class="chips gtabs" id="gtabs"></div></div>
  <div class="card"><h3>구성 도우미</h3><div class="pre" id="pre"></div><h4 class="ph">내 프리셋 <span class="note" id="preN"></span></h4><div class="pre" id="mypre"></div><div class="row2 pr2"><button id="preSave">현재 구성 저장</button><button id="preMng">프리셋 관리 · 공유</button></div></div>
  <div id="sel"></div>
 </section>
 
 <section class="scr" id="s3">
- <h2 id="t3"></h2>
+ <div class="hrow"><h2 id="t3"></h2><button id="home3" class="hbtn">🏠 메뉴로</button></div>
  <div class="pal" id="pal"></div>
  <div class="bd" id="bd3"></div>
  <p class="note" id="hint3">선택한 기물이 놓일 수 있는 칸이 연두색으로 표시됩니다 · 놓인 기물을 누르면 회수</p>
@@ -345,6 +394,7 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
 
 <section class="scr" id="s4">
  <div class="pbar" id="pTop"></div>
+ <div class="thud" id="tHud" aria-label="진행 상황"><div class="thr"><b id="thN"></b><span id="thP"></span></div><div class="thb"><i id="thF"></i></div></div>
  <div class="st" id="st" role="status" aria-live="polite"></div>
  <div class="chkb" id="chkb"></div>
  <div class="bd" id="bd4"></div>
@@ -363,14 +413,71 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
 
 <div class="modal" id="mPiece" role="dialog" aria-modal="true"><div class="mc"><button class="x" data-close>닫기</button><div id="pieceBody"></div></div></div>
 <div class="modal" id="mHelp" role="dialog" aria-modal="true"><div class="mc"><button class="x" data-close>닫기</button><div id="helpBody"></div></div></div>
-<div class="modal" id="mOver" role="dialog" aria-modal="true"><div class="mc res"><div class="em" id="ovEm"></div><h2 id="ovT"></h2><p id="ovD" class="note"></p><div class="ovs" id="ovS"></div><button class="pri" id="ovAgain" style="margin-top:14px">같은 구성·배치로 다시 하기</button><div class="row2" style="margin-top:8px"><button id="ovPlace">배치로 돌아가기</button><button id="ovSel">기물 선택으로</button></div><div class="row2" style="margin-top:8px"><button id="ovHome">메인 메뉴</button><button class="ghost" id="ovView">판 확인하기</button></div></div></div>
+<div class="modal" id="mOver" role="dialog" aria-modal="true"><div class="mc res"><div class="em" id="ovEm"></div><h2 id="ovT"></h2><p id="ovD" class="note"></p><div class="ovs" id="ovS"></div><button class="pri" id="ovNet" style="display:none;margin-top:14px">🌐 다시 매칭하기</button><button class="pri" id="ovAgain" style="margin-top:14px">같은 구성·배치로 다시 하기</button><div class="row2" style="margin-top:8px"><button id="ovPlace">배치로 돌아가기</button><button id="ovSel">기물 선택으로</button></div><div class="row2" style="margin-top:8px"><button id="ovHome">메인 메뉴</button><button class="ghost" id="ovView">판 확인하기</button></div></div></div>
+<div class="modal" id="mLog" role="dialog" aria-modal="true" aria-labelledby="lgT"><div class="mc res"><h2 id="lgT">행동 로그</h2><p class="note" id="lgN"></p><div id="lgAll"></div><div class="row2" style="margin-top:14px"><button class="pri" id="lgX" style="width:auto">닫기</button></div></div></div>
+<div id="cdAl" aria-hidden="true"></div>
+<div id="phaseAl" role="status" aria-live="polite"></div>
+<div class="modal" id="mPro" role="dialog" aria-modal="true" aria-labelledby="prT"><div class="mc res"><h2 id="prT">승급할 기물 선택</h2><p class="note" id="prD">기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?</p><div class="row2" id="prB" style="margin-top:14px;gap:8px;flex-wrap:wrap"></div></div></div>
 <div class="modal" id="mName" role="dialog" aria-modal="true" aria-labelledby="nmT"><div class="mc res"><h2 id="nmT">프리셋 이름</h2><p class="note" id="nmD"></p><input id="nmIn" maxlength="20" autocomplete="off" aria-label="프리셋 이름"><div class="row2" style="margin-top:14px"><button id="nmNo">취소</button><button class="pri" id="nmOk" style="width:auto">저장</button></div></div></div>
 <div class="modal" id="mPre" role="dialog" aria-modal="true" aria-labelledby="mpT"><div class="mc"><button class="x" data-close>닫기</button><h2 id="mpT">프리셋 관리</h2><div id="mpList"></div><h4 class="ph">공유 코드로 가져오기</h4><p class="note">다른 기기에서 복사한 코드를 붙여넣으면 프리셋이 추가됩니다.</p><textarea id="mpCode" rows="3" aria-label="프리셋 공유 코드" placeholder="BC1.…"></textarea><div class="row2" style="margin-top:8px"><button id="mpImp" class="pri" style="width:auto">가져오기</button></div></div></div>
 <div class="modal" id="mSet" role="dialog" aria-modal="true" aria-labelledby="stT"><div class="mc"><button class="x" data-close>닫기</button><h2 id="stT">설정</h2><div id="setBody"></div></div></div>
 <div id="toast" role="status" aria-live="polite"></div>
+<div class="modal" id="mMatch" role="dialog" aria-modal="true"><div class="mc res"><div class="em">⚔️</div><h2>매칭 성사!</h2><p id="mmO" style="font-size:17px;font-weight:700;margin:6px 0"></p><p id="mmC" class="note"></p><p id="mmR" class="mmR"></p><div class="mmA"><div><small>내 구성</small><div id="mmMy" class="tt"></div></div><div><small>상대 구성</small><div id="mmOp" class="tt"></div></div></div><p id="mmCd" style="font-size:22px;font-weight:800;margin-top:10px"></p></div></div>
 <div class="modal" id="mPass" role="dialog" aria-modal="true"><div class="mc res"><div class="em">🔄</div><h2 id="passT"></h2><p class="note">상대가 화면을 보지 않도록 기기를 넘겨 주세요.</p><button class="pri" id="passOk" style="margin-top:14px">준비 완료</button></div></div>
 <div class="modal" id="mAsk" role="dialog" aria-modal="true"><div class="mc res"><h2 id="askT"></h2><p class="note" id="askD"></p><div class="row2" style="margin-top:14px"><button id="askNo">취소</button><button class="pri" id="askYes" style="width:auto">확인</button></div></div></div>
 
+<script>/* 공개 배포용: claude.ai 밖에서 `room` 기능을 WebRTC(Trystero)로 대신하는 어댑터 */
+(function(){
+ if(window.claude)return;
+ const APP='battlechess-online-v105';
+ const LIB='https://esm.run/trystero';
+ let lib=null;
+ async function getLib(){
+  if(window.__joinRoom)return {joinRoom:window.__joinRoom,selfId:window.__selfId};
+  if(!lib)lib=import(LIB);
+  return lib}
+ const frz=Object.freeze;
+ async function make(joinRoom,selfId,name){
+  const room=joinRoom({appId:APP},name);
+  const [sendPr,getPr]=room.makeAction('pr');
+  const [sendEv,getEv]=room.makeAction('ev');
+  const others=new Map(),hs={},pls=[],cls=[];let myp={},conn=true,dead=false;
+  const mkp=(peer,p,self)=>frz({peer,by:null,isMe:self,sameTab:self,kind:'viewer',guest:false,presence:frz(Object.assign({},p)),updatedAt:Date.now()});
+  let cache=null;
+  const snap=()=>{if(!cache){cache=frz([mkp(selfId,myp,true)].concat([...others.entries()].map(([id,o])=>mkp(id,o.p,false))))}return cache};
+  const notify=left=>{cache=null;const s=snap();pls.forEach(f=>{try{f({peers:s,joined:[],left:left||[],updated:[]})}catch(e){}})};
+  const push=to=>{try{sendPr(myp,to)}catch(e){}};
+  getPr((p,id)=>{if(!p||typeof p!=='object')return;const o=others.get(id);others.set(id,{p,t:Date.now()});if(!o||JSON.stringify(o.p)!==JSON.stringify(p))notify()});
+  getEv((d,id)=>{if(!d||typeof d.topic!=='string')return;(hs[d.topic]||[]).slice().forEach(f=>{try{f({topic:d.topic,data:d.data,peer:id,by:null,isMe:false,sameTab:false,kind:'viewer',guest:false})}catch(e){}})});
+  room.onPeerJoin(id=>{if(!others.has(id))others.set(id,{p:{},t:Date.now()});push(id);notify()});
+  room.onPeerLeave(id=>{const o=others.get(id);others.delete(id);notify(o?[mkp(id,o.p,false)]:[])});
+  const hb=setInterval(()=>push(),3000);
+  const api={
+   emit(topic,data){return new Promise(r=>{if(dead){r();return}
+     try{sendEv({topic,data:data===undefined?null:data})}catch(e){}
+     setTimeout(()=>{(hs[topic]||[]).slice().forEach(f=>{try{f({topic,data,peer:selfId,by:null,isMe:true,sameTab:true,kind:'viewer',guest:false})}catch(e){}});r()},0)})},
+   on(topic,f){(hs[topic]=hs[topic]||[]).push(f);return()=>{hs[topic]=(hs[topic]||[]).filter(x=>x!==f)}},
+   presence(patch){myp=Object.assign({},myp,patch);Object.keys(myp).forEach(k=>{if(myp[k]===null)delete myp[k]});push();notify();return Promise.resolve()},
+   peers:snap,
+   onPeers(f){pls.push(f);setTimeout(()=>f({peers:snap(),joined:snap().slice(),left:[],updated:[]}),0);return()=>{const i=pls.indexOf(f);if(i>=0)pls.splice(i,1)}},
+   connected:()=>conn,
+   onConnection(f){cls.push(f);setTimeout(()=>f(conn),0);return()=>{const i=cls.indexOf(f);if(i>=0)cls.splice(i,1)}},
+   leave(){dead=true;clearInterval(hb);try{room.leave()}catch(e){}return Promise.resolve()},
+   name};
+  return api}
+ let lobby=null;
+ window.claude={use:async n=>{
+  if(n!=='room')return null;
+  if(lobby)return lobby;
+  lobby=(async()=>{
+   try{const L=await getLib();const joinRoom=L.joinRoom,selfId=L.selfId||(await getLib()).selfId;
+    const lb=await make(joinRoom,selfId,'bc-lobby');
+    const ns={emit:lb.emit,on:lb.on,presence:lb.presence,peers:lb.peers,onPeers:lb.onPeers,connected:lb.connected,onConnection:lb.onConnection,
+     join:async nm=>make(joinRoom,selfId,nm)};
+    return frz(ns)}catch(e){console.error('room init failed',e);return null}})();
+  return lobby}};
+})();
+</script>
 <script id="eng">
 /* ===== 배틀체스 엔진 (규칙 + AI). DOM 의존 없음 ===== */
 const BC=(function(){
@@ -382,51 +489,52 @@ const KN=[[1,2],[2,1],[-1,2],[-2,1],[1,-2],[2,-1],[-1,-2],[-2,-1]];
 // c: 코스트, p: 배치(f 전열 / b 후열 / fb 자유), av: AI 평가 가치
 const DEF={
  K:{n:'킹',e:'🤴',c:0,p:'b',av:0,d:'필수 기물 · 모든 방향 1칸 이동·잡기 · 엠페러·갓·데몬으로 대체 가능 · 적 퀸은 킹을 잡을 수 없음 · 메두사·럭키·프로즌의 이동 봉쇄에 면역 · 잡히면 패배'},
- E:{n:'엠페러',e:'👑',c:0,p:'b',av:0,d:'킹 대신 사용 · 전방 1칸의 좌우 2칸씩, 앞 가로 5칸 중 아무 칸으로 이동·잡기(후진·옆걸음 불가) · 원거리 공격 면역 · 잡히면 패배'},
- Q:{n:'퀸',e:'👸',c:9,p:'b',av:9.5,d:'상하좌우·대각선 최대 4칸 직선 이동·잡기 · 적의 킹 계열은 잡을 수 없음'},
- M:{n:'메두사',e:'🐍',c:9,p:'b',av:9.5,d:'상하좌우·대각선 최대 2칸 이동·잡기 · 스킬: 자신 중심 5x5 안의 적 전체를 상대 1턴 이동 불가(원거리는 가능, 킹·퀸 계열과 제네시스는 면역)'},
- P:{n:'폰',e:'🚶',c:1,p:'f',av:1,d:'전진 1칸(첫 이동 2칸) 및 대각선 앞 잡기 · 스킬: 끝줄에 닿으면 퀸 승급'},
- S:{n:'솔저',e:'💂',c:1,p:'f',av:1.4,d:'전진 1칸 이동(잡기 불가) · 전방 1칸 원거리 공격'},
+ E:{n:'엠페러',e:'👑',c:3,p:'b',av:0,d:'킹 대신 사용 · 전방 1칸의 좌우 2칸씩, 앞 가로 5칸 중 아무 칸으로 이동·잡기(후진·옆걸음 불가) · 원거리 공격 면역 · 잡히면 패배'},
+ Q:{n:'퀸',e:'👸',c:9,p:'b',av:9.5,d:'상하좌우·대각선 최대 4칸 직선 이동·잡기 (첫 이동만 최대 2칸) · 적의 킹 계열은 잡을 수 없음'},
+ M:{n:'메두사',e:'🐍',c:7,p:'b',av:9.5,d:'상하좌우·대각선 1칸 이동·잡기 · 스킬: 자신 중심 5x5 안의 적 전체를 상대 1턴 행동 불가(이동·잡기·원거리 공격·스킬 모두 불가, 킹·퀸 계열과 제네시스는 면역)'},
+ P:{n:'폰',e:'🚶',c:1,p:'f',av:1,d:'전진 1칸(첫 이동 2칸) 및 대각선 앞 잡기 · 스킬: 끝줄에 닿으면 룩·비숍·나이트 중 하나로 승급(직접 선택)'},
+ S:{n:'솔저',e:'💂',c:1,p:'f',av:1.4,d:'전진 1칸 이동(잡기 불가) · 전방 1칸 원거리 공격 · 스킬: 끝줄에 닿으면 뱅가드·샷건 중 하나로 승급(직접 선택)'},
  L:{n:'슬링',e:'🥌',c:2,p:'f',av:2,d:'대각선 1칸 이동(첫 이동은 2칸 가능, 잡기 불가) · 대각선 1칸 원거리 공격'},
  F:{n:'울프',e:'🐺',c:5,p:'f',av:4,d:'나이트 이동 · 특수: 적을 처치하면 도착한 칸에서 나이트 이동으로 갈 수 있는 빈 칸 중 한 곳으로 한 번 더 이동할 수 있음(잡기 불가)'},
- T:{n:'스트라이커',e:'🏃',c:5,p:'f',av:5,d:'전방 직선 최대 6칸 이동·잡기 · 돌파: 경로에 아군이 없으면 지나가는 적을 모두 관통해 처치(무적 기물·킹 계열은 관통 불가, 그 앞에서 멈춤) · 아직 움직이지 않은 첫 행동에서는 킹 계열을 잡을 수 없음'},
- V:{n:'뱅가드',e:'🛡️',c:6,p:'f',av:6,d:'상하좌우 최대 3칸 이동·잡기 · 패시브: 주변 3x3 아군은 원거리 공격 면역(본인 제외)'},
- G:{n:'골렘',e:'🧱',c:5,p:'fb',av:5.5,d:'상하좌우 1칸 이동·잡기 · 스킬: 주변 3x3 적을 랜덤으로 1~3기 처치(무적 기물 제외)'},
- H:{n:'프리스트',e:'🙏',c:2,p:'b',av:3,d:'상하좌우·대각선 1칸 이동(공격 불가) · 스킬: 주변 3x3 아군 1기를 상대 1턴 무적으로'},
- A:{n:'아처',e:'🏹',c:3,p:'b',av:3.2,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우 직선 2칸 원거리 공격(기물에 막힘)'},
+ T:{n:'스트라이커',e:'🏃',c:3,p:'f',av:5,d:'전방 직선 최대 6칸 이동·잡기 · 돌파: 경로에 아군이 없으면 지나가는 적을 모두 관통해 처치(무적 기물·킹 계열은 관통 불가, 그 앞에서 멈춤) · 아직 움직이지 않은 첫 행동에서는 킹 계열을 잡을 수 없음'},
+ V:{n:'뱅가드',e:'🛡️',c:7,p:'f',av:6,d:'상하좌우 최대 3칸 이동·잡기 · 패시브: 주변 3x3 아군은 원거리 공격 면역(본인 제외)'},
+ G:{n:'골렘',e:'🧱',c:4,p:'fb',av:5.5,d:'상하좌우 1칸 이동·잡기 · 스킬: 주변 3x3 적을 랜덤으로 1~3기 처치(무적 기물 제외)'},
+ H:{n:'프리스트',e:'🙏',c:1,p:'b',av:3,d:'상하좌우·대각선 1칸 이동(공격 불가) · 스킬: 주변 3x3 아군 1기를 상대 1턴 무적으로'},
+ A:{n:'아처',e:'🏹',c:4,p:'b',av:3.2,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우 직선 2칸 원거리 공격(기물에 막힘)'},
  B:{n:'비숍',e:'🧙',c:3,p:'b',av:3.2,d:'대각선 최대 4칸 직선 이동·잡기'},
  R:{n:'룩',e:'🏰',c:5,p:'b',av:5.5,d:'상하좌우 최대 4칸 직선 이동·잡기'},
  C:{n:'캐논',e:'💣',c:5,p:'b',av:5.5,d:'상하좌우 1칸 이동(잡기 불가) · 상하좌우 최대 3칸 포격(기물을 넘어 공격)'},
- D:{n:'흑룡',e:'🐉',c:4,p:'b',av:4.5,d:'검은 칸 어디든 순간이동 및 주변 3x3의 검은 칸 적 잡기 가능(킹 계열은 잡을 수 없음) · 후열 검은 칸에만 배치'},
- W:{n:'백룡',e:'🐲',c:4,p:'b',av:4.5,d:'흰 칸 어디든 순간이동 및 주변 3x3의 흰 칸 적 잡기 가능(킹 계열은 잡을 수 없음) · 후열 흰 칸에만 배치'},
+ D:{n:'흑룡',e:'🐉',c:3,p:'b',av:4.5,d:'검은 칸 어디든 순간이동 및 주변 3x3의 검은 칸 적 잡기 가능(킹 계열은 잡을 수 없음) · 후열 검은 칸에만 배치'},
+ W:{n:'백룡',e:'🐲',c:3,p:'b',av:4.5,d:'흰 칸 어디든 순간이동 및 주변 3x3의 흰 칸 적 잡기 가능(킹 계열은 잡을 수 없음) · 후열 흰 칸에만 배치'},
  X:{n:'토네이도',e:'🌪️',c:5,p:'fb',av:7,d:'대각선 1칸 이동·잡기 · 스킬: 주변 3x3 아군·적군 기물을 원하는 대로 한꺼번에 재배치(기물이 있는 칸과는 서로 교체)'},
- Y:{n:'이글',e:'🦅',c:4,p:'fb',av:5.5,d:'상하로 최대 3칸 이동·잡기 · 특수: 적을 처치하면 도착한 칸에서 대각선 4방향 중 빈 1칸으로 한 번 더 이동할 수 있음(잡기 불가)'},
- J:{n:'스나이퍼',e:'🎯',c:5,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 주변 7x7(거리 3칸 이내)의 적 1기를 지정, 다음 턴에도 그 칸에 남아 있으면 자동 원거리 저격'},
- U:{n:'크로스보우',e:'🔱',c:5,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우 2칸 이내 적을 관통 사격(사이에 적이 있으면 둘 다 처치, 아군이 있으면 사격 불가)'},
+ Y:{n:'이글',e:'🦅',c:3,p:'fb',av:5.5,d:'상하로 최대 3칸 이동·잡기 · 특수: 적을 처치하면 도착한 칸에서 대각선 4방향 중 빈 1칸으로 한 번 더 이동할 수 있음(잡기 불가)'},
+ J:{n:'스나이퍼',e:'🎯',c:3,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 주변 7x7(거리 3칸 이내)의 적 1기를 지정, 다음 턴에도 그 칸에 남아 있으면 자동 원거리 저격'},
+ U:{n:'크로스보우',e:'🔱',c:3,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우 2칸 이내 적을 관통 사격(사이에 적이 있으면 둘 다 처치, 아군이 있으면 사격 불가)'},
  O:{n:'머신건',e:'🔫',c:5,p:'fb',av:5.5,d:'좌우 1칸 이동(잡기 불가) · 8방향 2칸 이내 적에게 원거리 공격'},
- I:{n:'메딕',e:'💉',c:2,p:'b',av:2.5,d:'상하좌우 1칸 이동(공격 불가) · 스킬: 처치된 아군 1기(킹·퀸 계열 제외, 부활한 기물 제외)를 자기 칸에 부활시키고 메딕은 사라짐'},
- g:{n:'갓',e:'🌞',c:0,p:'b',av:0,d:'킹 대신 사용 · 주변 5x5의 원하는 빈칸으로 이동(공격 불가) · 잡히면 패배'},
- q:{n:'프린세스',e:'🧚',c:3,p:'b',av:3.5,d:'퀸·메두사 대신 사용 · 주변 5x5의 원하는 빈칸으로 이동(공격 불가) · 스킬: 아군 1기를 지정, 다음 턴에 그 기물이 두 번 행동'},
+ I:{n:'메딕',e:'💉',c:3,p:'b',av:2.5,d:'상하좌우 1칸 이동(공격 불가) · 스킬: 처치된 아군 1기(킹·퀸 계열 제외, 부활한 기물 제외)를 자기 칸에 부활시키고 메딕은 사라짐'},
+ g:{n:'갓',e:'🌞',c:0,p:'b',av:0,d:'킹 대신 사용 · 주변 5x5의 원하는 빈칸으로 이동(공격 불가) · 주변 3x3 안에 적 기물이 있으면 이동 범위가 3x3으로 줄어듦 · 원거리 공격 면역 · 잡히면 패배'},
+ q:{n:'프린세스',e:'🧚',c:2,p:'b',av:3.5,d:'퀸·메두사 대신 사용 · 주변 5x5의 원하는 빈칸으로 이동(공격 불가) · 스킬: 아군 1기를 지정, 다음 턴에 그 기물이 두 번 행동'},
  r:{n:'론도',e:'🚪',c:1,p:'b',av:1.6,d:'자기 진영 쪽(후진)으로만 1칸씩 이동·잡기 · 자기 쪽 끝 라인에서는 상대 끝 라인의 같은 열 빈칸으로 백도어 이동 가능'},
- h:{n:'샷건',e:'🧨',c:6,p:'f',av:6.5,d:'상하좌우 최대 2칸 이동(잡기 불가) · 자신의 앞쪽 가로 3칸(왼쪽 앞·정면·오른쪽 앞)의 적을 전부 원거리 공격'},
- s:{n:'제네시스',e:'☄️',c:7,p:'b',av:7.5,d:'상하좌우·대각 1칸씩 한 턴에 최대 3번 이동 · 적을 잡으면 자신도 함께 폭멸하며 턴이 끝남(킹·엠페러·갓은 잡을 수 없음)'},
+ h:{n:'샷건',e:'🧨',c:7,p:'f',av:6.5,d:'상하좌우 최대 2칸 이동(잡기 불가) · 자신의 앞쪽 2줄, 가로 3칸씩(왼쪽 앞·정면·오른쪽 앞과 그 한 줄 뒤)의 적을 전부 원거리 공격'},
+ s:{n:'제네시스',e:'☄️',c:5,p:'b',av:7.5,d:'상하좌우·대각 1칸씩 한 턴에 최대 3번 이동 · 적을 잡으면 자신도 함께 폭멸하며 턴이 끝남(킹·엠페러·갓은 잡을 수 없음)'},
  v:{n:'버티컬',e:'🗼',c:7,p:'b',av:7.5,d:'자기 세로줄의 빈칸 어디로든 이동(잡기 불가) · 스킬: 같은 세로줄의 적 1기를 처치(킹 계열 불가, 원거리 면역 대상 불가)'},
- o:{n:'호라이즌',e:'🌅',c:7,p:'b',av:5.5,d:'자기 가로줄의 빈칸 어디로든 이동(잡기 불가) · 스킬: 같은 가로줄의 적 1기를 처치(킹 계열 불가, 원거리 면역 대상 불가)'},
- a:{n:'핸드',e:'🖐️',c:7,p:'fb',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 자기 진영(아군 쪽 2줄)에 있는 아군 1기를 상대 진영(상대 쪽 2줄)이 아닌 빈칸 어디로든 옮김(핸드가 자기 진영 안에 있을 때만 사용 가능) · 킹·퀸 계열, 흑룡·백룡, 제네시스, 핸드는 옮길 수 없음'},
+ o:{n:'호라이즌',e:'🌅',c:2,p:'b',av:5.5,d:'자기 가로줄의 빈칸 어디로든 이동(잡기 불가) · 스킬: 같은 가로줄의 적 1기를 처치(킹 계열 불가, 원거리 면역 대상 불가)'},
+ a:{n:'핸드',e:'🖐️',c:8,p:'fb',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 자기 진영(아군 쪽 2줄)에 있는 아군 1기를 상대 진영(상대 쪽 2줄)이 아닌 빈칸 어디로든 옮김(핸드가 자기 진영 안에 있을 때만 사용 가능) · 킹·퀸 계열, 흑룡·백룡, 제네시스, 핸드는 옮길 수 없음'},
  w:{n:'마검사',e:'⚔️',c:8,p:'f',av:7.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 스킬: 마검 모드로 전환 — 이동 불가, 자신 중심 5x5의 적에게 원거리 공격(한 번 더 쓰면 이동 모드로 복귀)'},
- l:{n:'럭키',e:'🍀',c:4,p:'b',av:4,d:'이동 불가 · 스킬: 50% 확률로 상대 기물들이 다음 턴에 이동·잡기를 할 수 없게 함(원거리 공격은 가능, 킹·퀸 계열에는 통하지 않음), 사용한 뒤에는 2코스트 이하 아군 1기가 추가로 행동할 수 있음'},
- c:{n:'크리티컬',e:'🗡️',c:8,p:'f',av:7.5,d:'상하좌우·대각선 최대 2칸 이동·잡기 · 스킬: 적을 잡을 때 50% 확률로 잡은 기물 바로 옆(상하좌우 1칸)의 적 1기를 함께 처치(킹 계열 제외)'},
- f:{n:'프로즌',e:'🧊',c:8,p:'b',av:6,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 빙결 영역 ON/OFF — 켜면 자신 중심 5x5 안의 적 기물은 잡기 없는 이동이 불가능(잡기·원거리 공격·스킬은 가능, 아군과 킹·퀸 계열은 면역), 다시 쓰면 해제 · 영역이 켜져 있는 동안 프로즌 자신도 움직일 수 없음'},
- i:{n:'인파이터',e:'🥊',c:5,p:'f',av:5.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 특수: 자신보다 코스트가 높은 기물에게 잡히면 50% 확률로 그 기물도 함께 처치'},
- d:{n:'데몬',e:'😈',c:6,p:'b',av:5,d:'킹 대신 사용 · 상하좌우 최대 2칸 이동·잡기(경로에 아군이 있으면 그 아군도 함께 제거됨) · 특수: 적을 3기 처치하면 악마화 — 대각선도 최대 2칸 이동·잡기 가능 · 잡히면 패배'},
- m:{n:'마더',e:'🤱',c:2,p:'f',av:4,d:'상하좌우·대각선 1칸 이동·잡기 · 스킬: 보호막 ON/OFF — 켜면 자신을 뺀 주변 3x3의 아군은 잡기를 당하지 않음(원거리 공격·스킬은 받음), 대신 자신은 움직일 수 없음'},
- e:{n:'플레임',e:'🔥',c:6,p:'b',av:5,d:'대각선 1칸 이동·잡기 · 스킬: 마그마 — 양 진영을 제외한 중앙 4줄에서 2x2칸을 골라 3턴(양쪽 턴 합산) 동안 마그마 지형으로 만듦 · 특수: 마그마 위에서 한 턴을 넘겨 서 있는 기물은 아군·적군 모두 처치됨(킹·퀸 계열, 흑룡·백룡은 면역) · 백/흑 플레임의 마그마는 각각 따로 유지됨(자기 마그마만 교체)'},
+ l:{n:'럭키',e:'🍀',c:3,p:'b',av:4,d:'이동 불가 · 스킬: 50% 확률로 상대 기물들이 다음 턴에 이동·잡기를 할 수 없게 함(원거리 공격은 가능, 킹·퀸 계열에는 통하지 않음), 사용한 뒤에는 2코스트 이하 아군 1기가 추가로 행동할 수 있음'},
+ c:{n:'크리티컬',e:'🗡️',c:8,p:'f',av:7.5,d:'상하좌우 1칸·대각선 최대 2칸 이동·잡기 · 스킬: 적을 잡을 때 50% 확률로 잡은 기물 바로 옆(상하좌우 1칸)의 적 1기를 함께 처치(킹 계열 제외)'},
+ f:{n:'프로즌',e:'🧊',c:2,p:'b',av:6,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 빙결 영역 ON/OFF — 켜면 자신 중심 5x5 안의 적 기물은 잡기 없는 이동이 불가능(잡기·원거리 공격·스킬은 가능, 아군과 킹·퀸 계열은 면역), 다시 쓰면 해제 · 영역이 켜져 있는 동안 프로즌 자신도 움직일 수 없음'},
+ i:{n:'인파이터',e:'🥊',c:7,p:'f',av:5.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 특수: 자신보다 코스트가 높은 기물에게 잡히면 50% 확률로 그 기물도 함께 처치'},
+ d:{n:'데몬',e:'😈',c:5,p:'b',av:5,d:'킹 대신 사용 · 상하좌우 최대 2칸 이동·잡기(경로에 아군이 있으면 그 아군도 함께 제거됨) · 특수: 적을 3기 처치하면 악마화 — 대각선도 최대 2칸 이동·잡기 가능 · 잡히면 패배'},
+ m:{n:'마더',e:'🤱',c:4,p:'f',av:4,d:'상하좌우·대각선 1칸 이동·잡기 · 스킬: 보호막 ON/OFF — 켜면 자신을 뺀 주변 3x3의 아군은 잡기를 당하지 않음(원거리 공격·스킬은 받음), 대신 자신은 움직일 수 없음'},
+ e:{n:'플레임',e:'🔥',c:5,p:'b',av:5,d:'대각선 1칸 이동·잡기 · 스킬: 마그마 — 양 진영을 제외한 중앙 4줄에서 2x2칸을 골라 3턴(양쪽 턴 합산) 동안 마그마 지형으로 만듦 · 특수: 마그마 위에서 한 턴을 넘겨 서 있는 기물은 아군·적군 모두 처치됨(킹·퀸 계열, 흑룡·백룡은 면역) · 백/흑 플레임의 마그마는 각각 따로 유지됨(자기 마그마만 교체)'},
  N:{n:'나이트',e:'🐴',c:3,p:'fb',av:3.2,d:'나이트 이동(기물을 뛰어넘음)'},
- Z:{n:'샤크',e:'🦈',c:6,p:'fb',av:5.8,d:'대각선 최대 3칸 이동·잡기 · 특수: 적을 처치하면 도착한 칸에서 대각선 빈 1칸으로 한 번 더 이동할 수 있음(잡기 불가)'}
+ Z:{n:'샤크',e:'🦈',c:5,p:'fb',av:5.8,d:'대각선 최대 3칸 이동·잡기 · 특수: 적을 처치하면 도착한 칸에서 대각선 빈 1칸으로 한 번 더 이동할 수 있음(잡기 불가)'}
 };
 const TYPES=Object.keys(DEF);
 const BUDGET=39,MAXN=15;
 const isKing=t=>t==='K'||t==='E'||t==='g'||t==='d';
+const PROMO={P:['R','B','N'],S:['V','h']};
 const isQueenCl=t=>t==='Q'||t==='M'||t==='q'||t==='m';
 const frontRow=s=>s==='w'?6:1,backRow=s=>s==='w'?7:0;
 const zone=s=>s==='w'?[6,7]:[0,1];
@@ -461,7 +569,7 @@ function cloneBoard(b){const n=b.map(p=>p?cp(p):null);const d=b.dead||{w:[],b:[]
 let gb,gout,gi,gcap,gai,gtor;
 const at=(rr,cc)=>rr>=0&&rr<8&&cc>=0&&cc<8?gb[rr*8+cc]:undefined;
 function mv(rr,cc,k){const t=rr*8+cc;if(gcap&&k===0&&gb[t]===null)return;gout.push([gi,t,k])}
-function rimm(b,i){const q=b[i];if(q.inv||q.t==='E')return true;
+function rimm(b,i){const q=b[i];if(q.inv||q.t==='E'||q.t==='g')return true;
  const tr=i>>3,tc=i&7;
  for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){if(!dr&&!dc)continue;const x=tr+dr,y=tc+dc;if(x<0||x>7||y<0||y>7)continue;const v=b[x*8+y];if(v&&v.t==='V'&&v.s===q.s)return true}
  return false}
@@ -485,11 +593,11 @@ function gen0(b,s,opt){
     if(!gcap)for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q&&q.s===s&&!q.inv)gout.push([i,(r+dr)*8+c+dc,2])}break}
    case'Z':for(const[dr,dc]of DD){let rr=r+dr,cc=c+dc,k=0,q;while(k<3&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}
     if(k<3&&q&&q.s!==s){mv(rr,cc,0);const t=rr*8+cc;for(const[er,ec]of DD){const r2=rr+er,c2=cc+ec,q2=at(r2,c2);if(!gai&&(q2===null||q2===p))gout.push([i,t,0,r2*8+c2])}}}break;
-   case'M':{for(const[dr,dc]of D8){const mk=2;let rr=r+dr,cc=c+dc,k=0,q;while(k<mk&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<mk&&q&&q.s!==s)mv(rr,cc,0)}
+   case'M':{for(const[dr,dc]of D8){const mk=1;let rr=r+dr,cc=c+dc,k=0,q;while(k<mk&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<mk&&q&&q.s!==s)mv(rr,cc,0)}
     if(!gcap&&medT(b,i).length)gout.push([i,i,3]);break}
    case'I':{if(!gcap){for(const[dr,dc]of D4)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
     const dd=(b.dead&&b.dead[s])||[],sn={};for(let x=0;x<dd.length;x++){const d=dd[x];if(d.rv||isKing(d.t)||isQueenCl(d.t)||sn[d.t])continue;sn[d.t]=1;gout.push([i,i,8,undefined,[x]])}}break}
-   case'g':case'q':{for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){if(!dr&&!dc)continue;if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0)}
+   case'g':case'q':{let R=2;const GV=globalThis.GV||{};if(p.t==='g'){if(!GV.noShrink)for(const[er,ec]of D8){const nq=at(r+er,c+ec);if(nq&&nq.s!==s){R=1;break}}if(GV.cap&&!gcap)for(const[er,ec]of D8){const nq=at(r+er,c+ec);if(nq&&nq.s!==s)mv(r+er,c+ec,0)}}for(let dr=-R;dr<=R;dr++)for(let dc=-R;dc<=R;dc++){if(!dr&&!dc)continue;if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0)}
     if(p.t==='q'&&!gcap)for(let j=0;j<64;j++){const x=b[j];if(x&&x.s===s&&j!==i)gout.push([i,j,10])}break}
    case'Y':{for(const dr of[1,-1]){let rr=r+dr,k=0,q;while(k<3&&(q=at(rr,c))===null){mv(rr,c,0);rr+=dr;k++}
     if(k<3&&q&&q.s!==s){mv(rr,c,0);const t=rr*8+c;for(const[er,ec]of DD){const r2=rr+er,c2=c+ec,q2=at(r2,c2);if(!gai&&(q2===null||q2===p))gout.push([i,t,0,r2*8+c2])}}}break}
@@ -522,7 +630,7 @@ function gen0(b,s,opt){
    case'r':{const bk=-f,q0=at(r+bk,c);if(q0===null||(q0&&q0.s!==s))mv(r+bk,c,0);
     if(r===(s==='w'?7:0)){const tr=s==='w'?0:7;if(at(tr,c)===null)mv(tr,c,0)}break}
    case'h':{for(const[dr,dc]of D4)for(let k=1;k<=2&&at(r+dr*k,c+dc*k)===null;k++)mv(r+dr*k,c+dc*k,0);
-    const kl=[];for(let dc=-1;dc<=1;dc++){const q=at(r+f,c+dc);if(q&&q.s!==s&&!rimm(b,(r+f)*8+c+dc))kl.push((r+f)*8+c+dc)}
+    const kl=[];for(let rw=1;rw<=2;rw++)for(let dc=-1;dc<=1;dc++){const q=at(r+f*rw,c+dc);if(q&&q.s!==s&&!rimm(b,(r+f*rw)*8+c+dc))kl.push((r+f*rw)*8+c+dc)}
     if(kl.length)gout.push([i,i,6,undefined,kl]);break}
    case'v':case'o':{const vert=p.t==='v';
     if(!gcap)for(let x=0;x<8;x++){const j=vert?x*8+c:r*8+x;if(j!==i&&b[j]===null)gout.push([i,j,0])}
@@ -546,26 +654,28 @@ function gen0(b,s,opt){
    case'f':{if(!p.md)for(const[dr,dc]of D8)for(let k=1;k<=2&&at(r+dr*k,c+dc*k)===null;k++)mv(r+dr*k,c+dc*k,0);if(!gcap)gout.push([i,i,17]);break}
    case'i':{for(const[dr,dc]of D8){const mk=dr&&dc?1:2;let rr=r+dr,cc=c+dc,k=0,q;while(k<mk&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<mk&&q&&q.s!==s)mv(rr,cc,0)}break}
    case'l':{if(!gcap){let any=false;for(let j=0;j<64;j++){const q=b[j];if(q&&q.s!==s&&!q.frz){any=true;break}}if(any)gout.push([i,i,15])}break}
-   case'c':for(const[dr,dc]of D8){let rr=r+dr,cc=c+dc,k=0,q;while(k<2&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<2&&q&&q.s!==s)mv(rr,cc,0)}break;
+   case'c':for(const[dr,dc]of D8){const mk=(dr&&dc)?2:1;let rr=r+dr,cc=c+dc,k=0,q;while(k<mk&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<mk&&q&&q.s!==s)mv(rr,cc,0)}break;
    case's':for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s&&!isKing(q.t)))mv(r+dr,c+dc,0)}break;
    case'K':for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s))mv(r+dr,c+dc,0)}break;
    case'B':for(const[dr,dc]of DD){let rr=r+dr,cc=c+dc,q,k=0;while(k<4&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<4&&q&&q.s!==s)mv(rr,cc,0)}break;
    case'R':for(const[dr,dc]of D4){let rr=r+dr,cc=c+dc,q,k=0;while(k<4&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<4&&q&&q.s!==s)mv(rr,cc,0)}break;
-   case'Q':for(const[dr,dc]of D8){let rr=r+dr,cc=c+dc,q,k=0;while(k<4&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<4&&q&&q.s!==s)mv(rr,cc,0)}break;
+   case'Q':{const QL=p.m?4:2;for(const[dr,dc]of D8){let rr=r+dr,cc=c+dc,q,k=0;while(k<QL&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<QL&&q&&q.s!==s)mv(rr,cc,0)}}break;
   }
  }
  // 불가능한 수 걸러내기 (무적/이동불가/원거리 면역/뱅가드)
  let n=0;let momOn=false;for(let j=0;j<64;j++){const z=b[j];if(z&&z.t==='m'&&z.md){momOn=true;break}}
  let fzOn=false;for(let j=0;j<64;j++){const z=b[j];if(z&&z.t==='f'&&z.md){fzOn=true;break}}
+ const pr=[];
  for(let j=0;j<out.length;j++){
   const m=out[j],k=m[2];let ok=true;
+  if(k!==16&&k!==20&&k!==21&&b[m[0]]&&b[m[0]].frz===2){continue}
   if(k===14){if(b[m[0]].frz)ok=false}
   else if(k===0){if(b[m[0]].frz)ok=false;else if(b[m[0]].t==='Q'&&b[m[1]]&&isKing(b[m[1]].t))ok=false;else if(momOn&&b[m[1]]&&momProt(b,m[1]))ok=false;else if(fzOn&&(b[m[1]]===null||m[3]!==undefined)&&zoneLocked(b,m[0]))ok=false;else{const q=b[m[1]];if(q&&q.inv)ok=false}}
   else if(k===1){const q=b[m[1]];
    if(rimm(b,m[1]))ok=false}
-  if(ok)out[n++]=m;
+  if(ok){if(k===0&&PROMO[b[m[0]].t]&&((m[1]>>3)===0||(m[1]>>3)===7)){for(const pt of PROMO[b[m[0]].t]){const m2=m.slice();while(m2.length<6)m2.push(undefined);m2[6]=pt;pr.push(m2)}}else out[n++]=m}
  }
- out.length=n;
+ out.length=n;for(const m2 of pr)out.push(m2);n=out.length;
  if(!n&&!gcap){for(let i=0;i<64;i++){const p=b[i];if(p&&p.s===s&&p.frz){out.push([i,i,16]);break}}}
  return out;
 }
@@ -625,16 +735,16 @@ function make(b,m,nf){
  const preM=(b.mg&&!nf)?magPre(b,p.s):null;
  for(let j=0;j<64;j++){const q=b[j];if(!q)continue;
   if(q.inv&&q.s!==p.s){q.inv=0;(u.cl||(u.cl=[])).push(q)}
-  if(q.frz&&q.s===p.s){q.frz=0;(u.fc||(u.fc=[])).push(q)}
+  if(q.frz&&q.s===p.s){(u.fc||(u.fc=[])).push([q,q.frz]);q.frz=0}
   if(q.db&&q.s===p.s){q.db=0;(u.dbc||(u.dbc=[])).push(q)}}
  if(k===0||k===1||k===11){
   u.cap=b[t];if(u.cap)u.n=1;
   if(k===1||k===11)b[t]=null;
-  else{b[t]=p;b[f]=null;p.m=1;const r=t>>3;if(p.t==='P'&&(r===0||r===7))p.t='Q';
+  else{b[t]=p;b[f]=null;p.m=1;const r=t>>3;if(PROMO[p.t]&&(r===0||r===7))p.t=m[6]||PROMO[p.t][PROMO[p.t].length-1];
    if(m[3]!==undefined){b[t]=null;b[m[3]]=p}
    if(m[4]){u.kl=[];for(const j of m[4]){const q=b[j];if(q){u.kl.push([j,q]);b[j]=null;u.n++}}}}
  }else if(k===2){b[t].inv=1;u.tg=b[t]}
- else if(k===3){u.ft=[];for(const j of medT(b,f)){const q=b[j];q.frz=1;u.ft.push(q)}}
+ else if(k===3){u.ft=[];for(const j of medT(b,f)){const q=b[j];q.frz=2;u.ft.push(q)}}
  else if(k===4||k===6){u.kl=[];for(const j of m[4]){const q=b[j];u.kl.push([j,q]);b[j]=null;u.n++;if(isKing(q.t))u.cap=q}}
  else if(k===5){const L=m[4];for(let j=0;j<L.length;j+=2){const a=L[j],d=L[j+1],tmp=b[a];b[a]=b[d];b[d]=tmp}}
  else if(k===7){u.sl=[p,p.tp,p.ts];p.tp=b[t];p.ts=t}
@@ -691,7 +801,7 @@ function unmake(b,u){
  else if(k===19){}
  else if(k===5){const L=m[4];for(let j=L.length-2;j>=0;j-=2){const a=L[j],d=L[j+1],tmp=b[a];b[a]=b[d];b[d]=tmp}}
  if(u.cl)for(const q of u.cl)q.inv=1;
- if(u.fc)for(const q of u.fc)q.frz=1;
+ if(u.fc)for(const x of u.fc)x[0].frz=x[1];
  if(u.dbc)for(const q of u.dbc)q.db=1;
 }
 // 울프/샤크 2단계 이동용 (UI): 첫 단계는 [f,t,0], 이어서 [t,x,0]
@@ -709,6 +819,7 @@ function hash(b,s){
  for(let i=0;i<64;i++){const p=b[i];if(!p)continue;
   const code=((i*TYPES.length+TI[p.t])*2+(p.s==='w'?0:1))*8+(p.m?4:0)+(p.inv?2:0)+(p.frz?1:0);
   if(p.kc>=3){const kc=(i*TYPES.length+TI[p.t])*16+13;h1^=Z1[kc];h2^=Z2[kc]}
+  if(p.frz===2){const fz=(i*TYPES.length+TI[p.t])*16+11;h1^=Z1[fz];h2^=Z2[fz]}
   if(p.md){const mc=(i*TYPES.length+TI[p.t])*16+12;h1^=Z1[mc];h2^=Z2[mc]}
   h1^=Z1[code];h2^=Z2[code];
   if(p.db){const dc=(i*TYPES.length+TI[p.t])*16+10;h1^=Z1[dc];h2^=Z2[dc]}
@@ -720,7 +831,7 @@ function hash(b,s){
 /* ---------- 평가 ---------- */
 const AV={};TYPES.forEach(t=>AV[t]=DEF[t].av);
 const MATE=100000;
-let EVP={near:0.06,cnt:0.1,adv:1,inv:1.0,frz:1,sk:0,skl:1,skt:1};
+let EVP={near:0.06,cnt:0.1,adv:1,inv:1.0,frz:1,sk:0,skl:1,skt:1,lmr:0,hist:0,skw:1,sk2:0,pvs:0};
 function ev(b,s){
  let kw=-1,kb=-1;
  for(let i=0;i<64;i++){const p=b[i];if(p&&isKing(p.t)){if(p.s==='w')kw=i;else kb=i}}
@@ -747,25 +858,29 @@ function ev(b,s){
    const K=EVP.sk,dir=p.s==='w'?-1:1;let a=0;
    const tv=q=>q&&q.s!==p.s&&!q.inv?(isKing(q.t)?6:Math.min(AV[q.t],6)):0;
    const at=(rr,cc)=>rr<0||rr>7||cc<0||cc>7?null:b[rr*8+cc];
-   if(t==='h'){for(let dc=-1;dc<=1;dc++)a+=.25*tv(at(r+dir,c+dc))}
+   if(t==='h'){for(let dc=-1;dc<=1;dc++){a+=.25*tv(at(r+dir,c+dc));a+=.18*tv(at(r+2*dir,c+dc))}}
    else if(t==='O'){for(const[dr,dc]of D8)for(let n=1;n<=2;n++)a+=.2*tv(at(r+dr*n,c+dc*n))}
    else if(t==='A'||t==='U'){for(const[dr,dc]of D4)for(let n=1;n<=2;n++)a+=.2*tv(at(r+dr*n,c+dc*n))}
    else if(t==='C'){for(const[dr,dc]of D4)for(let n=1;n<=3;n++)a+=.15*tv(at(r+dr*n,c+dc*n))}
    else if(t==='S'){a+=.2*tv(at(r+dir,c))}
    else if(t==='w'&&p.md){for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++)a+=.3*tv(at(r+dr,c+dc))}
    else if(t==='V'||(t==='m'&&p.md)){let n=0;for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q&&q.s===p.s)n++}a+=(t==='V'?.15:.25)*n}
+   else if(EVP.sk2&&t==='L'){for(const[dr,dc]of DD)a+=.2*tv(at(r+dr,c+dc))}
+   else if(EVP.sk2&&t==='G'){let n=0,sv=0;for(const[dr,dc]of D8){const q=at(r+dr,c+dc);const v=tv(q);if(v){n++;sv+=v}}a+=n?.25*sv/n*Math.min(n,3)*.8+.15*n:0}
+   else if(EVP.sk2&&t==='M'){let sv=0;for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){const q=at(r+dr,c+dc);if(q&&q.s!==p.s&&!isKing(q.t)&&!isQueenCl(q.t)&&!q.frz)sv+=Math.min(AV[q.t],6)}a+=.12*sv}
+   else if(EVP.sk2&&t==='J'){let sv=0;for(let dr=-3;dr<=3;dr++)for(let dc=-3;dc<=3;dc++)sv=Math.max(sv,tv(at(r+dr,c+dc)));a+=.15*sv}
    else if(t==='d')a+=(p.kc||0)*.4;
    if(isKing(t)){let n=0;for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q&&q.s===p.s)n++}a+=.2*Math.min(n,4)}
-   x+=a*K;
+   x+=a*K*EVP.skw;
   }
   v+=p.s===s?x:-x;
  }
  return v;
 }
-function setEvp(o){EVP=Object.assign({near:0.06,cnt:0.1,adv:1,inv:1.0,frz:1,sk:0,skl:1,skt:1},o||{})}
+function setEvp(o){EVP=Object.assign({near:0.06,cnt:0.1,adv:1,inv:1.0,frz:1,sk:0,skl:1,skt:1,lmr:0,hist:0,skw:1,sk2:0,pvs:0},o||{})}
 
 /* ---------- 탐색 ---------- */
-let TT=new Map(),nodes=0,stopFlag=false,deadline=0,KIL=[];
+let LASTD=0,TT=new Map(),HIST=new Map(),nodes=0,stopFlag=false,deadline=0,KIL=[];
 const tacticalVal=(b,m)=>{const k=m[2];if(k===9){let mx=0;for(const x of m[4]){const v=tacticalVal(b,x);if(v>mx)mx=v}return mx}if(k===0||k===1||k===11){const q=b[m[1]];return q?(isKing(q.t)?1e4:AV[q.t]+1):0}if(k===4||k===6||k===14){let s=0;for(const j of m[4])s+=isKing(b[j].t)?1e4:AV[b[j].t]+1;return s}return 0};
 function mkey(m){if(m[2]===9){let h=0;for(const x of m[4])h=(h*131+mkey(x)+1)%2147483647;return h}return m[0]+64*m[1]+4096*m[2]+32768*(m[3]===undefined?0:m[3]+1)+2097152*(m[4]?(m[4][0]+1)*65+(m[4][1]===undefined?0:m[4][1]+1):0)}
 function orderMoves(b,ms,ttk,ply){
@@ -780,7 +895,7 @@ function orderMoves(b,ms,ttk,ply){
    else if(KIL[ply]&&(KIL[ply][0]===key||KIL[ply][1]===key))v=5e4;
    else if(k===2||k===3||k===7||k===8||k===10||k===12||k===13)v=2e3;
    else if(k===5)v=1;
-   else{const p=b[m[0]];const tr=m[1]>>3;const adv=p.s==='w'?7-tr:tr;v=adv+10}
+   else{const p=b[m[0]];const tr=m[1]>>3;const adv=p.s==='w'?7-tr:tr;v=adv+10;if(EVP.hist){const hh=HIST.get(key);if(hh)v+=Math.min(hh,4e4)}}
   }
   sc[i]=v;
  }
@@ -869,13 +984,20 @@ function nega(b,s,d,alpha,beta,ply){
  if(!ms.length)return -MATE+ply;
  ms=orderMoves(b,ms,ttk,ply);
  let best=-Infinity,bm=0;const a0=alpha;
+ let mi=0;
  for(const m of ms){
-  const lk=chance(b,m,s);const u=make(b,m);let v;
-  if(u.cap&&isKing(u.cap.t))v=MATE-ply;else if(u.sk)v=-(MATE-ply);else v=-nega(b,o,d-1,-beta,-alpha,ply+1);
-  unmake(b,u);if(stopFlag)return 0;v+=lk;
+  const lk=chance(b,m,s);const tvm=EVP.lmr?tacticalVal(b,m):1;const u=make(b,m);let v;
+  if(u.cap&&isKing(u.cap.t))v=MATE-ply;else if(u.sk)v=-(MATE-ply);
+  else if(EVP.lmr&&mi>=EVP.lmr&&d>=3&&!tvm&&!(KIL[ply]&&(KIL[ply][0]===mkey(m)||KIL[ply][1]===mkey(m)))){
+   const rd=(mi>=EVP.lmr*3&&d>=5)?2:1;
+   v=-nega(b,o,d-1-rd,-alpha-1,-alpha,ply+1);
+   if(v>alpha&&!stopFlag)v=-nega(b,o,d-1,-beta,-alpha,ply+1)}
+  else if(EVP.pvs&&mi>0&&d>=2){v=-nega(b,o,d-1,-alpha-1,-alpha,ply+1);if(v>alpha&&v<beta&&!stopFlag)v=-nega(b,o,d-1,-beta,-alpha,ply+1)}
+  else v=-nega(b,o,d-1,-beta,-alpha,ply+1);
+  unmake(b,u);if(stopFlag)return 0;v+=lk;mi++;
   if(v>best){best=v;bm=mkey(m)}
   if(v>alpha)alpha=v;
-  if(alpha>=beta){if(!tacticalVal(b,m)){const kk=KIL[ply]||(KIL[ply]=[0,0]);if(kk[0]!==bm){kk[1]=kk[0];kk[0]=bm}}break}
+  if(alpha>=beta){if(!tacticalVal(b,m)){const kk=KIL[ply]||(KIL[ply]=[0,0]);if(kk[0]!==bm){kk[1]=kk[0];kk[0]=bm}if(EVP.hist){HIST.set(bm,(HIST.get(bm)||0)+d*d*8)}}break}
  }
  if(TT.size>400000)TT.clear();
  TT.set(key,{d,v:best,f:best<=a0?2:best>=beta?1:0,m:bm});
@@ -887,9 +1009,9 @@ const LVL=[
  {kind:'shallow',depth:2,noise:.9,q:true,time:700,know:.9,sk:.3,sp:.4},
  {kind:'shallow',depth:2,noise:.5,q:true,time:900,know:1,sk:.6,sp:.7},
  {kind:'deep',maxDepth:3,noise:.3,fullRoot:true,time:1100,know:1,sk:.8},
- {kind:'deep',maxDepth:5,noise:.1,fullRoot:true,time:1800,know:1,sk:1},
- {kind:'deep',maxDepth:8,noise:0,time:2500,know:1,sk:1},
- {kind:'deep',maxDepth:16,noise:0,time:4500,know:1,sk:1}
+ {kind:'deep',maxDepth:6,noise:.1,fullRoot:true,time:2200,know:1,sk:1,lmr:3,hist:1,sk2:1,skw:2},
+ {kind:'deep',maxDepth:9,noise:0,time:3500,know:1,sk:1,lmr:3,hist:1,sk2:1,skw:2},
+ {kind:'deep',maxDepth:16,noise:0,time:6000,know:1,sk:1,lmr:3,hist:1,sk2:1,skw:2}
 ];
 const SKM={ret:1.0,rush:1.4,fin:.8};
 const PSM={5:.6,19:.3,13:.2,17:.2,18:.2};
@@ -904,7 +1026,8 @@ function chooseMove(b0,s,lv,opt){
  let ms=gen(b,s,{ai:true});
  if(!ms.length)return null;
  shuffle(ms,rng);
- EVP.sk=cfg.sk||0;TT.clear();
+ EVP.sk=cfg.sk||0;TT.clear();HIST.clear();
+ for(const k of['lmr','hist','sk2','skw','pvs'])if(cfg[k]!==undefined&&!(opt.evp&&k in opt.evp))EVP[k]=cfg[k];
  if(cfg.know&&cfg.know<1){   // 능력을 일부만 아는 초보: 모르는 기물은 기본 이동·잡기만 쓴다
   const sd=opt.seed||0;
   const kn=t=>(((t.charCodeAt(0)*2654435761+sd*40503)>>>0)%1000)/1000<cfg.know;
@@ -958,7 +1081,7 @@ function chooseMove(b0,s,lv,opt){
    if(!cfg.fullRoot&&v>alpha)alpha=v;
   }
   if(!done)break;
-  best=curBest;bestv=curv;lastSc=sc;
+  best=curBest;bestv=curv;lastSc=sc;LASTD=d;
   order=order.filter(m=>m!==best);order.unshift(best);
   if(bestv>=MATE-50)break;
   if(Date.now()>deadline)break;
@@ -1021,7 +1144,10 @@ function aiPlace(types,s,rng,lv){
  return best;
 }
 
-return {skillCands,SKM,armyScore,smartArmy,WV,placeScore,fireStage,rimm,setEvp,DEF,TYPES,BUDGET,MAXN,D4,DD,D8,KN,isKing,frontRow,backRow,zone,okSq,okAdd,armyCost,randomArmy,boom,zoneLocked,momProt,chance,golemRoll,golemT,magPre,magTick,newPiece,emptyBoard,cloneBoard,gen,make,unmake,applyExtra,hash,ev,chooseMove,aiArmy,aiPlace,tacticalVal,LVL,MATE,shuffle};
+/* 판정: 무승부 조건(무진행·반복)에서 남은 전력(코스트 합) > 기물 수 순으로 승자를 가림. 완전 동률일 때만 무승부 */
+function power(b,s){let p=0;for(let i=0;i<64;i++){const q=b[i];if(q&&q.s===s)p+=DEF[q.t].c}return p}
+function adjudicate(b){const pw=power(b,'w'),pb=power(b,'b');if(pw!==pb)return pw>pb?'w':'b';let nw=0,nb=0;for(let i=0;i<64;i++){const q=b[i];if(q){if(q.s==='w')nw++;else nb++}}if(nw!==nb)return nw>nb?'w':'b';return null}
+return {lastDepth:()=>LASTD,nodesN:()=>nodes,power,adjudicate,skillCands,SKM,armyScore,smartArmy,WV,placeScore,fireStage,rimm,setEvp,DEF,TYPES,BUDGET,MAXN,D4,DD,D8,KN,isKing,frontRow,backRow,zone,okSq,okAdd,armyCost,randomArmy,boom,zoneLocked,momProt,chance,golemRoll,golemT,magPre,magTick,newPiece,emptyBoard,cloneBoard,gen,make,unmake,applyExtra,hash,ev,chooseMove,aiArmy,aiPlace,tacticalVal,LVL,MATE,shuffle};
 })();
 if(typeof module!=='undefined')module.exports=BC;
 
@@ -1161,20 +1287,20 @@ let selTab=0;
 const DEMO={a:[6,3],w:[5,3],r:[7,3],E:[7,3],P:[6,3],h:[5,3],T:[6,3],S:[5,3],L:[6,3],V:[5,3],F:[5,3],D:[4,3],W:[4,4],e:[7,3]};
 const PRESETS=[
  {n:'기존 체스',l:'QRRBBNNPPPPPPPP'},
- {n:'황제의 침공',l:'EQTTFNNBPPPPSr'},
- {n:'신의 기사단',l:'gNNNNHHqIBVGPPPP'},
- {n:'악마의 대군',l:'dMsDDiPPPP'},
- {n:'기동 타격대',l:'ZYYFTNNNrPPPPP'},
- {n:'포격 전선',l:'CCOhJAALLSSS'},
- {n:'최종병기 활',l:'UUUAAASSLLLHPPN'},
- {n:'자연의 힘',l:'FYZGXNNHPPPPPP'},
- {n:'쌍룡의 역습',l:'DDWWQTNNPPP'},
- {n:'불과 얼음',l:'eefmGRNNP'}
+ {n:'황제 근위',l:'EHNPPPPPQRTXZ'},
+ {n:'신의 기사단',l:'BBBHNNNNNNPPVgq'},
+ {n:'악마의 사도',l:'DDIPPPPdiii'},
+ {n:'질풍 타격대',l:'FNNPPPTYZvv'},
+ {n:'철의 포화',l:'AACHJLLLOPPShH'},
+ {n:'백발백중',l:'AAHLLLLLNNPSUVq'},
+ {n:'자연의 분노',l:'FYZGXNNqPPPPPPI'},
+ {n:'쌍룡 강림',l:'BDFNNPPQRTW'},
+ {n:'서리와 화염',l:'BBNNPPPPRReffm'}
 ];
 const PAT={};
 function patt(t,alt){const key=t+(alt?'+':'');if(PAT[key])return PAT[key];
  const[pr,pc]=DEMO[t]||[4,3],pi=pr*8+pc,res=new Array(64).fill('');
- const mk=()=>{const b=BC.emptyBoard();b[pi]=BC.newPiece(t,'w');if(alt)b[pi].kc=3;return b};
+ const mk=()=>{const b=BC.emptyBoard();b[pi]=BC.newPiece(t,'w');if(t==='Q')b[pi].m=1;if(alt)b[pi].kc=3;return b};
  const g=b=>BC.gen(b,'w',{noDbl:true}).filter(m=>m[0]===pi);
  const mvs=new Set(g(mk()).filter(m=>m[2]===0).map(m=>m[1]));
  for(let x=0;x<64;x++){if(x===pi)continue;
@@ -1186,7 +1312,7 @@ function patt(t,alt){const key=t+(alt?'+':'');if(PAT[key])return PAT[key];
    else if((k===4&&m[4].indexOf(x)>=0)||(k===7&&m[1]===x)||(k===5&&m[4].indexOf(x)>=0)||k===11&&m[1]===x||k===15||(k===3&&Math.abs((x>>3)-pr)<=2&&Math.abs((x&7)-pc)<=2))sk=true}
   const a2=mk();a2[x]=BC.newPiece('P','w');
   for(const m of g(a2))if((m[2]===2||m[2]===12)&&m[1]===x)sk=true;
-  res[x]=rg?'qrg':(sk&&(t==='v'||t==='o')&&mvs.has(x))?'qmk':sk?'qsk':cap?'qcap':mvs.has(x)?'qmv':''}
+  res[x]=rg?'qrg':(sk&&(t==='v'||t==='o')&&mvs.has(x))?'qmk':(t==='M'&&mvs.has(x))?'qmv':sk?'qsk':cap?'qcap':mvs.has(x)?'qmv':''}
  if(t==='w')for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){const x=pi+dr*8+dc;if((dr||dc)&&pr+dr>=0&&pr+dr<8&&pc+dc>=0&&pc+dc<8&&!res[x])res[x]='qsk'}
  if(t==='m')for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){const x=pi+dr*8+dc;if((dr||dc))res[x]=mvs.has(x)?'qmk':'qsk'}
  if(t==='f')for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){const x=pi+dr*8+dc;if((dr||dc)&&pr+dr>=0&&pr+dr<8&&pc+dc>=0&&pc+dc<8)res[x]=mvs.has(x)?'qmk':'qsk'}
@@ -1200,7 +1326,7 @@ function rowsHtml(t){const parts=DEF[t].d.split(' · ');
  return parts.map(p=>{let k='이동',c='qmv',x=p;
   if(/^스킬:/.test(p)){k='스킬';c='qsk';x=p.replace(/^스킬:\s*/,'')}
   else if(/^특수:/.test(p)){k='특수';c='qcap';x=p.replace(/^특수:\s*/,'')}
-  else if(/필수 기물|대체 가능|킹을 잡을 수 없음|잡히면 패배|대신 사용|면역|에만 배치|마그마는 각각 따로|자신도 움직일 수 없음|킹 계열은 잡을 수 없음|킹 계열을 잡을 수 없음|옮길 수 없음/.test(p)){k='특징';c='qgy'}
+  else if(/필수 기물|3x3으로 줄어듦|대체 가능|킹을 잡을 수 없음|잡히면 패배|대신 사용|면역|에만 배치|마그마는 각각 따로|자신도 움직일 수 없음|킹 계열은 잡을 수 없음|킹 계열을 잡을 수 없음|옮길 수 없음/.test(p)){k='특징';c='qgy'}
   else if(/^돌파:|백도어/.test(p)){k='특수';c='qcap';x=p.replace(/^돌파:\s*/,'')}
   else if(/원거리|포격|사격|저격|관통/.test(p)&&!/이동/.test(p.split(/원거리|포격|사격|저격|관통/)[0])){k='공격';c='qrg'}
   else if(/처치하면|잡은 뒤|돌파|폭멸|추가 이동|킹·엠페러|처치되|사라짐/.test(p)&&parts.length>1){k='특수';c='qcap'}
@@ -1220,18 +1346,18 @@ function dexList(f){
  return MINI_LG+'<div class="dexg">'+(shown.map(pieceCard).join('')||'<p class="note">해당하는 기물이 없습니다.</p>')+'</div>'}
 function helpRule(){return `
 <div class="hc"><h4>🚩 빠른 시작</h4><ol><li><b>게임 설정</b> — 모드(AI 대전 · 한 기기 2인 대전 · AI 관전)와 난이도를 고릅니다.</li><li><b>기물 선택</b> — 39 코스트 안에서 자유롭게 군대를 짭니다. 추천 구성이나 <b>내 프리셋</b>에서 불러와도 됩니다.</li><li><b>기물 배치</b> — 내 진영에 기물을 놓습니다. 마음에 들면 <b>프리셋으로 저장</b>해 두세요.</li><li><b>대국</b> — 기물을 눌러 이동합니다. 체스가 처음이면 <b>좋은 수 표시</b>를 켜 보세요.</li></ol></div>
-<div class="hc"><h4>🎯 목표</h4><p>상대의 <b>킹</b>(또는 엠페러·갓)을 잡으면 승리합니다. 킹이 공격받으면 <b>체크</b>, 피할 방법이 없으면 <b>체크메이트</b> 경고가 뜨지만 강제 규칙은 아니며, 킹을 그냥 두면 그대로 잡힙니다.</p></div>
+<div class="hc"><h4>🎯 목표</h4><p>상대의 <b>킹</b>(또는 엠페러·갓·데몬 같은 킹 계열)을 잡으면 승리합니다. 킹이 공격받으면 <b>체크</b>, 피할 방법이 없으면 <b>체크메이트</b> 경고가 뜨지만 강제 규칙은 아니며, 킹을 그냥 두면 그대로 잡힙니다.</p></div>
 <div class="hc"><h4>⚡ 사용 스킬 (플레이어 스킬)</h4><p>기물 스킬과 별개로, 각 플레이어는 아래 세 가지를 <b>한 판에 한 번씩</b> 쓸 수 있습니다. 쓰면 그 턴의 행동을 대신합니다.</p><ul><li><b>↩️ 원위치!</b> — 아군 진영 밖에 있는 아군 기물 1기를 아군 진영의 빈 칸으로 옮깁니다.</li><li><b>⚡ 돌격 앞으로!</b> — 이번 턴에 2코스트 이하 아군 기물을 최대 3기까지(기물마다 1번) 행동시킵니다.</li><li><b>🏁 상황 종결!</b> — 적 기물이 3개 이하일 때, 7코스트 이하 아군 기물 1기를 아군 진영의 빈 칸에 부활시킵니다.</li></ul></div>
 <div class="hc"><h4>🕹 한 턴에 할 수 있는 것</h4><ul><li><b>이동</b> — 기물을 빈칸으로 옮깁니다.</li><li><b>잡기</b> — 적이 있는 칸으로 이동하며 잡습니다.</li><li><b>원거리 공격</b> — 제자리에서 대상만 제거합니다.</li><li><b>스킬</b> — 기물 고유 능력입니다.</li></ul><p class="note">한 턴에는 위 중 <b>하나</b>만 합니다. (기물 설명에 적힌 추가 이동·두 번 행동 같은 예외 제외)</p></div>
-<div class="hc"><h4>🧩 군대 구성 (코스트 39)</h4><table class="lim"><tr><th>기물 수</th><td>킹 포함 최대 16기 (킹은 무료)</td></tr><tr><th>킹 계열</th><td>킹·엠페러·갓 중 1기 (킹을 대체)</td></tr><tr><th>퀸 계열</th><td>퀸·메두사·프린세스 중 1기</td></tr><tr><th>전열 전용</th><td>최대 8기</td></tr><tr><th>후열 전용</th><td>최대 7기 (킹 계열을 쓰면 8기)</td></tr><tr><th>흑룡·백룡</th><td>각각 최대 4기 · 후열의 같은 색 칸에만 배치</td></tr></table><p class="note">배치는 내 진영의 앞 두 줄(전열·후열)에 합니다.</p></div>
-<div class="hc"><h4>🏁 승패와 무승부</h4><ul><li>상대 킹을 잡으면 승리합니다.</li><li>움직일 수 있는 수가 없으면 패배합니다.</li><li>같은 국면이 3번 반복되거나 100수 동안 아무 기물도 잡히지 않으면 무승부입니다.</li></ul></div>
+<div class="hc"><h4>🧩 군대 구성 (코스트 39)</h4><table class="lim"><tr><th>기물 수</th><td>킹 포함 최대 16기 (킹·갓은 무료)</td></tr><tr><th>킹 계열</th><td>킹·엠페러·갓·데몬 중 1기 (킹을 대체, 엠페러 3코스트·갓 무료·데몬 6코스트)</td></tr><tr><th>퀸 계열</th><td>퀸·메두사·프린세스 중 1기</td></tr><tr><th>전열 전용</th><td>최대 8기</td></tr><tr><th>후열 전용</th><td>최대 7기 (킹 계열을 쓰면 8기)</td></tr><tr><th>흑룡·백룡</th><td>각각 최대 4기 · 후열의 같은 색 칸에만 배치</td></tr></table><p class="note">배치는 내 진영의 앞 두 줄(전열·후열)에 합니다.</p></div>
+<div class="hc"><h4>🎖️ 승급</h4><ul><li><b>폰</b>이 상대 끝줄에 닿으면 <b>룩·비숍·나이트</b> 중 하나로 승급합니다.</li><li><b>솔저</b>가 상대 끝줄에 닿으면 <b>뱅가드·샷건</b> 중 하나로 승급합니다.</li><li>직접 플레이할 때는 선택 창에서 고르고, AI는 상황에 맞게 스스로 고릅니다.</li></ul></div><div class="hc"><h4>🏁 승패와 판정</h4><ul><li>상대 킹을 잡으면 승리합니다.</li><li>움직일 수 있는 수가 없으면 패배합니다.</li><li><b>100수</b>(백·흑 합산)가 지나면 <b>남은 전력(코스트 합)이 큰 쪽이 판정승</b>합니다. 전력이 같으면 기물 수가 많은 쪽, 그것도 같으면 무승부입니다.</li><li>20수마다 초반·중반·후반 진행 알림이 화면에 크게 표시됩니다.</li></ul></div>
 <div class="hc"><h4>🎮 게임 모드</h4><ul><li><b>PvE</b> — AI와 대전 (7단계 난이도)</li><li><b>PvP</b> — 한 기기에서 번갈아 가며 둘이 대전</li><li><b>AI 관전</b> — 군대와 배치만 내가 정하고 AI끼리 대전</li></ul></div>`}
 function helpUi(){return `
 <div class="hc"><h4>💾 내 프리셋</h4><ul><li>기물 선택 화면의 <b>현재 구성 저장</b>으로 군대 구성을 저장하고, 배치 화면의 <b>프리셋으로 저장</b>으로 구성과 <b>배치</b>를 함께 저장합니다.</li><li>저장한 프리셋은 기물 선택 화면의 <b>내 프리셋</b>에서 눌러 불러옵니다. 배치가 저장된 프리셋은 배치 화면에 자동으로 적용됩니다.</li><li><b>프리셋 관리 · 공유</b>에서 이름 변경, 삭제, 공유 코드 복사·가져오기를 할 수 있습니다 (최대 30개, 이 기기의 브라우저에 저장).</li></ul></div>
 <div class="hc"><h4>⚙ 설정 · 접근성</h4><ul><li>오른쪽 위 설정에서 효과음·배경음악·좋은 수 표시·애니메이션 줄이기·큰 글씨를 조절합니다.</li><li>키보드: 보드에서 <b>Tab</b>으로 진입 → <b>방향키</b>로 칸 이동 → <b>Enter/Space</b>로 선택, <b>Esc</b>로 취소·닫기.</li><li>각 칸은 “e2 백 폰”처럼 스크린리더가 읽을 수 있는 이름을 가집니다.</li></ul></div>
 <div class="hc"><h4>🎨 칸 색상</h4><div class="hlg"><span><i class="qmv"></i>이동</span><span><i class="qcap"></i>잡기</span><span><i class="qrg"></i>원거리 공격</span><span><i class="qsk"></i>스킬</span><span><i class="qpl"></i>배치 가능</span></div></div>
-<div class="hc"><h4>🔖 기물 표시</h4><ul><li>노란 테두리 — <b>무적</b> (프리스트)</li><li>❄️ — <b>이동 불가</b> (메두사)</li><li>⚡ — <b>다음 턴 두 번 행동</b> (프린세스)</li><li>✚ — <b>부활한 기물</b> (다시 부활 불가)</li><li>빨간 점선 원 — <b>저격 대상으로 지정된 칸</b></li></ul></div>
-<div class="hc"><h4>👆 조작</h4><ul><li>내 기물을 누르면 갈 수 있는 칸이 색으로 표시되고, 칸을 누르면 실행됩니다.</li><li><b>보드의 어느 기물이든</b> 누르면 설명 카드가 나옵니다 (상대 기물 포함).</li><li>골렘·토네이도·메딕·제네시스처럼 선택이 필요한 스킬은 안내 문구가 화면 위에 나옵니다.</li><li>두 번째 행동이 있는 기물은 <b>건너뛰기</b>/<b>이동 종료</b> 버튼으로 끝낼 수 있습니다.</li><li>오른쪽(또는 아래) 전황 패널에서 잡힌 기물·남은 전력·최근 진행을 볼 수 있습니다.</li></ul></div>
+<div class="hc"><h4>🔖 기물 표시</h4><ul><li>노란 테두리 — <b>무적</b> (프리스트)</li><li>❄️ — <b>행동 불가</b> (메두사) · <b>이동 불가</b> (럭키)</li><li>⚡ — <b>다음 턴 두 번 행동</b> (프린세스)</li><li>✚ — <b>부활한 기물</b> (다시 부활 불가)</li><li>빨간 점선 원 — <b>저격 대상으로 지정된 칸</b></li></ul></div>
+<div class="hc"><h4>🌐 온라인 대전</h4><ul><li>메인 화면의 <b>온라인 대전</b>에서 닉네임과 출전 구성을 고르고 <b>매칭 시작</b>을 누르면, 같은 페이지를 연 다른 사람과 자동으로 연결됩니다.</li><li>미리 저장한 <b>내 프리셋(구성+배치)</b>이 그대로 출전합니다. 색(백·흑)은 매칭 때 무작위로 정해지고, 상대 기물은 대전 시작 때 공개됩니다.</li><li>“매칭 성사” 창이 뜨고 3초 뒤 바로 대전이 시작됩니다. 도우미(좋은 수 표시)는 꺼집니다.</li><li>항복할 수 있으며, 상대의 연결이 30초 넘게 끊기면 승리 처리됩니다.</li></ul></div><div class="hc"><h4>👆 조작</h4><ul><li>내 기물을 누르면 갈 수 있는 칸이 색으로 표시되고, 칸을 누르면 실행됩니다.</li><li><b>보드의 어느 기물이든</b> 누르면 설명 카드가 나옵니다 (상대 기물 포함).</li><li>골렘·토네이도·메딕·제네시스처럼 선택이 필요한 스킬은 안내 문구가 화면 위에 나옵니다.</li><li>두 번째 행동이 있는 기물은 <b>건너뛰기</b>/<b>이동 종료</b> 버튼으로 끝낼 수 있습니다.</li><li>오른쪽(또는 아래) 전황 패널에서 잡힌 기물·남은 전력과 <b>행동 로그</b>를 볼 수 있습니다. 로그의 <b>전체 보기</b>를 누르면 지금까지의 모든 행동을 처음부터 볼 수 있습니다.</li><li>보드 위의 <b>진행 표시줄</b>에 현재 수(최대 100수)와 초반·중반·후반 단계가 나옵니다. 마지막 5수(95~99수)에는 종료 카운트다운이 크게 표시됩니다.</li></ul></div>
 <div class="hc"><h4>⚙ 버튼</h4><ul><li><b>보드 뒤집기</b> — 시점을 바꿉니다.</li><li><b>항복</b> — 내 패배로 끝냅니다.</li><li><b>처음으로</b> — 메인 화면으로 돌아갑니다.</li><li><b>일시정지 · 속도</b> — AI 관전 모드에서 사용합니다.</li><li>게임이 끝나면 <b>같은 구성으로 다시</b>, <b>배치로 돌아가기</b>, <b>기물 선택으로</b> 중에서 고를 수 있습니다.</li></ul></div>`}
 function buildHelp(tab,f){
  tab=tab||'rule';f=f||'all';
@@ -1266,7 +1392,7 @@ $('#go0').onclick=()=>{syncSetup();show('s1')};
 $('#go').onclick=()=>{let c=U.col;if(c==='r')c=rnd()<.5?'w':'b';G={mode:U.mode,lv:U.lv,human:c,lvs:{w:U.lw,b:U.lb},pause:false};simTally={w:0,b:0,d:0};G.seed=(Math.random()*1e6)|0;
  startBoard=BC.emptyBoard();SAVED={};queue=U.mode==='pve'?[c]:['w','b'];nextSetup()};
 $('#re').onclick=()=>ask('처음으로','진행 중인 게임을 종료하고 메인 화면으로 돌아갈까요?',()=>toHome());
-function toHome(){cancelAI();G.over=true;closeM('mOver');show('s0')}
+function toHome(){cancelAI();if(G.net&&!G.over&&typeof netSend==='function'){netSend({k:'res'})}G.over=true;if(typeof netLeave==='function')netLeave();closeM('mOver');show('s0')}
 
 /* ===== 2. 기물 선택 ===== */
 const used=()=>Object.keys(army).reduce((a,t)=>a+DEF[t].c*army[t],0),cnt=()=>Object.keys(army).reduce((a,t)=>a+army[t],0);
@@ -1294,6 +1420,7 @@ $('#gtabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;selTab=+
 $('#sel').onclick=e=>{const k=e.target.closest('button');if(!k||k.disabled)return;if(k.classList.contains('inf')){showPiece(k.dataset.i);return}army[k.dataset.t]+=+k.dataset.d;sfx('sel');drawSel()};
 $('#pre').onclick=e=>{const k=e.target.closest('button');if(!k)return;const p=k.dataset.p;
  if(p==='x')setArmy([]);else if(p==='r')setArmy(BC.randomArmy(rnd));else if(PRESETS[+p])setArmy(PRESETS[+p].l.split(''));sfx('place');drawSel()};
+['home2','home3'].forEach(i=>$('#'+i).onclick=()=>ask('메뉴로 돌아가기','지금까지 고른 기물과 배치는 저장되지 않습니다. 메인 메뉴로 돌아갈까요?',()=>{G.mk=false;sfx('rm');toHome()}));
 $('#n2').onclick=()=>{left={};if(!kcOf())left.K=1;for(const t in army)if(army[t])left[t]=army[t];pb=BC.emptyBoard();selT=kcOf()||'K';flipSetup=G.mode==='pve'&&side==='b';drawPlace();show('s3');window.scrollTo(0,0)};
 
 /* ===== 3. 기물 배치 ===== */
@@ -1318,7 +1445,7 @@ $('#clr').onclick=()=>{left={};if(!kcOf())left.K=1;for(const t in army)if(army[t
 $('#auto').onclick=()=>{const pl=BC.aiPlace(armyTypes(),side,rnd);
  if(!pl){toast('자동 배치에 실패했습니다. 다시 시도해 주세요.');return}
  pb=BC.emptyBoard();pl.forEach(([i,t])=>pb[i]=BC.newPiece(t,side));for(const t in left)left[t]=0;sfx('place');drawPlace()};
-$('#n3').onclick=()=>{pb.forEach((p,i)=>{if(p)startBoard[i]=p});SAVED[side]={army:Object.assign({},army),pb:pb.map(p=>p?BC.newPiece(p.t,p.s):null)};
+$('#n3').onclick=()=>{if(G.mk){G.mk=false;saveCur(true);setTimeout(netOpen,60);return}pb.forEach((p,i)=>{if(p)startBoard[i]=p});SAVED[side]={army:Object.assign({},army),pb:pb.map(p=>p?BC.newPiece(p.t,p.s):null)};
  if(queue.length&&G.mode==='sim'){nextSetup();return}
  if(queue.length){$('#passT').textContent=SN[queue[0]]+' 플레이어 차례입니다';openM('mPass');$('#passOk').onclick=()=>{closeM('mPass');nextSetup()};return}
  if(G.mode==='pve'){const ai=OP(G.human);
@@ -1329,10 +1456,11 @@ $('#n3').onclick=()=>{pb.forEach((p,i)=>{if(p)startBoard[i]=p});SAVED[side]={arm
 /* ===== 4. 대전 ===== */
 function startGame(){
  G.ret=null;{const br=$('#bRes');if(br)br.style.display='none'}
- G.b=BC.cloneBoard(startBoard);G.turn='w';G.sel=null;G.legal=[];G.pk=null;G.xm=null;G.lm=null;G.over=false;G.busy=false;G.since=0;G.seen={};G.lost={w:[],b:[]};G.hist=[];G.insp=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;G.log=[];G.dx=false;G.dbq=0;G.tc=false;G.sk={w:{ret:1,rush:1,fin:1},b:{ret:1,rush:1,fin:1}};G.skp=null;G.rush=null;G.pre=null;
- G.flip=G.mode==='pve'&&G.human==='b';G.seen[BC.hash(G.b,'w')]=1;G.lastTxt='';
+ G.b=BC.cloneBoard(startBoard);G.turn='w';G.sel=null;G.legal=[];G.pk=null;G.xm=null;G.lm=null;G.over=false;G.busy=false;G.since=0;G.plies=0;G.seen={};G.lost={w:[],b:[]};G.hist=[];G.insp=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;G.log=[];G.dx=false;G.dbq=0;G.tc=false;G.sk={w:{ret:1,rush:1,fin:1},b:{ret:1,rush:1,fin:1}};G.skp=null;G.rush=null;G.pre=null;
+ G.flip=(G.mode==='pve'&&G.human==='b')||(!!G.net&&G.net.me==='b');G.seen[BC.hash(G.b,'w')]=1;G.lastTxt='';
  show('s4');draw();aiCheck();window.scrollTo(0,0)}
-function pbarHtml(s){const isAI=G.mode==='pve'&&s!==G.human;
+function pbarHtml(s){if(G.net){const mine=s===G.net.me;return `<span class="dot ${s}"></span><span class="who">${SN[s]} · ${mine?'나':'상대'} · ${esc(mine?G.net.myNk:G.net.nk)}</span><span class="lost">${G.lost[s].map(t=>`<i class="ic lg">${gl(t)}</i>`).join('')}</span><span class="tick">${G.turn===s&&!G.over?'● 차례':''}</span>`}
+ const isAI=G.mode==='pve'&&s!==G.human;
  const who=G.mode==='sim'?`AI · ${LVN[G.lvs[s]]}`:G.mode==='pve'?(isAI?`AI · ${LVN[G.lv]}`:'플레이어'):`${SN[s]} 플레이어`;
  return `<span class="dot ${s}"></span><span class="who">${SN[s]} ${G.mode!=='pvp'?'· '+who:''}</span><span class="lost">${G.lost[s].map(t=>`<i class="ic lg">${gl(t)}</i>`).join('')}</span><span class="tick">${G.turn===s&&!G.over?'● 차례':''}</span>`}
 function cellClass(i){let c='';if(G.b.mg&&G.b.mg[i])c+='mg ';
@@ -1376,7 +1504,7 @@ function chkBanner(ci){
  if(G.chkS!==G.chkK){G.chkS=G.chkK;sfx('empower')}}
 /* --- 초보자용 좋은 수 표시 --- */
 const hcb={};let hintId=0;
-function hintOn(){return !!U.hint&&!!G.b&&!G.over&&G.mode!=='sim'&&(G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human))&&!G.busy}
+function hintOn(){return !G.net&&!!U.hint&&!!G.b&&!G.over&&G.mode!=='sim'&&(G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human))&&!G.busy}
 function hintShown(){return hintOn()&&!G.pk&&!G.skp&&!G.rush&&!G.xm&&!G.dx&&!G.gsw}
 const SKT={2:'무적 부여',3:'주변 적 빙결',4:'주변 적 처치',5:'기물 재배치',7:'저격 조준',8:'기물 부활',10:'아군 2회 행동 지정',11:'적 처치',12:'아군 재배치',13:'마검 모드 전환',15:'럭키 도전',17:'빙결 영역 전환',18:'보호막 전환',19:'마그마 생성'};
 function hintFor(m){
@@ -1394,14 +1522,22 @@ function hintFor(m){
  else if(m[2]===10)why=`${DEF[b[m[1]].t].n}이(가) 다음 턴 두 번 행동하게 합니다`;
  else if(m[2]===17)why=p.md?'빙결 영역을 해제해 아군 진형을 풉니다':'영역 안의 적을 이동 불가로 묶습니다';
  else if(m[2]===18)why=p.md?'보호막을 해제해 마더가 움직일 수 있게 합니다':'주변 아군이 잡히지 않도록 보호막을 켭니다';
- else if(m[2]===3)why='주변 5x5의 적을 한 턴 동안 움직이지 못하게 합니다';
+ else if(m[2]===3){let n=0;const r0=m[0]>>3,c0=m[0]&7;for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){const rr=r0+dr,cc=c0+dc;if(rr<0||rr>7||cc<0||cc>7)continue;const q=b[rr*8+cc];if(q&&q.s!==X&&!BC.isKing(q.t)&&!['Q','M','q','m'].includes(q.t))n++}why=`주변 5x5의 적 ${n}기를 한 턴 동안 움직이지 못하게 합니다`}
  else if(m[2]===19)why='적이 있는 구역을 마그마로 만들어 이동을 강요합니다';
+ else if(m[2]===8){const dd=b.dead[X][m[4][0]];why=dd?`쓰러진 ${DEF[dd.t].n}을(를) 부활시킵니다 — 전황 패널에서 ★ 표시된 기물을 누르세요`:'기물 부활'}
+ else if(m[2]===4){let n=0;for(const[dr,dc]of BC.D8){const j=m[0]+dr*8+dc,rr=(m[0]>>3)+dr,cc=(m[0]&7)+dc;if(rr>=0&&rr<8&&cc>=0&&cc<8&&b[j]&&b[j].s!==X)n++}why=`주변 적 ${n}기 중 1~3기를 처치합니다`}
+ else if(m[2]===7){const q=b[m[3]!==undefined?m[3]:m[1]];why=q?`${DEF[q.t].n}을(를) 조준합니다 — 다음 턴에도 그 자리에 있으면 저격됩니다`:SKT[7]}
+ else if(m[2]===12){const q=b[m[1]];why=q?`${DEF[q.t].n}을(를) 더 좋은 자리로 옮깁니다`:SKT[12]}
+ else if(m[2]===5)why='주변 기물을 재배치해 위협을 만들거나 피합니다';
+ else if(m[2]===13)why=p.md?'마검 모드를 풀고 다시 움직입니다':'마검 모드로 주변 5x5의 적을 노립니다';
+ else if(m[2]===15)why='성공하면 상대가 다음 턴에 이동·잡기를 못 합니다 (50%)';
  else if(SKT[m[2]])why=SKT[m[2]];
  else if(attackedBy(b,OP(X),m[0]))why='공격받는 기물을 안전하게 이동';
  else why='위치를 개선하는 수';
  const sk=m[2]>=2&&m[2]!==12&&m[2]!==14&&m[2]!==4&&!SKT[m[2]]?'':'';
  const mv=(m[2]===4||m[2]>=13||m[2]===2||m[2]===3||m[2]===5||m[2]===7||m[2]===8||m[2]===10||m[2]===11)&&m[2]!==14?`${nm} ${pos(m[0])} 스킬`:`${nm} ${pos(from)} → ${pos(to)}`;
- return{from,to,txt:`💡 추천: ${mv} · ${why}`}}
+ if(m[6]){const pn=DEF[m[6]].n;return{from,to,promo:m[6],txt:`💡 추천: ${mv} · ${tv>0?why+' + ':''}${pn}(으)로 승급 (승급 선택창에서 ★ 표시된 ${pn}을(를) 고르세요)`}}
+ return{from,to,rv:m[2]===8?m[4][0]:undefined,txt:`💡 추천: ${mv} · ${why}`}}
 function hint2For(){
  const who=G.turn;
  if(G.rush){
@@ -1423,7 +1559,7 @@ function hint2For(){
  return null}
 function hintUpdate(){
  const hb=$('#hintb'),bt=$('#bHint');
- if(bt){bt.style.display=G.mode==='sim'?'none':'';bt.textContent='💡 좋은 수 표시: '+(U.hint?'켜짐':'꺼짐')}
+ if(bt){bt.style.display=(G.mode==='sim'||G.net)?'none':'';bt.textContent='💡 좋은 수 표시: '+(U.hint?'켜짐':'꺼짐')}
  if(hintOn()&&(G.rush||G.skp)){{const sb=$('#skb');if(sb)sb.querySelectorAll('button').forEach(b=>b.classList.remove('hs'))}
   if(hb){hb.style.display=G.hint2&&G.hint2.txt?'':'none';hb.textContent=G.hint2&&G.hint2.txt?G.hint2.txt:''}return}
  if(!hintOn()){G.hint=null;G.hintK=null;if(hb){hb.style.display='none'}{const sb=$('#skb');if(sb)sb.querySelectorAll('button').forEach(b=>b.classList.remove('hs'))}return}
@@ -1433,8 +1569,8 @@ function hintUpdate(){
   const done=m=>{if(id!==hintId||G.hintK!==key||!m)return;G.hint=hintFor(m);draw()};
   const req={id,b:BC.cloneBoard(G.b),s:G.turn,lv:4,seen:G.seen,seed:G.seed,h:1,skills:skFlags(),sa:1};
   hcb[id]=done;
-  if(worker)worker.postMessage({id,b:req.b,dead:req.b.dead,s:req.s,lv:4,seen:req.seen,seed:req.seed,h:1,skills:req.skills,sa:1});
-  else setTimeout(()=>{if(id!==hintId)return;delete hcb[id];done(BC.chooseMove(req.b,req.s,4,{seen:req.seen,seed:req.seed,time:900,skills:req.skills,skillAll:1}))},80)}
+  if(worker)worker.postMessage({id,b:req.b,dead:req.b.dead,s:req.s,lv:5,seen:req.seen,seed:req.seed,h:1,skills:req.skills,sa:1,tm:1500});
+  else setTimeout(()=>{if(id!==hintId)return;delete hcb[id];done(BC.chooseMove(req.b,req.s,5,{seen:req.seen,seed:req.seed,time:1100,skills:req.skills,skillAll:1}))},80)}
  {const sb=$('#skb');if(sb)sb.querySelectorAll('button').forEach(b=>b.classList.toggle('hs',hintShown()&&!!G.hint&&G.hint.sk===b.dataset.sk))}
  if(hb){const sh=hintShown()||(hintOn()&&G.pk&&G.hint);hb.style.display=sh?'':'none';hb.textContent=sh?(G.hint?G.hint.txt:'💡 좋은 수를 찾는 중…'):''}}
 $('#bHint').onclick=()=>{U.hint=!U.hint;store.set('hint',U.hint);G.hintK=null;G.hint=null;sfx('sel');draw(G.over?$('#st').textContent:undefined)};
@@ -1457,8 +1593,8 @@ function draw(msg){
   else if(G.dx)t='추가 행동: 지정된 기물로 한 번 더 행동할 수 있습니다 (건너뛰기 가능)';
   else if(G.xm)t='추가 이동: 표시된 칸으로 한 번 더 이동하세요 (건너뛰기 가능)';
   else if(G.mode==='sim'&&G.pause)t='일시정지 · '+SN[G.turn]+' 차례';else if(aiTurn)t=G.mode==='sim'?SN[G.turn]+' AI가 생각 중':'AI가 생각 중';
-  else t=G.mode==='pve'?'당신의 차례 · '+SN[G.turn]:SN[G.turn]+' 차례'}
- const st=$('#st');st.textContent=t;st.classList.toggle('th',aiTurn&&!G.xm&&!msg);
+  else t=G.net?(G.turn===G.net.me?'당신의 차례 · ':'상대의 차례 · ')+SN[G.turn]+(G.turn!==G.net.me?' (기다리는 중)':''):G.mode==='pve'?'당신의 차례 · '+SN[G.turn]:SN[G.turn]+' 차례'}
+ hudDraw();const st=$('#st');st.textContent=t;st.classList.toggle('th',aiTurn&&!G.xm&&!msg);
  let inf=G.lastTxt||'';
  
  $('#info').textContent=inf;
@@ -1475,7 +1611,7 @@ $('#bFlip').onclick=()=>{G.flip=!G.flip;draw(G.over?$('#st').textContent:undefin
 $('#bd4').onclick=e=>{const c=e.target.closest('[data-i]');if(!c)return;const i=+c.dataset.i;
  if(G.b[i]){G.insp=i;showCard()}
  if(G.over||G.busy)return;
- if(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human))return;
+ if(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me))return;
  if(G.skp)return skClick(i);
  if(G.pk)return pkClick(i);
  if(G.xm){const m2=G.legal.find(x=>x[1]===i);if(m2)return play(m2);return}
@@ -1488,6 +1624,7 @@ $('#bd4').onclick=e=>{const c=e.target.closest('[data-i]');if(!c)return;const i=
  if(ms.length&&(ms[0][2]===4||ms[0][2]===5)){G.pk={t:ms[0][2]===4?'G':'X',f:i,s:[],a:null,sw:[]};sfx('sel');return draw()}
  if(ms.length){const ds=ms.filter(x=>x[3]!==undefined).map(x=>x[3]);
   if(ds.length)return randomExtra(ms.find(x=>x[3]===undefined),ds);
+  if(ms.length>1&&ms[0][6])return askPromo(ms);
   return play(ms[0])}
  if(G.gsw)return;
  const p=G.b[i];
@@ -1517,19 +1654,20 @@ $('#pkok').onclick=()=>{const pk=G.pk;
  const t=pk.s.slice().sort((x,y)=>x-y),m=G.legal.find(x=>x[2]===4&&x[4].length===t.length&&x[4].slice().sort((p,q)=>p-q).every((v,j)=>v===t[j]));
  G.pk=null;if(m)play(m);else draw()};
 $('#pkx').onclick=()=>{if(G.skp){G.skp=null;sfx('rm');draw();return}if(G.rush&&!G.rush.used.length){G.sk[G.turn].rush=1;G.rush=null;G.lastTxt='';sfx('rm');draw();return}cancelPk();G.sel=null;G.legal=[];draw()};
-$('#skip').onclick=()=>{if(G.rush&&!(G.xm||G.dx||G.gsw)&&!G.over&&!G.busy){rushEnd();return}
+$('#skip').onclick=()=>{if(G.net&&G.turn!==G.net.me)return;doSkip()};
+function doSkip(){if(!(G.over||G.busy)&&G.net&&!G._rem)netSend({k:'skip'});if(G.rush&&!(G.xm||G.dx||G.gsw)&&!G.over&&!G.busy){rushEnd();return}
  if(G.gsw&&!G.over&&!G.busy){gsEnd(G.turn);return}
- if((G.xm||G.dx)&&!G.over&&!G.busy){const who=G.turn;if(G.dx){G.dbq=0;G.dx=false;wrapUp(who,null,-1,true)}else{const x=G.xm;wrapUp(who,x.p,x.loc,true)}}};
+ if((G.xm||G.dx)&&!G.over&&!G.busy){const who=G.turn;if(G.dx){G.dbq=0;G.dx=false;wrapUp(who,null,-1,true)}else{const x=G.xm;wrapUp(who,x.p,x.loc,true)}}}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(G.skp){G.skp=null;draw();return}if(G.pk){cancelPk()}else if(G.sel!=null){G.sel=null;G.legal=[]}else return;if($('#s4').classList.contains('on'))draw()}});
 
 function mvTxt(m,p,rvT){const k=m[2],nm=DEF[p.t].n;
  if(k===8)return `${nm} 스킬: ${DEF[rvT].n} 부활!`;
  if(k===10)return `${nm} 스킬: ${pos(m[1])}의 아군이 다음 턴에 두 번 행동`;
  if(k===2)return `${nm} 스킬: ${pos(m[1])}의 아군에게 무적`;
- if(k===3)return `${nm} 스킬: 주변 적 이동 불가`;
+ if(k===3)return `${nm} 스킬: 주변 적 행동 불가`;
  if(k===4)return `${nm} 스킬: ${m[4].map(pos).join('·')} 처치`;
  if(k===5){const L=m[4],o=[];for(let j=0;j<L.length;j+=2)o.push(pos(L[j])+'↔'+pos(L[j+1]));return `${nm} 스킬: ${o.join(', ')} 재배치`}
- if(k===6&&p.t==='h')return `${nm} 스킬: 전방 3칸 사격 → ${m[4].map(pos).join('·')} 처치`;
+ if(k===6&&p.t==='h')return `${nm} 스킬: 전방 2줄 사격 → ${m[4].map(pos).join('·')} 처치`;
  if(k===6)return `${nm} 관통 사격 → ${m[4].map(pos).join('·')}`;
  if(k===17)return p.md?`${nm} 스킬: ❄️ 빙결 영역 발동 (5x5 안은 잡기 없는 이동 불가)`:`${nm} 스킬: 빙결 영역 해제`;
  if(k===16)return `${nm} 이동·잡기 불가 — 턴을 넘김`;
@@ -1547,7 +1685,7 @@ function mvTxt(m,p,rvT){const k=m[2],nm=DEF[p.t].n;
  if(p.t==='r'&&k===0&&Math.abs((m[1]>>3)-(m[0]>>3))>1)return `${nm} 백도어! ${pos(m[0])} → ${pos(m[1])}`;
  return `${nm} ${pos(m[0])} → ${pos(m[1])}`+(m[3]!==undefined?` → ${pos(m[3])}`:'')}
 function play(m,hold,seq){
- {const pp=G.b[m[0]],wh=G.turn;
+ if(!G._rem){const pp=G.b[m[0]],wh=G.turn;
   if(m[2]===4)m=BC.golemRoll(G.b,m,Math.random);
   if(m[2]===15&&m[3]===undefined)m=[m[0],m[1],15,Math.random()<1/2?1:0];
   else if(pp&&pp.t==='c'&&m[2]===0&&m[3]===undefined&&!m[4]&&G.b[m[1]]&&G.b[m[1]].s!==wh&&Math.random()<1/2){
@@ -1555,6 +1693,7 @@ function play(m,hold,seq){
    if(cd.length)m=[m[0],m[1],0,undefined,[cd[Math.random()*cd.length|0]]]}
   if(!m[5]&&pp&&(m[2]===0||m[2]===14)){const vs=m[2]===14?m[4]:[m[1]];let hit=false;for(const j of vs){const q=G.b[j];if(q&&q.s!==wh&&q.t==='i'&&DEF[pp.t].c>DEF.i.c)hit=true}
    if(hit&&Math.random()<.5){m=[m[0],m[1],m[2],undefined,m[4],1];hold=null}}}
+ if(G.net&&!G._rem)netSend({k:'p',m:m,h:hold?hold.d:null,s:seq?1:0});
  if(G.rush)seq=seq||true;
  const p=G.b[m[0]],who=G.turn,fr=rcOf(m[2]===12?m[1]:m[0]);
  if(p.db===1&&!G.dbq&&!seq)G.dbq=1;
@@ -1573,7 +1712,7 @@ function play(m,hold,seq){
   if(m[5])setTimeout(()=>{counterFx(m[1],who);sfx('counter')},420);
   if(dem)setTimeout(()=>{demonFx(m[1]);sfx('demon')},600)}
  if(u.rv){const ls=G.lost[who],ix=ls.lastIndexOf(rvT);if(ix>=0)ls.splice(ix,1);ls.push('I')}
- const tx=mvTxt(m,p,rvT)+(u.pt!==p.t?' · 퀸으로 승급!':'')+(m[5]?' · 💢 인파이터의 반격! 공격한 기물도 함께 처치':'')+(dem?' · 😈 악마화! (대각선도 2칸 이동·잡기 가능)':'')+(u.mk?` · 🌋 마그마에 소멸: ${u.mk.map(x=>DEF[x[1].t].n).join('·')}`:'');
+ const tx=mvTxt(m,p,rvT)+(u.pt!==p.t?' · 승급: '+DEF[p.t].n+'!':'')+(m[5]?' · 💢 인파이터의 반격! 공격한 기물도 함께 처치':'')+(dem?' · 😈 악마화! (대각선도 2칸 이동·잡기 가능)':'')+(u.mk?` · 🌋 마그마에 소멸: ${u.mk.map(x=>DEF[x[1].t].n).join('·')}`:'');
  if(G.xm&&!hold)G.lastTxt+=' → '+pos(m[1]);else if(G.tc)G.lastTxt+=' ⚡ '+tx;else G.lastTxt=SN[who]+' '+(G.rush&&!G.rush.used.length&&!G.rush.lk?'⚡ 돌격 앞으로! ':'')+tx;
  G.tc=more;
  {const pf={},P=(j,c)=>{pf[j]=c},nb=(j,f)=>{const r=j>>3,c=j&7;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){const x=r+dr,y=c+dc;if(x>=0&&x<8&&y>=0&&y<8)f(x*8+y)}},k=m[2],fl=[];
@@ -1736,7 +1875,7 @@ function showCard(){
  const i=G.insp,p=i!=null?G.b[i]:null;
  if(!p){el.style.display='none';return}
  const D=DEF[p.t],tg=[];
- if(p.inv)tg.push('무적');if(p.frz)tg.push('이동 불가');if(p.db===1)tg.push('다음 턴 두 번 행동');if(p.rv)tg.push('부활한 기물');if(p.md)(p.t==='f')?tg.push('빙결 영역 발동 중'):(p.t==='m')?0:tg.push('마검 모드 (이동 불가)');if(BC.zoneLocked(G.b,i))tg.push('빙결 영역 안 (잡기 없는 이동 불가)');if(BC.momProt(G.b,i))tg.push('보호막 안 (잡기 불가)');if(p.t==='m'&&p.md)tg.push('보호막 발동 중 (이동 불가)');if(p.t==='d')tg.push(p.kc>=3?'악마화 (사거리 3칸)':'처치 '+(p.kc||0)+'/3')
+ if(p.inv)tg.push('무적');if(p.frz)tg.push(p.frz===2?'행동 불가':'이동 불가');if(p.db===1)tg.push('다음 턴 두 번 행동');if(p.rv)tg.push('부활한 기물');if(p.md)(p.t==='f')?tg.push('빙결 영역 발동 중'):(p.t==='m')?0:tg.push('마검 모드 (이동 불가)');if(BC.zoneLocked(G.b,i))tg.push('빙결 영역 안 (잡기 없는 이동 불가)');if(BC.momProt(G.b,i))tg.push('보호막 안 (잡기 불가)');if(p.t==='m'&&p.md)tg.push('보호막 발동 중 (이동 불가)');if(p.t==='d')tg.push(p.kc>=3?'악마화 (사거리 3칸)':'처치 '+(p.kc||0)+'/3')
  if(isLocked(i))tg.push('저격 대상으로 지정됨');if(p.tp&&G.b[p.ts]===p.tp)tg.push('저격 대기 중 → '+pos(p.ts));
  el.style.display='';
  el.innerHTML=`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">${D.c} 코스트</span> <span class="tg ${tagCls(p.t)}">${PLN(p.t)}</span> <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcx" aria-label="설명 닫기">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">이동 범위 보기</button>`;
@@ -1753,13 +1892,15 @@ function drawSide(){
  const finIdx={};if(G.skp&&G.skp.t==='fin'&&G.skp.a==null&&!G.over){const dd=G.b.dead[G.turn];dd.forEach((d,x)=>{if(!isKing(d.t)&&DEF[d.t].c<=7&&finIdx[d.t]===undefined)finIdx[d.t]=x})}
  const tray=s=>{const ls=G.lost[s];if(!ls.length)return '<span class="none">아직 없음</span>';
   const g={};ls.forEach(t=>g[t]=(g[t]||0)+1);
-  return Object.keys(g).map(t=>{const can=s===G.turn&&rvIdx[t]!==undefined;
-   const cf=s===G.turn&&finIdx[t]!==undefined;return `<${can||cf?'button':'span'} class="lc${can||cf?' rv':''}${cf&&G.hint2&&G.hint2.fin===finIdx[t]?' hs':''}" ${can?`data-rv="${rvIdx[t]}"`:''} ${cf?`data-fin="${finIdx[t]}"`:''} title="${DEF[t].n}${can||cf?' · 눌러서 부활':''}">${icon(t)}${g[t]>1?'<b>×'+g[t]+'</b>':''}</${can||cf?'button':'span'}>`}).join('')};
+  return Object.keys(g).map(t=>{const can=s===G.turn&&rvIdx[t]!==undefined;const hr=can&&hintOn()&&G.hint&&G.hint.rv===rvIdx[t];
+   const cf=s===G.turn&&finIdx[t]!==undefined;return `<${can||cf?'button':'span'} class="lc${can||cf?' rv':''}${hr?' hs':''}${cf&&G.hint2&&G.hint2.fin===finIdx[t]?' hs':''}" ${can?`data-rv="${rvIdx[t]}"`:''} ${cf?`data-fin="${finIdx[t]}"`:''} title="${DEF[t].n}${can||cf?' · 눌러서 부활':''}">${icon(t)}${g[t]>1?'<b>×'+g[t]+'</b>':''}</${can||cf?'button':'span'}>`}).join('')};
  const blk=s=>`<div class="sb"><div class="sh"><span class="dot ${s}"></span><b>${SN[s]}</b><span class="sn">${cn[s]}기 · 전력 ${pw[s]}</span></div><div class="sl">${tray(s)}</div></div>`;
- const lg=G.log.slice(-6).reverse();
- el.innerHTML=`<h3>전황</h3><div class="pwr" title="남은 기물의 코스트 합 비교"><i style="width:${wp}%"></i></div><div class="pwl"><span>${SN.w} ${pw.w}</span><span>${SN.b} ${pw.b}</span></div><div class="gt2">처치된 기물</div>${blk(top)}${blk(bot)}${rvm.length?'<p class="hint">🩺 부활시킬 기물을 눌러 선택하세요</p>':''}<div class="gt2">최근 진행</div><ol class="lgl">${lg.length?lg.map(x=>`<li>${x}</li>`).join(''):'<li class="none">게임 시작</li>'}</ol>`}
-$('#side').onclick=e=>{const f=e.target.closest('[data-fin]');if(f&&G.skp&&G.skp.t==='fin'&&!G.over&&!G.busy){G.skp.a=+f.dataset.fin;sfx('sel');draw();return}const b=e.target.closest('[data-rv]');if(!b||G.over||G.busy)return;
- if(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human))return;
+ const lg=G.log.map((x,i)=>[i+1,x]).reverse();
+ el.innerHTML=`<h3>전황</h3><div class="pwr" title="남은 기물의 코스트 합 비교"><i style="width:${wp}%"></i></div><div class="pwl"><span>${SN.w} ${pw.w}</span><span>${SN.b} ${pw.b}</span></div><div class="gt2">처치된 기물</div>${blk(top)}${blk(bot)}${rvm.length?'<p class="hint">🩺 부활시킬 기물을 눌러 선택하세요</p>':''}<div class="gt2 lgh"><span>행동 로그 · ${G.log.length}턴</span><button id="lgOpen" type="button">전체 보기</button></div><ol class="lgl" reversed>${lg.length?lg.map(x=>`<li value="${x[0]}">${x[1]}</li>`).join(''):'<li class="none">게임 시작</li>'}</ol>`}
+function openLog(){const L=G.log;$('#lgN').textContent=L.length?`지금까지 ${L.length}턴 · 오래된 순서`:'아직 진행된 행동이 없습니다';const bx=$('#lgAll');bx.innerHTML='<ol>'+L.map((x,i)=>`<li value="${i+1}">${x}</li>`).join('')+'</ol>';openM('mLog');const o=bx.firstChild;setTimeout(()=>{o.scrollTop=o.scrollHeight},20)}
+$('#lgX').onclick=()=>closeM('mLog');
+$('#side').onclick=e=>{if(e.target.closest('#lgOpen')){openLog();return}const f=e.target.closest('[data-fin]');if(f&&G.skp&&G.skp.t==='fin'&&!G.over&&!G.busy){G.skp.a=+f.dataset.fin;sfx('sel');draw();return}const b=e.target.closest('[data-rv]');if(!b||G.over||G.busy)return;
+ if(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me))return;
  const idx=+b.dataset.rv,m=G.legal.find(x=>x[2]===8&&x[4][0]===idx);if(m)play(m)};
 function afterFire(u,who){u.sn.forEach(x=>G.lost[x[1].s].push(x[1].t));G.since=0;G.lastTxt+=' · 🎯 저격 명중: '+u.sn.map(x=>pos(x[0])).join('·');
  if(u.sk){finish(OP(who),'king');return true}return false}
@@ -1767,7 +1908,7 @@ function fxCell(j,e){const c=cell(j);if(c){const g=document.createElement('span'
 /* ===== 사용 스킬 (원위치 / 돌격 앞으로 / 상황 종결) ===== */
 const inZone=(s,i)=>{const z=BC.zone(s),r=i>>3;return r===z[0]||r===z[1]};
 const emptyZone=s=>{const o=[];for(let i=0;i<64;i++)if(!G.b[i]&&inZone(s,i))o.push(i);return o};
-const skHuman=()=>!G.over&&!G.busy&&G.sk&&(G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human))&&!G.pk&&!G.xm&&!G.dx&&!G.gsw&&!G.rush&&!G.skp;
+const skHuman=()=>!G.over&&!G.busy&&G.sk&&(G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human))&&(!G.net||G.turn===G.net.me)&&!G.pk&&!G.xm&&!G.dx&&!G.gsw&&!G.rush&&!G.skp;
 const rushOK=p=>G.rush&&p&&p.s===G.turn&&DEF[p.t].c<=2&&!G.rush.used.includes(p);
 function rushList(){const who=G.turn;return BC.gen(G.b,who,{noDbl:true}).filter(m=>m[2]!==16&&rushOK(G.b[m[0]]))}
 function finList(who){const o=[];G.b.dead[who].forEach((d,x)=>{if(!isKing(d.t)&&DEF[d.t].c<=7)o.push(x)});return o}
@@ -1777,7 +1918,7 @@ function skAvail(k){const who=G.turn;if(!G.sk||!G.sk[who][k])return false;
  if(k==='fin'){let en=0;for(let i=0;i<64;i++){const p=G.b[i];if(p&&p.s!==who)en++}return en<=3&&finList(who).length>0&&emptyZone(who).length>0}
  return false}
 function skUpdate(){const el=$('#skb');if(!el)return;
- const show=G.sk&&G.mode!=='sim'&&!G.over&&(G.mode==='pvp'||G.turn===G.human);
+ const show=G.sk&&G.mode!=='sim'&&!G.over&&(G.mode==='pvp'||G.turn===G.human)&&(!G.net||G.turn===G.net.me);
  el.style.display=show?'':'none';if(!show)return;
  const idle=skHuman();
  el.querySelector('.skl').textContent=`사용 스킬 · ${SN[G.turn]} · 각 1회 (쓰면 이번 턴을 사용)`;
@@ -1787,16 +1928,17 @@ function skUpdate(){const el=$('#skb');if(!el)return;
   b.title=used?'이미 사용함':k==='ret'?'아군 진영 밖의 아군 기물 1기를 아군 진영 빈 칸으로 옮깁니다':k==='rush'?'이번 턴에 2코스트 이하 아군 기물을 최대 3기까지 행동시킵니다':'적 기물이 3개 이하일 때, 7코스트 이하 아군 기물 1기를 아군 진영 빈 칸에 부활시킵니다'})}
 $('#skb').onclick=e=>{const b=e.target.closest('[data-sk]');if(!b||b.disabled||!skHuman())return;const k=b.dataset.sk;if(!skAvail(k))return;
  G.sel=null;G.legal=[];G.insp=null;
- if(k==='rush'){G.sk[G.turn].rush=0;G.rush={left:3,used:[]};G.lastTxt=SN[G.turn]+' 사용 스킬 ⚡ 돌격 앞으로!';sfx('empower')}
+ if(k==='rush')startRush();
  else{G.skp={t:k,a:null};sfx('sel')}
  draw()};
+function startRush(){if(G.net&&!G._rem)netSend({k:'rush'});G.sel=null;G.legal=[];G.sk[G.turn].rush=0;G.rush={left:3,used:[]};G.lastTxt=SN[G.turn]+' 사용 스킬 ⚡ 돌격 앞으로!';sfx('empower');draw()}
 function skClick(i){const k=G.skp,w=G.turn,p=G.b[i];
  if(k.t==='ret'){
   if(p&&p.s===w&&!inZone(w,i)){if(i===k.a){k.a=null;sfx('rm')}else{k.a=i;sfx('sel')}return draw()}
   if(k.a!=null&&!p&&inZone(w,i))return skApply('ret',k.a,i);
   if(i===k.a){k.a=null;sfx('rm');return draw()}return}
  if(k.a!=null&&!p&&inZone(w,i))return skApply('fin',k.a,i)}
-function skApply(k,a,to){const who=G.turn;G.sk[who][k]=0;G.skp=null;let tx;
+function skApply(k,a,to){const who=G.turn;if(G.net&&!G._rem)netSend({k:'sk',t:k,a:a,to:to});G.sk[who][k]=0;G.skp=null;let tx;
  if(k==='ret'){const p=G.b[a];G.pend=[[a,to,0],rcOf(a)];G.b[to]=p;G.b[a]=null;G.lm=[a,to];tx=`사용 스킬 ↩️ 원위치! ${DEF[p.t].n} ${pos(a)} → ${pos(to)}`;sfx('warp');setTimeout(()=>{fxCell(a,'💨');fxCell(to,'✨')},80)}
  else{const dd=G.b.dead[who],d=dd.splice(a,1)[0];d.rv=1;d.m=0;d.inv=0;d.frz=0;d.db=0;d.md=0;d.kc=0;G.b[to]=d;
   const ls=G.lost[who],ix=ls.lastIndexOf(d.t);if(ix>=0)ls.splice(ix,1);G.lm=[to,to];tx=`사용 스킬 🏁 상황 종결! ${DEF[d.t].n} 부활 → ${pos(to)}`;sfx('revive');setTimeout(()=>{fxCell(to,'✨');fxCell(to,'🕊️');fxCell(to,'🌟')},80)}
@@ -1826,24 +1968,26 @@ function endTurn(){
  G.xm=null;G.sel=null;G.legal=[];
  G.turn=OP(G.turn);G.since++;G.pre=G.b.mg?BC.magPre(G.b,G.turn):null;
  const h=BC.hash(G.b,G.turn);G.seen[h]=(G.seen[h]||0)+1;
- if(G.seen[h]>=3){finish(null,'rep');return}
- if(G.since>=100){finish(null,'50');return}
+ G.plies=(G.plies||0)+1;
+ if(G.plies>=LIMIT){finish(BC.adjudicate(G.b),'lim');return}
+ if(G.plies%20===0)phaseAlert(G.plies);else if(G.plies>=LIMIT-5)countdown(LIMIT-G.plies);
  const lg0=BC.gen(G.b,G.turn,{noDbl:true});
  if(!lg0.length){const human=G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human);if(human&&G.sk&&(skAvail('ret')||skAvail('fin'))){draw('이동할 수 있는 기물이 없습니다 — 사용 스킬을 쓰지 않으면 패배합니다');return}finish(OP(G.turn),'stalemate');return}
- if(lg0.length===1&&lg0[0][2]===16&&!(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human))){G.busy=true;draw('🍀 이동·잡기 불가 — 턴을 넘깁니다');setTimeout(()=>{G.busy=false;if(!G.over)play(lg0[0])},1000);return}
+ if(lg0.length===1&&lg0[0][2]===16&&!(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me))){G.busy=true;draw('🍀 이동·잡기 불가 — 턴을 넘깁니다');setTimeout(()=>{G.busy=false;if(!G.over)play(lg0[0])},1000);return}
  draw();aiCheck()}
 function finish(w,why){
  G.over=true;G.busy=false;G.xm=null;G.rush=null;G.skp=null;G.pk=null;
- const humanWins=G.mode==='pve'&&w===G.human;
+ const solo=G.mode==='pve'||!!G.net,myc=G.net?G.net.me:G.human,humanWins=solo&&w===myc;
  let em,t,d;
- if(!w){em='🤝';t='무승부';d=why==='rep'?'같은 국면이 세 번 반복되었습니다.':'100수 동안 아무 기물도 잡히지 않았습니다.'}
+ if(!w){em='🤝';t='무승부';d=LIMIT+'수가 지났고 남은 전력과 기물 수가 같습니다.'}
  else{
-  if(G.mode==='pve'){em=humanWins?'🏆':'💀';t=humanWins?'승리!':'패배...'}else if(G.mode==='sim'){em='🏁';t=SN[w]+' AI 승리!'}else{em='🎉';t=SN[w]+' 승리!'}
-  d=why==='king'?`${SN[w]}이(가) 상대의 킹을 잡았습니다.`:why==='resign'?`${SN[OP(w)]}이(가) 항복했습니다.`:`${SN[OP(w)]}은(는) 더 이상 둘 수 있는 수가 없습니다.`}
+  if(solo){em=humanWins?'🏆':'💀';t=humanWins?'승리!':'패배...'}else if(G.mode==='sim'){em='🏁';t=SN[w]+' AI 승리!'}else{em='🎉';t=SN[w]+' 승리!'}
+  d=why==='lim'?`${LIMIT}수가 지나 남은 전력으로 판정합니다 (백 ${BC.power(G.b,'w')} : 흑 ${BC.power(G.b,'b')}).`:why==='king'?`${SN[w]}이(가) 상대의 킹을 잡았습니다.`:why==='dc'?'상대의 연결이 끊어져 승리했습니다.':why==='resign'?`${SN[OP(w)]}이(가) 항복했습니다.`:`${SN[OP(w)]}은(는) 더 이상 둘 수 있는 수가 없습니다.`}
  if(G.mode==='sim'){if(w)simTally[w]++;else simTally.d++;d+=` · 누적 전적 백 ${simTally.w}승 · 흑 ${simTally.b}승 · 무 ${simTally.d}`}
  draw(t+' · '+d);
- setTimeout(()=>sfx(!w?'rm':G.mode==='pve'&&!humanWins?'lose':'win'),350);
- {const ek=!w?'scale':G.mode==='pve'?(humanWins?'trophy':'skull'):G.mode==='sim'?'flag':'star';const eo=$('#ovEm');eo.innerHTML=ug(ek);eo.className='em '+(!w?'draw':G.mode==='pve'&&!humanWins?'lose':'win');$('#ovT').textContent=t;$('#ovD').textContent=d;$('#ovS').innerHTML=`<span>총 ${G.log.length}수</span><span>백 손실 ${G.lost.w.length}기</span><span>흑 손실 ${G.lost.b.length}기</span>`;const br=$('#bRes');if(br)br.style.display=''}
+ setTimeout(()=>sfx(!w?'rm':solo&&!humanWins?'lose':'win'),350);
+ {const ek=!w?'scale':solo?(humanWins?'trophy':'skull'):G.mode==='sim'?'flag':'star';const eo=$('#ovEm');eo.innerHTML=ug(ek);eo.className='em '+(!w?'draw':solo&&!humanWins?'lose':'win');{const nt=!!G.net;['ovAgain','ovPlace','ovSel'].forEach(i=>{const e=$('#'+i);if(e)(e.closest('.row2')&&i!=='ovAgain'?e.style:e.style).display=nt?'none':''});const on=$('#ovNet');if(on)on.style.display=nt?'':'none'}$('#ovT').textContent=t;$('#ovD').textContent=d;$('#ovS').innerHTML=`<span>총 ${G.log.length}수</span><span>백 손실 ${G.lost.w.length}기</span><span>흑 손실 ${G.lost.b.length}기</span>`;const br=$('#bRes');if(br)br.style.display=''}
+ if(G.net&&typeof netResult==='function')netResult(w);
  setTimeout(()=>{if(G.over)openM('mOver')},900)}
 $('#ovAgain').onclick=()=>{closeM('mOver');cancelAI();startGame()};
 const backTo=m=>{closeM('mOver');cancelAI();startBoard=BC.emptyBoard();queue=G.mode==='pve'?[G.human]:['w','b'];G.ret=m;nextSetup()};
@@ -1851,12 +1995,12 @@ $('#ovPlace').onclick=()=>backTo('place');
 $('#ovSel').onclick=()=>backTo('sel');
 $('#ovHome').onclick=()=>{closeM('mOver');toHome()};
 $('#ovView').onclick=()=>closeM('mOver');
-$('#bResign').onclick=()=>{if(G.over)return;const s=G.mode==='pve'?G.human:G.turn;ask('항복','정말 항복할까요?',()=>{G.lastTxt=SN[s]+' 항복';finish(OP(s),'resign')})};
+$('#bResign').onclick=()=>{if(G.over)return;const s=G.net?G.net.me:G.mode==='pve'?G.human:G.turn;ask('항복','정말 항복할까요?',()=>{if(G.over)return;G.lastTxt=SN[s]+' 항복';if(G.net)netSend({k:'res'});finish(OP(s),'resign')})};
 
 /* ===== AI (웹 워커 + 동기 대체) ===== */
 let worker=null,reqId=0,pending=null,wdog=null;
 function initWorker(){try{
- const src=$('#eng').textContent+'\n;self.onmessage=function(e){var d=e.data;d.b.dead=d.dead;var m=BC.chooseMove(d.b,d.s,d.lv,{seen:d.seen,seed:d.seed,skills:d.skills,skillAll:d.sa});self.postMessage({id:d.id,m:m,h:d.h})};';
+ const src=$('#eng').textContent+'\n;self.onmessage=function(e){var d=e.data;d.b.dead=d.dead;var m=BC.chooseMove(d.b,d.s,d.lv,{seen:d.seen,seed:d.seed,skills:d.skills,skillAll:d.sa,time:d.tm});self.postMessage({id:d.id,m:m,h:d.h})};';
  const url=URL.createObjectURL(new Blob([src],{type:'text/javascript'}));
  worker=new Worker(url);
  worker.onmessage=e=>{if(e.data.h){const f=hcb[e.data.id];delete hcb[e.data.id];f&&f(e.data.m);return}if(pending&&e.data.id===pending.id){const r=pending;pending=null;clearTimeout(wdog);r.cb(e.data.m)}};
@@ -1931,6 +2075,11 @@ document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('but
 
 /* ===== 9.0: 토스트 · 기물명 아이콘 · 프리셋 · 설정 · 접근성 ===== */
 let toastT=null;
+const LIMIT=100,PHASE={20:'초반을 넘겼습니다!',40:'중반을 진행 중입니다!',60:'후반이 다가옵니다!',80:'후반입니다!'};
+const PHL=n=>n<20?'초반':n<40?'중반 진입':n<60?'중반':n<80?'후반 임박':'후반';
+function hudDraw(){const n=Math.min(G.plies||0,LIMIT),h=$('#tHud');if(!h)return;$('#thN').textContent=n+' / '+LIMIT+'수';const left=LIMIT-n;$('#thP').textContent=left<=5&&!G.over?'종료까지 '+left+'수':PHL(n);$('#thF').style.width=(n/LIMIT*100)+'%';h.classList.toggle('hot',n>=LIMIT-5&&!G.over)}
+function countdown(left){const e=$('#cdAl');if(!e)return;e.innerHTML=left+'<small>수 남음</small>';e.classList.remove('on');void e.offsetWidth;e.classList.add('on');sfx('sel')}
+let phaseT;function phaseAlert(n){const t=PHASE[n];if(!t)return;const e=$('#phaseAl');if(!e)return;e.innerHTML=`<small>${n}수 경과</small><b>${t}</b>`;e.classList.remove('on');void e.offsetWidth;e.classList.add('on');sfx('sel');clearTimeout(phaseT);phaseT=setTimeout(()=>e.classList.remove('on'),2400)}
 function toast(m){const e=$('#toast');e.textContent=m;e.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>e.classList.remove('on'),2200)}
 const PNRE=(()=>{const ns=TYPES.map(t=>DEF[t].n).sort((a,b)=>b.length-a.length);return new RegExp('(?<![가-힣A-Za-z])('+ns.join('|')+')(?! 계열)','g')})();
 const PNMAP={};TYPES.forEach(t=>PNMAP[DEF[t].n]=t);
@@ -1947,6 +2096,7 @@ function validArmy(l){const out=[];let cost=0;for(const t of l.split('')){if(!DE
 function curPl(){const pl=[];pb.forEach((p,i)=>{if(p)pl.push([side==='b'?mir(i):i,p.t])});return pl}
 function applyPl(pl){left={};if(!kcOf())left.K=1;for(const t in army)if(army[t])left[t]=army[t];pb=BC.emptyBoard();
  pl.forEach(([sq,t])=>{const i=side==='b'?mir(sq):sq;if(left[t]>0&&!pb[i]&&BC.okSq(t,side,i)){pb[i]=BC.newPiece(t,side);left[t]--}});selT=null}
+function askPromo(ms){$('#prD').textContent=(G.b[ms[0][0]]&&G.b[ms[0][0]].t==='S'?'솔저':'폰')+'이(가) 끝줄에 도달했습니다. 어떤 기물로 승급할까요?';const bx=$('#prB');bx.innerHTML='';sfx('sel');for(const m of ms){const bt=document.createElement('button');bt.className='pri';bt.style.width='auto';const rec=hintOn()&&G.hint&&G.hint.promo===m[6];bt.innerHTML=`<span class="pn">${gl(m[6])}</span> ${DEF[m[6]].n}${rec?' ★ 추천':''}`;if(rec)bt.classList.add('hs');bt.onclick=()=>{closeM('mPro');play(m)};bx.appendChild(bt)}openM('mPro');setTimeout(()=>{const f=bx.querySelector('button');f&&f.focus()},30)}
 function askName(title,desc,def,cb){$('#nmT').textContent=title;$('#nmD').textContent=desc||'';const i=$('#nmIn');i.value=def||'';openM('mName');setTimeout(()=>{i.focus();i.select()},30);
  const go=()=>{const v=i.value.trim();if(!v){toast('이름을 입력해 주세요');return}closeM('mName');cb(v)};
  $('#nmOk').onclick=go;$('#nmNo').onclick=()=>closeM('mName');i.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();go()}}}
@@ -1955,7 +2105,7 @@ function addPre(n,l,pl){const k=myPre.findIndex(p=>p.n===n);const o={id:k>=0?myP
 function saveCur(withPl){const l=armyTypes().join('');if(!l){toast('저장할 기물이 없습니다');return}
  if(!withPl&&used()<1){toast('기물을 먼저 선택해 주세요');return}
  askName(withPl?'구성·배치 저장':'구성 저장',withPl?'기물 구성과 배치를 함께 저장합니다.':'기물 구성만 저장합니다. 배치는 배치 화면에서 저장할 수 있습니다.','내 프리셋 '+(myPre.length+1),n=>{
-  const ex=myPre.find(p=>p.n===n);const doit=()=>{if(addPre(n,l,withPl?curPl():null)){sfx('place');toast('“'+n+'” 프리셋을 저장했습니다');renderMyPre();renderPre3()}};
+  const ex=myPre.find(p=>p.n===n);const doit=()=>{if(addPre(n,l,withPl?curPl():null)){sfx('place');toast('“'+n+'” 프리셋을 저장했습니다');renderMyPre();renderPre3();if(typeof netAfterSave==='function')netAfterSave(n)}};
   if(ex)ask('덮어쓰기','같은 이름의 프리셋이 있습니다. 덮어쓸까요?',doit);else doit()})}
 function loadPre(p){const l=validArmy(p.l);if(!l){toast('이 프리셋은 현재 규칙에서 사용할 수 없습니다');return}
  setArmy(l);pendPl=p.pl?{k:akey(p.l),pl:p.pl}:null;sfx('place');drawSel();toast('“'+p.n+'” 불러옴'+(p.pl?' · 배치도 함께 적용됩니다':''))}
@@ -1990,7 +2140,7 @@ function applyPf(){document.body.classList.toggle('rm',!!PF.rm);document.body.cl
 function applyBv(){try{if(tg)tg.gain.value=.9*bv;if(mg)mg.gain.value=.3*bv}catch(e){}}
 function swRow(id,t,d,on){return `<div class="setr"><label for="${id}"><b>${t}</b><span class="d">${d}</span></label><button class="sw" id="${id}" role="switch" aria-checked="${on}"></button></div>`}
 function buildSet(){$('#setBody').innerHTML=swRow('swSfx','효과음','이동·잡기·스킬 소리',sfxOn)+swRow('swBgm','배경음악','',music)+`<div class="setr"><label for="bvR"><b>배경음악 크기 <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">기본 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="배경음악 크기"></div>`+swRow('swHint','좋은 수 표시','체스 초보를 위한 추천 수와 체크 안내 (대국 중에도 바꿀 수 있습니다)',!!U.hint)+swRow('swRm','애니메이션 줄이기','화면 효과와 움직임을 최소화합니다',!!PF.rm)+swRow('swLt','큰 글씨 · 큰 화면','전체 화면을 12% 키웁니다',!!PF.lt)
- +`<div class="setr"><div><b>저장 데이터 삭제</b><span class="d">설정과 내 프리셋을 모두 지웁니다</span></div><button id="swClr">삭제</button></div><p class="note" style="text-align:center;margin-top:10px">배틀체스 · VERSION 9.0</p>`;
+ +`<div class="setr"><div><b>저장 데이터 삭제</b><span class="d">설정과 내 프리셋을 모두 지웁니다</span></div><button id="swClr">삭제</button></div><p class="note" style="text-align:center;margin-top:10px">배틀체스 · VERSION 10.5</p>`;
  const tg=(id,fn)=>$('#'+id).onclick=()=>{fn();buildSet()};
  {const r=$('#bvR');r.oninput=()=>{bv=r.value/100;$('#bvP').textContent=r.value+'%';applyBv()};r.onchange=()=>store.set('bv',bv)}
  tg('swSfx',()=>$('#sf').click());tg('swBgm',()=>$('#bm').click());
@@ -2041,12 +2191,270 @@ document.addEventListener('click',e=>{if(music&&!curSrc&&!tmr)playScene(scene)})
 document.addEventListener('visibilitychange',()=>{try{if(!AC)return;if(document.hidden)AC.suspend();else if(music)AC.resume()}catch(e){}});
 
 syncSnd();syncSetup();initWorker();
+
+/* ===== 온라인 대전 (room 기능 기반 · 결정적 락스텝) ===== */
+const NT={room:null,ok:null,conn:true,sel:store.get('netSel',''),nick:store.get('netNick',''),phase:'idle',since:0,mine:null,nk:'',
+ opp:null,role:null,gr:null,unsubs:[],out:[],inN:0,inbuf:{},queue:[],pumping:false,started:false,heard:0,hc:null,seed:0,gotHi:null,
+ offerTo:null,offerAt:0,mid:null,tick:null,hiT:null,hbT:null,failT:null,dcT:null,ndAt:0,rsAt:0};
+const nkClean=v=>String(v==null?'':v).replace(/[\u0000-\u001f\u007f-\u009f​-‏‪-‮⁠-⁯﻿]/g,'').trim().slice(0,12);
+const rid=()=>(Math.random().toString(36).slice(2)+'00000000').slice(0,10);
+const myPeer=()=>{const m=NT.room&&NT.room.peers().find(p=>p.sameTab);return m?m.peer:null};
+
+async function netInit(){
+ if(NT.ok!==null)return NT.ok;
+ try{
+  if(!window.claude||typeof claude.use!=='function'){NT.ok=false;return false}
+  const r=await claude.use('room');
+  if(!r){NT.ok=false;return false}
+  NT.room=r;NT.ok=true;
+  const bad=()=>{NT.ok=false;if(NT.phase!=='idle')netCancel();netStat()};
+  r.on('mt',onOffer,bad);r.on('mk',onAccept,bad);
+  r.onPeers(()=>{netStat();netTick()},bad);
+  r.onConnection(c=>{NT.conn=c;netStat()},bad);
+  return true}catch(e){NT.ok=false;return false}}
+
+/* --- 랭크 (이 기기에 저장되는 점수) --- */
+const RANKS=[['언랭크','🥚'],['브론즈','🥉'],['실버','🥈'],['골드','🥇'],['플래티넘','💠'],['다이아','💎'],['마스터','🔮'],['그랜드마스터','👑'],['챌린저','🏆']];
+const RK_WIN=20,RK_LOSS=8;
+let rkPts=Math.max(0,Math.min(2000,Math.floor(+store.get('rk',0))||0));
+const rkTier=p=>Math.min(8,Math.floor(Math.max(0,p)/100));
+const rkName=p=>RANKS[rkTier(p)][1]+' '+RANKS[rkTier(p)][0];
+function rkDraw(){const t=rkTier(rkPts),el=$('#nRank');if(!el)return;
+ const nx=t<8?`${RANKS[t+1][0]}까지 ${(t+1)*100-rkPts}점`:'최고 등급!';
+ el.innerHTML=`<div class="rb">${RANKS[t][1]}</div><div class="rt"><b>${RANKS[t][0]} · ${rkPts}점</b><small>승리 +${RK_WIN} · 패배 −${RK_LOSS} · ${nx}</small><div class="rbar"><i style="width:${t<8?rkPts%100:100}%"></i></div></div>`}
+function netResult(w){
+ if(!G.net||G.net.rk)return;G.net.rk=1;
+ const before=rkPts;let d=0;
+ if(w===G.net.me)d=RK_WIN;else if(w)d=-RK_LOSS;
+ rkPts=Math.max(0,Math.min(2000,rkPts+d));store.set('rk',rkPts);
+ const tb=rkTier(before),ta=rkTier(rkPts);
+ const tx=`랭크 ${rkPts>before?'+':rkPts<before?'−':'±'}${Math.abs(rkPts-before)}점 → ${rkName(rkPts)} ${rkPts}점`+(ta>tb?' · 🎉 승급!':ta<tb?' · 강등':'');
+ const o=$('#ovD');if(o)o.textContent+=' · '+tx;
+ setTimeout(()=>toast(tx),1200)}
+/* --- 로비 UI --- */
+function netChoices(){
+ const o=[];
+ myPre.forEach(p=>{if(validArmy(p.l))o.push({id:'m:'+p.id,n:p.n,l:p.l,pl:p.pl||null,g:p.pl?'내 프리셋 · 구성+배치 저장됨':'내 프리셋 · 배치는 자동'})});
+ PRESETS.forEach((x,i)=>{if(validArmy(x.l))o.push({id:'b:'+i,n:x.n,l:x.l,pl:null,g:'기본 프리셋 · 배치는 자동'})});
+ o.push({id:'r',n:'🎲 랜덤 구성',l:null,pl:null,g:'랜덤'});
+ return o}
+function netList(){
+ const ch=netChoices();if(!ch.some(c=>c.id===NT.sel))NT.sel=ch[0].id;
+ let g='',h='';
+ ch.forEach(c=>{if(c.g!==g){g=c.g;h+=`<div class="gh">${esc(g)}</div>`}
+  const cost=c.l?c.l.split('').reduce((a,t)=>a+DEF[t].c,0):0;
+  h+=`<button class="ni ${c.id===NT.sel?'on':''}" data-id="${esc(c.id)}"><b>${esc(c.n)}</b>${c.l?`<div class="tt">${c.l.split('').map(t=>icon(t)).join('')}</div><div class="sm">기물 ${c.l.length+1}개 · ${cost} 코스트</div>`:'<div class="sm">매칭 때마다 새 군대를 무작위로 뽑습니다</div>'}</button>`});
+ $('#nList').innerHTML=h}
+$('#nList').onclick=e=>{const b=e.target.closest('.ni');if(!b)return;NT.sel=b.dataset.id;store.set('netSel',NT.sel);sfx('sel');netList()};
+function netStat(){
+ const el=$('#nStat'),go=$('#nGo');if(!el)return;
+ if(NT.ok===false){el.textContent='이 화면에서는 온라인 대전을 쓸 수 없습니다. 게시된 페이지를 로그인한 상태로 열어 주세요 (파일로 저장했거나 로그아웃 상태면 연결되지 않습니다).';go.disabled=true;return}
+ if(NT.ok===null){el.textContent='온라인 연결 확인 중…';go.disabled=true;return}
+ const pv=NT.room.peers().filter(p=>p.kind==='viewer'),wt=pv.filter(p=>p.presence&&typeof p.presence.w==='number').length;
+ el.textContent=NT.conn?`🟢 온라인 · 접속 ${pv.length}명 · 매칭 대기 ${wt}명`:'🟠 연결이 불안정합니다. 다시 연결 중…';
+ go.disabled=NT.phase!=='idle';
+ if(NT.phase==='queue'){const s=Math.floor((Date.now()-NT.since)/1000);$('#nQD').textContent=`${s}초째 대기 중 · 접속자 ${pv.length}명 (자기 자신 포함) · 같은 페이지를 연 다른 사람이 매칭을 누르면 바로 연결됩니다`}}
+function netUI(){const q=NT.phase!=='idle';$('#nSetup').style.display=q?'none':'';$('#nQ').style.display=q?'':'none';$('#nGo').style.display=q?'none':'';$('#nBack').style.display=q?'none':'';
+ $('#nQT').textContent=NT.phase==='joining'?'상대를 찾았습니다! 연결 중…':'상대를 찾는 중…';$('#nCancel').style.display=NT.phase==='queue'?'':'none'}
+function netOpen(){
+ if(!NT.nick)NT.nick='플레이어'+(100+Math.floor(Math.random()*900));
+ $('#nNick').value=NT.nick;rkDraw();netList();netUI();show('s5');window.scrollTo(0,0);netStat();
+ netInit().then(()=>{netStat();netUI()})}
+function netAfterSave(n){const p=myPre.find(x=>x.n===n);if(p&&$('#s5').classList.contains('on')){NT.sel='m:'+p.id;store.set('netSel',NT.sel);netList()}}
+$('#goNet').onclick=netOpen;
+$('#nMake').onclick=()=>{if(NT.phase!=='idle')return;NT.nick=nkClean($('#nNick').value)||NT.nick;G={mode:'pvp',lv:0,human:null,lvs:{w:0,b:0},pause:false,mk:true};startBoard=BC.emptyBoard();SAVED={};G.ret=null;queue=['w'];nextSetup();toast('기물을 고르고 배치한 뒤 이름을 붙여 저장하면 온라인 대전에서 쓸 수 있습니다')};
+$('#nBack').onclick=()=>{netCancel();show('s0')};
+$('#nCancel').onclick=()=>{netCancel();sfx('rm')};
+$('#nGo').onclick=()=>{
+ if(!NT.ok||NT.phase!=='idle')return;
+ const nk=nkClean($('#nNick').value);if(!nk){toast('닉네임을 입력해 주세요');return}
+ NT.nick=nk;store.set('netNick',nk);
+ const mine=netBuildMine();if(!mine){toast('선택한 구성을 쓸 수 없습니다. 다른 구성을 골라 주세요');return}
+ NT.mine=mine;NT.nk=nk;sfx('place');netQueue()};
+
+/* --- 내 출전 데이터 --- */
+function netBuildMine(){
+ const c=netChoices().find(x=>x.id===NT.sel);if(!c)return null;
+ let l=c.l,pl=c.pl;
+ if(!l){l=BC.randomArmy(rnd).join('');if(!validArmy(l))return null;pl=null}
+ if(pl&&!netCheck(l,pl,'w'))pl=null;
+ if(!pl){for(let k=0;k<40&&!pl;k++){const r=BC.aiPlace(l.split(''),'w',rnd,5);if(r)pl=r.map(([i,t])=>[i,t])}
+  if(!pl||!netCheck(l,pl,'w'))return null}
+ return {l,pl}}
+/* 구성(l)과 배치(pl; 백 기준 좌표)를 side 기준으로 검증하여 [칸,종류] 목록 반환 */
+function netCheck(l,pl,side){
+ if(typeof l!=='string'||!Array.isArray(pl)||pl.length>40)return null;
+ const a=validArmy(l);if(!a)return null;
+ const need=a.slice();if(!a.some(t=>t==='E'||t==='g'||t==='d'))need.push('K');
+ if(pl.length!==need.length)return null;
+ const seen=new Set(),cnt={},out=[];
+ for(const e of pl){
+  if(!Array.isArray(e)||!Number.isInteger(e[0])||e[0]<0||e[0]>63||typeof e[1]!=='string'||!DEF[e[1]])return null;
+  const i=side==='b'?63-e[0]:e[0];
+  if(seen.has(i)||!BC.okSq(e[1],side,i))return null;
+  seen.add(i);cnt[e[1]]=(cnt[e[1]]||0)+1;out.push([i,e[1]])}
+ const nd={};need.forEach(t=>nd[t]=(nd[t]||0)+1);
+ for(const t in nd)if(cnt[t]!==nd[t])return null;
+ for(const t in cnt)if(cnt[t]!==nd[t])return null;
+ return out}
+
+/* --- 매칭 --- */
+function netQueue(){
+ NT.phase='queue';NT.since=Date.now();NT.offerTo=null;NT.mid=null;
+ NT.room.presence({w:NT.since,nk:NT.nk,v:'bc105'}).catch(()=>{});
+ clearInterval(NT.tick);NT.tick=setInterval(()=>{netStat();netTick()},1000);
+ netUI();netStat();netTick()}
+function netCancel(){
+ clearInterval(NT.tick);NT.tick=null;clearTimeout(NT.failT);
+ const was=NT.phase;NT.phase='idle';
+ if(NT.room)NT.room.presence({w:null}).catch(()=>{});
+ if(was==='joining')netLeave();
+ netUI();netStat()}
+function netWaiting(){return NT.room.peers().filter(p=>p.kind==='viewer'&&p.presence&&typeof p.presence.w==='number').sort((a,b)=>a.presence.w-b.presence.w||(a.peer<b.peer?-1:1))}
+function netTick(){
+ if(!NT.room||NT.phase!=='queue')return;
+ const L=netWaiting(),me=L.findIndex(p=>p.sameTab);
+ if(me<0){NT.room.presence({w:NT.since,nk:NT.nk,v:'bc105'}).catch(()=>{});return}
+ if(me%2===0&&L[me+1]){
+  const par=L[me+1],now=Date.now();
+  if(NT.offerTo!==par.peer){NT.offerTo=par.peer;NT.mid=rid();NT.offerAt=0}
+  if(now-NT.offerAt>2500){NT.offerAt=now;NT.room.emit('mt',{to:par.peer,id:NT.mid}).catch(()=>{})}}}
+const ridOk=v=>typeof v==='string'&&/^[a-z0-9]{6,16}$/.test(v);
+function onOffer(msg){
+ if(msg.sameTab||NT.phase!=='queue')return;
+ const d=msg.data;if(!d||d.to!==myPeer()||!ridOk(d.id))return;
+ NT.phase='joining';netUI();
+ NT.room.emit('mk',{to:msg.peer,id:d.id,ok:1}).catch(()=>{});
+ netEnter(msg.peer,d.id,'guest')}
+function onAccept(msg){
+ if(msg.sameTab||NT.phase!=='queue')return;
+ const d=msg.data;if(!d||!d.ok||d.to!==myPeer()||d.id!==NT.mid||msg.peer!==NT.offerTo)return;
+ NT.phase='joining';netUI();
+ netEnter(msg.peer,d.id,'host')}
+async function netEnter(op,id,role){
+ clearInterval(NT.tick);NT.tick=null;
+ NT.room.presence({w:null}).catch(()=>{});
+ NT.opp={peer:op,nk:'',l:null,pl:null};NT.role=role;NT.gotHi=false;NT.started=false;NT.out=[];NT.inN=0;NT.inbuf={};NT.queue=[];NT.heard=0;
+ NT.hc=role==='host'?(Math.random()<.5?'w':'b'):null;NT.seed=(Math.random()*1e6)|0;
+ let gr;
+ try{gr=await NT.room.join('bc-'+id)}catch(e){netFail('대전 방에 입장하지 못했습니다');return}
+ if(NT.phase!=='joining'){try{gr.leave()}catch(e){}return}
+ NT.gr=gr;
+ const bad=()=>{if(!NT.started&&NT.phase==='joining')netFail('연결이 끊어졌습니다')};
+ NT.unsubs=[gr.on('hi',onHi,bad),gr.on('ac',onAc,bad),gr.on('hb',onHb,bad),gr.on('nd',onNd,bad),gr.onPeers(onGPeers,bad)];
+ netSendHi();NT.hiT=setInterval(netSendHi,1000);
+ NT.failT=setTimeout(()=>{if(!NT.started&&NT.phase==='joining')netFail('상대가 응답하지 않습니다')},20000)}
+function netSendHi(){
+ if(!NT.gr)return;
+ const d={nk:NT.nk,l:NT.mine.l,pl:NT.mine.pl,rk:rkPts};if(NT.role==='host'){d.hc=NT.hc;d.seed=NT.seed}
+ NT.gr.emit('hi',d).catch(()=>{})}
+function netFail(msg){
+ toast(msg+' — 다시 상대를 찾습니다');
+ netLeave(true);
+ if(NT.ok&&$('#s5').classList.contains('on')){netQueue()}else{NT.phase='idle'}}
+function onHi(msg){
+ if(msg.sameTab||!NT.opp||msg.peer!==NT.opp.peer||NT.started)return;
+ const d=msg.data;if(!d)return;
+ const nk=nkClean(d.nk);if(!nk||typeof d.l!=='string'||!Array.isArray(d.pl))return;
+ const first=!NT.gotHi;
+ NT.opp.rk=Math.max(0,Math.min(2000,Math.floor(+d.rk)||0));NT.opp.nk=nk;NT.opp.l=d.l;NT.opp.pl=d.pl;
+ if(NT.role==='guest'){if(d.hc!=='w'&&d.hc!=='b')return;NT.hc=d.hc;NT.seed=Number.isInteger(d.seed)?d.seed:0}
+ NT.gotHi=true;if(first)netSendHi();
+ if(NT.phase==='joining')netBegin()}
+function netBegin(){
+ if(NT.started||NT.beginning)return;
+ const me=NT.role==='host'?NT.hc:OP(NT.hc),op=OP(me);
+ const mp=netCheck(NT.mine.l,NT.mine.pl,me),pp=netCheck(NT.opp.l,NT.opp.pl,op);
+ if(!mp||!pp){netFail('상대의 구성이 올바르지 않습니다');return}
+ NT.beginning=true;clearTimeout(NT.failT);
+ $('#mmO').textContent='상대: '+NT.opp.nk;$('#mmR').textContent=`상대 ${rkName(NT.opp.rk)} (${NT.opp.rk}점) · 나 ${rkName(rkPts)} (${rkPts}점)`;
+ $('#mmC').textContent=`당신은 ${me==='w'?'백 (선공)':'흑 (후공)'} 입니다`;
+ const row=l=>l.split('').concat(/[Egd]/.test(l)?[]:['K']).map(t=>icon(t)).join('');
+ $('#mmMy').innerHTML=row(NT.mine.l);$('#mmOp').innerHTML=row(NT.opp.l);
+ openM('mMatch');sfx('promo');
+ let n=3;const cd=()=>{$('#mmCd').textContent=n>0?`${n}초 후 시작…`:'시작!';if(n<=0){setTimeout(()=>netGo(me,mp,pp),350);return}n--;setTimeout(cd,1000)};cd()}
+function netGo(me,mp,pp){
+ if(NT.phase!=='joining'||!NT.gr){NT.beginning=false;closeM('mMatch');return}
+ startBoard=BC.emptyBoard();
+ mp.forEach(([i,t])=>startBoard[i]=BC.newPiece(t,me));pp.forEach(([i,t])=>startBoard[i]=BC.newPiece(t,OP(me)));
+ G={mode:'pvp',lv:0,human:null,lvs:{w:0,b:0},pause:false,seed:NT.seed,net:{me,nk:NT.opp.nk,myNk:NT.nk}};
+ simTally={w:0,b:0,d:0};
+ closeM('mMatch');NT.started=true;NT.beginning=false;NT.phase='playing';
+ startGame();toast('대전 시작! 당신은 '+(me==='w'?'백 (선공)':'흑 (후공)'));
+ NT.heard=Date.now();
+ clearInterval(NT.hbT);NT.hbT=setInterval(netBeat,2500);
+ setTimeout(()=>{clearInterval(NT.hiT);NT.hiT=null},10000);
+ netPump()}
+
+/* --- 대전 중 통신 --- */
+function netSend(a){
+ if(!NT.gr||!NT.started)return;
+ a.n=NT.out.length;NT.out.push(a);
+ NT.gr.emit('ac',a).catch(()=>{})}
+const fromOpp=msg=>!msg.sameTab&&NT.opp&&msg.peer===NT.opp.peer;
+function onAc(msg){
+ if(!fromOpp(msg))return;NT.heard=Date.now();
+ const d=msg.data;if(!d||!Number.isInteger(d.n)||d.n<NT.inN||d.n>NT.inN+400)return;
+ NT.inbuf[d.n]=d;
+ while(NT.inbuf[NT.inN]){NT.queue.push(NT.inbuf[NT.inN]);delete NT.inbuf[NT.inN];NT.inN++}
+ if(Object.keys(NT.inbuf).length)netNeed();
+ netPump()}
+function onHb(msg){
+ if(!fromOpp(msg))return;NT.heard=Date.now();
+ const d=msg.data;if(d&&Number.isInteger(d.n)&&d.n>NT.inN)netNeed();
+ if(NT.dcT&&NT.gr&&NT.gr.peers().some(p=>p.peer===NT.opp.peer)){clearTimeout(NT.dcT);NT.dcT=null}}
+function netNeed(){const t=Date.now();if(t-NT.ndAt<800||!NT.gr)return;NT.ndAt=t;NT.gr.emit('nd',{from:NT.inN}).catch(()=>{})}
+function onNd(msg){
+ if(!fromOpp(msg))return;
+ const d=msg.data;if(!d||!Number.isInteger(d.from)||d.from<0)return;
+ const t=Date.now();if(t-NT.rsAt<500)return;NT.rsAt=t;
+ NT.out.slice(d.from,d.from+60).forEach(a=>NT.gr&&NT.gr.emit('ac',a).catch(()=>{}))}
+function netBeat(){
+ if(!NT.gr||!NT.started)return;
+ NT.gr.emit('hb',{n:NT.out.length,p:G.plies||0}).catch(()=>{});
+ if(G.net&&!G.over&&NT.heard&&Date.now()-NT.heard>40000&&!NT.dcT)netOppGone()}
+function onGPeers(ch){
+ if(!NT.started||!NT.opp||G.over)return;
+ const here=ch.peers.some(p=>p.peer===NT.opp.peer);
+ if(here){if(NT.dcT){clearTimeout(NT.dcT);NT.dcT=null;toast('상대가 다시 연결되었습니다')}}
+ else if(!NT.dcT)netOppGone()}
+function netOppGone(){
+ toast('상대의 연결이 끊어졌습니다 — 30초 안에 돌아오지 않으면 승리 처리됩니다');
+ NT.dcT=setTimeout(()=>{NT.dcT=null;if(G.net&&!G.over&&NT.started)finish(G.net.me,'dc')},30000)}
+function netPump(){
+ if(NT.pumping)return;NT.pumping=true;
+ const step=()=>{
+  if(!NT.started||!G.net||G.over||!NT.queue.length){NT.pumping=false;return}
+  if(G.busy||$('#mAsk').classList.contains('on')&&false){setTimeout(step,200);return}
+  netApply(NT.queue.shift());setTimeout(step,450)};
+ step()}
+function netApply(a){
+ const opc=OP(G.net.me);G._rem=true;
+ try{
+  if(a.k==='p'){
+   const m=Array.isArray(a.m)?a.m.map(x=>x===null?undefined:x):null;
+   if(!m||G.turn!==opc||!Number.isInteger(m[0])||!G.b[m[0]]||!Number.isInteger(m[1]))throw new Error('bad move');
+   play(m,Array.isArray(a.h)?{d:a.h}:null,a.s?true:undefined)}
+  else if(a.k==='sk'){if((a.t!=='ret'&&a.t!=='fin')||G.turn!==opc||!G.sk[opc][a.t])throw new Error('bad skill');skApply(a.t,a.a,a.to)}
+  else if(a.k==='rush'){if(G.turn!==opc||!G.sk[opc].rush)throw new Error('bad rush');startRush()}
+  else if(a.k==='skip'){if(G.turn!==opc)throw new Error('bad skip');doSkip()}
+  else if(a.k==='res'){G.lastTxt=SN[opc]+' 항복';finish(G.net.me,'resign')}
+ }catch(e){console.error(e);toast('상대 행동을 처리하지 못했습니다 (동기화 오류)')}
+ finally{G._rem=false}}
+function netLeave(keepNet){
+ clearInterval(NT.hiT);clearInterval(NT.hbT);clearTimeout(NT.failT);clearTimeout(NT.dcT);clearInterval(NT.tick);
+ NT.hiT=NT.hbT=NT.failT=NT.dcT=NT.tick=null;
+ NT.unsubs.forEach(f=>{try{f()}catch(e){}});NT.unsubs=[];
+ if(NT.gr){try{NT.gr.leave()}catch(e){}NT.gr=null}
+ NT.started=false;NT.beginning=false;NT.pumping=false;NT.queue=[];NT.out=[];NT.inbuf={};NT.inN=0;NT.opp=null;
+ closeM('mMatch');
+ if(!keepNet){NT.phase='idle';if(NT.room)NT.room.presence({w:null}).catch(()=>{})}}
+$('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
+
 window.__BC_APP={get G(){return G},U,play,draw,aiCheck};
 })();
 
 (function heroIcons(){document.querySelectorAll('.fl .ic').forEach(el=>{const m=el.textContent.match(/^@(\w)$/);if(m)el.innerHTML=gl(m[1])})})();
 
 </script>
-</body></html>
-
 </body></html>
