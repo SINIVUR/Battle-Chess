@@ -297,6 +297,24 @@ body.lt{zoom:1.12}
 body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 .acts2x{display:flex;gap:8px;flex-wrap:wrap}
+#coach{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom,0px));width:min(560px,calc(100vw - 20px));z-index:45;background:#fff;border:2px solid var(--ink);border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.35);padding:10px 14px 12px}
+#coach[hidden]{display:none}#coach .chd{display:flex;align-items:center;gap:8px}#coach .cav{font-size:26px;line-height:1}#coach .cnm{font-weight:800;font-size:14px}#coach .cpg{margin-left:auto;font-size:12px;color:var(--mut)}
+#coach .cx{background:transparent;border:0;padding:2px 8px;font-size:16px;color:var(--mut)}
+#coach .cbar{height:4px;background:#e8e8e8;border-radius:3px;overflow:hidden;margin:6px 0 8px}#coach .cbar i{display:block;height:100%;background:#1f6feb;width:0;transition:width .4s}
+#coach #chB{font-size:14.5px;line-height:1.6}#coach .cpr{display:inline-block;background:#1fa84f;color:#fff;border-radius:8px;padding:0 8px;font-weight:700;font-size:13px;margin-right:2px}
+#coach .cbt{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}#coach .cbt button{flex:1;min-width:110px;padding:10px 12px}
+#coach.nd{animation:cnd .45s}@keyframes cnd{0%,100%{transform:translateX(-50%)}25%{transform:translateX(calc(-50% - 7px))}60%{transform:translateX(calc(-50% + 7px))}}
+@media (min-width:900px){#coach{left:calc(50% + 90px);top:140px;bottom:auto;transform:none;width:380px}#coach.nd{animation:cnd2 .45s}@keyframes cnd2{25%{transform:translateX(-7px)}60%{transform:translateX(7px)}}body.tuting{padding-bottom:24px!important}}
+body.tuting #s4 .lg,body.tuting #s4 .act1,body.tuting #s4 .skb,body.tuting #s4 .act2,body.tuting #side,body.tuting #pcard,body.tuting #tHud,body.tuting #hintb{display:none!important}
+body.tuting{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 250px)!important}
+body.tuting .c.hf,body.tuting .c.ht{animation:tpl 1s ease-in-out infinite}@keyframes tpl{50%{filter:brightness(1.25);box-shadow:inset 0 0 0 5px #1fa84f,inset 0 0 0 100px rgba(31,168,79,.35)}}
+@media (prefers-reduced-motion:reduce){body.tuting .c.hf,body.tuting .c.ht,#coach.nd{animation:none}}
+#skAl{position:fixed;left:50%;top:42%;transform:translate(-50%,-50%) scale(.6);z-index:61;pointer-events:none;opacity:0;text-align:center;border-radius:20px;padding:18px 30px 20px;box-shadow:0 14px 50px rgba(0,0,0,.45);max-width:90vw;min-width:230px;transition:opacity .22s,transform .3s cubic-bezier(.2,1.4,.4,1);border:3px solid #fff}
+#skAl.wh{background:linear-gradient(135deg,#f7f7f7,#d9e6ff);color:#111;border-color:#111}#skAl.bk{background:linear-gradient(135deg,#222,#3a2a5a);color:#fff}
+#skAl.on{opacity:.98;transform:translate(-50%,-50%) scale(1)}
+#skAl small{display:block;font-size:12.5px;letter-spacing:.1em;opacity:.7}#skAl span{display:block;font-size:46px;line-height:1.15;margin-top:2px}
+#skAl b{display:block;font-size:clamp(24px,7vw,34px);font-family:var(--serif);line-height:1.2}#skAl em{display:block;font-style:normal;font-size:13px;opacity:.75;margin-top:4px}
+@media (prefers-reduced-motion:reduce){#skAl{transition:none}}
 #phaseAl{position:fixed;left:50%;top:38%;transform:translate(-50%,-50%) scale(.8);z-index:60;pointer-events:none;opacity:0;text-align:center;background:#111;color:#fff;border-radius:18px;padding:18px 28px;box-shadow:0 10px 40px rgba(0,0,0,.35);max-width:88vw;transition:opacity .25s,transform .25s}
 #phaseAl.on{opacity:.96;transform:translate(-50%,-50%) scale(1)}
 #phaseAl small{display:block;font-size:13px;letter-spacing:.12em;opacity:.7;margin-bottom:4px}
@@ -359,7 +377,7 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <p class="note">39 코스트로 나만의 군대를 만들어 싸워라</p>
- <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 10.6.0</div>
+ <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 10.7.0</div>
 </section>
 
 <section class="scr" id="s5">
@@ -445,7 +463,8 @@ body.rm *,body.rm *::before,body.rm *::after{animation-duration:.01ms!important;
 <input id="cmNick" maxlength="12" placeholder="닉네임" style="width:100%;padding:9px;border:1px solid var(--line);border-radius:10px;font-size:14px;margin:6px 0 0;background:var(--card);color:var(--ink)"><select id="fbCat" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin:6px 0"><option>🐞 버그 제보</option><option>⚖️ 밸런스 의견</option><option>💡 기능 건의</option><option>👍 칭찬·응원</option></select><textarea id="fbMsg" rows="4" maxlength="500" placeholder="어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px;resize:vertical;font-family:inherit"></textarea><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin:4px 0"><span></span><span id="fbCnt">0 / 500</span></div><p class="note" id="fbNote"></p><div class="row2" style="margin-top:10px"><button class="pri" id="cmPost">댓글 등록</button><button id="fbX">닫기</button></div></div></div>
 <div class="modal" id="mLog" role="dialog" aria-modal="true" aria-labelledby="lgT"><div class="mc res"><h2 id="lgT">행동 로그</h2><p class="note" id="lgN"></p><div id="lgAll"></div><div class="row2" style="margin-top:14px"><button class="pri" id="lgX" style="width:auto">닫기</button></div></div></div>
 <div id="cdAl" aria-hidden="true"></div>
-<div id="phaseAl" role="status" aria-live="polite"></div>
+<div id="phaseAl" role="status" aria-live="polite"></div><div id="coach" hidden><div class="chd"><span class="cav">🧑‍🏫</span><span class="cnm" id="chNm">도우미</span><span class="cpg" id="chN"></span><button class="cx" id="chX" aria-label="종료">✕</button></div><div class="cbar"><i id="chBar"></i></div><div id="chB"></div><div class="cbt" id="chBt"></div></div>
+<div id="skAl" role="status" aria-live="polite"></div>
 <div class="modal" id="mPro" role="dialog" aria-modal="true" aria-labelledby="prT"><div class="mc res"><h2 id="prT">승급할 기물 선택</h2><p class="note" id="prD">기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?</p><div class="row2" id="prB" style="margin-top:14px;gap:8px;flex-wrap:wrap"></div></div></div>
 <div class="modal" id="mName" role="dialog" aria-modal="true" aria-labelledby="nmT"><div class="mc res"><h2 id="nmT">프리셋 이름</h2><p class="note" id="nmD"></p><input id="nmIn" maxlength="20" autocomplete="off" aria-label="프리셋 이름"><div class="row2" style="margin-top:14px"><button id="nmNo">취소</button><button class="pri" id="nmOk" style="width:auto">저장</button></div></div></div>
 <div class="modal" id="mPre" role="dialog" aria-modal="true" aria-labelledby="mpT"><div class="mc"><button class="x" data-close>닫기</button><h2 id="mpT">프리셋 관리</h2><div id="mpList"></div><h4 class="ph">공유 코드로 가져오기</h4><p class="note">다른 기기에서 복사한 코드를 붙여넣으면 프리셋이 추가됩니다.</p><textarea id="mpCode" rows="3" aria-label="프리셋 공유 코드" placeholder="BC1.…"></textarea><div class="row2" style="margin-top:8px"><button id="mpImp" class="pri" style="width:auto">가져오기</button></div></div></div>
@@ -470,14 +489,14 @@ const DEF={
  Q:{n:'퀸',e:'👸',c:9,p:'b',av:9.5,d:'상하좌우·대각선 최대 4칸 직선 이동·잡기 (첫 이동만 최대 2칸) · 적의 킹 계열은 잡을 수 없음'},
  M:{n:'메두사',e:'🐍',c:7,p:'b',av:9.5,d:'상하좌우·대각선 1칸 이동·잡기 · 스킬: 자신 중심 5x5 안의 적 전체를 상대 1턴 행동 불가(이동·잡기·원거리 공격·스킬 모두 불가, 킹·퀸 계열과 제네시스는 면역)'},
  P:{n:'폰',e:'🚶',c:1,p:'f',av:1,d:'전진 1칸(첫 이동 2칸) 및 대각선 앞 잡기 · 스킬: 끝줄에 닿으면 룩·비숍·나이트 중 하나로 승급(직접 선택)'},
- S:{n:'솔저',e:'💂',c:1,p:'f',av:1.4,d:'전진 1칸 이동(잡기 불가) · 전방 1칸 원거리 공격 · 스킬: 끝줄에 닿으면 뱅가드·샷건 중 하나로 승급(직접 선택)'},
+ S:{n:'솔저',e:'💂',c:1,p:'f',av:1.4,d:'전진 1칸 이동(첫 이동에서만 2칸 가능, 잡기 불가) · 전방 1칸 원거리 공격 · 스킬: 끝줄에 닿으면 뱅가드·샷건 중 하나로 승급(직접 선택)'},
  L:{n:'슬링',e:'🥌',c:2,p:'f',av:2,d:'대각선 1칸 이동(첫 이동은 2칸 가능, 잡기 불가) · 대각선 1칸 원거리 공격'},
  F:{n:'울프',e:'🐺',c:5,p:'f',av:4,d:'나이트 이동 · 특수: 적을 처치하면 도착한 칸에서 나이트 이동으로 갈 수 있는 빈 칸 중 한 곳으로 한 번 더 이동할 수 있음(잡기 불가)'},
  T:{n:'스트라이커',e:'🏃',c:3,p:'f',av:5,d:'전방 직선 최대 6칸 이동·잡기 · 돌파: 경로에 아군이 없으면 지나가는 적을 모두 관통해 처치(무적 기물·킹 계열은 관통 불가, 그 앞에서 멈춤) · 아직 움직이지 않은 첫 행동에서는 킹 계열을 잡을 수 없음'},
  V:{n:'뱅가드',e:'🛡️',c:7,p:'f',av:6,d:'상하좌우 최대 3칸 이동·잡기 · 패시브: 주변 3x3 아군은 원거리 공격 면역(본인 제외)'},
  G:{n:'골렘',e:'🧱',c:4,p:'fb',av:5.5,d:'상하좌우 1칸 이동·잡기 · 스킬: 주변 3x3 적을 랜덤으로 1~3기 처치(무적 기물 제외)'},
  H:{n:'프리스트',e:'🙏',c:1,p:'b',av:3,d:'상하좌우·대각선 1칸 이동(공격 불가) · 스킬: 주변 3x3 아군 1기를 상대 1턴 무적으로'},
- A:{n:'아처',e:'🏹',c:4,p:'b',av:3.2,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우 직선 2칸 원거리 공격(기물에 막힘)'},
+ A:{n:'아처',e:'🏹',c:4,p:'b',av:3.2,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우 직선 3칸 곡사 원거리 공격(사이에 기물이 있어도 공격 가능)'},
  B:{n:'비숍',e:'🧙',c:3,p:'b',av:3.2,d:'대각선 최대 4칸 직선 이동·잡기'},
  R:{n:'룩',e:'🏰',c:5,p:'b',av:5.5,d:'상하좌우 최대 4칸 직선 이동·잡기'},
  C:{n:'캐논',e:'💣',c:5,p:'b',av:5.5,d:'상하좌우 1칸 이동(잡기 불가) · 상하좌우 최대 3칸 포격(기물을 넘어 공격)'},
@@ -486,15 +505,15 @@ const DEF={
  X:{n:'토네이도',e:'🌪️',c:5,p:'fb',av:7,d:'대각선 1칸 이동·잡기 · 스킬: 주변 3x3 아군·적군 기물을 원하는 대로 한꺼번에 재배치(기물이 있는 칸과는 서로 교체)'},
  Y:{n:'이글',e:'🦅',c:3,p:'fb',av:5.5,d:'상하로 최대 3칸 이동·잡기 · 특수: 적을 처치하면 도착한 칸에서 대각선 4방향 중 빈 1칸으로 한 번 더 이동할 수 있음(잡기 불가)'},
  J:{n:'스나이퍼',e:'🎯',c:3,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 주변 7x7(거리 3칸 이내)의 적 1기를 지정, 다음 턴에도 그 칸에 남아 있으면 자동 원거리 저격'},
- U:{n:'크로스보우',e:'🔱',c:3,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우 2칸 이내 적을 관통 사격(사이에 적이 있으면 둘 다 처치, 아군이 있으면 사격 불가)'},
+ U:{n:'크로스보우',e:'🔱',c:3,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우 2칸 이내 적을 관통 사격(사이에 적이 있으면 둘 다 처치, 아군이 있으면 사격 불가) · 대각선 4방향 1칸 원거리 공격'},
  O:{n:'머신건',e:'🔫',c:5,p:'fb',av:5.5,d:'좌우 1칸 이동(잡기 불가) · 8방향 2칸 이내 적에게 원거리 공격'},
  I:{n:'메딕',e:'💉',c:3,p:'b',av:2.5,d:'상하좌우 1칸 이동(공격 불가) · 스킬: 처치된 아군 1기(킹·퀸 계열 제외, 부활한 기물 제외)를 자기 칸에 부활시키고 메딕은 사라짐'},
  g:{n:'갓',e:'🌞',c:0,p:'b',av:0,d:'킹 대신 사용 · 주변 5x5의 원하는 빈칸으로 이동(공격 불가) · 주변 3x3 안에 적 기물이 있으면 이동 범위가 3x3으로 줄어듦 · 원거리 공격 면역 · 잡히면 패배'},
  q:{n:'프린세스',e:'🧚',c:2,p:'b',av:3.5,d:'퀸·메두사 대신 사용 · 주변 5x5의 원하는 빈칸으로 이동(공격 불가) · 스킬: 아군 1기를 지정, 다음 턴에 그 기물이 두 번 행동'},
  r:{n:'론도',e:'🚪',c:1,p:'b',av:1.6,d:'자기 진영 쪽(후진)으로만 1칸씩 이동·잡기 · 자기 쪽 끝 라인에서는 상대 끝 라인의 같은 열 빈칸으로 백도어 이동 가능'},
- h:{n:'샷건',e:'🧨',c:7,p:'f',av:6.5,d:'상하좌우 최대 2칸 이동(잡기 불가) · 자신의 앞쪽 2줄, 가로 3칸씩(왼쪽 앞·정면·오른쪽 앞과 그 한 줄 뒤)의 적을 전부 원거리 공격'},
+ h:{n:'샷건',e:'🧨',c:7,p:'f',av:6.5,d:'상하좌우 최대 1칸 이동(잡기 불가) · 자신의 앞쪽 가로 3칸(왼쪽 앞·정면·오른쪽 앞)과 정면 한 칸 더 앞의 적을 전부 원거리 공격'},
  s:{n:'제네시스',e:'☄️',c:5,p:'b',av:7.5,d:'상하좌우·대각 1칸씩 한 턴에 최대 3번 이동 · 적을 잡으면 자신도 함께 폭멸하며 턴이 끝남(킹·엠페러·갓은 잡을 수 없음)'},
- v:{n:'버티컬',e:'🗼',c:7,p:'b',av:7.5,d:'자기 세로줄의 빈칸 어디로든 이동(잡기 불가) · 스킬: 같은 세로줄의 적 1기를 처치(킹 계열 불가, 원거리 면역 대상 불가)'},
+ v:{n:'버티컬',e:'🗼',c:7,p:'b',av:7.5,d:'자기 세로줄의 빈칸 어디로든 이동(잡기 불가) · 스킬: 같은 세로줄의 적 1기를 처치(한 번 이동한 뒤부터 사용 가능, 킹 계열 불가, 원거리 면역 대상 불가)'},
  o:{n:'호라이즌',e:'🌅',c:2,p:'b',av:5.5,d:'자기 가로줄의 빈칸 어디로든 이동(잡기 불가) · 스킬: 같은 가로줄의 적 1기를 처치(킹 계열 불가, 원거리 면역 대상 불가)'},
  a:{n:'핸드',e:'🖐️',c:8,p:'fb',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 자기 진영(아군 쪽 2줄)에 있는 아군 1기를 상대 진영(상대 쪽 2줄)이 아닌 빈칸 어디로든 옮김(핸드가 자기 진영 안에 있을 때만 사용 가능) · 킹·퀸 계열, 흑룡·백룡, 제네시스, 핸드는 옮길 수 없음'},
  w:{n:'마검사',e:'⚔️',c:8,p:'f',av:7.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 스킬: 마검 모드로 전환 — 이동 불가, 자신 중심 5x5의 적에게 원거리 공격(한 번 더 쓰면 이동 모드로 복귀)'},
@@ -561,9 +580,9 @@ function gen0(b,s,opt){
   switch(p.t){
    case'P':{let q=at(r+f,c);if(q===null&&!gcap){mv(r+f,c,0);if(!p.m&&at(r+2*f,c)===null)mv(r+2*f,c,0)}
     for(const dc of[-1,1]){q=at(r+f,c+dc);if(q&&q.s!==s)mv(r+f,c+dc,0)}break}
-   case'S':{const q=at(r+f,c);if(q===null)mv(r+f,c,0);else if(q&&q.s!==s)mv(r+f,c,1);break}
+   case'S':{const q=at(r+f,c);if(q===null){mv(r+f,c,0);if(!p.m&&at(r+2*f,c)===null)mv(r+2*f,c,0)}else if(q&&q.s!==s)mv(r+f,c,1);break}
    case'A':for(const[dr,dc]of D4){if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
-    for(let k=1;k<3;k++){const q=at(r+dr*k,c+dc*k);if(q){if(q.s!==s)mv(r+dr*k,c+dc*k,1);break}}}
+    for(let k=1;k<=3;k++){const q=at(r+dr*k,c+dc*k);if(q&&q.s!==s)mv(r+dr*k,c+dc*k,1)}}
     for(const[dr,dc]of DD)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);break;
    case'T':{let rr=r+f,k=0;const kl=[];while(k<6){const q=at(rr,c);if(q===undefined)break;const t=rr*8+c;if(q===null){if(kl.length)gout.push([i,t,14,undefined,kl.slice()]);else mv(rr,c,0)}else if(q.s===s||q.inv||momProt(gb,t))break;else if(isKing(q.t)){if(!kl.length&&p.m)gout.push([i,t,0]);break}else{kl.push(t);if(kl.length===1)gout.push([i,t,0]);else gout.push([i,t,14,undefined,kl.slice()])}rr+=f;k++}break}
    case'H':{for(const[dr,dc]of D8)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
@@ -580,7 +599,7 @@ function gen0(b,s,opt){
     if(k<3&&q&&q.s!==s){mv(rr,c,0);const t=rr*8+c;for(const[er,ec]of DD){const r2=rr+er,c2=c+ec,q2=at(r2,c2);if(!gai&&(q2===null||q2===p))gout.push([i,t,0,r2*8+c2])}}}break}
    case'J':{for(const[dr,dc]of D8)if(at(r+dr,c+dc)===null&&!gcap)mv(r+dr,c+dc,0);
     if(!gcap)for(let dr=-3;dr<=3;dr++)for(let dc=-3;dc<=3;dc++){if(!dr&&!dc)continue;const x=r+dr,y=c+dc;if(x<0||x>7||y<0||y>7)continue;const q=b[x*8+y];if(q&&q.s!==s&&!rimm(b,x*8+y))gout.push([i,x*8+y,7])}break}
-   case'U':{for(const[dr,dc]of DD)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
+   case'U':{for(const[dr,dc]of DD){const q=at(r+dr,c+dc);if(q===null)mv(r+dr,c+dc,0);else if(q&&q.s!==s)mv(r+dr,c+dc,1)}
     for(const[dr,dc]of D4){if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
     const q1=at(r+dr,c+dc),q2=at(r+2*dr,c+2*dc),t1=(r+dr)*8+c+dc,t2=(r+2*dr)*8+c+2*dc;
     if(q1&&q1.s!==s){const kl=[];if(!rimm(b,t1))kl.push(t1);const both=q2&&q2.s!==s;if(both&&!rimm(b,t2))kl.push(t2);
@@ -606,12 +625,12 @@ function gen0(b,s,opt){
    case'N':for(const[dr,dc]of KN){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s))mv(r+dr,c+dc,0)}break;
    case'r':{const bk=-f,q0=at(r+bk,c);if(q0===null||(q0&&q0.s!==s))mv(r+bk,c,0);
     if(r===(s==='w'?7:0)){const tr=s==='w'?0:7;if(at(tr,c)===null)mv(tr,c,0)}break}
-   case'h':{for(const[dr,dc]of D4)for(let k=1;k<=2&&at(r+dr*k,c+dc*k)===null;k++)mv(r+dr*k,c+dc*k,0);
-    const kl=[];for(let rw=1;rw<=2;rw++)for(let dc=-1;dc<=1;dc++){const q=at(r+f*rw,c+dc);if(q&&q.s!==s&&!rimm(b,(r+f*rw)*8+c+dc))kl.push((r+f*rw)*8+c+dc)}
+   case'h':{for(const[dr,dc]of D4)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
+    const kl=[];for(let rw=1;rw<=2;rw++)for(let dc=-1;dc<=1;dc++){if(rw===2&&dc!==0)continue;const q=at(r+f*rw,c+dc);if(q&&q.s!==s&&!rimm(b,(r+f*rw)*8+c+dc))kl.push((r+f*rw)*8+c+dc)}
     if(kl.length)gout.push([i,i,6,undefined,kl]);break}
    case'v':case'o':{const vert=p.t==='v';
     if(!gcap)for(let x=0;x<8;x++){const j=vert?x*8+c:r*8+x;if(j!==i&&b[j]===null)gout.push([i,j,0])}
-    for(let x=0;x<8;x++){const j=vert?x*8+c:r*8+x;const q=b[j];if(q&&q.s!==s&&!isKing(q.t)&&!rimm(b,j))gout.push([i,j,11])}break}
+    for(let x=0;x<8;x++){const j=vert?x*8+c:r*8+x;const q=b[j];if(q&&q.s!==s&&!isKing(q.t)&&!rimm(b,j)&&(!vert||p.m))gout.push([i,j,11])}break}
    case'a':{for(const[dr,dc]of D8)if(at(r+dr,c+dc)===null&&!gcap)mv(r+dr,c+dc,0);
     if(!gcap&&(r===zone(s)[0]||r===zone(s)[1])){const own=zone(s),opp=zone(s==='w'?'b':'w');const dst=[];
      for(let j=0;j<64;j++){if(b[j]!==null)continue;const rr=j>>3;if(rr===opp[0]||rr===opp[1])continue;
@@ -835,9 +854,10 @@ function ev(b,s){
    const K=EVP.sk,dir=p.s==='w'?-1:1;let a=0;
    const tv=q=>q&&q.s!==p.s&&!q.inv?(isKing(q.t)?6:Math.min(AV[q.t],6)):0;
    const at=(rr,cc)=>rr<0||rr>7||cc<0||cc>7?null:b[rr*8+cc];
-   if(t==='h'){for(let dc=-1;dc<=1;dc++){a+=.25*tv(at(r+dir,c+dc));a+=.18*tv(at(r+2*dir,c+dc))}}
+   if(t==='h'){for(let dc=-1;dc<=1;dc++)a+=.25*tv(at(r+dir,c+dc));a+=.18*tv(at(r+2*dir,c))}
    else if(t==='O'){for(const[dr,dc]of D8)for(let n=1;n<=2;n++)a+=.2*tv(at(r+dr*n,c+dc*n))}
-   else if(t==='A'||t==='U'){for(const[dr,dc]of D4)for(let n=1;n<=2;n++)a+=.2*tv(at(r+dr*n,c+dc*n))}
+   else if(t==='A'){for(const[dr,dc]of D4)for(let n=1;n<=3;n++)a+=.2*tv(at(r+dr*n,c+dc*n))}
+   else if(t==='U'){for(const[dr,dc]of D4)for(let n=1;n<=2;n++)a+=.2*tv(at(r+dr*n,c+dc*n));for(const[dr,dc]of DD)a+=.2*tv(at(r+dr,c+dc))}
    else if(t==='C'){for(const[dr,dc]of D4)for(let n=1;n<=3;n++)a+=.15*tv(at(r+dr*n,c+dc*n))}
    else if(t==='S'){a+=.2*tv(at(r+dir,c))}
    else if(t==='w'&&p.md){for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++)a+=.3*tv(at(r+dr,c+dc))}
@@ -1243,14 +1263,14 @@ const EN_DEF={
  Q:['Queen','Moves or captures up to 4 squares in a straight line, orthogonally or diagonally (first move only: up to 2 squares) · Cannot capture enemy King-class pieces'],
  M:['Medusa','Moves or captures 1 square in any direction · Skill: Every enemy in the 5x5 area around her cannot act for the opponent\'s next turn (no moving, capturing, ranged attacks or skills; King-class, Queen-class and Genesis are immune)'],
  P:['Pawn','Moves 1 square forward (2 on its first move) and captures diagonally forward · Skill: On reaching the far row, promotes to Rook, Bishop or Knight (your choice)'],
- S:['Soldier','Moves 1 square forward (cannot capture by moving) · Ranged attack on the square 1 ahead · Skill: On reaching the far row, promotes to Vanguard or Shotgun (your choice)'],
+ S:['Soldier','Moves 1 square forward (2 squares on its first move only; cannot capture by moving) · Ranged attack on the square 1 ahead · Skill: On reaching the far row, promotes to Vanguard or Shotgun (your choice)'],
  L:['Sling','Moves 1 square diagonally (2 on its first move; cannot capture by moving) · Ranged attack on diagonal squares 1 away'],
  F:['Wolf','Moves like a Knight · Special: After eliminating an enemy, may move once more from the landing square to an empty Knight-move square (no capture)'],
  T:['Striker','Moves or captures up to 6 squares straight forward · Breakthrough: If no friendly piece is in the way, eliminates every enemy it passes through (invincible pieces and King-class pieces cannot be pierced and stop it) · On its first, unmoved action it cannot capture King-class pieces'],
  V:['Vanguard','Moves or captures up to 3 squares orthogonally · Passive: Friendly pieces in the surrounding 3x3 are immune to ranged attacks (not itself)'],
  G:['Golem','Moves or captures 1 square orthogonally · Skill: Randomly eliminates 1-3 enemies in the surrounding 3x3 (invincible pieces excluded)'],
  H:['Priest','Moves 1 square in any direction (cannot attack) · Skill: Makes 1 friendly piece in the surrounding 3x3 invincible for the opponent\'s next turn'],
- A:['Archer','Moves 1 square in any direction (cannot capture by moving) · Ranged attack up to 2 squares orthogonally (blocked by pieces)'],
+ A:['Archer','Moves 1 square in any direction (cannot capture by moving) · Lobbed ranged attack up to 3 squares orthogonally (can hit over pieces in between)'],
  B:['Bishop','Moves or captures up to 4 squares diagonally in a straight line'],
  R:['Rook','Moves or captures up to 4 squares orthogonally in a straight line'],
  C:['Cannon','Moves 1 square orthogonally (cannot capture by moving) · Bombards up to 3 squares orthogonally, over other pieces'],
@@ -1259,15 +1279,15 @@ const EN_DEF={
  X:['Tornado','Moves or captures 1 square diagonally · Skill: Rearranges friendly and enemy pieces in the surrounding 3x3 however you like, all at once (swaps with occupied squares)'],
  Y:['Eagle','Moves or captures up to 3 squares vertically · Special: After eliminating an enemy, may move once more to an empty diagonal square next to the landing square (no capture)'],
  J:['Sniper','Moves 1 square in any direction (cannot capture by moving) · Skill: Marks 1 enemy within the 7x7 area (up to 3 squares away); if it is still on that square next turn, it is shot automatically'],
- U:['Crossbow','Moves 1 square in any direction (cannot capture by moving) · Pierce-shoots enemies within 2 squares orthogonally (if enemies are in between, both are eliminated; cannot shoot if a friendly piece is in the way)'],
+ U:['Crossbow','Moves 1 square in any direction (cannot capture by moving) · Pierce-shoots enemies within 2 squares orthogonally (if enemies are in between, both are eliminated; cannot shoot if a friendly piece is in the way) · Ranged attack on the 4 diagonal squares 1 away'],
  O:['Machine Gun','Moves 1 square left or right (cannot capture by moving) · Ranged attack on enemies within 2 squares in all 8 directions'],
  I:['Medic','Moves 1 square orthogonally (cannot attack) · Skill: Revives 1 fallen friendly piece (not King- or Queen-class, not already-revived pieces) on its own square, and the Medic disappears'],
  g:['God','Used instead of the King · Moves to any empty square in the surrounding 5x5 (cannot attack) · If an enemy is within the surrounding 3x3, its movement range shrinks to 3x3 · Immune to ranged attacks · Lose the game if captured'],
  q:['Princess','Used instead of Queen or Medusa · Moves to any empty square in the surrounding 5x5 (cannot attack) · Skill: Choose 1 friendly piece; it acts twice next turn'],
  r:['Rondo','Moves or captures 1 square at a time, backward only (toward its own side) · From its own back row, can make a backdoor move to an empty square in the same column on the enemy back row'],
- h:['Shotgun','Moves up to 2 squares orthogonally (cannot capture by moving) · Ranged attack on every enemy in the 2 rows ahead, 3 columns wide (front-left, front, front-right, and the row behind them)'],
+ h:['Shotgun','Moves up to 1 square orthogonally (cannot capture by moving) · Ranged attack on every enemy in the 3 squares ahead (front-left, front, front-right) plus the square one further straight ahead'],
  s:['Genesis','Moves up to 3 times per turn, 1 square at a time in any direction · Capturing an enemy makes it explode along with its victim and the turn ends (cannot capture King, Emperor or God)'],
- v:['Vertical','Moves to any empty square in its own column (cannot capture by moving) · Skill: Eliminates 1 enemy in the same column (not King-class, not ranged-immune targets)'],
+ v:['Vertical','Moves to any empty square in its own column (cannot capture by moving) · Skill: Eliminates 1 enemy in the same column (usable only after it has moved once; not King-class, not ranged-immune targets)'],
  o:['Horizon','Moves to any empty square in its own row (cannot capture by moving) · Skill: Eliminates 1 enemy in the same row (not King-class, not ranged-immune targets)'],
  a:['Hand','Moves 1 square in any direction (cannot capture by moving) · Skill: Moves 1 friendly piece in your own zone (your 2 rows) to any empty square outside the enemy zone (2 enemy rows); usable only while the Hand is in your zone · King- and Queen-class pieces, Black/White Dragons, Genesis and Hand cannot be moved'],
  w:['Spellblade','Moves or captures up to 2 squares orthogonally or 1 square diagonally · Skill: Switches to Sword Mode — cannot move, but ranged-attacks enemies in the 5x5 around it (use again to return to move mode)'],
@@ -1283,7 +1303,7 @@ const EN_DEF={
 };
 
 if(EN)TYPES.forEach(t=>{DEF[t].n=EN_DEF[t][0];DEF[t].dd=EN_DEF[t][1]});
-const TPL={"기물 도감 / 규칙": "Piece Codex / Rules", "기물 도감": "Piece Codex", "설정": "Settings", "배경음악": "Music", "효과음": "Sound effects", "배 틀 체 스": "ARMY BUILDER", "39 코스트로 나만의 군대를 만들어 싸워라": "Build your own army with 39 cost and fight", "📖 튜토리얼 · 처음이라면 여기!": "📖 Tutorial · Start here if you're new!", "🌐 온라인 대전": "🌐 Online Play", "기물 도감 · 규칙": "Piece Codex · Rules", "📢 공지·패치": "📢 News · Patches", "💬 건의하기": "💬 Feedback", "📤 공유": "📤 Share", "연결 확인 중…": "Checking connection…", "닉네임": "Nickname", "닉네임 (최대 12자)": "Nickname (max 12 chars)", "출전 구성 · 배치": "Army & Placement", "미리 저장한 “구성·배치”로 상대와 싸웁니다. 매칭이 잡히면 색(백/흑)만 정해지고 배치는 그대로 적용됩니다.": "You fight with a saved “build & placement”. When a match is found only your color (White/Black) is decided; your placement is used as is.", "➕ 내 기물 선택·배치로 새 프리셋 만들기": "➕ Make a new preset by picking & placing pieces", "상대를 찾는 중…": "Looking for an opponent…", "⏳ 지금은 접속자가 적어요. 친구에게 공유해서 같은 시간에 접속해 보세요!": "⏳ Few people are online right now. Share it with a friend and connect at the same time!", "📤 친구에게 공유하기": "📤 Share with a friend", "매칭 취소": "Cancel matching", "⚔️ 매칭 시작": "⚔️ Start Matching", "뒤로": "Back", "온라인 대전은 이 페이지를 로그인 상태로 열고, 같은 페이지를 연 다른 사람과 연결됩니다. 상대 기물은 대전 시작 때 공개됩니다.": "Online play connects you with other people who have this same page open. Your opponent's pieces are revealed when the match starts.", "게임 설정": "Game Setup", "🏠 메뉴로": "🏠 Menu", "게임 모드": "Game Mode", "PvE · AI 대전": "PvE · vs AI", "PvP · 한 기기 2인 대전": "PvP · 2 players, one device", "🤖 AI 관전": "🤖 AI Spectate", "AI 난이도": "AI Difficulty", "내 색깔": "My Color", "백 (선공)": "White (first)", "흑 (후공)": "Black (second)", "랜덤": "Random", "⚪ 백 AI 난이도": "⚪ White AI difficulty", "⚫ 흑 AI 난이도": "⚫ Black AI difficulty", "관전 속도": "Spectate speed", "백·흑 군대의 기물 선택과 배치는 내가 직접 정하고, 전투는 AI끼리 진행합니다.": "You choose both armies and their placement; the AIs fight the battle.", "다음: 기물 선택": "Next: Pick Pieces", "코스트 39 · 킹 필수(킹·갓은 무료, 엠페러·데몬으로 대체 가능) · 킹을 잡으면 승리": "Cost 39 · King required (King and God are free; can be replaced by Emperor or Demon) · Capture the King to win", "다음: 기물 배치 ▶": "Next: Place Pieces ▶", "구성 도우미": "Build Helper", "내 프리셋": "My Presets", "현재 구성 저장": "Save current build", "프리셋 관리 · 공유": "Manage / Share presets", "선택한 기물이 놓일 수 있는 칸이 연두색으로 표시됩니다 · 놓인 기물을 누르면 회수": "Squares where the selected piece can go are shown in green · tap a placed piece to take it back", "배치 초기화": "Clear placement", "자동 배치": "Auto-place", "이 구성·배치를 프리셋으로 저장": "Save this build & placement as a preset", "배치 완료": "Done placing", "진행 상황": "Progress", "추가 이동 건너뛰기": "Skip extra move", "스킬 확정": "Confirm skill", "스킬 취소": "Cancel skill", "사용 스킬 · 각 1회": "Player Skills · once each", "↩️ 원위치!": "↩️ Fall Back!", "⚡ 돌격 앞으로!": "⚡ Charge!", "🏁 상황 종결!": "🏁 Finish It!", "⏸ 일시정지": "⏸ Pause", "속도": "Speed", "💡 좋은 수 표시: 꺼짐": "💡 Best-move hints: Off", "보드 뒤집기": "Flip board", "결과 보기": "View result", "항복": "Resign", "처음으로": "Main menu", "새로고침": "Refresh", "닫기": "Close", "◀ 이전": "◀ Back", "다음 ▶": "Next ▶", "📤 결과 공유하기": "📤 Share result", "🌐 다시 매칭하기": "🌐 Match again", "같은 구성·배치로 다시 하기": "Play again with the same build & placement", "배치로 돌아가기": "Back to placement", "기물 선택으로": "Back to piece selection", "메인 메뉴": "Main menu", "판 확인하기": "Review the board", "📢 공지 · 패치 노트": "📢 News · Patch Notes", "공지": "News", "패치 노트": "Patch Notes", "불러오는 중…": "Loading…", "🔄 새로고침": "🔄 Refresh", "버그, 밸런스, 아이디어, 칭찬 모두 환영합니다!": "Bugs, balance, ideas, praise — everything is welcome!", "🐞 버그 제보": "🐞 Bug report", "⚖️ 밸런스 의견": "⚖️ Balance", "💡 기능 건의": "💡 Idea", "👍 칭찬·응원": "👍 Praise", "어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)": "Tell us which piece/situation and what happened (e.g. after using the Golem skill ...)", "댓글 등록": "Post comment", "행동 로그": "Action Log", "승급할 기물 선택": "Choose a piece to promote to", "기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?": "Your piece reached the last row. Which piece should it promote to?", "프리셋 이름": "Preset name", "취소": "Cancel", "저장": "Save", "프리셋 관리": "Manage Presets", "공유 코드로 가져오기": "Import from a share code", "다른 기기에서 복사한 코드를 붙여넣으면 프리셋이 추가됩니다.": "Paste a code copied from another device to add a preset.", "프리셋 공유 코드": "Preset share code", "가져오기": "Import", "매칭 성사!": "Match found!", "내 구성": "My army", "상대 구성": "Opponent's army", "상대가 화면을 보지 않도록 기기를 넘겨 주세요.": "Pass the device over so the other player cannot see the screen.", "준비 완료": "Ready", "확인": "OK", "배틀체스": "Battle Chess", "📲 앱으로 설치 · 홈 화면에 추가": "📲 Install app · Add to Home Screen", "📲 홈 화면에 추가": "📲 Add to Home Screen"};
+const TPL={"기물 도감 / 규칙": "Piece Codex / Rules", "기물 도감": "Piece Codex", "설정": "Settings", "배경음악": "Music", "효과음": "Sound effects", "배 틀 체 스": "ARMY BUILDER", "39 코스트로 나만의 군대를 만들어 싸워라": "Build your own army with 39 cost and fight", "📖 튜토리얼 · 처음이라면 여기!": "📖 Tutorial · Start here if you're new!", "🌐 온라인 대전": "🌐 Online Play", "기물 도감 · 규칙": "Piece Codex · Rules", "📢 공지·패치": "📢 News · Patches", "💬 건의하기": "💬 Feedback", "📤 공유": "📤 Share", "연결 확인 중…": "Checking connection…", "닉네임": "Nickname", "닉네임 (최대 12자)": "Nickname (max 12 chars)", "출전 구성 · 배치": "Army & Placement", "미리 저장한 “구성·배치”로 상대와 싸웁니다. 매칭이 잡히면 색(백/흑)만 정해지고 배치는 그대로 적용됩니다.": "You fight with a saved “build & placement”. When a match is found only your color (White/Black) is decided; your placement is used as is.", "➕ 내 기물 선택·배치로 새 프리셋 만들기": "➕ Make a new preset by picking & placing pieces", "상대를 찾는 중…": "Looking for an opponent…", "⏳ 지금은 접속자가 적어요. 친구에게 공유해서 같은 시간에 접속해 보세요!": "⏳ Few people are online right now. Share it with a friend and connect at the same time!", "📤 친구에게 공유하기": "📤 Share with a friend", "매칭 취소": "Cancel matching", "⚔️ 매칭 시작": "⚔️ Start Matching", "뒤로": "Back", "온라인 대전은 이 페이지를 로그인 상태로 열고, 같은 페이지를 연 다른 사람과 연결됩니다. 상대 기물은 대전 시작 때 공개됩니다.": "Online play connects you with other people who have this same page open. Your opponent's pieces are revealed when the match starts.", "게임 설정": "Game Setup", "🏠 메뉴로": "🏠 Menu", "게임 모드": "Game Mode", "PvE · AI 대전": "PvE · vs AI", "PvP · 한 기기 2인 대전": "PvP · 2 players, one device", "🤖 AI 관전": "🤖 AI Spectate", "AI 난이도": "AI Difficulty", "내 색깔": "My Color", "백 (선공)": "White (first)", "흑 (후공)": "Black (second)", "랜덤": "Random", "⚪ 백 AI 난이도": "⚪ White AI difficulty", "⚫ 흑 AI 난이도": "⚫ Black AI difficulty", "관전 속도": "Spectate speed", "백·흑 군대의 기물 선택과 배치는 내가 직접 정하고, 전투는 AI끼리 진행합니다.": "You choose both armies and their placement; the AIs fight the battle.", "다음: 기물 선택": "Next: Pick Pieces", "코스트 39 · 킹 필수(킹·갓은 무료, 엠페러·데몬으로 대체 가능) · 킹을 잡으면 승리": "Cost 39 · King required (King and God are free; can be replaced by Emperor or Demon) · Capture the King to win", "다음: 기물 배치 ▶": "Next: Place Pieces ▶", "구성 도우미": "Build Helper", "내 프리셋": "My Presets", "현재 구성 저장": "Save current build", "프리셋 관리 · 공유": "Manage / Share presets", "선택한 기물이 놓일 수 있는 칸이 연두색으로 표시됩니다 · 놓인 기물을 누르면 회수": "Squares where the selected piece can go are shown in green · tap a placed piece to take it back", "배치 초기화": "Clear placement", "자동 배치": "Auto-place", "이 구성·배치를 프리셋으로 저장": "Save this build & placement as a preset", "배치 완료": "Done placing", "진행 상황": "Progress", "추가 이동 건너뛰기": "Skip extra move", "스킬 확정": "Confirm skill", "스킬 취소": "Cancel skill", "사용 스킬 · 각 1회": "Player Skills · once each", "↩️ 원위치!": "↩️ Fall Back!", "⚡ 돌격 앞으로!": "⚡ Charge!", "🏁 상황 종결!": "🏁 Finish It!", "⏸ 일시정지": "⏸ Pause", "속도": "Speed", "💡 좋은 수 표시: 꺼짐": "💡 Best-move hints: Off", "보드 뒤집기": "Flip board", "결과 보기": "View result", "항복": "Resign", "처음으로": "Main menu", "새로고침": "Refresh", "닫기": "Close", "◀ 이전": "◀ Back", "다음 ▶": "Next ▶", "📤 결과 공유하기": "📤 Share result", "🌐 다시 매칭하기": "🌐 Match again", "같은 구성·배치로 다시 하기": "Play again with the same build & placement", "배치로 돌아가기": "Back to placement", "기물 선택으로": "Back to piece selection", "메인 메뉴": "Main menu", "판 확인하기": "Review the board", "📢 공지 · 패치 노트": "📢 News · Patch Notes", "공지": "News", "패치 노트": "Patch Notes", "불러오는 중…": "Loading…", "🔄 새로고침": "🔄 Refresh", "버그, 밸런스, 아이디어, 칭찬 모두 환영합니다!": "Bugs, balance, ideas, praise — everything is welcome!", "🐞 버그 제보": "🐞 Bug report", "⚖️ 밸런스 의견": "⚖️ Balance", "💡 기능 건의": "💡 Idea", "👍 칭찬·응원": "👍 Praise", "어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)": "Tell us which piece/situation and what happened (e.g. after using the Golem skill ...)", "댓글 등록": "Post comment", "행동 로그": "Action Log", "승급할 기물 선택": "Choose a piece to promote to", "기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?": "Your piece reached the last row. Which piece should it promote to?", "프리셋 이름": "Preset name", "취소": "Cancel", "저장": "Save", "프리셋 관리": "Manage Presets", "공유 코드로 가져오기": "Import from a share code", "다른 기기에서 복사한 코드를 붙여넣으면 프리셋이 추가됩니다.": "Paste a code copied from another device to add a preset.", "프리셋 공유 코드": "Preset share code", "가져오기": "Import", "매칭 성사!": "Match found!", "내 구성": "My army", "상대 구성": "Opponent's army", "상대가 화면을 보지 않도록 기기를 넘겨 주세요.": "Pass the device over so the other player cannot see the screen.", "준비 완료": "Ready", "확인": "OK", "배틀체스": "Battle Chess", "📲 앱으로 설치 · 홈 화면에 추가": "📲 Install app · Add to Home Screen", "📲 홈 화면에 추가": "📲 Add to Home Screen", "🎮 체험형 튜토리얼 · 직접 해보기": "🎮 Guided Tutorial · Learn by Playing", "도우미": "Guide"};
 if(EN){(()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const ns=[];let n;while(n=w.nextNode())ns.push(n);
  ns.forEach(n=>{const pn=n.parentNode;if(pn&&/^(SCRIPT|STYLE)$/.test(pn.nodeName))return;const s=n.nodeValue,t=s.trim();if(t&&TPL[t]!==undefined)n.nodeValue=s.replace(t,()=>TPL[t])});
  document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(e=>['placeholder','aria-label','title'].forEach(at=>{const v=e.getAttribute(at);if(v&&TPL[v]!==undefined)e.setAttribute(at,TPL[v])}));
@@ -1438,7 +1458,7 @@ $('#home1').onclick=()=>{sfx('rm');show('s0');window.scrollTo(0,0)};
 $('#go').onclick=()=>{let c=U.col;if(c==='r')c=rnd()<.5?'w':'b';G={mode:U.mode,lv:U.lv,human:c,lvs:{w:U.lw,b:U.lb},pause:false};simTally={w:0,b:0,d:0};G.seed=(Math.random()*1e6)|0;
  startBoard=BC.emptyBoard();SAVED={};queue=U.mode==='pve'?[c]:['w','b'];nextSetup()};
 $('#re').onclick=()=>ask(TR('처음으로','Main Menu'),TR('진행 중인 게임을 종료하고 메인 화면으로 돌아갈까요?','End the current game and return to the main screen?'),()=>toHome());
-function toHome(){cancelAI();if(G.net&&!G.over&&typeof netSend==='function'){netSend({k:'res'})}G.over=true;if(typeof netLeave==='function')netLeave();closeM('mOver');show('s0')}
+function toHome(){if(G.tut)tutLeave();cancelAI();if(G.net&&!G.over&&typeof netSend==='function'){netSend({k:'res'})}G.over=true;if(typeof netLeave==='function')netLeave();closeM('mOver');show('s0')}
 
 /* ===== 2. 기물 선택 ===== */
 const used=()=>Object.keys(army).reduce((a,t)=>a+DEF[t].c*army[t],0),cnt=()=>Object.keys(army).reduce((a,t)=>a+army[t],0);
@@ -1520,6 +1540,7 @@ function cellClass(i){let c='';if(G.b.mg&&G.b.mg[i])c+='mg ';
  if(G.pk&&G.pk.t==='F'){const a=G.pk.a,ri=i>>3,ci=i&7;if(a!=null&&ri>=(a>>3)&&ri<=(a>>3)+1&&ci>=(a&7)&&ci<=(a&7)+1)c+='mgp ';else if(ri>=2&&ri<=5)c+='mgz ';return c}
  if(G.pk){const cd=pkCand();if(G.pk.t==='G'){if(G.pk.s.indexOf(i)>=0)c+='rg';else if(cd.indexOf(i)>=0)c+='sk'}else{if(G.pk.a===i)c+='cap';else if(G.pk.a!=null){if(cd.indexOf(i)>=0)c+='mv'}else if(cd.indexOf(i)>=0)c+='sk'}return c}
  if(G.chk&&G.chk.k===i&&!G.over)c+='chk ';
+ if(G.tut&&G.tut.hl){const h=G.tut.hl;if(h.f===i)c+='hf ';if(h.t===i||(h.m&&h.m.indexOf(i)>=0))c+='ht '}
  if(hintShown()&&G.hint){if(i===G.hint.from)c+='hf ';if(i===G.hint.to)c+='ht '}
  else if(G.hint2&&G.rush&&hintOn()){if(i===G.hint2.from)c+='hf ';if(i===G.hint2.to)c+='ht '}
  const m=G.legal.find(x=>x[1]===i&&x[2]!==19);
@@ -1551,7 +1572,7 @@ function chkBanner(ci){
 /* --- 초보자용 좋은 수 표시 --- */
 const hcb={};let hintId=0;
 function hintOn(){return !G.net&&!!U.hint&&!!G.b&&!G.over&&G.mode!=='sim'&&(G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human))&&!G.busy}
-function hintShown(){return hintOn()&&!G.pk&&!G.skp&&!G.rush&&!G.xm&&!G.dx&&!G.gsw}
+function hintShown(){return !G.tut&&hintOn()&&!G.pk&&!G.skp&&!G.rush&&!G.xm&&!G.dx&&!G.gsw}
 const SKT={2:TR('무적 부여','Grants invincibility'),3:TR('주변 적 빙결','Freezes nearby enemies'),4:TR('주변 적 처치','Eliminates nearby enemies'),5:TR('기물 재배치','Rearranges pieces'),7:TR('저격 조준','Takes aim'),8:TR('기물 부활','Revives a piece'),10:TR('아군 2회 행동 지정','Gives an ally 2 actions'),11:TR('적 처치','Eliminates an enemy'),12:TR('아군 재배치','Repositions an ally'),13:TR('마검 모드 전환','Switches Sword Mode'),15:TR('럭키 도전','Lucky gamble'),17:TR('빙결 영역 전환','Toggles Freeze Zone'),18:TR('보호막 전환','Toggles Shield'),19:TR('마그마 생성','Creates Magma')};
 function hintFor(m){
  if(m[2]===20){const p=G.b[m[0]];return{from:m[0],to:m[1],sk:'ret',txt:TR(`💡 추천: ↩️ 원위치! 사용 — ${DEF[p.t].n} ${pos(m[0])} → ${pos(m[1])} · ${attackedBy(G.b,OP(G.turn),m[0])?TR('공격받는 기물을 안전한 진영으로 되돌립니다','moves an attacked piece back to a safe zone'):TR('위험한 위치의 기물을 진영으로 되돌립니다','moves a piece in a dangerous spot back to your zone')}`,`💡 Tip: use ↩️ Fall Back! — ${DEF[p.t].n} ${pos(m[0])} → ${pos(m[1])} · ${attackedBy(G.b,OP(G.turn),m[0])?TR('공격받는 기물을 안전한 진영으로 되돌립니다','moves an attacked piece back to a safe zone'):TR('위험한 위치의 기물을 진영으로 되돌립니다','moves a piece in a dangerous spot back to your zone')}`)}}
@@ -1621,7 +1642,18 @@ function hintUpdate(){
  if(hb){const sh=hintShown()||(hintOn()&&G.pk&&G.hint);hb.style.display=sh?'':'none';hb.textContent=sh?(G.hint?G.hint.txt:TR('💡 좋은 수를 찾는 중…','💡 Looking for a good move…')):''}}
 $('#bHint').onclick=()=>{U.hint=!U.hint;store.set('hint',U.hint);G.hintK=null;G.hint=null;sfx('sel');draw(G.over?$('#st').textContent:undefined)};
 function isLocked(i){const q=G.b[i];if(!q)return false;for(let j=0;j<64;j++){const p=G.b[j];if(p&&p.t==='J'&&p.tp===q&&p.ts===i)return true}return false}
+/* AI 진영에 추가 행동 대기 상태가 생기면 AI가 알아서 처리 */
+let aaT=null;
+const aiExtraNeeded=()=>!G.over&&!G.busy&&G.b&&((G.mode==='pve'&&G.turn!==G.human)||G.mode==='sim')&&(G.xm||G.dx||G.rush||G.gsw);
+function aiAuto(){aaT=null;if(!aiExtraNeeded())return;const who=G.turn;
+ if(G.gsw){gsEnd(who);return}
+ if(G.dx){let best=null,bv=0;for(const m of G.legal||[]){const k=m[2];if(k!==0&&k!==1&&k!==4&&k!==6&&k!==11&&k!==14)continue;const v=BC.tacticalVal(G.b,m);if(v>bv){bv=v;best=m}}
+  if(best){play(best);return}G.dbq=0;G.dx=false;wrapUp(who,null,-1,true);return}
+ if(G.xm){const L=G.legal||[];if(L.length){const m2=L[Math.random()*L.length|0];sparkFx(m2[1]);play(m2);return}const x=G.xm;wrapUp(who,x.p,x.loc,true);return}
+ if(G.rush){rushEnd()}}
 function draw(msg){
+ if(aiExtraNeeded()&&!aaT)aaT=setTimeout(aiAuto,850);
+ if(G.tut)tutSync();
  const ci=G.over?null:chkInfo();
  G.hint2=(hintOn()&&(G.rush||G.skp))?hint2For():null;
  board($('#bd4'),G.b,G.flip,cellClass);
@@ -1645,7 +1677,7 @@ function draw(msg){
  
  $('#info').textContent=inf;
  chkBanner(ci);hintUpdate();
- $('#skip').style.display=((G.xm||G.dx||G.gsw)||(G.rush&&(G.rush.used.length||G.rush.lk)))&&!G.over?'':'none';$('#skip').textContent=G.rush&&!(G.xm||G.dx||G.gsw)?(G.rush.lk?TR('추가 행동 건너뛰기','Skip extra action'):TR('돌격 종료','End Charge')):G.gsw?TR('이동 종료','End moves'):G.dx?TR('추가 행동 건너뛰기','Skip extra action'):TR('추가 이동 건너뛰기','Skip extra move');
+ $('#skip').style.display=((G.xm||G.dx||G.gsw)||(G.rush&&(G.rush.used.length||G.rush.lk)))&&!G.over&&!aiTurn?'':'none';$('#skip').textContent=G.rush&&!(G.xm||G.dx||G.gsw)?(G.rush.lk?TR('추가 행동 건너뛰기','Skip extra action'):TR('돌격 종료','End Charge')):G.gsw?TR('이동 종료','End moves'):G.dx?TR('추가 행동 건너뛰기','Skip extra action'):TR('추가 이동 건너뛰기','Skip extra move');
  $('#pkok').style.display=G.pk&&((G.pk.t==='G'&&G.pk.s.length)||(G.pk.t==='X'&&G.pk.sw.length)||G.pk.t==='F')?'':'none';
  $('#pkx').style.display=G.pk||G.skp||(G.rush&&!G.rush.used.length&&!G.rush.lk)?'':'none';
  skUpdate();
@@ -1658,6 +1690,7 @@ $('#bd4').onclick=e=>{const c=e.target.closest('[data-i]');if(!c)return;const i=
  if(G.b[i]){G.insp=i;showCard()}
  if(G.over||G.busy)return;
  if(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me))return;
+ if(G.tut&&!tutGate(i))return;
  if(G.skp)return skClick(i);
  if(G.pk)return pkClick(i);
  if(G.xm){const m2=G.legal.find(x=>x[1]===i);if(m2)return play(m2);return}
@@ -1701,7 +1734,7 @@ $('#pkok').onclick=()=>{const pk=G.pk;
  G.pk=null;if(m)play(m);else draw()};
 $('#pkx').onclick=()=>{if(G.skp){G.skp=null;sfx('rm');draw();return}if(G.rush&&!G.rush.used.length){G.sk[G.turn].rush=1;G.rush=null;G.lastTxt='';sfx('rm');draw();return}cancelPk();G.sel=null;G.legal=[];draw()};
 $('#skip').onclick=()=>{if(G.net&&G.turn!==G.net.me)return;doSkip()};
-function doSkip(){if(!(G.over||G.busy)&&G.net&&!G._rem)netSend({k:'skip'});if(G.rush&&!(G.xm||G.dx||G.gsw)&&!G.over&&!G.busy){rushEnd();return}
+function doSkip(){if(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human))return;if(!(G.over||G.busy)&&G.net&&!G._rem)netSend({k:'skip'});if(G.rush&&!(G.xm||G.dx||G.gsw)&&!G.over&&!G.busy){rushEnd();return}
  if(G.gsw&&!G.over&&!G.busy){gsEnd(G.turn);return}
  if((G.xm||G.dx)&&!G.over&&!G.busy){const who=G.turn;if(G.dx){G.dbq=0;G.dx=false;wrapUp(who,null,-1,true)}else{const x=G.xm;wrapUp(who,x.p,x.loc,true)}}}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(G.skp){G.skp=null;draw();return}if(G.pk){cancelPk()}else if(G.sel!=null){G.sel=null;G.legal=[]}else return;if($('#s4').classList.contains('on'))draw()}});
@@ -1713,7 +1746,7 @@ function mvTxt(m,p,rvT){const k=m[2],nm=DEF[p.t].n;
  if(k===3)return TR(`${nm} 스킬: 주변 적 행동 불가`,` ${nm} skill: nearby enemies cannot act`);
  if(k===4)return TR(`${nm} 스킬: ${m[4].map(pos).join('·')} 처치`,` ${nm} skill: eliminated ${m[4].map(pos).join('·')}`);
  if(k===5){const L=m[4],o=[];for(let j=0;j<L.length;j+=2)o.push(pos(L[j])+'↔'+pos(L[j+1]));return TR(`${nm} 스킬: ${o.join(', ')} 재배치`,` ${nm} skill: rearranged ${o.join(', ')}`)}
- if(k===6&&p.t==='h')return TR(`${nm} 스킬: 전방 2줄 사격 → ${m[4].map(pos).join('·')} 처치`,` ${nm} skill: fired at the 2 rows ahead → eliminated ${m[4].map(pos).join('·')}`);
+ if(k===6&&p.t==='h')return TR(`${nm} 스킬: 전방 사격 → ${m[4].map(pos).join('·')} 처치`,` ${nm} skill: fired ahead → eliminated ${m[4].map(pos).join('·')}`);
  if(k===6)return TR(`${nm} 관통 사격 → ${m[4].map(pos).join('·')}`,` ${nm} pierce shot → ${m[4].map(pos).join('·')}`);
  if(k===17)return p.md?TR(`${nm} 스킬: ❄️ 빙결 영역 발동 (5x5 안은 잡기 없는 이동 불가)`,` ${nm} skill: ❄️ Freeze Zone on (enemies in the 5x5 cannot make non-capturing moves)`):TR(`${nm} 스킬: 빙결 영역 해제`,` ${nm} skill: Freeze Zone off`);
  if(k===16)return TR(`${nm} 이동·잡기 불가 — 턴을 넘김`,` ${nm} cannot move or capture — turn passed`);
@@ -1977,14 +2010,14 @@ $('#skb').onclick=e=>{const b=e.target.closest('[data-sk]');if(!b||b.disabled||!
  if(k==='rush')startRush();
  else{G.skp={t:k,a:null};sfx('sel')}
  draw()};
-function startRush(){if(G.net&&!G._rem)netSend({k:'rush'});G.sel=null;G.legal=[];G.sk[G.turn].rush=0;G.rush={left:3,used:[]};G.lastTxt=SN[G.turn]+TR(' 사용 스킬 ⚡ 돌격 앞으로!',' Player Skill ⚡ Charge!');sfx('empower');draw()}
+function startRush(){skillAlert('rush',G.turn);if(G.net&&!G._rem)netSend({k:'rush'});G.sel=null;G.legal=[];G.sk[G.turn].rush=0;G.rush={left:3,used:[]};G.lastTxt=SN[G.turn]+TR(' 사용 스킬 ⚡ 돌격 앞으로!',' Player Skill ⚡ Charge!');sfx('empower');draw()}
 function skClick(i){const k=G.skp,w=G.turn,p=G.b[i];
  if(k.t==='ret'){
   if(p&&p.s===w&&!inZone(w,i)){if(i===k.a){k.a=null;sfx('rm')}else{k.a=i;sfx('sel')}return draw()}
   if(k.a!=null&&!p&&inZone(w,i))return skApply('ret',k.a,i);
   if(i===k.a){k.a=null;sfx('rm');return draw()}return}
  if(k.a!=null&&!p&&inZone(w,i))return skApply('fin',k.a,i)}
-function skApply(k,a,to){const who=G.turn;if(G.net&&!G._rem)netSend({k:'sk',t:k,a:a,to:to});G.sk[who][k]=0;G.skp=null;let tx;
+function skApply(k,a,to){const who=G.turn;skillAlert(k,who);if(G.net&&!G._rem)netSend({k:'sk',t:k,a:a,to:to});G.sk[who][k]=0;G.skp=null;let tx;
  if(k==='ret'){const p=G.b[a];G.pend=[[a,to,0],rcOf(a)];G.b[to]=p;G.b[a]=null;G.lm=[a,to];tx=TR(`사용 스킬 ↩️ 원위치! ${DEF[p.t].n} ${pos(a)} → ${pos(to)}`,`Player Skill ↩️ Fall Back! ${DEF[p.t].n} ${pos(a)} → ${pos(to)}`);sfx('warp');setTimeout(()=>{fxCell(a,'💨');fxCell(to,'✨')},80)}
  else{const dd=G.b.dead[who],d=dd.splice(a,1)[0];d.rv=1;d.m=0;d.inv=0;d.frz=0;d.db=0;d.md=0;d.kc=0;G.b[to]=d;
   const ls=G.lost[who],ix=ls.lastIndexOf(d.t);if(ix>=0)ls.splice(ix,1);G.lm=[to,to];tx=TR(`사용 스킬 🏁 상황 종결! ${DEF[d.t].n} 부활 → ${pos(to)}`,`Player Skill 🏁 Finish It! revive ${DEF[d.t].n} → ${pos(to)}`);sfx('revive');setTimeout(()=>{fxCell(to,'✨');fxCell(to,'🕊️');fxCell(to,'🌟')},80)}
@@ -2000,7 +2033,7 @@ function aiSkillRun(m){const who=G.turn;
  if(m[2]===20){if(!G.sk[who].ret||!G.b[m[0]]||G.b[m[1]]){G.busy=false;return false}G.busy=true;setTimeout(()=>{if(G.over)return;G.busy=false;skApply('ret',m[0],m[1])},650);return true}
  if(m[2]===21){const d=G.b.dead[who][m[4][0]];if(!G.sk[who].fin||!d||G.b[m[1]]){G.busy=false;return false}G.busy=true;setTimeout(()=>{if(G.over)return;G.busy=false;skApply('fin',m[4][0],m[1])},650);return true}
  if(!G.sk[who].rush){G.busy=false;return false}
- const L=m[4];G.sk[who].rush=0;G.rush={left:3,used:[]};G.lastTxt=SN[who]+TR(' 사용 스킬 ⚡ 돌격 앞으로!',' Player Skill ⚡ Charge!');sfx('empower');G.busy=true;draw();
+ const L=m[4];skillAlert('rush',who);G.sk[who].rush=0;G.rush={left:3,used:[]};G.lastTxt=SN[who]+TR(' 사용 스킬 ⚡ 돌격 앞으로!',' Player Skill ⚡ Charge!');sfx('empower');G.busy=true;draw();
  let k=0;
  const step=()=>{if(G.over){G.busy=false;return}if(!G.rush)return;
   if(k>=L.length){G.busy=false;rushEnd();return}
@@ -2020,8 +2053,9 @@ function endTurn(){
  const lg0=BC.gen(G.b,G.turn,{noDbl:true});
  if(!lg0.length){const human=G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human);if(human&&G.sk&&(skAvail('ret')||skAvail('fin'))){draw(TR('이동할 수 있는 기물이 없습니다 — 사용 스킬을 쓰지 않으면 패배합니다','You have no piece that can move — if you do not use a Player Skill, you lose'));return}finish(OP(G.turn),'stalemate');return}
  if(lg0.length===1&&lg0[0][2]===16&&!(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me))){G.busy=true;draw(TR('🍀 이동·잡기 불가 — 턴을 넘깁니다','🍀 Cannot move or capture — turn passed'));setTimeout(()=>{G.busy=false;if(!G.over)play(lg0[0])},1000);return}
- draw();aiCheck()}
+ draw();if(G.tut&&G.turn===G.human){tutAdvance();return}aiCheck()}
 function finish(w,why){
+ if(G.tut){tutFinish(w);return}
  G.over=true;G.busy=false;G.xm=null;G.rush=null;G.skp=null;G.pk=null;
  const solo=G.mode==='pve'||!!G.net,myc=G.net?G.net.me:G.human,humanWins=solo&&w===myc;
  let em,t,d;
@@ -2061,6 +2095,7 @@ function askAI(cb){const id=++reqId;const req={id,cb,b:BC.cloneBoard(G.b),s:G.tu
 function aiCheck(){
  if((G.mode!=='pve'&&G.mode!=='sim')||G.over||(G.mode==='pve'&&G.turn===G.human))return;
  if(G.pause){G.busy=false;return}
+ if(G.tut){tutAI();return}
  G.busy=true;
  setTimeout(()=>{if(G.over)return;if(G.pause){G.busy=false;return}askAI(m=>{
   if(G.over){G.busy=false;return}
@@ -2125,6 +2160,8 @@ const LIMIT=100,PHASE={20:TR('초반을 넘겼습니다!','The opening is over!'
 const PHL=n=>n<20?TR('초반','Opening'):n<40?TR('중반 진입','Entering midgame'):n<60?TR('중반','Midgame'):n<80?TR('후반 임박','Endgame near'):TR('후반','Endgame');
 function hudDraw(){const n=Math.min(G.plies||0,LIMIT),h=$('#tHud');if(!h)return;$('#thN').textContent=n+' / '+LIMIT+TR('수',' moves');const left=LIMIT-n;$('#thP').textContent=left<=5&&!G.over?TR('종료까지 ','Ends in ')+left+TR('수',' moves'):PHL(n);$('#thF').style.width=(n/LIMIT*100)+'%';h.classList.toggle('hot',n>=LIMIT-5&&!G.over)}
 function countdown(left){const e=$('#cdAl');if(!e)return;e.innerHTML=left+TR('<small>수 남음</small>','<small>moves left</small>');e.classList.remove('on');void e.offsetWidth;e.classList.add('on');sfx('sel')}
+let skAT;function skillAlert(k,who){const e=$('#skAl');if(!e)return;const N={ret:['↩️',TR('원위치!','Fall Back!'),TR('아군 1기를 진영 안으로 후퇴','Pull 1 ally back into the zone')],rush:['⚡',TR('돌격 앞으로!','Charge!'),TR('2코스트 이하 기물이 연속 행동','Cost-2 pieces act in a row')],fin:['🏁',TR('상황 종결!','Finish It!'),TR('처치된 아군 1기를 부활','Revive a fallen ally')]}[k];if(!N)return;
+ e.className=who==='w'?'wh':'bk';e.innerHTML=`<small>${SN[who]} · ${TR('사용 스킬','Player Skill')}</small><span>${N[0]}</span><b>${N[1]}</b><em>${N[2]}</em>`;void e.offsetWidth;e.classList.add('on');clearTimeout(skAT);skAT=setTimeout(()=>e.classList.remove('on'),1900)}
 let phaseT;function phaseAlert(n){const t=PHASE[n];if(!t)return;const e=$('#phaseAl');if(!e)return;e.innerHTML=TR(`<small>${n}수 경과</small><b>${t}</b>`,`<small>${n} moves played</small><b>${t}</b>`);e.classList.remove('on');void e.offsetWidth;e.classList.add('on');sfx('sel');clearTimeout(phaseT);phaseT=setTimeout(()=>e.classList.remove('on'),2400)}
 function toast(m){const e=$('#toast');e.textContent=m;e.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>e.classList.remove('on'),2200)}
 const PNRE=(()=>{const ns=TYPES.map(t=>DEF[t].n).sort((a,b)=>b.length-a.length);return EN?new RegExp('(?<![A-Za-z])('+ns.join('|')+')(?![A-Za-z]|-class| class)','g'):new RegExp('(?<![가-힣A-Za-z])('+ns.join('|')+')(?! 계열)','g')})();
@@ -2505,9 +2542,10 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='10.6.0';
+const APP_VER='10.7.0';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['10.7.0',TR('체험형 튜토리얼 · 기물 밸런스','Guided Tutorial & Balance'),[TR('🎮 체험형 튜토리얼 추가: 첫 접속 때 튜토리얼 창을 닫으면 예시 대국으로 들어가 도우미가 한 수씩 안내해요 (메인 메뉴에서 언제든 다시 가능)','🎮 Added a guided tutorial: on your first visit, closing the tutorial window drops you into a practice game where a helper guides you move by move (replay any time from the main menu)'),TR('🏹 아처: 사거리 3칸으로 증가 + 곡사 공격 (사이에 기물이 있어도 공격 가능)','🏹 Archer: range increased to 3 squares + lobbed shots (can hit over pieces in between)'),TR('🔱 크로스보우: 대각선 4방향 1칸 원거리 공격 추가','🔱 Crossbow: added 1-square ranged attacks in the 4 diagonal directions'),TR('🧨 샷건: 이동 상하좌우 최대 1칸으로 너프 · 공격 범위는 앞 가로 3칸 + 정면 한 칸 더','🧨 Shotgun: nerfed to move up to 1 square orthogonally · attack range is now the 3 squares ahead plus the 1 square straight beyond'),TR('🗼 버티컬: 한 번 이동하기 전까지는 스킬 사용 불가','🗼 Vertical: its skill cannot be used until it has moved once'),TR('💂 솔저: 첫 이동에서만 앞으로 2칸 이동 가능','💂 Soldier: may move 2 squares forward on its first move only'),TR('⚡ 사용 스킬(원위치·돌격·상황 종결)을 쓰면 양쪽 모두 화면 중앙에 이펙트가 떠요','⚡ Player Skills (Fall Back · Charge · Finish It) now show a centered effect for both sides'),TR('🤖 AI가 추가 행동(럭키·기물 스킬 등)을 직접 선택해서 처리해요 (더 이상 내가 건너뛰기를 누를 필요 없음)','🤖 The AI now picks its own extra actions (Lucky, piece skills, etc.) — no more skipping them for the AI'),TR('📲 홈 화면에 추가해서 앱처럼 설치 가능 · 갤럭시 S23/S24/S25 화면 최적화 · 접속하면 BGM이 더 빨리 시작','📲 Installable to your home screen like an app · optimized for Galaxy S23/S24/S25 screens · music starts sooner'),TR('게임 규칙이 바뀌어 온라인 대전은 같은 버전끼리만 가능해요 (새로고침하면 최신 버전이 됩니다)','Game rules changed, so online matches only work between the same version (refresh to update)')]],
  ['10.6.0',TR('영어 지원','English Support'),[TR('🌐 English / 한국어 언어 선택 추가 (첫 접속 때 선택, 메인 메뉴의 🌐 버튼에서 언제든 변경)','🌐 Added English / Korean language selection (choose on your first visit; change it any time with the 🌐 button on the main menu)'),TR('게임 화면 · 기물 도감 · 튜토리얼 · 도움말 · 공지까지 전부 영어로 번역','Everything — game screens, piece codex, tutorial, help and notices — is translated into English'),TR('서로 언어가 달라도 온라인 대전을 함께 할 수 있어요','Online play works between players using different languages'),TR('버전이 올라가 온라인 대전은 10.6.0끼리만 매칭됩니다 — 예전 화면이면 새로고침해 주세요','Online matching is now between 10.6.0 players only — refresh if you still see the old screen')]],
  ['10.5.1',TR('정식 출시','Official Launch'),[TR('패치 노트 · 건의하기 · 게임 공유 기능 추가','Added patch notes, feedback board and game sharing'),TR('온라인 대전 · 랭크 · 내 프리셋 출전 · 기물 선택/배치 단계의 메뉴 버튼 정식 포함','Online play, ranked mode, preset support for online games, and menu buttons on the piece-selection/placement screens are now officially included')]],
  ['10.5',TR('온라인 대전과 랭크','Online Play & Ranked'),[TR('🌐 온라인 대전: 미리 저장한 구성·배치로 다른 사람과 실시간 매칭, “매칭 성사!” 창 후 바로 시작','🌐 Online play: match in real time with other people using a saved build and placement; the game starts right after the “Match found!” window'),TR('랭크: 승리 +20 / 패배 −8, 브론즈(100) ~ 챌린저(800) 8단계','Ranked: win +20 / loss −8, 8 tiers from Bronze (100) to Challenger (800)'),TR('온라인에서 내 기물 선택·배치 프리셋 사용, 로비에서 새 프리셋 바로 만들기','Use your saved build & placement presets online, and create new presets right from the lobby'),TR('기물 선택·배치 화면에 🏠 메뉴로 돌아가기 버튼','Added a 🏠 Back to menu button on the piece-selection and placement screens'),TR('연결이 끊기면 30초 후 승리 처리, 메시지 유실 자동 복구','If a connection drops, the opponent wins after 30 seconds; lost messages are recovered automatically')]],
@@ -2517,6 +2555,7 @@ const PATCH=[
  ['10.1',TR('AI와 도우미 강화','Stronger AI & Helper'),[TR('AI 탐색 강화: 더 깊게, 더 오래 생각하고 스킬·원거리 공격·기동을 더 잘 활용','Stronger AI search: thinks deeper and longer, and makes better use of skills, ranged attacks and mobility'),TR('도우미(좋은 수 표시): 스킬·부활·승급까지 이유를 설명하고 추천 수 강조','Helper (best-move hints): explains the reason, including skills, revives and promotions, and highlights the suggested move'),TR('AI 관전 모드 유지, 7단계 난이도','AI Spectate mode kept, 7 difficulty levels')]],
  ['10.0',TR('기본 구성','Base Version'),[TR('39코스트로 군대를 짜고 직접 배치하는 커스텀 체스','A custom chess game where you build a 39-cost army and place it yourself'),TR('PvE(AI 7단계) · 한 기기 PvP · AI 관전','PvE (7 AI levels) · PvP on one device · AI Spectate'),TR('기물 도감, 내 프리셋 저장·가져오기, 사용 스킬(원위치 / 돌격 앞으로 / 상황 종결)','Piece codex, saving and importing presets, Player Skills (Fall Back / Charge / Finish It)')]]];
 const NOTICES=[
+ [TR('🎮 체험형 튜토리얼 · 기물 밸런스 패치','🎮 Guided Tutorial & Balance Patch'),TR('처음이라면 메인 메뉴의 "체험형 튜토리얼"로 직접 해 보며 배워 보세요. 아처(사거리 3·곡사), 크로스보우(대각 1칸 사격), 샷건(이동 1칸·새 사격 범위), 버티컬(이동 후 스킬), 솔저(첫 이동 2칸)가 바뀌었어요. 자세한 내용은 패치 노트 탭에서 확인하세요.','If you are new, try the "Guided Tutorial" on the main menu and learn by playing. Archer (range 3, lobbed), Crossbow (diagonal 1-square shots), Shotgun (1-square move, new fire pattern), Vertical (skill after moving) and Soldier (2-square first move) were changed. See the Patch Notes tab for details.')],
  [TR('🌐 English is here! 영어 지원','🌐 English is here!'),TR('이제 영어로도 즐길 수 있어요. 메인 화면의 🌐 버튼에서 언어를 바꿀 수 있고, 언어가 달라도 온라인 대전은 함께 할 수 있습니다.','You can now play in English. Switch languages with the 🌐 button on the main screen — online play works between players using different languages.')],
  [TR('🔄 업데이트 후 화면이 그대로라면','🔄 If the screen looks the same after an update'),TR('게임이 업데이트되었는데도 예전 화면이 보이면 브라우저가 옛 파일을 기억하고 있는 것입니다. PC는 Ctrl+Shift+R(맥은 Cmd+Shift+R)로 강력 새로고침, 폰은 탭을 완전히 닫았다가 다시 열어 주세요. 새 버전이 나오면 화면 아래에 “새로고침” 알림이 뜹니다.','If you still see the old screen after the game has been updated, your browser is remembering the old file. On PC do a hard refresh with Ctrl+Shift+R (Cmd+Shift+R on Mac); on a phone, fully close the tab and reopen it. When a new version is out, a “Refresh” notice appears at the bottom of the screen.')],
  [TR('🌐 온라인 대전은 같은 버전끼리만','🌐 Online play only works between the same version'),TR('규칙이 다른 버전끼리는 판이 어긋날 수 있어, 버전이 다르면 매칭이 취소됩니다. 매칭이 안 잡히면 먼저 새로고침해 보세요. 상대가 적을 땐 친구에게 공유해 같은 시간에 접속하면 가장 빠릅니다.','Games can go out of sync between versions with different rules, so matching is cancelled if the versions differ. If you cannot get a match, try refreshing first. When few people are online, sharing with friends and connecting at the same time is the fastest way.')],
@@ -2531,7 +2570,7 @@ function patchOpen(tab){pnTab=tab==='p'?'p':'n';pnDraw();openM('mPatch');sfx('se
 $('#pnTab').onclick=e=>{const b=e.target.closest('button');if(b){pnTab=b.dataset.v;pnDraw();$('#pnB').scrollTop=0}};
 $('#goPatch').onclick=()=>patchOpen('n');$('#pnX').onclick=()=>closeM('mPatch');
 /* 첫 실행(또는 새 버전 첫 실행)이면 공지를 자동으로 보여 줌 */
-setTimeout(()=>{if(!$('#s0').classList.contains('on')||FIRST)return;if(!store.get('tutSeen',0)&&!store.get('seenVer','')){store.set('seenVer',APP_VER);tutOpen(0)}else if(store.get('seenVer','')!==APP_VER)patchOpen('n')},900);
+setTimeout(()=>{if(!$('#s0').classList.contains('on')||FIRST)return;if(!store.get('tutSeen',0)&&!store.get('seenVer','')){store.set('seenVer',APP_VER);AUTO_TUT=true;tutOpen(0)}else if(store.get('seenVer','')!==APP_VER)patchOpen('n')},900);
 /* 새 버전 자동 감지 */
 const vnum=v=>v.split('.').map(Number);
 const newer=(a,b)=>{const x=vnum(a),y=vnum(b);for(let i=0;i<Math.max(x.length,y.length);i++){const p=x[i]||0,q=y[i]||0;if(p!==q)return p>q}return false};
@@ -2709,9 +2748,9 @@ const TUT=[
 <div class="hc"><h4>Good to know</h4><ul><li>If your opponent's connection is down for more than 30 seconds, the remaining player wins.</li><li>Refreshing or leaving during a game may count as a resignation.</li><li>💡 Best-move hints are turned off online.</li></ul></div>`)],
 [TR('용어 사전 & 자주 묻는 질문','Glossary & FAQ'),()=>TR(`<div class="hc"><h4>📚 용어</h4><ul><li><b>코스트</b> — 기물의 가격. 합계 39 이하.</li><li><b>전열 / 후열</b> — 앞줄 / 뒷줄. 기물마다 놓을 수 있는 줄이 달라요.</li><li><b>백 / 흑</b> — 선공 / 후공 편.</li><li><b>체크</b> — 킹이 공격받는 상태.</li><li><b>승급</b> — 끝줄에서 다른 기물로 변신.</li><li><b>프리셋</b> — 저장해 둔 군대(와 배치).</li><li><b>수</b> — 한 번 두는 것. 백·흑 합쳐서 셉니다.</li></ul></div>
 <div class="hc"><h4>❓ 자주 묻는 질문</h4><p><b>Q. 어떤 기물이 제일 강한가요?</b><br>정답은 없어요. 서로 상성이 있습니다. 도감에서 읽어 보고 직접 시험해 보세요!</p><p><b>Q. 첫 판은 뭘로 하죠?</b><br>PvE · 최하 난이도 · ‘기존 체스’ 구성 · 자동 배치 · 💡 켜기. 이걸로 한 판 해보세요.</p><p><b>Q. 코스트가 남으면요?</b><br>남겨도 되지만 남은 코스트는 낭비예요. 39에 가깝게 채우세요.</p><p><b>Q. 실수로 잘못 뒀어요.</b><br>무르기는 없어요. 대신 AI전은 부담 없이 연습해 보세요.</p></div>
-<div class="hc" style="text-align:center"><h4>🎉 준비 끝!</h4><p>이제 직접 해 볼 차례예요.</p><div class="row2"><button class="pri" id="tutGo">▶ 바로 시작하기</button><button id="tutDex">📖 기물 도감 열기</button></div></div>`,`<div class="hc"><h4>📚 Glossary</h4><ul><li><b>Cost</b> — a piece's price. Total 39 or less.</li><li><b>Front row / Back row</b> — the front line / the rear line. Each piece has rows where it can be placed.</li><li><b>White / Black</b> — the side that moves first / second.</li><li><b>Check</b> — when a King is under attack.</li><li><b>Promotion</b> — turning into another piece on the last row.</li><li><b>Preset</b> — a saved army (and placement).</li><li><b>Move</b> — one turn's play. White and Black moves are counted together.</li></ul></div>
+<div class="hc" style="text-align:center"><h4>🎉 준비 끝!</h4><p>이제 직접 해 볼 차례예요.</p><div class="row2"><button class="pri" id="tutGuide">🎮 직접 해보며 배우기</button></div><div class="row2" style="margin-top:8px"><button id="tutGo">▶ 바로 시작하기</button><button id="tutDex">📖 기물 도감 열기</button></div></div>`,`<div class="hc"><h4>📚 Glossary</h4><ul><li><b>Cost</b> — a piece's price. Total 39 or less.</li><li><b>Front row / Back row</b> — the front line / the rear line. Each piece has rows where it can be placed.</li><li><b>White / Black</b> — the side that moves first / second.</li><li><b>Check</b> — when a King is under attack.</li><li><b>Promotion</b> — turning into another piece on the last row.</li><li><b>Preset</b> — a saved army (and placement).</li><li><b>Move</b> — one turn's play. White and Black moves are counted together.</li></ul></div>
 <div class="hc"><h4>❓ FAQ</h4><p><b>Q. Which piece is the strongest?</b><br>There is no single answer. Pieces counter each other. Read the codex and try them out yourself!</p><p><b>Q. What should I play first?</b><br>PvE · Lowest difficulty · ‘Classic Chess’ build · auto-place · 💡 on. Play one game with that.</p><p><b>Q. What if I have leftover cost?</b><br>You may leave it, but unspent cost is wasted. Try to get close to 39.</p><p><b>Q. I made a mistake!</b><br>There is no undo. But games against the AI are a low-pressure way to practice.</p></div>
-<div class="hc" style="text-align:center"><h4>🎉 You are ready!</h4><p>Now it is your turn to try it.</p><div class="row2"><button class="pri" id="tutGo">▶ Start Playing</button><button id="tutDex">📖 Open Piece Codex</button></div></div>`)]
+<div class="hc" style="text-align:center"><h4>🎉 You are ready!</h4><p>Now it is your turn to try it.</p><div class="row2"><button class="pri" id="tutGuide">🎮 Learn by Playing</button></div><div class="row2" style="margin-top:8px"><button id="tutGo">▶ Start Playing</button><button id="tutDex">📖 Open Piece Codex</button></div></div>`)]
 ];
 function tutDraw(){
  const n=TUT.length,i=TUT_ST.i=Math.max(0,Math.min(n-1,TUT_ST.i));
@@ -2730,15 +2769,78 @@ $('#tutDots').onclick=e=>{const b=e.target.closest('button');if(b){TUT_ST.i=+b.d
 $('#tutB').addEventListener('click',e=>{
  const t=e.target.closest('#tpT button');if(t){TUT_ST.pt=t.dataset.t;tutDraw();$('#tutBd').scrollTop=0;return}
  const c=e.target.closest('#tpB i');if(c){const k=+c.dataset.i;TUT_ST.pos[TUT_ST.pt]=[k>>3,k&7];const sc=$('#tutBd').scrollTop;tutDraw();$('#tutBd').scrollTop=sc;sfx('sel');return}
- if(e.target.closest('#tutGo')){tutClose();$('#go0').click();return}
- if(e.target.closest('#tutDex')){tutClose();buildHelp('dex');openM('mHelp')}});
+ if(e.target.closest('#tutGuide')){AUTO_TUT=false;startGuide();return}
+ if(e.target.closest('#tutGo')){AUTO_TUT=false;tutClose();$('#go0').click();return}
+ if(e.target.closest('#tutDex')){AUTO_TUT=false;tutClose();buildHelp('dex');openM('mHelp')}});
 
 
 /* ===== 언어 선택 ===== */
-function pickLang(l){store.set('lang',l);if(l!==LG){location.reload();return}closeM('mLang');if(FIRST&&!store.get('tutSeen',0)){store.set('seenVer',APP_VER);tutOpen(0)}}
+function pickLang(l){store.set('lang',l);if(l!==LG){location.reload();return}closeM('mLang');if(FIRST&&!store.get('tutSeen',0)){store.set('seenVer',APP_VER);AUTO_TUT=true;tutOpen(0)}}
 $('#goLang').onclick=()=>{openM('mLang');sfx('sel')};
 $('#lgEn').onclick=()=>pickLang('en');$('#lgKo').onclick=()=>pickLang('ko');
 if(FIRST){store.set('lang',LG);setTimeout(()=>{if($('#s0').classList.contains('on'))openM('mLang')},300)}
+/* ===== 체험형 튜토리얼 (가이드 대국) ===== */
+const gsq=s=>(8-(+s[1]))*8+(s.charCodeAt(0)-97);
+function guideBoard(){const b=BC.emptyBoard(),P=(s,t,c)=>{b[gsq(s)]=BC.newPiece(t,c)};
+ P('e1','K','w');P('e2','P','w');P('c2','P','w');P('g1','N','w');P('c1','A','w');P('h4','R','w');P('a5','o','w');
+ P('e8','K','b');P('d7','P','b');P('a7','P','b');P('b8','N','b');P('c4','P','b');P('f5','N','b');return b}
+const GS=[
+ {k:'info',t:TR('<b>환영합니다! 🎉</b><br>지금부터 <b>진짜 대국 화면</b>에서 한 수씩 같이 해 볼게요. 아래쪽 <b>흰 기물이 내 기물</b>, 위쪽 검은 기물은 AI 상대예요.<br>오늘은 연습용이라 기물을 조금만 놓았어요. (실제 대국에서는 39코스트로 군대를 직접 짜요!)','<b>Welcome! 🎉</b><br>Let\'s play a few moves together on the <b>real game screen</b>. The <b>white pieces at the bottom are yours</b>; the black ones on top belong to the AI.<br>This is a small practice setup. (In real games you build your own army with 39 cost!)')},
+ {k:'info',m:[gsq('e1'),gsq('e8')],t:TR('<b>승리 조건 👑</b><br>상대 <b>킹을 먼저 잡으면 승리</b>! 반대로 내 킹이 잡히면 패배예요. 반짝이는 두 칸이 양쪽 킹이에요.<br>이제 내 기물을 움직여 볼까요?','<b>How to win 👑</b><br>Capture the enemy <b>King first and you win</b>! If your King is captured, you lose. The two glowing squares are the Kings.<br>Ready to move your pieces?')},
+ {k:'move',from:gsq('e2'),to:gsq('e4'),reply:[gsq('d7'),gsq('d5')],
+  t:TR('<b>① 기물 선택</b><br>반짝이는 <b>흰 폰 🚶</b>을 눌러 보세요.','<b>① Select a piece</b><br>Tap the glowing <b>white Pawn 🚶</b>.'),
+  t2:TR('<b>② 이동</b><br><b>파란 점</b>이 <b>이동할 수 있는 칸</b>이에요. 폰은 <b>첫 이동에 2칸</b>까지 갈 수 있어요. 반짝이는 칸(e4)을 눌러 보세요!','<b>② Move</b><br><b>Blue dots</b> are squares it <b>can move to</b>. A Pawn may go <b>2 squares on its first move</b>. Tap the glowing square (e4)!')},
+ {k:'move',from:gsq('e4'),to:gsq('d5'),reply:[gsq('b8'),gsq('c6')],
+  t:TR('<b>폰으로 적 잡기</b><br>상대 폰이 앞으로 나왔어요! 폰은 <b>대각선 앞의 적</b>을 잡을 수 있어요. 내 폰(e4)을 먼저 눌러 보세요.','<b>Capturing with a Pawn</b><br>The enemy Pawn stepped forward! A Pawn captures <b>enemies diagonally ahead</b>. Tap your Pawn (e4) first.'),
+  t2:TR('<b>보라색 = 잡기</b><br>보라색 칸은 <b>적을 잡을 수 있는 칸</b>이에요. 반짝이는 d5를 눌러 상대 폰을 잡아 보세요!','<b>Purple = capture</b><br>Purple squares are ones where you <b>can capture an enemy</b>. Tap the glowing d5 to take the Pawn!')},
+ {k:'move',from:gsq('g1'),to:gsq('f3'),reply:[gsq('a7'),gsq('a6')],
+  t:TR('<b>나이트 🐴</b><br>나이트는 <b>L자(2칸+1칸)</b>로 움직이고 <b>다른 기물을 뛰어넘어요</b>. 나이트(g1)를 눌러 보세요.','<b>Knight 🐴</b><br>A Knight moves in an <b>L-shape (2+1)</b> and <b>jumps over other pieces</b>. Tap the Knight (g1).'),
+  t2:TR('파란 점들이 나이트가 갈 수 있는 곳이에요. <b>f3</b>로 나가 볼까요?','The blue dots show where the Knight can go. How about <b>f3</b>?')},
+ {k:'move',from:gsq('c1'),to:gsq('c4'),reply:[gsq('e8'),gsq('d8')],
+  t:TR('<b>아처 🏹 · 원거리 공격</b><br>아처는 움직이지 않고도 <b>상하좌우 3칸 안의 적을 쏠</b> 수 있어요. 게다가 <b>곡사</b>라서 사이에 기물(내 폰!)이 있어도 맞아요. 아처(c1)를 눌러 보세요.','<b>Archer 🏹 · Ranged attack</b><br>An Archer can <b>shoot enemies within 3 squares</b> up, down, left or right without moving. Its shots are <b>lobbed</b>, so they fly over pieces in between (like your Pawn!). Tap the Archer (c1).'),
+  t2:TR('<b>빨간 칸 = 원거리 공격</b><br>3칸 위의 적 폰(c4)을 쏴 보세요! 아처는 <b>제자리에 그대로</b> 있어요.','<b>Red = ranged attack</b><br>Shoot the enemy Pawn 3 squares ahead (c4)! The Archer <b>stays where it is</b>.')},
+ {k:'move',from:gsq('a5'),to:gsq('f5'),reply:[gsq('c6'),gsq('b8')],
+  t:TR('<b>스킬 기물 ✨ 호라이즌</b><br>많은 기물에게 <b>특별한 스킬</b>이 있어요. 호라이즌은 <b>같은 가로줄의 적 1기를 처치</b>해요. 호라이즌(a5)을 눌러 보세요.','<b>Skill piece ✨ Horizon</b><br>Many pieces have a <b>special skill</b>. Horizon <b>eliminates 1 enemy in the same row</b>. Tap the Horizon (a5).'),
+  t2:TR('<b>주황색 = 스킬</b><br>같은 줄의 적 나이트(f5)를 눌러 처치하세요! 사이에 기물이 있어도 돼요.','<b>Orange = skill</b><br>Tap the enemy Knight (f5) in the same row to eliminate it! Pieces in between do not matter.')},
+ {k:'move',from:gsq('h4'),to:gsq('h8'),reply:[gsq('b8'),gsq('c6')],
+  t:TR('<b>룩 🏰으로 킹 노리기</b><br>룩은 <b>상하좌우 직선(최대 4칸)</b>으로 달려요. 상대 킹의 줄로 올라가 <b>킹을 노려 볼까요?</b> 룩(h4)을 눌러 보세요.','<b>Going for the King with the Rook 🏰</b><br>A Rook runs <b>straight up to 4 squares</b>. Let\'s climb to the enemy King\'s row and <b>threaten it</b>! Tap the Rook (h4).'),
+  t2:TR('h8로 올라가면 같은 줄의 상대 킹(d8)이 룩의 사정거리에 들어와요. <b>h8</b>을 눌러 보세요!','From h8 the enemy King (d8) is in the Rook\'s range. Tap <b>h8</b>!')},
+ {k:'move',from:gsq('h8'),to:gsq('d8'),
+  t:TR('<b>마무리! 👑</b><br>상대 킹이 룩의 사정거리 안에 있어요. 룩(h8)을 눌러 보세요.','<b>Finish it! 👑</b><br>The enemy King is in the Rook\'s range. Tap the Rook (h8).'),
+  t2:TR('킹(d8)을 잡으면 <b>승리</b>예요! 반짝이는 칸을 누르세요.','Capture the King (d8) and you <b>win</b>! Tap the glowing square.')}];
+const PRAISE=()=>[TR('👍 좋아요!','👍 Nice!'),TR('✨ 잘했어요!','✨ Well done!'),TR('🙌 완벽해요!','🙌 Perfect!'),TR('👏 훌륭해요!','👏 Great!')][Math.random()*4|0];
+function coachSet(html,btns){const c=$('#coach');c.hidden=false;$('#chB').innerHTML=html;const bt=$('#chBt');bt.innerHTML='';
+ (btns||[]).forEach(b=>{const e=document.createElement('button');e.textContent=b[0];if(b[2])e.className='pri';e.onclick=b[1];bt.appendChild(e)});bt.style.display=(btns&&btns.length)?'':'none';
+ $('#chN').textContent=G.tut&&G.tut.i<GS.length?(G.tut.i+1)+' / '+GS.length:''}
+function tutRender(){const T=G.tut;if(!T||T.i>=GS.length)return;const st=GS[T.i];let h;
+ if(st.k==='move')h=(G.sel===st.from&&st.t2)?st.t2:st.t;else h=st.t;
+ if(T.pr&&st.k==='move'&&G.sel!==st.from)h='<span class="cpr">'+T.pr+'</span> '+h;
+ coachSet(h,st.k==='info'?[[T.i===0?TR('시작하기 ▶','Start ▶'):TR('다음 ▶','Next ▶'),()=>{sfx('sel');T.i++;T.pr=null;draw()},1]]:[]);
+ $('#chBar').style.width=(T.i/GS.length*100)+'%'}
+function tutSync(){const T=G.tut;if(!T||T.i>=GS.length)return;const st=GS[T.i];let rk;
+ if(st.k==='move'){const s=G.sel===st.from?1:0;T.hl=s?{t:st.to}:{f:st.from};rk=T.i+':'+s}else{T.hl=st.m?{m:st.m}:null;rk=T.i+':i'}
+ if(T.rk!==rk){T.rk=rk;tutRender()}}
+function tutGate(i){const T=G.tut;if(!T||T.i>=GS.length)return false;const st=GS[T.i];
+ if(st.k==='move'){if(G.sel===st.from){if(i===st.to||i===st.from)return true}else if(G.sel==null&&i===st.from)return true}
+ sfx('rm');const c=$('#coach');c.classList.remove('nd');void c.offsetWidth;c.classList.add('nd');return false}
+function tutAI(){G.busy=true;setTimeout(()=>{G.busy=false;if(G.over||!G.tut)return;const st=GS[G.tut.i];
+  const L=BC.gen(G.b,G.turn,{noDbl:true});let m=st&&st.reply&&L.find(x=>x[0]===st.reply[0]&&x[1]===st.reply[1]&&x[2]===0);if(!m)m=L[0];
+  if(!m){finish('w','stalemate');return}play(m)},950)}
+function tutAdvance(){const T=G.tut;T.i++;T.pr=PRAISE();T.rk='';draw()}
+function tutFinish(w){const T=G.tut;G.over=true;G.busy=false;T.i=GS.length;T.hl=null;sfx('win');
+ draw(TR('튜토리얼 완료!','Tutorial complete!'));
+ $('#chBar').style.width='100%';
+ coachSet(TR('<b>🎉 튜토리얼 완료!</b><br>이동·잡기·원거리 공격·스킬·승리까지 모두 해 봤어요! 실제 대국에서는 <b>39코스트로 나만의 군대</b>를 짜서 싸워요. 먼저 AI와 연습해 보세요.','<b>🎉 Tutorial complete!</b><br>You have tried moving, capturing, ranged attacks, skills and winning! In real games you build <b>your own army with 39 cost</b>. Practice against the AI first.'),
+  [[TR('🤖 AI와 대전하기','🤖 Play vs AI'),()=>{tutLeave();toHome();$('#go0').click()},1],[TR('🔁 다시 해보기','🔁 Replay'),()=>{startGuide()}],[TR('🏠 메뉴로','🏠 Menu'),()=>{tutLeave();toHome()}]])}
+function tutLeave(){if(G.tut)G.tut=null;document.body.classList.remove('tuting');const c=$('#coach');if(c)c.hidden=true}
+function startGuide(){closeM('mTut');store.set('guideSeen',1);cancelAI();
+ startBoard=guideBoard();G={mode:'pve',lv:0,human:'w',lvs:{w:0,b:0},pause:false,seed:7,tut:{i:0,hl:null,rk:'',pr:null}};
+ document.body.classList.add('tuting');startGame();sfx('sel')}
+$('#chX').onclick=()=>{ask(TR('튜토리얼 종료','Leave tutorial'),TR('체험형 튜토리얼을 그만하고 메뉴로 돌아갈까요?','Leave the guided tutorial and go back to the menu?'),()=>{tutLeave();toHome()})};
+if($('#goGuide'))$('#goGuide').onclick=()=>{sfx('sel');startGuide()};
+let AUTO_TUT=false;
+new MutationObserver(()=>{const m=$('#mTut');if(AUTO_TUT&&!m.classList.contains('on')){AUTO_TUT=false;setTimeout(startGuide,150)}}).observe($('#mTut'),{attributes:true,attributeFilter:['class']});
+
 /* PWA: 홈 화면 설치 */
 let DIP=null;
 const isStandalone=()=>{try{return matchMedia('(display-mode: standalone)').matches||matchMedia('(display-mode: fullscreen)').matches||navigator.standalone===true}catch(e){return false}};
