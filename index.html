@@ -585,7 +585,7 @@ input[type=range]:focus-visible{outline:3px solid var(--lm);outline-offset:3px}
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <p class="note">39 코스트로 나만의 군대를 만들어 싸워라</p>
- <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.1.6</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.1.8</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -731,11 +731,11 @@ const DEF={
  w:{n:'마검사',e:'⚔️',c:8,p:'f',av:7.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 스킬: 마검 모드로 전환 — 이동 불가, 자신 중심 5x5의 적에게 원거리 공격(한 번 더 쓰면 이동 모드로 복귀)'},
  l:{n:'럭키',e:'🍀',c:3,p:'b',av:4,d:'이동 불가 · 스킬: 50% 확률로 상대 기물들이 다음 턴에 이동·잡기를 할 수 없게 함(원거리 공격은 가능, 킹·퀸 계열에는 통하지 않음), 사용한 뒤에는 2코스트 이하 아군 1기가 추가로 행동할 수 있음'},
  c:{n:'크리티컬',e:'🗡️',c:8,p:'f',av:7.5,d:'상하좌우 1칸·대각선 최대 2칸 이동·잡기 · 특수: 적을 잡을 때 50% 확률로 잡은 기물 바로 옆(상하좌우 1칸)의 적 1기를 함께 처치(킹 계열 제외)'},
- f:{n:'프로즌',e:'🧊',c:2,p:'b',av:6,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 빙결 영역 ON/OFF — 켜면 자신 중심 5x5 안의 기물은 아군·적 모두 이동도 잡기도 할 수 없음(원거리 공격·스킬은 가능, 킹·퀸 계열은 면역), 다시 쓰면 해제 · 영역이 켜져 있는 동안 프로즌 자신도 움직일 수 없음'},
+ f:{n:'프로즌',e:'🧊',c:2,p:'b',av:6,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 빙결 영역 ON/OFF — 켜면 자신 중심 5x5 안의 기물은 아군·적 모두 이동도 잡기도 할 수 없음(원거리 공격·스킬은 가능, 킹·퀸 계열은 면역), 다시 쓰면 해제 · 영역이 켜져 있는 동안 프로즌 자신도 움직일 수 없음 · 마그마와 겹치는 칸은 빙결 영역이 사라지고, 빙결 영역을 켜면 겹친 마그마도 사라짐'},
  i:{n:'인파이터',e:'🥊',c:7,p:'f',av:5.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 특수: 자신보다 코스트가 높은 기물에게 잡히면 50% 확률로 그 기물도 함께 처치'},
  d:{n:'데몬',e:'😈',c:5,p:'b',av:5,d:'킹 대신 사용 · 상하좌우 최대 2칸 이동·잡기(경로에 아군이 있으면 그 아군도 함께 제거됨) · 특수: 적을 3기 처치하면 악마화 — 대각선도 최대 2칸 이동·잡기 가능 · 잡히면 패배'},
  m:{n:'마더',e:'🤱',c:4,p:'f',av:4,d:'상하좌우·대각선 1칸 이동·잡기 · 스킬: 보호막 ON/OFF — 켜면 자신을 뺀 주변 3x3의 아군은 잡기를 당하지 않음(원거리 공격·스킬은 받음), 대신 자신은 움직일 수 없음'},
- e:{n:'플레임',e:'🔥',c:5,p:'b',av:5,d:'대각선 1칸 이동·잡기 · 스킬: 마그마 — 양 진영을 제외한 중앙 4줄에서 2x2칸을 골라 3턴(양쪽 턴 합산) 동안 마그마 지형으로 만듦 · 특수: 마그마 위에서 한 턴을 넘겨 서 있는 기물은 아군·적군 모두 처치됨(킹·퀸 계열, 흑룡·백룡은 면역) · 백/흑 플레임의 마그마는 각각 따로 유지됨(자기 마그마만 교체)'},
+ e:{n:'플레임',e:'🔥',c:5,p:'b',av:5,d:'대각선 1칸 이동·잡기 · 스킬: 마그마 — 양 진영을 제외한 중앙 4줄에서 2x2칸을 골라 3턴(양쪽 턴 합산) 동안 마그마 지형으로 만듦 · 특수: 마그마 위에서 자기 턴을 시작해 그 턴을 마치고도 마그마 위에 있는 기물(옆 마그마 칸으로 옮겨도 포함)은 아군·적군 모두 처치됨(킹·퀸 계열, 흑룡·백룡은 면역) · 플레임마다 자기 마그마가 따로 유지됨(같은 플레임이 다시 쓰면 그 플레임의 마그마만 교체) · 프로즌의 빙결 영역과 겹치면 겹친 칸은 서로 사라짐'},
  N:{n:'나이트',e:'🐴',c:3,p:'fb',av:3.2,d:'나이트 이동(기물을 뛰어넘음)'},
  Z:{n:'샤크',e:'🦈',c:5,p:'fb',av:5.8,d:'대각선 최대 3칸 이동·잡기 · 특수: 적을 처치하면 도착한 칸에서 대각선 빈 1칸으로 한 번 더 이동할 수 있음(잡기 불가)'},
 
@@ -772,10 +772,11 @@ function randomArmy(rng){
 }
 
 /* ---------- 보드 ---------- */
-const newPiece=(t,s)=>({t,s,m:0,inv:0,frz:0,db:0,rv:0,md:0,kc:0,sh:0,slw:0});
+let FID=0;
+const newPiece=(t,s)=>({t,s,m:0,inv:0,frz:0,db:0,rv:0,md:0,kc:0,sh:0,slw:0,fi:t==='e'?++FID:0});
 const emptyBoard=()=>{const a=new Array(64).fill(null);a.dead={w:[],b:[]};return a};
-const cp=p=>({t:p.t,s:p.s,m:p.m,inv:p.inv,frz:p.frz,db:p.db||0,rv:p.rv||0,md:p.md||0,kc:p.kc||0,sh:p.sh||0,slw:p.slw||0,zh:p.zh||0});
-function cloneBoard(b){const n=b.map(p=>p?cp(p):null);const d=b.dead||{w:[],b:[]};n.dead={w:d.w.map(cp),b:d.b.map(cp)};n.mg=b.mg||null;n.pl=b.pl||0;
+const cp=p=>({t:p.t,s:p.s,m:p.m,inv:p.inv,frz:p.frz,db:p.db||0,rv:p.rv||0,md:p.md||0,kc:p.kc||0,sh:p.sh||0,slw:p.slw||0,zh:p.zh||0,fi:p.fi||0,ix:p.ix||0});
+function cloneBoard(b){const n=b.map(p=>p?cp(p):null);const d=b.dead||{w:[],b:[]};n.dead={w:d.w.map(cp),b:d.b.map(cp)};n.mg=b.mg||null;n.mf=b.mf||null;n.pl=b.pl||0;
  for(let i=0;i<64;i++){const p=b[i];if(p&&p.tp){n[i].tp=b[p.ts]===p.tp?n[p.ts]:null;n[i].ts=p.ts}}
  return n}
 
@@ -790,7 +791,9 @@ function rimm(b,i){const q=b[i];if(q.inv||q.t==='E')return true;
  return false}
 function momProt(b,j){const q=b[j];if(!q)return false;const r=j>>3,c=j&7;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){if(!dr&&!dc)continue;const x=r+dr,y=c+dc;if(x<0||x>7||y<0||y>7)continue;const z=b[x*8+y];if(z&&z.t==='m'&&z.md&&z.s===q.s)return true}return false}
 function medT(b,i){const p=b[i],r=i>>3,c=i&7,T=[];for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){const x=r+dr,y=c+dc;if((!dr&&!dc)||x<0||x>7||y<0||y>7)continue;const q=b[x*8+y];if(q&&q.s!==p.s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='s')T.push(x*8+y)}return T}
-function zoneLocked(b,i){const q0=b[i];if(!q0||isKing(q0.t)||isQueenCl(q0.t))return false;const r=i>>3,c=i&7;for(let j=0;j<64;j++){const z=b[j];if(z&&z.t==='f'&&z.md&&j!==i&&Math.abs((j>>3)-r)<=2&&Math.abs((j&7)-c)<=2)return true}return false}
+function zoneLocked(b,i){const q0=b[i];if(!q0||isKing(q0.t)||isQueenCl(q0.t))return false;const r=i>>3,c=i&7;for(let j=0;j<64;j++){const z=b[j];if(z&&z.t==='f'&&z.md&&j!==i&&Math.abs((j>>3)-r)<=2&&Math.abs((j&7)-c)<=2&&!(z.ix>>(((r-(j>>3)+2)*5)+(c-(j&7)+2))&1))return true}return false}
+// 11.2.2: 마그마↔빙결 영역 상쇄 도우미 — 프로즌 j 의 5x5 안에서 칸 x 가 아직 얼어 있는지
+function iceHas(z,j,x){const dr=(x>>3)-(j>>3),dc=(x&7)-(j&7);return z.md&&Math.abs(dr)<=2&&Math.abs(dc)<=2&&!(z.ix>>((dr+2)*5+dc+2)&1)}
 const CAMEL=[[1,3],[3,1],[-1,3],[-3,1],[1,-3],[3,-1],[-1,-3],[-3,-1]];
 const SQV=(b,j)=>isKing(b[j].t)?99:AV[b[j].t];
 // 부시도 발도술 대상: 자신 주변 상하좌우·대각선 2칸 이내 (잡기 취급)
@@ -980,13 +983,19 @@ function stormTick(b,s,u){
 function boom(b,loc){const p=b[loc];b[loc]=null;if(b.dead&&!p.rv)b.dead[p.s].push(p);return p}
 const mgImm=t=>t==='D'||t==='W'||isKing(t)||isQueenCl(t);
 function magPre(b,s){const mg=b.mg,o=[];for(let j=0;j<64;j++)if(mg[j]){const q=b[j];if(q&&q.s===s)o.push([j,q])}return o}
+// 11.2.2: 마그마는 플레임 개체별로 따로 유지 (b.mf = [[플레임id, 진영, 2x2 시작칸, 남은 시간],…]), b.mg 는 거기서 만든 칸별 표시(○백/●흑)
+function mgBuild(b){const mf=b.mf;if(!mf||!mf.length){b.mf=null;b.mg=null;return}
+ const nm=new Array(64).fill(0);
+ for(const[f,s,o,t,cm]of mf){const sh=s==='w'?0:3,r0=o>>3,c0=o&7,msk=cm===undefined?15:cm;for(let x=0;x<2;x++)for(let y=0;y<2;y++){if(!(msk>>(x*2+y)&1))continue;const j=(r0+x)*8+c0+y,cur=(nm[j]>>sh)&7;if(t>cur)nm[j]=(nm[j]&~(7<<sh))|(t<<sh)}}
+ b.mg=nm}
 function magTick(b,pre,u){
  if(!b.mg)return;
- if(!u.mgs){u.mgs=1;u.mg0=b.mg}
+ if(!u.mgs){u.mgs=1;u.mg0=b.mg;u.mf0=b.mf}
  const mg=b.mg,kl=[];
- if(pre)for(const[j,q]of pre)if(b[j]===q&&mg[j]&&!q.inv&&!mgImm(q.t)){if(q.sh){q.sh=0;(u.shb||(u.shb=[])).push(q)}else kl.push([j,q])}   // 11.2.1: 바드 보호막이 마그마 처치도 1회 막음
+ if(pre)for(const[j0,q]of pre){if(q.inv||mgImm(q.t))continue;let j=-1;if(b[j0]===q)j=j0;else for(let x=0;x<64;x++)if(b[x]===q){j=x;break}   // 11.2.3: 옆 마그마 칸으로 옮겨도 마그마 위에 있으면 처치
+  if(j<0||!mg[j])continue;if(q.sh){q.sh=0;(u.shb||(u.shb=[])).push(q)}else kl.push([j,q])}   // 11.2.1: 바드 보호막이 마그마 처치도 1회 막음
  if(kl.length){u.mk=kl;for(const[j,q]of kl){b[j]=null;u.n=(u.n||0)+1;if(isKing(q.t))u.sk=1;if(b.dead&&!q.rv){b.dead[q.s].push(q);(u.mdp||(u.mdp=[])).push(q)}}}
- const nm=mg.map(x=>{const w=x&7,k=x>>3;return (w>0?w-1:0)|((k>0?k-1:0)<<3)});b.mg=nm.some(x=>x>0)?nm:null;
+ b.mf=b.mf?b.mf.map(e=>[e[0],e[1],e[2],e[3]-1,e[4]]).filter(e=>e[3]>0):null;mgBuild(b);
 }
 function make(b,m,nf){
  if(m[2]===9){const L=m[4],us=[];let cap=null,n=0,ncap=0,sn,sk,pc=null;const pre9=(b.mg&&!nf)?magPre(b,b[L[0][0]].s):null;
@@ -1018,7 +1027,7 @@ function make(b,m,nf){
  else if(k===7){u.sl=[p,p.tp,p.ts];p.tp=b[t];p.ts=t}
  else if(k===8){const idx=m[4][0],d=b.dead[p.s],q=d[idx];u.rv=[idx,q,q.m,q.inv,q.frz,q.rv,q.md,q.sh,q.slw];d.splice(idx,1);q.rv=1;q.m=0;q.inv=0;q.frz=0;q.md=0;q.sh=0;q.slw=0;b[f]=q;d.push(p)}
  else if(k===10){b[t].db=1}
- else if(k===17||k===18){p.md=p.md?0:1}
+ else if(k===17||k===18){if(p.t==='f'){u.ix=[[p,p.ix||0]];if(!p.md&&b.mf){u.mgs=1;if(u.mf0===undefined){u.mg0=b.mg;u.mf0=b.mf}const r0=f>>3,c0=f&7;b.mf=b.mf.map(e=>{let cm=e[4]===undefined?15:e[4];const er=e[2]>>3,ec=e[2]&7;for(let x=0;x<2;x++)for(let y=0;y<2;y++)if(Math.abs(er+x-r0)<=2&&Math.abs(ec+y-c0)<=2)cm&=~(1<<(x*2+y));return[e[0],e[1],e[2],e[3],cm]}).filter(e=>e[4]);mgBuild(b)}p.ix=0}p.md=p.md?0:1}
  else if(k===15){u.ft=[];if(m[3]===1)for(let j=0;j<64;j++){const q=b[j];if(q&&q.s!==p.s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)){q.frz=1;u.ft.push(q)}}}
  else if(k===14){u.kl=[];for(const j of m[4]){const q=b[j];u.kl.push([j,q]);b[j]=null;u.n++;if(isKing(q.t))u.cap=q}b[t]=p;b[f]=null;p.m=1;if(m[5]){b[t]=null;if(b.dead&&!p.rv){b.dead[p.s].push(p);u.bd=1}}}
  else if(k===12){const q=b[t];b[m[3]]=q;b[t]=null}
@@ -1028,7 +1037,7 @@ function make(b,m,nf){
  else if(k===22){u.sl2=[];for(const j of m[4]){const q=b[j];if(q&&!q.slw){q.slw=1;u.sl2.push(q)}}}
  else if(k===23){u.sh2=[];for(const j of m[4]){const q=b[j];if(q&&!q.sh){q.sh=1;u.sh2.push(q)}}}
  else if(k===24||k===26){p.md=1}
- else if(k===19){const o=b.mg,nm=o?o.slice():new Array(64).fill(0),r0=t>>3,c0=t&7,sh=p.s==='w'?0:3;u.mgs=1;u.mg0=o;for(let j=0;j<64;j++)nm[j]&=~(7<<sh);for(let x=0;x<2;x++)for(let y=0;y<2;y++)nm[(r0+x)*8+c0+y]|=4<<sh;b.mg=nm.some(v=>v>0)?nm:null}
+ else if(k===19){if(!p.fi)p.fi=++FID;u.mgs=1;u.mg0=b.mg;u.mf0=b.mf;b.mf=(b.mf||[]).filter(e=>e[0]!==p.fi).concat([[p.fi,p.s,t,4,15]]);mgBuild(b);{const r0=t>>3,c0=t&7;for(let j=0;j<64;j++){const z=b[j];if(z&&z.t==='f'&&z.md){let nx=z.ix||0;for(let x=0;x<2;x++)for(let y=0;y<2;y++){const cc=(r0+x)*8+c0+y;if(iceHas(z,j,cc))nx|=1<<(((cc>>3)-(j>>3)+2)*5+(cc&7)-(j&7)+2)}if(nx!==(z.ix||0)){(u.ix||(u.ix=[])).push([z,z.ix||0]);z.ix=nx}}}}}
  if(b.dead){const rm=[];if((k===0||k===1||k===11)&&u.cap)rm.push(u.cap);if(u.kl)for(const x of u.kl)rm.push(x[1]);
   for(const q of rm)if(!q.rv){b.dead[q.s].push(q);(u.dp||(u.dp=[])).push(q)}}
  if(k===0&&u.cap&&(p.t==='s'||m[5])){b[t]=null;if(b.dead&&!p.rv){b.dead[p.s].push(p);u.bd=1}}
@@ -1049,7 +1058,7 @@ function unmake(b,u){
  if(u.zdp)for(let j=u.zdp.length-1;j>=0;j--)b.dead[u.zdp[j].s].pop();
  if(u.zk)for(const[j,q]of u.zk)b[j]=q;
  if(u.zc)for(let j=u.zc.length-1;j>=0;j--)u.zc[j][0].zh=u.zc[j][1];
- if(u.mgs){if(u.mdp)for(let j=u.mdp.length-1;j>=0;j--)b.dead[u.mdp[j].s].pop();if(u.mk)for(const[j,q]of u.mk)b[j]=q;b.mg=u.mg0}
+ if(u.mgs){if(u.mdp)for(let j=u.mdp.length-1;j>=0;j--)b.dead[u.mdp[j].s].pop();if(u.mk)for(const[j,q]of u.mk)b[j]=q;b.mg=u.mg0;b.mf=u.mf0}
  if(u.k9){for(let j=u.k9.length-1;j>=0;j--)unmake(b,u.k9[j]);return}
  if(u.sd)for(let j=u.sd.length-1;j>=0;j--)b.dead[u.sd[j].s].pop();
  if(u.bd)b.dead[u.p.s].pop();
@@ -1083,6 +1092,7 @@ function unmake(b,u){
  if(u.shb)for(const q of u.shb)q.sh=(u.sh2&&u.sh2.indexOf(q)>=0)?0:1;
  if(u.slc)for(const q of u.slc)q.slw=1;
  if(u.fc)for(const x of u.fc)x[0].frz=x[1];
+ if(u.ix)for(const x of u.ix)x[0].ix=x[1];
  if(u.dbc)for(const q of u.dbc)q.db=1;
 }
 // 울프/샤크 2단계 이동용 (UI): 첫 단계는 [f,t,0], 이어서 [t,x,0]
@@ -1102,6 +1112,7 @@ function hash(b,s){
   if(p.kc>=3){const kc=(i*TYPES.length+TI[p.t])*16+13;h1^=Z1[kc];h2^=Z2[kc]}
   if(p.frz===2){const fz=(i*TYPES.length+TI[p.t])*16+11;h1^=Z1[fz];h2^=Z2[fz]}
   if(p.md){const mc=(i*TYPES.length+TI[p.t])*16+12;h1^=Z1[mc];h2^=Z2[mc]}
+  if(p.ix){const xc=(i*TYPES.length+TI[p.t])*16+15;h1^=Z1[xc]^Math.imul(p.ix,0x9e3779b1);h2^=Z2[xc]^Math.imul(p.ix,0x85ebca6b)}
   h1^=Z1[code];h2^=Z2[code];
   if(p.db){const dc=(i*TYPES.length+TI[p.t])*16+10;h1^=Z1[dc];h2^=Z2[dc]}
   if(p.sh){const sc=(i*TYPES.length+TI[p.t])*16+14;h1^=Z1[sc];h2^=Z2[sc]}
@@ -1467,7 +1478,7 @@ function aiPlace(types,s,rng,lv){
 /* 판정: 무승부 조건(무진행·반복)에서 남은 전력(코스트 합) > 기물 수 순으로 승자를 가림. 완전 동률일 때만 무승부 */
 function power(b,s){let p=0;for(let i=0;i<64;i++){const q=b[i];if(q&&q.s===s)p+=DEF[q.t].c}return p}
 function adjudicate(b){const pw=power(b,'w'),pb=power(b,'b');if(pw!==pb)return pw>pb?'w':'b';let nw=0,nb=0;for(let i=0;i<64;i++){const q=b[i];if(q){if(q.s==='w')nw++;else nb++}}if(nw!==nb)return nw>nb?'w':'b';return null}
-return {stormW,inStorm,stormTick,STORM_DIE,lastDepth:()=>LASTD,nodesN:()=>nodes,power,adjudicate,skillCands,SKM,armyScore,smartArmy,WV,placeScore,fireStage,rimm,setEvp,DEF,TYPES,BUDGET,MAXN,D4,DD,D8,KN,isKing,frontRow,backRow,zone,okSq,okAdd,armyCost,randomArmy,boom,zoneLocked,momProt,chance,golemRoll,golemT,magPre,magTick,newPiece,emptyBoard,cloneBoard,gen,make,unmake,applyExtra,hash,ev,chooseMove,aiArmy,aiPlace,tacticalVal,LVL,MATE,shuffle};
+return {iceHas,stormW,inStorm,stormTick,STORM_DIE,lastDepth:()=>LASTD,nodesN:()=>nodes,power,adjudicate,skillCands,SKM,armyScore,smartArmy,WV,placeScore,fireStage,rimm,setEvp,DEF,TYPES,BUDGET,MAXN,D4,DD,D8,KN,isKing,frontRow,backRow,zone,okSq,okAdd,armyCost,randomArmy,boom,zoneLocked,momProt,chance,golemRoll,golemT,magPre,magTick,newPiece,emptyBoard,cloneBoard,gen,make,unmake,applyExtra,hash,ev,chooseMove,aiArmy,aiPlace,tacticalVal,LVL,MATE,shuffle};
 })();
 if(typeof module!=='undefined')module.exports=BC;
 
@@ -1629,11 +1640,11 @@ const EN_DEF={
  w:['Spellblade','Moves or captures up to 2 squares orthogonally or 1 square diagonally · Skill: Switches to Sword Mode — cannot move, but ranged-attacks enemies in the 5x5 around it (use again to return to move mode)'],
  l:['Lucky','Cannot move · Skill: 50% chance that enemy pieces cannot move or capture next turn (ranged attacks still work; no effect on King- or Queen-class); after using it, 1 friendly piece of cost 2 or less may act one extra time'],
  c:['Critical','Moves or captures 1 square orthogonally or up to 2 squares diagonally · Special: When capturing, 50% chance to also eliminate 1 enemy right next to the captured piece (orthogonally; not King-class)'],
- f:['Frozen','Moves up to 2 squares in any direction (cannot capture by moving) · Skill: Toggle Freeze Zone — while on, all pieces in the 5x5 around it, allies and enemies alike, can neither move nor capture (ranged attacks and skills still work; King-/Queen-class are immune); use again to turn off · While the zone is on, Frozen itself cannot move'],
+ f:['Frozen','Moves up to 2 squares in any direction (cannot capture by moving) · Skill: Toggle Freeze Zone — while on, all pieces in the 5x5 around it, allies and enemies alike, can neither move nor capture (ranged attacks and skills still work; King-/Queen-class are immune); use again to turn off · While the zone is on, Frozen itself cannot move · Squares overlapping magma lose the freeze zone, and turning the zone on removes any overlapping magma'],
  i:['Infighter','Moves or captures up to 2 squares orthogonally or 1 square diagonally · Special: If captured by a piece of higher cost, 50% chance to eliminate that piece as well'],
  d:['Demon','Used instead of the King · Moves or captures up to 2 squares orthogonally (a friendly piece in the path is also removed) · Special: After eliminating 3 enemies, becomes a Demon — can also move or capture up to 2 squares diagonally · Lose the game if captured'],
  m:['Mother','Moves or captures 1 square in any direction · Skill: Toggle Shield — while on, friendly pieces in the surrounding 3x3 (not herself) cannot be captured (they can still be hit by ranged attacks and skills), but she cannot move'],
- e:['Flame','Moves or captures 1 square diagonally · Skill: Magma — choose a 2x2 area in the 4 middle rows (outside both zones) and turn it into magma terrain for 3 turns (both sides\' turns counted) · Special: Any piece, friend or foe, that stays on magma through a turn is eliminated (King-/Queen-class and Black/White Dragons are immune) · White and Black Flames track their own magma separately'],
+ e:['Flame','Moves or captures 1 square diagonally · Skill: Magma — choose a 2x2 area in the 4 middle rows (outside both zones) and turn it into magma terrain for 3 turns (both sides\' turns counted) · Special: Any piece, friend or foe, that starts its turn on magma and still ends it on magma (even after stepping to a neighboring magma square) is eliminated (King-/Queen-class and Black/White Dragons are immune) · Each Flame keeps its own magma separately (recasting replaces only that Flame\'s magma) · Where it overlaps a Frozen\'s freeze zone, the overlapping squares cancel each other out'],
  N:['Knight','Moves like a Knight (jumps over pieces)'],
  Z:['Shark','Moves or captures up to 3 squares diagonally · Special: After eliminating an enemy, may move once more to an empty diagonal square next to the landing square (no capture)'],
  b:['Bushido','Moves or captures 1 square in any direction · Skill: Sheathe — spend the turn to enter the sheathed state; while sheathed, can only move 1 square orthogonally (cannot capture) · Skill: Iaido — use again while sheathed to eliminate up to 2 enemies within 2 squares (orthogonal or diagonal) by capture; the sheathed state ends'],
@@ -1891,7 +1902,7 @@ function cellClass(i){let c='';if(G.lab){if(G.lab.place&&!G.b[i])c+='mv ';if(G.b
   else if(k.a!=null&&!p&&inZone(w,i))c+='mv ';
   if(G.hint2&&hintOn()){if(i===G.hint2.from)c+='hf ';if(i===G.hint2.to)c+='ht '}
   return c+tutHl(i)}
-{const r0=i>>3,c0=i&7;for(let j=0;j<64;j++){const z=G.b[j];if(z&&z.t==='m'&&z.md&&j!==i&&Math.abs((j>>3)-r0)<=1&&Math.abs((j&7)-c0)<=1){c+='mp ';break}}}{const r0=i>>3,c0=i&7;for(let j=0;j<64;j++){const z=G.b[j];if(z&&z.t==='f'&&z.md&&Math.abs((j>>3)-r0)<=2&&Math.abs((j&7)-c0)<=2){c+='fz ';break}}}
+{const r0=i>>3,c0=i&7;for(let j=0;j<64;j++){const z=G.b[j];if(z&&z.t==='m'&&z.md&&j!==i&&Math.abs((j>>3)-r0)<=1&&Math.abs((j&7)-c0)<=1){c+='mp ';break}}}{const r0=i>>3,c0=i&7;for(let j=0;j<64;j++){const z=G.b[j];if(z&&z.t==='f'&&BC.iceHas(z,j,i)){c+='fz ';break}}}
  const lm=G.lm;if(lm&&(i===lm[0]||i===lm[1]))c+='lm ';if(i===G.sel)c+='sel ';
  if(G.pk&&G.pk.t==='F'){const a=G.pk.a,ri=i>>3,ci=i&7;if(a!=null&&ri>=(a>>3)&&ri<=(a>>3)+1&&ci>=(a&7)&&ci<=(a&7)+1)c+='mgp ';else if(ri>=2&&ri<=5)c+='mgz ';return c+tutHl(i)}
  if(G.pk){const cd=pkCand();if(G.pk.t==='Z'){if(G.pk.s.indexOf(i)>=0)c+='rg';else if(cd.indexOf(i)>=0)c+='sk'}else if(G.pk.t==='G'){if(G.pk.s.indexOf(i)>=0)c+='rg';else if(cd.indexOf(i)>=0)c+='sk'}else{if(G.pk.a===i)c+='cap';else if(G.pk.a!=null){if(cd.indexOf(i)>=0)c+='mv'}else if(cd.indexOf(i)>=0)c+='sk'}return c+tutHl(i)}
@@ -3476,9 +3487,11 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.1.6';
+const APP_VER='1.1.8';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.1.8',TR('마그마 판정 수정','Magma fix'),[TR('마그마 칸에서 옆 마그마 칸으로 옮겨도 마그마 위에 있으면 처치됨','A piece that steps onto a neighboring magma square is still eliminated')]],
+ ['1.1.7',TR('플레임·프로즌 규칙','Flame & Frozen rules'),[TR('플레임마다 자기 마그마를 따로 유지 (같은 플레임이 다시 쓰면 그 플레임의 마그마만 교체)','Each Flame keeps its own magma (recasting replaces only that Flame\'s magma)'),TR('마그마와 프로즌의 빙결 영역이 겹치면 겹친 칸은 서로 사라짐','Where magma and a Freeze Zone overlap, the overlapping squares cancel each other')]],
  ['1.1.6',TR('설정 정리','Settings polish'),[TR('설정의 배경음악 크기 슬라이더에 겹쳐 보이던 이중 테두리 정리','Cleaned up the double frame around the music volume slider')]],
  ['1.1.5',TR('긴급 수정','Hotfix'),[TR('폰에서 체험형 튜토리얼 항목을 누르면 창이 닫히던 문제 수정','Fixed: tapping a guided tutorial on phones closed the window')]],
  ['1.1.4',TR('전반 점검','General Checkup'),[TR('작은 버튼(탭·닫기·칩)의 눌리는 범위를 넓혔어요','Enlarged the tap area of small buttons (tabs, close, chips)'),TR('온라인 대전 시작 카운트다운이 느려지지 않게 고쳤어요','Fixed the online match countdown running slow')]],
