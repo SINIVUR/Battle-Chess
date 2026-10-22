@@ -679,8 +679,8 @@ body:has(#s0.on){padding-bottom:calc(env(safe-area-inset-top,0px) + 48px)}@media
  <h1 class="big"><b data-t="BATTLE">BATTLE</b><b class="o" data-t="CHESS">CHESS</b></h1>
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
- <div class="pbadge"><b>v1.2.5</b> 정식출시 대규모 패치 "궤도에 오르라!"<small>신규 기물 5종 · 언덕 · 철책 · 기물 조정</small></div>
-  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.2.5</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="pbadge"><b>v1.2.6</b> 정식출시 대규모 패치 "궤도에 오르라!"<small>신규 기물 5종 · 언덕 · 철책 · 기물 조정</small></div>
+  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.2.6</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -793,16 +793,16 @@ const KN=[[1,2],[2,1],[-1,2],[-2,1],[1,-2],[2,-1],[-1,-2],[-2,-1]];
 const DEF={
  K:{n:'킹',e:'🤴',c:0,p:'b',av:0,d:'필수 기물 · 모든 방향 1칸 이동·잡기 · 엠페러·갓·데몬으로 대체 가능 · 적 퀸은 킹을 잡을 수 없음 · 메두사·럭키·프로즌의 이동 봉쇄에 면역 · 잡히면 패배'},
  E:{n:'엠페러',e:'👑',c:3,p:'b',av:0,d:'킹 대신 사용 · 전방 1칸의 좌우 2칸씩, 앞 가로 5칸 중 아무 칸으로 이동·잡기 · 뒤로 1칸 이동(빈칸만, 잡기 불가) · 원거리 공격 면역 · 잡히면 패배'},
- Q:{n:'퀸',e:'👸',c:9,p:'b',av:9.5,d:'상하좌우·대각선 최대 4칸 직선 이동·잡기 (첫 이동만 최대 2칸) · 적의 킹 계열은 잡을 수 없음'},
+ Q:{n:'퀸',e:'👸',c:9,p:'b',av:9.5,d:'상하좌우·대각선 최대 4칸 직선 이동·잡기 (첫 이동만 최대 3칸) · 적의 킹 계열은 잡을 수 없음'},
  M:{n:'메두사',e:'🐍',c:7,p:'b',av:9.5,d:'상하좌우·대각선 1칸 이동·잡기 · 스킬: 자신 중심 5x5 안의 적 전체를 상대 1턴 행동 불가(이동·잡기·원거리 공격·스킬 모두 불가, 킹·퀸 계열과 제네시스는 면역)'},
  P:{n:'폰',e:'🚶',c:1,p:'f',av:1,d:'전진 1칸(첫 이동 2칸) 및 대각선 앞 잡기 · 스킬: 끝줄에 닿으면 룩·비숍·나이트 중 하나로 승급(직접 선택)'},
  S:{n:'솔저',e:'💂',c:1,p:'f',av:1.4,d:'전진 1칸 이동(첫 이동에서만 2칸 가능, 잡기 불가) · 전방 1칸 원거리 공격 · 스킬: 끝줄에 닿으면 뱅가드·샷건 중 하나로 승급(직접 선택)'},
  L:{n:'슬링',e:'🥌',c:2,p:'f',av:2,d:'대각선 1칸 이동(첫 이동은 2칸 가능, 잡기 불가) · 대각선 1칸 원거리 공격'},
- F:{n:'울프',e:'🐺',c:5,p:'f',av:4,d:'나이트 이동 · 특수: 적을 처치하면 도착한 칸에서 나이트 이동으로 갈 수 있는 빈 칸 중 무작위 한 곳으로 한 번 더 이동함(가능한 칸이 없으면 이동 없음)(잡기 불가)'},
- T:{n:'스트라이커',e:'🏃',c:5,p:'f',av:5,d:'전방 직선 최대 6칸 이동·잡기 · 돌파: 경로에 아군이 없으면 지나가는 적을 모두 관통해 처치(무적 기물·킹 계열은 관통 불가, 그 앞에서 멈춤) · 아직 움직이지 않은 첫 행동에서는 적을 잡을 수 없음(이동만 가능, 적을 만나면 멈춤)'},
+ F:{n:'울프',e:'🐺',c:4,p:'f',av:4,d:'나이트 이동 · 특수: 적을 처치하면 도착한 칸에서 나이트 이동으로 갈 수 있는 빈 칸 중 무작위 한 곳으로 한 번 더 이동함(가능한 칸이 없으면 이동 없음)(잡기 불가)'},
+ T:{n:'스트라이커',e:'🏃',c:5,p:'f',av:5,d:'전방 직선 최대 6칸 이동·잡기 · 뒤로 1칸 이동(빈칸만, 잡기 불가) · 돌파: 경로에 아군이 없으면 지나가는 적을 모두 관통해 처치(무적 기물·킹 계열은 관통 불가, 그 앞에서 멈춤) · 아직 움직이지 않은 첫 행동에서는 적을 잡을 수 없음(이동만 가능, 적을 만나면 멈춤)'},
  V:{n:'뱅가드',e:'🛡️',c:7,p:'f',av:6,d:'상하좌우 최대 3칸 이동·잡기 · 스킬: 선봉 — 자신 주변 3x3의 아군(자신 포함)이 상대의 다음 턴 동안 원거리 공격을 받지 않음'},
  G:{n:'골렘',e:'🧱',c:4,p:'fb',av:5.5,d:'상하좌우 1칸 이동·잡기 · 스킬: 주변 3x3 적을 랜덤으로 1~3기 처치(무적 기물 제외)'},
- H:{n:'프리스트',e:'🙏',c:1,p:'b',av:3,d:'상하좌우·대각선 1칸 이동(공격 불가) · 스킬: 주변 3x3 아군 1기를 상대 1턴 무적으로'},
+ H:{n:'프리스트',e:'🙏',c:2,p:'b',av:3,d:'상하좌우·대각선 1칸 이동(공격 불가) · 스킬: 주변 3x3 아군 1기를 상대 1턴 무적으로'},
  A:{n:'아처',e:'🏹',c:4,p:'b',av:3.2,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하 직선 3칸·좌우 직선 2칸 곡사 원거리 공격(사이에 기물이 있어도 공격 가능)'},
  B:{n:'비숍',e:'🧙',c:3,p:'b',av:3.2,d:'대각선 최대 4칸 직선 이동·잡기'},
  R:{n:'룩',e:'🏰',c:5,p:'b',av:5.5,d:'상하좌우 최대 4칸 직선 이동·잡기'},
@@ -811,22 +811,22 @@ const DEF={
  W:{n:'백룡',e:'🐲',c:3,p:'b',av:4.5,d:'흰 칸 어디든 순간이동 및 주변 3x3의 흰 칸 적 잡기 가능(킹 계열은 잡을 수 없음) · 후열 흰 칸에만 배치'},
  X:{n:'토네이도',e:'🌪️',c:5,p:'fb',av:7,d:'대각선 1칸 이동·잡기 · 스킬: 주변 3x3 아군·적군 기물을 원하는 대로 한꺼번에 재배치(기물이 있는 칸과는 서로 교체)'},
  Y:{n:'이글',e:'🦅',c:4,p:'fb',av:5.5,d:'상하로 최대 4칸 이동·잡기 · 특수: 적을 처치하면 도착한 칸에서 대각선 4방향 중 무작위 빈 1칸으로 한 번 더 이동함(가능한 칸이 없으면 이동 없음)(잡기 불가)'},
- J:{n:'스나이퍼',e:'🎯',c:3,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 주변 7x7(거리 3칸 이내)의 적 1기를 지정, 다음 턴에도 그 칸에 남아 있으면 자동 원거리 저격'},
+ J:{n:'스나이퍼',e:'🎯',c:7,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 주변 7x7(거리 3칸 이내)의 적 1기를 지정, 다음 턴에도 그 칸에 남아 있으면 자동 원거리 저격'},
  U:{n:'크로스보우',e:'🔱',c:4,p:'b',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우 2칸 이내 적을 관통 사격(사이에 적이 있으면 둘 다 처치, 아군이 있으면 사격 불가) · 대각선 4방향 1칸 원거리 공격'},
  O:{n:'머신건',e:'🔫',c:5,p:'fb',av:5.5,d:'좌우·전방 1칸 이동(잡기 불가) · 8방향 2칸 이내 적에게 원거리 공격(사이에 기물이 있으면 막힘)'},
  I:{n:'메딕',e:'💉',c:3,p:'b',av:2.5,d:'상하좌우 1칸 이동(공격 불가) · 스킬: 처치된 아군 1기(킹·퀸 계열 제외, 부활한 기물 제외)를 자기 칸에 부활시키고 메딕은 사라짐'},
  g:{n:'갓',e:'🌞',c:0,p:'b',av:0,d:'킹 대신 사용 · 주변 5x5의 원하는 빈칸으로 이동(공격 불가) · 잡히면 패배'},
  q:{n:'프린세스',e:'🧚',c:4,p:'b',av:3.5,d:'퀸·메두사 대신 사용 · 주변 5x5의 원하는 빈칸으로 이동(공격 불가) · 스킬: 아군 1기를 지정, 다음 턴에 그 기물이 두 번 행동'},
  r:{n:'론도',e:'🚪',c:1,p:'b',av:1.6,d:'자기 진영 쪽(후진)으로만 1칸씩 이동·잡기 · 자기 쪽 끝 라인에서는 상대 끝 라인의 같은 열 빈칸으로 백도어 이동 가능'},
- h:{n:'샷건',e:'🧨',c:7,p:'f',av:6.5,d:'상하좌우 1칸(전진 방향은 최대 2칸) 이동(잡기 불가) · 자신의 앞쪽 가로 3칸(왼쪽 앞·정면·오른쪽 앞)과 정면 한 칸 더 앞의 적을 전부 원거리 공격'},
+ h:{n:'샷건',e:'🧨',c:7,p:'f',av:6.5,d:'상하좌우 1칸(전진 방향은 최대 2칸) 이동(잡기 불가) · 자신의 앞쪽 가로 3칸 × 2줄(6칸) 안의 적 중 2~3기를 무작위로 원거리 공격(범위 안의 적이 그보다 적으면 전부)'},
  s:{n:'제네시스',e:'☄️',c:5,p:'b',av:7.5,d:'상하좌우·대각 1칸씩 한 턴에 최대 3번 이동 · 적을 잡으면 자신도 함께 폭멸하며 턴이 끝남(킹 계열(킹·엠페러·갓·데몬)은 잡을 수 없음)'},
- v:{n:'버티컬',e:'🗼',c:7,p:'b',av:7.5,d:'자기 세로줄의 빈칸 어디로든 이동(잡기 불가) · 좌우 1칸 이동(빈칸만, 잡기 불가) · 스킬: 같은 세로줄의 적 1기를 처치(한 번 이동한 뒤부터 사용 가능, 킹 계열 불가, 원거리 면역 대상 불가) · 좌우로 이동한 바로 다음 턴에는 스킬 사용 불가'},
- o:{n:'호라이즌',e:'🌅',c:2,p:'b',av:5.5,d:'자기 가로줄의 빈칸 어디로든 이동 · 앞·뒤로 1칸 이동(빈칸만, 잡기 불가) · 스킬: 같은 가로줄의 적 1기를 처치(킹 계열 불가, 원거리 면역 대상 불가) · 앞 또는 뒤로 이동한 바로 다음 턴에는 스킬 사용 불가'},
- a:{n:'핸드',e:'🖐️',c:8,p:'fb',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 자기 진영(아군 쪽 2줄)에 있는 아군 1기를 상대 진영(상대 쪽 2줄)이 아닌 빈칸 어디로든 옮김(핸드가 자기 진영 안에 있을 때만 사용 가능) · 킹·퀸 계열, 흑룡·백룡, 제네시스, 핸드는 옮길 수 없음'},
+ v:{n:'버티컬',e:'🗼',c:6,p:'b',av:7.5,d:'자기 세로줄의 빈칸 어디로든 이동(잡기 불가) · 좌우 1칸 이동(빈칸만, 잡기 불가) · 스킬: 같은 세로줄의 적 1기를 처치(한 번 이동한 뒤부터 사용 가능, 킹 계열 불가, 원거리 면역 대상 불가) · 좌우로 이동한 바로 다음 턴에는 스킬 사용 불가'},
+ o:{n:'호라이즌',e:'🌅',c:5,p:'b',av:5.5,d:'자기 가로줄의 빈칸 어디로든 이동 · 앞·뒤로 1칸 이동(빈칸만, 잡기 불가) · 스킬: 같은 가로줄의 적 1기를 처치(킹 계열 불가, 원거리 면역 대상 불가) · 앞 또는 뒤로 이동한 바로 다음 턴에는 스킬 사용 불가'},
+ a:{n:'핸드',e:'🖐️',c:7,p:'fb',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 자기 진영(아군 쪽 2줄)에 있는 아군 1기를 상대 진영(상대 쪽 2줄)이 아닌 빈칸 어디로든 옮김(핸드가 자기 진영 안에 있을 때만 사용 가능) · 킹·퀸 계열, 흑룡·백룡, 제네시스, 핸드는 옮길 수 없음'},
  w:{n:'마검사',e:'⚔️',c:8,p:'f',av:7.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 스킬: 마검 모드로 전환 — 이동 불가, 자신 중심 5x5의 적에게 원거리 공격(한 번 더 쓰면 이동 모드로 복귀)'},
- l:{n:'럭키',e:'🍀',c:3,p:'b',av:4,d:'상하좌우 1칸 이동(잡기 불가) · 스킬: 30% 확률로 상대 기물들이 다음 턴에 이동·잡기를 할 수 없게 함(원거리 공격은 가능, 킹·퀸 계열과 흑룡·백룡·제네시스에게는 통하지 않음), 사용한 뒤에는 2코스트 이하 아군 1기가 추가로 행동할 수 있음'},
+ l:{n:'럭키',e:'🍀',c:3,p:'b',av:4,d:'상하좌우 1칸 이동(잡기 불가) · 스킬: 50% 확률로 중앙 4x2칸(c~f열 4·5줄)에 있는 상대 기물이 다음 턴에 이동·잡기를 할 수 없게 함(원거리 공격은 가능, 킹·퀸 계열과 흑룡·백룡·제네시스에게는 통하지 않음), 사용한 뒤에는 2코스트 이하 아군 1기가 추가로 행동할 수 있음'},
  c:{n:'크리티컬',e:'🗡️',c:8,p:'f',av:7.5,d:'상하좌우 1칸·대각선 최대 2칸 이동·잡기 · 특수: 적을 잡을 때 50% 확률로 잡은 기물 바로 옆(상하좌우 1칸)의 적 1기를 함께 처치(킹 계열 제외)'},
- f:{n:'프로즌',e:'🧊',c:2,p:'b',av:6,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 빙결 영역 ON/OFF — 켜면 자신 중심 5x5 안의 기물은 아군·적 모두 이동도 잡기도 할 수 없음(원거리 공격·스킬은 가능, 킹·퀸 계열은 면역), 다시 쓰면 해제 · 영역이 켜져 있는 동안 프로즌 자신도 움직일 수 없음 · 마그마와 겹치는 칸은 빙결 영역이 사라지고, 빙결 영역을 켜면 겹친 마그마도 사라짐'},
+ f:{n:'프로즌',e:'🧊',c:4,p:'b',av:6,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 빙결 영역 ON/OFF — 켜면 자신 중심 5x5 안의 기물은 아군·적 모두 이동도 잡기도 할 수 없음(원거리 공격·스킬은 가능, 킹·퀸 계열은 면역), 다시 쓰면 해제 · 영역이 켜져 있는 동안 프로즌 자신도 움직일 수 없음 · 마그마와 겹치는 칸은 빙결 영역이 사라지고, 빙결 영역을 켜면 겹친 마그마도 사라짐'},
  i:{n:'인파이터',e:'🥊',c:6,p:'f',av:5.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 특수: 자신보다 코스트가 높은 기물에게 잡히면 50% 확률로 그 기물도 함께 처치'},
  d:{n:'데몬',e:'😈',c:5,p:'b',av:5,d:'킹 대신 사용 · 상하좌우 최대 2칸 이동·잡기(경로에 아군이 있으면 그 아군도 함께 제거됨) · 특수: 적을 3기 처치하면 악마화 — 상하좌우·대각선 최대 3칸 이동·잡기 가능 · 잡히면 패배'},
  m:{n:'마더',e:'🤱',c:4,p:'f',av:4,d:'상하좌우·대각선 1칸 이동·잡기 · 스킬: 보호막 ON/OFF — 켜면 자신을 뺀 주변 3x3의 아군은 잡기를 당하지 않음(원거리 공격·스킬은 받음), 대신 자신은 움직일 수 없음'},
@@ -839,10 +839,10 @@ const DEF={
  p:{n:'바드',e:'🎻',c:2,p:'b',av:3.2,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 자신을 뺀 주변 3x3의 아군 2기에게 노래로 보호막을 부여 — 보호막은 원거리 공격·처치 스킬·마그마 처치를 한 번 막고 사라짐'},
  k:{n:'워해머',e:'🔨',c:6,p:'f',av:6.6,d:'앞·왼쪽·오른쪽 직선 최대 3칸 이동·잡기(후진 불가) · 특수: 적을 처치하면 50% 확률로 도착한 칸에서 같은 방식으로 한 번 더 잡을 수 있음(잡기만 가능, 이동만은 불가)'},
  u:{n:'볼티지',e:'⚡',c:3,p:'fb',av:4.8,d:'상하좌우·대각선 최대 5칸 이동 · 코스트 2 이하 기물만 잡기 가능(킹 계열 제외, 첫 행동에서는 잡기 불가) · 특수: 이동·잡기 뒤 주변 3x3에 다른 볼티지(아군·적군)가 있으면 한 번 더 행동할 수 있음(추가 행동은 1번뿐) · 자기장 면역'},
- x:{n:'오르빗',e:'🪐',c:9,p:'fb',av:8.5,d:'자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외) 어느 칸으로든 이동·잡기(기물을 뛰어넘음) · 킹 계열(킹·엠페러·갓·데몬)과 제네시스는 잡을 수 없음 · 이동·잡기를 한 다음 턴에는 이동할 수 없음 · 적을 3기 처치하면 즉시 폭발해 제거됨'},
- j:{n:'스파클',e:'💠',c:8,p:'b',av:6,d:'상하좌우 1칸 이동(잡기 불가) · 원거리 공격: 자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외, 네 모서리 칸도 제외) 어느 칸의 적이든 공격 · 이동한 다음 턴에는 공격할 수 없고, 공격한 다음 턴에는 이동할 수 없음'},
+ x:{n:'오르빗',e:'🪐',c:9,p:'fb',av:8.5,d:'자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외) 어느 칸으로든 이동·잡기(기물을 뛰어넘음) · 특징: 킹 계열(킹·엠페러·갓·데몬)과 제네시스는 잡을 수 없음 · 특징: 적을 3기 처치하면 즉시 폭발해 제거됨'},
+ j:{n:'스파클',e:'💠',c:8,p:'b',av:6,d:'상하좌우 1칸 이동(잡기 불가) · 원거리 공격: 자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외, 네 모서리 칸도 제외) 어느 칸의 적이든 공격'},
  y:{n:'랜서',e:'🏇',c:7,p:'f',av:6.5,d:'앞·왼쪽 앞·오른쪽 앞 대각선 방향으로 최대 2칸 이동·잡기 · 관통: 경로에 적 기물이 있으면 함께 처치(아군이 있으면 막힘, 무적 기물·킹 계열은 관통 불가) · 뒤로 1칸 이동(빈칸만, 잡기 불가)'},
- n:{n:'마운틴',e:'⛰️',c:5,p:'b',av:4,d:'상하좌우 1칸 이동·잡기 · 스킬: 언덕 — 양 진영을 제외한 중앙 4줄 중 한 칸을 언덕으로 만듦(마운틴마다 1칸 유지). 언덕 위·언덕에 안착한 기물(킹·퀸 계열 제외)은 원거리 공격을 받지 않지만 잡히며, 이동은 상하좌우 1칸(잡기 불가)으로 고정됨 · 이동 중 경로에 언덕이 있으면 그 칸에 멈춤 · 마그마·빙결 영역·자기장이 덮거나 마운틴이 사라지면 언덕도 사라짐'},
+ n:{n:'마운틴',e:'⛰️',c:5,p:'b',av:4,d:'상하좌우 1칸 이동·잡기 · 스킬: 언덕 — 양 진영을 제외한 중앙 4줄 중 한 칸을 언덕으로 만듦(마운틴마다 1칸 유지). 언덕 위·언덕에 안착한 기물(킹·퀸 계열·마운틴 제외)은 원거리 공격을 받지 않지만 잡히며, 이동은 상하좌우 1칸(잡기 불가)으로 고정됨 · 특징: 이동 중 경로에 언덕이 있으면 그 칸에 멈춤(마운틴 자신은 언덕의 영향을 받지 않음) · 특징: 마그마·빙결 영역·자기장이 덮거나 마운틴이 사라지면 언덕도 사라짐'},
  'Ł':{n:'라이너',e:'🚧',c:1,p:'f',av:1.5,d:'상하 1칸 이동·잡기 · 스킬: 철책 — 자신을 제거하고, 자신이 있던 칸의 네 변 중 한 변에 철책을 설치(영구). 아군·적군 모두 철책을 가로지르는 직선 이동·잡기를 할 수 없음(점프·순간이동·원거리 공격은 통과) · 마그마·프로즌 빙결 영역·언덕이 덮으면 사라짐(자기장에도 사라짐)'},
  t:{n:'호퍼',e:'🦗',c:2,p:'f',av:2.9,d:'나이트보다 긴 L자(1x3) 이동, 기물을 뛰어넘음(잡기 불가) · 스킬: 메뚜기 떼 모드 — 턴을 쓰고 발동하면 이후 같은 이동으로 잡기도 가능(계속 유지, 부활하면 초기화)'}
 };
@@ -888,7 +888,7 @@ function mv(rr,cc,k){const t=rr*8+cc;if(gcap&&k===0&&gb[t]===null)return;gout.pu
 const HJUMP={N:1,F:1,t:1,D:1,W:1,v:1,o:1,r:1,q:1,g:1,a:1,E:1,x:1};
 function hillAt(b,i){const h=b.hl;if(!h)return false;for(let x=0;x<h.length;x++)if(h[x][2]===i)return true;return false}
 function rimm(b,i){const q=b[i];if(q.inv||q.rg||q.t==='E')return true;
- if(b.hl&&!isKing(q.t)&&!isQueenCl(q.t)&&hillAt(b,i))return true;   // 1.2.0: 언덕 위 기물은 원거리 공격을 받지 않음
+ if(b.hl&&q.t!=='n'&&!isKing(q.t)&&!isQueenCl(q.t)&&hillAt(b,i))return true;   // 1.2.0: 언덕 위 기물은 원거리 공격을 받지 않음
  const tr=i>>3,tc=i&7;
  return false}
 function momProt(b,j){const q=b[j];if(!q)return false;const r=j>>3,c=j&7;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){if(!dr&&!dc)continue;const x=r+dr,y=c+dc;if(x<0||x>7||y<0||y>7)continue;const z=b[x*8+y];if(z&&z.t==='m'&&z.md&&z.s===q.s)return true}return false}
@@ -925,7 +925,7 @@ function gen0(b,s,opt){
    case'A':for(const[dr,dc]of D4){if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
     for(let k=1;k<=(dc?2:3);k++){const q=at(r+dr*k,c+dc*k);if(q&&q.s!==s)mv(r+dr*k,c+dc*k,1)}}   // 1.2.0: 좌우는 최대 2칸
     for(const[dr,dc]of DD)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);break;
-   case'T':{let rr=r+f,k=0;const kl=[];while(k<6){const q=at(rr,c);if(q===undefined)break;const t=rr*8+c;if(q===null){if(kl.length)gout.push([i,t,14,undefined,kl.slice()]);else mv(rr,c,0)}else if(q.s===s||q.inv||momProt(gb,t))break;else if(!p.m)break;else if(isKing(q.t)){if(!kl.length&&p.m)gout.push([i,t,0]);break}else{kl.push(t);if(kl.length===1)gout.push([i,t,0]);else gout.push([i,t,14,undefined,kl.slice()])}rr+=f;k++}break}
+   case'T':{if(at(r-f,c)===null)mv(r-f,c,0);let rr=r+f,k=0;const kl=[];while(k<6){const q=at(rr,c);if(q===undefined)break;const t=rr*8+c;if(q===null){if(kl.length)gout.push([i,t,14,undefined,kl.slice()]);else mv(rr,c,0)}else if(q.s===s||q.inv||momProt(gb,t))break;else if(!p.m)break;else if(isKing(q.t)){if(!kl.length&&p.m)gout.push([i,t,0]);break}else{kl.push(t);if(kl.length===1)gout.push([i,t,0]);else gout.push([i,t,14,undefined,kl.slice()])}rr+=f;k++}break}
    case'H':{for(const[dr,dc]of D8)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
     if(!gcap)for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q&&q.s===s&&!q.inv)gout.push([i,(r+dr)*8+c+dc,2])}break}
    case'Z':for(const[dr,dc]of DD){let rr=r+dr,cc=c+dc,k=0,q;while(k<3&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}
@@ -970,7 +970,8 @@ function gen0(b,s,opt){
     if(r===(s==='w'?7:0)){const tr=s==='w'?0:7;if(at(tr,c)===null)mv(tr,c,0)}break}
    case'h':{for(const[dr,dc]of D4)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
     if(at(r+f,c)===null&&at(r+2*f,c)===null)mv(r+2*f,c,0);
-    const kl=[];for(let rw=1;rw<=2;rw++)for(let dc=-1;dc<=1;dc++){if(rw===2&&dc!==0)continue;const q=at(r+f*rw,c+dc);if(q&&q.s!==s&&!rimm(b,(r+f*rw)*8+c+dc))kl.push((r+f*rw)*8+c+dc)}
+    const kl=[];for(let rw=1;rw<=2;rw++)for(let dc=-1;dc<=1;dc++){const q=at(r+f*rw,c+dc);if(q&&q.s!==s&&!rimm(b,(r+f*rw)*8+c+dc))kl.push((r+f*rw)*8+c+dc)}
+    if(gai&&kl.length>2){kl.sort((x,y)=>AV[b[y].t]-AV[b[x].t]);kl.length=2}
     if(kl.length)gout.push([i,i,6,undefined,kl]);break}
    case'v':case'o':{const vert=p.t==='v';
     if(!gcap)for(let x=0;x<8;x++){const j=vert?x*8+c:r*8+x;if(j!==i&&b[j]===null)gout.push([i,j,0])}
@@ -1032,7 +1033,7 @@ function gen0(b,s,opt){
    case'K':for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s))mv(r+dr,c+dc,0)}break;
    case'B':for(const[dr,dc]of DD){let rr=r+dr,cc=c+dc,q,k=0;while(k<4&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<4&&q&&q.s!==s)mv(rr,cc,0)}break;
    case'R':for(const[dr,dc]of D4){let rr=r+dr,cc=c+dc,q,k=0;while(k<4&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<4&&q&&q.s!==s)mv(rr,cc,0)}break;
-   case'Q':{const QL=p.m?4:2;for(const[dr,dc]of D8){let rr=r+dr,cc=c+dc,q,k=0;while(k<QL&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<QL&&q&&q.s!==s)mv(rr,cc,0)}}break;
+   case'Q':{const QL=p.m?4:3;for(const[dr,dc]of D8){let rr=r+dr,cc=c+dc,q,k=0;while(k<QL&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<QL&&q&&q.s!==s)mv(rr,cc,0)}}break;
   }
   if(p.slw&&!isKing(p.t)){let n2=st0;for(let j=st0;j<out.length;j++){const m=out[j];if(m[2]===0||m[2]===14)continue;out[n2++]=m}out.length=n2;
    if(!((p.t==='x'&&p.ocd)||(p.t==='j'&&p.ja)||(p.md&&(p.t==='m'||p.t==='w'||p.t==='f'))))for(const[dr,dc]of D4)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0)}
@@ -1041,13 +1042,13 @@ function gen0(b,s,opt){
  if(b.hl){const hs=new Array(64).fill(false);for(const h of b.hl)hs[h[2]]=true;
   const o2=[];
   for(let j=0;j<out.length;j++){const m=out[j],k=m[2],p=b[m[0]];
-   if(isKing(p.t)||isQueenCl(p.t)||(k!==0&&k!==14)){o2.push(m);continue}
+   if(isKing(p.t)||isQueenCl(p.t)||p.t==='n'||(k!==0&&k!==14)){o2.push(m);continue}
    if(hs[m[0]])continue;
    if(!HJUMP[p.t]){const fr=m[0]>>3,fc=m[0]&7,dr=(m[1]>>3)-fr,dc=(m[1]&7)-fc,ad=Math.max(Math.abs(dr),Math.abs(dc));
     if(ad>=2&&(dr===0||dc===0||Math.abs(dr)===Math.abs(dc))){const sr=Math.sign(dr),sc=Math.sign(dc);let bl=false;for(let x=1;x<ad;x++)if(hs[(fr+sr*x)*8+fc+sc*x]){bl=true;break}if(bl)continue}}
    o2.push(m)}
   out.length=0;for(const m of o2)out.push(m);
-  if(!gcap)for(let i2=0;i2<64;i2++){const p=b[i2];if(!p||p.s!==s||!hs[i2]||isKing(p.t)||isQueenCl(p.t)||(p.md&&(p.t==='m'||p.t==='w'||p.t==='f'))||(p.t==='x'&&p.ocd)||(p.t==='j'&&p.ja))continue;gi=i2;for(const[dr,dc]of D4)if(at((i2>>3)+dr,(i2&7)+dc)===null)mv((i2>>3)+dr,(i2&7)+dc,0)}}
+  if(!gcap)for(let i2=0;i2<64;i2++){const p=b[i2];if(!p||p.s!==s||!hs[i2]||p.t==='n'||isKing(p.t)||isQueenCl(p.t)||(p.md&&(p.t==='m'||p.t==='w'||p.t==='f'))||(p.t==='x'&&p.ocd)||(p.t==='j'&&p.ja))continue;gi=i2;for(const[dr,dc]of D4)if(at((i2>>3)+dr,(i2&7)+dc)===null)mv((i2>>3)+dr,(i2&7)+dc,0)}}
  // 1.2.0 철책: 변을 가로지르는 직선 이동·잡기 제거 (점프·순간이동 계열은 통과)
  if(b.fn){const fs=new Set(b.fn);const o3=[];
   for(let j=0;j<out.length;j++){const m=out[j],k=m[2];if(k!==0&&k!==14){o3.push(m);continue}
@@ -1189,7 +1190,7 @@ function make(b,m,nf){
  else if(k===10){b[t].db=1}
  else if(k===17||k===18){if(p.t==='f'){u.ix=[[p,p.ix||0]];if(!p.md&&b.mf){u.mgs=1;if(u.mf0===undefined){u.mg0=b.mg;u.mf0=b.mf}const r0=f>>3,c0=f&7;b.mf=b.mf.map(e=>{let cm=e[4]===undefined?15:e[4];const er=e[2]>>3,ec=e[2]&7;for(let x=0;x<2;x++)for(let y=0;y<2;y++)if(Math.abs(er+x-r0)<=2&&Math.abs(ec+y-c0)<=2)cm&=~(1<<(x*2+y));return[e[0],e[1],e[2],e[3],cm]}).filter(e=>e[4]);mgBuild(b)}if(!p.md&&b.hl){const r0=f>>3,c0=f&7;hlDrop(b,u,h=>Math.abs((h[2]>>3)-r0)<=2&&Math.abs((h[2]&7)-c0)<=2)}if(!p.md&&b.fn){const r0=f>>3,c0=f&7;fnDrop(b,u,x=>Math.abs((x>>3)-r0)<=2&&Math.abs((x&7)-c0)<=2)}p.ix=0}p.md=p.md?0:1}
  else if(k===29){u.rgs=[];const r0=f>>3,c0=f&7;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){const x=r0+dr,y=c0+dc;if(x<0||x>7||y<0||y>7)continue;const q=b[x*8+y];if(q&&q.s===p.s&&!q.rg){q.rg=1;u.rgs.push(q)}}}
- else if(k===15){u.ft=[];if(m[3]===1)for(let j=0;j<64;j++){const q=b[j];if(q&&q.s!==p.s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='D'&&q.t!=='W'&&q.t!=='s'){q.frz=1;u.ft.push(q)}}}
+ else if(k===15){u.ft=[];if(m[3]===1)for(let j=0;j<64;j++){const q=b[j];const jr=j>>3,jc=j&7;if(jr<3||jr>4||jc<2||jc>5)continue;if(q&&q.s!==p.s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='D'&&q.t!=='W'&&q.t!=='s'){q.frz=1;u.ft.push(q)}}}
  else if(k===14){u.kl=[];for(const j of m[4]){const q=b[j];u.kl.push([j,q]);b[j]=null;u.n++;if(isKing(q.t))u.cap=q}b[t]=p;b[f]=null;p.m=1;if(m[5]){b[t]=null;if(b.dead&&!p.rv){b.dead[p.s].push(p);u.bd=1}}}
  else if(k===12){const q=b[t];b[m[3]]=q;b[t]=null}
  else if(k===13){p.md=p.md?0:1}
@@ -1206,8 +1207,6 @@ function make(b,m,nf){
  if(p.t==='x'&&k===0&&u.cap){p.kc=(p.kc||0)+1;u.dk=1;u.oxp=p.kc>=3}
  if(k===0&&u.cap&&(p.t==='s'||m[5]||u.oxp)){b[t]=null;if(b.dead&&!p.rv){b.dead[p.s].push(p);u.bd=1}}
  if(p.t==='d'){let dk=0;if(k===0&&u.cap)dk=1;else if(k===14)for(const x of u.kl)if(x[1].s!==p.s)dk++;if(dk){p.kc=(p.kc||0)+dk;u.dk=dk}}
- if(k===0&&p.t==='x'){p.ocd=1;u.ocs=1}
- if(p.t==='j'){if(k===0){p.jm=1;u.jms=1}else if(k===1){p.ja=1;u.jas=1}}
  if(k===0&&((p.t==='v'&&(t&7)!==(f&7))||(p.t==='o'&&(t>>3)!==(f>>3)))){p.nsk=1;u.nss=1}
  if(!nf)fireStage(b,p.s,u);
  if(!nf&&b.mg)magTick(b,preM,u);
@@ -1483,14 +1482,14 @@ function skillCands(b,s,sk){
   fin.sort((x,y)=>y[0]-x[0]);const uq=new Set();let n=0;
   for(const q of fin){const key=q[1].map(mkey).join('|');if(uq.has(key))continue;uq.add(key);out.push([q[1][0][0],q[1][0][1],9,undefined,q[1],'F']);if(++n>=10)break}}
  return out}
-function luckyBonus(b,s){const o=s==='w'?'b':'w';let mx=0;for(const x of gen(b,o,{ai:true,cap:true,noDbl:true})){const v=tacticalVal(b,x);if(v>mx)mx=v}return .3*Math.min(mx,10)*.8}
+function luckyBonus(b,s){const o=s==='w'?'b':'w';let mx=0;for(const x of gen(b,o,{ai:true,cap:true,noDbl:true})){const jr=x[0]>>3,jc=x[0]&7;if(jr<3||jr>4||jc<2||jc>5)continue;const v=tacticalVal(b,x);if(v>mx)mx=v}return .5*Math.min(mx,10)*.8}
 const isLk=m=>m[2]===15||(m[2]===9&&m[4]&&m[4][0][2]===15);
 // 럭키: 성공(50%: 적 전체 행동불가)/실패 두 결과의 기대값으로 평가
 function luckyEval(b,m,s,d,ply){const o=s==='w'?'b':'w';let tot=0;
  for(const succ of[1,0]){const mm=m[2]===15?[m[0],m[1],15,succ]:[m[0],m[1],9,undefined,[[m[4][0][0],m[4][0][1],15,succ],m[4][1]]];
   const u=make(b,mm);let v;
   if(u.cap&&isKing(u.cap.t))v=MATE-ply;else if(u.sk)v=-(MATE-ply);else if(d<=1)v=-ev(b,o);else v=-nega(b,o,d-1,-1e9,1e9,ply+1);
-  unmake(b,u);if(stopFlag)return 0;tot+=succ?.3*v:.7*v}
+  unmake(b,u);if(stopFlag)return 0;tot+=.5*v}
  return tot}
 function nega(b,s,d,alpha,beta,ply){
  if((++nodes&1023)===0&&Date.now()>deadline)stopFlag=true;
@@ -1805,13 +1804,13 @@ function TR(k,e){return EN?e:k}
 const EN_DEF={
  K:['King','Required piece · Moves or captures 1 square in any direction · Can be replaced by Emperor, God or Demon · Enemy Queens cannot capture the King · Immune to movement locks from Medusa, Lucky and Frozen · Lose the game if captured'],
  E:['Emperor','Used instead of the King · Moves or captures 1 square forward, or sideways up to 2 squares along the row in front (5 squares wide) · Moves 1 square backward (empty squares only, no capture) · Immune to ranged attacks · Lose the game if captured'],
- Q:['Queen','Moves or captures up to 4 squares in a straight line, orthogonally or diagonally (first move only: up to 2 squares) · Cannot capture enemy King-class pieces'],
+ Q:['Queen','Moves or captures up to 4 squares in a straight line, orthogonally or diagonally (first move only: up to 3 squares) · Cannot capture enemy King-class pieces'],
  M:['Medusa','Moves or captures 1 square in any direction · Skill: Every enemy in the 5x5 area around her cannot act for the opponent\'s next turn (no moving, capturing, ranged attacks or skills; King-class, Queen-class and Genesis are immune)'],
  P:['Pawn','Moves 1 square forward (2 on its first move) and captures diagonally forward · Skill: On reaching the far row, promotes to Rook, Bishop or Knight (your choice)'],
  S:['Soldier','Moves 1 square forward (2 squares on its first move only; cannot capture by moving) · Ranged attack on the square 1 ahead · Skill: On reaching the far row, promotes to Vanguard or Shotgun (your choice)'],
  L:['Sling','Moves 1 square diagonally (2 on its first move; cannot capture by moving) · Ranged attack on diagonal squares 1 away'],
  F:['Wolf','Moves like a Knight · Special: After eliminating an enemy, moves once more from the landing square to a random empty Knight-move square (no capture; no move if none is available)'],
- T:['Striker','Moves or captures up to 6 squares straight forward · Breakthrough: If no friendly piece is in the way, eliminates every enemy it passes through (invincible pieces and King-class pieces cannot be pierced and stop it) · On its first, unmoved action it cannot capture anything (it can only move, and stops at the first enemy)'],
+ T:['Striker','Moves or captures up to 6 squares straight forward · Moves 1 square backward (empty square only, cannot capture) · Breakthrough: If no friendly piece is in the way, eliminates every enemy it passes through (invincible pieces and King-class pieces cannot be pierced and stop it) · On its first, unmoved action it cannot capture anything (it can only move, and stops at the first enemy)'],
  V:['Vanguard','Moves or captures up to 3 squares orthogonally · Skill: Vanguard — friendly pieces in the surrounding 3x3 (including itself) cannot be hit by ranged attacks during the next enemy turn'],
  G:['Golem','Moves or captures 1 square orthogonally · Skill: Randomly eliminates 1-3 enemies in the surrounding 3x3 (invincible pieces excluded)'],
  H:['Priest','Moves 1 square in any direction (cannot attack) · Skill: Makes 1 friendly piece in the surrounding 3x3 invincible for the opponent\'s next turn'],
@@ -1830,13 +1829,13 @@ const EN_DEF={
  g:['God','Used instead of the King · Moves to any empty square in the surrounding 5x5 (cannot attack) · Lose the game if captured'],
  q:['Princess','Used instead of Queen or Medusa · Moves to any empty square in the surrounding 5x5 (cannot attack) · Skill: Choose 1 friendly piece; it acts twice next turn'],
  r:['Rondo','Moves or captures 1 square at a time, backward only (toward its own side) · From its own back row, can make a backdoor move to an empty square in the same column on the enemy back row'],
- h:['Shotgun','Moves 1 square orthogonally, or up to 2 squares straight forward (cannot capture by moving) · Ranged attack on every enemy in the 3 squares ahead (front-left, front, front-right) plus the square one further straight ahead'],
+ h:['Shotgun','Moves 1 square orthogonally, or up to 2 squares straight forward (cannot capture by moving) · Ranged attack on 2 to 3 random enemies within the 3x2 block of squares ahead of it (all of them if fewer are in range)'],
  s:['Genesis','Moves up to 3 times per turn, 1 square at a time in any direction · Capturing an enemy makes it explode along with its victim and the turn ends (cannot capture King-class pieces: King, Emperor, God, Demon)'],
  v:['Vertical','Moves to any empty square in its own column (cannot capture by moving) · Moves 1 square left or right (empty squares only; cannot capture) · Skill: Eliminates 1 enemy in the same column (usable only after it has moved once; not King-class, not ranged-immune targets) · After a sideways move, it cannot use its skill on the very next turn'],
  o:['Horizon','Moves to any empty square in its own row · Moves 1 square forward or backward (empty squares only; cannot capture by moving) · Skill: Eliminates 1 enemy in the same row (not King-class, not ranged-immune targets) · After moving forward or backward, it cannot use its skill on the very next turn'],
  a:['Hand','Moves 1 square in any direction (cannot capture by moving) · Skill: Moves 1 friendly piece in your own zone (your 2 rows) to any empty square outside the enemy zone (2 enemy rows); usable only while the Hand is in your zone · King- and Queen-class pieces, Black/White Dragons, Genesis and Hand cannot be moved'],
  w:['Spellblade','Moves or captures up to 2 squares orthogonally or 1 square diagonally · Skill: Switches to Sword Mode — cannot move, but ranged-attacks enemies in the 5x5 around it (use again to return to move mode)'],
- l:['Lucky','Moves 1 square orthogonally (cannot capture) · Skill: 30% chance that enemy pieces cannot move or capture next turn (ranged attacks still work; no effect on King- or Queen-class, Black/White Dragon or Genesis); after using it, 1 friendly piece of cost 2 or less may act one extra time'],
+ l:['Lucky','Moves 1 square orthogonally (cannot capture) · Skill: 50% chance that enemy pieces in the central 4x2 area (files c–f, ranks 4–5) cannot move or capture next turn (ranged attacks still work; no effect on King- or Queen-class, Black/White Dragon or Genesis); after using it, 1 friendly piece of cost 2 or less may act one extra time'],
  c:['Critical','Moves or captures 1 square orthogonally or up to 2 squares diagonally · Special: When capturing, 50% chance to also eliminate 1 enemy right next to the captured piece (orthogonally; not King-class)'],
  f:['Frozen','Moves up to 2 squares in any direction (cannot capture by moving) · Skill: Toggle Freeze Zone — while on, all pieces in the 5x5 around it, allies and enemies alike, can neither move nor capture (ranged attacks and skills still work; King-/Queen-class are immune); use again to turn off · While the zone is on, Frozen itself cannot move · Squares overlapping magma lose the freeze zone, and turning the zone on removes any overlapping magma'],
  i:['Infighter','Moves or captures up to 2 squares orthogonally or 1 square diagonally · Special: If captured by a piece of higher cost, 50% chance to eliminate that piece as well'],
@@ -1851,10 +1850,10 @@ const EN_DEF={
  k:['Warhammer','Moves or captures up to 3 squares straight forward, left or right (cannot retreat) · Special: After eliminating an enemy, 50% chance to capture once more from the landing square the same way (capture only, no plain move)'],
  u:['Voltage','Moves up to 5 squares in any direction · Can only capture pieces of cost 2 or less (not King-class, and cannot capture on its first action) · Special: After moving or capturing, if another Voltage (friend or foe) is within the surrounding 3x3, may act once more (only one extra action) · Immune to the storm'],
  t:['Hopper','Jumps in a long L-shape (1x3), over pieces (cannot capture) · Skill: Locust Swarm — spend the turn to activate; afterwards the same move can also capture (stays active; resets if revived)'],
- x:['Orbit','Moves or captures to any square on the outer ring of its surrounding 5x5 (the 3x3 around it is excluded), jumping over pieces · Cannot capture King-class pieces (King, Emperor, God, Demon) or the Genesis · After moving or capturing, it cannot move on the following turn · Explodes and is removed the moment it has captured 3 enemies'],
- j:['Sparkle','Moves 1 square orthogonally (cannot capture) · Ranged attack: hits an enemy on any square of the outer ring of its surrounding 5x5 (the 3x3 around it and the four corner squares are excluded) · Cannot attack on the turn after moving, and cannot move on the turn after attacking'],
+ x:['Orbit','Moves or captures to any square on the outer ring of its surrounding 5x5 (the 3x3 around it is excluded), jumping over pieces · Trait: Cannot capture King-class pieces (King, Emperor, God, Demon) or the Genesis · Trait: Explodes and is removed the moment it has captured 3 enemies'],
+ j:['Sparkle','Moves 1 square orthogonally (cannot capture) · Ranged attack: hits an enemy on any square of the outer ring of its surrounding 5x5 (the 3x3 around it and the four corner squares are excluded)'],
  y:['Lancer','Moves or captures up to 2 squares straight forward or diagonally forward-left / forward-right · Pierce: enemies in the path are eliminated too (blocked by friendly pieces; invincible pieces and King-class cannot be pierced) · Moves 1 square backward (empty squares only; cannot capture)'],
- n:['Mountain','Moves or captures 1 square orthogonally · Skill: Hill — turn one square of the middle 4 rows (outside both home zones) into a hill (each Mountain keeps 1 hill). A piece on a hill (not King- or Queen-class) is immune to ranged attacks but can be captured, and its movement is fixed to 1 square orthogonally (no capture) · A moving piece stops on the first hill in its path · Hills vanish when covered by Magma, a Freeze Zone or the storm, or when their Mountain is gone'],
+ n:['Mountain','Moves or captures 1 square orthogonally · Skill: Hill — turn one square of the middle 4 rows (outside both home zones) into a hill (each Mountain keeps 1 hill). A piece on a hill (not King-/Queen-class or Mountain) is immune to ranged attacks but can be captured, and its movement is fixed to 1 square orthogonally (no capture) · Trait: A moving piece stops on the first hill in its path (a Mountain itself is not affected by hills) · Trait: Hills vanish when covered by Magma, a Freeze Zone or the storm, or when their Mountain is gone'],
  'Ł':['Liner','Moves or captures 1 square vertically · Skill: Fence — remove itself and build a permanent fence on one of the 4 sides of the square it stood on. Neither side can cross a fence with a straight move or capture (jumps, teleports and ranged attacks pass over) · Fences vanish when covered by Magma, a Freeze Zone or a hill (and by the storm)'],
 };
 
@@ -1945,12 +1944,13 @@ function miniHtml(t,alt){const pt=patt(t,alt),d=DEMO[t]||[4,3],me=d[0]*8+d[1];le
 function rowsHtml(t){const parts=DEF[t].d.split(' · '),pe=EN?DEF[t].dd.split(' · '):null;
  return parts.map((p,pi)=>{let k=TR('이동','Move'),c='qmv',x=p;
   if(/^스킬:/.test(p)){k=TR('스킬','Skill');c='qsk';x=p.replace(/^스킬:\s*/,'')}
+  else if(/^특징:/.test(p)){k=TR('특징','Trait');c='qgy';x=p.replace(/^특징:\s*/,'')}
   else if(/^특수:/.test(p)){k=TR('특수','Special');c='qcap';x=p.replace(/^특수:\s*/,'')}
   else if(/필수 기물|3x3으로 줄어듦|대체 가능|킹을 잡을 수 없음|잡히면 패배|대신 사용|면역|에만 배치|마그마는 각각 따로|자신도 움직일 수 없음|킹 계열은 잡을 수 없음|킹 계열을 잡을 수 없음|옮길 수 없음/.test(p)){k=TR('특징','Trait');c='qgy'}
   else if(/^돌파:|백도어/.test(p)){k=TR('특수','Special');c='qcap';x=p.replace(/^돌파:\s*/,'')}
   else if(/원거리|포격|사격|저격|관통/.test(p)&&!/이동/.test(p.split(/원거리|포격|사격|저격|관통/)[0])){k=TR('공격','Attack');c='qrg'}
   else if(/처치하면|잡은 뒤|돌파|폭멸|추가 이동|킹·엠페러|처치되|사라짐/.test(p)&&parts.length>1){k=TR('특수','Special');c='qcap'}
-  if(EN)x=pe[pi].replace(/^(Skill|Special|Breakthrough):\s*/,'');
+  if(EN)x=pe[pi].replace(/^(Skill|Special|Trait|Breakthrough):\s*/,'');
   return `<div class="rw"><b class="rk ${c}">${k}</b><span>${pnIco(x)}</span></div>`}).join('')}
 function tagsHtml(t){const tg=[plTags(t)];
  if(isKing(t))tg.push(TR('<span class="tg kc">킹 계열</span>','<span class="tg kc">King class</span>'));else if(t==='Q'||t==='M'||t==='q'||t==='m')tg.push(TR('<span class="tg x">퀸 계열</span>','<span class="tg x">Queen class</span>'));return tg.join('')}
@@ -2190,7 +2190,7 @@ function hintFor(m){
  else if(m[2]===12){const q=b[m[1]];why=q?TR(`${DEF[q.t].n}을(를) 더 좋은 자리로 옮깁니다`,`Moves ${DEF[q.t].n} to a better spot`):SKT[12]}
  else if(m[2]===5)why=TR('주변 기물을 재배치해 위협을 만들거나 피합니다','rearranges nearby pieces to create or avoid threats');
  else if(m[2]===13)why=p.md?TR('마검 모드를 풀고 다시 움직입니다','leaves Sword Mode so it can move again'):TR('마검 모드로 주변 5x5의 적을 노립니다','enters Sword Mode to target enemies in the surrounding 5x5');
- else if(m[2]===15)why=TR('성공하면 상대가 다음 턴에 이동·잡기를 못 합니다 (30%)','if it works, the opponent cannot move or capture next turn (30%)');
+ else if(m[2]===15)why=TR('성공하면 상대가 다음 턴에 이동·잡기를 못 합니다 (50%)','if it works, the opponent cannot move or capture next turn (50%)');
  else if(SKT[m[2]])why=SKT[m[2]];
  else if(attackedBy(b,OP(X),m[0]))why=TR('공격받는 기물을 안전하게 이동','Moves an attacked piece to safety');
  else why=TR('위치를 개선하는 수','Improves position');
@@ -2377,7 +2377,7 @@ function mvTxt(m,p,rvT){const k=m[2],nm=DEF[p.t].n;
  if(k===6)return TR(`${nm} 관통 사격 → ${m[4].map(pos).join('·')}`,` ${nm} pierce shot → ${m[4].map(pos).join('·')}`);
  if(k===17)return p.md?TR(`${nm} 스킬: ❄️ 빙결 영역 발동 (5x5 안의 기물은 아군·적 모두 이동·잡기 불가)`,` ${nm} skill: ❄️ Freeze Zone on (all pieces in the 5x5 cannot move or capture)`):TR(`${nm} 스킬: 빙결 영역 해제`,` ${nm} skill: Freeze Zone off`);
  if(k===16)return TR('턴을 넘김','passed the turn');
- if(k===15)return m[3]===1?TR(`${nm} 스킬: 🍀 성공! 상대 기물(킹·퀸 계열 제외)은 다음 턴 이동·잡기 불가 (원거리만 가능)`,` ${nm} skill: 🍀 Success! Enemy pieces (except King/Queen class) cannot move or capture next turn (ranged only)`):TR(`${nm} 스킬: 실패… (30% 확률)`,` ${nm} skill: failed… (30% chance)`);
+ if(k===15)return m[3]===1?TR(`${nm} 스킬: 🍀 성공! 상대 기물(킹·퀸 계열 제외)은 다음 턴 이동·잡기 불가 (원거리만 가능)`,` ${nm} skill: 🍀 Success! Enemy pieces (except King/Queen class) cannot move or capture next turn (ranged only)`):TR(`${nm} 스킬: 실패… (50% 확률)`,` ${nm} skill: failed… (50% chance)`);
  if(k===0&&m[4])return TR(`${nm} ${pos(m[0])} → ${pos(m[1])} · 💥 크리티컬! ${DEF[rvT].n} 추가 처치 (${pos(m[4][0])})`,` ${nm} ${pos(m[0])} → ${pos(m[1])} · 💥 Critical! also eliminated ${DEF[rvT].n} (${pos(m[4][0])})`);
  if(k===29)return TR(`${nm} 스킬: 🚩 선봉 — 주변 3x3 아군은 상대의 다음 턴 원거리 공격을 받지 않음`,` ${nm} skill: 🚩 Vanguard — allies in the surrounding 3x3 cannot be hit by ranged attacks next turn`);
  if(k===18)return p.md?TR(`${nm} 스킬: 💗 보호막 발동 (주변 아군 잡기 불가·자신은 이동 불가)`,` ${nm} skill: 💗 Shield on (nearby allies cannot be captured · she cannot move)`):TR(`${nm} 스킬: 보호막 해제`,` ${nm} skill: Shield off`);
@@ -2400,7 +2400,8 @@ function play(m,hold,seq){if(m&&m[2]===16)G.pasd=true;
   if(m[2]===1&&pp&&pp.t==='C'&&!m[4]&&G.b[m[1]]&&Math.random()<1/2){const q0=G.b[m[1]];let bj=-1,bv=-1;
    if(!(q0.sh||q0.inv||q0.t==='E'))for(const[er,ec]of BC.D8){const x=(m[1]>>3)+er,y=(m[1]&7)+ec;if(x<0||x>7||y<0||y>7)continue;const j=x*8+y,e2=G.b[j];if(e2&&e2.s!==wh&&!e2.inv&&!isKing(e2.t)&&!'QMqm'.includes(e2.t)&&!BC.momProt(G.b,j)&&BC.DEF[e2.t].av>bv){bv=BC.DEF[e2.t].av;bj=j}}
    if(bj>=0)m=[m[0],m[1],1,undefined,[bj]]}
-  if(m[2]===15&&m[3]===undefined)m=[m[0],m[1],15,Math.random()<.3?1:0];
+  if(m[2]===15&&m[3]===undefined)m=[m[0],m[1],15,Math.random()<.5?1:0];
+  if(m[2]===6&&pp&&pp.t==='h'&&m[3]===undefined){const full=BC.gen(G.b,wh,{noDbl:true}).find(x=>x[2]===6&&x[0]===m[0]),L=((full||m)[4]||[]).slice();for(let q=L.length-1;q>0;q--){const r=Math.random()*(q+1)|0;[L[q],L[r]]=[L[r],L[q]]}m=[m[0],m[1],6,1,L.slice(0,Math.min(L.length,Math.random()<.5?3:2))]}
   else if(pp&&pp.t==='c'&&m[2]===0&&m[3]===undefined&&!m[4]&&G.b[m[1]]&&G.b[m[1]].s!==wh&&Math.random()<1/2){
    const r0=m[1]>>3,c0=m[1]&7,cd=[];for(const[dr,dc]of BC.D4){const x=r0+dr,y=c0+dc;if(x<0||x>7||y<0||y>7)continue;const q=G.b[x*8+y];if(q&&q.s!==wh&&!isKing(q.t)&&!q.inv&&!BC.momProt(G.b,x*8+y)&&x*8+y!==m[0])cd.push(x*8+y)}
    if(cd.length)m=[m[0],m[1],0,undefined,[cd[Math.random()*cd.length|0]]]}
@@ -3775,13 +3776,21 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.2.5';
+const APP_VER='1.2.6';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
- ['1.2.5',TR('밸런스 조정 패치','Balance Patch'),[
+ ['1.2.6',TR('밸런스 조정 패치','Balance Patch'),[
   TR('【밸런스】','【Balance】'),
-  TR('🔱 크로스보우 코스트 3 → 4 · 🧚 프린세스 코스트 2 → 4 · ⚡ 볼티지 코스트 2 → 3','🔱 Crossbow cost 3 → 4 · 🧚 Princess cost 2 → 4 · ⚡ Voltage cost 2 → 3'),
-  TR('🍀 럭키 스킬 성공 확률 50% → 30%','🍀 Lucky skill success chance 50% → 30%')]],
+  TR('【코스트】','【Costs】'),
+  TR('🔱 크로스보우 3 → 4 · 🧚 프린세스 2 → 4 · ⚡ 볼티지 2 → 3 · 🧊 프로즌 2 → 4 · 🌅 호라이즌 2 → 5 · 🖐️ 핸드 8 → 7 · 🐺 울프 5 → 4 · 🗼 버티컬 7 → 6 · 🙏 프리스트 1 → 2 · 🎯 스나이퍼 3 → 7','🔱 Crossbow 3 → 4 · 🧚 Princess 2 → 4 · ⚡ Voltage 2 → 3 · 🧊 Frozen 2 → 4 · 🌅 Horizon 2 → 5 · 🖐️ Hand 8 → 7 · 🐺 Wolf 5 → 4 · 🗼 Vertical 7 → 6 · 🙏 Priest 1 → 2 · 🎯 Sniper 3 → 7'),
+  TR('【기물 조정】','【Piece Changes】'),
+  TR('🍀 럭키: 스킬이 중앙 4x2칸(c~f열 4·5줄)의 상대 기물에게만 통함 (성공 확률 50%)','🍀 Lucky: the skill only affects enemy pieces in the central 4x2 area (files c–f, ranks 4–5) (50% chance)'),
+  TR('⛰️ 마운틴: 마운틴 자신은 언덕의 영향을 받지 않음 · 설명창 정리','⛰️ Mountain: the Mountain itself is unaffected by hills · description cleaned up'),
+  TR('🪐 오르빗: 이동·잡기 뒤 이동 불가 패널티 제거 (3기 처치 시 폭발은 그대로)','🪐 Orbit: removed the no-move penalty after moving or capturing (still explodes at 3 kills)'),
+  TR('💠 스파클: 이동·공격 제한 패널티 제거','💠 Sparkle: removed its move/attack lockout penalties'),
+  TR('🧨 샷건: 사거리가 앞쪽 3x2칸으로 확대, 범위 안의 적 2~3기를 무작위로 처치','🧨 Shotgun: range widened to the 3x2 block ahead; eliminates 2–3 random enemies in range'),
+  TR('🏃 스트라이커: 뒤로 1칸 이동 가능 (잡기 불가)','🏃 Striker: can move 1 square backward (no capture)'),
+  TR('👸 퀸: 첫 이동 최대 2칸 → 3칸','👸 Queen: first move up to 2 → 3 squares')]],
  ['1.2.4',TR('정식출시 패치 "궤도에 오르라!"','Official Release "Into Orbit!"'),[
   TR('【신규 기물 5종】','【5 new pieces】'),
   TR('🪐 오르빗 (9) — 자신 주변 5x5의 바깥 한 줄 어디로든 이동·잡기(기물을 뛰어넘음). 킹 계열·제네시스는 잡을 수 없고, 이동·잡기를 한 다음 턴엔 이동 불가. 적을 3기 처치하면 폭발해 사라짐','🪐 Orbit (9) — moves or captures anywhere on the outer ring of its 5x5, jumping over pieces. Cannot capture King-class pieces or Genesis; cannot move the turn after moving or capturing; explodes and is removed after 3 kills'),
