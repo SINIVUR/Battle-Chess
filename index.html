@@ -585,7 +585,7 @@ input[type=range]:focus-visible{outline:3px solid var(--lm);outline-offset:3px}
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <p class="note">39 코스트로 나만의 군대를 만들어 싸워라</p>
- <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.1.8</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.1.9</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -2013,12 +2013,15 @@ function isLocked(i){const q=G.b[i];if(!q)return false;for(let j=0;j<64;j++){con
 /* AI 진영에 추가 행동 대기 상태가 생기면 AI가 알아서 처리 */
 let aaT=null;
 const aiExtraNeeded=()=>!G.over&&!G.busy&&G.b&&((G.mode==='pve'&&G.turn!==G.human)||G.mode==='sim')&&(G.xm||G.dx||G.rush||G.gsw);
-function aiAuto(){aaT=null;if(!aiExtraNeeded())return;const who=G.turn;
+const aiSideExtra=()=>!G.over&&G.b&&((G.mode==='pve'&&G.turn!==G.human)||G.mode==='sim')&&!G.pause&&(G.xm||G.dx||G.rush||G.gsw);
+const aiKick=()=>{setTimeout(()=>{if(aiExtraNeeded()&&!aaT)aaT=setTimeout(aiAuto,0)},1000);setTimeout(()=>{if(aiExtraNeeded()&&!aaT)aaT=setTimeout(aiAuto,0)},2500)};   // 추가 행동이 생기면 반드시 AI가 이어서 처리
+function aiAuto(){aaT=null;if(!aiExtraNeeded()){if(aiSideExtra())aaT=setTimeout(aiAuto,400);return}const who=G.turn;
  if(G.gsw){gsEnd(who);return}
  if(G.dx){let best=null,bv=0;for(const m of G.legal||[]){const k=m[2];if(k!==0&&k!==1&&k!==4&&k!==6&&k!==11&&k!==14)continue;const v=BC.tacticalVal(G.b,m);if(v>bv){bv=v;best=m}}
   if(best){play(best);return}G.dbq=0;G.dx=false;wrapUp(who,null,-1,true);return}
  if(G.xm){const L=G.legal||[];if(L.length){let m2=L[Math.random()*L.length|0],bv=0;for(const x of L){const v=BC.tacticalVal(G.b,x);if(v>bv){bv=v;m2=x}}sparkFx(m2[1]);play(m2);return}const x=G.xm;wrapUp(who,x.p,x.loc,true);return}
  if(G.rush){rushEnd()}}
+window.setInterval(()=>{if(aiExtraNeeded()&&!aaT)aaT=setTimeout(aiAuto,300)},900);   // 1.1.9: AI 추가 행동이 멈추는 일이 없도록 감시
 function draw(msg){
  if(aiExtraNeeded()&&!aaT)aaT=setTimeout(aiAuto,850);
  if(G.tut)tutSync();
@@ -2041,6 +2044,7 @@ function draw(msg){
   else if(G.xm)t=TR('추가 이동: 표시된 칸으로 한 번 더 이동하세요 (건너뛰기 가능)','Extra move: move once more to a marked square (can skip)');
   else if(G.mode==='sim'&&G.pause)t=TR('일시정지 · ','Paused · ')+SN[G.turn]+TR(' 차례','\'s turn');else if(aiTurn)t=G.mode==='sim'?SN[G.turn]+TR(' AI가 생각 중',' AI is thinking'):TR('AI가 생각 중','AI is thinking');
   else t=G.net?(G.turn===G.net.me?TR('당신의 차례 · ','Your turn · '):TR('상대의 차례 · ','Opponent\'s turn · '))+SN[G.turn]+(G.turn!==G.net.me?TR(' (기다리는 중)',' (waiting)'):''):G.mode==='pve'?TR('당신의 차례 · ','Your turn · ')+SN[G.turn]:SN[G.turn]+TR(' 차례','\'s turn')}
+ if(aiTurn&&!msg&&(G.xm||G.dx||G.rush||G.gsw))t=TR('AI가 추가 행동 중…','AI is taking its extra action…');
  hudDraw();const st=$('#st');st.textContent=t;st.classList.toggle('th',aiTurn&&!G.xm&&!msg&&!G.lab);if(G.lab)labUi(st,msg);
  let inf=G.lastTxt||'';
  
@@ -2230,7 +2234,7 @@ function play(m,hold,seq){
   gsEnd(who);return}
  if(G.rush&&!hold){rushAfter(who,p);return}
  if(lkx){G.rush={left:1,used:[],lk:1};if(!rushList().length){rushEnd();return}G.sel=null;G.legal=[];draw();return}
- if(hold){fxBonus(m[1],p.t);hold.p=p;hold.loc=m[1];G.xm=hold;G.sel=m[1];G.legal=hold.d.map(d=>[m[1],d,0]);draw();return}
+ if(hold){fxBonus(m[1],p.t);hold.p=p;hold.loc=m[1];G.xm=hold;G.sel=m[1];G.legal=hold.d.map(d=>[m[1],d,0]);draw();aiKick();return}
  if(seq){draw();return}
  wrapUp(who,p,(m[2]===0||m[2]===14)?m[1]:m[0],more)}
 /* ===== 기물별 처치 이펙트 ===== */
@@ -2494,7 +2498,7 @@ function gsEnd(who){const g=G.gs;G.gs=null;G.gsw=false;if(!g){endTurn();return}
  if(boomed){sfx('boom');setTimeout(()=>{fxCell(g.loc,'💥');fxCell(g.loc,'🔥');const bd=$('#bd4');if(bd){bd.classList.add('shk');setTimeout(()=>bd.classList.remove('shk'),700)}},120)}}
 function wrapUp(who,p,loc,needFire){
  if(G.dbq>0){G.dbq=0;if(p&&G.b[loc]===p){const lg=BC.gen(G.b,who,{noDbl:true}).filter(x=>x[0]===loc);
-   if(lg.length){G.dx=true;G.xm=null;G.sel=loc;G.legal=lg;draw();return}}}
+   if(lg.length){G.dx=true;G.xm=null;G.sel=loc;G.legal=lg;draw();aiKick();return}}}
  if(needFire){const u2={n:0};BC.fireStage(G.b,who,u2);if(u2.sn){G.fx=u2.sn.map(x=>[x[0],x[1].s]);if(u2.n>0)G.since=0;if(afterFire(u2,who))return}
   if(G.b.mg){const u3={n:0};BC.magTick(G.b,G.pre,u3);if(u3.mk){u3.mk.forEach(x=>G.lost[x[1].s].push(x[1].t));G.since=0;G.lastTxt+=TR(` · 🌋 마그마에 소멸: ${u3.mk.map(x=>DEF[x[1].t].n).join('·')}`,` · 🌋 Burned up in magma: ${u3.mk.map(x=>DEF[x[1].t].n).join('·')}`);const mk=u3.mk.slice();setTimeout(()=>{mk.forEach(x=>killFx(x[0],x[1].s,mk.length,'e',null));sfx('magmaDie')},300);if(u3.sk){finish(OP(who),'king');return}}}
   {const u4={n:0};BC.stormTick(G.b,who,u4);stormReport(u4,who);if(u4.sk){finish(OP(who),'storm');return}}}
@@ -3487,9 +3491,10 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.1.8';
+const APP_VER='1.1.9';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.1.9',TR('AI 추가 행동 수정','AI extra-action fix'),[TR('AI의 워해머 등 추가 행동이 멈춰서 사람이 건너뛰기를 눌러야 하던 문제 방지(AI가 모든 추가 행동을 스스로 처리)','Prevented AI extra actions (e.g. Warhammer) from stalling and waiting for you to skip; the AI now always completes them itself')]],
  ['1.1.8',TR('마그마 판정 수정','Magma fix'),[TR('마그마 칸에서 옆 마그마 칸으로 옮겨도 마그마 위에 있으면 처치됨','A piece that steps onto a neighboring magma square is still eliminated')]],
  ['1.1.7',TR('플레임·프로즌 규칙','Flame & Frozen rules'),[TR('플레임마다 자기 마그마를 따로 유지 (같은 플레임이 다시 쓰면 그 플레임의 마그마만 교체)','Each Flame keeps its own magma (recasting replaces only that Flame\'s magma)'),TR('마그마와 프로즌의 빙결 영역이 겹치면 겹친 칸은 서로 사라짐','Where magma and a Freeze Zone overlap, the overlapping squares cancel each other')]],
  ['1.1.6',TR('설정 정리','Settings polish'),[TR('설정의 배경음악 크기 슬라이더에 겹쳐 보이던 이중 테두리 정리','Cleaned up the double frame around the music volume slider')]],
