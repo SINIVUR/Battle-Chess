@@ -679,8 +679,8 @@ body:has(#s0.on){padding-bottom:calc(env(safe-area-inset-top,0px) + 48px)}@media
  <h1 class="big"><b data-t="BATTLE">BATTLE</b><b class="o" data-t="CHESS">CHESS</b></h1>
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
- <div class="pbadge"><b>v1.2.3</b> 정식출시 대규모 패치 "궤도에 오르라!"<small>신규 기물 5종 · 언덕 · 철책 · 기물 조정</small></div>
-  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.2.3</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="pbadge"><b>v1.2.4</b> 정식출시 대규모 패치 "궤도에 오르라!"<small>신규 기물 5종 · 언덕 · 철책 · 기물 조정</small></div>
+  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.2.4</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -2376,7 +2376,7 @@ function mvTxt(m,p,rvT){const k=m[2],nm=DEF[p.t].n;
  if(k===6&&p.t==='h')return TR(`${nm} 스킬: 전방 사격 → ${m[4].map(pos).join('·')} 처치`,` ${nm} skill: fired ahead → eliminated ${m[4].map(pos).join('·')}`);
  if(k===6)return TR(`${nm} 관통 사격 → ${m[4].map(pos).join('·')}`,` ${nm} pierce shot → ${m[4].map(pos).join('·')}`);
  if(k===17)return p.md?TR(`${nm} 스킬: ❄️ 빙결 영역 발동 (5x5 안의 기물은 아군·적 모두 이동·잡기 불가)`,` ${nm} skill: ❄️ Freeze Zone on (all pieces in the 5x5 cannot move or capture)`):TR(`${nm} 스킬: 빙결 영역 해제`,` ${nm} skill: Freeze Zone off`);
- if(k===16)return TR(`${nm} 이동·잡기 불가 — 턴을 넘김`,` ${nm} cannot move or capture — turn passed`);
+ if(k===16)return TR('턴을 넘김','passed the turn');
  if(k===15)return m[3]===1?TR(`${nm} 스킬: 🍀 성공! 상대 기물(킹·퀸 계열 제외)은 다음 턴 이동·잡기 불가 (원거리만 가능)`,` ${nm} skill: 🍀 Success! Enemy pieces (except King/Queen class) cannot move or capture next turn (ranged only)`):TR(`${nm} 스킬: 실패… (50% 확률)`,` ${nm} skill: failed… (50% chance)`);
  if(k===0&&m[4])return TR(`${nm} ${pos(m[0])} → ${pos(m[1])} · 💥 크리티컬! ${DEF[rvT].n} 추가 처치 (${pos(m[4][0])})`,` ${nm} ${pos(m[0])} → ${pos(m[1])} · 💥 Critical! also eliminated ${DEF[rvT].n} (${pos(m[4][0])})`);
  if(k===29)return TR(`${nm} 스킬: 🚩 선봉 — 주변 3x3 아군은 상대의 다음 턴 원거리 공격을 받지 않음`,` ${nm} skill: 🚩 Vanguard — allies in the surrounding 3x3 cannot be hit by ranged attacks next turn`);
@@ -2394,7 +2394,7 @@ function mvTxt(m,p,rvT){const k=m[2],nm=DEF[p.t].n;
  return `${nm} ${pos(m[0])} → ${pos(m[1])}`+(m[3]!==undefined?` → ${pos(m[3])}`:'')}
 function voltNear(b,to,from){const r=to>>3,c=to&7;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){if(!dr&&!dc)continue;const x=r+dr,y=c+dc;if(x<0||x>7||y<0||y>7)continue;const j=x*8+y;if(j===from)continue;const q=b[j];if(q&&q.t==='u')return true}return false}
 function whExtra(m){const who=G.turn,c=BC.cloneBoard(G.b);BC.make(c,m,1);if(!c[m[1]]||c[m[1]].t!=='k')return[];return BC.gen(c,who,{cap:true,noDbl:true}).filter(x=>x[0]===m[1]&&x[2]===0&&c[x[1]]&&c[x[1]].s!==who).map(x=>x[1])}
-function play(m,hold,seq){
+function play(m,hold,seq){if(m&&m[2]===16)G.pasd=true;
  if(!G._rem){const pp=G.b[m[0]],wh=G.turn;
   if(m[2]===4)m=BC.golemRoll(G.b,m,Math.random);
   if(m[2]===1&&pp&&pp.t==='C'&&!m[4]&&G.b[m[1]]&&Math.random()<1/2){const q0=G.b[m[1]];let bj=-1,bv=-1;
@@ -2738,7 +2738,9 @@ function gsEnd(who){const g=G.gs;G.gs=null;G.gsw=false;if(!g){endTurn();return}
  if(g.n>=1){G.lost[who].push('s');G.lastTxt+=TR(' · 💥 적을 잡고 제네시스 폭멸!',' · 💥 Captured an enemy and Genesis exploded!');G.lm=[g.loc,g.loc];boomed=true}
  wrapUp(who,p,g.loc,true);
  if(boomed){sfx('boom');setTimeout(()=>{fxCell(g.loc,'💥');fxCell(g.loc,'🔥');const bd=$('#bd4');if(bd){bd.classList.add('shk');setTimeout(()=>bd.classList.remove('shk'),700)}},120)}}
-function passTurn(auto){if(G.over||G.pk||G.skp||G.rush||G.xm||G.dx||G.gsw)return;if(!auto&&!G.stuck)return;if(!auto&&G.net&&!G._rem)netSend({k:'pass'});G.stuck=false;G.pasd=true;G.since=0;G.pend=null;G.lastTxt=SN[G.turn]+TR(' 턴을 넘김',' passed the turn');sfx('sel');wrapUp(G.turn,null,-1,true)}
+function passTurn(auto){if(G.over||G.pk||G.skp||G.rush||G.xm||G.dx||G.gsw)return;if(!auto&&!G.stuck)return;let i=-1;for(let j=0;j<64;j++){const q=G.b[j];if(q&&q.s===G.turn){if(i<0)i=j;if(isKing(q.t)){i=j;break}}}
+ if(i<0){G.stuck=false;G.pasd=true;G.since=0;G.pend=null;G.lastTxt=SN[G.turn]+TR(' 턴을 넘김',' passed the turn');wrapUp(G.turn,null,-1,true);return}
+ G.stuck=false;G.pasd=true;G.pend=null;sfx('sel');play([i,i,16])}
 function wrapUp(who,p,loc,needFire){
  if(G.dbq>0){G.dbq=0;if(p&&G.b[loc]===p){const lg=BC.gen(G.b,who,{noDbl:true}).filter(x=>x[0]===loc);
    if(lg.length){G.dx=true;G.xm=null;G.sel=loc;G.legal=lg;draw();aiKick();return}}}
@@ -3454,7 +3456,7 @@ function labAct(a){if(!G||!G.lab)return;const L=G.lab;
  if(a==='ctl'){labClear();L.ctl=!L.ctl;LAB.ctl=L.ctl;store.set('labCtl',L.ctl?1:0);G.mode=L.ctl?'pvp':'pve';sfx('sel');draw();if(!L.ctl)aiCheck();return}
  if(a==='side'){LAB.side=LAB.side==='b'?'w':'b';store.set('labSide',LAB.side);sfx('sel');draw();return}
  if(a==='reset'){labReset(true);return}
- if(a==='wait'){if(G.over||(G.turn!==G.human&&!L.ctl)||G.pk||G.skp||G.rush||G.xm||G.dx||G.gsw||L.place)return;sfx('sel');G.lastTxt=SN[G.turn]+TR(' 턴을 넘김',' passed the turn');G.since=0;G.pend=null;wrapUp(G.turn,null,-1,true)}}
+ if(a==='wait'){if(G.over||(G.turn!==G.human&&!L.ctl)||G.pk||G.skp||G.rush||G.xm||G.dx||G.gsw||L.place)return;passTurn(true)}}
 function toHomeLab(){labLeave();labSetup()}
 $('#labBar').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b)labAct(b.dataset.a)});
 function labUi(st,msg){const L=G.lab;
@@ -3773,10 +3775,10 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.2.3';
+const APP_VER='1.2.4';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
- ['1.2.3',TR('정식출시 패치 "궤도에 오르라!"','Official Release "Into Orbit!"'),[
+ ['1.2.4',TR('정식출시 패치 "궤도에 오르라!"','Official Release "Into Orbit!"'),[
   TR('【신규 기물 5종】','【5 new pieces】'),
   TR('🪐 오르빗 (9) — 자신 주변 5x5의 바깥 한 줄 어디로든 이동·잡기(기물을 뛰어넘음). 킹 계열·제네시스는 잡을 수 없고, 이동·잡기를 한 다음 턴엔 이동 불가. 적을 3기 처치하면 폭발해 사라짐','🪐 Orbit (9) — moves or captures anywhere on the outer ring of its 5x5, jumping over pieces. Cannot capture King-class pieces or Genesis; cannot move the turn after moving or capturing; explodes and is removed after 3 kills'),
   TR('💠 스파클 (8) — 상하좌우 1칸 이동(잡기 불가) · 5x5 바깥 한 줄(네 모서리 제외) 원거리 공격. 이동한 다음 턴엔 공격 불가, 공격한 다음 턴엔 이동 불가','💠 Sparkle (8) — 1 orthogonal step (no capture) · ranged attack on the outer ring of its 5x5 (corners excluded). Cannot attack the turn after moving; cannot move the turn after attacking'),
@@ -3797,6 +3799,7 @@ const PATCH=[
   TR('🐺 울프 · 🦅 이글 · 🦈 샤크: 처치 후 추가 이동 칸은 무작위로 정해진다고 설명에 명시','🐺 Wolf · 🦅 Eagle · 🦈 Shark: descriptions now state that the extra move after a kill goes to a random square'),
   TR('⚔️ 마검사 아이콘을 빛나는 커틀러스로 변경(랜서와 구분) · 🧬 제네시스 설명에 킹 계열(데몬 포함) 잡기 불가 명시','⚔️ Swordmaster icon changed to a glowing cutlass (to tell it from Lancer) · 🧬 Genesis description now says it cannot capture any King-class piece (Demon included)'),
   TR('【버그 수정】','【Bug fixes】'),
+  TR('턴 넘기기를 해도 오르빗·스파클 등의 이동·공격 제한이 풀리지 않던 버그 (이제 턴을 넘기면 제한도 한 턴 지난 것으로 처리)','Passing the turn did not release lockouts such as Orbit/Sparkle (a pass now counts as a turn for them)'),
   TR('오르빗·스파클의 이동/공격 제한이 언덕 위나 매지션 둔화 상태에서 풀리던 버그','Orbit/Sparkle move and attack locks no longer slip away on a hill or under the Magician\'s slow'),
   TR('둔화 상태의 마더·프로즌·마검사가 이동 불가 중에도 움직이던 버그','Slowed Mother/Frozen/Swordmaster could move while they were supposed to be immobile'),
   TR('머신건이 사이에 기물이 있어도 2칸 뒤의 적을 쏘던 버그 (이제 막힘)','Machine Gun no longer shoots through a piece standing in between'),
