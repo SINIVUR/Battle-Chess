@@ -372,9 +372,9 @@ body.tuting .c.hf,body.tuting .c.ht{animation:tpl 1s ease-in-out infinite}@keyfr
 #phaseAl{position:fixed;left:50%;top:38%;transform:translate(-50%,-50%) scale(.8);z-index:60;pointer-events:none;opacity:0;text-align:center;background:#111;color:#fff;border-radius:18px;padding:18px 28px;box-shadow:0 10px 40px rgba(0,0,0,.35);max-width:88vw;transition:opacity .25s,transform .25s}
 #phaseAl.on{opacity:.96;transform:translate(-50%,-50%) scale(1)}
 /* 자기장 · 서든데스 */
-.c.stm{background-image:linear-gradient(115deg,rgba(255,214,0,.62) 0%,rgba(20,110,255,.62) 50%,rgba(255,214,0,.62) 100%)!important;background-size:220% 220%;animation:stormSh 1.5s linear infinite}
+.c.stm{background-image:linear-gradient(115deg,rgba(255,214,0,.30) 0%,rgba(20,110,255,.30) 50%,rgba(255,214,0,.30) 100%)!important;background-size:220% 220%;animation:stormSh 1.5s linear infinite}
 @keyframes stormSh{from{background-position:0 0}to{background-position:220% 0}}
-.c.stn{box-shadow:inset 0 0 0 2px rgba(255,214,0,.9),inset 0 0 12px 2px rgba(20,110,255,.65);animation:stormPv 1s ease-in-out infinite alternate}
+.c.stn{box-shadow:inset 0 0 0 2px rgba(255,214,0,.7),inset 0 0 10px 1px rgba(20,110,255,.4);animation:stormPv 1s ease-in-out infinite alternate}
 @keyframes stormPv{from{box-shadow:inset 0 0 0 2px rgba(255,214,0,.35),inset 0 0 8px 1px rgba(20,110,255,.2)}to{box-shadow:inset 0 0 0 2px rgba(255,214,0,.95),inset 0 0 14px 2px rgba(20,110,255,.7)}}
 .zb{position:absolute;left:50%;top:-9px;transform:translateX(-50%);z-index:6;font:900 11px/1 system-ui,sans-serif;padding:2px 5px;border-radius:8px;background:#ffd400;color:#111;border:1.5px solid #1d5cff;box-shadow:0 0 5px rgba(29,92,255,.9);pointer-events:none;white-space:nowrap}
 #stormAl{position:fixed;left:50%;top:58%;transform:translate(-50%,-50%) scale(.8);z-index:61;pointer-events:none;opacity:0;text-align:center;background:linear-gradient(135deg,#1a1a1a,#0b2a66);color:#fff;border:3px solid #ffd400;border-radius:18px;padding:14px 24px;box-shadow:0 10px 40px rgba(0,0,0,.4),0 0 24px rgba(255,212,0,.5);max-width:90vw;transition:opacity .25s,transform .25s}
@@ -750,7 +750,7 @@ input[type=range]:focus-visible{outline:3px solid var(--lm);outline-offset:3px}
  <div class="acts act1"><button id="skip" style="display:none">추가 이동 건너뛰기</button><button id="pkok" style="display:none">스킬 확정</button><button id="pkx" style="display:none">스킬 취소</button></div>
  <div class="acts skb" id="skb" style="display:none"><span class="skl">사용 스킬 · 각 1회</span><button data-sk="ret">↩️ 원위치!</button><button data-sk="rush">⚡ 돌격 앞으로!</button><button data-sk="fin">🏁 상황 종결!</button><button data-sk="fever">🔥 피버!</button></div>
  <div class="acts labbar" id="labBar"></div>
- <div class="acts act2"><button id="bPause" style="display:none">⏸ 일시정지</button><button id="bSpd" style="display:none">속도</button><button id="bHint">💡 좋은 수 표시: 꺼짐</button><button id="bFlip">보드 뒤집기</button><button id="bRes" style="display:none">결과 보기</button><button id="bResign">항복</button><button id="re">처음으로</button></div>
+ <div class="acts act2"><button id="bPause" style="display:none">⏸ 일시정지</button><button id="bSpd" style="display:none">속도</button><button id="bHint">💡 좋은 수 표시: 꺼짐</button><button id="bFlip">보드 뒤집기</button><button id="bPass" style="display:none">⏭ 턴 넘기기</button><button id="bRes" style="display:none">결과 보기</button><button id="bResign">항복</button><button id="re">처음으로</button></div>
 </section>
 
 </main>
@@ -839,8 +839,8 @@ const DEF={
  p:{n:'바드',e:'🎻',c:2,p:'b',av:3.2,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 자신을 뺀 주변 3x3의 아군 2기에게 노래로 보호막을 부여 — 보호막은 원거리 공격·처치 스킬·마그마 처치를 한 번 막고 사라짐'},
  k:{n:'워해머',e:'🔨',c:6,p:'f',av:6.6,d:'앞·왼쪽·오른쪽 직선 최대 3칸 이동·잡기(후진 불가) · 특수: 적을 처치하면 50% 확률로 도착한 칸에서 같은 방식으로 한 번 더 잡을 수 있음(잡기만 가능, 이동만은 불가)'},
  u:{n:'볼티지',e:'⚡',c:2,p:'fb',av:4.8,d:'상하좌우·대각선 최대 5칸 이동 · 코스트 2 이하 기물만 잡기 가능(킹 계열 제외, 첫 행동에서는 잡기 불가) · 특수: 이동·잡기 뒤 주변 3x3에 다른 볼티지(아군·적군)가 있으면 한 번 더 행동할 수 있음(추가 행동은 1번뿐) · 자기장 면역'},
- x:{n:'오르빗',e:'🪐',c:7,p:'fb',av:7,d:'자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외) 어느 칸으로든 이동·잡기(기물을 뛰어넘음)'},
- j:{n:'스파클',e:'💠',c:8,p:'b',av:6,d:'상하좌우 1칸 이동(잡기 불가) · 원거리 공격: 자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외) 어느 칸의 적이든 공격'},
+ x:{n:'오르빗',e:'🪐',c:9,p:'fb',av:8.5,d:'자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외) 어느 칸으로든 이동·잡기(기물을 뛰어넘음) · 킹 계열(킹·엠페러·갓·데몬)과 제네시스는 잡을 수 없음 · 처치한 직후 자신의 다음 행동에서는 잡기 불가(이동만 가능)'},
+ j:{n:'스파클',e:'💠',c:8,p:'b',av:6,d:'상하좌우 1칸 이동(잡기 불가) · 원거리 공격: 자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외) 어느 칸의 적이든 공격 · 이동한 다음 턴에는 공격할 수 없고, 공격한 다음 턴에는 이동할 수 없음'},
  y:{n:'랜서',e:'🏇',c:7,p:'f',av:6.5,d:'앞·왼쪽 앞·오른쪽 앞 대각선 방향으로 최대 2칸 이동·잡기 · 관통: 경로에 적 기물이 있으면 함께 처치(아군이 있으면 막힘, 무적 기물·킹 계열은 관통 불가) · 뒤로 1칸 이동(빈칸만, 잡기 불가)'},
  n:{n:'마운틴',e:'⛰️',c:5,p:'b',av:4,d:'상하좌우 1칸 이동·잡기 · 스킬: 언덕 — 양 진영을 제외한 중앙 4줄 중 한 칸을 언덕으로 만듦(마운틴마다 1칸 유지). 언덕 위·언덕에 안착한 기물(킹·퀸 계열 제외)은 원거리 공격을 받지 않지만 잡히며, 이동은 상하좌우 1칸(잡기 불가)으로 고정됨 · 이동 중 경로에 언덕이 있으면 그 칸에 멈춤 · 마그마·빙결 영역·자기장이 덮거나 마운틴이 사라지면 언덕도 사라짐'},
  'Ł':{n:'라인',e:'🚧',c:1,p:'f',av:1.5,d:'상하 1칸 이동·잡기 · 스킬: 철책 — 자신을 제거하고, 자신이 있던 칸의 네 변 중 한 변에 철책을 설치(영구). 아군·적군 모두 철책을 가로지르는 직선 이동·잡기를 할 수 없음(점프·순간이동·원거리 공격은 통과) · 마그마·프로즌 빙결 영역·언덕이 덮으면 사라짐(자기장으로는 사라지지 않음)'},
@@ -875,7 +875,7 @@ function randomArmy(rng){
 let FID=0;
 const newPiece=(t,s)=>({t,s,m:0,inv:0,frz:0,db:0,rv:0,md:0,kc:0,sh:0,slw:0,fi:(t==='e'||t==='n')?++FID:0,nsk:0});
 const emptyBoard=()=>{const a=new Array(64).fill(null);a.dead={w:[],b:[]};return a};
-const cp=p=>({t:p.t,s:p.s,m:p.m,inv:p.inv,frz:p.frz,db:p.db||0,rv:p.rv||0,md:p.md||0,kc:p.kc||0,sh:p.sh||0,slw:p.slw||0,zh:p.zh||0,fi:p.fi||0,ix:p.ix||0,nsk:p.nsk||0});
+const cp=p=>({t:p.t,s:p.s,m:p.m,inv:p.inv,frz:p.frz,db:p.db||0,rv:p.rv||0,md:p.md||0,kc:p.kc||0,sh:p.sh||0,slw:p.slw||0,zh:p.zh||0,fi:p.fi||0,ix:p.ix||0,nsk:p.nsk||0,ocd:p.ocd||0,jm:p.jm||0,ja:p.ja||0});
 function cloneBoard(b){const n=b.map(p=>p?cp(p):null);const d=b.dead||{w:[],b:[]};n.dead={w:d.w.map(cp),b:d.b.map(cp)};n.mg=b.mg||null;n.mf=b.mf||null;n.hl=b.hl||null;n.fn=b.fn||null;n.pl=b.pl||0;
  for(let i=0;i<64;i++){const p=b[i];if(p&&p.tp){n[i].tp=b[p.ts]===p.tp?n[p.ts]:null;n[i].ts=p.ts}}
  return n}
@@ -1016,9 +1016,9 @@ function gen0(b,s,opt){
      if(k<5&&q&&q.s!==s&&p.m&&!isKing(q.t)&&DEF[q.t].c<=2)mv(rr,cc,0)}break}
    case't':{for(const[dr,dc]of CAMEL){const q=at(r+dr,c+dc);if(q===null)mv(r+dr,c+dc,0);else if(q&&q.s!==s&&p.md)mv(r+dr,c+dc,0)}
     if(!gcap&&!p.md)gout.push([i,i,26]);break}
-   case'x':for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){if(Math.max(Math.abs(dr),Math.abs(dc))!==2)continue;const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s))mv(r+dr,c+dc,0)}break;
-   case'j':{if(!gcap)for(const[dr,dc]of D4)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
-    for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){if(Math.max(Math.abs(dr),Math.abs(dc))!==2)continue;const q=at(r+dr,c+dc);if(q&&q.s!==s)mv(r+dr,c+dc,1)}break}
+   case'x':for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){if(Math.max(Math.abs(dr),Math.abs(dc))!==2)continue;const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s&&!p.ocd&&!isKing(q.t)&&q.t!=='s'))mv(r+dr,c+dc,0)}break;
+   case'j':{if(!gcap&&!p.ja)for(const[dr,dc]of D4)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
+    if(!p.jm)for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){if(Math.max(Math.abs(dr),Math.abs(dc))!==2)continue;const q=at(r+dr,c+dc);if(q&&q.s!==s)mv(r+dr,c+dc,1)}break}
    case'y':{for(const[dr,dc]of[[f,0],[f,-1],[f,1]]){const kl=[];for(let k=1;k<=2;k++){const rr=r+dr*k,cc=c+dc*k,q=at(rr,cc);if(q===undefined)break;const t=rr*8+cc;
       if(q===null){if(kl.length)gout.push([i,t,14,undefined,kl.slice()]);else mv(rr,cc,0)}
       else if(q.s===s||q.inv||momProt(gb,t))break;
@@ -1169,7 +1169,9 @@ function make(b,m,nf){
   if(q.frz&&q.s===p.s){(u.fc||(u.fc=[])).push([q,q.frz]);q.frz=0}
   if(q.slw&&q.s===p.s){(u.slc||(u.slc=[])).push(q);q.slw=0}
   if(q.db&&q.s===p.s){q.db=0;(u.dbc||(u.dbc=[])).push(q)}
-  if(q.nsk&&q.s===p.s){q.nsk=0;(u.nsc||(u.nsc=[])).push(q)}}
+  if(q.nsk&&q.s===p.s){q.nsk=0;(u.nsc||(u.nsc=[])).push(q)}
+  if(q.ocd&&q.s===p.s){q.ocd=0;(u.occ||(u.occ=[])).push(q)}
+  if((q.jm||q.ja)&&q.s===p.s){(u.jfc||(u.jfc=[])).push([q,q.jm||0,q.ja||0]);q.jm=0;q.ja=0}}
  if(k===0||k===1||k===11){
   u.cap=b[t];if(u.cap)u.n=1;
   if(k===1||k===11){const q0=u.cap;if(q0&&q0.sh){q0.sh=0;u.blk=q0;u.cap=null;u.n=0}else{b[t]=null;if(k===1&&m[4]){u.kl=[];for(const j of m[4]){const q=b[j];if(q){if(q.sh){q.sh=0;(u.shb||(u.shb=[])).push(q);continue}u.kl.push([j,q]);b[j]=null;u.n++}}}}}
@@ -1181,7 +1183,7 @@ function make(b,m,nf){
  else if(k===4||k===6||k===25){u.kl=[];for(const j of m[4]){const q=b[j];if(k!==25&&q.sh){q.sh=0;(u.shb||(u.shb=[])).push(q);continue}u.kl.push([j,q]);b[j]=null;u.n++;if(isKing(q.t))u.cap=q}if(k===25)p.md=0}
  else if(k===5){const L=m[4];for(let j=0;j<L.length;j+=2){const a=L[j],d=L[j+1],tmp=b[a];b[a]=b[d];b[d]=tmp}}
  else if(k===7){u.sl=[p,p.tp,p.ts];p.tp=b[t];p.ts=t}
- else if(k===8){const idx=m[4][0],d=b.dead[p.s],q=d[idx];u.rv=[idx,q,q.m,q.inv,q.frz,q.rv,q.md,q.sh,q.slw];d.splice(idx,1);q.rv=1;q.m=0;q.inv=0;q.frz=0;q.md=0;q.sh=0;q.slw=0;if(q.nsk){q.nsk=0;(u.nsr||(u.nsr=[])).push(q)}b[f]=q;d.push(p)}
+ else if(k===8){const idx=m[4][0],d=b.dead[p.s],q=d[idx];u.rv=[idx,q,q.m,q.inv,q.frz,q.rv,q.md,q.sh,q.slw];d.splice(idx,1);q.rv=1;q.m=0;q.inv=0;q.frz=0;q.md=0;q.sh=0;q.slw=0;if(q.nsk){q.nsk=0;(u.nsr||(u.nsr=[])).push(q)}if(q.ocd){q.ocd=0;(u.ocr||(u.ocr=[])).push(q)}if(q.jm||q.ja){(u.rvj||(u.rvj=[])).push([q,q.jm||0,q.ja||0]);q.jm=0;q.ja=0}b[f]=q;d.push(p)}
  else if(k===10){b[t].db=1}
  else if(k===17||k===18){if(p.t==='f'){u.ix=[[p,p.ix||0]];if(!p.md&&b.mf){u.mgs=1;if(u.mf0===undefined){u.mg0=b.mg;u.mf0=b.mf}const r0=f>>3,c0=f&7;b.mf=b.mf.map(e=>{let cm=e[4]===undefined?15:e[4];const er=e[2]>>3,ec=e[2]&7;for(let x=0;x<2;x++)for(let y=0;y<2;y++)if(Math.abs(er+x-r0)<=2&&Math.abs(ec+y-c0)<=2)cm&=~(1<<(x*2+y));return[e[0],e[1],e[2],e[3],cm]}).filter(e=>e[4]);mgBuild(b)}if(!p.md&&b.hl){const r0=f>>3,c0=f&7;hlDrop(b,u,h=>Math.abs((h[2]>>3)-r0)<=2&&Math.abs((h[2]&7)-c0)<=2)}if(!p.md&&b.fn){const r0=f>>3,c0=f&7;fnDrop(b,u,x=>Math.abs((x>>3)-r0)<=2&&Math.abs((x&7)-c0)<=2)}p.ix=0}p.md=p.md?0:1}
  else if(k===15){u.ft=[];if(m[3]===1)for(let j=0;j<64;j++){const q=b[j];if(q&&q.s!==p.s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='D'&&q.t!=='W'&&q.t!=='s'){q.frz=1;u.ft.push(q)}}}
@@ -1189,7 +1191,7 @@ function make(b,m,nf){
  else if(k===12){const q=b[t];b[m[3]]=q;b[t]=null}
  else if(k===13){p.md=p.md?0:1}
  else if(k===20){b[t]=p;b[f]=null}
- else if(k===21){const idx=m[4][0],d=b.dead[p.s],q=d[idx];u.fv=[idx,q,q.m,q.inv,q.frz,q.rv,q.db,q.md,q.kc,q.sh,q.slw];d.splice(idx,1);q.rv=1;q.m=0;q.inv=0;q.frz=0;q.db=0;q.md=0;q.kc=0;q.sh=0;q.slw=0;if(q.nsk){q.nsk=0;(u.nsr||(u.nsr=[])).push(q)}b[t]=q}
+ else if(k===21){const idx=m[4][0],d=b.dead[p.s],q=d[idx];u.fv=[idx,q,q.m,q.inv,q.frz,q.rv,q.db,q.md,q.kc,q.sh,q.slw];d.splice(idx,1);q.rv=1;q.m=0;q.inv=0;q.frz=0;q.db=0;q.md=0;q.kc=0;q.sh=0;q.slw=0;if(q.nsk){q.nsk=0;(u.nsr||(u.nsr=[])).push(q)}if(q.ocd){q.ocd=0;(u.ocr||(u.ocr=[])).push(q)}if(q.jm||q.ja){(u.rvj||(u.rvj=[])).push([q,q.jm||0,q.ja||0]);q.jm=0;q.ja=0}b[t]=q}
  else if(k===22){u.sl2=[];for(const j of m[4]){const q=b[j];if(q&&!q.slw){q.slw=1;u.sl2.push(q)}}}
  else if(k===23){u.sh2=[];for(const j of m[4]){const q=b[j];if(q&&!q.sh){q.sh=1;u.sh2.push(q)}}}
  else if(k===24||k===26){p.md=1}
@@ -1200,6 +1202,8 @@ function make(b,m,nf){
   for(const q of rm)if(!q.rv){b.dead[q.s].push(q);(u.dp||(u.dp=[])).push(q)}}
  if(k===0&&u.cap&&(p.t==='s'||m[5])){b[t]=null;if(b.dead&&!p.rv){b.dead[p.s].push(p);u.bd=1}}
  if(p.t==='d'){let dk=0;if(k===0&&u.cap)dk=1;else if(k===14)for(const x of u.kl)if(x[1].s!==p.s)dk++;if(dk){p.kc=(p.kc||0)+dk;u.dk=dk}}
+ if(k===0&&p.t==='x'&&u.cap){p.ocd=1;u.ocs=1}
+ if(p.t==='j'){if(k===0){p.jm=1;u.jms=1}else if(k===1){p.ja=1;u.jas=1}}
  if(k===0&&((p.t==='v'&&(t&7)!==(f&7))||(p.t==='o'&&(t>>3)!==(f>>3)))){p.nsk=1;u.nss=1}
  if(!nf)fireStage(b,p.s,u);
  if(!nf&&b.mg)magTick(b,preM,u);
@@ -1230,6 +1234,11 @@ function unmake(b,u){
  const m=u.m,f=m[0],t=m[1],k=m[2],p=u.p;
  p.m=u.pm;p.t=u.pt;if(u.dk)p.kc-=u.dk;
  if(u.nss)p.nsk=0;
+ if(u.ocs)p.ocd=0;
+ if(u.jms)p.jm=0;
+ if(u.jas)p.ja=0;
+ if(u.jfc)for(const[q,a,c]of u.jfc){q.jm=a;q.ja=c}
+ if(u.rvj)for(const[q,a,c]of u.rvj){q.jm=a;q.ja=c}
  if(k===0||k===1||k===11){
   if(k===1||k===11){if(u.blk)u.blk.sh=1;else{b[t]=u.cap;if(u.kl)for(const[j,q]of u.kl)b[j]=q}}
   else{if(m[3]!==undefined)b[m[3]]=null;b[f]=p;b[t]=u.cap;if(u.kl)for(const[j,q]of u.kl)b[j]=q}
@@ -1260,6 +1269,8 @@ function unmake(b,u){
  if(u.ix)for(const x of u.ix)x[0].ix=x[1];
  if(u.dbc)for(const q of u.dbc)q.db=1;
  if(u.nsc)for(const q of u.nsc)q.nsk=1;
+ if(u.occ)for(const q of u.occ)q.ocd=1;
+ if(u.ocr)for(const q of u.ocr)q.ocd=1;
  if(u.nsr)for(const q of u.nsr)q.nsk=1;
 }
 // 울프/샤크 2단계 이동용 (UI): 첫 단계는 [f,t,0], 이어서 [t,x,0]
@@ -1285,6 +1296,9 @@ function hash(b,s){
   if(p.sh){const sc=(i*TYPES.length+TI[p.t])*16+14;h1^=Z1[sc];h2^=Z2[sc]}
   if(p.slw){const sl=(i*TYPES.length+TI[p.t])*16+15;h1^=Z1[sl];h2^=Z2[sl]}
   if(p.nsk){h1^=Math.imul(i*7+13,0x2545f491);h2^=Math.imul(i*11+5,0x6a09e667)}
+  if(p.ocd){h1^=Math.imul(i*13+7,0x3c6ef372);h2^=Math.imul(i*17+3,0x510e527f)}
+  if(p.jm){h1^=Math.imul(i*19+11,0x1b873593);h2^=Math.imul(i*23+9,0x85ebca77)}
+  if(p.ja){h1^=Math.imul(i*29+5,0x27d4eb2f);h2^=Math.imul(i*31+1,0xc2b2ae3d)}
   if(p.zh){h1^=Math.imul(i*3+p.zh+1,0x27d4eb2d);h2^=Math.imul(i*5+p.zh+3,0x165667b1)}
   if(p.tp){const lc=(p.ts*TYPES.length+TI.J)*16+8+(p.s==='w'?0:1);h1^=Z1[lc];h2^=Z2[lc]}}
  if(b.hl)for(const h of b.hl){const z=h[2]*2+(h[1]==='w'?0:1);h1=(h1+Math.imul(z+17,0x7feb352d))|0;h2=(h2+Math.imul(z+29,0x846ca68b))|0}
@@ -1828,15 +1842,15 @@ const EN_DEF={
  k:['Warhammer','Moves or captures up to 3 squares straight forward, left or right (cannot retreat) · Special: After eliminating an enemy, 50% chance to capture once more from the landing square the same way (capture only, no plain move)'],
  u:['Voltage','Moves up to 5 squares in any direction · Can only capture pieces of cost 2 or less (not King-class, and cannot capture on its first action) · Special: After moving or capturing, if another Voltage (friend or foe) is within the surrounding 3x3, may act once more (only one extra action) · Immune to the storm'],
  t:['Hopper','Jumps in a long L-shape (1x3), over pieces (cannot capture) · Skill: Locust Swarm — spend the turn to activate; afterwards the same move can also capture (stays active; resets if revived)'],
- x:['Orbit','Moves or captures to any square on the outer ring of its surrounding 5x5 (the 3x3 around it is excluded), jumping over pieces'],
- j:['Sparkle','Moves 1 square orthogonally (cannot capture) · Ranged attack: hits an enemy on any square of the outer ring of its surrounding 5x5 (the 3x3 around it is excluded)'],
+ x:['Orbit','Moves or captures to any square on the outer ring of its surrounding 5x5 (the 3x3 around it is excluded), jumping over pieces · Cannot capture King-class pieces (King, Emperor, God, Demon) or the Genesis · Right after capturing, its next action cannot capture (move only)'],
+ j:['Sparkle','Moves 1 square orthogonally (cannot capture) · Ranged attack: hits an enemy on any square of the outer ring of its surrounding 5x5 (the 3x3 around it is excluded) · Cannot attack on the turn after moving, and cannot move on the turn after attacking'],
  y:['Lancer','Moves or captures up to 2 squares straight forward or diagonally forward-left / forward-right · Pierce: enemies in the path are eliminated too (blocked by friendly pieces; invincible pieces and King-class cannot be pierced) · Moves 1 square backward (empty squares only; cannot capture)'],
  n:['Mountain','Moves or captures 1 square orthogonally · Skill: Hill — turn one square of the middle 4 rows (outside both home zones) into a hill (each Mountain keeps 1 hill). A piece on a hill (not King- or Queen-class) is immune to ranged attacks but can be captured, and its movement is fixed to 1 square orthogonally (no capture) · A moving piece stops on the first hill in its path · Hills vanish when covered by Magma, a Freeze Zone or the storm, or when their Mountain is gone'],
  'Ł':['Line','Moves or captures 1 square vertically · Skill: Fence — remove itself and build a permanent fence on one of the 4 sides of the square it stood on. Neither side can cross a fence with a straight move or capture (jumps, teleports and ranged attacks pass over) · Fences vanish when covered by Magma, a Freeze Zone or a hill (the storm does not remove them)'],
 };
 
 if(EN)TYPES.forEach(t=>{DEF[t].n=EN_DEF[t][0];DEF[t].dd=EN_DEF[t][1]});
-const TPL={"기물 도감 / 규칙": "Piece Codex / Rules", "기물 도감": "Piece Codex", "설정": "Settings", "배경음악": "Music", "효과음": "Sound effects", "배 틀 체 스": "ARMY BUILDER", "39 코스트로 나만의 군대를 만들어 싸워라": "Build your own army with 39 cost and fight", "📖 튜토리얼 · 처음이라면 여기!": "📖 Tutorial · Start here if you're new!", "🌐 온라인 대전": "🌐 Online Play", "기물 도감 · 규칙": "Piece Codex · Rules", "📢 공지·패치": "📢 News · Patches", "💬 건의하기": "💬 Feedback", "📤 공유": "📤 Share", "연결 확인 중…": "Checking connection…", "닉네임": "Nickname", "닉네임 (최대 12자)": "Nickname (max 12 chars)", "출전 구성 · 배치": "Army & Placement", "미리 저장한 “구성·배치”로 상대와 싸웁니다. 매칭이 잡히면 색(백/흑)만 정해지고 배치는 그대로 적용됩니다.": "You fight with a saved “build & placement”. When a match is found only your color (White/Black) is decided; your placement is used as is.", "➕ 내 기물 선택·배치로 새 프리셋 만들기": "➕ Make a new preset by picking & placing pieces", "상대를 찾는 중…": "Looking for an opponent…", "⏳ 지금은 접속자가 적어요. 친구에게 공유해서 같은 시간에 접속해 보세요!": "⏳ Few people are online right now. Share it with a friend and connect at the same time!", "📤 친구에게 공유하기": "📤 Share with a friend", "매칭 취소": "Cancel matching", "⚔️ 매칭 시작": "⚔️ Start Matching", "뒤로": "Back", "온라인 대전은 이 페이지를 로그인 상태로 열고, 같은 페이지를 연 다른 사람과 연결됩니다. 상대 기물은 대전 시작 때 공개됩니다.": "Online play connects you with other people who have this same page open. Your opponent's pieces are revealed when the match starts.", "게임 설정": "Game Setup", "🏠 메뉴로": "🏠 Menu", "게임 모드": "Game Mode", "PvE · AI 대전": "PvE · vs AI", "PvP · 한 기기 2인 대전": "PvP · 2 players, one device", "🤖 AI 관전": "🤖 AI Spectate", "AI 난이도": "AI Difficulty", "내 색깔": "My Color", "백 (선공)": "White (first)", "흑 (후공)": "Black (second)", "랜덤": "Random", "⚪ 백 AI 난이도": "⚪ White AI difficulty", "⚫ 흑 AI 난이도": "⚫ Black AI difficulty", "관전 속도": "Spectate speed", "백·흑 군대의 기물 선택과 배치는 내가 직접 정하고, 전투는 AI끼리 진행합니다.": "You choose both armies and their placement; the AIs fight the battle.", "다음: 기물 선택": "Next: Pick Pieces", "코스트 39 · 킹 필수(킹·갓은 무료, 엠페러·데몬으로 대체 가능) · 킹을 잡으면 승리": "Cost 39 · King required (King and God are free; can be replaced by Emperor or Demon) · Capture the King to win", "다음: 기물 배치 ▶": "Next: Place Pieces ▶", "구성 도우미": "Build Helper", "내 프리셋": "My Presets", "현재 구성 저장": "Save current build", "프리셋 관리 · 공유": "Manage / Share presets", "선택한 기물이 놓일 수 있는 칸이 연두색으로 표시됩니다 · 놓인 기물을 누르면 회수": "Squares where the selected piece can go are shown in green · tap a placed piece to take it back", "배치 초기화": "Clear placement", "자동 배치": "Auto-place", "이 구성·배치를 프리셋으로 저장": "Save this build & placement as a preset", "배치 완료": "Done placing", "진행 상황": "Progress", "추가 이동 건너뛰기": "Skip extra move", "스킬 확정": "Confirm skill", "스킬 취소": "Cancel skill", "사용 스킬 · 각 1회": "Player Skills · once each", "↩️ 원위치!": "↩️ Fall Back!", "⚡ 돌격 앞으로!": "⚡ Charge!", "🏁 상황 종결!": "🏁 Finish It!", "🔥 피버!": "🔥 Fever!", "이동": "Move", "잡기": "Capture", "원거리 공격": "Ranged", "스킬": "Skill", "⏸ 일시정지": "⏸ Pause", "속도": "Speed", "💡 좋은 수 표시: 꺼짐": "💡 Best-move hints: Off", "보드 뒤집기": "Flip board", "결과 보기": "View result", "항복": "Resign", "처음으로": "Main menu", "새로고침": "Refresh", "닫기": "Close", "◀ 이전": "◀ Back", "다음 ▶": "Next ▶", "📤 결과 공유하기": "📤 Share result", "🌐 다시 매칭하기": "🌐 Match again", "같은 구성·배치로 다시 하기": "Play again with the same build & placement", "배치로 돌아가기": "Back to placement", "기물 선택으로": "Back to piece selection", "메인 메뉴": "Main menu", "판 확인하기": "Review the board", "📢 공지 · 패치 노트": "📢 News · Patch Notes", "공지": "News", "패치 노트": "Patch Notes", "불러오는 중…": "Loading…", "🔄 새로고침": "🔄 Refresh", "버그, 밸런스, 아이디어, 칭찬 모두 환영합니다!": "Bugs, balance, ideas, praise — everything is welcome!", "🐞 버그 제보": "🐞 Bug report", "⚖️ 밸런스 의견": "⚖️ Balance", "💡 기능 건의": "💡 Idea", "👍 칭찬·응원": "👍 Praise", "어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)": "Tell us which piece/situation and what happened (e.g. after using the Golem skill ...)", "댓글 등록": "Post comment", "행동 로그": "Action Log", "승급할 기물 선택": "Choose a piece to promote to", "기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?": "Your piece reached the last row. Which piece should it promote to?", "프리셋 이름": "Preset name", "취소": "Cancel", "저장": "Save", "프리셋 관리": "Manage Presets", "공유 코드로 가져오기": "Import from a share code", "다른 기기에서 복사한 코드를 붙여넣으면 프리셋이 추가됩니다.": "Paste a code copied from another device to add a preset.", "프리셋 공유 코드": "Preset share code", "가져오기": "Import", "매칭 성사!": "Match found!", "내 구성": "My army", "상대 구성": "Opponent's army", "상대가 화면을 보지 않도록 기기를 넘겨 주세요.": "Pass the device over so the other player cannot see the screen.", "준비 완료": "Ready", "확인": "OK", "배틀체스": "Battle Chess", "📲 앱으로 설치 · 홈 화면에 추가": "📲 Install app · Add to Home Screen", "📲 홈 화면에 추가": "📲 Add to Home Screen", "🎮 체험형 튜토리얼 · 직접 해보기": "🎮 Guided Tutorial · Learn by Playing", "도우미": "Guide", "🎮 체험형 튜토리얼": "🎮 Guided Tutorial", "하고 싶은 체험을 골라 보세요. 직접 눌러 보며 배워요!": "Pick a lesson and learn by trying it yourself!", "🧪 기물 체험하기 · 연습장": "🧪 Piece Lab · Practice Range", "정식출시 대규모 패치 \"궤도에 오르라!\"": "Official Release Mega Patch \"Into Orbit!\"", "신규 기물 5종 · 언덕 · 철책 · 기물 조정": "5 new pieces · Hills · Fences · Piece tweaks", "📖 튜토리얼": "📖 Tutorial", "🧪 연습장": "🧪 Piece Lab"};
+const TPL={"기물 도감 / 규칙": "Piece Codex / Rules", "기물 도감": "Piece Codex", "설정": "Settings", "배경음악": "Music", "효과음": "Sound effects", "배 틀 체 스": "ARMY BUILDER", "39 코스트로 나만의 군대를 만들어 싸워라": "Build your own army with 39 cost and fight", "📖 튜토리얼 · 처음이라면 여기!": "📖 Tutorial · Start here if you're new!", "🌐 온라인 대전": "🌐 Online Play", "기물 도감 · 규칙": "Piece Codex · Rules", "📢 공지·패치": "📢 News · Patches", "💬 건의하기": "💬 Feedback", "📤 공유": "📤 Share", "연결 확인 중…": "Checking connection…", "닉네임": "Nickname", "닉네임 (최대 12자)": "Nickname (max 12 chars)", "출전 구성 · 배치": "Army & Placement", "미리 저장한 “구성·배치”로 상대와 싸웁니다. 매칭이 잡히면 색(백/흑)만 정해지고 배치는 그대로 적용됩니다.": "You fight with a saved “build & placement”. When a match is found only your color (White/Black) is decided; your placement is used as is.", "➕ 내 기물 선택·배치로 새 프리셋 만들기": "➕ Make a new preset by picking & placing pieces", "상대를 찾는 중…": "Looking for an opponent…", "⏳ 지금은 접속자가 적어요. 친구에게 공유해서 같은 시간에 접속해 보세요!": "⏳ Few people are online right now. Share it with a friend and connect at the same time!", "📤 친구에게 공유하기": "📤 Share with a friend", "매칭 취소": "Cancel matching", "⚔️ 매칭 시작": "⚔️ Start Matching", "뒤로": "Back", "온라인 대전은 이 페이지를 로그인 상태로 열고, 같은 페이지를 연 다른 사람과 연결됩니다. 상대 기물은 대전 시작 때 공개됩니다.": "Online play connects you with other people who have this same page open. Your opponent's pieces are revealed when the match starts.", "게임 설정": "Game Setup", "🏠 메뉴로": "🏠 Menu", "게임 모드": "Game Mode", "PvE · AI 대전": "PvE · vs AI", "PvP · 한 기기 2인 대전": "PvP · 2 players, one device", "🤖 AI 관전": "🤖 AI Spectate", "AI 난이도": "AI Difficulty", "내 색깔": "My Color", "백 (선공)": "White (first)", "흑 (후공)": "Black (second)", "랜덤": "Random", "⚪ 백 AI 난이도": "⚪ White AI difficulty", "⚫ 흑 AI 난이도": "⚫ Black AI difficulty", "관전 속도": "Spectate speed", "백·흑 군대의 기물 선택과 배치는 내가 직접 정하고, 전투는 AI끼리 진행합니다.": "You choose both armies and their placement; the AIs fight the battle.", "다음: 기물 선택": "Next: Pick Pieces", "코스트 39 · 킹 필수(킹·갓은 무료, 엠페러·데몬으로 대체 가능) · 킹을 잡으면 승리": "Cost 39 · King required (King and God are free; can be replaced by Emperor or Demon) · Capture the King to win", "다음: 기물 배치 ▶": "Next: Place Pieces ▶", "구성 도우미": "Build Helper", "내 프리셋": "My Presets", "현재 구성 저장": "Save current build", "프리셋 관리 · 공유": "Manage / Share presets", "선택한 기물이 놓일 수 있는 칸이 연두색으로 표시됩니다 · 놓인 기물을 누르면 회수": "Squares where the selected piece can go are shown in green · tap a placed piece to take it back", "배치 초기화": "Clear placement", "자동 배치": "Auto-place", "이 구성·배치를 프리셋으로 저장": "Save this build & placement as a preset", "배치 완료": "Done placing", "진행 상황": "Progress", "추가 이동 건너뛰기": "Skip extra move", "스킬 확정": "Confirm skill", "스킬 취소": "Cancel skill", "사용 스킬 · 각 1회": "Player Skills · once each", "↩️ 원위치!": "↩️ Fall Back!", "⚡ 돌격 앞으로!": "⚡ Charge!", "🏁 상황 종결!": "🏁 Finish It!", "🔥 피버!": "🔥 Fever!", "이동": "Move", "잡기": "Capture", "원거리 공격": "Ranged", "스킬": "Skill", "⏸ 일시정지": "⏸ Pause", "속도": "Speed", "💡 좋은 수 표시: 꺼짐": "💡 Best-move hints: Off", "보드 뒤집기": "Flip board", "결과 보기": "View result", "⏭ 턴 넘기기": "⏭ Pass Turn", "항복": "Resign", "처음으로": "Main menu", "새로고침": "Refresh", "닫기": "Close", "◀ 이전": "◀ Back", "다음 ▶": "Next ▶", "📤 결과 공유하기": "📤 Share result", "🌐 다시 매칭하기": "🌐 Match again", "같은 구성·배치로 다시 하기": "Play again with the same build & placement", "배치로 돌아가기": "Back to placement", "기물 선택으로": "Back to piece selection", "메인 메뉴": "Main menu", "판 확인하기": "Review the board", "📢 공지 · 패치 노트": "📢 News · Patch Notes", "공지": "News", "패치 노트": "Patch Notes", "불러오는 중…": "Loading…", "🔄 새로고침": "🔄 Refresh", "버그, 밸런스, 아이디어, 칭찬 모두 환영합니다!": "Bugs, balance, ideas, praise — everything is welcome!", "🐞 버그 제보": "🐞 Bug report", "⚖️ 밸런스 의견": "⚖️ Balance", "💡 기능 건의": "💡 Idea", "👍 칭찬·응원": "👍 Praise", "어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)": "Tell us which piece/situation and what happened (e.g. after using the Golem skill ...)", "댓글 등록": "Post comment", "행동 로그": "Action Log", "승급할 기물 선택": "Choose a piece to promote to", "기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?": "Your piece reached the last row. Which piece should it promote to?", "프리셋 이름": "Preset name", "취소": "Cancel", "저장": "Save", "프리셋 관리": "Manage Presets", "공유 코드로 가져오기": "Import from a share code", "다른 기기에서 복사한 코드를 붙여넣으면 프리셋이 추가됩니다.": "Paste a code copied from another device to add a preset.", "프리셋 공유 코드": "Preset share code", "가져오기": "Import", "매칭 성사!": "Match found!", "내 구성": "My army", "상대 구성": "Opponent's army", "상대가 화면을 보지 않도록 기기를 넘겨 주세요.": "Pass the device over so the other player cannot see the screen.", "준비 완료": "Ready", "확인": "OK", "배틀체스": "Battle Chess", "📲 앱으로 설치 · 홈 화면에 추가": "📲 Install app · Add to Home Screen", "📲 홈 화면에 추가": "📲 Add to Home Screen", "🎮 체험형 튜토리얼 · 직접 해보기": "🎮 Guided Tutorial · Learn by Playing", "도우미": "Guide", "🎮 체험형 튜토리얼": "🎮 Guided Tutorial", "하고 싶은 체험을 골라 보세요. 직접 눌러 보며 배워요!": "Pick a lesson and learn by trying it yourself!", "🧪 기물 체험하기 · 연습장": "🧪 Piece Lab · Practice Range", "정식출시 대규모 패치 \"궤도에 오르라!\"": "Official Release Mega Patch \"Into Orbit!\"", "신규 기물 5종 · 언덕 · 철책 · 기물 조정": "5 new pieces · Hills · Fences · Piece tweaks", "📖 튜토리얼": "📖 Tutorial", "🧪 연습장": "🧪 Piece Lab"};
 if(EN){(()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const ns=[];let n;while(n=w.nextNode())ns.push(n);
  ns.forEach(n=>{const pn=n.parentNode;if(pn&&/^(SCRIPT|STYLE)$/.test(pn.nodeName))return;const s=n.nodeValue,t=s.trim();if(t&&TPL[t]!==undefined)n.nodeValue=s.replace(t,()=>TPL[t])});
  document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(e=>['placeholder','aria-label','title'].forEach(at=>{const v=e.getAttribute(at);if(v&&TPL[v]!==undefined)e.setAttribute(at,TPL[v])}));
@@ -2083,7 +2097,7 @@ $('#n3').onclick=()=>{if(G.mk){G.mk=false;saveCur(true);setTimeout(netOpen,60);r
 /* ===== 4. 대전 ===== */
 function startGame(){
  G.ret=null;{const br=$('#bRes');if(br)br.style.display='none'}
- G.b=BC.cloneBoard(startBoard);G.turn='w';G.sel=null;G.legal=[];G.pk=null;G.xm=null;G.lm=null;G.over=false;G.busy=false;G.since=0;G.plies=0;G.b.pl=0;G.seen={};G.lost={w:[],b:[]};G.hist=[];G.insp=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;G.log=[];G.dx=false;G.dbq=0;G.tc=false;G.sk={w:{ret:1,rush:1,fin:1,fever:1},b:{ret:1,rush:1,fin:1,fever:1}};G.skp=null;G.rush=null;G.pre=null;
+ G.b=BC.cloneBoard(startBoard);G.turn='w';G.sel=null;G.legal=[];G.pk=null;G.xm=null;G.lm=null;G.over=false;G.busy=false;G.stuck=false;G.pasd=false;G.since=0;G.plies=0;G.b.pl=0;G.seen={};G.lost={w:[],b:[]};G.hist=[];G.insp=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;G.log=[];G.dx=false;G.dbq=0;G.tc=false;G.sk={w:{ret:1,rush:1,fin:1,fever:1},b:{ret:1,rush:1,fin:1,fever:1}};G.skp=null;G.rush=null;G.pre=null;
  G.flip=(G.mode==='pve'&&G.human==='b')||(!!G.net&&G.net.me==='b');G.seen[BC.hash(G.b,'w')]=1;G.lastTxt='';
  show('s4');draw();aiCheck();window.scrollTo(0,0)}
 function pbarHtml(s){if(G.net){const mine=s===G.net.me;return `<span class="dot ${s}"></span><span class="who">${SN[s]} · ${mine?TR('나','Me'):TR('상대','Opponent')} · ${esc(mine?G.net.myNk:G.net.nk)}</span><span class="lost">${G.lost[s].map(t=>`<i class="ic lg">${gl(t)}</i>`).join('')}</span><span class="tick">${G.turn===s&&!G.over?TR('● 차례','● Turn'):''}</span>`}
@@ -2255,7 +2269,7 @@ function draw(msg){
  $('#pkok').style.display=G.pk&&((G.pk.t==='G'&&G.pk.s.length)||(G.pk.t==='Z'&&G.pk.s.length&&pkZ().some(x=>x[4].length===G.pk.s.length))||(G.pk.t==='X'&&G.pk.sw.length)||G.pk.t==='F'||(G.pk.t==='N'&&G.pk.a!=null)||(G.pk.t==='L'&&G.pk.a!=null))?'':'none';
  $('#pkx').style.display=G.pk||G.skp||(G.rush&&!G.rush.used.length&&!G.rush.lk)?'':'none';
  skUpdate();
- $('#bResign').disabled=G.over||aiTurn;$('#bResign').style.display=G.mode==='sim'?'none':'';$('#bPause').style.display=$('#bSpd').style.display=G.mode==='sim'&&!G.over?'':'none';$('#bPause').textContent=G.pause?TR('▶ 재개','▶ Resume'):TR('⏸ 일시정지','⏸ Pause');$('#bSpd').textContent=TR('속도: ','Speed: ')+SPD[U.sp][0];
+ $('#bResign').disabled=G.over||aiTurn;{const bp=$('#bPass');if(bp){bp.style.display=G.stuck&&!G.over&&!aiTurn?'':'none'}}$('#bResign').style.display=G.mode==='sim'?'none':'';$('#bPause').style.display=$('#bSpd').style.display=G.mode==='sim'&&!G.over?'':'none';$('#bPause').textContent=G.pause?TR('▶ 재개','▶ Resume'):TR('⏸ 일시정지','⏸ Pause');$('#bSpd').textContent=TR('속도: ','Speed: ')+SPD[U.sp][0];
  drawSide();showCard();
  if(G.pend){const q=G.pend;G.pend=null;anim(q)}
  if(G.fx){const q=G.fx;G.fx=null;setTimeout(()=>q.forEach(x=>{killFx(x[0],x[1],1,'J',null);killSfx('J',1)}),350)}}
@@ -2712,6 +2726,7 @@ function gsEnd(who){const g=G.gs;G.gs=null;G.gsw=false;if(!g){endTurn();return}
  if(g.n>=1){G.lost[who].push('s');G.lastTxt+=TR(' · 💥 적을 잡고 제네시스 폭멸!',' · 💥 Captured an enemy and Genesis exploded!');G.lm=[g.loc,g.loc];boomed=true}
  wrapUp(who,p,g.loc,true);
  if(boomed){sfx('boom');setTimeout(()=>{fxCell(g.loc,'💥');fxCell(g.loc,'🔥');const bd=$('#bd4');if(bd){bd.classList.add('shk');setTimeout(()=>bd.classList.remove('shk'),700)}},120)}}
+function passTurn(auto){if(G.over||G.pk||G.skp||G.rush||G.xm||G.dx||G.gsw)return;if(!auto&&!G.stuck)return;if(!auto&&G.net&&!G._rem)netSend({k:'pass'});G.stuck=false;G.pasd=true;G.since=0;G.pend=null;G.lastTxt=SN[G.turn]+TR(' 턴을 넘김',' passed the turn');sfx('sel');wrapUp(G.turn,null,-1,true)}
 function wrapUp(who,p,loc,needFire){
  if(G.dbq>0){G.dbq=0;if(p&&G.b[loc]===p){const lg=BC.gen(G.b,who,{noDbl:true}).filter(x=>x[0]===loc);
    if(lg.length){G.dx=true;G.xm=null;G.sel=loc;G.legal=lg;draw();aiKick();return}}}
@@ -2726,7 +2741,7 @@ function showCard(){
  const D=DEF[p.t],tg=[];
  if(p.inv)tg.push(TR('무적','Invincible'));if(p.frz)tg.push(p.frz===2?TR('행동 불가','Cannot act'):TR('이동 불가','Cannot move'));if(p.db===1)tg.push(TR('다음 턴 두 번 행동','Acts twice next turn'));if(p.rv)tg.push(TR('부활한 기물','Revived piece'));if(p.md)(p.t==='f')?tg.push(TR('빙결 영역 발동 중','Freeze Zone active')):(p.t==='m')?0:(p.t==='b')?tg.push(TR('납도 상태 (상하좌우 1칸 · 스킬로 발도술)','Sheathed (1 orthogonal step · skill unleashes Iaido)')):(p.t==='t')?tg.push(TR('메뚜기 떼 모드 (잡기 가능)','Locust Swarm mode (can capture)')):tg.push(TR('마검 모드 (이동 불가)','Sword Mode (cannot move)'));if(p.sh)tg.push(TR('보호막 (원거리·처치 스킬·마그마 1회 방어)','Shielded (blocks one ranged attack / kill skill)'));if(p.slw)tg.push(TR('둔화 (다음 턴 상하좌우 1칸 이동만)','Slowed (only 1 orthogonal step next turn)'));if(BC.zoneLocked(G.b,i))tg.push(TR('빙결 영역 안 (이동·잡기 불가)','Inside Freeze Zone (cannot move or capture)'));if(BC.momProt(G.b,i))tg.push(TR('보호막 안 (잡기 불가)','Under Shield (cannot be captured)'));if(p.t==='m'&&p.md)tg.push(TR('보호막 발동 중 (이동 불가)','Shield active (cannot move)'));if(p.t==='d')tg.push(p.kc>=3?TR('악마화 (사거리 3칸)','Demon form (range 3)'):TR('처치 ','Eliminated ')+(p.kc||0)+'/3')
  if(p.zh)tg.push(p.zh>=3?TR('자기장 3대 — 이번 턴에 벗어나지 않으면 소멸','Storm hit 3 — destroyed unless it leaves this turn'):TR(`자기장 피격 ${p.zh}/3`,`Storm hits ${p.zh}/3`));else if(p.t==='u')tg.push(TR('자기장 면역','Storm immune'));else if(BC.inStorm(i,BC.stormW(G.plies||0)))tg.push(TR('자기장 안 — 턴이 끝나면 1대','In the storm — hit at end of turn'));
- if(p.nsk)tg.push(TR('스킬 사용 불가 (이동 직후 1턴)','Skill locked (1 turn after moving)'));if(G.b.hl&&BC.hillAt(G.b,i)&&!isKing(p.t)&&!'QMqm'.includes(p.t))tg.push(TR('언덕 위 — 원거리 면역 · 상하좌우 1칸 이동','On a hill — ranged-immune · 1-step orthogonal moves'));
+ if(p.nsk)tg.push(TR('스킬 사용 불가 (이동 직후 1턴)','Skill locked (1 turn after moving)'));if(p.jm)tg.push(TR('공격 불가 (이동 직후 1턴)','Cannot attack (1 turn after moving)'));if(p.ja)tg.push(TR('이동 불가 (공격 직후 1턴)','Cannot move (1 turn after attacking)'));if(p.ocd)tg.push(TR('잡기 불가 (처치 직후 1턴)','Cannot capture (1 turn after a capture)'));if(G.b.hl&&BC.hillAt(G.b,i)&&!isKing(p.t)&&!'QMqm'.includes(p.t))tg.push(TR('언덕 위 — 원거리 면역 · 상하좌우 1칸 이동','On a hill — ranged-immune · 1-step orthogonal moves'));
  if(isLocked(i))tg.push(TR('저격 대상으로 지정됨','Targeted by a Sniper'));if(p.tp&&G.b[p.ts]===p.tp)tg.push(TR('저격 대기 중 → ','Sniper aiming → ')+pos(p.ts));
  el.style.display='';
  el.innerHTML=TR(`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">${D.c} 코스트</span> ${plTags(p.t)} <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcx" aria-label="설명 닫기">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">이동 범위 보기</button>`,`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">Cost ${D.c}</span> ${plTags(p.t)} <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcx" aria-label="Close description">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">Show move range</button>`);
@@ -2826,7 +2841,9 @@ function endTurn(){
  if(G.plies>=LIMIT){finish(BC.adjudicate(G.b),'lim');return}
  stormAlert(G.plies);if(G.plies%20===0)phaseAlert(G.plies);else if(G.plies>=LIMIT-5)countdown(LIMIT-G.plies);
  const lg0=BC.gen(G.b,G.turn,{noDbl:true});
+ if(!lg0.length&&!G.lab&&!G.pasd){const human=G.net?G.turn===G.net.me:(G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human));if(G.net&&!human&&!(G.sk&&(skAvail('ret')||skAvail('fin')))){draw(TR('상대가 움직일 수 없습니다 — 턴을 넘기길 기다립니다','Opponent cannot move — waiting for them to pass'));return}if(human&&!(G.sk&&(skAvail('ret')||skAvail('fin')))){G.stuck=true;draw(TR('이동할 수 있는 기물이 없습니다 — [턴 넘기기]를 누르세요','No piece can move — press [Pass Turn]'));return}if(!human&&!G.net&&G.mode!=='sim'){G.pasd=true;G.busy=true;draw(TR('상대가 움직일 수 없어 턴을 넘깁니다','Opponent cannot move — turn passed'));setTimeout(()=>{G.busy=false;if(!G.over)passTurn(true)},900);return}}
  if(!lg0.length&&!G.lab){const human=G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human);if(human&&G.sk&&(skAvail('ret')||skAvail('fin'))){draw(TR('이동할 수 있는 기물이 없습니다 — 사용 스킬을 쓰지 않으면 패배합니다','You have no piece that can move — if you do not use a Player Skill, you lose'));return}finish(OP(G.turn),'stalemate');return}
+ if(lg0.length){G.pasd=false;G.stuck=false}
  if(lg0.length===1&&lg0[0][2]===16&&!(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me))){G.busy=true;draw(TR('🍀 이동·잡기 불가 — 턴을 넘깁니다','🍀 Cannot move or capture — turn passed'));setTimeout(()=>{G.busy=false;if(!G.over)play(lg0[0])},1000);return}
  draw();if(G.tut&&G.turn===G.human){tutAdvance();return}aiCheck()}
 function finish(w,why){
@@ -3308,6 +3325,7 @@ function buildSet(){$('#setBody').innerHTML=swRow('swSfx',TR('효과음','Sound 
  tg('swRm',()=>{PF.rm=!PF.rm;store.set('rm',PF.rm);applyPf()});tg('swFxs',()=>{PF.fxs=!PF.fxs;store.set('fxs',PF.fxs)});
  $('#swClr').onclick=()=>ask(TR('저장 데이터 삭제','Delete saved data'),TR('설정과 내 프리셋이 모두 삭제됩니다. 계속할까요?','Your settings and all presets will be deleted. Continue?'),()=>{try{Object.keys(localStorage).filter(k=>k.startsWith('bc_')).forEach(k=>localStorage.removeItem(k))}catch(e){}myPre=[];PF.rm=false;applyPf();renderMyPre();buildSet();toast(TR('삭제했습니다','Deleted'))})}
 $('#bSet').onclick=()=>{buildSet();openM('mSet')};
+$('#bPass').onclick=()=>passTurn(false);
 $('#bRes').onclick=()=>{if(G.over)openM('mOver')};
 
 /* --- 접근성: 모달 포커스, ESC, 키보드 보드 조작 --- */
@@ -3712,6 +3730,7 @@ function netApply(a){
    play(m,Array.isArray(a.h)?{d:a.h}:null,a.s?true:undefined)}
   else if(a.k==='sk'){if((a.t!=='ret'&&a.t!=='fin')||G.turn!==opc||!G.sk[opc][a.t]||(G.plies||0)>=SUDDEN)throw new Error('bad skill');skApply(a.t,a.a,a.to)}
   else if(a.k==='rush'){const fv=!!a.fv;if(G.turn!==opc||!G.sk[opc][fv?'fever':'rush']||(fv?(G.plies||0)<SUDDEN:(G.plies||0)>=SUDDEN))throw new Error('bad rush');startRush(fv?1:0)}
+  else if(a.k==='pass'){if(G.turn!==opc||BC.gen(G.b,opc,{noDbl:true}).length)throw new Error('bad pass');passTurn(true)}
   else if(a.k==='skip'){if(G.turn!==opc)throw new Error('bad skip');doSkip()}
   else if(a.k==='res'){G.lastTxt=SN[opc]+TR(' 항복',' resigned');finish(G.net.me,'resign')}
  }catch(e){console.error(e);toast(TR('상대 행동을 처리하지 못했습니다 (동기화 오류)','Could not process the opponent\'s action (sync error)'))}
@@ -3731,10 +3750,10 @@ const APP_VER='1.2.0';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
  ['1.2.0',TR('정식출시 패치 "궤도에 오르라!"','Official Release "Into Orbit!"'),[
-  TR('🆕 신규 기물 5종: 🪐 오르빗(7) · 💠 스파클(8) · 🏇 랜서(7) · ⛰️ 마운틴(5) · 🚧 라인(1)','🆕 5 new pieces: 🪐 Orbit (7) · 💠 Sparkle (8) · 🏇 Lancer (7) · ⛰️ Mountain (5) · 🚧 Line (1)'),
+  TR('🆕 신규 기물 5종: 🪐 오르빗(9) · 💠 스파클(8) · 🏇 랜서(7) · ⛰️ 마운틴(5) · 🚧 라인(1)','🆕 5 new pieces: 🪐 Orbit (9) · 💠 Sparkle (8) · 🏇 Lancer (7) · ⛰️ Mountain (5) · 🚧 Line (1)'),
   TR('🚧 라인(유틸·전열·1코스트): 상하 1칸 이동·잡기. 스킬로 자신을 제거하고 그 칸의 한 변에 철책을 설치 — 아군·적군 모두 철책을 넘는 직선 이동·잡기 불가(점프·순간이동·원거리 공격은 통과). 마그마·빙결 영역·언덕이 덮으면 철책이 사라지고, 자기장으로는 사라지지 않음','🚧 Line (Support · front row · cost 1): moves or captures 1 square vertically. Its skill removes itself and builds a fence on one side of its square — neither side can cross it with a straight move or capture (jumps, teleports and ranged attacks pass). Magma, Freeze Zones and hills remove fences; the storm does not'),
-  TR('🪐 오르빗: 자신 주변 5x5의 바깥 한 줄(3x3 제외) 어디든 이동·잡기','🪐 Orbit: moves or captures anywhere on the outer ring of its 5x5 (3x3 excluded)'),
-  TR('💠 스파클: 상하좌우 1칸 이동(잡기 불가) · 5x5 바깥 한 줄 원거리 공격','💠 Sparkle: 1 orthogonal step (no capture) · ranged attack on the outer ring of its 5x5'),
+  TR('🪐 오르빗: 자신 주변 5x5의 바깥 한 줄(3x3 제외) 어디든 이동·잡기 (킹 계열은 잡을 수 없음)','🪐 Orbit: moves or captures anywhere on the outer ring of its 5x5 (3x3 excluded) — cannot capture King-class pieces'),
+  TR('💠 스파클: 상하좌우 1칸 이동(잡기 불가) · 5x5 바깥 한 줄 원거리 공격 (이동 다음 턴엔 공격 불가, 공격 다음 턴엔 이동 불가)','💠 Sparkle: 1 orthogonal step (no capture) · ranged attack on the outer ring of its 5x5 (cannot attack the turn after moving; cannot move the turn after attacking)'),
   TR('🏇 랜서: 앞·앞 대각선 2방향 최대 2칸 이동·잡기, 경로의 적도 함께 관통 처치 · 뒤로 1칸(잡기 불가)','🏇 Lancer: forward and both forward diagonals, up to 2 squares, pierces enemies in the path · 1 step back (no capture)'),
   TR('⛰️ 마운틴: 중앙 4줄의 한 칸을 "언덕"으로 만듦. 언덕 위 기물은 원거리 면역이지만 잡히며, 이동은 상하좌우 1칸(잡기 불가)으로 고정. 이동 중 언덕을 만나면 그 칸에 멈춤. 마그마·빙결 영역·자기장이 덮거나 마운틴이 사라지면 언덕도 사라짐','⛰️ Mountain: turns a square of the middle 4 rows into a "hill". Pieces on it are ranged-immune but capturable, and move 1 step orthogonally (no capture). Moving pieces stop at the first hill. Magma, Freeze Zones, the storm or the Mountain\'s death erase it'),
   TR('🗼 버티컬: 좌우 1칸 이동 가능(빈칸만) — 좌우로 이동한 바로 다음 턴에는 스킬 사용 불가','🗼 Vertical: can also step 1 square left/right (empty only) — cannot use its skill on the turn right after a sideways step'),
