@@ -143,7 +143,7 @@ button.lc.rv{border-color:var(--orange);box-shadow:0 0 0 2px var(--orange);curso
 #s0 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}#s0 .row3>button{padding:8px 2px;font-size:12.5px;word-break:keep-all;line-height:1.2;min-width:0;box-shadow:3px 3px 0 #111}#s0 .row2>button{font-size:14px;padding:8px 6px}
 #s0 .pbadge{margin:2px auto;padding:4px 8px;font-size:13px}#s0 .pbadge small{font-size:11px}#s0 .fl{margin:2px 0}#s0 .big{margin:0}#s0 .kr{margin:0}
 .pbadge{margin:6px auto 4px;max-width:340px;border:2.5px solid #111;border-radius:12px;padding:6px 10px;background:#ffe14a;color:#111;font-weight:800;font-size:14px;line-height:1.35;text-align:center;box-shadow:3px 3px 0 #111}.pbadge b{background:#111;color:#ffe14a;border-radius:6px;padding:1px 6px;margin-right:4px}.pbadge small{display:block;font-weight:700;font-size:12px;opacity:.8}
-.c.mp::after{content:"";position:absolute;inset:0;border:3px solid #c2185b;box-sizing:border-box;pointer-events:none;z-index:2}   /* 1.2.0: 마더 보호 영역은 칸 가장자리 진한 분홍 줄 — 다른 영역과 겹쳐 보임 */
+.c.mp::after{content:"";position:absolute;inset:0;border:3px solid #f8a8c8;background:rgba(255,182,213,.38);box-sizing:border-box;pointer-events:none;z-index:2}   /* 1.2.0: 마더 보호 영역은 칸 가장자리 진한 분홍 줄 — 다른 영역과 겹쳐 보임 */
 .c.hl{background-image:radial-gradient(circle at 50% 78%,rgba(150,190,80,.70) 0,rgba(105,125,45,.62) 55%,rgba(80,60,28,.62) 100%)!important}
 .c.hl::before{content:"";position:absolute;left:3px;bottom:3px;width:15px;height:12px;background:#4a3a12;clip-path:polygon(50% 0,100% 100%,0 100%);opacity:.9;z-index:1;pointer-events:none}
 .c.hlz{box-shadow:inset 0 0 0 100px rgba(120,160,60,.16),inset 0 0 10px 1px rgba(90,130,40,.4)}
@@ -622,7 +622,7 @@ input[type=range]:focus-visible{outline:3px solid var(--lm);outline-offset:3px}
 #s2 .pc2{position:relative;grid-template-columns:30px 1fr;grid-template-rows:auto auto;margin-top:0;padding:5px 6px;gap:3px 6px;align-items:center}
 #s2 .pc2 .ib{font-size:22px;grid-row:1}#s2 .pc2>div:nth-child(2){grid-column:2;grid-row:1;padding-right:22px;min-width:0}
 #s2 .pc2 .stp{grid-column:1/-1;grid-row:2;justify-self:end;display:flex;align-items:center;gap:8px}
-#s2 .pc2 .inf{position:absolute;top:1px;right:1px;width:32px;height:32px;padding:0;margin:0;font-size:0;border-radius:50%;line-height:1}#s2 .pc2 .inf::after{content:"ⓘ";font-size:15px}
+#s2 .pc2 .inf{position:absolute;top:1px;right:1px;width:32px;height:32px;padding:0;margin:0;border:0!important;background:transparent!important;font-size:0;border-radius:50%;line-height:1}#s2 .pc2 .inf::after{content:"ⓘ";font-size:15px}
 #s2 .pc2 .nm{font-size:13px}#s2 .pc2 .nm .cb,#s2 .pc2 .nm .tg{font-size:10.5px;padding:1px 5px}
 #s2 #mypre .note{display:none}
 @media(min-width:700px){#bd3{max-width:min(100%,calc(100vh - 400px));margin-left:auto;margin-right:auto}}
@@ -637,10 +637,11 @@ input[type=range]:focus-visible{outline:3px solid var(--lm);outline-offset:3px}
 
 #s6>.note{display:none}#s6{gap:6px}#s6 .hrow{margin:0}#s6 .card{padding:7px 9px}#s6 .card h3{margin:0 0 4px;font-size:13px}
 #s6 .labc{flex-wrap:nowrap;overflow-x:auto;gap:4px}#s6 .labc button{flex:1 0 auto;padding:4px 6px;font-size:12px}
-#s6 .labg{grid-template-columns:repeat(5,1fr);gap:4px;margin:4px 0}#s6 .lp{padding:3px 1px;gap:0;box-shadow:1px 1px 0 #111}#s6 .lp .ic{font-size:18px}#s6 .lp b{font-size:10.5px}#s6 .lp small{display:none}
-#s6 .labi{padding:4px 8px;margin-top:2px;font-size:12px;gap:8px}#s6 .labi .ic{font-size:22px}#s6 .labi p{margin:1px 0 0;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#s6 .labg{grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0}#s6 .lpw{position:relative}#s6 .lp{width:100%;padding:6px 2px 4px;gap:1px;box-shadow:2px 2px 0 #111;min-height:62px}#s6 .lp .ic{font-size:26px}#s6 .lp b{font-size:12.5px}#s6 .lp small{display:block;font-size:10.5px}
+.lpi{position:absolute;top:-3px;right:-3px;width:26px;height:26px;padding:0;border:0;border-radius:50%;background:transparent;box-shadow:none;font-size:17px;line-height:1;color:var(--mut);z-index:2}
+.lpi::after{content:'';position:absolute;inset:-6px}
 #s6 .seg button{padding:6px 8px;font-size:13px}#s6 #labGo{padding:10px}
-@media(min-width:760px){#s6{display:grid;grid-template-columns:1fr 1fr;column-gap:12px}#s6>.hrow,#s6>#labGo{grid-column:1/-1}#s6 .labg{grid-template-columns:repeat(6,1fr)}}
+@media(min-width:760px){#s6.on{display:grid;grid-template-columns:1fr 1fr;column-gap:12px}#s6>.hrow,#s6>#labGo{grid-column:1/-1}#s6 .labg{grid-template-columns:repeat(5,1fr)}}
 
 #s2 .gtabs{gap:4px;flex-wrap:nowrap;overflow-x:auto}#s2 .gtabs button{flex:1 0 auto;padding:5px 6px;font-size:12px}
 #s2 .s2h{gap:8px}#s2 #cost2{font-size:12px;line-height:1.3;margin:0}#s2 #cost2 b{font-size:17px!important}#s2 #n2{padding:8px 10px;font-size:14px}
@@ -651,6 +652,22 @@ input[type=range]:focus-visible{outline:3px solid var(--lm);outline-offset:3px}
 
 @media(min-width:700px){#s2 #sel{grid-template-columns:repeat(3,1fr)}}
 
+@media(max-height:800px) and (max-width:759px){#s6 .labg{grid-template-columns:repeat(5,1fr);gap:5px}#s6 .lp{min-height:50px}#s6 .lp .ic{font-size:21px}#s6 .lp b{font-size:11px}#s6 .lp small{display:none}#s6 .lpi{width:22px;height:22px;font-size:14px;top:-4px;right:-4px}}
+#mLabBot .lpi{display:none}
+@media(min-width:760px){#s6 .labg{grid-template-columns:repeat(3,1fr);gap:8px}#s6 .lp{min-height:72px;padding:8px 4px 6px}#s6 .lp .ic{font-size:30px}#s6 .lp b{font-size:14px;max-width:100%;overflow-wrap:anywhere;text-align:center;line-height:1.2}#s6 .lp small{display:block;font-size:12px}#s6 .lpi{width:28px;height:28px;font-size:19px}}
+@media(min-width:760px){#s6 .labg{grid-template-columns:repeat(3,1fr);gap:8px}#s6 .lp{min-height:72px;padding:8px 4px 6px}#s6 .lp .ic{font-size:30px}#s6 .lp b{font-size:14px;max-width:100%;overflow-wrap:anywhere;text-align:center;line-height:1.2}#s6 .lp small{display:block;font-size:12px}#s6 .lpi{width:28px;height:28px;font-size:19px}}
+#s2 .gtabs,#s2 .pre,#s6 .labc,#mLabBot .labc,.chips,.pre,.gtabs{scrollbar-width:none;-ms-overflow-style:none}
+#s2 .gtabs::-webkit-scrollbar,#s2 .pre::-webkit-scrollbar,#s6 .labc::-webkit-scrollbar,#mLabBot .labc::-webkit-scrollbar,.chips::-webkit-scrollbar,.pre::-webkit-scrollbar,.gtabs::-webkit-scrollbar{display:none;width:0;height:0}
+.dragx{cursor:grab;user-select:none;-webkit-user-select:none}.dragx.dragging{cursor:grabbing}.dragx.dragging *{pointer-events:none}
+*{scrollbar-width:none}*::-webkit-scrollbar{display:none;width:0;height:0}
+.lp b{white-space:nowrap;overflow-wrap:normal!important}.lp small{white-space:nowrap}.lp.ln b{zoom:.84}.lp.l4 b{zoom:.93}
+#s2 .gtabs,#s2 .pre,#s6 .labc,#mLabBot .labc,.chips.gtabs,.chips.labc{overflow-y:hidden!important;overscroll-behavior-x:contain;padding-top:2px;padding-bottom:5px;padding-right:4px}
+.tg.kc{background:var(--blue);color:#fff;border:2px solid #111;box-shadow:2px 2px 0 #111;padding:4px 10px;border-radius:8px;font-weight:900;font-size:11px;float:none}
+.bd{position:relative}
+.fnc{position:absolute;z-index:6;pointer-events:none;background:repeating-linear-gradient(90deg,#4a4a4a 0 5px,#2b2b2b 5px 7px);box-shadow:0 0 0 1.5px #111;border-radius:2px}
+.fnc.v{width:6px;margin-left:-3px}.fnc.h{height:6px;margin-top:-3px;background:repeating-linear-gradient(0deg,#4a4a4a 0 5px,#2b2b2b 5px 7px)}
+.fnc.pv{opacity:.55;background:#6a6a6a;box-shadow:0 0 0 1.5px #222;animation:fnpv .8s ease-in-out infinite alternate}@keyframes fnpv{to{opacity:.95}}
+.tFnc .ic,.ic.tFnc{color:#3a3a3a}.pc.pb.tFnc .ic{color:#bdbdbd}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -662,7 +679,7 @@ input[type=range]:focus-visible{outline:3px solid var(--lm);outline-offset:3px}
  <h1 class="big"><b data-t="BATTLE">BATTLE</b><b class="o" data-t="CHESS">CHESS</b></h1>
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
- <div class="pbadge"><b>v1.2.0</b> 정식출시 대규모 패치 "궤도에 오르라!"<small>신규 기물 4종 · 언덕 · 기물 조정</small></div>
+ <div class="pbadge"><b>v1.2.0</b> 정식출시 대규모 패치 "궤도에 오르라!"<small>신규 기물 5종 · 언덕 · 철책 · 기물 조정</small></div>
   <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.2.0</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
@@ -810,7 +827,7 @@ const DEF={
  l:{n:'럭키',e:'🍀',c:3,p:'b',av:4,d:'상하좌우 1칸 이동(잡기 불가) · 스킬: 50% 확률로 상대 기물들이 다음 턴에 이동·잡기를 할 수 없게 함(원거리 공격은 가능, 킹·퀸 계열과 흑룡·백룡·제네시스에게는 통하지 않음), 사용한 뒤에는 2코스트 이하 아군 1기가 추가로 행동할 수 있음'},
  c:{n:'크리티컬',e:'🗡️',c:8,p:'f',av:7.5,d:'상하좌우 1칸·대각선 최대 2칸 이동·잡기 · 특수: 적을 잡을 때 50% 확률로 잡은 기물 바로 옆(상하좌우 1칸)의 적 1기를 함께 처치(킹 계열 제외)'},
  f:{n:'프로즌',e:'🧊',c:2,p:'b',av:6,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 빙결 영역 ON/OFF — 켜면 자신 중심 5x5 안의 기물은 아군·적 모두 이동도 잡기도 할 수 없음(원거리 공격·스킬은 가능, 킹·퀸 계열은 면역), 다시 쓰면 해제 · 영역이 켜져 있는 동안 프로즌 자신도 움직일 수 없음 · 마그마와 겹치는 칸은 빙결 영역이 사라지고, 빙결 영역을 켜면 겹친 마그마도 사라짐'},
- i:{n:'인파이터',e:'🥊',c:7,p:'f',av:5.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 특수: 자신보다 코스트가 높은 기물에게 잡히면 50% 확률로 그 기물도 함께 처치'},
+ i:{n:'인파이터',e:'🥊',c:6,p:'f',av:5.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 특수: 자신보다 코스트가 높은 기물에게 잡히면 50% 확률로 그 기물도 함께 처치'},
  d:{n:'데몬',e:'😈',c:5,p:'b',av:5,d:'킹 대신 사용 · 상하좌우 최대 2칸 이동·잡기(경로에 아군이 있으면 그 아군도 함께 제거됨) · 특수: 적을 3기 처치하면 악마화 — 상하좌우·대각선 최대 3칸 이동·잡기 가능 · 잡히면 패배'},
  m:{n:'마더',e:'🤱',c:4,p:'f',av:4,d:'상하좌우·대각선 1칸 이동·잡기 · 스킬: 보호막 ON/OFF — 켜면 자신을 뺀 주변 3x3의 아군은 잡기를 당하지 않음(원거리 공격·스킬은 받음), 대신 자신은 움직일 수 없음'},
  e:{n:'플레임',e:'🔥',c:5,p:'b',av:5,d:'대각선 1칸 이동·잡기 · 스킬: 마그마 — 양 진영을 제외한 중앙 4줄에서 2x2칸을 골라 3턴(양쪽 턴 합산) 동안 마그마 지형으로 만듦 · 특수: 마그마 위에서 자기 턴을 시작해 그 턴을 마치고도 마그마 위에 있는 기물(옆 마그마 칸으로 옮겨도 포함)은 아군·적군 모두 처치됨(킹·퀸 계열, 흑룡·백룡은 면역) · 플레임마다 자기 마그마가 따로 유지됨(같은 플레임이 다시 쓰면 그 플레임의 마그마만 교체) · 프로즌의 빙결 영역과 겹치면 겹친 칸은 서로 사라짐'},
@@ -821,11 +838,12 @@ const DEF={
  z:{n:'매지션',e:'🎩',c:4,p:'b',av:4.8,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 상하좌우·대각선 1칸 원거리 공격 · 스킬: 양 진영을 제외한 중앙 4줄의 적 2기(킹 계열 제외)를 지정 — 상대의 다음 턴 동안 그 기물은 상하좌우 1칸 이동(잡기 불가)만 가능(스킬·원거리 공격은 가능)'},
  p:{n:'바드',e:'🎻',c:2,p:'b',av:3.2,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 자신을 뺀 주변 3x3의 아군 2기에게 노래로 보호막을 부여 — 보호막은 원거리 공격·처치 스킬·마그마 처치를 한 번 막고 사라짐'},
  k:{n:'워해머',e:'🔨',c:6,p:'f',av:6.6,d:'앞·왼쪽·오른쪽 직선 최대 3칸 이동·잡기(후진 불가) · 특수: 적을 처치하면 50% 확률로 도착한 칸에서 같은 방식으로 한 번 더 잡을 수 있음(잡기만 가능, 이동만은 불가)'},
- u:{n:'볼티지',e:'⚡',c:3,p:'fb',av:4.8,d:'상하좌우·대각선 최대 5칸 이동 · 코스트 2 이하 기물만 잡기 가능(킹 계열 제외, 첫 행동에서는 잡기 불가) · 특수: 이동·잡기 뒤 주변 3x3에 다른 볼티지(아군·적군)가 있으면 한 번 더 행동할 수 있음(추가 행동은 1번뿐) · 자기장 면역'},
+ u:{n:'볼티지',e:'⚡',c:2,p:'fb',av:4.8,d:'상하좌우·대각선 최대 5칸 이동 · 코스트 2 이하 기물만 잡기 가능(킹 계열 제외, 첫 행동에서는 잡기 불가) · 특수: 이동·잡기 뒤 주변 3x3에 다른 볼티지(아군·적군)가 있으면 한 번 더 행동할 수 있음(추가 행동은 1번뿐) · 자기장 면역'},
  x:{n:'오르빗',e:'🪐',c:7,p:'fb',av:7,d:'자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외) 어느 칸으로든 이동·잡기(기물을 뛰어넘음)'},
  j:{n:'스파클',e:'💠',c:8,p:'b',av:6,d:'상하좌우 1칸 이동(잡기 불가) · 원거리 공격: 자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외) 어느 칸의 적이든 공격'},
  y:{n:'랜서',e:'🏇',c:7,p:'f',av:6.5,d:'앞·왼쪽 앞·오른쪽 앞 대각선 방향으로 최대 2칸 이동·잡기 · 관통: 경로에 적 기물이 있으면 함께 처치(아군이 있으면 막힘, 무적 기물·킹 계열은 관통 불가) · 뒤로 1칸 이동(빈칸만, 잡기 불가)'},
  n:{n:'마운틴',e:'⛰️',c:5,p:'b',av:4,d:'상하좌우 1칸 이동·잡기 · 스킬: 언덕 — 양 진영을 제외한 중앙 4줄 중 한 칸을 언덕으로 만듦(마운틴마다 1칸 유지). 언덕 위·언덕에 안착한 기물(킹·퀸 계열 제외)은 원거리 공격을 받지 않지만 잡히며, 이동은 상하좌우 1칸(잡기 불가)으로 고정됨 · 이동 중 경로에 언덕이 있으면 그 칸에 멈춤 · 마그마·빙결 영역·자기장이 덮거나 마운틴이 사라지면 언덕도 사라짐'},
+ 'Ł':{n:'라인',e:'🚧',c:1,p:'f',av:1.5,d:'상하 1칸 이동·잡기 · 스킬: 철책 — 자신을 제거하고, 자신이 있던 칸의 네 변 중 한 변에 철책을 설치(영구). 아군·적군 모두 철책을 가로지르는 직선 이동·잡기를 할 수 없음(점프·순간이동·원거리 공격은 통과) · 마그마·프로즌 빙결 영역·언덕이 덮으면 사라짐(자기장으로는 사라지지 않음)'},
  t:{n:'호퍼',e:'🦗',c:2,p:'f',av:2.9,d:'나이트보다 긴 L자(1x3) 이동, 기물을 뛰어넘음(잡기 불가) · 스킬: 메뚜기 떼 모드 — 턴을 쓰고 발동하면 이후 같은 이동으로 잡기도 가능(계속 유지, 부활하면 초기화)'}
 };
 const TYPES=Object.keys(DEF);
@@ -858,7 +876,7 @@ let FID=0;
 const newPiece=(t,s)=>({t,s,m:0,inv:0,frz:0,db:0,rv:0,md:0,kc:0,sh:0,slw:0,fi:(t==='e'||t==='n')?++FID:0,nsk:0});
 const emptyBoard=()=>{const a=new Array(64).fill(null);a.dead={w:[],b:[]};return a};
 const cp=p=>({t:p.t,s:p.s,m:p.m,inv:p.inv,frz:p.frz,db:p.db||0,rv:p.rv||0,md:p.md||0,kc:p.kc||0,sh:p.sh||0,slw:p.slw||0,zh:p.zh||0,fi:p.fi||0,ix:p.ix||0,nsk:p.nsk||0});
-function cloneBoard(b){const n=b.map(p=>p?cp(p):null);const d=b.dead||{w:[],b:[]};n.dead={w:d.w.map(cp),b:d.b.map(cp)};n.mg=b.mg||null;n.mf=b.mf||null;n.hl=b.hl||null;n.pl=b.pl||0;
+function cloneBoard(b){const n=b.map(p=>p?cp(p):null);const d=b.dead||{w:[],b:[]};n.dead={w:d.w.map(cp),b:d.b.map(cp)};n.mg=b.mg||null;n.mf=b.mf||null;n.hl=b.hl||null;n.fn=b.fn||null;n.pl=b.pl||0;
  for(let i=0;i<64;i++){const p=b[i];if(p&&p.tp){n[i].tp=b[p.ts]===p.tp?n[p.ts]:null;n[i].ts=p.ts}}
  return n}
 
@@ -1009,6 +1027,8 @@ function gen0(b,s,opt){
     if(!gcap&&at(r-f,c)===null)mv(r-f,c,0);break}
    case'n':{for(const[dr,dc]of D4){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s))mv(r+dr,c+dc,0)}
     if(!gcap)for(let j=16;j<48;j++){const q=b[j];if(gai&&!(q&&q.s!==s&&!isKing(q.t)&&!isQueenCl(q.t)))continue;if(b.hl&&p.fi&&b.hl.some(h=>h[0]===p.fi&&h[2]===j))continue;gout.push([i,j,27])}break}
+   case'Ł':{for(const dr of[-1,1]){const q=at(r+dr,c);if(q===null||(q&&q.s!==s))mv(r+dr,c,0)}
+    if(!gcap)for(const[dr,dc]of D4){if(at(r+dr,c+dc)!==undefined)gout.push([i,(r+dr)*8+c+dc,28])}break}
    case'K':for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s))mv(r+dr,c+dc,0)}break;
    case'B':for(const[dr,dc]of DD){let rr=r+dr,cc=c+dc,q,k=0;while(k<4&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<4&&q&&q.s!==s)mv(rr,cc,0)}break;
    case'R':for(const[dr,dc]of D4){let rr=r+dr,cc=c+dc,q,k=0;while(k<4&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<4&&q&&q.s!==s)mv(rr,cc,0)}break;
@@ -1028,6 +1048,15 @@ function gen0(b,s,opt){
    o2.push(m)}
   out.length=0;for(const m of o2)out.push(m);
   if(!gcap)for(let i2=0;i2<64;i2++){const p=b[i2];if(!p||p.s!==s||!hs[i2]||isKing(p.t)||isQueenCl(p.t)||(p.md&&(p.t==='m'||p.t==='w'||p.t==='f')))continue;gi=i2;for(const[dr,dc]of D4)if(at((i2>>3)+dr,(i2&7)+dc)===null)mv((i2>>3)+dr,(i2&7)+dc,0)}}
+ // 1.2.0 철책: 변을 가로지르는 직선 이동·잡기 제거 (점프·순간이동 계열은 통과)
+ if(b.fn){const fs=new Set(b.fn);const o3=[];
+  for(let j=0;j<out.length;j++){const m=out[j],k=m[2];if(k!==0&&k!==14){o3.push(m);continue}
+   const p=b[m[0]];if(HJUMP[p.t]){o3.push(m);continue}
+   const fr=m[0]>>3,fc=m[0]&7,dr=(m[1]>>3)-fr,dc=(m[1]&7)-fc,ad=Math.max(Math.abs(dr),Math.abs(dc));let bl=false;
+   if(ad>=1&&(dr===0||dc===0||Math.abs(dr)===Math.abs(dc))){const sr=Math.sign(dr),sc=Math.sign(dc);
+    if(sr===0||sc===0){for(let x=0;x<ad;x++){const a=(fr+sr*x)*8+fc+sc*x,b2=a+sr*8+sc;const lo=Math.min(a,b2);if(fs.has(lo*2+(sr?1:0))){bl=true;break}}}}
+   if(!bl)o3.push(m)}
+  out.length=0;for(const m of o3)out.push(m)}
  // 불가능한 수 걸러내기 (무적/이동불가/원거리 면역/뱅가드)
  let n=0;let momOn=false;for(let j=0;j<64;j++){const z=b[j];if(z&&z.t==='m'&&z.md){momOn=true;break}}
  let fzOn=false;for(let j=0;j<64;j++){const z=b[j];if(z&&z.t==='f'&&z.md){fzOn=true;break}}
@@ -1091,7 +1120,9 @@ function stormTick(b,s,u){
 }
 /* ---------- 1.2.0 언덕 (b.hl = [[마운틴id, 진영, 칸],…]) ---------- */
 function hlDrop(b,u,pred){const nh=b.hl.filter(h=>!pred(h));if(nh.length!==b.hl.length){if(!u.hs){u.hs=1;u.hl0=b.hl}b.hl=nh.length?nh:null}}
+function fnDrop(b,u,inA){if(!b.fn)return;const nf=b.fn.filter(e=>{const a=e>>1,c2=a+(e&1?8:1);return !(inA(a)||inA(c2))});if(nf.length!==b.fn.length){if(!u.fs){u.fs=1;u.fn0=b.fn}b.fn=nf.length?nf:null}}
 function hlMake(b,u,p,t){
+ fnDrop(b,u,x=>x===t);
  if(!u.hs){u.hs=1;u.hl0=b.hl}
  b.hl=(b.hl||[]).filter(h=>h[0]!==p.fi).concat([[p.fi,p.s,t]]);
  // 그 칸의 마그마 제거
@@ -1152,7 +1183,7 @@ function make(b,m,nf){
  else if(k===7){u.sl=[p,p.tp,p.ts];p.tp=b[t];p.ts=t}
  else if(k===8){const idx=m[4][0],d=b.dead[p.s],q=d[idx];u.rv=[idx,q,q.m,q.inv,q.frz,q.rv,q.md,q.sh,q.slw];d.splice(idx,1);q.rv=1;q.m=0;q.inv=0;q.frz=0;q.md=0;q.sh=0;q.slw=0;if(q.nsk){q.nsk=0;(u.nsr||(u.nsr=[])).push(q)}b[f]=q;d.push(p)}
  else if(k===10){b[t].db=1}
- else if(k===17||k===18){if(p.t==='f'){u.ix=[[p,p.ix||0]];if(!p.md&&b.mf){u.mgs=1;if(u.mf0===undefined){u.mg0=b.mg;u.mf0=b.mf}const r0=f>>3,c0=f&7;b.mf=b.mf.map(e=>{let cm=e[4]===undefined?15:e[4];const er=e[2]>>3,ec=e[2]&7;for(let x=0;x<2;x++)for(let y=0;y<2;y++)if(Math.abs(er+x-r0)<=2&&Math.abs(ec+y-c0)<=2)cm&=~(1<<(x*2+y));return[e[0],e[1],e[2],e[3],cm]}).filter(e=>e[4]);mgBuild(b)}if(!p.md&&b.hl){const r0=f>>3,c0=f&7;hlDrop(b,u,h=>Math.abs((h[2]>>3)-r0)<=2&&Math.abs((h[2]&7)-c0)<=2)}p.ix=0}p.md=p.md?0:1}
+ else if(k===17||k===18){if(p.t==='f'){u.ix=[[p,p.ix||0]];if(!p.md&&b.mf){u.mgs=1;if(u.mf0===undefined){u.mg0=b.mg;u.mf0=b.mf}const r0=f>>3,c0=f&7;b.mf=b.mf.map(e=>{let cm=e[4]===undefined?15:e[4];const er=e[2]>>3,ec=e[2]&7;for(let x=0;x<2;x++)for(let y=0;y<2;y++)if(Math.abs(er+x-r0)<=2&&Math.abs(ec+y-c0)<=2)cm&=~(1<<(x*2+y));return[e[0],e[1],e[2],e[3],cm]}).filter(e=>e[4]);mgBuild(b)}if(!p.md&&b.hl){const r0=f>>3,c0=f&7;hlDrop(b,u,h=>Math.abs((h[2]>>3)-r0)<=2&&Math.abs((h[2]&7)-c0)<=2)}if(!p.md&&b.fn){const r0=f>>3,c0=f&7;fnDrop(b,u,x=>Math.abs((x>>3)-r0)<=2&&Math.abs((x&7)-c0)<=2)}p.ix=0}p.md=p.md?0:1}
  else if(k===15){u.ft=[];if(m[3]===1)for(let j=0;j<64;j++){const q=b[j];if(q&&q.s!==p.s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='D'&&q.t!=='W'&&q.t!=='s'){q.frz=1;u.ft.push(q)}}}
  else if(k===14){u.kl=[];for(const j of m[4]){const q=b[j];u.kl.push([j,q]);b[j]=null;u.n++;if(isKing(q.t))u.cap=q}b[t]=p;b[f]=null;p.m=1;if(m[5]){b[t]=null;if(b.dead&&!p.rv){b.dead[p.s].push(p);u.bd=1}}}
  else if(k===12){const q=b[t];b[m[3]]=q;b[t]=null}
@@ -1163,7 +1194,8 @@ function make(b,m,nf){
  else if(k===23){u.sh2=[];for(const j of m[4]){const q=b[j];if(q&&!q.sh){q.sh=1;u.sh2.push(q)}}}
  else if(k===24||k===26){p.md=1}
  else if(k===27){hlMake(b,u,p,t)}
- else if(k===19){if(b.hl){const r0=t>>3,c0=t&7;hlDrop(b,u,h=>{const dr=(h[2]>>3)-r0,dc=(h[2]&7)-c0;return dr>=0&&dr<2&&dc>=0&&dc<2})}if(!p.fi)p.fi=++FID;u.mgs=1;u.mg0=b.mg;u.mf0=b.mf;b.mf=(b.mf||[]).filter(e=>e[0]!==p.fi).concat([[p.fi,p.s,t,4,15]]);mgBuild(b);{const r0=t>>3,c0=t&7;for(let j=0;j<64;j++){const z=b[j];if(z&&z.t==='f'&&z.md){let nx=z.ix||0;for(let x=0;x<2;x++)for(let y=0;y<2;y++){const cc=(r0+x)*8+c0+y;if(iceHas(z,j,cc))nx|=1<<(((cc>>3)-(j>>3)+2)*5+(cc&7)-(j&7)+2)}if(nx!==(z.ix||0)){(u.ix||(u.ix=[])).push([z,z.ix||0]);z.ix=nx}}}}}
+ else if(k===28){b[f]=null;if(b.dead&&!p.rv){b.dead[p.s].push(p);u.bd=1}const e=t===f+1?f*2:t===f-1?(f-1)*2:t===f+8?f*2+1:(f-8)*2+1;if(!u.fs){u.fs=1;u.fn0=b.fn}if(!b.fn||b.fn.indexOf(e)<0)b.fn=(b.fn||[]).concat([e])}
+ else if(k===19){if(b.fn){const r0=t>>3,c0=t&7;fnDrop(b,u,x=>{const dr=(x>>3)-r0,dc=(x&7)-c0;return dr>=0&&dr<2&&dc>=0&&dc<2})}if(b.hl){const r0=t>>3,c0=t&7;hlDrop(b,u,h=>{const dr=(h[2]>>3)-r0,dc=(h[2]&7)-c0;return dr>=0&&dr<2&&dc>=0&&dc<2})}if(!p.fi)p.fi=++FID;u.mgs=1;u.mg0=b.mg;u.mf0=b.mf;b.mf=(b.mf||[]).filter(e=>e[0]!==p.fi).concat([[p.fi,p.s,t,4,15]]);mgBuild(b);{const r0=t>>3,c0=t&7;for(let j=0;j<64;j++){const z=b[j];if(z&&z.t==='f'&&z.md){let nx=z.ix||0;for(let x=0;x<2;x++)for(let y=0;y<2;y++){const cc=(r0+x)*8+c0+y;if(iceHas(z,j,cc))nx|=1<<(((cc>>3)-(j>>3)+2)*5+(cc&7)-(j&7)+2)}if(nx!==(z.ix||0)){(u.ix||(u.ix=[])).push([z,z.ix||0]);z.ix=nx}}}}}
  if(b.dead){const rm=[];if((k===0||k===1||k===11)&&u.cap)rm.push(u.cap);if(u.kl)for(const x of u.kl)rm.push(x[1]);
   for(const q of rm)if(!q.rv){b.dead[q.s].push(q);(u.dp||(u.dp=[])).push(q)}}
  if(k===0&&u.cap&&(p.t==='s'||m[5])){b[t]=null;if(b.dead&&!p.rv){b.dead[p.s].push(p);u.bd=1}}
@@ -1182,6 +1214,7 @@ function fireStage(b,mover,u){
    if(b[ts]===tp&&!rimm(b,ts)){if(tp.sh){tp.sh=0;(u.shb||(u.shb=[])).push(tp)}else{(u.sn||(u.sn=[])).push([ts,tp]);b[ts]=null;if(!tp.rv&&b.dead){b.dead[tp.s].push(tp);u.sd=(u.sd||[]).concat([tp])}u.n=(u.n||0)+1;if(isKing(tp.t))u.sk=1}}}}
 }
 function unmake(b,u){
+ if(u.fs)b.fn=u.fn0;
  if(u.hs)b.hl=u.hl0;
  if(u.pl)b.pl--;
  if(u.zdp)for(let j=u.zdp.length-1;j>=0;j--)b.dead[u.zdp[j].s].pop();
@@ -1207,6 +1240,7 @@ function unmake(b,u){
  else if(k===23){for(const q of u.sh2)q.sh=0}
  else if(k===24||k===26){p.md=0}
  else if(k===27){}
+ else if(k===28){b[f]=p}
  else if(k===7){const[q,tp,ts]=u.sl;q.tp=tp;q.ts=ts}
  else if(k===8){const[idx,q,qm,qi,qf,qr,qmd,qsh,qsl]=u.rv;b.dead[p.s].pop();b.dead[p.s].splice(idx,0,q);q.rv=qr;q.m=qm;q.inv=qi;q.frz=qf;q.md=qmd;q.sh=qsh;q.slw=qsl;b[f]=p}
  else if(k===10){b[t].db=0}
@@ -1254,6 +1288,7 @@ function hash(b,s){
   if(p.zh){h1^=Math.imul(i*3+p.zh+1,0x27d4eb2d);h2^=Math.imul(i*5+p.zh+3,0x165667b1)}
   if(p.tp){const lc=(p.ts*TYPES.length+TI.J)*16+8+(p.s==='w'?0:1);h1^=Z1[lc];h2^=Z2[lc]}}
  if(b.hl)for(const h of b.hl){const z=h[2]*2+(h[1]==='w'?0:1);h1=(h1+Math.imul(z+17,0x7feb352d))|0;h2=(h2+Math.imul(z+29,0x846ca68b))|0}
+ if(b.fn)for(const e of b.fn){h1=(h1+Math.imul(e+41,0x2c1b3c6d))|0;h2=(h2+Math.imul(e+53,0x297a2d39))|0}
  {const sg=stormW(b.pl||0);if(sg){h1^=Math.imul(sg,0x9e3779b1);h2^=Math.imul(sg,0x85ebca6b)}}
  if(b.mg)for(let j=0;j<64;j++){const t=b.mg[j];if(t){const k=(j*TYPES.length)*16+11;h1^=Z1[k]^Math.imul(t,0x9e3779b1);h2^=Z2[k]^Math.imul(t,0x85ebca6b)}}
  return (h1&0x1FFFFF)*4294967296+(h2>>>0);
@@ -1334,7 +1369,7 @@ function orderMoves(b,ms,ttk,ply){
    if(tv>0){v=1e5+tv*10-(AV[b[m[0]].t]||0)}
    else if(KIL[ply]&&(KIL[ply][0]===key||KIL[ply][1]===key))v=5e4;
    else if(EVP.s3&&k!==0&&k!==1&&k!==16&&k!==20&&k!==21&&k!==9){const e0=ev(b,m.s||b[m[0]].s);const sd=b[m[0]].s;const u=make(b,m);const e1=ev(b,sd);unmake(b,u);const g=e1-e0;v=g>0.05?3e3+Math.min(g,20)*100:(k===5?1:1e3)}
-   else if(k===2||k===3||k===7||k===8||k===10||k===12||k===13||k===22||k===23||k===24||k===26||k===27)v=2e3;
+   else if(k===2||k===3||k===7||k===8||k===10||k===12||k===13||k===22||k===23||k===24||k===26||k===27||k===28)v=2e3;
    else if(k===5)v=1;
    else{const p=b[m[0]];const tr=m[1]>>3;const adv=p.s==='w'?7-tr:tr;v=adv+10;if(EVP.hist){const hh=HIST.get(key);if(hh)v+=Math.min(hh,4e4)}}
   }
@@ -1623,6 +1658,7 @@ const TRK={menu:'data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjYwLjE2
 /* ===== 기물 아이콘 (SVG) — 24x24, currentColor / 파 낸 부분은 var(--tok) ===== */
 const TK='var(--tok,#fff)';
 const GLY={
+'Ł':'<path d="M4.500 21V7l2.200-2.200L8.900 7v14z"/><path d="M15.100 21V7l2.200-2.200L19.500 7v14z"/><path d="M1.800 10.500h20.400M1.800 16h20.400" fill="none" stroke-width="2.600"/>',
 b:'<path d="M12 4.500C8 4.500 5.500 7.500 5.500 11.500V13h13v-1.500c0-4-2.500-7-6.500-7z"/><path d="M12 7.200C8.600 6.600 6.200 4.200 5.200 1.400 4.700 4.600 6 7.700 9 9.300h6c3-1.600 4.300-4.700 3.800-7.900-1 2.800-3.400 5.200-6.800 5.800z" stroke-width=".6"/><path d="M4.200 13.800h15.600l1.600 3.200H2.600zM3.200 17.800h17.600l1.500 3.200H1.700z"/><path d="M12 9.700v3.200M6.200 17.400h11.600M5 20.400h14" fill="none" stroke="'+TK+'" stroke-width="1.100"/>',
 z:'<path d="M7.200 4.500h8.800l-.8 9.500H8z"/><path d="M7.600 10.200h8" fill="none" stroke="'+TK+'" stroke-width="2"/><path d="M3 15.800h17" fill="none" stroke-width="3"/><path d="M17.500 2.200l.8 1.800 1.800.8-1.800.8-.8 1.800-.8-1.800-1.800-.8 1.800-.8z" stroke-width=".5"/><path d="M5.500 20.500l1.500-1.500M10 21l.8-1.800M14.500 20.500l-1-1.600" fill="none" stroke-width="1.500"/>',
 p:'<ellipse cx="9" cy="15.200" rx="5.600" ry="5.300"/><path d="M12.800 11.300L19.800 4.300" fill="none" stroke-width="2.800"/><path d="M18.300 2.300l3.400 3.400-2 2-3.400-3.400z"/><circle cx="9" cy="15.200" r="1.800" fill="'+TK+'" stroke="none"/><path d="M5.800 19.300l6-8.800M7.600 20.100l6-8.800" fill="none" stroke="'+TK+'" stroke-width=".9"/><path d="M3.500 6.500c0-2.200 2.700-2.200 2.700 0v3.500M6.200 7.200l2.300-.8" fill="none" stroke-width="1.400"/>',
@@ -1669,7 +1705,7 @@ s:'<circle cx="16" cy="16" r="5.600"/><path d="M12 11.500L2.500 2.500M10.500 16L
 v:'<path d="M12 2.500v19M7 7.500l5-5 5 5M7 16.500l5 5 5-5" fill="none" stroke-width="2.400"/><path d="M8.500 12h7" fill="none" stroke-width="2"/>',
 o:'<path d="M2 14.500h20M7 9.500l-5 5 5 5M17 9.500l5 5-5 5" fill="none" stroke-width="2.400"/><path d="M8.500 8a3.500 3.500 0 017 0z"/><path d="M12 2.500v2" fill="none" stroke-width="1.800"/>',
 a:'<path d="M6.500 22l-3.500-8c-.6-1.600 1-2.700 2.200-1.400L7.500 15.500V5a1.600 1.600 0 013.200 0v5.500V3a1.600 1.600 0 013.200 0v7.500V4.500a1.600 1.600 0 013.200 0v7V8.500a1.600 1.600 0 013.200 0V16c0 3.500-3 6-6 6z"/>',
-w:'<path d="M20.500 3.500L9.500 14.500M6.500 11.500l6 6M5 19l4-4M3.500 20.500L5 19" fill="none" stroke-width="2.600"/><path d="M21 3l-.8 5-4.200-4.200z"/><path d="M5.500 4.500l.7 1.600 1.600.7-1.600.7-.7 1.600-.7-1.600-1.600-.7 1.600-.7z" stroke-width=".5"/>',
+w:'<path d="M9 15.500C10.500 10.500 15 6 21 3C20.800 7.800 16.500 12.800 10.800 16.800Z" stroke-width=".8"/><path d="M5.200 14l5.200 5.200" fill="none" stroke-width="2.400"/><path d="M7.600 17.600L3.600 21.200" fill="none" stroke-width="2.800"/><path d="M19 12.500l.5 1.300 1.300.5-1.300.5-.5 1.300-.5-1.300-1.300-.5 1.300-.5z" stroke-width=".5"/><path d="M5.500 4l.6 1.500 1.500.6-1.500.6-.6 1.500-.6-1.500-1.500-.6 1.500-.6z" stroke-width=".5"/><path d="M13.500 2l.4 1 1 .4-1 .4-.4 1-.4-1-1-.4 1-.4z" stroke-width=".4"/>',
 l:'<circle cx="8.200" cy="8.200" r="4.800"/><circle cx="15.800" cy="8.200" r="4.800"/><circle cx="8.200" cy="15.800" r="4.800"/><circle cx="15.800" cy="15.800" r="4.800"/><path d="M12 12l5.500 9.500" fill="none" stroke="'+TK+'" stroke-width="2"/>',
 c:'<path d="M3.500 20.500L17 7M7.500 20.500l-4-4M20.500 20.500L7 7M16.500 20.500l4-4" fill="none" stroke-width="2.600"/><path d="M12 1.500l1.200 3.300 3.300 1.200-3.300 1.200L12 10.500l-1.200-3.300L7.500 6l3.300-1.200z"/>',
 f:'<path d="M12 2v20M3.500 7l17 10M3.500 17l17-10" fill="none" stroke-width="2"/><path d="M9.500 4.200L12 6.500l2.500-2.300M9.500 19.800L12 17.500l2.500 2.300M3.500 11l3.300-.5-1-3.200M20.500 13l-3.300.5 1 3.200M3.500 13l3.300.5-1 3.200M20.500 11l-3.300-.5 1-3.200" fill="none" stroke-width="1.500"/>',
@@ -1724,7 +1760,7 @@ star:'<path d="M12 2.500l2.900 6.200 6.600.8-4.900 4.600 1.300 6.700L12 17.500l-
 };
 function ug(k){return '<svg class="gl ug" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.400" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(UIG[k]||'')+'</svg>'}
 /* 이모지 → 아이콘 키 (u:UI, 그 외:기물 글리프) */
-const EMO={'🎯':'J','⚡':'u:bolt','↩️':'u:undo','↩':'u:undo','🏁':'u:flag','💡':'u:bulb','🎲':'u:dice','✔':'u:check','✅':'u:check','⚠️':'u:warn','⚠':'u:warn','☠️':'u:skull','☠':'u:skull','💀':'u:skull','🏆':'u:trophy','🤝':'u:scale','🎉':'u:star','💥':'u:burst','💢':'u:burst','✨':'u:spark','🌟':'u:spark','💫':'u:spark','⭐':'u:star','💨':'u:wind','🍃':'u:wind','🪶':'u:wind','🔒':'u:lock','💧':'u:drop','👁️':'u:eye','👁':'u:eye','⚙':'u:gear','⚙️':'u:gear','📖':'u:book','🎵':'u:music','🔊':'u:snd','🤖':'u:robot','⚪':'u:circ','⚫':'u:circf','🌑':'u:circf','🔄':'u:refresh','👆':'u:pointer','🎨':'u:palette','🔖':'u:bookmark','🧩':'u:puzzle','🎮':'u:gamepad','🕹':'u:gamepad','✚':'u:plus','👑':'K','♛':'Q','🏃':'T','😈':'d','🍀':'l','❄️':'f','❄':'f','🌪️':'X','🌪':'X','🌀':'X','🔥':'e','🌋':'e','💗':'m','💔':'m','🛡️':'V','🛡':'V','⚔️':'w','⚔':'w','👊':'i','🕊️':'u:wind','🪨':'G','🪐':'x','💠':'j','🏇':'y','⛰️':'n','⛰':'n','🧱':'G','🗿':'G','🐍':'M','✝️':'H','✝':'H','🧨':'h','🤏':'a','🖐️':'a','🖐':'a','🐾':'F','🗼':'v','🧚':'q','🚪':'r','🦅':'Y','🐴':'N','🦈':'Z','☀️':'g','☀':'g','🌅':'o','🏠':'u:home','💾':'u:save','🗑️':'u:trash','🗑':'u:trash','▶️':'u:play','▶':'u:play','⏸️':'u:pause','⏸':'u:pause','📤':'u:share','🏳️':'u:flag','🏳':'u:flag'};
+const EMO={'🚧':'Ł','🎯':'J','⚡':'u:bolt','↩️':'u:undo','↩':'u:undo','🏁':'u:flag','💡':'u:bulb','🎲':'u:dice','✔':'u:check','✅':'u:check','⚠️':'u:warn','⚠':'u:warn','☠️':'u:skull','☠':'u:skull','💀':'u:skull','🏆':'u:trophy','🤝':'u:scale','🎉':'u:star','💥':'u:burst','💢':'u:burst','✨':'u:spark','🌟':'u:spark','💫':'u:spark','⭐':'u:star','💨':'u:wind','🍃':'u:wind','🪶':'u:wind','🔒':'u:lock','💧':'u:drop','👁️':'u:eye','👁':'u:eye','⚙':'u:gear','⚙️':'u:gear','📖':'u:book','🎵':'u:music','🔊':'u:snd','🤖':'u:robot','⚪':'u:circ','⚫':'u:circf','🌑':'u:circf','🔄':'u:refresh','👆':'u:pointer','🎨':'u:palette','🔖':'u:bookmark','🧩':'u:puzzle','🎮':'u:gamepad','🕹':'u:gamepad','✚':'u:plus','👑':'K','♛':'Q','🏃':'T','😈':'d','🍀':'l','❄️':'f','❄':'f','🌪️':'X','🌪':'X','🌀':'X','🔥':'e','🌋':'e','💗':'m','💔':'m','🛡️':'V','🛡':'V','⚔️':'w','⚔':'w','👊':'i','🕊️':'u:wind','🪨':'G','🪐':'x','💠':'j','🏇':'y','⛰️':'n','⛰':'n','🧱':'G','🗿':'G','🐍':'M','✝️':'H','✝':'H','🧨':'h','🤏':'a','🖐️':'a','🖐':'a','🐾':'F','🗼':'v','🧚':'q','🚪':'r','🦅':'Y','🐴':'N','🦈':'Z','☀️':'g','☀':'g','🌅':'o','🏠':'u:home','💾':'u:save','🗑️':'u:trash','🗑':'u:trash','▶️':'u:play','▶':'u:play','⏸️':'u:pause','⏸':'u:pause','📤':'u:share','🏳️':'u:flag','🏳':'u:flag'};
 const EMO_RE=new RegExp(Object.keys(EMO).sort((a,b)=>b.length-a.length).join('|'),'g');
 function emoHtml(s){return s.replace(EMO_RE,m=>{const k=EMO[m];return '<span class="ei">'+(k.startsWith('u:')?ug(k.slice(2)):gl(k))+'</span>'})}
 function emoDom(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){EMO_RE.lastIndex=0;if(!EMO_RE.test(n.nodeValue))return NodeFilter.FILTER_REJECT;const p=n.parentElement;if(!p||p.closest('.fx,.kfx,script,style,textarea,input'))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});
@@ -1796,10 +1832,11 @@ const EN_DEF={
  j:['Sparkle','Moves 1 square orthogonally (cannot capture) · Ranged attack: hits an enemy on any square of the outer ring of its surrounding 5x5 (the 3x3 around it is excluded)'],
  y:['Lancer','Moves or captures up to 2 squares straight forward or diagonally forward-left / forward-right · Pierce: enemies in the path are eliminated too (blocked by friendly pieces; invincible pieces and King-class cannot be pierced) · Moves 1 square backward (empty squares only; cannot capture)'],
  n:['Mountain','Moves or captures 1 square orthogonally · Skill: Hill — turn one square of the middle 4 rows (outside both home zones) into a hill (each Mountain keeps 1 hill). A piece on a hill (not King- or Queen-class) is immune to ranged attacks but can be captured, and its movement is fixed to 1 square orthogonally (no capture) · A moving piece stops on the first hill in its path · Hills vanish when covered by Magma, a Freeze Zone or the storm, or when their Mountain is gone'],
+ 'Ł':['Line','Moves or captures 1 square vertically · Skill: Fence — remove itself and build a permanent fence on one of the 4 sides of the square it stood on. Neither side can cross a fence with a straight move or capture (jumps, teleports and ranged attacks pass over) · Fences vanish when covered by Magma, a Freeze Zone or a hill (the storm does not remove them)'],
 };
 
 if(EN)TYPES.forEach(t=>{DEF[t].n=EN_DEF[t][0];DEF[t].dd=EN_DEF[t][1]});
-const TPL={"기물 도감 / 규칙": "Piece Codex / Rules", "기물 도감": "Piece Codex", "설정": "Settings", "배경음악": "Music", "효과음": "Sound effects", "배 틀 체 스": "ARMY BUILDER", "39 코스트로 나만의 군대를 만들어 싸워라": "Build your own army with 39 cost and fight", "📖 튜토리얼 · 처음이라면 여기!": "📖 Tutorial · Start here if you're new!", "🌐 온라인 대전": "🌐 Online Play", "기물 도감 · 규칙": "Piece Codex · Rules", "📢 공지·패치": "📢 News · Patches", "💬 건의하기": "💬 Feedback", "📤 공유": "📤 Share", "연결 확인 중…": "Checking connection…", "닉네임": "Nickname", "닉네임 (최대 12자)": "Nickname (max 12 chars)", "출전 구성 · 배치": "Army & Placement", "미리 저장한 “구성·배치”로 상대와 싸웁니다. 매칭이 잡히면 색(백/흑)만 정해지고 배치는 그대로 적용됩니다.": "You fight with a saved “build & placement”. When a match is found only your color (White/Black) is decided; your placement is used as is.", "➕ 내 기물 선택·배치로 새 프리셋 만들기": "➕ Make a new preset by picking & placing pieces", "상대를 찾는 중…": "Looking for an opponent…", "⏳ 지금은 접속자가 적어요. 친구에게 공유해서 같은 시간에 접속해 보세요!": "⏳ Few people are online right now. Share it with a friend and connect at the same time!", "📤 친구에게 공유하기": "📤 Share with a friend", "매칭 취소": "Cancel matching", "⚔️ 매칭 시작": "⚔️ Start Matching", "뒤로": "Back", "온라인 대전은 이 페이지를 로그인 상태로 열고, 같은 페이지를 연 다른 사람과 연결됩니다. 상대 기물은 대전 시작 때 공개됩니다.": "Online play connects you with other people who have this same page open. Your opponent's pieces are revealed when the match starts.", "게임 설정": "Game Setup", "🏠 메뉴로": "🏠 Menu", "게임 모드": "Game Mode", "PvE · AI 대전": "PvE · vs AI", "PvP · 한 기기 2인 대전": "PvP · 2 players, one device", "🤖 AI 관전": "🤖 AI Spectate", "AI 난이도": "AI Difficulty", "내 색깔": "My Color", "백 (선공)": "White (first)", "흑 (후공)": "Black (second)", "랜덤": "Random", "⚪ 백 AI 난이도": "⚪ White AI difficulty", "⚫ 흑 AI 난이도": "⚫ Black AI difficulty", "관전 속도": "Spectate speed", "백·흑 군대의 기물 선택과 배치는 내가 직접 정하고, 전투는 AI끼리 진행합니다.": "You choose both armies and their placement; the AIs fight the battle.", "다음: 기물 선택": "Next: Pick Pieces", "코스트 39 · 킹 필수(킹·갓은 무료, 엠페러·데몬으로 대체 가능) · 킹을 잡으면 승리": "Cost 39 · King required (King and God are free; can be replaced by Emperor or Demon) · Capture the King to win", "다음: 기물 배치 ▶": "Next: Place Pieces ▶", "구성 도우미": "Build Helper", "내 프리셋": "My Presets", "현재 구성 저장": "Save current build", "프리셋 관리 · 공유": "Manage / Share presets", "선택한 기물이 놓일 수 있는 칸이 연두색으로 표시됩니다 · 놓인 기물을 누르면 회수": "Squares where the selected piece can go are shown in green · tap a placed piece to take it back", "배치 초기화": "Clear placement", "자동 배치": "Auto-place", "이 구성·배치를 프리셋으로 저장": "Save this build & placement as a preset", "배치 완료": "Done placing", "진행 상황": "Progress", "추가 이동 건너뛰기": "Skip extra move", "스킬 확정": "Confirm skill", "스킬 취소": "Cancel skill", "사용 스킬 · 각 1회": "Player Skills · once each", "↩️ 원위치!": "↩️ Fall Back!", "⚡ 돌격 앞으로!": "⚡ Charge!", "🏁 상황 종결!": "🏁 Finish It!", "🔥 피버!": "🔥 Fever!", "이동": "Move", "잡기": "Capture", "원거리 공격": "Ranged", "스킬": "Skill", "⏸ 일시정지": "⏸ Pause", "속도": "Speed", "💡 좋은 수 표시: 꺼짐": "💡 Best-move hints: Off", "보드 뒤집기": "Flip board", "결과 보기": "View result", "항복": "Resign", "처음으로": "Main menu", "새로고침": "Refresh", "닫기": "Close", "◀ 이전": "◀ Back", "다음 ▶": "Next ▶", "📤 결과 공유하기": "📤 Share result", "🌐 다시 매칭하기": "🌐 Match again", "같은 구성·배치로 다시 하기": "Play again with the same build & placement", "배치로 돌아가기": "Back to placement", "기물 선택으로": "Back to piece selection", "메인 메뉴": "Main menu", "판 확인하기": "Review the board", "📢 공지 · 패치 노트": "📢 News · Patch Notes", "공지": "News", "패치 노트": "Patch Notes", "불러오는 중…": "Loading…", "🔄 새로고침": "🔄 Refresh", "버그, 밸런스, 아이디어, 칭찬 모두 환영합니다!": "Bugs, balance, ideas, praise — everything is welcome!", "🐞 버그 제보": "🐞 Bug report", "⚖️ 밸런스 의견": "⚖️ Balance", "💡 기능 건의": "💡 Idea", "👍 칭찬·응원": "👍 Praise", "어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)": "Tell us which piece/situation and what happened (e.g. after using the Golem skill ...)", "댓글 등록": "Post comment", "행동 로그": "Action Log", "승급할 기물 선택": "Choose a piece to promote to", "기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?": "Your piece reached the last row. Which piece should it promote to?", "프리셋 이름": "Preset name", "취소": "Cancel", "저장": "Save", "프리셋 관리": "Manage Presets", "공유 코드로 가져오기": "Import from a share code", "다른 기기에서 복사한 코드를 붙여넣으면 프리셋이 추가됩니다.": "Paste a code copied from another device to add a preset.", "프리셋 공유 코드": "Preset share code", "가져오기": "Import", "매칭 성사!": "Match found!", "내 구성": "My army", "상대 구성": "Opponent's army", "상대가 화면을 보지 않도록 기기를 넘겨 주세요.": "Pass the device over so the other player cannot see the screen.", "준비 완료": "Ready", "확인": "OK", "배틀체스": "Battle Chess", "📲 앱으로 설치 · 홈 화면에 추가": "📲 Install app · Add to Home Screen", "📲 홈 화면에 추가": "📲 Add to Home Screen", "🎮 체험형 튜토리얼 · 직접 해보기": "🎮 Guided Tutorial · Learn by Playing", "도우미": "Guide", "🎮 체험형 튜토리얼": "🎮 Guided Tutorial", "하고 싶은 체험을 골라 보세요. 직접 눌러 보며 배워요!": "Pick a lesson and learn by trying it yourself!", "🧪 기물 체험하기 · 연습장": "🧪 Piece Lab · Practice Range", "정식출시 대규모 패치 \"궤도에 오르라!\"": "Official Release Mega Patch \"Into Orbit!\"", "신규 기물 4종 · 언덕 · 기물 조정": "4 new pieces · Hills · Piece tweaks", "📖 튜토리얼": "📖 Tutorial", "🧪 연습장": "🧪 Piece Lab"};
+const TPL={"기물 도감 / 규칙": "Piece Codex / Rules", "기물 도감": "Piece Codex", "설정": "Settings", "배경음악": "Music", "효과음": "Sound effects", "배 틀 체 스": "ARMY BUILDER", "39 코스트로 나만의 군대를 만들어 싸워라": "Build your own army with 39 cost and fight", "📖 튜토리얼 · 처음이라면 여기!": "📖 Tutorial · Start here if you're new!", "🌐 온라인 대전": "🌐 Online Play", "기물 도감 · 규칙": "Piece Codex · Rules", "📢 공지·패치": "📢 News · Patches", "💬 건의하기": "💬 Feedback", "📤 공유": "📤 Share", "연결 확인 중…": "Checking connection…", "닉네임": "Nickname", "닉네임 (최대 12자)": "Nickname (max 12 chars)", "출전 구성 · 배치": "Army & Placement", "미리 저장한 “구성·배치”로 상대와 싸웁니다. 매칭이 잡히면 색(백/흑)만 정해지고 배치는 그대로 적용됩니다.": "You fight with a saved “build & placement”. When a match is found only your color (White/Black) is decided; your placement is used as is.", "➕ 내 기물 선택·배치로 새 프리셋 만들기": "➕ Make a new preset by picking & placing pieces", "상대를 찾는 중…": "Looking for an opponent…", "⏳ 지금은 접속자가 적어요. 친구에게 공유해서 같은 시간에 접속해 보세요!": "⏳ Few people are online right now. Share it with a friend and connect at the same time!", "📤 친구에게 공유하기": "📤 Share with a friend", "매칭 취소": "Cancel matching", "⚔️ 매칭 시작": "⚔️ Start Matching", "뒤로": "Back", "온라인 대전은 이 페이지를 로그인 상태로 열고, 같은 페이지를 연 다른 사람과 연결됩니다. 상대 기물은 대전 시작 때 공개됩니다.": "Online play connects you with other people who have this same page open. Your opponent's pieces are revealed when the match starts.", "게임 설정": "Game Setup", "🏠 메뉴로": "🏠 Menu", "게임 모드": "Game Mode", "PvE · AI 대전": "PvE · vs AI", "PvP · 한 기기 2인 대전": "PvP · 2 players, one device", "🤖 AI 관전": "🤖 AI Spectate", "AI 난이도": "AI Difficulty", "내 색깔": "My Color", "백 (선공)": "White (first)", "흑 (후공)": "Black (second)", "랜덤": "Random", "⚪ 백 AI 난이도": "⚪ White AI difficulty", "⚫ 흑 AI 난이도": "⚫ Black AI difficulty", "관전 속도": "Spectate speed", "백·흑 군대의 기물 선택과 배치는 내가 직접 정하고, 전투는 AI끼리 진행합니다.": "You choose both armies and their placement; the AIs fight the battle.", "다음: 기물 선택": "Next: Pick Pieces", "코스트 39 · 킹 필수(킹·갓은 무료, 엠페러·데몬으로 대체 가능) · 킹을 잡으면 승리": "Cost 39 · King required (King and God are free; can be replaced by Emperor or Demon) · Capture the King to win", "다음: 기물 배치 ▶": "Next: Place Pieces ▶", "구성 도우미": "Build Helper", "내 프리셋": "My Presets", "현재 구성 저장": "Save current build", "프리셋 관리 · 공유": "Manage / Share presets", "선택한 기물이 놓일 수 있는 칸이 연두색으로 표시됩니다 · 놓인 기물을 누르면 회수": "Squares where the selected piece can go are shown in green · tap a placed piece to take it back", "배치 초기화": "Clear placement", "자동 배치": "Auto-place", "이 구성·배치를 프리셋으로 저장": "Save this build & placement as a preset", "배치 완료": "Done placing", "진행 상황": "Progress", "추가 이동 건너뛰기": "Skip extra move", "스킬 확정": "Confirm skill", "스킬 취소": "Cancel skill", "사용 스킬 · 각 1회": "Player Skills · once each", "↩️ 원위치!": "↩️ Fall Back!", "⚡ 돌격 앞으로!": "⚡ Charge!", "🏁 상황 종결!": "🏁 Finish It!", "🔥 피버!": "🔥 Fever!", "이동": "Move", "잡기": "Capture", "원거리 공격": "Ranged", "스킬": "Skill", "⏸ 일시정지": "⏸ Pause", "속도": "Speed", "💡 좋은 수 표시: 꺼짐": "💡 Best-move hints: Off", "보드 뒤집기": "Flip board", "결과 보기": "View result", "항복": "Resign", "처음으로": "Main menu", "새로고침": "Refresh", "닫기": "Close", "◀ 이전": "◀ Back", "다음 ▶": "Next ▶", "📤 결과 공유하기": "📤 Share result", "🌐 다시 매칭하기": "🌐 Match again", "같은 구성·배치로 다시 하기": "Play again with the same build & placement", "배치로 돌아가기": "Back to placement", "기물 선택으로": "Back to piece selection", "메인 메뉴": "Main menu", "판 확인하기": "Review the board", "📢 공지 · 패치 노트": "📢 News · Patch Notes", "공지": "News", "패치 노트": "Patch Notes", "불러오는 중…": "Loading…", "🔄 새로고침": "🔄 Refresh", "버그, 밸런스, 아이디어, 칭찬 모두 환영합니다!": "Bugs, balance, ideas, praise — everything is welcome!", "🐞 버그 제보": "🐞 Bug report", "⚖️ 밸런스 의견": "⚖️ Balance", "💡 기능 건의": "💡 Idea", "👍 칭찬·응원": "👍 Praise", "어떤 기물/상황에서 어떤 일이 있었는지 적어 주세요 (예: 골렘 스킬 사용 후 ...)": "Tell us which piece/situation and what happened (e.g. after using the Golem skill ...)", "댓글 등록": "Post comment", "행동 로그": "Action Log", "승급할 기물 선택": "Choose a piece to promote to", "기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?": "Your piece reached the last row. Which piece should it promote to?", "프리셋 이름": "Preset name", "취소": "Cancel", "저장": "Save", "프리셋 관리": "Manage Presets", "공유 코드로 가져오기": "Import from a share code", "다른 기기에서 복사한 코드를 붙여넣으면 프리셋이 추가됩니다.": "Paste a code copied from another device to add a preset.", "프리셋 공유 코드": "Preset share code", "가져오기": "Import", "매칭 성사!": "Match found!", "내 구성": "My army", "상대 구성": "Opponent's army", "상대가 화면을 보지 않도록 기기를 넘겨 주세요.": "Pass the device over so the other player cannot see the screen.", "준비 완료": "Ready", "확인": "OK", "배틀체스": "Battle Chess", "📲 앱으로 설치 · 홈 화면에 추가": "📲 Install app · Add to Home Screen", "📲 홈 화면에 추가": "📲 Add to Home Screen", "🎮 체험형 튜토리얼 · 직접 해보기": "🎮 Guided Tutorial · Learn by Playing", "도우미": "Guide", "🎮 체험형 튜토리얼": "🎮 Guided Tutorial", "하고 싶은 체험을 골라 보세요. 직접 눌러 보며 배워요!": "Pick a lesson and learn by trying it yourself!", "🧪 기물 체험하기 · 연습장": "🧪 Piece Lab · Practice Range", "정식출시 대규모 패치 \"궤도에 오르라!\"": "Official Release Mega Patch \"Into Orbit!\"", "신규 기물 5종 · 언덕 · 철책 · 기물 조정": "5 new pieces · Hills · Fences · Piece tweaks", "📖 튜토리얼": "📖 Tutorial", "🧪 연습장": "🧪 Piece Lab"};
 if(EN){(()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const ns=[];let n;while(n=w.nextNode())ns.push(n);
  ns.forEach(n=>{const pn=n.parentNode;if(pn&&/^(SCRIPT|STYLE)$/.test(pn.nodeName))return;const s=n.nodeValue,t=s.trim();if(t&&TPL[t]!==undefined)n.nodeValue=s.replace(t,()=>TPL[t])});
  document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(e=>['placeholder','aria-label','title'].forEach(at=>{const v=e.getAttribute(at);if(v&&TPL[v]!==undefined)e.setAttribute(at,TPL[v])}));
@@ -1822,14 +1859,17 @@ function closeM(id){$('#'+id).classList.remove('on')}
 $$('[data-close]').forEach(b=>b.onclick=()=>b.closest('.modal').classList.remove('on'));
 $$('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m&&m.id!=='mOver'&&m.id!=='mPass')m.classList.remove('on')}));
 function ask(title,desc,yes){$('#askT').textContent=title;$('#askD').textContent=desc;openM('mAsk');$('#askYes').onclick=()=>{closeM('mAsk');yes()};$('#askNo').onclick=()=>closeM('mAsk')}
-const TC=t=>'t'+({g:'God',r:'Rondo',h:'Shot',s:'Gen',l:'Luck',c:'Crit',f:'Frz',i:'Inf',d:'Dmn',m:'Mom',e:'Flm',v:'Vert',o:'Hori',a:'Hand',w:'Swd',b:'Bsd',z:'Mgc',p:'Brd',k:'Whm',u:'Vlt',t:'Hop',x:'Orb',j:'Spk',y:'Lan',n:'Mtn'}[t]||t);
+const TC=t=>'t'+({g:'God',r:'Rondo',h:'Shot',s:'Gen',l:'Luck',c:'Crit',f:'Frz',i:'Inf',d:'Dmn',m:'Mom',e:'Flm',v:'Vert',o:'Hori',a:'Hand',w:'Swd',b:'Bsd',z:'Mgc',p:'Brd',k:'Whm',u:'Vlt',t:'Hop',x:'Orb',j:'Spk',y:'Lan',n:'Mtn','Ł':'Fnc'}[t]||t);
 function icon(t,cls){return `<i class="ic ${TC(t)}${cls?' '+cls:''}">${gl(t)}</i>`}
 const PLN=t=>t==='D'?TR('후열 검은 칸','Back row · dark squares'):t==='W'?TR('후열 흰 칸','Back row · light squares'):{f:TR('전열','Front row'),b:TR('후열','Back row'),fb:TR('전·후열','Front/Back')}[DEF[t].p];
+const plTags=t=>DEF[t].p==='fb'?TR('<span class="tg f">전열</span><span class="tg b">후열</span>','<span class="tg f">Front row</span><span class="tg b">Back row</span>'):`<span class="tg ${tagCls(t)}">${PLN(t)}</span>`;
 const tagCls=t=>DEF[t].p==='f'?'f':DEF[t].p==='b'?'b':'x';
 
 /* ===== 도움말 ===== */
-const GR=[[TR('킹 계열','King class'),TR('킹, 엠페러, 갓, 데몬 중 1기','Pick 1: King, Emperor, God or Demon'),['E','g','d']],[TR('퀸 계열','Queen class'),TR('퀸, 메두사, 프린세스, 마더 중 1기','Pick 1: Queen, Medusa, Princess or Mother'),['Q','M','q','m']],[TR('기동 계열','Mobility class'),TR('빠른 이동·순간이동·침투로 전장을 휘젓는 기물','Pieces that rush around with fast moves, teleports and infiltration'),['T','N','Z','Y','F','r','u','t','x']],[TR('원거리 계열','Ranged class'),TR('멀리서 적을 제거하는 기물','Pieces that eliminate enemies from afar'),['S','L','A','O','U','J','C','h','j']],[TR('근접 계열','Melee class'),TR('정면에서 부딪혀 잡는 기물','Pieces that charge in and capture head-on'),['P','B','R','G','c','i','b','k','y']],[TR('유틸 계열','Support class'),TR('보호·회복·재배치로 아군을 돕는 기물','Pieces that protect, heal and reposition allies'),['H','I','a','V','l','f','z','p']],[TR('특수 계열','Special class'),TR('독특한 규칙을 가진 기물','Pieces with unique rules'),['X','s','w','v','o','D','W','e','n']]];
+const GR=[[TR('킹 계열','King class'),TR('킹, 엠페러, 갓, 데몬 중 1기','Pick 1: King, Emperor, God or Demon'),['E','g','d']],[TR('퀸 계열','Queen class'),TR('퀸, 메두사, 프린세스, 마더 중 1기','Pick 1: Queen, Medusa, Princess or Mother'),['Q','M','q','m']],[TR('기동 계열','Mobility class'),TR('빠른 이동·순간이동·침투로 전장을 휘젓는 기물','Pieces that rush around with fast moves, teleports and infiltration'),['T','N','Z','Y','F','r','u','t','x']],[TR('원거리 계열','Ranged class'),TR('멀리서 적을 제거하는 기물','Pieces that eliminate enemies from afar'),['S','L','A','O','U','J','C','h','j']],[TR('근접 계열','Melee class'),TR('정면에서 부딪혀 잡는 기물','Pieces that charge in and capture head-on'),['P','B','R','G','c','i','b','k','y']],[TR('유틸 계열','Support class'),TR('보호·회복·재배치로 아군을 돕는 기물','Pieces that protect, heal and reposition allies'),['H','I','a','V','l','f','z','p','Ł']],[TR('특수 계열','Special class'),TR('독특한 규칙을 가진 기물','Pieces with unique rules'),['X','s','w','v','o','D','W','e','n']]];
 let selTab=0;
+GR.splice(2,3,GR[4],GR[2],GR[3]);   // 분류 순서 통일: 킹 · 퀸 · 근접 · 기동 · 원거리 · 유틸 · 특수
+const CLN=()=>[TR('킹 계열','King class'),TR('퀸 계열','Queen class'),TR('근접','Melee'),TR('기동','Mobility'),TR('원거리','Ranged'),TR('유틸','Support'),TR('특수','Special')];
 /* ===== 도감 · 매뉴얼 ===== */
 const DEMO={a:[6,3],w:[5,3],r:[7,3],E:[7,3],P:[6,3],h:[5,3],T:[6,3],S:[5,3],L:[6,3],V:[5,3],F:[5,3],D:[4,3],W:[4,4],e:[7,3],z:[6,3],p:[6,3],k:[5,3],t:[5,3],b:[4,3],u:[4,3]};
 const PRESETS=[
@@ -1889,17 +1929,17 @@ function rowsHtml(t){const parts=DEF[t].d.split(' · '),pe=EN?DEF[t].dd.split(' 
   else if(/처치하면|잡은 뒤|돌파|폭멸|추가 이동|킹·엠페러|처치되|사라짐/.test(p)&&parts.length>1){k=TR('특수','Special');c='qcap'}
   if(EN)x=pe[pi].replace(/^(Skill|Special|Breakthrough):\s*/,'');
   return `<div class="rw"><b class="rk ${c}">${k}</b><span>${pnIco(x)}</span></div>`}).join('')}
-function tagsHtml(t){const tg=[`<span class="tg ${tagCls(t)}">${PLN(t)}</span>`];
- if(isKing(t))tg.push(TR('<span class="tg x">킹 계열</span>','<span class="tg x">King class</span>'));else if(t==='Q'||t==='M'||t==='q'||t==='m')tg.push(TR('<span class="tg x">퀸 계열</span>','<span class="tg x">Queen class</span>'));return tg.join('')}
+function tagsHtml(t){const tg=[plTags(t)];
+ if(isKing(t))tg.push(TR('<span class="tg kc">킹 계열</span>','<span class="tg kc">King class</span>'));else if(t==='Q'||t==='M'||t==='q'||t==='m')tg.push(TR('<span class="tg x">퀸 계열</span>','<span class="tg x">Queen class</span>'));return tg.join('')}
 function pieceCard(t){const D=DEF[t];
  return TR(`<div class="pcd" data-t="${t}"><div class="pcd-h">${icon(t)}<div class="pcd-t"><b>${D.n}</b><span class="cb">${D.c} 코스트</span>${tagsHtml(t)}</div></div><div class="pcd-b">${miniHtml(t)}<div class="rows">${rowsHtml(t)}${t==='d'?TR('<button class="dmnbtn" type="button">😈 악마화 범위 보기</button>','<button class="dmnbtn" type="button">😈 Show Demon-form range</button>'):''}</div></div></div>`,`<div class="pcd" data-t="${t}"><div class="pcd-h">${icon(t)}<div class="pcd-t"><b>${D.n}</b><span class="cb">Cost ${D.c}</span>${tagsHtml(t)}</div></div><div class="pcd-b">${miniHtml(t)}<div class="rows">${rowsHtml(t)}${t==='d'?TR('<button class="dmnbtn" type="button">😈 악마화 범위 보기</button>','<button class="dmnbtn" type="button">😈 Show Demon-form range</button>'):''}</div></div></div>`)}
 document.addEventListener('click',e=>{const b=e.target.closest('.dmnbtn');if(!b)return;const card=b.closest('.pcd'),mi=card&&card.querySelector('.mini');if(!mi)return;
  const on=b.classList.toggle('on');mi.outerHTML=miniHtml('d',on);b.textContent=on?TR('😈 악마화 범위 (대각선도 2칸) — 누르면 기본 범위','😈 Demon-form range (diagonals up to 2 too) — tap for the base range'):TR('😈 악마화 범위 보기','😈 Show Demon-form range')});
 const MINI_LG=TR('<div class="mlg"><span><i class="qmv"></i>이동</span><span><i class="qcap"></i>잡기</span><span><i class="qrg"></i>원거리 공격</span><span><i class="qsk"></i>스킬 범위</span></div>','<div class="mlg"><span><i class="qmv"></i>Move</span><span><i class="qcap"></i>Capture</span><span><i class="qrg"></i>Ranged attack</span><span><i class="qsk"></i>Skill range</span></div>');
-const HF=[['all',TR('전체','All')],['f',TR('전열','Front row')],['b',TR('후열','Back row')],['fb',TR('전·후열','Front/Back')],['kq',TR('킹·퀸 계열','King/Queen class')],['sk',TR('원거리·스킬','Ranged/Skill')]];
+const HF=[['all',TR('전체','All')]].concat(CLN().map((n,k)=>['g'+k,n]));
 function dexList(f){
  const ts=['K'].concat(GR.reduce((a,g)=>a.concat(g[2]),[]));
- const ok=t=>f==='all'||(f==='kq'?(isKing(t)||t==='Q'||t==='M'||t==='q'||t==='m'):f==='sk'?/스킬|원거리|포격|사격|저격|관통/.test(DEF[t].d):DEF[t].p===f);
+ const gi=/^g\d$/.test(f)?+f[1]:-1;const ok=t=>f==='all'||(gi===0?isKing(t):gi>=0&&GR[gi][2].indexOf(t)>=0);
  const shown=ts.filter(ok);
  return MINI_LG+'<div class="dexg">'+(shown.map(pieceCard).join('')||TR('<p class="note">해당하는 기물이 없습니다.</p>','<p class="note">No matching pieces.</p>'))+'</div>'}
 function helpRule(){return TR(`
@@ -1970,28 +2010,41 @@ function toHome(){if(G.tut)tutLeave();if(G.lab)labLeave();cancelAI();if(G.net&&!
 
 /* ===== 2. 기물 선택 ===== */
 const used=()=>Object.keys(army).reduce((a,t)=>a+DEF[t].c*army[t],0),cnt=()=>Object.keys(army).reduce((a,t)=>a+army[t],0);
-const kcOf=()=>army.E?'E':army.g?'g':army.d?'d':null;
-const listOf=()=>Object.keys(army).reduce((a,t)=>a.concat(Array(army[t]).fill(t)),[]);
-function canAdd(t){return used()+DEF[t].c<=BUDGET&&BC.okAdd(listOf(),t)}
-function setArmy(list){army={};TYPES.forEach(t=>{if(t!=='K')army[t]=0});list.forEach(t=>army[t]++)}
+const kcOf=()=>army.E?'E':army.g?'g':army.d?'d':army.K?'K':null;
+const KCL='KEgd';
+const listOf=()=>Object.keys(army).filter(t=>t!=='K').reduce((a,t)=>a.concat(Array(army[t]).fill(t)),[]);
+function canAdd(t){
+ if(KCL.includes(t)){const cur=kcOf();if(cur===t)return false;const base=listOf().filter(x=>!'Egd'.includes(x));
+  if(t==='K')return base.filter(x=>DEF[x].p==='b').length<=7&&base.length<=BC.MAXN;
+  return used()-(cur?DEF[cur].c:0)+DEF[t].c<=BUDGET&&BC.okAdd(base,t)}
+ return used()+DEF[t].c<=BUDGET&&BC.okAdd(listOf(),t)}
+function setArmy(list){army={};TYPES.forEach(t=>{army[t]=0});list.forEach(t=>army[t]++);if(list.length&&!army.E&&!army.g&&!army.d)army.K=1}   // 킹 계열은 기본 0기 — 프리셋·랜덤은 킹을 함께 넣어 줌
 function nextSetup(){side=queue.shift();const sv=SAVED[side];
  if(G.ret==='place'&&sv){army=Object.assign({},sv.army);left={};pb=sv.pb.map(p=>p?BC.newPiece(p.t,p.s):null);selT=null;flipSetup=G.mode==='pve'&&side==='b';drawPlace();show('s3');window.scrollTo(0,0);return}
  if(G.ret==='sel'&&sv)army=Object.assign({},sv.army);else setArmy([]);
  drawSel();show('s2');window.scrollTo(0,0)}
 function card(t){const c=DEF[t].c,n=army[t]||0;
- return TR(`<div class="pc2 ${n?'on':''}"><div class="ib">${icon(t)}</div><div><div class="nm">${DEF[t].n}<span class="cb">${c} 코스트</span><span class="tg ${tagCls(t)}">${PLN(t)}</span></div><div class="ds rows">${rowsHtml(t)}</div><button class="inf" data-i="${t}" aria-label="${DEF[t].n} 자세히 보기">자세히 · 이동 범위 보기</button></div><div class="stp"><button data-t="${t}" data-d="-1" ${n?'':'disabled'} aria-label="${DEF[t].n} 빼기">−</button><b>${n}</b><button data-t="${t}" data-d="1" ${canAdd(t)?'':'disabled'} aria-label="${DEF[t].n} 더하기">+</button></div></div>`,`<div class="pc2 ${n?'on':''}"><div class="ib">${icon(t)}</div><div><div class="nm">${DEF[t].n}<span class="cb">Cost ${c}</span><span class="tg ${tagCls(t)}">${PLN(t)}</span></div><div class="ds rows">${rowsHtml(t)}</div><button class="inf" data-i="${t}" aria-label="${DEF[t].n} details">Details · show move range</button></div><div class="stp"><button data-t="${t}" data-d="-1" ${n?'':'disabled'} aria-label="Remove ${DEF[t].n}">−</button><b>${n}</b><button data-t="${t}" data-d="1" ${canAdd(t)?'':'disabled'} aria-label="Add ${DEF[t].n}">+</button></div></div>`)}
+ return TR(`<div class="pc2 ${n?'on':''}"><div class="ib">${icon(t)}</div><div><div class="nm">${DEF[t].n}<span class="cb">${c} 코스트</span>${plTags(t)}</div><div class="ds rows">${rowsHtml(t)}</div><button class="inf" data-i="${t}" aria-label="${DEF[t].n} 자세히 보기">자세히 · 이동 범위 보기</button></div><div class="stp"><button data-t="${t}" data-d="-1" ${n?'':'disabled'} aria-label="${DEF[t].n} 빼기">−</button><b>${n}</b><button data-t="${t}" data-d="1" ${canAdd(t)?'':'disabled'} aria-label="${DEF[t].n} 더하기">+</button></div></div>`,`<div class="pc2 ${n?'on':''}"><div class="ib">${icon(t)}</div><div><div class="nm">${DEF[t].n}<span class="cb">Cost ${c}</span>${plTags(t)}</div><div class="ds rows">${rowsHtml(t)}</div><button class="inf" data-i="${t}" aria-label="${DEF[t].n} details">Details · show move range</button></div><div class="stp"><button data-t="${t}" data-d="-1" ${n?'':'disabled'} aria-label="Remove ${DEF[t].n}">−</button><b>${n}</b><button data-t="${t}" data-d="1" ${canAdd(t)?'':'disabled'} aria-label="Add ${DEF[t].n}">+</button></div></div>`)}
+/* 철책: 칸의 변 위에 굵은 선으로 표시 (b.fn 코드: 칸*2 = 그 칸의 오른쪽 변, 칸*2+1 = 그 칸의 아래쪽 변) */
+function fenceLayer(el,b,fl,pk){if(!el)return;const lines=[];
+ const add=(a,c2,pv)=>{const lo=Math.min(a,c2),hi=Math.max(a,c2),vert=(hi-lo)===1;const ra=lo>>3,ca=lo&7,rb=hi>>3,cb=hi&7;
+  const ya=fl?7-ra:ra,xa=fl?7-ca:ca,yb=fl?7-rb:rb,xb=fl?7-cb:cb;
+  if(vert){const x=Math.max(xa,xb),y=ya;lines.push(`<i class="fnc v${pv?' pv':''}" style="left:${x*12.5}%;top:${y*12.5}%;height:12.5%"></i>`)}
+  else{const y=Math.max(ya,yb),x=xa;lines.push(`<i class="fnc h${pv?' pv':''}" style="top:${y*12.5}%;left:${x*12.5}%;width:12.5%"></i>`)}};
+ if(b&&b.fn)for(const e of b.fn){const a=e>>1;add(a,a+(e&1?8:1),false)}
+ if(pk&&pk.a!=null)add(pk.f,pk.a,true);
+ if(lines.length)el.insertAdjacentHTML('beforeend',lines.join(''))}
 function drawSel(){
  $('#t2').textContent=(G.mode==='pvp'?SN[side]+TR(' 플레이어 · ',' Player · '):G.mode==='sim'?SN[side]+TR(' AI 군대 · ',' AI Army · '):'')+TR('기물 선택','Pick Pieces');
  $('#bar2').style.width=used()/BUDGET*100+'%';
- $('#cost2').innerHTML=TR(`<b style="font-size:20px">${BUDGET-used()}</b> 코스트 남음 (${used()} / ${BUDGET}) · 기물 ${cnt()+(kcOf()?0:1)}개 / 최대 ${MAXN+1}`,`<b style="font-size:20px">${BUDGET-used()}</b> cost left (${used()} / ${BUDGET}) · ${cnt()+(kcOf()?0:1)} / max ${MAXN+1} pieces`);
- const KC=TR(`<div class="pc2 ${kcOf()?'':'on'}"><div class="ib">${gl('K')}</div><div><div class="nm">${kcOf()?TR('킹 (','King (')+DEF[kcOf()].n+TR(' 대체)',' replacing)'):TR('킹','King')}<span class="cb">0 코스트</span><span class="tg b">후열</span></div><div class="ds rows">${rowsHtml('K')}</div><button class="inf" data-i="K" aria-label="킹 자세히 보기">자세히 · 이동 범위 보기</button></div><div class="stp"><b>${kcOf()?0:1}</b></div></div>`,`<div class="pc2 ${kcOf()?'':'on'}"><div class="ib">${gl('K')}</div><div><div class="nm">${kcOf()?TR('킹 (','King (')+DEF[kcOf()].n+TR(' 대체)',' replacing)'):TR('킹','King')}<span class="cb">Cost 0</span><span class="tg b">Back row</span></div><div class="ds rows">${rowsHtml('K')}</div><button class="inf" data-i="K" aria-label="King details">Details · show move range</button></div><div class="stp"><b>${kcOf()?0:1}</b></div></div>`);
- $('#gtabs').innerHTML=GR.map((g,k)=>{const n=g[2].reduce((s,t)=>s+(army[t]||0),0)+(k===0&&!kcOf()?1:0);return `<button data-g="${k}" class="${k===selTab?'on':''}">${g[0].replace(TR(' 계열',' class'),'')}${n?`<b>${n}</b>`:''}</button>`}).join('');
- const gg=GR[selTab];let h=`<div class="gt">${gg[0]} · ${gg[1]}</div>`+(selTab===0?KC:'')+gg[2].map(card).join('');
+ $('#cost2').innerHTML=TR(`<b style="font-size:20px">${BUDGET-used()}</b> 코스트 남음 (${used()} / ${BUDGET}) · 기물 ${cnt()}개 / 최대 ${MAXN+1}${kcOf()?'':' · 킹 계열 1기를 골라 주세요'}`,`<b style="font-size:20px">${BUDGET-used()}</b> cost left (${used()} / ${BUDGET}) · ${cnt()} / max ${MAXN+1} pieces${kcOf()?'':' · pick 1 King-class piece'}`);
+ {const cn=CLN(),tot=GR.reduce((a,g)=>a+g[2].reduce((s,t)=>s+(army[t]||0),0),0)+(army.K||0);$('#gtabs').innerHTML=`<button data-g="-1" class="${selTab===-1?'on':''}">${TR('전체','All')}${tot?`<b>${tot}</b>`:''}</button>`+GR.map((g,k)=>{const n=g[2].reduce((s,t)=>s+(army[t]||0),0)+(k===0?(army.K||0):0);return `<button data-g="${k}" class="${k===selTab?'on':''}">${cn[k]}${n?`<b>${n}</b>`:''}</button>`}).join('')}
+ const gg=selTab===-1?[TR('전체','All'),TR('모든 기물','All pieces'),GR.reduce((a,g)=>a.concat(g[2]),[])]:GR[selTab];let h=`<div class="gt">${gg[0]} · ${gg[1]}</div>`+(selTab<=0?card('K'):'')+gg[2].map(card).join('');
  $('#sel').innerHTML=h;
  $('#pre').innerHTML=TR('<button data-p="r">🎲 랜덤 구성</button><button data-p="x">초기화</button>','<button data-p="r">🎲 Random build</button><button data-p="x">Clear</button>')+PRESETS.map((x,i)=>`<button data-p="${i}" title="${x.l.split('').map(t=>DEF[t].n).join(', ')}">${i+1}. ${x.n}</button>`).join('');
- renderMyPre();$('#n2').disabled=false}
+ renderMyPre();$('#n2').disabled=!kcOf()}
 $('#gtabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;selTab=+b.dataset.g;sfx('sel');drawSel();window.scrollTo(0,0)};
-$('#sel').onclick=e=>{const k=e.target.closest('button');if(!k||k.disabled)return;if(k.classList.contains('inf')){showPiece(k.dataset.i);return}army[k.dataset.t]+=+k.dataset.d;sfx('sel');drawSel()};
+$('#sel').onclick=e=>{const k=e.target.closest('button');if(!k||k.disabled)return;if(k.classList.contains('inf')){showPiece(k.dataset.i);return}{const t=k.dataset.t,d=+k.dataset.d;if(d>0&&KCL.includes(t)){for(const x of KCL)army[x]=0;army[t]=1}else army[t]=Math.max(0,(army[t]||0)+d)}sfx('sel');drawSel()};
 $('#pre').onclick=e=>{const k=e.target.closest('button');if(!k)return;const p=k.dataset.p;
  if(p==='x')setArmy([]);else if(p==='r')setArmy(BC.randomArmy(rnd));else if(PRESETS[+p])setArmy(PRESETS[+p].l.split(''));sfx('place');drawSel()};
 ['home2','home3'].forEach(i=>$('#'+i).onclick=()=>ask(TR('메뉴로 돌아가기','Back to Main Menu'),TR('지금까지 고른 기물과 배치는 저장되지 않습니다. 메인 메뉴로 돌아갈까요?','The pieces and placement you picked so far will not be saved. Return to the main menu?'),()=>{G.mk=false;sfx('rm');toHome()}));
@@ -2014,7 +2067,7 @@ $('#bd3').onclick=e=>{const c=e.target.closest('[data-i]');if(!c)return;const i=
  if(p){left[p.t]=(left[p.t]||0)+1;pb[i]=null;selT=p.t;sfx('rm')}
  else if(selT&&left[selT]>0&&BC.okSq(selT,side,i)){pb[i]=BC.newPiece(selT,side);left[selT]--;sfx('place')}
  drawPlace()};
-function armyTypes(){const ts=[];for(const t in army)for(let k=0;k<army[t];k++)ts.push(t);return ts}
+function armyTypes(){const ts=[];for(const t in army)if(t!=='K')for(let k=0;k<army[t];k++)ts.push(t);return ts}
 $('#clr').onclick=()=>{left={};if(!kcOf())left.K=1;for(const t in army)if(army[t])left[t]=army[t];pb=BC.emptyBoard();selT=kcOf()||'K';sfx('rm');drawPlace()};
 $('#auto').onclick=()=>{const pl=BC.aiPlace(armyTypes(),side,rnd);
  if(!pl){toast(TR('자동 배치에 실패했습니다. 다시 시도해 주세요.','Auto-placement failed. Please try again.'));return}
@@ -2047,6 +2100,7 @@ function cellClass(i){let c='';if(G.lab){if(G.lab.place&&!G.b[i])c+='mv ';if(G.b
   return c+tutHl(i)}
 {const r0=i>>3,c0=i&7;for(let j=0;j<64;j++){const z=G.b[j];if(z&&z.t==='m'&&z.md&&j!==i&&Math.abs((j>>3)-r0)<=1&&Math.abs((j&7)-c0)<=1){c+='mp ';break}}}{const r0=i>>3,c0=i&7;for(let j=0;j<64;j++){const z=G.b[j];if(z&&z.t==='f'&&BC.iceHas(z,j,i)){c+='fz ';break}}}
  const lm=G.lm;if(lm&&(i===lm[0]||i===lm[1]))c+='lm ';if(i===G.sel)c+='sel ';
+ if(G.pk&&G.pk.t==='L'){if(G.pk.a===i)c+='hlp ';else if(G.legal.some(x=>x[2]===28&&x[1]===i))c+='hlz ';return c+tutHl(i)}
  if(G.pk&&G.pk.t==='N'){const ri=i>>3;if(G.pk.a===i)c+='hlp ';else if(ri>=2&&ri<=5)c+='hlz ';return c+tutHl(i)}
  if(G.pk&&G.pk.t==='F'){const a=G.pk.a,ri=i>>3,ci=i&7;if(a!=null&&ri>=(a>>3)&&ri<=(a>>3)+1&&ci>=(a&7)&&ci<=(a&7)+1)c+='mgp ';else if(ri>=2&&ri<=5)c+='mgz ';return c+tutHl(i)}
  if(G.pk){const cd=pkCand();if(G.pk.t==='Z'){if(G.pk.s.indexOf(i)>=0)c+='rg';else if(cd.indexOf(i)>=0)c+='sk'}else if(G.pk.t==='G'){if(G.pk.s.indexOf(i)>=0)c+='rg';else if(cd.indexOf(i)>=0)c+='sk'}else{if(G.pk.a===i)c+='cap';else if(G.pk.a!=null){if(cd.indexOf(i)>=0)c+='mv'}else if(cd.indexOf(i)>=0)c+='sk'}return c+tutHl(i)}
@@ -2054,13 +2108,15 @@ function cellClass(i){let c='';if(G.lab){if(G.lab.place&&!G.b[i])c+='mv ';if(G.b
  if(G.tut&&G.tut.hl){const h=G.tut.hl;if(h.f===i)c+='hf ';if(h.t===i||(h.m&&h.m.indexOf(i)>=0))c+='ht '}
  if(hintShown()&&G.hint){if(i===G.hint.from)c+='hf ';if(i===G.hint.to)c+='ht '}
  else if(G.hint2&&G.rush&&hintOn()){if(i===G.hint2.from)c+='hf ';if(i===G.hint2.to)c+='ht '}
- const m=G.legal.find(x=>x[1]===i&&x[2]!==19&&x[2]!==27);
+ const m=G.legal.find(x=>x[1]===i&&x[2]!==19&&x[2]!==27&&x[2]!==28);
+ if(!m&&G.legal.some(x=>x[1]===i&&x[2]===28))c+='hlz ';
  if(!m&&(i>>3)>=2&&(i>>3)<=5&&G.legal.some(x=>x[2]===19))c+='mgz ';
  if(!m&&(i>>3)>=2&&(i>>3)<=5&&G.legal.some(x=>x[2]===27))c+='hlz ';
  if(m)c+=m[2]===14?'cap ':(m[2]===1||m[2]===6)?'rg ':m[2]>=2?'sk ':(G.b[i]?'cap ':'mv ');
  if(isLocked(i))c+=' lk';
  return c}
 /* --- 체크 / 체크메이트 경고 --- */
+const labKi=()=>!!(G&&G.lab&&!(isKing(LAB.me)&&labMeIdx()<0));   // 연습장: 봇 킹이 잡혀도 게임이 끝나지 않음
 function kingSq(b,s){for(let i=0;i<64;i++){const p=b[i];if(p&&p.s===s&&isKing(p.t))return i}return -1}
 function chkInfo(){
  if(!G.b||!G.sk&&G.mode==='x')return null;
@@ -2085,7 +2141,7 @@ function chkBanner(ci){
 const hcb={};let hintId=0;
 function hintOn(){return !G.lab&&!G.net&&!!U.hint&&!!G.b&&!G.over&&G.mode!=='sim'&&(G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human))&&!G.busy}
 function hintShown(){return !G.tut&&hintOn()&&!G.pk&&!G.skp&&!G.rush&&!G.xm&&!G.dx&&!G.gsw}
-const SKT={27:TR('언덕 생성','Creates a hill'),2:TR('무적 부여','Grants invincibility'),3:TR('주변 적 빙결','Freezes nearby enemies'),4:TR('주변 적 처치','Eliminates nearby enemies'),5:TR('기물 재배치','Rearranges pieces'),7:TR('저격 조준','Takes aim'),8:TR('기물 부활','Revives a piece'),10:TR('아군 2회 행동 지정','Gives an ally 2 actions'),11:TR('적 처치','Eliminates an enemy'),12:TR('아군 재배치','Repositions an ally'),13:TR('마검 모드 전환','Switches Sword Mode'),15:TR('럭키 도전','Lucky gamble'),17:TR('빙결 영역 전환','Toggles Freeze Zone'),18:TR('보호막 전환','Toggles Shield'),19:TR('마그마 생성','Creates Magma'),22:TR('적 2기 이동 둔화','Slows 2 enemies'),23:TR('아군 2기 보호막','Shields 2 allies'),24:TR('납도 (발도 준비)','Sheathe (ready to draw)'),25:TR('발도술','Iaido strike'),26:TR('메뚜기 떼 모드','Locust Swarm mode')};
+const SKT={28:TR('철책 설치','Builds a fence'),27:TR('언덕 생성','Creates a hill'),2:TR('무적 부여','Grants invincibility'),3:TR('주변 적 빙결','Freezes nearby enemies'),4:TR('주변 적 처치','Eliminates nearby enemies'),5:TR('기물 재배치','Rearranges pieces'),7:TR('저격 조준','Takes aim'),8:TR('기물 부활','Revives a piece'),10:TR('아군 2회 행동 지정','Gives an ally 2 actions'),11:TR('적 처치','Eliminates an enemy'),12:TR('아군 재배치','Repositions an ally'),13:TR('마검 모드 전환','Switches Sword Mode'),15:TR('럭키 도전','Lucky gamble'),17:TR('빙결 영역 전환','Toggles Freeze Zone'),18:TR('보호막 전환','Toggles Shield'),19:TR('마그마 생성','Creates Magma'),22:TR('적 2기 이동 둔화','Slows 2 enemies'),23:TR('아군 2기 보호막','Shields 2 allies'),24:TR('납도 (발도 준비)','Sheathe (ready to draw)'),25:TR('발도술','Iaido strike'),26:TR('메뚜기 떼 모드','Locust Swarm mode')};
 function hintFor(m){
  if(m[2]===20){const p=G.b[m[0]];return{from:m[0],to:m[1],sk:'ret',txt:TR(`💡 추천: ↩️ 원위치! 사용 — ${DEF[p.t].n} ${pos(m[0])} → ${pos(m[1])} · ${attackedBy(G.b,OP(G.turn),m[0])?TR('공격받는 기물을 안전한 진영으로 되돌립니다','moves an attacked piece back to a safe zone'):TR('위험한 위치의 기물을 진영으로 되돌립니다','moves a piece in a dangerous spot back to your zone')}`,`💡 Tip: use ↩️ Fall Back! — ${DEF[p.t].n} ${pos(m[0])} → ${pos(m[1])} · ${attackedBy(G.b,OP(G.turn),m[0])?TR('공격받는 기물을 안전한 진영으로 되돌립니다','moves an attacked piece back to a safe zone'):TR('위험한 위치의 기물을 진영으로 되돌립니다','moves a piece in a dangerous spot back to your zone')}`)}}
  if(m[2]===21){const d=G.b.dead[G.turn][m[4][0]];return{from:m[1],to:m[1],sk:'fin',txt:TR(`💡 추천: 🏁 상황 종결! 사용 — ${DEF[d.t].n} 부활 → ${pos(m[1])} · 적이 얼마 안 남았으니 전력을 보충하세요`,`💡 Tip: use 🏁 Finish It! — revive ${DEF[d.t].n} → ${pos(m[1])} · the enemy is nearly gone, so bring your strength back`)}}
@@ -2172,7 +2228,7 @@ function draw(msg){
  if(G.tut)tutSync();
  const ci=G.over?null:chkInfo();
  G.hint2=(!G.tut&&hintOn()&&(G.rush||G.skp))?hint2For():null;
- board($('#bd4'),G.b,G.flip,cellClass);
+ board($('#bd4'),G.b,G.flip,cellClass);fenceLayer($('#bd4'),G.b,G.flip,G.pk&&G.pk.t==='L'?G.pk:null);
  if(G.b.mg)$$('#bd4 .c').forEach(e=>{const v=G.b.mg[+e.dataset.i];if(v){const w=v&7,k=v>>3;e.dataset.mg=(w?'○'+w:'')+(w&&k?' ':'')+(k?'●'+k:'')}});
  const top=G.flip?'w':'b',bot=OP(top);
  $('#pTop').className='pbar'+(G.turn===top&&!G.over?' act':'');$('#pTop').innerHTML=pbarHtml(top);
@@ -2183,7 +2239,7 @@ function draw(msg){
   else if(G.rush&&G.rush.lk)t=TR('🍀 럭키 추가 행동: 2코스트 이하 아군 1기가 행동할 수 있습니다 (건너뛰기 가능)','🍀 Lucky bonus action: 1 friendly piece of cost 2 or less may act (can skip)');
   else if(G.rush&&G.rush.fv)t=TR(`피버!: 서로 다른 기물 2개가 행동합니다 (남은 ${G.rush.left}회 · 같은 기물은 한 번만)`,`Fever!: 2 different pieces act (${G.rush.left} left · each piece only once)`);
   else if(G.rush)t=TR(`돌격 앞으로!: 2코스트 이하 기물로 행동 (남은 ${G.rush.left}회 · 같은 기물은 한 번만)`,`Charge!: act with pieces of cost 2 or less (${G.rush.left} left · each piece only once)`);
-  else if(G.pk)t=G.pk.t==='N'?(G.pk.a==null?TR('마운틴 스킬: 언덕으로 만들 칸을 중앙 4줄에서 선택','Mountain skill: pick a square in the middle 4 rows to turn into a hill'):TR(`마운틴 스킬: ${pos(G.pk.a)} 칸을 언덕으로 만들까요? '확정'을 누르세요 (다른 칸을 눌러 변경)`,`Mountain skill: make ${pos(G.pk.a)} a hill? Press Confirm (tap another square to change)`)):G.pk.t==='Z'?pkMsg():G.pk.t==='F'?TR('플레임 스킬: 마그마로 만들 2x2 구역을 눌러 고르고 확정 (눌러서 위치 변경 가능)','Flame skill: tap to pick the 2x2 area to turn into magma, then confirm (tap again to move it)'):G.pk.t==='H'?TR('핸드 스킬: 아군을 옮길 빈칸을 선택 (다른 아군을 누르면 대상 변경)','Hand skill: select an empty square to move the ally to (tap another ally to change)'):G.pk.t==='G'?TR('골렘 스킬: 처치할 적을 최대 2기 선택 후 확정','Golem skill: select up to 2 enemies to eliminate, then confirm'):G.pk.a==null?TR('토네이도 스킬: 옮길 기물을 선택','Tornado skill: select a piece to move')+(G.pk.sw.length?TR(' (계속 재배치하거나 확정)',' (keep rearranging or confirm)'):TR(' (주변 3x3 아군·적군 모두 가능)',' (friend or foe in the surrounding 3x3)')):TR('옮길 칸을 선택 (기물이 있으면 서로 교체)','Select a square to move it to (swaps with any piece there)');
+  else if(G.pk)t=G.pk.t==='L'?(G.pk.a==null?TR('라인 스킬: 철책을 세울 변(상하좌우 이웃 칸 쪽)을 선택','Line skill: pick the side (toward a neighboring square) for the fence'):TR(`라인 스킬: ${pos(G.pk.f)}와 ${pos(G.pk.a)} 사이에 철책을 세울까요? 라인은 사라집니다. '확정'을 누르세요 (다른 쪽을 눌러 변경)`,`Line skill: put a fence between ${pos(G.pk.f)} and ${pos(G.pk.a)}? The Line is removed. Press Confirm (tap another side to change)`)):G.pk.t==='N'?(G.pk.a==null?TR('마운틴 스킬: 언덕으로 만들 칸을 중앙 4줄에서 선택','Mountain skill: pick a square in the middle 4 rows to turn into a hill'):TR(`마운틴 스킬: ${pos(G.pk.a)} 칸을 언덕으로 만들까요? '확정'을 누르세요 (다른 칸을 눌러 변경)`,`Mountain skill: make ${pos(G.pk.a)} a hill? Press Confirm (tap another square to change)`)):G.pk.t==='Z'?pkMsg():G.pk.t==='F'?TR('플레임 스킬: 마그마로 만들 2x2 구역을 눌러 고르고 확정 (눌러서 위치 변경 가능)','Flame skill: tap to pick the 2x2 area to turn into magma, then confirm (tap again to move it)'):G.pk.t==='H'?TR('핸드 스킬: 아군을 옮길 빈칸을 선택 (다른 아군을 누르면 대상 변경)','Hand skill: select an empty square to move the ally to (tap another ally to change)'):G.pk.t==='G'?TR('골렘 스킬: 처치할 적을 최대 2기 선택 후 확정','Golem skill: select up to 2 enemies to eliminate, then confirm'):G.pk.a==null?TR('토네이도 스킬: 옮길 기물을 선택','Tornado skill: select a piece to move')+(G.pk.sw.length?TR(' (계속 재배치하거나 확정)',' (keep rearranging or confirm)'):TR(' (주변 3x3 아군·적군 모두 가능)',' (friend or foe in the surrounding 3x3)')):TR('옮길 칸을 선택 (기물이 있으면 서로 교체)','Select a square to move it to (swaps with any piece there)');
   else if(G.gsw)t=TR(`제네시스 연속 이동 (남은 ${G.gs.left}번 · 적을 잡으면 함께 폭멸! · 건너뛰려면 '이동 종료')`,`Genesis chain move (${G.gs.left} left · capturing an enemy makes it explode! · to skip, press ‘End moves’)`);
   else if(G.dx)t=TR('추가 행동: 지정된 기물로 한 번 더 행동할 수 있습니다 (건너뛰기 가능)','Extra action: the designated piece may act once more (can skip)');
   else if(G.xm)t=TR('추가 이동: 표시된 칸으로 한 번 더 이동하세요 (건너뛰기 가능)','Extra move: move once more to a marked square (can skip)');
@@ -2196,7 +2252,7 @@ function draw(msg){
  $('#info').textContent=inf;
  chkBanner(ci);hintUpdate();
  $('#skip').style.display=((G.xm||G.dx||G.gsw)||(G.rush&&(G.rush.used.length||G.rush.lk)))&&!G.over&&!aiTurn?'':'none';$('#skip').textContent=G.rush&&!(G.xm||G.dx||G.gsw)?(G.rush.lk?TR('추가 행동 건너뛰기','Skip extra action'):G.rush.fv?TR('피버 종료','End Fever'):TR('돌격 종료','End Charge')):G.gsw?TR('이동 종료','End moves'):G.dx?TR('추가 행동 건너뛰기','Skip extra action'):TR('추가 이동 건너뛰기','Skip extra move');
- $('#pkok').style.display=G.pk&&((G.pk.t==='G'&&G.pk.s.length)||(G.pk.t==='Z'&&G.pk.s.length&&pkZ().some(x=>x[4].length===G.pk.s.length))||(G.pk.t==='X'&&G.pk.sw.length)||G.pk.t==='F'||(G.pk.t==='N'&&G.pk.a!=null))?'':'none';
+ $('#pkok').style.display=G.pk&&((G.pk.t==='G'&&G.pk.s.length)||(G.pk.t==='Z'&&G.pk.s.length&&pkZ().some(x=>x[4].length===G.pk.s.length))||(G.pk.t==='X'&&G.pk.sw.length)||G.pk.t==='F'||(G.pk.t==='N'&&G.pk.a!=null)||(G.pk.t==='L'&&G.pk.a!=null))?'':'none';
  $('#pkx').style.display=G.pk||G.skp||(G.rush&&!G.rush.used.length&&!G.rush.lk)?'':'none';
  skUpdate();
  $('#bResign').disabled=G.over||aiTurn;$('#bResign').style.display=G.mode==='sim'?'none':'';$('#bPause').style.display=$('#bSpd').style.display=G.mode==='sim'&&!G.over?'':'none';$('#bPause').textContent=G.pause?TR('▶ 재개','▶ Resume'):TR('⏸ 일시정지','⏸ Pause');$('#bSpd').textContent=TR('속도: ','Speed: ')+SPD[U.sp][0];
@@ -2213,7 +2269,9 @@ $('#bd4').onclick=e=>{const c=e.target.closest('[data-i]');if(!c)return;const i=
  if(G.skp)return skClick(i);
  if(G.pk)return pkClick(i);
  if(G.xm){const m2=G.legal.find(x=>x[1]===i);if(m2)return play(m2);return}
- const ms=G.legal.filter(x=>x[1]===i&&x[2]!==19&&x[2]!==27);
+ const ms=G.legal.filter(x=>x[1]===i&&x[2]!==19&&x[2]!==27&&x[2]!==28);
+ if(i===G.sel&&G.b[i]&&G.b[i].t==='Ł'&&G.legal.some(x=>x[2]===28)){G.pk={t:'L',f:i,a:null};sfx('sel');return draw()}
+ if(!ms.length&&G.legal.some(x=>x[2]===28&&x[1]===i)){G.pk={t:'L',f:G.sel,a:i};sfx('sel');return draw()}
  if(i===G.sel&&G.b[i]&&G.b[i].t==='n'&&G.legal.some(x=>x[2]===27)){G.pk={t:'N',f:i,a:null};sfx('sel');return draw()}
  if(!ms.length&&(i>>3)>=2&&(i>>3)<=5&&G.legal.some(x=>x[2]===27)){G.pk={t:'N',f:G.sel,a:i};sfx('sel');return draw()}
  if(!ms.length&&(i>>3)>=2&&(i>>3)<=5&&G.legal.some(x=>x[2]===19)){G.pk={t:'F',f:G.sel,a:Math.min(i>>3,4)*8+Math.min(i&7,6)};sfx('sel');return draw()}
@@ -2250,6 +2308,7 @@ function pkClick(i){const pk=G.pk;
   else if(cd.indexOf(i)>=0&&pk.s.length<mx)pk.s.push(i);
   else if(i===pk.f){G.pk=null;sfx('rm');draw();return}else return;
   sfx('sel');if(pk.s.length===mx){pkGo();return}draw();return}
+ if(pk.t==='L'){if(pk.a===i){pk.a=null;sfx('rm');draw()}else if(G.legal.some(x=>x[2]===28&&x[1]===i)){pk.a=i;sfx('sel');draw()}else if(i===pk.f){G.pk=null;sfx('rm');draw()}return}
  if(pk.t==='N'){if(pk.a===i){pk.a=null;sfx('rm');draw()}else if((i>>3)>=2&&(i>>3)<=5&&G.legal.some(x=>x[2]===27&&x[1]===i)){pk.a=i;sfx('sel');draw()}else if(i===pk.f){G.pk=null;sfx('rm');draw()}return}
  if(pk.t==='F'){if((i>>3)>=2&&(i>>3)<=5){pk.a=Math.min(i>>3,4)*8+Math.min(i&7,6);sfx('sel');draw()}else if(i===pk.f){G.pk=null;sfx('rm');draw()}return}
  const cd=pkCand();
@@ -2265,7 +2324,7 @@ function pkGo(){const pk=G.pk;if(!pk||pk.t!=='Z'||!pk.s.length||G.over||G.busy)r
 $('#pkok').onclick=()=>{const pk=G.pk;
  if(pk&&pk.t==='Z'){pkGo();return}
  if(pk&&pk.t==='F'&&!G.over&&!G.busy){const m=G.legal.find(x=>x[2]===19&&x[1]===pk.a);G.pk=null;if(m)play(m);else draw();return}
- if(pk&&pk.t==='N'&&pk.a!=null&&!G.over&&!G.busy){const m=G.legal.find(x=>x[2]===27&&x[1]===pk.a);G.pk=null;if(m)play(m);else draw();return}if(pk&&pk.t==='X'&&pk.sw.length&&!G.over&&!G.busy){const L=pk.sw.slice(),f=pk.f;cancelPk();return play([f,f,5,undefined,L])}
+ if(pk&&pk.t==='L'&&pk.a!=null&&!G.over&&!G.busy){const m=G.legal.find(x=>x[2]===28&&x[1]===pk.a);G.pk=null;if(m)play(m);else draw();return}if(pk&&pk.t==='N'&&pk.a!=null&&!G.over&&!G.busy){const m=G.legal.find(x=>x[2]===27&&x[1]===pk.a);G.pk=null;if(m)play(m);else draw();return}if(pk&&pk.t==='X'&&pk.sw.length&&!G.over&&!G.busy){const L=pk.sw.slice(),f=pk.f;cancelPk();return play([f,f,5,undefined,L])}
  if(!pk||pk.t!=='G'||!pk.s.length||G.over||G.busy)return;
  const t=pk.s.slice().sort((x,y)=>x-y),m=G.legal.find(x=>x[2]===4&&x[4].length===t.length&&x[4].slice().sort((p,q)=>p-q).every((v,j)=>v===t[j]));
  G.pk=null;if(m)play(m);else draw()};
@@ -2281,6 +2340,7 @@ function mvTxt(m,p,rvT){const k=m[2],nm=DEF[p.t].n;
  if(k===23)return TR(`${nm} 스킬: 🎶 ${m[4].map(pos).join('·')}의 아군에게 보호막 (원거리·처치 스킬·마그마 1회 방어)`,` ${nm} skill: 🎶 shielded the allies on ${m[4].map(pos).join('·')} (blocks one ranged attack or kill skill)`);
  if(k===24)return TR(`${nm} 스킬: 납도 — 칼을 칼집에 넣었습니다 (상하좌우 1칸만 이동 가능 · 다음 스킬로 발도술)`,` ${nm} skill: Sheathe — blade sheathed (only 1-square orthogonal moves · next skill unleashes Iaido)`);
  if(k===25)return TR(`${nm} 발도술! ${m[4].map(pos).join('·')} 일섬 (${m[4].length}기 처치)`,` ${nm} Iaido! one flash cut ${m[4].map(pos).join('·')} (${m[4].length} eliminated)`);
+ if(k===28)return TR(`${nm} 스킬: 🚧 ${pos(m[0])}와 ${pos(m[1])} 사이에 철책을 설치했습니다 (직선 이동·잡기 불가 · 라인은 사라짐)`,`${nm} skill: 🚧 built a fence between ${pos(m[0])} and ${pos(m[1])} (blocks straight moves & captures · the Line is removed)`);
  if(k===27)return TR(`${nm} 스킬: ⛰️ ${pos(m[1])} 칸이 언덕이 되었습니다 (언덕 위 기물은 원거리 면역 · 이동은 상하좌우 1칸으로 고정)`,` ${nm} skill: ⛰️ ${pos(m[1])} became a hill (pieces on it are ranged-immune · movement fixed to 1 orthogonal step)`);
  if(k===26)return TR(`${nm} 스킬: 🦗 메뚜기 떼 모드 — 이제 잡기도 가능`,` ${nm} skill: 🦗 Locust Swarm mode — can now capture too`);
  if(k===8)return TR(`${nm} 스킬: ${DEF[rvT].n} 부활!`,`${nm} skill: ${DEF[rvT].n} revived!`);
@@ -2363,6 +2423,7 @@ function play(m,hold,seq){
    fl.push([m[0],vt?'🗼':'🌅'],[m[1],'⚡'],[m[1],'💥'],[m[1],'☠️']);const bd=$('#bd4');if(bd){bd.classList.add('shk');setTimeout(()=>bd.classList.remove('shk'),700)}}
   else if(k===12){P(m[0],'cast');fl.push([m[0],'🖐️'],[m[1],'✨'],[m[1],'🤏']);setTimeout(()=>{fxCell(m[3],'💨');fxCell(m[3],'✨');sfx('place');const c=cell(m[3]);if(c){c.classList.add('drop');setTimeout(()=>c.classList.remove('drop'),400)}},800)}
   else if(k===19){P(m[0],'cast');fl.push([m[0],'🔥'],[m[0],'🌋']);for(let x=0;x<2;x++)for(let y=0;y<2;y++){const j=m[1]+x*8+y;fl.push([j,'🔥'],[j,'🌋'],[j,'✨'])}const bd=$('#bd4');if(bd){bd.classList.add('shk');setTimeout(()=>bd.classList.remove('shk'),700)}}
+  else if(k===28){P(m[0],'cast');fl.push([m[0],'🚧'],[m[1],'✨']);setTimeout(()=>{sfx('door')},100)}
   else if(k===27){P(m[0],'cast');fl.push([m[0],'⛰️'],[m[1],'⛰️'],[m[1],'💥']);setTimeout(()=>{sfx('quake')},120);const bd=$('#bd4');if(bd){bd.classList.add('shk');setTimeout(()=>bd.classList.remove('shk'),600)}}
   else if(k===13){P(m[0],'blade');fl.push([m[0],p.md?'⚔️':'✨'],[m[0],p.md?'🔥':'💫'])}
   else if(k===0&&(p.t==='v'||p.t==='o')){P(m[1],'warp');fl.push([m[0],'💨'],[m[1],'✨'])}
@@ -2378,8 +2439,8 @@ function play(m,hold,seq){
  sfx(m[2]===24?'sheathe':m[2]===25?'iaido':m[2]===22?'hex':m[2]===23?'chime':m[2]===26?'swarm':m[2]===6&&p.t==='h'?'shot':(p.t==='r'&&m[2]===0&&Math.abs((m[1]>>3)-(m[0]>>3))>1)?'door':u.pt!==p.t?'promo':m[2]===8?'revive':m[2]===5?'wind':m[2]===10?'empower':m[2]===3?'stone':m[2]===19?'magma':m[2]===4?'quake':m[2]===18?(p.md?'shield':'thaw'):m[2]===17?(p.md?'freeze':'thaw'):m[2]===15?(m[3]===1?'lucky':'lfail'):m[2]===14?'dash':(m[2]===0&&(p.t==='D'||p.t==='W')&&!u.cap)?'dragon':m[2]===7?'snipe':m[2]===11?'zap':m[2]===12||(m[2]===0&&(p.t==='v'||p.t==='o'))?'warp':m[2]===13?'blade':m[2]===2?'prot':(m[2]===1||m[2]===6)?'none':m[2]>=2?'buff':'move');
  G.lm=m[2]===12?[m[1],m[3]]:[m[0],m[1]];G.sel=null;G.legal=[];G.pk=null;
  if(u.n>0)G.since=0;
- if(u.cap&&isKing(u.cap.t)){G.dbq=0;finish(who,'king');return}
- if((u.mk||u.zk)&&u.sk){G.dbq=0;finish(OP(who),u.zk?'storm':'king');return}
+ if(u.cap&&isKing(u.cap.t)&&!labKi()){G.dbq=0;finish(who,'king');return}
+ if((u.mk||u.zk)&&u.sk&&!labKi()){G.dbq=0;finish(OP(who),u.zk?'storm':'king');return}
  if(u.sn&&afterFire(u,who))return;
  if(gsStep){const g=G.gs||(G.gs={left:3,n:0});g.left--;if(u.cap)g.n++;g.loc=m[1];g.p=p;
   if(seq){draw();return}
@@ -2668,7 +2729,7 @@ function showCard(){
  if(p.nsk)tg.push(TR('스킬 사용 불가 (이동 직후 1턴)','Skill locked (1 turn after moving)'));if(G.b.hl&&BC.hillAt(G.b,i)&&!isKing(p.t)&&!'QMqm'.includes(p.t))tg.push(TR('언덕 위 — 원거리 면역 · 상하좌우 1칸 이동','On a hill — ranged-immune · 1-step orthogonal moves'));
  if(isLocked(i))tg.push(TR('저격 대상으로 지정됨','Targeted by a Sniper'));if(p.tp&&G.b[p.ts]===p.tp)tg.push(TR('저격 대기 중 → ','Sniper aiming → ')+pos(p.ts));
  el.style.display='';
- el.innerHTML=TR(`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">${D.c} 코스트</span> <span class="tg ${tagCls(p.t)}">${PLN(p.t)}</span> <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcx" aria-label="설명 닫기">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">이동 범위 보기</button>`,`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">Cost ${D.c}</span> <span class="tg ${tagCls(p.t)}">${PLN(p.t)}</span> <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcx" aria-label="Close description">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">Show move range</button>`);
+ el.innerHTML=TR(`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">${D.c} 코스트</span> ${plTags(p.t)} <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcx" aria-label="설명 닫기">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">이동 범위 보기</button>`,`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">Cost ${D.c}</span> ${plTags(p.t)} <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcx" aria-label="Close description">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">Show move range</button>`);
  $('#pcx').onclick=()=>{G.insp=null;showCard()};$('#pcmore').onclick=()=>showPiece(p.t)}
 function drawSide(){
  const el=$('#side');if(!el)return;
@@ -2693,7 +2754,7 @@ $('#side').onclick=e=>{if(e.target.closest('#lgOpen')){openLog();return}const f=
  if(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me))return;
  const idx=+b.dataset.rv,m=G.legal.find(x=>x[2]===8&&x[4][0]===idx);if(m)play(m)};
 function afterFire(u,who){u.sn.forEach(x=>G.lost[x[1].s].push(x[1].t));G.since=0;G.lastTxt+=TR(' · 🎯 저격 명중: ',' · 🎯 Sniper hit: ')+u.sn.map(x=>pos(x[0])).join('·');
- if(u.sk){finish(OP(who),'king');return true}return false}
+ if(u.sk&&!labKi()){finish(OP(who),'king');return true}return false}
 function fxCell(j,e){const c=cell(j);if(c){const g=document.createElement('span');g.className='fx';g.textContent=e;c.appendChild(g);setTimeout(()=>g.remove(),560)}}
 /* ===== 사용 스킬 (원위치 / 돌격 앞으로 / 상황 종결) ===== */
 const inZone=(s,i)=>{const z=BC.zone(s),r=i>>3;return r===z[0]||r===z[1]};
@@ -2769,7 +2830,7 @@ function endTurn(){
  if(lg0.length===1&&lg0[0][2]===16&&!(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me))){G.busy=true;draw(TR('🍀 이동·잡기 불가 — 턴을 넘깁니다','🍀 Cannot move or capture — turn passed'));setTimeout(()=>{G.busy=false;if(!G.over)play(lg0[0])},1000);return}
  draw();if(G.tut&&G.turn===G.human){tutAdvance();return}aiCheck()}
 function finish(w,why){
- if(G.lab){G.busy=false;labReset(true);return}
+ if(G.lab){G.busy=false;draw();ask(TR('다시 연습하시겠습니까?','Practice again?'),why==='king'?TR('내 킹이 잡혔어요. 처음 상태로 돌아가 다시 연습할 수 있어요.','Your King was captured. You can reset and practice again.'):TR('연습을 처음 상태부터 다시 시작할 수 있어요.','You can restart the practice from the beginning.'),()=>labReset(true));return}
  if(G.tut){tutFinish(w);return}
  G.over=true;G.busy=false;G.xm=null;G.rush=null;G.skp=null;G.pk=null;
  const solo=G.mode==='pve'||!!G.net,myc=G.net?G.net.me:G.human,humanWins=solo&&w===myc;
@@ -2835,7 +2896,7 @@ $('#bSpd').onclick=()=>{U.sp=(U.sp+1)%3;store.set('sp',U.sp);draw()};
 /* ===== 연출·사운드 ===== */
 const cell=i=>$$('#bd4 .c').find(e=>+e.dataset.i===i),rcOf=i=>{const e=cell(i);return e?e.getBoundingClientRect():null};
 function anim(q){const m=q[0],fr=q[1];const to=cell(m[3]!==undefined?m[3]:m[1]);if(!to)return;
- if(m[2]&&m[2]!==12&&m[2]!==14){const f=document.createElement('span');f.className='fx';f.textContent=m[2]===5?'🌪️':m[2]===3?'🐍':m[2]===2?'✨':m[2]===4?'👊':m[2]===7?'🎯':m[2]===11?'⚡':m[2]===13?'⚔️':m[2]===15?'🍀':m[2]===17?'❄️':m[2]===18?'💗':m[2]===19?'🌋':m[2]===27?'⛰️':'💥';
+ if(m[2]&&m[2]!==12&&m[2]!==14){const f=document.createElement('span');f.className='fx';f.textContent=m[2]===5?'🌪️':m[2]===3?'🐍':m[2]===2?'✨':m[2]===4?'👊':m[2]===7?'🎯':m[2]===11?'⚡':m[2]===13?'⚔️':m[2]===15?'🍀':m[2]===17?'❄️':m[2]===18?'💗':m[2]===19?'🌋':m[2]===27?'⛰️':m[2]===28?'🚧':'💥';
   to.appendChild(f);setTimeout(()=>f.remove(),560);
   if((m[2]===4||m[2]===6)&&m[4])m[4].forEach(j=>{const c=cell(j);if(c){const g=document.createElement('span');g.className='fx';g.textContent='💥';c.appendChild(g);setTimeout(()=>g.remove(),560)}});
   return}
@@ -3285,7 +3346,7 @@ function playScene(k){if(!music)return;try{if(!ac())return;
   g.gain.linearRampToValueAtTime(want==='game'?1.25:1,AC.currentTime+1.2);curSrc=s;curG=g;curK=want})}catch(e){}}
 function setScene(k){if(scene===k)return;scene=k;if(music&&AC&&AC.state!=='suspended')playScene(k)}
 let gameTrk=null;
-function sceneFor(id){if(id==='s4'){if(G&&G.tut)return 'calm';if(!gameTrk)gameTrk=Math.random()<.5?'game':'menu';return gameTrk}gameTrk=null;return id==='s5'?'menu':'calm'}
+function sceneFor(id){if(id==='s4'){if(G&&G.tut)return 'game';if(!gameTrk)gameTrk=Math.random()<.5?'game':'menu';return gameTrk}gameTrk=null;return id==='s5'?'menu':'calm'}
 {const _show=show;show=function(id){_show(id);setScene(sceneFor(id))}}
 $('#bm').onclick=e=>{e.stopPropagation();music=!music;store.set('music',music);syncSnd();if(music)playScene(scene);else stopMusic()};
 function tryMusic(){if(!music)return;try{const a=ac();if(!a)return;const go=()=>{if(music&&!curSrc&&!tmr)playScene(scene)};if(a.state==='running')go();else a.resume().then(go,()=>{})}catch(e){}}
@@ -3296,14 +3357,14 @@ document.addEventListener('visibilitychange',()=>{try{if(!AC)return;if(document.
 syncSnd();syncSetup();initWorker();
 /* ===== 🧪 기물 체험하기 (연습장): 내 기물 1개 + 가만히 서 있는 연습용 봇 1개 ===== */
 const LAB={me:store.get('labMe','N'),bot:store.get('labBot','P'),side:store.get('labSide','b'),cm:null,cb:null,ctl:store.get('labCtl',0)==1};
-const LGR=()=>GR.map((g,k)=>[g[0].replace(TR(' 계열',' class'),''),k===0?['K'].concat(g[2]):g[2]]);
-const labGi=t=>{const g=LGR();for(let k=0;k<g.length;k++)if(g[k][1].indexOf(t)>=0)return k;return 0};
+const LGR=()=>{const cn=CLN(),a=GR.map((g,k)=>[cn[k],k===0?['K'].concat(g[2]):g[2]]);return [[TR('전체','All'),a.reduce((x,g)=>x.concat(g[1]),[])]].concat(a)};
+const labGi=t=>{const g=LGR();for(let k=1;k<g.length;k++)if(g[k][1].indexOf(t)>=0)return k;return 0};
 function labPalette(kind){const gs=LGR(),m=kind==='m',sel=m?LAB.me:LAB.bot;
  let ci=m?LAB.cm:LAB.cb;if(ci==null)ci=labGi(sel);
- const ts=gs[ci][1].filter(t=>m||!BC.isKing(t));
+ const ts=gs[ci][1];
  return `<div class="chips labc" data-k="${kind}">${gs.map((g,k)=>`<button data-c="${k}" class="${k===ci?'on':''}">${g[0]}</button>`).join('')}</div>
- <div class="labg" data-k="${kind}">${ts.length?ts.map(t=>`<button data-t="${t}" class="lp${t===sel?' on':''}">${icon(t)}<b>${DEF[t].n}</b><small>${DEF[t].c}</small></button>`).join(''):`<p class="note">${TR('이 계열은 봇으로 고를 수 없어요 (킹이 잡히면 게임이 끝나요)','This class cannot be a dummy (a captured King would end the game)')}</p>`}</div>
- <div class="labi">${icon(sel)}<div><b>${DEF[sel].n}</b> <span class="cb">${DEF[sel].c}${TR(' 코스트',' cost')}</span><p>${DEF[sel].dd||DEF[sel].d}</p></div></div>`}
+ <div class="labg" data-k="${kind}">${ts.length?ts.map(t=>`<div class="lpw"><button data-t="${t}" class="lp${t===sel?' on':''}${[...DEF[t].n].length>=5?' ln':[...DEF[t].n].length===4?' l4':''}">${icon(t)}<b>${DEF[t].n}</b><small>${DEF[t].c}${TR(' 코스트',' cost')}</small></button><button class="lpi" data-i="${t}" aria-label="${DEF[t].n} ${TR('자세히 보기','details')}">ⓘ</button></div>`).join(''):`<p class="note">${TR('이 계열은 봇으로 고를 수 없어요 (킹이 잡히면 게임이 끝나요)','This class cannot be a dummy (a captured King would end the game)')}</p>`}</div>
+`}
 function labSetup(){const el=$('#s6');
  el.innerHTML=`<div class="hrow"><h2>${TR('🧪 기물 체험하기','🧪 Piece Lab')}</h2><button id="home6" class="hbtn">${TR('🏠 메뉴로','🏠 Menu')}</button></div>
  <p class="note">${TR('내 기물 1개와 연습용 봇을 골라, 움직이고 · 공격하고 · 스킬을 마음껏 써 보세요. 봇은 기본적으로 가만히 서 있고, 원하는 만큼 여러 기를 놓을 수 있어요. 체험 중 \'🕹 적 기물도 조작\'을 켜면 적 기물도 직접 움직여 볼 수 있어요.','Pick 1 piece of yours and a practice dummy, then move, attack and use skills freely. Dummies stand still by default, and you can place as many as you like. During the lab, turn on \'🕹 Control enemy too\' to move the enemy pieces yourself.')}</p>
@@ -3316,7 +3377,8 @@ $('#s6').addEventListener('click',e=>{const t=e.target;
  if(t.closest('#labGo')){sfx('sel');labStart();return}
  const sd=t.closest('#labSd [data-s]');if(sd){LAB.side=sd.dataset.s;store.set('labSide',LAB.side);sfx('sel');labSetup();return}
  const c=t.closest('.labc [data-c]');if(c){const k=c.parentNode.dataset.k;if(k==='m')LAB.cm=+c.dataset.c;else LAB.cb=+c.dataset.c;sfx('sel');const y=window.scrollY;labSetup();window.scrollTo(0,y);return}
- const p=t.closest('.labg [data-t]');if(p){const k=p.parentNode.dataset.k;if(k==='m'){LAB.me=p.dataset.t;store.set('labMe',LAB.me)}else{LAB.bot=p.dataset.t;store.set('labBot',LAB.bot)}sfx('sel');const y=window.scrollY;labSetup();window.scrollTo(0,y)}});
+ const ii=t.closest('.lpi');if(ii){sfx('sel');showPiece(ii.dataset.i);return}
+ const p=t.closest('.labg [data-t]');if(p){const k=p.closest('.labg').dataset.k;if(k==='m'){LAB.me=p.dataset.t;store.set('labMe',LAB.me)}else{LAB.bot=p.dataset.t;store.set('labBot',LAB.bot)}sfx('sel');const y=window.scrollY;labSetup();window.scrollTo(0,y)}});
 const labBots=()=>{const o=[];for(let i=0;i<64;i++){const p=G.b[i];if(p&&p.lb)o.push(i)}return o};
 const labMeIdx=()=>{for(let i=0;i<64;i++){const p=G.b[i];if(p&&p.s==='w'&&!p.lb)return i}return -1};
 function labStart(){cancelAI();const b=BC.emptyBoard();b[52]=BC.newPiece(LAB.me,'w');startBoard=b;
@@ -3371,6 +3433,22 @@ $('#mLabBot').addEventListener('click',e=>{const t=e.target;
  if(t.closest('#labKindOk')||t===$('#mLabBot')){closeM('mLabBot');return}
  const c=t.closest('.labc [data-c]');if(c){LAB.cb=+c.dataset.c;sfx('sel');const y=$('#mLabBot .mc').scrollTop;labKind();$('#mLabBot .mc').scrollTop=y;return}
  const p=t.closest('.labg [data-t]');if(p){LAB.bot=p.dataset.t;store.set('labBot',LAB.bot);sfx('sel');closeM('mLabBot');if(G&&G.lab){labClear();G.lab.place='bot';G.lab.msg=PLMSG();draw()}}});
+
+/* 가로로 넘치는 목록(탭·프리셋)은 스크롤바 없이, 마우스/터치 드래그로 옆으로 이동 */
+(function(){let el=null,sx=0,sl=0,moved=false,tid=null;
+ const sc=e=>{for(let n=e.target;n&&n!==document.body;n=n.parentElement){if(n.scrollWidth>n.clientWidth+2){const o=getComputedStyle(n).overflowX;if(o==='auto'||o==='scroll')return n}}return null};
+ document.addEventListener('mousedown',e=>{if(e.button!==0)return;const n=sc(e);if(!n)return;el=n;sx=e.clientX;sl=n.scrollLeft;moved=false;n.classList.add('dragx')},true);
+ document.addEventListener('mousemove',e=>{if(!el)return;const d=e.clientX-sx;if(!moved&&Math.abs(d)>5){moved=true;el.classList.add('dragging')}if(moved){el.scrollLeft=sl-d;e.preventDefault()}},true);
+ const end=()=>{if(!el)return;const n=el;el=null;n.classList.remove('dragging');if(moved){const k=e=>{e.stopPropagation();e.preventDefault()};document.addEventListener('click',k,{capture:true,once:true});setTimeout(()=>document.removeEventListener('click',k,true),0)}};
+ document.addEventListener('mouseup',end,true);window.addEventListener('blur',end);
+})();
+/* PC: 가로 목록 위에서 마우스 휠을 굴리면 옆으로 이동 */
+document.addEventListener('wheel',e=>{if(e.ctrlKey||Math.abs(e.deltaX)>Math.abs(e.deltaY))return;
+ for(let n=e.target;n&&n!==document.body;n=n.parentElement){const o=getComputedStyle(n);
+  if(n.scrollWidth>n.clientWidth+2&&(o.overflowX==='auto'||o.overflowX==='scroll')&&!(n.scrollHeight>n.clientHeight+16&&(o.overflowY==='auto'||o.overflowY==='scroll'))){
+   const max=n.scrollWidth-n.clientWidth,d=e.deltaY,nx=n.scrollLeft+d;
+   if((d>0&&n.scrollLeft<max-1)||(d<0&&n.scrollLeft>1)){n.scrollLeft=Math.max(0,Math.min(max,nx));e.preventDefault()}
+   return}}},{passive:false});
 
 
 /* ===== 온라인 대전 (room 기능 기반 · 결정적 락스텝) ===== */
@@ -3653,7 +3731,8 @@ const APP_VER='1.2.0';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
  ['1.2.0',TR('정식출시 패치 "궤도에 오르라!"','Official Release "Into Orbit!"'),[
-  TR('🆕 신규 기물 4종: 🪐 오르빗(7) · 💠 스파클(8) · 🏇 랜서(7) · ⛰️ 마운틴(5)','🆕 4 new pieces: 🪐 Orbit (7) · 💠 Sparkle (8) · 🏇 Lancer (7) · ⛰️ Mountain (5)'),
+  TR('🆕 신규 기물 5종: 🪐 오르빗(7) · 💠 스파클(8) · 🏇 랜서(7) · ⛰️ 마운틴(5) · 🚧 라인(1)','🆕 5 new pieces: 🪐 Orbit (7) · 💠 Sparkle (8) · 🏇 Lancer (7) · ⛰️ Mountain (5) · 🚧 Line (1)'),
+  TR('🚧 라인(유틸·전열·1코스트): 상하 1칸 이동·잡기. 스킬로 자신을 제거하고 그 칸의 한 변에 철책을 설치 — 아군·적군 모두 철책을 넘는 직선 이동·잡기 불가(점프·순간이동·원거리 공격은 통과). 마그마·빙결 영역·언덕이 덮으면 철책이 사라지고, 자기장으로는 사라지지 않음','🚧 Line (Support · front row · cost 1): moves or captures 1 square vertically. Its skill removes itself and builds a fence on one side of its square — neither side can cross it with a straight move or capture (jumps, teleports and ranged attacks pass). Magma, Freeze Zones and hills remove fences; the storm does not'),
   TR('🪐 오르빗: 자신 주변 5x5의 바깥 한 줄(3x3 제외) 어디든 이동·잡기','🪐 Orbit: moves or captures anywhere on the outer ring of its 5x5 (3x3 excluded)'),
   TR('💠 스파클: 상하좌우 1칸 이동(잡기 불가) · 5x5 바깥 한 줄 원거리 공격','💠 Sparkle: 1 orthogonal step (no capture) · ranged attack on the outer ring of its 5x5'),
   TR('🏇 랜서: 앞·앞 대각선 2방향 최대 2칸 이동·잡기, 경로의 적도 함께 관통 처치 · 뒤로 1칸(잡기 불가)','🏇 Lancer: forward and both forward diagonals, up to 2 squares, pierces enemies in the path · 1 step back (no capture)'),
