@@ -566,6 +566,9 @@ body.lab #labBar button.hot{background:var(--lm);font-weight:900}
 body.lab #tHud,body.lab #s4 .skb,body.lab #s4 .act2,body.lab #side .pwr,body.lab #side .pwl,body.lab #side .gt2:not(.lgh){display:none!important}
 .c.lbot{outline:3px dashed #ff2e63;outline-offset:-3px}
 @media(min-width:520px){.labg{grid-template-columns:repeat(6,1fr)}}
+/*TAP: 작은 버튼의 눌리는 범위만 넓힘(모양·간격은 그대로)*/
+.chips button,.tabs button,#gtabs button,.pre button,#pre button,#lgOpen,#pcx,#pcmore,.hbtn{position:relative}
+.chips button::after,.tabs button::after,#gtabs button::after,.pre button::after,#pre button::after,#lgOpen::after,#pcx::after,#pcmore::after,.hbtn::after,button.x::after,#tutX::after,#guideX::after{content:'';position:absolute;left:-5px;right:-5px;top:-7px;bottom:-7px}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -578,7 +581,7 @@ body.lab #tHud,body.lab #s4 .skb,body.lab #s4 .act2,body.lab #side .pwr,body.lab
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <p class="note">39 코스트로 나만의 군대를 만들어 싸워라</p>
- <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.1.2</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.1.4</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -670,6 +673,7 @@ body.lab #tHud,body.lab #s4 .skb,body.lab #s4 .act2,body.lab #side .pwr,body.lab
 <div id="phaseAl" role="status" aria-live="polite"></div><div id="stormAl" role="status" aria-live="polite"></div><div id="coach" hidden><div class="chd"><span class="cav">🧑‍🏫</span><span class="cnm" id="chNm">도우미</span><span class="cpg" id="chN"></span><button class="cx" id="chX" aria-label="종료">✕</button></div><div class="cbar"><i id="chBar"></i></div><div id="chB"></div><div class="cbt" id="chBt"></div></div>
 <div id="skAl" role="status" aria-live="polite"></div>
 <div class="modal" id="mPro" role="dialog" aria-modal="true" aria-labelledby="prT"><div class="mc res"><h2 id="prT">승급할 기물 선택</h2><p class="note" id="prD">기물이 끝줄에 도달했습니다. 어떤 기물로 승급할까요?</p><div class="row2" id="prB" style="margin-top:14px;gap:8px;flex-wrap:wrap"></div></div></div>
+<div class="modal" id="mLabBot" role="dialog" aria-modal="true"><div class="mc" id="labBotMc"></div></div>
 <div class="modal" id="mName" role="dialog" aria-modal="true" aria-labelledby="nmT"><div class="mc res"><h2 id="nmT">프리셋 이름</h2><p class="note" id="nmD"></p><input id="nmIn" maxlength="20" autocomplete="off" aria-label="프리셋 이름"><div class="row2" style="margin-top:14px"><button id="nmNo">취소</button><button class="pri" id="nmOk" style="width:auto">저장</button></div></div></div>
 <div class="modal" id="mPre" role="dialog" aria-modal="true" aria-labelledby="mpT"><div class="mc"><button class="x" data-close>닫기</button><h2 id="mpT">프리셋 관리</h2><div id="mpList"></div><h4 class="ph">공유 코드로 가져오기</h4><p class="note">다른 기기에서 복사한 코드를 붙여넣으면 프리셋이 추가됩니다.</p><textarea id="mpCode" rows="3" aria-label="프리셋 공유 코드" placeholder="BC1.…"></textarea><div class="row2" style="margin-top:8px"><button id="mpImp" class="pri" style="width:auto">가져오기</button></div></div></div>
 <div class="modal" id="mSet" role="dialog" aria-modal="true" aria-labelledby="stT"><div class="mc"><button class="x" data-close>닫기</button><h2 id="stT">설정</h2><div id="setBody"></div></div></div>
@@ -2039,7 +2043,7 @@ $('#bFlip').onclick=()=>{G.flip=!G.flip;draw(G.over?$('#st').textContent:undefin
 $('#bd4').onclick=e=>{const c=e.target.closest('[data-i]');if(!c)return;const i=+c.dataset.i;
  if(G.b[i]){G.insp=i;showCard()}
  if(G.over||G.busy)return;
- if(G.lab&&G.lab.place){labPlace(i);return}
+ if(G.lab&&G.lab.place){if(labPlace(i)!==false)return}
  if(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me))return;
  if(G.tut&&!tutGate(i))return;
  if(G.skp)return skClick(i);
@@ -3127,10 +3131,10 @@ function labPalette(kind){const gs=LGR(),m=kind==='m',sel=m?LAB.me:LAB.bot;
  <div class="labi">${icon(sel)}<div><b>${DEF[sel].n}</b> <span class="cb">${DEF[sel].c}${TR(' 코스트',' cost')}</span><p>${DEF[sel].dd||DEF[sel].d}</p></div></div>`}
 function labSetup(){const el=$('#s6');
  el.innerHTML=`<div class="hrow"><h2>${TR('🧪 기물 체험하기','🧪 Piece Lab')}</h2><button id="home6" class="hbtn">${TR('🏠 메뉴로','🏠 Menu')}</button></div>
- <p class="note">${TR('내 기물 1개와 연습용 봇 1개를 골라, 움직이고 · 공격하고 · 스킬을 마음껏 써 보세요. 봇은 가만히 서 있어요.','Pick 1 piece of yours and 1 practice dummy, then move, attack and use skills freely. The dummy just stands still.')}</p>
+ <p class="note">${TR('내 기물 1개와 연습용 봇을 골라, 움직이고 · 공격하고 · 스킬을 마음껏 써 보세요. 봇은 가만히 서 있고, 원하는 만큼 여러 기를 놓을 수 있어요.','Pick 1 piece of yours and a practice dummy, then move, attack and use skills freely. Dummies just stand still, and you can place as many as you like.')}</p>
  <div class="card"><h3>${TR('① 내 기물','① Your piece')}</h3>${labPalette('m')}</div>
- <div class="card"><h3>${TR('② 연습용 봇','② Practice dummy')}</h3><div class="seg" id="labSd"><button data-s="b" class="${LAB.side==='b'?'on':''}">${TR('적군 (공격 연습)','Enemy (attack practice)')}</button><button data-s="w" class="${LAB.side==='w'?'on':''}">${TR('아군 (지원 스킬 연습)','Ally (support skill practice)')}</button></div>${labPalette('b')}</div>
- <button class="pri" id="labGo">${TR('▶ 체험 시작 · 봇 놓으러 가기','▶ Start · Place the dummy')}</button>`;
+ <div class="card"><h3>${TR('② 연습용 봇 (여러 기 가능)','② Practice dummy (as many as you like)')}</h3><div class="seg" id="labSd"><button data-s="b" class="${LAB.side==='b'?'on':''}">${TR('적군 (공격 연습)','Enemy (attack practice)')}</button><button data-s="w" class="${LAB.side==='w'?'on':''}">${TR('아군 (지원 스킬 연습)','Ally (support skill practice)')}</button></div>${labPalette('b')}</div>
+ <button class="pri" id="labGo">${TR('▶ 체험 시작 · 봇 놓으러 가기','▶ Start · Place dummies')}</button>`;
  show('s6');window.scrollTo(0,0)}
 $('#s6').addEventListener('click',e=>{const t=e.target;
  if(t.closest('#home6')){sfx('sel');show('s0');return}
@@ -3138,47 +3142,58 @@ $('#s6').addEventListener('click',e=>{const t=e.target;
  const sd=t.closest('#labSd [data-s]');if(sd){LAB.side=sd.dataset.s;store.set('labSide',LAB.side);sfx('sel');labSetup();return}
  const c=t.closest('.labc [data-c]');if(c){const k=c.parentNode.dataset.k;if(k==='m')LAB.cm=+c.dataset.c;else LAB.cb=+c.dataset.c;sfx('sel');const y=window.scrollY;labSetup();window.scrollTo(0,y);return}
  const p=t.closest('.labg [data-t]');if(p){const k=p.parentNode.dataset.k;if(k==='m'){LAB.me=p.dataset.t;store.set('labMe',LAB.me)}else{LAB.bot=p.dataset.t;store.set('labBot',LAB.bot)}sfx('sel');const y=window.scrollY;labSetup();window.scrollTo(0,y)}});
-const labBotIdx=()=>{for(let i=0;i<64;i++){const p=G.b[i];if(p&&p.lb)return i}return -1};
+const labBots=()=>{const o=[];for(let i=0;i<64;i++){const p=G.b[i];if(p&&p.lb)o.push(i)}return o};
 const labMeIdx=()=>{for(let i=0;i<64;i++){const p=G.b[i];if(p&&p.s==='w'&&!p.lb)return i}return -1};
 function labStart(){cancelAI();const b=BC.emptyBoard();b[52]=BC.newPiece(LAB.me,'w');startBoard=b;
- G={mode:'pve',lv:0,human:'w',lvs:{w:0,b:0},pause:false,seed:7,lab:{place:'bot',last:null,msg:null}};
- document.body.classList.add('lab');labBar();startGame();G.sk=null;G.lab.msg=TR('🎯 연습용 봇을 놓을 빈 칸을 눌러 주세요','🎯 Tap an empty square to place the dummy');draw()}
+ G={mode:'pve',lv:0,human:'w',lvs:{w:0,b:0},pause:false,seed:7,lab:{place:'bot',bots:[],msg:null}};
+ document.body.classList.add('lab');labBar();startGame();G.sk=null;G.lab.msg=PLMSG();draw()}
 function labLeave(){document.body.classList.remove('lab');if(G)G.lab=null}
 function labBar(){const el=$('#labBar');
- el.innerHTML=[['bot',TR('🎯 봇 재배치','🎯 Re-place dummy')],['me',TR('📍 내 기물 위치','📍 Move my piece')],['side',''],['reset',TR('↺ 처음 상태','↺ Reset')],['wait',TR('⏭ 턴 넘기기','⏭ Pass turn')],['swap',TR('🔁 기물 바꾸기','🔁 Change pieces')],['home',TR('🏠 메뉴로','🏠 Menu')]].map(x=>`<button data-a="${x[0]}">${x[1]}</button>`).join('')}
+ el.innerHTML=[['bot',''],['kind',TR('🧬 봇 종류','🧬 Dummy type')],['side',''],['clear',TR('🗑 봇 모두 치우기','🗑 Clear dummies')],['me',TR('📍 내 기물 위치','📍 Move my piece')],['reset',TR('↺ 처음 상태','↺ Reset')],['wait',TR('⏭ 턴 넘기기','⏭ Pass turn')],['swap',TR('🔁 기물 바꾸기','🔁 Change pieces')],['home',TR('🏠 메뉴로','🏠 Menu')]].map(x=>`<button data-a="${x[0]}">${x[1]}</button>`).join('')}
 function labClear(){G.sel=null;G.legal=[];G.pk=null;G.skp=null;G.rush=null;G.xm=null;G.dx=false;G.dbq=0;G.gsw=false;G.gs=null;G.insp=null;G.hint=null}
+const PLMSG=()=>TR(`🎯 ${DEF[LAB.bot].n} 봇을 놓을 빈 칸을 눌러 주세요 (여러 기 가능 · 끝나면 내 기물을 누르세요)`,`🎯 Tap empty squares to place ${DEF[LAB.bot].n} dummies (as many as you like · tap your piece when done)`);
 function labPlace(i){const L=G.lab;
- if(G.b[i]){sfx('rm');return}
- if(L.place==='bot'){const p=BC.newPiece(LAB.bot,LAB.side);p.lb=1;G.b[i]=p;L.last=i;L.place=null;L.msg=null;sfx('place');G.lm=null;draw(TR(`🎯 ${DEF[LAB.bot].n} 봇을 놓았어요! 이제 내 기물을 눌러 움직여 보세요`,`🎯 Placed the ${DEF[LAB.bot].n} dummy! Tap your piece to try it out`))}
+ if(G.b[i]){const q=G.b[i];if(L.place==='bot'&&q.s==='w'&&!q.lb){L.place=null;L.msg=null;draw();return false}sfx('rm');return}
+ if(L.place==='bot'){const p=BC.newPiece(LAB.bot,LAB.side);p.lb=1;G.b[i]=p;(L.bots||(L.bots=[])).push({i,t:LAB.bot,s:LAB.side});L.msg=TR(`🎯 ${DEF[LAB.bot].n} 봇 ${labBots().length}기 배치 · 빈 칸을 눌러 더 놓거나 내 기물을 눌러 시작하세요`,`🎯 ${labBots().length} dummies placed (${DEF[LAB.bot].n}) · tap more squares, or tap your piece to start`);sfx('place');G.lm=null;draw()}
  else if(L.place==='me'){const j=labMeIdx();if(j>=0){G.b[i]=G.b[j];G.b[j]=null}L.place=null;L.msg=null;sfx('place');G.lm=null;draw()}}
-function labReset(keepBot){const L=G.lab,keep=keepBot&&L.last!=null;
+function labReset(keepBot){const L=G.lab,keep=keepBot&&L.bots&&L.bots.length;
  G.b=BC.cloneBoard(startBoard);G.turn='w';labClear();G.lm=null;G.over=false;G.busy=false;G.since=0;G.plies=0;G.b.pl=0;G.seen={};G.lost={w:[],b:[]};G.log=[];G.lastTxt='';G.pre=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;
  L.place=null;L.msg=null;
- if(keep&&!G.b[L.last]){const p=BC.newPiece(LAB.bot,LAB.side);p.lb=1;G.b[L.last]=p}else{L.place='bot';L.msg=TR('🎯 연습용 봇을 놓을 빈 칸을 눌러 주세요','🎯 Tap an empty square to place the dummy')}
+ if(keep){for(const x of L.bots){if(!G.b[x.i]){const p=BC.newPiece(x.t,x.s);p.lb=1;G.b[x.i]=p}}}else{L.bots=[];L.place='bot';L.msg=PLMSG()}
  sfx('sel');draw()}
 function labAct(a){if(!G||!G.lab)return;const L=G.lab;
  if(a==='home'){sfx('sel');toHome();return}
  if(a==='swap'){sfx('sel');toHomeLab();return}
  if(G.busy)return;
- if(a==='bot'){labClear();const j=labBotIdx();if(j>=0)G.b[j]=null;L.place='bot';L.msg=TR('🎯 연습용 봇을 놓을 빈 칸을 눌러 주세요','🎯 Tap an empty square to place the dummy');sfx('sel');draw();return}
+ if(a==='bot'){labClear();if(L.place==='bot'){L.place=null;L.msg=null}else{L.place='bot';L.msg=PLMSG()}sfx('sel');draw();return}
+ if(a==='kind'){sfx('sel');labKind();return}
+ if(a==='clear'){labClear();for(const j of labBots())G.b[j]=null;L.bots=[];L.place='bot';L.msg=PLMSG();sfx('rm');draw();return}
  if(a==='me'){labClear();L.place=L.place==='me'?null:'me';L.msg=L.place?TR('📍 내 기물을 옮길 빈 칸을 눌러 주세요 (다시 누르면 취소)','📍 Tap an empty square to move your piece there (press again to cancel)'):null;sfx('sel');draw();return}
- if(a==='side'){LAB.side=LAB.side==='b'?'w':'b';store.set('labSide',LAB.side);const j=labBotIdx();if(j>=0)G.b[j].s=LAB.side;sfx('sel');draw();return}
+ if(a==='side'){LAB.side=LAB.side==='b'?'w':'b';store.set('labSide',LAB.side);sfx('sel');draw();return}
  if(a==='reset'){labReset(true);return}
  if(a==='wait'){if(G.over||G.turn!==G.human||G.pk||G.skp||G.rush||G.xm||G.dx||G.gsw||L.place)return;sfx('sel');G.lastTxt=SN.w+TR(' 턴을 넘김',' passed the turn');G.since=0;G.pend=null;wrapUp('w',null,-1,true)}}
 function toHomeLab(){labLeave();labSetup()}
 $('#labBar').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b)labAct(b.dataset.a)});
 function labUi(st,msg){const L=G.lab;
- if(!L.place&&!G.over&&labBotIdx()<0){L.place='bot';L.msg=TR('🎯 봇이 쓰러졌어요! 다시 놓을 빈 칸을 눌러 주세요','🎯 The dummy is down! Tap an empty square to place it again');setTimeout(()=>{if(G&&G.lab)draw()},0)}
+ if(!L.place&&!G.over&&labBots().length<1){L.place='bot';L.msg=TR('🎯 봇이 모두 쓰러졌어요! 다시 놓을 빈 칸을 눌러 주세요','🎯 All dummies are down! Tap an empty square to place more');setTimeout(()=>{if(G&&G.lab)draw()},0)}
  if(L.place&&L.msg&&!msg)st.textContent=L.msg;
  else if(!msg&&G.turn===G.human&&!G.skp&&!G.pk&&!G.xm&&!G.rush&&!G.dx&&!G.gsw)st.textContent=G.sel!=null?TR('이동할 칸 · 공격할 대상을 누르세요','Tap a square to move or a target to attack'):TR('내 기물을 눌러 움직이거나 스킬을 써 보세요','Tap your piece to move it or use its skill');
- const j=labBotIdx(),sd=LAB.side==='b'?TR('적군','Enemy'):TR('아군','Ally');
- $('#pTop').className='pbar';$('#pTop').innerHTML=`<span class="who">🎯 ${TR('연습용 봇','Dummy')} · ${j>=0?DEF[LAB.bot].n:TR('없음','none')} <small>(${sd})</small></span>`;
+ const bl=labBots(),ne=bl.filter(j=>G.b[j].s!=='w').length,na=bl.length-ne,sd=LAB.side==='b'?TR('적군','Enemy'):TR('아군','Ally');
+ $('#pTop').className='pbar';$('#pTop').innerHTML=`<span class="who">🎯 ${TR('연습용 봇','Dummies')} · ${bl.length?TR(`${bl.length}기 (적 ${ne} · 아군 ${na})`,`${bl.length} (enemy ${ne} · ally ${na})`):TR('없음','none')} <small>${TR('다음 봇','Next')}: ${DEF[LAB.bot].n} (${sd})</small></span>`;
  $('#pBot').className='pbar'+(G.turn===G.human&&!G.over?' act':'');$('#pBot').innerHTML=`<span class="who">🧪 ${TR('내 기물','My piece')} · ${DEF[LAB.me].n}</span><span class="lost"></span><span class="tick">${L.place==='me'?TR('● 위치 선택','● Choose spot'):''}</span>`;
- const sb=$('#labBar [data-a=side]');if(sb)sb.textContent=TR(`↔ 봇 진영: ${sd}`,`↔ Dummy side: ${sd}`);
- $('#labBar').querySelectorAll('[data-a=bot]').forEach(b=>b.classList.toggle('hot',!!(L.place==='bot')));
+ const sb=$('#labBar [data-a=side]');if(sb)sb.textContent=TR(`↔ 새 봇 진영: ${sd}`,`↔ New dummy side: ${sd}`);
+ $('#labBar').querySelectorAll('[data-a=bot]').forEach(b=>{b.classList.toggle('hot',!!(L.place==='bot'));b.textContent=L.place==='bot'?TR('✅ 봇 놓기 끝내기','✅ Done placing'):TR('➕ 봇 놓기','➕ Place dummies')});
  const mb=$('#labBar [data-a=me]');if(mb)mb.classList.toggle('hot',L.place==='me')}
 
 $('#goLab').onclick=()=>{sfx('sel');labSetup()};
+
+function labKind(){const el=$('#mLabBot'),mc=$('#labBotMc');
+ mc.innerHTML=`<h2>${TR('🧬 봇 종류 고르기','🧬 Choose dummy type')}</h2>${labPalette('b')}<div class="row2" style="margin-top:12px"><button class="pri" id="labKindOk" style="width:auto">${TR('닫기','Close')}</button></div>`;
+ openM('mLabBot')}
+$('#mLabBot').addEventListener('click',e=>{const t=e.target;
+ if(t.closest('#labKindOk')||t===$('#mLabBot')){closeM('mLabBot');return}
+ const c=t.closest('.labc [data-c]');if(c){LAB.cb=+c.dataset.c;sfx('sel');const y=$('#mLabBot .mc').scrollTop;labKind();$('#mLabBot .mc').scrollTop=y;return}
+ const p=t.closest('.labg [data-t]');if(p){LAB.bot=p.dataset.t;store.set('labBot',LAB.bot);sfx('sel');closeM('mLabBot');if(G&&G.lab){labClear();G.lab.place='bot';G.lab.msg=PLMSG();draw()}}});
 
 
 /* ===== 온라인 대전 (room 기능 기반 · 결정적 락스텝) ===== */
@@ -3377,7 +3392,7 @@ function netBegin(){
  const row=l=>l.split('').concat(/[Egd]/.test(l)?[]:['K']).map(t=>icon(t)).join('');
  $('#mmMy').innerHTML=row(NT.mine.l);$('#mmOp').innerHTML=row(NT.opp.l);
  openM('mMatch');sfx('promo');if(document.hidden){const t0=document.title;let k=0;const iv=setInterval(()=>{document.title=k++%2?t0:TR('⚔️ 매칭 성사!','⚔️ Match found!');if(!document.hidden||k>30){clearInterval(iv);document.title=t0}},700)}
- let n=3;const cd=()=>{$('#mmCd').textContent=n>0?TR(`${n}초 후 시작…`,`Starting in ${n}…`):TR('시작!','Start!');if(n<=0){setTimeout(()=>netGo(me,mp,pp),350);return}n--;setTimeout(cd,1000)};cd()}
+ let n=3;const cd=()=>{$('#mmCd').textContent=n>0?TR(`${n}초 후 시작…`,`Starting in ${n}…`):TR('시작!','Start!');if(n<=0){window.setTimeout(()=>netGo(me,mp,pp),350);return}n--;window.setTimeout(cd,1000)};cd()}
 function netGo(me,mp,pp){
  if(NT.phase!=='joining'||!NT.gr){NT.beginning=false;closeM('mMatch');return}
  startBoard=BC.emptyBoard();
@@ -3457,9 +3472,11 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.1.2';
+const APP_VER='1.1.4';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.1.4',TR('전반 점검','General Checkup'),[TR('작은 버튼(탭·닫기·칩)의 눌리는 범위를 넓혔어요','Enlarged the tap area of small buttons (tabs, close, chips)'),TR('온라인 대전 시작 카운트다운이 느려지지 않게 고쳤어요','Fixed the online match countdown running slow')]],
+ ['1.1.3',TR('기물 체험하기: 봇 여러 기','Piece Lab: Multiple Dummies'),[TR('🧪 기물 체험하기에서 연습용 봇을 원하는 만큼 여러 기 놓을 수 있어요 (적군·아군 섞어서, 종류도 바꿔 가며)','🧪 In Piece Lab you can now place as many practice dummies as you like (mix enemy and ally, change the type as you go)'),TR('🗑 봇 모두 치우기 · 🧬 봇 종류 · ↔ 새 봇 진영 버튼이 추가됐어요','🗑 Clear dummies, 🧬 Dummy type and ↔ New dummy side buttons added')]],
  ['1.1.2',TR('연출·알림·이동 속도 조정','Slower Effects, Alerts & Moves'),[TR('🎬 스킬·자기장 연출과 경고·알림이 더 오래 보여요 (약 1.5배)','🎬 Skill and storm effects, warnings and notices now last longer (about 1.5x)'),TR('🐢 기물 이동과 AI의 턴 진행이 조금 느려져서 알아보기 쉬워요','🐢 Piece moves and AI turns are slightly slower and easier to follow')]],
  ['11.2.1',TR('호라이즌 · 갓 · 엠페러 · 바드 조정','Horizon, God, Emperor & Bard Adjustment'),[TR('🌅 호라이즌이 앞으로 1칸도 이동할 수 있어요 (빈칸만, 잡기 불가)','🌅 Horizon can now also move 1 square forward (empty squares only, no capture)'),TR('🌞 갓: 적이 주변 3x3에 있어도 이동 범위가 줄지 않고, 원거리 공격 면역이 사라졌어요','🌞 God: movement no longer shrinks when enemies are adjacent, and ranged-attack immunity is removed'),TR('👑 엠페러가 뒤로 1칸도 이동할 수 있어요 (빈칸만, 잡기 불가)','👑 Emperor can now also move 1 square backward (empty squares only, no capture)'),TR('🎻 바드의 노래 보호막이 플레임의 마그마 처치도 1회 막아줘요','🎻 The Bard song shield now also blocks one Flame magma elimination'),TR('기물 선택 창에서 킹을 골라도 킹 계열 탭에 1이 표시돼요','The King class tab now shows 1 in the piece picker when the King is selected')]],
  ['11.1.19',TR('큰 글씨 설정 제거','Large Text Option Removed'),[TR('설정의 큰 글씨 옵션을 없앴어요 (안내 강조·스킬 암전이 어긋나던 원인)','Removed the Large Text option (it caused the guide highlight and skill blackout misalignment)')]],
