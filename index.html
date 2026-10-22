@@ -568,7 +568,11 @@ body.lab #tHud,body.lab #s4 .skb,body.lab #s4 .act2,body.lab #side .pwr,body.lab
 @media(min-width:520px){.labg{grid-template-columns:repeat(6,1fr)}}
 /*TAP: 작은 버튼의 눌리는 범위만 넓힘(모양·간격은 그대로)*/
 .chips button,.tabs button,#gtabs button,.pre button,#pre button,#lgOpen,#pcx,#pcmore,.hbtn{position:relative}
-.chips button::after,.tabs button::after,#gtabs button::after,.pre button::after,#pre button::after,#lgOpen::after,#pcx::after,#pcmore::after,.hbtn::after,button.x::after,#tutX::after,#guideX::after{content:'';position:absolute;left:-5px;right:-5px;top:-7px;bottom:-7px}
+.chips button::after,.tabs button::after,#gtabs button::after,.pre button::after,#pre button::after,#lgOpen::after,#pcx::after,#pcmore::after,.hbtn::after{content:'';position:absolute;left:-5px;right:-5px;top:-7px;bottom:-7px}
+/*RNG: 슬라이더에 입력칸 테두리·그림자·초록 윤곽이 겹치던 것 정리*/
+input[type=range]{border:0!important;border-radius:0;background:transparent;box-shadow:none;padding:0;outline:none}
+input[type=range]:focus{outline:none}
+input[type=range]:focus-visible{outline:3px solid var(--lm);outline-offset:3px}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -581,7 +585,7 @@ body.lab #tHud,body.lab #s4 .skb,body.lab #s4 .act2,body.lab #side .pwr,body.lab
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <p class="note">39 코스트로 나만의 군대를 만들어 싸워라</p>
- <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.1.4</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="btns"><button class="pri" id="go0">▶ START</button><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼 · 처음이라면 여기!</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼 · 직접 해보기</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 기물 체험하기 · 연습장</button><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.1.6</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -3472,9 +3476,11 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.1.4';
+const APP_VER='1.1.6';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.1.6',TR('설정 정리','Settings polish'),[TR('설정의 배경음악 크기 슬라이더에 겹쳐 보이던 이중 테두리 정리','Cleaned up the double frame around the music volume slider')]],
+ ['1.1.5',TR('긴급 수정','Hotfix'),[TR('폰에서 체험형 튜토리얼 항목을 누르면 창이 닫히던 문제 수정','Fixed: tapping a guided tutorial on phones closed the window')]],
  ['1.1.4',TR('전반 점검','General Checkup'),[TR('작은 버튼(탭·닫기·칩)의 눌리는 범위를 넓혔어요','Enlarged the tap area of small buttons (tabs, close, chips)'),TR('온라인 대전 시작 카운트다운이 느려지지 않게 고쳤어요','Fixed the online match countdown running slow')]],
  ['1.1.3',TR('기물 체험하기: 봇 여러 기','Piece Lab: Multiple Dummies'),[TR('🧪 기물 체험하기에서 연습용 봇을 원하는 만큼 여러 기 놓을 수 있어요 (적군·아군 섞어서, 종류도 바꿔 가며)','🧪 In Piece Lab you can now place as many practice dummies as you like (mix enemy and ally, change the type as you go)'),TR('🗑 봇 모두 치우기 · 🧬 봇 종류 · ↔ 새 봇 진영 버튼이 추가됐어요','🗑 Clear dummies, 🧬 Dummy type and ↔ New dummy side buttons added')]],
  ['1.1.2',TR('연출·알림·이동 속도 조정','Slower Effects, Alerts & Moves'),[TR('🎬 스킬·자기장 연출과 경고·알림이 더 오래 보여요 (약 1.5배)','🎬 Skill and storm effects, warnings and notices now last longer (about 1.5x)'),TR('🐢 기물 이동과 AI의 턴 진행이 조금 느려져서 알아보기 쉬워요','🐢 Piece moves and AI turns are slightly slower and easier to follow')]],
