@@ -829,7 +829,7 @@ const DEF={
  o:{n:'호라이즌',e:'🌅',c:5,p:'b',av:5.5,d:'자기 가로줄의 빈칸 어디로든 이동 · 앞·뒤로 1칸 이동(빈칸만, 잡기 불가) · 스킬: 같은 가로줄의 적 1기를 처치(킹 계열 불가, 원거리 면역 대상 불가) · 앞 또는 뒤로 이동한 바로 다음 턴에는 스킬 사용 불가'},
  a:{n:'핸드',e:'🖐️',c:7,p:'fb',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 자기 진영(아군 쪽 2줄)에 있는 아군 1기를 상대 진영(상대 쪽 2줄)이 아닌 빈칸 어디로든 옮김(핸드가 자기 진영 안에 있을 때만 사용 가능) · 킹·퀸 계열, 흑룡·백룡, 제네시스, 핸드는 옮길 수 없음'},
  w:{n:'마검사',e:'⚔️',c:8,p:'f',av:7.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 스킬: 마검 모드로 전환 — 이동 불가, 자신 중심 5x5의 적에게 원거리 공격(한 번 더 쓰면 이동 모드로 복귀)'},
- l:{n:'럭키',e:'🍀',c:3,p:'b',av:4,d:'상하좌우 1칸 이동(잡기 불가) · 스킬: 25% 확률로 중앙 4x2칸(c~f열 4·5줄)에 있는 상대 기물이 다음 턴에 이동·잡기를 할 수 없게 함(원거리 공격은 가능, 킹·퀸 계열과 흑룡·백룡·제네시스에게는 통하지 않음), 사용한 뒤에는 2코스트 이하 아군 1기가 추가로 행동할 수 있음'},
+ l:{n:'럭키',e:'🍀',c:3,p:'b',av:4,d:'상하좌우 1칸 이동(잡기 불가) · 스킬: 25% 확률로 중앙 8x4칸(양쪽 진영을 뺀 중앙 4줄 전체)에 있는 상대 기물이 다음 턴에 이동·잡기를 할 수 없게 함(원거리 공격은 가능, 킹·퀸 계열과 흑룡·백룡·제네시스에게는 통하지 않음), 사용한 뒤에는 2코스트 이하 아군 1기가 추가로 행동할 수 있음'},
  c:{n:'크리티컬',e:'🗡️',c:8,p:'f',av:7.5,d:'상하좌우 1칸·대각선 최대 2칸 이동·잡기 · 특수: 적을 잡을 때 50% 확률로 잡은 기물 바로 옆(상하좌우 1칸)의 적 1기를 함께 처치(킹 계열 제외)'},
  f:{n:'프로즌',e:'🧊',c:4,p:'b',av:6,d:'상하좌우·대각선 최대 2칸 이동(잡기 불가) · 스킬: 빙결 영역 ON/OFF — 켜면 자신 중심 5x5 안의 기물은 아군·적 모두 이동도 잡기도 할 수 없음(원거리 공격·스킬은 가능, 킹·퀸 계열은 면역), 다시 쓰면 해제 · 영역이 켜져 있는 동안 프로즌 자신도 움직일 수 없음 · 마그마와 겹치는 칸은 빙결 영역이 사라지고, 빙결 영역을 켜면 겹친 마그마도 사라짐'},
  i:{n:'인파이터',e:'🥊',c:6,p:'f',av:5.5,d:'상하좌우 최대 2칸·대각선 1칸 이동·잡기 · 특수: 자신보다 코스트가 높은 기물에게 잡히면 50% 확률로 그 기물도 함께 처치'},
@@ -1009,7 +1009,7 @@ function gen0(b,s,opt){
    case'f':{if(!p.md)for(const[dr,dc]of D8)for(let k=1;k<=2&&at(r+dr*k,c+dc*k)===null;k++)mv(r+dr*k,c+dc*k,0);if(!gcap)gout.push([i,i,17]);break}
    case'i':{for(const[dr,dc]of D8){const mk=dr&&dc?1:2;let rr=r+dr,cc=c+dc,k=0,q;while(k<mk&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<mk&&q&&q.s!==s)mv(rr,cc,0)}break}
    case'l':{if(!gcap)for(const[dr,dc]of D4)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
-    if(!gcap){let any=false;for(let j=0;j<64;j++){const q=b[j];const jr=j>>3,jc=j&7;if(jr<3||jr>4||jc<2||jc>5)continue;if(q&&q.s!==s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='D'&&q.t!=='W'&&q.t!=='s'){any=true;break}}if(any)gout.push([i,i,15])}break}
+    if(!gcap){let any=false;for(let j=0;j<64;j++){const q=b[j];const jr=j>>3,jc=j&7;if(jr<2||jr>5)continue;if(q&&q.s!==s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='D'&&q.t!=='W'&&q.t!=='s'){any=true;break}}if(any)gout.push([i,i,15])}break}
    case'c':for(const[dr,dc]of D8){const mk=(dr&&dc)?2:1;let rr=r+dr,cc=c+dc,k=0,q;while(k<mk&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<mk&&q&&q.s!==s)mv(rr,cc,0)}break;
    case's':for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s&&!isKing(q.t)))mv(r+dr,c+dc,0)}break;
    case'b':{
@@ -1219,7 +1219,7 @@ function make(b,m,nf){
  else if(k===10){b[t].db=1}
  else if(k===17||k===18){if(p.t==='f'){u.ix=[[p,p.ix||0]];if(!p.md&&b.mf){u.mgs=1;if(u.mf0===undefined){u.mg0=b.mg;u.mf0=b.mf}const r0=f>>3,c0=f&7;b.mf=b.mf.map(e=>{let cm=e[4]===undefined?15:e[4];const er=e[2]>>3,ec=e[2]&7;for(let x=0;x<2;x++)for(let y=0;y<2;y++)if(Math.abs(er+x-r0)<=2&&Math.abs(ec+y-c0)<=2)cm&=~(1<<(x*2+y));return[e[0],e[1],e[2],e[3],cm]}).filter(e=>e[4]);mgBuild(b)}if(!p.md&&b.hl){const r0=f>>3,c0=f&7;hlDrop(b,u,h=>Math.abs((h[2]>>3)-r0)<=2&&Math.abs((h[2]&7)-c0)<=2)}if(!p.md&&b.fn){const r0=f>>3,c0=f&7;fnDrop(b,u,x=>Math.abs((x>>3)-r0)<=2&&Math.abs((x&7)-c0)<=2)}p.ix=0}p.md=p.md?0:1}
  else if(k===29){u.rgs=[];const r0=f>>3,c0=f&7;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){const x=r0+dr,y=c0+dc;if(x<0||x>7||y<0||y>7)continue;const q=b[x*8+y];if(q&&q.s===p.s&&!q.rg){q.rg=1;u.rgs.push(q)}}}
- else if(k===15){u.ft=[];if(m[3]===1)for(let j=0;j<64;j++){const q=b[j];const jr=j>>3,jc=j&7;if(jr<3||jr>4||jc<2||jc>5)continue;if(q&&q.s!==p.s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='D'&&q.t!=='W'&&q.t!=='s'){q.frz=1;u.ft.push(q)}}}
+ else if(k===15){u.ft=[];if(m[3]===1)for(let j=0;j<64;j++){const q=b[j];const jr=j>>3,jc=j&7;if(jr<2||jr>5)continue;if(q&&q.s!==p.s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='D'&&q.t!=='W'&&q.t!=='s'){q.frz=1;u.ft.push(q)}}}
  else if(k===14){u.kl=[];for(const j of m[4]){const q=b[j];u.kl.push([j,q]);b[j]=null;u.n++;if(isKing(q.t))u.cap=q}b[t]=p;b[f]=null;p.m=1;if(m[5]){b[t]=null;if(b.dead&&!p.rv){b.dead[p.s].push(p);u.bd=1}}}
  else if(k===12){const q=b[t];b[m[3]]=q;b[t]=null}
  else if(k===13){p.md=p.md?0:1}
@@ -1546,7 +1546,7 @@ function skillCands(b,s,sk){
   fin.sort((x,y)=>y[0]-x[0]);const uq=new Set();let n=0;
   for(const q of fin){const key=q[1].map(mkey).join('|');if(uq.has(key))continue;uq.add(key);out.push([q[1][0][0],q[1][0][1],9,undefined,q[1],'F']);if(++n>=10)break}}
  return out}
-function luckyBonus(b,s){const o=s==='w'?'b':'w';let mx=0;for(const x of gen(b,o,{ai:true,cap:true,noDbl:true})){const jr=x[0]>>3,jc=x[0]&7;if(jr<3||jr>4||jc<2||jc>5)continue;const v=tacticalVal(b,x);if(v>mx)mx=v}return .25*Math.min(mx,10)*.8}
+function luckyBonus(b,s){const o=s==='w'?'b':'w';let mx=0;for(const x of gen(b,o,{ai:true,cap:true,noDbl:true})){const jr=x[0]>>3,jc=x[0]&7;if(jr<2||jr>5)continue;const v=tacticalVal(b,x);if(v>mx)mx=v}return .25*Math.min(mx,10)*.8}
 const isLk=m=>m[2]===15||(m[2]===9&&m[4]&&m[4][0][2]===15);
 // 럭키: 성공(50%: 적 전체 행동불가)/실패 두 결과의 기대값으로 평가
 function luckyEval(b,m,s,d,ply){const o=s==='w'?'b':'w';let tot=0;
@@ -1908,7 +1908,7 @@ const EN_DEF={
  o:['Horizon','Moves to any empty square in its own row · Moves 1 square forward or backward (empty squares only; cannot capture by moving) · Skill: Eliminates 1 enemy in the same row (not King-class, not ranged-immune targets) · After moving forward or backward, it cannot use its skill on the very next turn'],
  a:['Hand','Moves 1 square in any direction (cannot capture by moving) · Skill: Moves 1 friendly piece in your own zone (your 2 rows) to any empty square outside the enemy zone (2 enemy rows); usable only while the Hand is in your zone · King- and Queen-class pieces, Black/White Dragons, Genesis and Hand cannot be moved'],
  w:['Spellblade','Moves or captures up to 2 squares orthogonally or 1 square diagonally · Skill: Switches to Sword Mode — cannot move, but ranged-attacks enemies in the 5x5 around it (use again to return to move mode)'],
- l:['Lucky','Moves 1 square orthogonally (cannot capture) · Skill: 25% chance that enemy pieces in the central 4x2 area (files c–f, ranks 4–5) cannot move or capture next turn (ranged attacks still work; no effect on King- or Queen-class, Black/White Dragon or Genesis); after using it, 1 friendly piece of cost 2 or less may act one extra time'],
+ l:['Lucky','Moves 1 square orthogonally (cannot capture) · Skill: 25% chance that enemy pieces in the central 8x4 area (the four middle ranks, excluding both home zones) cannot move or capture next turn (ranged attacks still work; no effect on King- or Queen-class, Black/White Dragon or Genesis); after using it, 1 friendly piece of cost 2 or less may act one extra time'],
  c:['Critical','Moves or captures 1 square orthogonally or up to 2 squares diagonally · Special: When capturing, 50% chance to also eliminate 1 enemy right next to the captured piece (orthogonally; not King-class)'],
  f:['Frozen','Moves up to 2 squares in any direction (cannot capture by moving) · Skill: Toggle Freeze Zone — while on, all pieces in the 5x5 around it, allies and enemies alike, can neither move nor capture (ranged attacks and skills still work; King-/Queen-class are immune); use again to turn off · While the zone is on, Frozen itself cannot move · Squares overlapping magma lose the freeze zone, and turning the zone on removes any overlapping magma'],
  i:['Infighter','Moves or captures up to 2 squares orthogonally or 1 square diagonally · Special: If captured by a piece of higher cost, 50% chance to eliminate that piece as well'],
@@ -3949,6 +3949,7 @@ const PATCH=[
   TR('🏀 바운스(1코스트): 앞 1칸 이동·잡기 후 주변 3x3 빈칸으로 2~3번 튕김','🏀 Bounce (1): moves/captures 1 square ahead, then hops 2-3 times to random empty squares around it'),
   TR('🔫 카빈(2코스트): 앞 3칸 원거리 공격 · 한 번만 킹·퀸 계열·뱅가드 곁으로 낙하','🔫 Carbine (2): ranged attack on the 3 squares ahead · once per game it can parachute next to your King class, Queen class or Vanguard'),
   TR('🎨 카빈은 소총, 머신건은 기관총 아이콘으로 교체','🎨 Carbine now has a rifle icon and Machine Gun a machine-gun icon'),
+  TR('🍀 럭키: 스킬 범위를 중앙 8x4칸(양쪽 진영을 뺀 중앙 4줄 전체)으로 정정','🍀 Lucky: skill range corrected to the central 8x4 area (the four middle ranks, excluding both home zones)'),
   TR('💾 진행 중인 게임 자동 저장(이어하기) · 좌표 글씨·하단 버튼 터치 영역 확대','💾 Auto-save and Resume · larger board coordinates and touch areas')]],
  ['1.2.11',TR('편의성 · 효과음 개선','Polish & Sound'),[
   TR('🍀 럭키: 중앙 4x2칸에 얼릴 수 있는 적이 있을 때만 스킬 사용 가능','🍀 Lucky: the skill can only be used when there is a freezable enemy in the central 4x2 area'),
