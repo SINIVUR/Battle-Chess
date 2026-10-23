@@ -679,8 +679,8 @@ body:has(#s0.on){padding-bottom:calc(env(safe-area-inset-top,0px) + 48px)}@media
  <h1 class="big"><b data-t="BATTLE">BATTLE</b><b class="o" data-t="CHESS">CHESS</b></h1>
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
- <div class="pbadge"><b>v1.2.9</b> 정식출시 대규모 패치 "궤도에 오르라!"<small>신규 기물 5종 · 언덕 · 철책 · 기물 조정</small></div>
-  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.2.9</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="pbadge"><b>v1.2.10</b> 정식출시 대규모 패치 "궤도에 오르라!"<small>신규 기물 5종 · 언덕 · 철책 · 기물 조정</small></div>
+  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.2.10</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -842,7 +842,7 @@ const DEF={
  x:{n:'오르빗',e:'🪐',c:9,p:'fb',av:8.5,d:'자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외) 어느 칸으로든 이동·잡기(기물을 뛰어넘음) · 특징: 킹 계열(킹·엠페러·갓·데몬)과 제네시스는 잡을 수 없음 · 특징: 적을 3기 처치하면 즉시 폭발해 제거됨'},
  j:{n:'스파클',e:'💠',c:8,p:'b',av:6,d:'상하좌우 1칸 이동(잡기 불가) · 원거리 공격: 자신 주변 5x5의 바깥 한 줄(자신 주변 3x3 제외, 네 모서리 칸도 제외) 어느 칸의 적이든 공격'},
  y:{n:'랜서',e:'🏇',c:7,p:'f',av:6.5,d:'앞·왼쪽 앞·오른쪽 앞 대각선 방향으로 최대 2칸 이동·잡기 · 관통: 경로에 적 기물이 있으면 함께 처치(아군이 있으면 막힘, 무적 기물·킹 계열은 관통 불가) · 뒤로 1칸 이동(빈칸만, 잡기 불가)'},
- n:{n:'마운틴',e:'⛰️',c:5,p:'b',av:4,d:'상하좌우·대각선 1칸 이동·잡기 · 스킬: 언덕 — 양 진영을 제외한 중앙 4줄 중 한 칸을 언덕으로 만듦(마운틴마다 1칸 유지). 언덕 위·언덕에 안착한 기물(킹·퀸 계열 제외)은 원거리 공격을 받지 않지만 잡히며, 이동은 상하좌우 1칸(잡기 불가)으로 고정됨(마운틴은 이동이 그대로) · 특징: 이동 중 경로에 언덕이 있으면 그 칸에 멈춤(마운틴 자신은 멈추지 않음) · 특징: 마그마·빙결 영역·자기장이 덮거나 마운틴이 사라지면 언덕도 사라짐'},
+ n:{n:'마운틴',e:'⛰️',c:5,p:'b',av:4,d:'상하좌우·대각선 1칸 이동·잡기 · 스킬: 언덕 — 양 진영을 제외한 중앙 4줄 중 한 칸을 언덕으로 만듦(스킬을 다시 써도 기존 언덕은 그대로 남음). 언덕 위·언덕에 안착한 기물(킹·퀸 계열 제외)은 원거리 공격을 받지 않지만 잡히며, 이동은 상하좌우 1칸(잡기 불가)으로 고정됨(마운틴은 이동이 그대로) · 특징: 이동 중 경로에 언덕이 있으면 그 칸에 멈춤(마운틴 자신은 멈추지 않음) · 특징: 마그마·빙결 영역·자기장이 덮거나 마운틴이 사라지면 언덕도 사라짐'},
  'Ł':{n:'라이너',e:'🚧',c:1,p:'f',av:1.5,d:'상하 1칸 이동·잡기 · 스킬: 철책 — 자신을 제거하고, 자신이 있던 칸의 네 변 중 한 변에 철책을 설치(영구). 아군·적군 모두 철책을 가로지르는 직선 이동·잡기를 할 수 없음(점프·순간이동·원거리 공격은 통과) · 마그마·프로즌 빙결 영역·언덕이 덮으면 사라짐(자기장에도 사라짐)'},
  t:{n:'호퍼',e:'🦗',c:2,p:'f',av:2.9,d:'나이트보다 긴 L자(1x3) 이동, 기물을 뛰어넘음(잡기 불가) · 스킬: 메뚜기 떼 모드 — 턴을 쓰고 발동하면 이후 같은 이동으로 잡기도 가능(계속 유지, 부활하면 초기화)'}
 };
@@ -1027,7 +1027,7 @@ function gen0(b,s,opt){
       else{kl.push(t);if(kl.length===1)gout.push([i,t,0]);else gout.push([i,t,14,undefined,kl.slice()])}}}
     if(!gcap&&at(r-f,c)===null)mv(r-f,c,0);break}
    case'n':{for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s))mv(r+dr,c+dc,0)}
-    if(!gcap)for(let j=16;j<48;j++){const q=b[j];if(gai&&!(q&&q.s!==s&&!isKing(q.t)&&!isQueenCl(q.t)))continue;if(b.hl&&p.fi&&b.hl.some(h=>h[0]===p.fi&&h[2]===j))continue;gout.push([i,j,27])}break}
+    if(!gcap)for(let j=16;j<48;j++){const q=b[j];if(gai&&!(q&&q.s!==s&&!isKing(q.t)&&!isQueenCl(q.t)))continue;if(b.hl&&b.hl.some(h=>h[2]===j))continue;gout.push([i,j,27])}break}
    case'Ł':{for(const dr of[-1,1]){const q=at(r+dr,c);if(q===null||(q&&q.s!==s))mv(r+dr,c,0)}
     if(!gcap)for(const[dr,dc]of D4){if(at(r+dr,c+dc)!==undefined)gout.push([i,(r+dr)*8+c+dc,28])}break}
    case'K':for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s))mv(r+dr,c+dc,0)}break;
@@ -1126,7 +1126,7 @@ function fnDrop(b,u,inA){if(!b.fn)return;const nf=b.fn.filter(e=>{const a=e>>1,c
 function hlMake(b,u,p,t){
  fnDrop(b,u,x=>x===t);
  if(!u.hs){u.hs=1;u.hl0=b.hl}
- b.hl=(b.hl||[]).filter(h=>h[0]!==p.fi).concat([[p.fi,p.s,t]]);
+ b.hl=(b.hl||[]).concat([[p.fi,p.s,t]]);
  // 그 칸의 마그마 제거
  if(b.mf){const tr=t>>3,tc=t&7;let ch=false;const nm=b.mf.map(e=>{const cm=e[4]===undefined?15:e[4],dr=tr-(e[2]>>3),dc=tc-(e[2]&7);if(dr>=0&&dr<2&&dc>=0&&dc<2&&(cm>>(dr*2+dc)&1)){ch=true;return[e[0],e[1],e[2],e[3],cm&~(1<<(dr*2+dc))]}return e}).filter(e=>e[4]===undefined||e[4]);
   if(ch){u.mgs=1;if(u.mf0===undefined){u.mg0=b.mg;u.mf0=b.mf}b.mf=nm;mgBuild(b)}}
@@ -1853,7 +1853,7 @@ const EN_DEF={
  x:['Orbit','Moves or captures to any square on the outer ring of its surrounding 5x5 (the 3x3 around it is excluded), jumping over pieces · Trait: Cannot capture King-class pieces (King, Emperor, God, Demon) or the Genesis · Trait: Explodes and is removed the moment it has captured 3 enemies'],
  j:['Sparkle','Moves 1 square orthogonally (cannot capture) · Ranged attack: hits an enemy on any square of the outer ring of its surrounding 5x5 (the 3x3 around it and the four corner squares are excluded)'],
  y:['Lancer','Moves or captures up to 2 squares straight forward or diagonally forward-left / forward-right · Pierce: enemies in the path are eliminated too (blocked by friendly pieces; invincible pieces and King-class cannot be pierced) · Moves 1 square backward (empty squares only; cannot capture)'],
- n:['Mountain','Moves or captures 1 square in any direction · Skill: Hill — turn one square of the middle 4 rows (outside both home zones) into a hill (each Mountain keeps 1 hill). A piece on a hill (not King-/Queen-class) is immune to ranged attacks but can be captured, and its movement is fixed to 1 square orthogonally (no capture; a Mountain keeps its normal movement) · Trait: A moving piece stops on the first hill in its path (a Mountain itself does not stop) · Trait: Hills vanish when covered by Magma, a Freeze Zone or the storm, or when their Mountain is gone'],
+ n:['Mountain','Moves or captures 1 square in any direction · Skill: Hill — turn one square of the middle 4 rows (outside both home zones) into a hill (using the skill again keeps the existing hills). A piece on a hill (not King-/Queen-class) is immune to ranged attacks but can be captured, and its movement is fixed to 1 square orthogonally (no capture; a Mountain keeps its normal movement) · Trait: A moving piece stops on the first hill in its path (a Mountain itself does not stop) · Trait: Hills vanish when covered by Magma, a Freeze Zone or the storm, or when their Mountain is gone'],
  'Ł':['Liner','Moves or captures 1 square vertically · Skill: Fence — remove itself and build a permanent fence on one of the 4 sides of the square it stood on. Neither side can cross a fence with a straight move or capture (jumps, teleports and ranged attacks pass over) · Fences vanish when covered by Magma, a Freeze Zone or a hill (and by the storm)'],
 };
 
@@ -3775,9 +3775,11 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.2.9';
+const APP_VER='1.2.10';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.2.10',TR('언덕 수정','Hill Fix'),[
+  TR('⛰️ 마운틴의 언덕: 스킬을 다시 써도 기존 언덕이 사라지지 않고 계속 남음','⛰️ Mountain hills: using the skill again no longer removes existing hills — they all stay')]],
  ['1.2.9',TR('화면 수정','UI Fix'),[
   TR('💡 폰 화면에서 "좋은 수" 버튼 글씨가 버튼 밖으로 넘치던 문제 수정','💡 Fixed the "Hints" button text overflowing its box on phones')]],
  ['1.2.8',TR('밸런스 조정 패치 2','Balance Patch 2'),[
