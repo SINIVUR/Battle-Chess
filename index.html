@@ -81,7 +81,7 @@ main{width:100%;max-width:520px}
 .bd{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:repeat(8,minmax(0,1fr));width:min(100%,480px,max(240px,calc(100dvh - 260px)));aspect-ratio:1;margin:0 auto;border:3px solid var(--ink);box-shadow:0 8px 24px rgba(0,0,0,.18);user-select:none;touch-action:manipulation}
 .c{position:relative;display:flex;align-items:center;justify-content:center;font-size:clamp(20px,7vw,38px);cursor:pointer;min-width:0;min-height:0}
 .l{background:var(--sl)}.dk{background:var(--sd)}
-.co{position:absolute;font-size:9px;font-weight:700;opacity:.55;font-style:normal;pointer-events:none;z-index:4}
+.co{position:absolute;font-size:11px;font-weight:800;opacity:.72;font-style:normal;pointer-events:none;z-index:4}
 .co.r{left:2px;top:1px}.co.f{right:3px;bottom:1px}
 .pc{position:relative;z-index:1;width:80%;aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72em;line-height:1;border:3px solid}
 .pc.pw{background:#fff;border-color:#000}.pc.pb{background:#1b1b1b;border-color:#fff}
@@ -581,6 +581,7 @@ body.lab #tHud,body.lab #s4 .skb,body.lab #s4 .act2,body.lab #side .pwr,body.lab
 /*TAP: 작은 버튼의 눌리는 범위만 넓힘(모양·간격은 그대로)*/
 .chips button,.tabs button,#gtabs button,.pre button,#pre button,#lgOpen,#pcx,#pcmore,.hbtn{position:relative}
 .chips button::after,.tabs button::after,#gtabs button::after,.pre button::after,#pre button::after,#lgOpen::after,#pcx::after,#pcmore::after,.hbtn::after{content:'';position:absolute;left:-5px;right:-5px;top:-7px;bottom:-7px}
+#s4 .acts button{position:relative}#s4 .acts button::after{content:'';position:absolute;left:-3px;right:-3px;top:-6px;bottom:-6px}
 /*RNG: 슬라이더에 입력칸 테두리·그림자·초록 윤곽이 겹치던 것 정리*/
 input[type=range]{border:0!important;border-radius:0;background:transparent;box-shadow:none;padding:0;outline:none}
 input[type=range]:focus{outline:none}
@@ -1799,7 +1800,7 @@ const setTimeout=(f,d,...a)=>window.setTimeout(f,(d>=30&&d<=8000)?d*TS:d,...a);
 document.addEventListener('animationstart',e=>{const t=e.target;if(!t||!t.closest||!t.closest('#s4,.kfx,.fx,[id$="Al"],#toast'))return;try{t.getAnimations().forEach(a=>{if(a.animationName===e.animationName&&a.playbackRate===1)a.playbackRate=1/TS})}catch(x){}},true);
 const $=s=>document.querySelector(s),$$=s=>Array.prototype.slice.call(document.querySelectorAll(s));
 const {DEF,TYPES,BUDGET,MAXN,isKing}=BC;
-const LG=(()=>{try{const g=k=>{const v=localStorage.getItem('bc_'+k);return v===null?null:JSON.parse(v)};const l=g('lang');if(l==='ko'||l==='en')return l;if(g('seen')||g('seenVer'))return 'ko';return /^ko/i.test(navigator.language||'')?'ko':'en'}catch(e){return 'ko'}})(),EN=LG==='en';
+const LG=(()=>{try{const g=k=>{const v=localStorage.getItem('bc_'+k);return v===null?null:JSON.parse(v)};const l=g('lang');if(l==='ko'||l==='en')return l;if(g('seen')||g('seenVer'))return 'ko';return /^ko/i.test(navigator.language||'')?'ko':'en'}catch(e){return 'ko'}})(),EN=LG==='en';try{if(EN)document.documentElement.lang='en'}catch(e){}
 const FIRST=(()=>{try{return localStorage.getItem('bc_lang')===null&&localStorage.getItem('bc_seen')===null&&localStorage.getItem('bc_seenVer')===null}catch(e){return false}})();
 function TR(k,e){return EN?e:k}
 const EN_DEF={
@@ -2029,7 +2030,7 @@ $('#home1').onclick=()=>{sfx('rm');show('s0');window.scrollTo(0,0)};
 $('#go').onclick=()=>{let c=U.col;if(c==='r')c=rnd()<.5?'w':'b';G={mode:U.mode,lv:U.lv,human:c,lvs:{w:U.lw,b:U.lb},pause:false};simTally={w:0,b:0,d:0};G.seed=(Math.random()*1e6)|0;
  startBoard=BC.emptyBoard();SAVED={};queue=U.mode==='pve'?[c]:['w','b'];nextSetup()};
 $('#re').onclick=()=>ask(TR('처음으로','Main Menu'),TR('진행 중인 게임을 종료하고 메인 화면으로 돌아갈까요?','End the current game and return to the main screen?'),()=>toHome());
-function toHome(){if(G.tut)tutLeave();if(G.lab)labLeave();cancelAI();if(G.net&&!G.over&&typeof netSend==='function'){netSend({k:'res'})}G.over=true;if(typeof netLeave==='function')netLeave();closeM('mOver');show('s0')}
+function toHome(){if(G.tut)tutLeave();if(G.lab)labLeave();cancelAI();if(G.net&&!G.over&&typeof netSend==='function'){netSend({k:'res'})}if(!G.net&&!G.tut&&!G.lab&&G.mode!=='sim')clearSave();G.over=true;if(typeof netLeave==='function')netLeave();closeM('mOver');show('s0')}
 
 /* ===== 2. 기물 선택 ===== */
 const used=()=>Object.keys(army).reduce((a,t)=>a+DEF[t].c*army[t],0),cnt=()=>Object.keys(army).reduce((a,t)=>a+army[t],0);
@@ -2109,6 +2110,32 @@ function startGame(){
  G.b=BC.cloneBoard(startBoard);G.turn='w';G.sel=null;G.legal=[];G.pk=null;G.xm=null;G.lm=null;G.over=false;G.busy=false;G.stuck=false;G.pasd=false;G.since=0;G.plies=0;G.b.pl=0;G.seen={};G.lost={w:[],b:[]};G.hist=[];G.insp=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;G.log=[];G.dx=false;G.dbq=0;G.tc=false;G.sk={w:{ret:1,rush:1,fin:1,fever:1},b:{ret:1,rush:1,fin:1,fever:1}};G.skp=null;G.rush=null;G.pre=null;
  G.flip=(G.mode==='pve'&&G.human==='b')||(!!G.net&&G.net.me==='b');G.seen[BC.hash(G.b,'w')]=1;G.lastTxt='';
  show('s4');draw();aiCheck();window.scrollTo(0,0)}
+
+/* 자동 저장 · 이어하기 (혼자하기/둘이서 로컬 대전) */
+const SVK='bc_save';
+function clearSave(){try{localStorage.removeItem(SVK)}catch(e){}}
+function saveGame(){try{
+ if(!G.b||G.over||G.tut||G.lab||G.net||G.mode==='sim')return;const b=G.b;
+ const o={v:1,mode:G.mode,lv:G.lv,human:G.human,lvs:G.lvs,seed:G.seed,turn:G.turn,plies:G.plies,since:G.since,seen:G.seen,lost:G.lost,log:G.log,sk:G.sk,flip:G.flip,
+  bd:b.map(p=>p?Object.assign({},p,{tp:undefined,tl:p.tp?1:0}):null),dead:b.dead,mg:b.mg||null,mf:b.mf||null,hl:b.hl||null,fn:b.fn||null,pl:b.pl||0,t:Date.now()};
+ localStorage.setItem(SVK,JSON.stringify(o))}catch(e){}}
+function loadSave(){try{
+ const s=JSON.parse(localStorage.getItem(SVK)||'null');if(!s||s.v!==1||!Array.isArray(s.bd)||s.bd.length!==64){return false}
+ const n=s.bd.map(p=>p?Object.assign({},p):null);n.dead=s.dead||{w:[],b:[]};n.mg=s.mg||null;n.mf=s.mf||null;n.hl=s.hl||null;n.fn=s.fn||null;n.pl=s.pl||0;
+ for(let i=0;i<64;i++){const p=n[i];if(p){if(p.tl){p.tp=n[p.ts]||null}delete p.tl;if(!p.tp)delete p.tp}}
+ let kw=0,kb=0;for(let i=0;i<64;i++)if(n[i]&&BC.isKing(n[i].t)){if(n[i].s==='w')kw++;else kb++}
+ if(!kw||!kb)return false;
+ G={mode:s.mode,lv:s.lv,human:s.human,lvs:s.lvs,pause:false,seed:s.seed};startBoard=BC.cloneBoard(n);
+ G.ret=null;G.b=n;G.turn=s.turn;G.sel=null;G.legal=[];G.pk=null;G.xm=null;G.lm=null;G.over=false;G.busy=false;G.stuck=false;G.pasd=false;G.since=s.since||0;G.plies=s.plies||0;G.b.pl=G.plies;G.seen=s.seen||{};G.lost=s.lost||{w:[],b:[]};G.hist=[];G.insp=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;G.log=s.log||[];G.dx=false;G.dbq=0;G.tc=false;G.sk=s.sk||{w:{ret:1,rush:1,fin:1,fever:1},b:{ret:1,rush:1,fin:1,fever:1}};G.skp=null;G.rush=null;G.pre=G.b.mg?BC.magPre(G.b,G.turn):null;G.flip=!!s.flip;G.lastTxt='';
+ const human=G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human);
+ if(human&&!BC.gen(G.b,G.turn,{noDbl:true}).length)G.stuck=true;
+ const br=$('#bRes');if(br)br.style.display='none';
+ show('s4');draw();aiCheck();window.scrollTo(0,0);return true}catch(e){return false}}
+setTimeout(()=>{try{
+ if(!$('#s0').classList.contains('on')||document.querySelector('.modal.on, .mod.on'))return;
+ const s=JSON.parse(localStorage.getItem(SVK)||'null');if(!s||s.v!==1)return;
+ ask(TR('이어서 하시겠어요?','Resume your game?'),TR('이전에 진행 중이던 게임이 있어요. 이어서 할까요? (취소하면 삭제됩니다)','You have an unfinished game. Resume it? (Cancel deletes it)'),()=>{if(!loadSave()){clearSave();toast(TR('저장된 게임을 불러오지 못했어요','Could not load the saved game'))}});
+ $('#askNo').onclick=()=>{closeM('mAsk');clearSave()}}catch(e){}},1700);
 function pbarHtml(s){if(G.net){const mine=s===G.net.me;return `<span class="dot ${s}"></span><span class="who">${SN[s]} · ${mine?TR('나','Me'):TR('상대','Opponent')} · ${esc(mine?G.net.myNk:G.net.nk)}</span><span class="lost">${G.lost[s].map(t=>`<i class="ic lg">${gl(t)}</i>`).join('')}</span><span class="tick">${G.turn===s&&!G.over?TR('● 차례','● Turn'):''}</span>`}
  const isAI=G.mode==='pve'&&s!==G.human;
  const who=G.mode==='sim'?`AI · ${LVN[G.lvs[s]]}`:G.mode==='pve'?(isAI?`AI · ${LVN[G.lv]}`:TR('플레이어','Player')):TR(`${SN[s]} 플레이어`,` ${SN[s]} Player`);
@@ -2855,6 +2882,7 @@ function endTurn(){
  const h=BC.hash(G.b,G.turn);G.seen[h]=(G.seen[h]||0)+1;
  G.plies=(G.plies||0)+1;G.b.pl=G.plies;if(G.lab){G.plies=0;G.b.pl=0}
  if(G.plies>=LIMIT){finish(BC.adjudicate(G.b),'lim');return}
+ saveGame();
  stormAlert(G.plies);if(G.plies%20===0)phaseAlert(G.plies);else if(G.plies>=LIMIT-5)countdown(LIMIT-G.plies);
  const lg0=BC.gen(G.b,G.turn,{noDbl:true});
  if(!lg0.length&&!G.lab&&!G.pasd){const human=G.net?G.turn===G.net.me:(G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human));if(G.net&&!human&&!(G.sk&&(skAvail('ret')||skAvail('fin')))){draw(TR('상대가 움직일 수 없습니다 — 턴을 넘기길 기다립니다','Opponent cannot move — waiting for them to pass'));return}if(human&&!(G.sk&&(skAvail('ret')||skAvail('fin')))){G.stuck=true;draw(TR('이동할 수 있는 기물이 없습니다 — [턴 넘기기]를 누르세요','No piece can move — press [Pass Turn]'));return}if(!human&&!G.net&&G.mode!=='sim'){G.pasd=true;G.busy=true;draw(TR('상대가 움직일 수 없어 턴을 넘깁니다','Opponent cannot move — turn passed'));setTimeout(()=>{G.busy=false;if(!G.over)passTurn(true)},900);return}}
@@ -2865,7 +2893,7 @@ function endTurn(){
 function finish(w,why){
  if(G.lab){G.busy=false;draw();ask(TR('다시 연습하시겠습니까?','Practice again?'),why==='king'?TR('내 킹이 잡혔어요. 처음 상태로 돌아가 다시 연습할 수 있어요.','Your King was captured. You can reset and practice again.'):TR('연습을 처음 상태부터 다시 시작할 수 있어요.','You can restart the practice from the beginning.'),()=>labReset(true));return}
  if(G.tut){tutFinish(w);return}
- G.over=true;G.busy=false;G.xm=null;G.rush=null;G.skp=null;G.pk=null;
+ G.over=true;G.busy=false;G.xm=null;G.rush=null;G.skp=null;G.pk=null;clearSave();['stormAl','phaseAl','cdAl'].forEach(i=>{const e=$('#'+i);if(e)e.classList.remove('on')});
  const solo=G.mode==='pve'||!!G.net,myc=G.net?G.net.me:G.human,humanWins=solo&&w===myc;
  let em,t,d;
  if(!w){em='🤝';t=TR('무승부','Draw');d=LIMIT+TR('수가 지났고 남은 전력과 기물 수가 같습니다.',' moves have passed and the remaining strength and piece counts are equal.')}
@@ -3789,6 +3817,8 @@ const PATCH=[
   TR('🍀 럭키: 중앙 4x2칸에 얼릴 수 있는 적이 있을 때만 스킬 사용 가능','🍀 Lucky: the skill can only be used when there is a freezable enemy in the central 4x2 area'),
   TR('💡 추천 문구: 돌격·피버 추천에서 제자리 스킬은 "제자리 스킬 (효과)"로 표기','💡 Hint text: in-place skills in Charge/Fever tips are now shown as "in-place skill (effect)"'),
   TR('🎼 뱅가드 선봉 효과음을 더 길고 화려하게 개선','🎼 Vanguard skill sound is now longer and more elaborate'),
+  TR('💾 진행 중인 게임 자동 저장 — 앱이 꺼져도 다시 열면 "이어서 하시겠어요?"로 이어하기','💾 Games in progress are auto-saved — reopen the app and choose Resume'),
+  TR('♿ 좌표 글씨 확대 · 하단 버튼 터치 영역 확대 · 영어 모드 언어 표시 · 종료 시 알림 정리','♿ Larger board coordinates, bigger touch areas for bottom buttons, correct language tag in English, alerts cleared at game end'),
   TR('🔧 버튼 글씨 여유 조정 · 튜토리얼의 버튼 이름 표기 정리','🔧 Slightly more room for button text · tutorial button names fixed')]],
  ['1.2.10',TR('언덕 수정','Hill Fix'),[
   TR('⛰️ 마운틴의 언덕: 스킬을 다시 써도 기존 언덕이 사라지지 않고 계속 남음','⛰️ Mountain hills: using the skill again no longer removes existing hills — they all stay')]],
