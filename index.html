@@ -684,8 +684,8 @@ body:has(#s0.on){padding-bottom:calc(env(safe-area-inset-top,0px) + 48px)}@media
  <h1 class="big"><b data-t="BATTLE">BATTLE</b><b class="o" data-t="CHESS">CHESS</b></h1>
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
- <div class="pbadge"><b>v1.3.0</b> 대규모 패치 "급습을 대비하라!"<small>신규 기물 5종 · 은신 · 피라미드 · 일기토</small></div>
-  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.3.0</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="pbadge"><b>v1.3.1</b> 대규모 패치 "급습을 대비하라!"<small>신규 기물 5종 · 은신 · 피라미드 · 일기토</small></div>
+  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.3.1</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -824,7 +824,7 @@ const DEF={
  q:{n:'프린세스',e:'🧚',c:4,p:'b',av:3.5,d:'퀸·메두사 대신 사용 · 주변 5x5의 원하는 빈칸으로 이동(공격 불가) · 스킬: 아군 1기를 지정, 다음 턴에 그 기물이 두 번 행동'},
  r:{n:'론도',e:'🚪',c:1,p:'b',av:1.6,d:'자기 진영 쪽(후진)으로만 1칸씩 이동·잡기 · 자기 쪽 끝 라인에서는 상대 끝 라인의 같은 열 빈칸으로 백도어 이동 가능'},
  h:{n:'샷건',e:'🧨',c:7,p:'f',av:6.5,d:'상하좌우 1칸(전진 방향은 최대 2칸) 이동(잡기 불가) · 자신의 앞쪽 가로 3칸 × 2줄(6칸) 안의 적 중 2~3기를 무작위로 원거리 공격(범위 안의 적이 그보다 적으면 전부)'},
- s:{n:'제네시스',e:'☄️',c:5,p:'b',av:7.5,d:'상하좌우·대각 1칸씩 한 턴에 최대 3번 이동 · 적을 잡으면 자신도 함께 폭멸하며 턴이 끝남(킹 계열(킹·엠페러·갓·데몬)은 잡을 수 없음)'},
+ s:{n:'제네시스',e:'☄️',c:5,p:'b',av:7.5,d:'상하좌우·대각 1칸씩 한 턴에 최대 3번 이동 · 적을 잡으면 자신도 함께 폭멸하며 턴이 끝남(킹 계열(킹·엠페러·갓·데몬)은 잡을 수 없음) · 특징: 언덕·마그마·빙결 영역·피라미드의 영향을 받지 않고 그 칸으로도 이동할 수 있음'},
  v:{n:'버티컬',e:'🗼',c:6,p:'b',av:7.5,d:'자기 세로줄의 빈칸 어디로든 이동(잡기 불가) · 좌우 1칸 이동(빈칸만, 잡기 불가) · 스킬: 같은 세로줄의 적 1기를 처치(한 번 이동한 뒤부터 사용 가능, 킹 계열 불가, 원거리 면역 대상 불가) · 좌우로 이동한 바로 다음 턴에는 스킬 사용 불가'},
  o:{n:'호라이즌',e:'🌅',c:5,p:'b',av:5.5,d:'자기 가로줄의 빈칸 어디로든 이동 · 앞·뒤로 1칸 이동(빈칸만, 잡기 불가) · 스킬: 같은 가로줄의 적 1기를 처치(킹 계열 불가, 원거리 면역 대상 불가) · 앞 또는 뒤로 이동한 바로 다음 턴에는 스킬 사용 불가'},
  a:{n:'핸드',e:'🖐️',c:7,p:'fb',av:5.5,d:'상하좌우·대각선 1칸 이동(잡기 불가) · 스킬: 자기 진영(아군 쪽 2줄)에 있는 아군 1기를 상대 진영(상대 쪽 2줄)이 아닌 빈칸 어디로든 옮김(핸드가 자기 진영 안에 있을 때만 사용 가능) · 킹·퀸 계열, 흑룡·백룡, 제네시스, 핸드는 옮길 수 없음'},
@@ -905,7 +905,7 @@ function rimm(b,i){const q=b[i];if(q.inv||q.rg||q.st||q.t==='E')return true;
  return false}
 function momProt(b,j){const q=b[j];if(!q)return false;const r=j>>3,c=j&7;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){if(!dr&&!dc)continue;const x=r+dr,y=c+dc;if(x<0||x>7||y<0||y>7)continue;const z=b[x*8+y];if(z&&z.t==='m'&&z.md&&z.s===q.s)return true}return false}
 function medT(b,i){const p=b[i],r=i>>3,c=i&7,T=[];for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){const x=r+dr,y=c+dc;if((!dr&&!dc)||x<0||x>7||y<0||y>7)continue;const q=b[x*8+y];if(q&&q.s!==p.s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='s')T.push(x*8+y)}return T}
-function zoneLocked(b,i){const q0=b[i];if(!q0||isKing(q0.t)||isQueenCl(q0.t))return false;const r=i>>3,c=i&7;for(let j=0;j<64;j++){const z=b[j];if(z&&z.t==='f'&&z.md&&j!==i&&Math.abs((j>>3)-r)<=2&&Math.abs((j&7)-c)<=2&&!(z.ix>>(((r-(j>>3)+2)*5)+(c-(j&7)+2))&1))return true}return false}
+function zoneLocked(b,i){const q0=b[i];if(!q0||q0.t==='s'||isKing(q0.t)||isQueenCl(q0.t))return false;const r=i>>3,c=i&7;for(let j=0;j<64;j++){const z=b[j];if(z&&z.t==='f'&&z.md&&j!==i&&Math.abs((j>>3)-r)<=2&&Math.abs((j&7)-c)<=2&&!(z.ix>>(((r-(j>>3)+2)*5)+(c-(j&7)+2))&1))return true}return false}
 // 11.2.2: 마그마↔빙결 영역 상쇄 도우미 — 프로즌 j 의 5x5 안에서 칸 x 가 아직 얼어 있는지
 function iceHas(z,j,x){const dr=(x>>3)-(j>>3),dc=(x&7)-(j&7);return z.md&&Math.abs(dr)<=2&&Math.abs(dc)<=2&&!(z.ix>>((dr+2)*5+dc+2)&1)}
 const CAMEL=[[1,3],[3,1],[-1,3],[-3,1],[1,-3],[3,-1],[-1,-3],[-3,-1]];
@@ -1062,13 +1062,13 @@ function gen0(b,s,opt){
  if(b.hl){const hs=new Array(64).fill(false);for(const h of b.hl)hs[h[2]]=true;
   const o2=[];
   for(let j=0;j<out.length;j++){const m=out[j],k=m[2],p=b[m[0]];
-   if(isKing(p.t)||isQueenCl(p.t)||p.t==='n'||(k!==0&&k!==14)){o2.push(m);continue}
+   if(isKing(p.t)||isQueenCl(p.t)||p.t==='n'||p.t==='s'||(k!==0&&k!==14)){o2.push(m);continue}
    if(hs[m[0]])continue;
    if(!HJUMP[p.t]){const fr=m[0]>>3,fc=m[0]&7,dr=(m[1]>>3)-fr,dc=(m[1]&7)-fc,ad=Math.max(Math.abs(dr),Math.abs(dc));
     if(ad>=2&&(dr===0||dc===0||Math.abs(dr)===Math.abs(dc))){const sr=Math.sign(dr),sc=Math.sign(dc);let bl=false;for(let x=1;x<ad;x++)if(hs[(fr+sr*x)*8+fc+sc*x]){bl=true;break}if(bl)continue}}
    o2.push(m)}
   out.length=0;for(const m of o2)out.push(m);
-  if(!gcap)for(let i2=0;i2<64;i2++){const p=b[i2];if(!p||p.s!==s||!hs[i2]||p.t==='n'||isKing(p.t)||isQueenCl(p.t)||(p.md&&(p.t==='m'||p.t==='w'||p.t==='f'))||(p.t==='x'&&p.ocd)||(p.t==='j'&&p.ja))continue;gi=i2;for(const[dr,dc]of D4)if(at((i2>>3)+dr,(i2&7)+dc)===null)mv((i2>>3)+dr,(i2&7)+dc,0)}}
+  if(!gcap)for(let i2=0;i2<64;i2++){const p=b[i2];if(!p||p.s!==s||!hs[i2]||p.t==='n'||p.t==='s'||isKing(p.t)||isQueenCl(p.t)||(p.md&&(p.t==='m'||p.t==='w'||p.t==='f'))||(p.t==='x'&&p.ocd)||(p.t==='j'&&p.ja))continue;gi=i2;for(const[dr,dc]of D4)if(at((i2>>3)+dr,(i2&7)+dc)===null)mv((i2>>3)+dr,(i2&7)+dc,0)}}
  // 1.2.0 철책: 변을 가로지르는 직선 이동·잡기 제거 (점프·순간이동 계열은 통과)
  if(b.fn){const fs=new Set(b.fn);const o3=[];
   for(let j=0;j<out.length;j++){const m=out[j],k=m[2];if(k!==0&&k!==14){o3.push(m);continue}
@@ -1108,11 +1108,11 @@ function genesisPaths(b,s,i,out,ai){
   const r=loc>>3,c=loc&7;
   for(const[dr,dc]of D8){const x=r+dr,y=c+dc;if(x<0||x>7||y<0||y>7)continue;const to=x*8+y,q=b[to];
    if(q&&(q.s===s||q.inv||isKing(q.t)||momProt(b,to)))continue;
-   if(zoneLocked(b,loc))continue;if(b.hl&&hillAt(b,loc))continue;const mvv=[loc,to,0],u=make(b,mvv,1);const nc=caps+(u.cap?1:0),cs=u.cap?capSq.concat([to]):capSq,st=steps.concat([mvv]);
+   const mvv=[loc,to,0],u=make(b,mvv,1);const nc=caps+(u.cap?1:0),cs=u.cap?capSq.concat([to]):capSq,st=steps.concat([mvv]);
    const king=u.cap&&isKing(u.cap.t);
    if(st.length>=2){const key=(nc>=2?'x':to)+'|'+cs.join(',');
     const ex=seen.get(key);if(ex===undefined){seen.set(key,out.length);out.push([i,to,9,undefined,st])}else if(out[ex][4].length>st.length)out[ex]=[i,to,9,undefined,st]}
-   if(st.length<3&&!king&&!u.cap&&!(b.hl&&hillAt(b,to))){const vk=to+'|'+cs.join(',')+'|'+st.length;if(!vis.has(vk)){vis.add(vk);rec(to,st,nc,cs)}}
+   if(st.length<3&&!king&&!u.cap){const vk=to+'|'+cs.join(',')+'|'+st.length;if(!vis.has(vk)){vis.add(vk);rec(to,st,nc,cs)}}
    unmake(b,u)}}
  rec(i,[],0,[])}
 function gen(b,s,opt){
@@ -1164,7 +1164,7 @@ function hlPurge(b,u){
  const nh=b.hl.filter(h=>{if(w&&inStorm(h[2],w))return false;for(let j=0;j<64;j++){const q=b[j];if(q&&q.t==='n'&&q.fi===h[0])return true}return false});
  if(nh.length!==b.hl.length){if(!u.hs){u.hs=1;u.hl0=b.hl}b.hl=nh.length?nh:null}}
 function boom(b,loc){const p=b[loc];b[loc]=null;if(b.dead&&!p.rv)b.dead[p.s].push(p);return p}
-const mgImm=t=>t==='D'||t==='W'||isKing(t)||isQueenCl(t);
+const mgImm=t=>t==='s'||t==='D'||t==='W'||isKing(t)||isQueenCl(t);
 function magPre(b,s){const mg=b.mg,o=[];for(let j=0;j<64;j++)if(mg[j]){const q=b[j];if(q&&q.s===s)o.push([j,q])}return o}
 // 11.2.2: 마그마는 플레임 개체별로 따로 유지 (b.mf = [[플레임id, 진영, 2x2 시작칸, 남은 시간],…]), b.mg 는 거기서 만든 칸별 표시(○백/●흑)
 function mgBuild(b){const mf=b.mf;if(!mf||!mf.length){b.mf=null;b.mg=null;return}
@@ -1409,7 +1409,7 @@ function ev(b,s){
   if(EVP.skl&&t==='f'&&p.md){let vv=0,av=0;const r0=i>>3,c0=i&7;for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){const x0=r0+dr,y0=c0+dc;if((!dr&&!dc)||x0<0||x0>7||y0<0||y0>7)continue;const q=b[x0*8+y0];if(q&&!isKing(q.t)&&!isQueenCl(q.t)){if(q.s!==p.s)vv+=Math.min(AV[q.t],6)*.3;else if(EVP.s1)av+=Math.min(AV[q.t],6)*.3}}x+=vv>0?vv-av:-1.2-av}
   if(p.frz)x-=Math.max(.8,AV[t]*.35)*EVP.frz;
   if(sw1&&t!=='u'){const dd=Math.min(r,c,7-r,7-c),pv=Math.min(AV[t],8)+(isKing(t)?8:0);if(dd<sw0)x-=pv*(.25+.3*(p.zh||0));else if(dd<sw1)x-=pv*.12}
-  if(b.mg&&b.mg[i])x-=AV[t]*.45;
+  if(b.mg&&b.mg[i]&&t!=='s')x-=AV[t]*.45;
   if(EVP.sk){
    const K=EVP.sk,dir=p.s==='w'?-1:1;let a=0;
    const tv=q=>q&&q.s!==p.s&&!q.inv?(isKing(q.t)?6:Math.min(AV[q.t],6)):0;
@@ -1694,11 +1694,23 @@ function smartArmy(rng){
   let sum=0;for(const x of w)sum+=x;let r=rng()*sum,k=0;while(k<o.length-1&&r>w[k]){r-=w[k];k++}
   const t=o[k];ts.push(t);rem-=DEF[t].c}
  return ts}
+function fillArmy(a,rng){
+ const add=l=>{const ts=l.slice();let rem=BUDGET-armyCost(ts);
+  for(let g=0;g<40&&ts.length<MAXN;g++){
+   const o=TYPES.filter(t=>t!=='K'&&DEF[t].c<=rem&&okAdd(ts,t));if(!o.length)break;
+   const mc=Math.min(...o.map(t=>DEF[t].c));const o2=o.filter(t=>DEF[t].c<=mc+1);
+   const t=o2[rng()*o2.length|0];ts.push(t);rem-=DEF[t].c}
+  return ts};
+ let ts=add(a);
+ for(let it=0;it<10&&ts.length<MAXN;it++){
+  let mx=-1,ix=-1;ts.forEach((t,k)=>{const c=DEF[t].c+rng()*.5;if(c>mx){mx=c;ix=k}});
+  const tr=add(ts.filter((_,k)=>k!==ix));
+  if(tr.length>ts.length)ts=tr;else if(tr.length===ts.length&&armyCost(tr)<armyCost(ts))ts=tr;else break}
+ return ts}
 function aiArmy(lv,rng){
- if(lv<3)return randomArmy(rng);
- const n=lv>=6?60:lv>=5?40:lv>=4?20:8;
+ const n=lv>=6?60:lv>=5?40:lv>=4?20:lv>=3?8:24;
  let best=null,bs=-1e9;
- for(let i=0;i<n;i++){const a=(i%3===2)?randomArmy(rng):smartArmy(rng);const sc=armyScore(a)+rng()*.15;if(sc>bs){bs=sc;best=a}}
+ for(let i=0;i<n;i++){const g=(lv<3||i%3===2)?randomArmy(rng):smartArmy(rng);const a=fillArmy(g,rng);const sc=(lv<3?0:armyScore(a))+1.2*a.length+rng()*.15;if(sc>bs){bs=sc;best=a}}
  return best}
 const FRONT_PREF={N:.5,Z:.6,G:.9,X:-.2,Y:.6,O:-.3};
 function placeScore(res,s){
@@ -1734,7 +1746,7 @@ function aiPlace(types,s,rng,lv){
 /* 판정: 무승부 조건(무진행·반복)에서 남은 전력(코스트 합) > 기물 수 순으로 승자를 가림. 완전 동률일 때만 무승부 */
 function power(b,s){let p=0;for(let i=0;i<64;i++){const q=b[i];if(q&&q.s===s)p+=DEF[q.t].c}return p}
 function adjudicate(b){const pw=power(b,'w'),pb=power(b,'b');if(pw!==pb)return pw>pb?'w':'b';let nw=0,nb=0;for(let i=0;i<64;i++){const q=b[i];if(q){if(q.s==='w')nw++;else nb++}}if(nw!==nb)return nw>nb?'w':'b';return null}
-return {hillAt,iceHas,stormW,inStorm,stormTick,STORM_DIE,lastDepth:()=>LASTD,nodesN:()=>nodes,power,adjudicate,skillCands,SKM,armyScore,smartArmy,WV,placeScore,fireStage,rimm,setEvp,DEF,TYPES,BUDGET,MAXN,D4,DD,D8,KN,isKing,frontRow,backRow,zone,okSq,okAdd,armyCost,randomArmy,boom,zoneLocked,momProt,chance,golemRoll,golemT,magPre,magTick,newPiece,emptyBoard,cloneBoard,gen,make,unmake,applyExtra,hash,ev,chooseMove,aiArmy,aiPlace,tacticalVal,LVL,MATE,shuffle};
+return {hillAt,iceHas,stormW,inStorm,stormTick,STORM_DIE,lastDepth:()=>LASTD,nodesN:()=>nodes,power,adjudicate,skillCands,SKM,armyScore,smartArmy,fillArmy,WV,placeScore,fireStage,rimm,setEvp,DEF,TYPES,BUDGET,MAXN,D4,DD,D8,KN,isKing,frontRow,backRow,zone,okSq,okAdd,armyCost,randomArmy,boom,zoneLocked,momProt,chance,golemRoll,golemT,magPre,magTick,newPiece,emptyBoard,cloneBoard,gen,make,unmake,applyExtra,hash,ev,chooseMove,aiArmy,aiPlace,tacticalVal,LVL,MATE,shuffle};
 })();
 if(typeof module!=='undefined')module.exports=BC;
 
@@ -1903,7 +1915,7 @@ const EN_DEF={
  q:['Princess','Used instead of Queen or Medusa · Moves to any empty square in the surrounding 5x5 (cannot attack) · Skill: Choose 1 friendly piece; it acts twice next turn'],
  r:['Rondo','Moves or captures 1 square at a time, backward only (toward its own side) · From its own back row, can make a backdoor move to an empty square in the same column on the enemy back row'],
  h:['Shotgun','Moves 1 square orthogonally, or up to 2 squares straight forward (cannot capture by moving) · Ranged attack on 2 to 3 random enemies within the 3x2 block of squares ahead of it (all of them if fewer are in range)'],
- s:['Genesis','Moves up to 3 times per turn, 1 square at a time in any direction · Capturing an enemy makes it explode along with its victim and the turn ends (cannot capture King-class pieces: King, Emperor, God, Demon)'],
+ s:['Genesis','Moves up to 3 times per turn, 1 square at a time in any direction · Capturing an enemy makes it explode along with its victim and the turn ends (cannot capture King-class pieces: King, Emperor, God, Demon) · Trait: Ignores Hills, Magma, Freeze Zones and Pyramids, and can move onto those squares'],
  v:['Vertical','Moves to any empty square in its own column (cannot capture by moving) · Moves 1 square left or right (empty squares only; cannot capture) · Skill: Eliminates 1 enemy in the same column (usable only after it has moved once; not King-class, not ranged-immune targets) · After a sideways move, it cannot use its skill on the very next turn'],
  o:['Horizon','Moves to any empty square in its own row · Moves 1 square forward or backward (empty squares only; cannot capture by moving) · Skill: Eliminates 1 enemy in the same row (not King-class, not ranged-immune targets) · After moving forward or backward, it cannot use its skill on the very next turn'],
  a:['Hand','Moves 1 square in any direction (cannot capture by moving) · Skill: Moves 1 friendly piece in your own zone (your 2 rows) to any empty square outside the enemy zone (2 enemy rows); usable only while the Hand is in your zone · King- and Queen-class pieces, Black/White Dragons, Genesis and Hand cannot be moved'],
@@ -3939,9 +3951,16 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.3.0';
+const APP_VER='1.3.1';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.3.1',TR('보완 패치','Polish Patch'),[
+  TR('🍀 럭키: 스킬 범위를 중앙 8x4칸(양쪽 진영을 뺀 중앙 4줄 전체)으로 정정','🍀 Lucky: skill range corrected to the central 8x4 area (the four middle ranks, excluding both home zones)'),
+  TR('☄️ 제네시스: 언덕·마그마·빙결 영역·피라미드의 영향을 받지 않고 그 칸으로도 이동 가능','☄️ Genesis: ignores Hills, Magma, Freeze Zones and Pyramids and can move onto those squares'),
+  TR('🤖 AI가 기물을 최대한 16기까지 꽉 채워 출전','🤖 The AI now fields as many pieces as possible, up to 16'),
+  TR('🔺 피라미드는 백·흑 합쳐 8수 뒤 무너지며, 바운스는 피라미드 칸으로 튕기지 않음 · 피라미드 생성·소멸 연출 개선','🔺 Pyramids crumble after 8 plies in total, Bounce no longer hops onto Pyramid squares · better Pyramid effects'),
+  TR('🏀 바운스: 칸을 하나씩 통통 튕겨 이동하는 모션','🏀 Bounce: now visibly hops square by square'),
+  TR('💾 이어하기 때 피라미드가 사라지던 문제 수정 · 타이틀 화면 정렬 수정','💾 Fixed Pyramids disappearing on Resume · fixed tilted title labels')]],
  ['1.3.0',TR('대규모 패치 "급습을 대비하라!"','Mega Patch "Prepare for the Raid!"'),[
   TR('🎭 파라오(8코스트): 대각선 최대 2칸 이동·잡기 · 모래로 주변 3x3의 모든 버프·상태 제거 · 사라지면 중앙에 피라미드가 솟아 이동을 막음(백·흑 합쳐 8수)','🎭 Pharaoh (8): moves/captures up to 2 squares diagonally · Sand strips every buff and status in the 3x3 · when it disappears a pyramid rises in the middle and blocks movement (8 plies in total)'),
   TR('👤 어쌔신(7코스트): 나이트 이동 · 4턴 은신(잡기·원거리 면역) · 은신 중 바로 뒤의 적을 암살, 킹도 암살 가능 · 암살하면 3코스트 이하 아군 부활','👤 Assassin (7): Knight moves · 4-turn Stealth (immune to captures and ranged attacks) · assassinate the enemy right behind it, even the King · a cost 3 or less ally is revived'),
@@ -3949,7 +3968,6 @@ const PATCH=[
   TR('🏀 바운스(1코스트): 앞 1칸 이동·잡기 후 주변 3x3 빈칸으로 2~3번 튕김','🏀 Bounce (1): moves/captures 1 square ahead, then hops 2-3 times to random empty squares around it'),
   TR('🔫 카빈(2코스트): 앞 3칸 원거리 공격 · 한 번만 킹·퀸 계열·뱅가드 곁으로 낙하','🔫 Carbine (2): ranged attack on the 3 squares ahead · once per game it can parachute next to your King class, Queen class or Vanguard'),
   TR('🎨 카빈은 소총, 머신건은 기관총 아이콘으로 교체','🎨 Carbine now has a rifle icon and Machine Gun a machine-gun icon'),
-  TR('🍀 럭키: 스킬 범위를 중앙 8x4칸(양쪽 진영을 뺀 중앙 4줄 전체)으로 정정','🍀 Lucky: skill range corrected to the central 8x4 area (the four middle ranks, excluding both home zones)'),
   TR('💾 진행 중인 게임 자동 저장(이어하기) · 좌표 글씨·하단 버튼 터치 영역 확대','💾 Auto-save and Resume · larger board coordinates and touch areas')]],
  ['1.2.11',TR('편의성 · 효과음 개선','Polish & Sound'),[
   TR('🍀 럭키: 중앙 4x2칸에 얼릴 수 있는 적이 있을 때만 스킬 사용 가능','🍀 Lucky: the skill can only be used when there is a freezable enemy in the central 4x2 area'),
