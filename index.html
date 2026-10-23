@@ -412,6 +412,7 @@ body.tuting .c.hf,body.tuting .c.ht{animation:tpl 1s ease-in-out infinite}@keyfr
 .rkc .rbar{height:6px;border-radius:3px;background:var(--line);margin-top:5px;overflow:hidden}.rkc .rbar i{display:block;height:100%;background:#1f6feb}
 .mmR{font-size:13px;color:var(--mut);margin:2px 0}
 .hrow{display:flex;align-items:center;justify-content:space-between;gap:8px}.hrow h2{margin:0}.hbtn{padding:7px 11px;font-size:13px;white-space:nowrap}
+@media(max-width:420px){.hbtn{padding-left:9px;padding-right:9px}}
 .mrow{display:flex;gap:6px}#goInstall[hidden]{display:none}#goInstall{border:2px solid #111;font-weight:700}.mrow button{flex:1;padding:10px 4px;font-size:13px}
 .pnb{max-height:58vh;overflow:auto}.pnv{border-left:3px solid var(--line);padding:2px 0 2px 12px;margin-bottom:14px}.pnv.cur{border-color:#1f6feb}.pnv h4{margin:0 0 4px;font-size:15px}.pnv h4 small{font-weight:400;color:var(--mut)}.pnv ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.55}
 #upBn{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:80;background:#111;color:#fff;border-radius:14px;padding:9px 10px 9px 14px;display:flex;align-items:center;gap:8px;font-size:13.5px;box-shadow:0 8px 28px rgba(0,0,0,.4);max-width:calc(100vw - 24px)}#upBn button{padding:7px 12px;font-size:13px;width:auto}#upBn #upX{background:transparent;color:#fff;border:0;font-size:18px}
@@ -679,8 +680,8 @@ body:has(#s0.on){padding-bottom:calc(env(safe-area-inset-top,0px) + 48px)}@media
  <h1 class="big"><b data-t="BATTLE">BATTLE</b><b class="o" data-t="CHESS">CHESS</b></h1>
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
- <div class="pbadge"><b>v1.2.10</b> 정식출시 대규모 패치 "궤도에 오르라!"<small>신규 기물 5종 · 언덕 · 철책 · 기물 조정</small></div>
-  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.2.10</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="pbadge"><b>v1.2.11</b> 정식출시 대규모 패치 "궤도에 오르라!"<small>신규 기물 5종 · 언덕 · 철책 · 기물 조정</small></div>
+  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.2.11</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -997,7 +998,7 @@ function gen0(b,s,opt){
    case'f':{if(!p.md)for(const[dr,dc]of D8)for(let k=1;k<=2&&at(r+dr*k,c+dc*k)===null;k++)mv(r+dr*k,c+dc*k,0);if(!gcap)gout.push([i,i,17]);break}
    case'i':{for(const[dr,dc]of D8){const mk=dr&&dc?1:2;let rr=r+dr,cc=c+dc,k=0,q;while(k<mk&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<mk&&q&&q.s!==s)mv(rr,cc,0)}break}
    case'l':{if(!gcap)for(const[dr,dc]of D4)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
-    if(!gcap){let any=false;for(let j=0;j<64;j++){const q=b[j];if(q&&q.s!==s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='D'&&q.t!=='W'&&q.t!=='s'){any=true;break}}if(any)gout.push([i,i,15])}break}
+    if(!gcap){let any=false;for(let j=0;j<64;j++){const q=b[j];const jr=j>>3,jc=j&7;if(jr<3||jr>4||jc<2||jc>5)continue;if(q&&q.s!==s&&!q.frz&&!isKing(q.t)&&!isQueenCl(q.t)&&q.t!=='D'&&q.t!=='W'&&q.t!=='s'){any=true;break}}if(any)gout.push([i,i,15])}break}
    case'c':for(const[dr,dc]of D8){const mk=(dr&&dc)?2:1;let rr=r+dr,cc=c+dc,k=0,q;while(k<mk&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<mk&&q&&q.s!==s)mv(rr,cc,0)}break;
    case's':for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s&&!isKing(q.t)))mv(r+dr,c+dc,0)}break;
    case'b':{
@@ -2164,11 +2165,12 @@ const hcb={};let hintId=0;
 function hintOn(){return !G.lab&&!G.net&&!!U.hint&&!!G.b&&!G.over&&G.mode!=='sim'&&(G.mode==='pvp'||(G.mode==='pve'&&G.turn===G.human))&&!G.busy}
 function hintShown(){return !G.tut&&hintOn()&&!G.pk&&!G.skp&&!G.rush&&!G.xm&&!G.dx&&!G.gsw}
 const SKT={28:TR('철책 설치','Builds a fence'),27:TR('언덕 생성','Creates a hill'),2:TR('무적 부여','Grants invincibility'),3:TR('주변 적 빙결','Freezes nearby enemies'),4:TR('주변 적 처치','Eliminates nearby enemies'),5:TR('기물 재배치','Rearranges pieces'),7:TR('저격 조준','Takes aim'),8:TR('기물 부활','Revives a piece'),10:TR('아군 2회 행동 지정','Gives an ally 2 actions'),11:TR('적 처치','Eliminates an enemy'),12:TR('아군 재배치','Repositions an ally'),13:TR('마검 모드 전환','Switches Sword Mode'),15:TR('럭키 도전','Lucky gamble'),17:TR('빙결 영역 전환','Toggles Freeze Zone'),18:TR('보호막 전환','Toggles Shield'),19:TR('마그마 생성','Creates Magma'),22:TR('적 2기 이동 둔화','Slows 2 enemies'),23:TR('아군 2기 보호막','Shields 2 allies'),24:TR('납도 (발도 준비)','Sheathe (ready to draw)'),25:TR('발도술','Iaido strike'),26:TR('메뚜기 떼 모드','Locust Swarm mode')};
+const mvPart=(x,p)=>x[0]===x[1]?`${DEF[p.t].n} ${pos(x[0])} ${TR('제자리 스킬','in-place skill')}${SKT[x[2]]?` (${SKT[x[2]]})`:''}`:`${DEF[p.t].n} ${pos(x[0])}→${pos(x[1])}`;
 function hintFor(m){
  if(m[2]===20){const p=G.b[m[0]];return{from:m[0],to:m[1],sk:'ret',txt:TR(`💡 추천: ↩️ 원위치! 사용 — ${DEF[p.t].n} ${pos(m[0])} → ${pos(m[1])} · ${attackedBy(G.b,OP(G.turn),m[0])?TR('공격받는 기물을 안전한 진영으로 되돌립니다','moves an attacked piece back to a safe zone'):TR('위험한 위치의 기물을 진영으로 되돌립니다','moves a piece in a dangerous spot back to your zone')}`,`💡 Tip: use ↩️ Fall Back! — ${DEF[p.t].n} ${pos(m[0])} → ${pos(m[1])} · ${attackedBy(G.b,OP(G.turn),m[0])?TR('공격받는 기물을 안전한 진영으로 되돌립니다','moves an attacked piece back to a safe zone'):TR('위험한 위치의 기물을 진영으로 되돌립니다','moves a piece in a dangerous spot back to your zone')}`)}}
  if(m[2]===21){const d=G.b.dead[G.turn][m[4][0]];return{from:m[1],to:m[1],sk:'fin',txt:TR(`💡 추천: 🏁 상황 종결! 사용 — ${DEF[d.t].n} 부활 → ${pos(m[1])} · 적이 얼마 안 남았으니 전력을 보충하세요`,`💡 Tip: use 🏁 Finish It! — revive ${DEF[d.t].n} → ${pos(m[1])} · the enemy is nearly gone, so bring your strength back`)}}
- if(m[2]===9&&m[5]==='R'){const mv=m[4].map(x=>{const p=G.b[x[0]];return `${DEF[p.t].n} ${pos(x[0])}→${pos(x[1])}`});const cp=m[4].filter(x=>BC.tacticalVal(G.b,x)>0).length;return{from:m[4][0][0],to:m[4][0][1],sk:'rush',txt:TR(`💡 추천: ⚡ 돌격 앞으로! 사용 — ${mv.join(' · ')}${cp?TR(` (잡기 ${cp}회)`,` (${cp} captures)`):''}`,`💡 Tip: use ⚡ Charge! — ${mv.join(' · ')}${cp?TR(` (잡기 ${cp}회)`,` (${cp} captures)`):''}`)}}
- if(m[2]===9&&m[5]==='F'){const mv=m[4].map(x=>{const p=G.b[x[0]];return `${DEF[p.t].n} ${pos(x[0])}→${pos(x[1])}`});return{from:m[4][0][0],to:m[4][0][1],sk:'fever',txt:TR(`💡 추천: 🔥 피버! 사용 — ${mv.join(' · ')}`,`💡 Tip: use 🔥 Fever! — ${mv.join(' · ')}`)}}
+ if(m[2]===9&&m[5]==='R'){const mv=m[4].map(x=>{const p=G.b[x[0]];return mvPart(x,p)});const cp=m[4].filter(x=>BC.tacticalVal(G.b,x)>0).length;return{from:m[4][0][0],to:m[4][0][1],sk:'rush',txt:TR(`💡 추천: ⚡ 돌격 앞으로! 사용 — ${mv.join(' · ')}${cp?TR(` (잡기 ${cp}회)`,` (${cp} captures)`):''}`,`💡 Tip: use ⚡ Charge! — ${mv.join(' · ')}${cp?TR(` (잡기 ${cp}회)`,` (${cp} captures)`):''}`)}}
+ if(m[2]===9&&m[5]==='F'){const mv=m[4].map(x=>{const p=G.b[x[0]];return mvPart(x,p)});return{from:m[4][0][0],to:m[4][0][1],sk:'fever',txt:TR(`💡 추천: 🔥 피버! 사용 — ${mv.join(' · ')}`,`💡 Tip: use 🔥 Fever! — ${mv.join(' · ')}`)}}
  if(m[2]===9)m=m[4][0];
  const b=G.b,X=G.turn,p=b[m[0]];if(!p)return null;
  const from=m[2]===12?m[1]:m[0],to=m[2]===12?m[3]:(m[2]===4?m[0]:m[1]),nm=DEF[p.t].n;
@@ -3036,9 +3038,14 @@ Object.assign(SFX,{
  gong:()=>{xgong(T(),.3)},
  tick:()=>{xt(2000,.025,'square',.05)},
  ret:()=>{const t=T();xt(900,.5,'sine',.2,t,{sl:.2,rv:.4});xwhoosh(t,.45,.3,5000,400);xt(300,.4,'sine',.2,t+.4,{sl:3,rv:.4});xarp([523,659,784],t+.5,.07,.15,'triangle',.3)},
- charge:()=>{const t=T();xn(.55,.36,t,{f:900,fe:6500,q:1.1,att:.05,rv:.2});xn(.42,.3,t+.14,{f:1500,fe:7500,q:1,att:.04,rv:.2});xn(.3,.22,t+.3,{f:2500,fe:9000,q:1.2,att:.03});
-  for(let i=0;i<11;i++)xthump(t+.04+i*.042,Math.max(.1,.3-i*.016),150+i*9);
-  xarp([523,659,784,1047,1319,1568],t+.08,.055,.16,'triangle',.26);xspark(t+.4,6,1900,.06);xbell(1568,t+.38,.12,.9)},
+ charge:()=>{const t=T();
+  // 길고 화려한 휘리릭: 겹겹이 이어지는 바람 + 달려나가는 발굽 + 상승 아르페지오 + 반짝임 + 마무리 종소리
+  xn(.9,.34,t,{f:700,fe:6000,q:1.1,att:.06,rv:.25});xn(.8,.3,t+.18,{f:1200,fe:7500,q:1,att:.05,rv:.25});xn(.7,.26,t+.4,{f:2000,fe:9000,q:1.2,att:.04,rv:.2});xn(.6,.22,t+.75,{f:3000,fe:10000,q:1.3,att:.03,rv:.2});
+  for(let i=0;i<26;i++)xthump(t+.05+i*.048-(i>14?(i-14)*.008:0),Math.max(.08,.3-i*.009),140+i*8);
+  xarp([392,523,659,784,1047,1319,1568,2093,2637,3136],t+.1,.075,.2,'triangle',.24);
+  xarp([523,659,784,1047,1319,1568],t+.95,.06,.22,'sine',.18);
+  xspark(t+.35,8,1900,.07);xspark(t+.8,8,2600,.07);xspark(t+1.2,10,3400,.06);
+  xbell(1568,t+.5,.12,1);xbell(2093,t+.95,.12,1.1);xbell(1047,t+1.35,.12,1.4);xbell(1319,t+1.4,.1,1.4);xbell(1568,t+1.45,.1,1.4);xbell(2093,t+1.5,.1,1.6)},
  rush:()=>{const t=T();[0,.14,.28,.42].forEach(d=>xthump(t+d,.7,80));xarp([392,523,659,784],t+.1,.09,.18,'sawtooth',.3);xwhoosh(t+.3,.5,.35,500,4500);xbell(1047,t+.6,.12,1)},
  fin:()=>{const t=T();xthump(t,.7,70);xthump(t+.2,.5,70);xpad([262,330,392,523],t+.25,1.3,.2);xarp([523,659,784,1047,1319],t+.5,.09,.15,'sine',.6);xbell(1047,t+.9,.14,1.5)},
  fever:()=>{const t=T();xt(300,.9,'sawtooth',.14,t,{sl:4,lp:2500,rv:.3});xwhoosh(t,.8,.4,400,6000);xarp([523,659,784,1047,1319],t+.4,.07,.16,'square',.25);xbell(1568,t+.8,.12,1.2);xspark(t+.6,10,2000,.05)},
@@ -3775,9 +3782,14 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.2.10';
+const APP_VER='1.2.11';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.2.11',TR('편의성 · 효과음 개선','Polish & Sound'),[
+  TR('🍀 럭키: 중앙 4x2칸에 얼릴 수 있는 적이 있을 때만 스킬 사용 가능','🍀 Lucky: the skill can only be used when there is a freezable enemy in the central 4x2 area'),
+  TR('💡 추천 문구: 돌격·피버 추천에서 제자리 스킬은 "제자리 스킬 (효과)"로 표기','💡 Hint text: in-place skills in Charge/Fever tips are now shown as "in-place skill (effect)"'),
+  TR('🎼 뱅가드 선봉 효과음을 더 길고 화려하게 개선','🎼 Vanguard skill sound is now longer and more elaborate'),
+  TR('🔧 버튼 글씨 여유 조정 · 튜토리얼의 버튼 이름 표기 정리','🔧 Slightly more room for button text · tutorial button names fixed')]],
  ['1.2.10',TR('언덕 수정','Hill Fix'),[
   TR('⛰️ 마운틴의 언덕: 스킬을 다시 써도 기존 언덕이 사라지지 않고 계속 남음','⛰️ Mountain hills: using the skill again no longer removes existing hills — they all stay')]],
  ['1.2.9',TR('화면 수정','UI Fix'),[
@@ -4019,9 +4031,9 @@ const TUT=[
 [TR('칸 색깔 읽는 법','Reading the Square Colors'),()=>{const a=tBoard((()=>{const sp={};const pt=patt('A');const me=DEMO.A?DEMO.A[0]*8+DEMO.A[1]:35;for(let i=0;i<64;i++){if(pt[i])sp[i]={c:pt[i]}}sp[me]={c:'me',h:`<span class="tpm">${gl('A')}</span>`};return sp})());
  return TR(`<div class="hc"><h4>색만 보면 돼요</h4><p>내 기물을 누르면 갈 수 있는 칸이 색으로 칠해집니다. 규칙을 외울 필요 없이 <b>색칠된 칸만 누르면</b> 돼요. 실제 대국에서는 빈 칸으로 가는 이동은 파랑, 적을 잡는 칸은 보라로 구분돼요.</p>
 <div class="hlg" style="margin:8px 0"><span><i class="qmv"></i>파랑 = 이동</span><span><i class="qcap"></i>보라 = 잡기(·이동)</span><span><i class="qrg"></i>빨강 = 원거리 공격</span><span><i class="qsk"></i>주황 = 스킬</span><span><i class="qpl"></i>연두 = 배치 가능</span></div>${a}<p class="note" style="text-align:center">예: 아처 🏹 — 파랑은 걸어서, 빨강은 쏴서 닿는 칸</p></div>
-<div class="hc"><h4>잘 모르겠으면</h4><p>대국 중 <b>💡 좋은 수 표시</b> 버튼을 켜면 추천 수가 표시돼요. 처음에는 켜 두고 연습하세요. (온라인 대전에서는 꺼집니다)</p></div>`,`<div class="hc"><h4>Just follow the colors</h4><p>When you tap one of your pieces, the squares it can go to are colored in. You do not have to memorize any rules — <b>just tap a colored square</b>. In a real game, moves to empty squares are blue and squares where you capture an enemy are purple.</p>
+<div class="hc"><h4>잘 모르겠으면</h4><p>대국 중 <b>💡 좋은 수</b> 버튼을 켜면 추천 수가 표시돼요. 처음에는 켜 두고 연습하세요. (온라인 대전에서는 꺼집니다)</p></div>`,`<div class="hc"><h4>Just follow the colors</h4><p>When you tap one of your pieces, the squares it can go to are colored in. You do not have to memorize any rules — <b>just tap a colored square</b>. In a real game, moves to empty squares are blue and squares where you capture an enemy are purple.</p>
 <div class="hlg" style="margin:8px 0"><span><i class="qmv"></i>Blue = move</span><span><i class="qcap"></i>Purple = capture (or move)</span><span><i class="qrg"></i>Red = ranged attack</span><span><i class="qsk"></i>Orange = skill</span><span><i class="qpl"></i>Green = can place</span></div>${a}<p class="note" style="text-align:center">Example: Archer 🏹 — blue squares are reached by walking, red ones by shooting</p></div>
-<div class="hc"><h4>If you are not sure</h4><p>During a game, turn on the <b>💡 Best-move hints</b> button to see suggested moves. Keep it on while you practice. (It is turned off in online games.)</p></div>`)}],
+<div class="hc"><h4>If you are not sure</h4><p>During a game, turn on the <b>💡 Hints</b> button to see suggested moves. Keep it on while you practice. (It is turned off in online games.)</p></div>`)}],
 [TR('기물은 어떤 종류가 있나요?','What Kinds of Pieces Are There?'),()=>TR(`<p class="note" style="margin:0 0 6px">기물은 역할에 따라 일곱 계열로 나뉩니다. 군대를 짤 때 이 구분이 도움이 돼요.</p>`,`<p class="note" style="margin:0 0 6px">Pieces are split into seven classes by their role. Knowing them helps when you build an army.</p>`)+GR.map(g=>`<div class="hc"><h4>${g[0]} <small style="font-weight:400;color:var(--mut)">${g[1]}</small></h4><div class="tgrow">${g[2].map(t=>`<span class="tgi" title="${DEF[t].n}">${icon(t)}<em>${DEF[t].n}</em></span>`).join('')}</div></div>`).join('')+TR(`<p class="note">자세한 능력은 <b>기물 도감</b>에서 언제든 볼 수 있어요.</p>`,`<p class="note">You can read the full details any time in the <b>Piece Codex</b>.</p>`)],
 [TR('코스트 39 — 군대 예산','Cost 39 — Your Army Budget'),()=>{const cl=PRESETS[0].l;return TR(`<div class="hc"><h4>기물마다 가격이 있어요</h4><p>강한 기물일수록 비쌉니다. 군대 전체 가격 합이 <b>39 코스트</b>를 넘을 수 없어요.</p><div class="tgrow">${['P','S','N','B','R','Q'].map(t=>`<span class="tgi">${icon(t)}<em>${DEF[t].n} ${DEF[t].c}</em></span>`).join('')}</div></div>
 <div class="hc"><h4>예시: ‘기존 체스’ 구성</h4><p>퀸 1 · 룩 2 · 비숍 2 · 나이트 2 · 폰 8 = <b>${tcost(cl)} 코스트</b>. 일반 체스와 똑같은 군대가 정확히 39예요.</p><p>여기서 폰 몇 개를 빼고 강한 기물을 넣는 식으로 바꿔 보는 게 가장 쉬운 시작입니다.</p></div>
@@ -4037,9 +4049,9 @@ const TUT=[
 <div class="hc"><h4>Handy buttons</h4><ul><li><b>Auto-place</b> — the computer places them sensibly. Good enough for your first games.</li><li><b>Clear placement</b> — pick everything up and start over.</li><li><b>Save this build & placement as a preset</b> — load it exactly as is next time.</li><li><b>Done</b> — press when finished to start the game!</li></ul></div>
 <div class="hc"><h4>Placement tips</h4><ul><li>Keep the King <b>near the middle of the back row</b> to stay safe.</li><li>Put cheap pieces like Pawns in the <b>front row</b> as a shield.</li><li>Put ranged pieces <b>right behind</b> the pieces in front of them.</li></ul></div>`)],
 [TR('③ 대국 화면 조작법','③ Playing a Game'),()=>TR(`<div class="hc"><h4>기물 움직이기 (3단계)</h4><ol><li>내 기물을 <b>누릅니다</b> → 갈 수 있는 칸이 색으로 칠해져요.</li><li>색칠된 칸 중 하나를 <b>누릅니다</b> → 기물이 움직이고 턴이 넘어가요.</li><li>상대(AI)가 두는 걸 보고 <b>다시 내 차례</b>.</li></ol><p class="note">잘못 눌렀다면 같은 기물을 다시 누르거나 빈 곳을 눌러 선택을 취소하세요. (키보드는 Esc)</p></div>
-<div class="hc"><h4>화면 아래 버튼</h4><ul><li><b>💡 좋은 수 표시</b> — 추천 수를 보여 줘요. 초보자 필수!</li><li><b>보드 뒤집기</b> — 시점을 바꿔요.</li><li><b>항복</b> — 졌다고 인정하고 끝내요.</li><li><b>처음으로</b> — 메인 화면으로.</li></ul></div>
+<div class="hc"><h4>화면 아래 버튼</h4><ul><li><b>💡 좋은 수</b> — 추천 수를 보여 줘요. 초보자 필수!</li><li><b>보드 뒤집기</b> — 시점을 바꿔요.</li><li><b>항복</b> — 졌다고 인정하고 끝내요.</li><li><b>처음으로</b> — 메인 화면으로.</li></ul></div>
 <div class="hc"><h4>화면 위쪽 안내</h4><p>누구 차례인지, 지금 무엇을 해야 하는지가 글로 나옵니다. 막히면 위쪽 문구를 읽어 보세요. 킹이 위험할 땐 경고 띠가 떠요.</p></div>`,`<div class="hc"><h4>Moving a piece (3 steps)</h4><ol><li><b>Tap</b> one of your pieces → the squares it can reach are colored in.</li><li><b>Tap</b> one of the colored squares → the piece moves and the turn passes.</li><li>Watch the opponent (AI) play, then it is <b>your turn again</b>.</li></ol><p class="note">If you tapped the wrong piece, tap it again or tap an empty spot to cancel. (Esc on a keyboard)</p></div>
-<div class="hc"><h4>Buttons at the bottom</h4><ul><li><b>💡 Best-move hints</b> — shows suggested moves. A must for beginners!</li><li><b>Flip board</b> — change your viewpoint.</li><li><b>Resign</b> — admit defeat and end the game.</li><li><b>Main menu</b> — back to the main screen.</li></ul></div>
+<div class="hc"><h4>Buttons at the bottom</h4><ul><li><b>💡 Hints</b> — shows suggested moves. A must for beginners!</li><li><b>Flip board</b> — change your viewpoint.</li><li><b>Resign</b> — admit defeat and end the game.</li><li><b>Main menu</b> — back to the main screen.</li></ul></div>
 <div class="hc"><h4>The message at the top</h4><p>It tells you whose turn it is and what you need to do now. If you get stuck, read the message at the top. When your King is in danger, a warning bar appears.</p></div>`)],
 [TR('킹, 체크, 승패','King, Check and Winning'),()=>TR(`<div class="hc"><h4>🎯 이기는 법</h4><p>상대의 <b>킹을 잡으면 즉시 승리</b>! (엠페러·갓·데몬처럼 킹을 대신하는 기물도 똑같이 적용돼요)</p></div>
 <div class="hc"><h4>⚠️ 체크</h4><p>내 킹이 적에게 공격받는 상태가 <b>체크</b>예요. 경고가 뜨면 킹을 옮기거나, 공격하는 적을 잡거나, 사이를 막으세요. 일반 체스와 달리 강제는 아니지만, <b>그냥 두면 킹이 잡혀 패배</b>합니다.</p></div>
