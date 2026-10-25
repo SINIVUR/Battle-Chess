@@ -685,6 +685,7 @@ button.pbadge{display:block;width:100%;font-family:inherit;cursor:pointer}button
 .mgb{display:inline-block;background:#111;color:#ffe14a;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:800}.mgh small{display:block;opacity:.7;font-weight:700}
 .mgg{display:flex;flex-wrap:wrap;gap:8px}.mgp{display:flex;flex-direction:column;align-items:center;gap:1px;width:64px;font-size:12px;text-align:center}.mgp .ib{width:44px;height:44px;border:2px solid #111;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center}.mgp .ib .ic{font-size:24px;line-height:1}.mgp small{opacity:.7;font-size:10.5px}
 #x,#guideX,#tutX,#cmRef,#mgX{min-height:38px!important}
+@media(max-width:899px){#s4 #st{min-height:2.7em;box-sizing:border-box}}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -2671,6 +2672,7 @@ function ghostKill(u,m,p){try{if(m[2]===0&&m[7]!==undefined&&u.cap&&u.cap.t==='�
  lst.forEach(j=>{const c=cell(j),pc=c&&c.querySelector('.pc');if(!pc)return;const R=c.getBoundingClientRect();if(!R.width)return;
   const w=document.createElement('div');w.style.cssText=`position:fixed;left:${R.left}px;top:${R.top}px;width:${R.width}px;height:${R.height}px;z-index:4;pointer-events:none;display:flex;align-items:center;justify-content:center`;
   const cl=pc.cloneNode(true);w.appendChild(cl);document.body.appendChild(w);
+  {let on=true;const track=()=>{if(!on||!w.isConnected)return;const c2=cell(j);if(c2){const R2=c2.getBoundingClientRect();if(R2.width){w.style.left=R2.left+'px';w.style.top=R2.top+'px';w.style.width=R2.width+'px';w.style.height=R2.height+'px'}}requestAnimationFrame(track)};requestAnimationFrame(track);setTimeout(()=>{on=false},hold+300)}
   w.animate([{filter:'brightness(1)',transform:'translate(0,0) scale(1)',opacity:1},{filter:'brightness(1)',transform:'translate(0,0) scale(1)',opacity:1,offset:Math.max(.05,(70)/(hold+200))},{filter:'brightness(2.4)',transform:'translate(3px,0) scale(1.06)',opacity:1,offset:Math.max(.1,(120)/(hold+200))},{filter:'brightness(1.6)',transform:'translate(-3px,0) scale(1.03)',opacity:1,offset:Math.max(.15,(190)/(hold+200))},{filter:'brightness(1)',transform:'translate(0,0) scale(1)',opacity:1,offset:hold/(hold+200)},{filter:'brightness(2)',transform:'translate(0,0) scale(.6)',opacity:0}],{duration:hold+200,fill:'forwards'});
   setTimeout(()=>w.remove(),hold+260)})}catch(e){}}
 function killFx(j,side,n,ty,from){const c=cell(j);if(!c)return;
@@ -4055,6 +4057,7 @@ const PATCH=[
   TR('💥 처치 이펙트가 없던 기물 8종 추가 및 밋밋하던 기물 이펙트 개선 · 처치된 기물이 이펙트가 끝난 뒤 사라지도록 수정','💥 Kill effects added for 8 pieces and improved for plain ones · defeated pieces now disappear after the effect finishes'),
   TR('👤 어쌔신이 은신 중 일반 잡기를 해도 은신이 풀리지 않던 버그 수정','👤 Fixed Assassin stealth not ending after a normal capture'),
   TR('⚔️ 노비 일기토: 결과 문구와 기물 변신이 일기토 연출이 끝난 뒤에 나타나도록 수정','⚔️ Nobi duel: the result text and the piece transformation now appear after the duel scene ends'),
+  TR('📱 폰: 플레임 마그마 구역 선택 시 보드가 밀리던 문제 · 처치된 기물이 한 칸 아래에 떴다 사라지던 문제 수정','📱 Mobile: fixed the board shifting while picking the Flame magma zone, and defeated pieces appearing one tile below before vanishing'),
   TR('🤵 대통령 처치 이펙트의 이모지가 위 칸에 뜨던 문제 수정 · 중복 id·소형 버튼 터치 영역 개선','🤵 Fixed the President kill effect emoji appearing on the tile above · fixed a duplicate id and enlarged small buttons'),
   TR('🖥 PC에서 골렘 스킬의 돌 이모지가 깨지던 문제 수정','🖥 Fixed the Golem skill rock emoji rendering as a broken glyph on PC')]],
  ['1.4.0',TR('대규모 패치 "엄호를 뚫어내라!"','Mega Patch "Break Through the Cover!"'),[
