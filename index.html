@@ -699,6 +699,7 @@ button.pbadge{display:block;width:100%;font-family:inherit;cursor:pointer}button
 .stbig .sbi_{flex:none;width:54px;height:54px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.55)}.stbig .sbi_ svg{width:42px;height:42px;display:block;filter:drop-shadow(0 2px 2px rgba(0,0,0,.35))}
 .stbig .sbt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.stbig b{font-size:22px;font-weight:900;letter-spacing:.02em;line-height:1.15}.stbig small{display:block;font-size:12px;font-weight:700;opacity:.92;letter-spacing:0;line-height:1.35}.stbig .sbc{flex:none;font-size:30px;font-weight:900;opacity:.9}.stbig:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #111,inset 0 0 0 2px rgba(255,255,255,.28)}
 @media(prefers-reduced-motion:reduce){.stbig::after{animation:none;display:none}}
+.lkn{margin:0 0 8px;padding:7px 10px;border:2.5px dashed #111;border-radius:10px;background:#fff8d6;font-weight:700;font-size:13px}.pc2.lk{opacity:.55}.pc2.lk .stp button{cursor:not-allowed}.cb.lkb{background:#fff8d6}.stbt{margin-top:8px}.stbt button{font-weight:700}.lore{margin:0 0 10px;line-height:1.55;font-size:14px}.sru{text-align:left;margin-top:10px}.wdi{padding:9px 11px;margin:7px 0;border:2.5px solid #111;border-radius:12px;background:#fff;box-shadow:3px 3px 0 #111}.wdi b{font-size:15px}.wdi p{margin:5px 0 0;line-height:1.55;font-size:13.5px}.wdi.lkd{opacity:.55;box-shadow:none;border-style:dashed}
 .stl{display:flex;flex-direction:column;gap:6px}.stin{text-align:center}.stin b{font-size:15px;line-height:1.4}.stpb{height:10px;border:2px solid #111;border-radius:99px;background:#fff;margin:9px 0 5px;overflow:hidden}.stpb i{display:block;height:100%;background:linear-gradient(90deg,#6a2ff0,#e8139f,#ff8a00)}
 .stc{display:flex;flex-direction:column}.strow{display:flex;gap:9px;overflow-x:auto;padding:3px 6px 9px 2px;margin:0 -2px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
 .stch{margin:8px 2px 0;font-size:14px;letter-spacing:.03em}
@@ -724,7 +725,7 @@ button.pbadge{display:block;width:100%;font-family:inherit;cursor:pointer}button
  <p class="kr">배 틀 체 스</p>
  <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
  <button class="pbadge" id="goMega" type="button"></button>
-  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.4.3</div><div class="prod">Prod by. SINIVUR</div>
+  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.4.4</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 
 <section class="scr" id="s5">
@@ -830,9 +831,11 @@ button.pbadge{display:block;width:100%;font-family:inherit;cursor:pointer}button
 <div id="toast" role="status" aria-live="polite"></div>
 <div class="modal" id="mMatch" role="dialog" aria-modal="true"><div class="mc res"><div class="em">⚔️</div><h2>매칭 성사!</h2><p id="mmO" style="font-size:17px;font-weight:700;margin:6px 0"></p><p id="mmC" class="note"></p><p id="mmR" class="mmR"></p><div class="mmA"><div><small>내 구성</small><div id="mmMy" class="tt"></div></div><div><small>상대 구성</small><div id="mmOp" class="tt"></div></div></div><p id="mmCd" style="font-size:22px;font-weight:800;margin-top:10px"></p></div></div>
 <div class="modal" id="mPass" role="dialog" aria-modal="true"><div class="mc res"><div class="em">🔄</div><h2 id="passT"></h2><p class="note">상대가 화면을 보지 않도록 기기를 넘겨 주세요.</p><button class="pri" id="passOk" style="margin-top:14px">준비 완료</button></div></div>
+<div class="modal" id="mWd" role="dialog" aria-modal="true"><div class="mc stmc"><h2 id="wdT"></h2><div id="wdB"></div><button class="pri" id="wdNo" style="margin-top:14px"></button></div></div>
+<div class="modal" id="mBk" role="dialog" aria-modal="true"><div class="mc stmc"><h2 id="bkH"></h2><p class="note" id="bkD"></p><textarea id="bkT" rows="4" spellcheck="false" aria-label="backup code" style="width:100%;margin-top:8px;font:12px/1.4 monospace;border:2.5px solid #111;border-radius:10px;padding:8px;box-sizing:border-box;word-break:break-all"></textarea><p class="note" id="bkM" style="min-height:1.4em;font-weight:700"></p><div class="row2"><button id="bkCp"></button><button id="bkSv"></button></div><div class="row2" style="margin-top:8px"><button id="bkIm"></button><button id="bkFl"></button></div><input type="file" id="bkF" accept=".txt,text/plain" hidden><button class="pri" id="bkNo" style="margin-top:12px"></button></div></div>
 <div class="modal" id="mSb" role="dialog" aria-modal="true"><div class="mc stmc"><p class="note" id="sbC"></p><h2 id="sbT"></h2><div id="sbB"></div><button class="pri" id="sbGo" style="margin-top:14px"></button><div class="row2" style="margin-top:8px"><button id="sbEd"></button><button id="sbNo"></button></div></div></div>
 <div class="modal" id="mSt" role="dialog" aria-modal="true"><div class="mc stdl" id="stBox"><div class="stsp" id="stSp"></div><p class="stx" id="stX"></p><div class="stft"><span class="note" id="stPg"></span><button id="stSk" type="button"></button><button class="pri" id="stNx" type="button"></button></div></div></div>
-<div class="modal" id="mSr" role="dialog" aria-modal="true"><div class="mc res"><div class="em" id="srEm"></div><h2 id="srT"></h2><p class="note" id="srD"></p><button class="pri" id="srNx" style="margin-top:14px"></button><div class="row2" style="margin-top:8px"><button id="srRe"></button><button id="srLs"></button></div></div></div>
+<div class="modal" id="mSr" role="dialog" aria-modal="true"><div class="mc res"><div class="em" id="srEm"></div><h2 id="srT"></h2><p class="note" id="srD"></p><div id="srU" class="sru"></div><button class="pri" id="srNx" style="margin-top:14px"></button><div class="row2" style="margin-top:8px"><button id="srRe"></button><button id="srLs"></button></div></div></div>
 <div class="modal" id="mAsk" role="dialog" aria-modal="true"><div class="mc res"><h2 id="askT"></h2><p class="note" id="askD"></p><div class="row2" style="margin-top:14px"><button id="askNo">취소</button><button class="pri" id="askYes" style="width:auto">확인</button></div></div></div>
 
 <script id="eng">
@@ -924,10 +927,10 @@ function okAdd(list,t){
  return a.length<=MAXN+(e?1:0)&&bk<=(e?8:7)&&f<=8&&q<=1&&e<=1&&d<=4&&w<=4;
 }
 const armyCost=l=>l.reduce((s,t)=>s+DEF[t].c,0);
-function randomArmy(rng){
+function randomArmy(rng,deny){
  const ts=[];let rem=BUDGET;
  for(let g=0;g<60&&ts.length<MAXN+1;g++){
-  const o=TYPES.filter(t=>t!=='K'&&DEF[t].c<=rem&&okAdd(ts,t));if(!o.length)break;
+  const o=TYPES.filter(t=>t!=='K'&&DEF[t].c<=rem&&!(deny&&deny(t))&&okAdd(ts,t));if(!o.length)break;
   const t=o[rng()*o.length|0];ts.push(t);rem-=DEF[t].c}
  return ts;
 }
@@ -2237,7 +2240,13 @@ const used=()=>Object.keys(army).reduce((a,t)=>a+DEF[t].c*army[t],0),cnt=()=>Obj
 const kcOf=()=>army.E?'E':army.g?'g':army.d?'d':army['Ṗ']?'Ṗ':army.K?'K':null;
 const KCL='KEgdṖ';
 const listOf=()=>Object.keys(army).filter(t=>t!=='K').reduce((a,t)=>a.concat(Array(army[t]).fill(t)),[]);
+/* ---- 기물 해금 (1.4.4): 스토리 클리어로 열림 ---- */
+let UNL=null;
+const gateOn=()=>store.get('gate',true)!==false;
+const unl=()=>{if(UNL)return UNL;const s=new Set('KQRBNP'.split(''));try{const c=store.get('story',{c:{}}).c||{};if(typeof STAGES!=='undefined')STAGES.forEach((st,k)=>{if(c[k+1])(st.new||[]).forEach(t=>s.add(t))})}catch(e){}return UNL=s};
+const locked=t=>gateOn()&&!!G&&!G.story&&G.mode!=='sim'&&!unl().has(t);
 function canAdd(t){
+ if(locked(t))return false;
  if(KCL.includes(t)){const cur=kcOf();if(cur===t)return false;const base=listOf().filter(x=>!'EgdṖ'.includes(x));
   if(t==='K')return base.filter(x=>DEF[x].p==='b').length<=7&&base.length<=BC.MAXN;
   return used()-(cur?DEF[cur].c:0)+DEF[t].c<=BUDGET&&BC.okAdd(base,t)}
@@ -2248,7 +2257,7 @@ function nextSetup(){side=queue.shift();const sv=SAVED[side];
  if(G.ret==='sel'&&sv)army=Object.assign({},sv.army);else setArmy([]);
  drawSel();show('s2');window.scrollTo(0,0)}
 function card(t){const c=DEF[t].c,n=army[t]||0;
- return TR(`<div class="pc2 ${n?'on':''}"><div class="ib">${icon(t)}</div><div><div class="nm">${DEF[t].n}<span class="cb">${c} 코스트</span>${plTags(t)}</div><div class="ds rows">${rowsHtml(t)}</div><button class="inf" data-i="${t}" aria-label="${DEF[t].n} 자세히 보기">자세히 · 이동 범위 보기</button></div><div class="stp"><button data-t="${t}" data-d="-1" ${n?'':'disabled'} aria-label="${DEF[t].n} 빼기">−</button><b>${n}</b><button data-t="${t}" data-d="1" ${canAdd(t)?'':'disabled'} aria-label="${DEF[t].n} 더하기">+</button></div></div>`,`<div class="pc2 ${n?'on':''}"><div class="ib">${icon(t)}</div><div><div class="nm">${DEF[t].n}<span class="cb">Cost ${c}</span>${plTags(t)}</div><div class="ds rows">${rowsHtml(t)}</div><button class="inf" data-i="${t}" aria-label="${DEF[t].n} details">Details · show move range</button></div><div class="stp"><button data-t="${t}" data-d="-1" ${n?'':'disabled'} aria-label="Remove ${DEF[t].n}">−</button><b>${n}</b><button data-t="${t}" data-d="1" ${canAdd(t)?'':'disabled'} aria-label="Add ${DEF[t].n}">+</button></div></div>`)}
+ return TR(`<div class="pc2 ${n?'on':''}${locked(t)?' lk':''}"><div class="ib">${icon(t)}</div><div><div class="nm">${DEF[t].n}<span class="cb">${c} 코스트</span>${plTags(t)}${locked(t)?'<span class="cb lkb">🔒</span>':''}</div><div class="ds rows">${rowsHtml(t)}</div><button class="inf" data-i="${t}" aria-label="${DEF[t].n} 자세히 보기">자세히 · 이동 범위 보기</button></div><div class="stp"><button data-t="${t}" data-d="-1" ${n?'':'disabled'} aria-label="${DEF[t].n} 빼기">−</button><b>${n}</b><button data-t="${t}" data-d="1" ${canAdd(t)?'':'disabled'} aria-label="${DEF[t].n} 더하기">+</button></div></div>`,`<div class="pc2 ${n?'on':''}${locked(t)?' lk':''}"><div class="ib">${icon(t)}</div><div><div class="nm">${DEF[t].n}<span class="cb">Cost ${c}</span>${plTags(t)}${locked(t)?'<span class="cb lkb">🔒</span>':''}</div><div class="ds rows">${rowsHtml(t)}</div><button class="inf" data-i="${t}" aria-label="${DEF[t].n} details">Details · show move range</button></div><div class="stp"><button data-t="${t}" data-d="-1" ${n?'':'disabled'} aria-label="Remove ${DEF[t].n}">−</button><b>${n}</b><button data-t="${t}" data-d="1" ${canAdd(t)?'':'disabled'} aria-label="Add ${DEF[t].n}">+</button></div></div>`)}
 /* 철책: 칸의 변 위에 굵은 선으로 표시 (b.fn 코드: 칸*2 = 그 칸의 오른쪽 변, 칸*2+1 = 그 칸의 아래쪽 변) */
 function fenceLayer(el,b,fl,pk){if(!el)return;const lines=[];
  const add=(a,c2,pv)=>{const lo=Math.min(a,c2),hi=Math.max(a,c2),vert=(hi-lo)===1;const ra=lo>>3,ca=lo&7,rb=hi>>3,cb=hi&7;
@@ -2263,16 +2272,17 @@ function drawSel(){
  $('#bar2').style.width=used()/BUDGET*100+'%';
  $('#cost2').innerHTML=TR(`<b style="font-size:20px">${BUDGET-used()}</b> 코스트 남음 (${used()} / ${BUDGET}) · 기물 ${cnt()}개 / 최대 ${MAXN+1}${kcOf()?'':' · 킹 계열 1기를 골라 주세요'}`,`<b style="font-size:20px">${BUDGET-used()}</b> cost left (${used()} / ${BUDGET}) · ${cnt()} / max ${MAXN+1} pieces${kcOf()?'':' · pick 1 King-class piece'}`);
  {const cn=CLN(),tot=GR.reduce((a,g)=>a+g[2].reduce((s,t)=>s+(army[t]||0),0),0)+(army.K||0);$('#gtabs').innerHTML=`<button data-g="-1" class="${selTab===-1?'on':''}">${TR('전체','All')}${tot?`<b>${tot}</b>`:''}</button>`+GR.map((g,k)=>{const n=g[2].reduce((s,t)=>s+(army[t]||0),0)+(k===0?(army.K||0):0);return `<button data-g="${k}" class="${k===selTab?'on':''}">${cn[k]}${n?`<b>${n}</b>`:''}</button>`}).join('')}
- const gg=selTab===-1?[TR('전체','All'),TR('모든 기물','All pieces'),GR.reduce((a,g)=>a.concat(g[2]),[])]:GR[selTab];let h=`<div class="gt">${gg[0]} · ${gg[1]}</div>`+(selTab<=0?card('K'):'')+gg[2].map(card).join('');
+ const lkN=TYPES.filter(t=>t!=='K'&&locked(t)).length;
+ const gg=selTab===-1?[TR('전체','All'),TR('모든 기물','All pieces'),GR.reduce((a,g)=>a.concat(g[2]),[])]:GR[selTab];let h=(lkN?`<div class="lkn">🔒 ${TR('스토리 모드를 클리어하면 기물이 열려요','Clear Story Mode to unlock pieces')} · ${TR('잠김','Locked')} ${lkN}${TR('종','')}</div>`:'')+`<div class="gt">${gg[0]} · ${gg[1]}</div>`+(selTab<=0?card('K'):'')+gg[2].map(card).join('');
  $('#sel').innerHTML=h;
- $('#pre').innerHTML=TR('<button data-p="r">🎲 랜덤 구성</button><button data-p="x">초기화</button>','<button data-p="r">🎲 Random build</button><button data-p="x">Clear</button>')+PRESETS.map((x,i)=>`<button data-p="${i}" title="${x.l.split('').map(t=>DEF[t].n).join(', ')}">${i+1}. ${x.n}</button>`).join('');
+ $('#pre').innerHTML=TR('<button data-p="r">🎲 랜덤 구성</button><button data-p="x">초기화</button>','<button data-p="r">🎲 Random build</button><button data-p="x">Clear</button>')+PRESETS.map((x,i)=>`<button data-p="${i}" ${x.l.split('').some(locked)?'disabled':''} title="${x.l.split('').map(t=>DEF[t].n).join(', ')}">${i+1}. ${x.n}</button>`).join('');
  renderMyPre();$('#n2').disabled=!kcOf()}
 $('#gtabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;selTab=+b.dataset.g;sfx('sel');drawSel();window.scrollTo(0,0)};
 $('#sel').onclick=e=>{const k=e.target.closest('button');if(!k||k.disabled)return;if(k.classList.contains('inf')){showPiece(k.dataset.i);return}{const t=k.dataset.t,d=+k.dataset.d;if(d>0&&KCL.includes(t)){for(const x of KCL)army[x]=0;army[t]=1}else army[t]=Math.max(0,(army[t]||0)+d)}sfx('sel');drawSel()};
 $('#pre').onclick=e=>{const k=e.target.closest('button');if(!k)return;const p=k.dataset.p;
- if(p==='x')setArmy([]);else if(p==='r')setArmy(BC.randomArmy(rnd));else if(PRESETS[+p]){setArmy(PRESETS[+p].l.split(''));pendPl=PRESETS[+p].pl?{k:akey(PRESETS[+p].l),pl:PRESETS[+p].pl}:null}sfx('place');drawSel()};
+ if(p==='x')setArmy([]);else if(p==='r')setArmy(BC.randomArmy(rnd,locked));else if(PRESETS[+p]){setArmy(PRESETS[+p].l.split(''));pendPl=PRESETS[+p].pl?{k:akey(PRESETS[+p].l),pl:PRESETS[+p].pl}:null}sfx('place');drawSel()};
 ['home2','home3'].forEach(i=>$('#'+i).onclick=()=>ask(TR('메뉴로 돌아가기','Back to Main Menu'),TR('지금까지 고른 기물과 배치는 저장되지 않습니다. 메인 메뉴로 돌아갈까요?','The pieces and placement you picked so far will not be saved. Return to the main menu?'),()=>{G.mk=false;sfx('rm');toHome()}));
-$('#n2').onclick=()=>{left={};if(!kcOf())left.K=1;for(const t in army)if(army[t])left[t]=army[t];pb=BC.emptyBoard();selT=kcOf()||'K';flipSetup=G.mode==='pve'&&side==='b';drawPlace();show('s3');window.scrollTo(0,0)};
+$('#n2').onclick=()=>{const lk=Object.keys(army).filter(t=>army[t]&&locked(t));if(lk.length){toast(TR('아직 열리지 않은 기물이 있어요: ','Some pieces are still locked: ')+lk.map(t=>DEF[t].n).join(', '));return}left={};if(!kcOf())left.K=1;for(const t in army)if(army[t])left[t]=army[t];pb=BC.emptyBoard();selT=kcOf()||'K';flipSetup=G.mode==='pve'&&side==='b';drawPlace();show('s3');window.scrollTo(0,0)};
 
 /* ===== 3. 기물 배치 ===== */
 function board(el,arr,fl,cls){let h='';
@@ -3686,13 +3696,14 @@ const PF={rm:store.get('rm',false),fxs:store.get('fxs',false)};
 function applyPf(){document.body.classList.toggle('rm',!!PF.rm)}
 function applyBv(){try{if(tg)tg.gain.value=.9*bv;if(mg)mg.gain.value=.3*bv}catch(e){}}
 function swRow(id,t,d,on){return `<div class="setr"><label for="${id}"><b>${t}</b><span class="d">${d}</span></label><button class="sw" id="${id}" role="switch" aria-label="${t}" aria-checked="${on}"></button></div>`}
-function buildSet(){$('#setBody').innerHTML=swRow('swSfx',TR('효과음','Sound effects'),TR('이동·잡기·스킬 소리','Move, capture and skill sounds'),sfxOn)+swRow('swBgm',TR('배경음악','Music'),'',music)+TR(`<div class="setr"><label for="bvR"><b>배경음악 크기 <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">기본 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="배경음악 크기"></div>`,`<div class="setr"><label for="bvR"><b>Music volume <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">Default 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="Music volume"></div>`)+swRow('swHint',TR('좋은 수 표시','Best-move hints'),TR('체스 초보를 위한 추천 수와 체크 안내 (대국 중에도 바꿀 수 있습니다)','Suggested moves and check warnings for chess beginners (can also be changed mid-game)'),!!U.hint)+swRow('swRm',TR('애니메이션 줄이기','Reduce animation'),TR('화면 효과와 움직임을 최소화합니다','Minimizes visual effects and motion'),!!PF.rm)+swRow('swFxs',TR('스킬 연출 간단히','Simple skill effects'),TR('화면이 어두워지거나 큰 글자가 뜨지 않고 가볍게 보여줍니다','No screen dimming or big titles — lighter effects'),!!PF.fxs)
+function buildSet(){$('#setBody').innerHTML=swRow('swSfx',TR('효과음','Sound effects'),TR('이동·잡기·스킬 소리','Move, capture and skill sounds'),sfxOn)+swRow('swBgm',TR('배경음악','Music'),'',music)+TR(`<div class="setr"><label for="bvR"><b>배경음악 크기 <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">기본 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="배경음악 크기"></div>`,`<div class="setr"><label for="bvR"><b>Music volume <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">Default 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="Music volume"></div>`)+swRow('swHint',TR('좋은 수 표시','Best-move hints'),TR('체스 초보를 위한 추천 수와 체크 안내 (대국 중에도 바꿀 수 있습니다)','Suggested moves and check warnings for chess beginners (can also be changed mid-game)'),!!U.hint)+swRow('swRm',TR('애니메이션 줄이기','Reduce animation'),TR('화면 효과와 움직임을 최소화합니다','Minimizes visual effects and motion'),!!PF.rm)+swRow('swGate',TR('기물 해금 제한','Piece unlock limit'),TR('스토리 모드를 클리어해야 기물이 열려요. 끄면 모든 기물을 바로 쓸 수 있어요','Pieces unlock as you clear Story Mode. Turn off to use every piece right away'),gateOn())+TR(`<div class="setr"><div><b>스토리 진행도 백업</b><span class="d">코드·파일로 저장하고 불러올 수 있어요</span></div><button id="swBk">백업</button></div>`,`<div class="setr"><div><b>Story progress backup</b><span class="d">Save and restore as a code or file</span></div><button id="swBk">Backup</button></div>`)+swRow('swFxs',TR('스킬 연출 간단히','Simple skill effects'),TR('화면이 어두워지거나 큰 글자가 뜨지 않고 가볍게 보여줍니다','No screen dimming or big titles — lighter effects'),!!PF.fxs)
  +TR(`<div class="setr"><div><b>저장 데이터 삭제</b><span class="d">설정과 내 프리셋을 모두 지웁니다</span></div><button id="swClr">삭제</button></div>${$('#s0').classList.contains('on')?'':TR('<div class="setr"><div><b>메인 메뉴로 돌아가기</b><span class="d">지금 화면을 나가 처음 화면으로 이동합니다</span></div><button id="swHome">🏠 메뉴로</button></div>','<div class="setr"><div><b>Back to the main menu</b><span class="d">Leave this screen and go to the start screen</span></div><button id="swHome">🏠 Menu</button></div>')}<p class="note" style="text-align:center;margin-top:10px">배틀체스 · VERSION ${APP_VER}</p>`,`<div class="setr"><div><b>Delete saved data</b><span class="d">Erases your settings and all your presets</span></div><button id="swClr">Delete</button></div>${$('#s0').classList.contains('on')?'':TR('<div class="setr"><div><b>메인 메뉴로 돌아가기</b><span class="d">지금 화면을 나가 처음 화면으로 이동합니다</span></div><button id="swHome">🏠 메뉴로</button></div>','<div class="setr"><div><b>Back to the main menu</b><span class="d">Leave this screen and go to the start screen</span></div><button id="swHome">🏠 Menu</button></div>')}<p class="note" style="text-align:center;margin-top:10px">Battle Chess · VERSION ${APP_VER}</p>`);
  {const hb=$('#swHome');if(hb)hb.onclick=()=>{const inGame=G&&G.b&&!G.over&&$('#s4').classList.contains('on'),inNet=inGame&&G.net;ask(TR('메뉴로 돌아가기','Back to Main Menu'),inNet?TR('온라인 대전 중에 나가면 항복(패배) 처리됩니다. 나갈까요?','If you leave during an online game, it counts as a resignation (loss). Leave anyway?'):inGame?TR('진행 중인 게임이 종료됩니다. 메인 메뉴로 돌아갈까요?','The game in progress will end. Return to the main menu?'):TR('지금까지 고른 내용은 저장되지 않습니다. 메인 메뉴로 돌아갈까요?','Everything you picked so far will not be saved. Return to the main menu?'),()=>{closeM('mSet');if(G)G.mk=false;sfx('rm');toHome()})}}
  const tg=(id,fn)=>$('#'+id).onclick=()=>{fn();buildSet()};
  {const r=$('#bvR');r.oninput=()=>{bv=r.value/100;$('#bvP').textContent=r.value+'%';applyBv()};r.onchange=()=>store.set('bv',bv)}
  tg('swSfx',()=>$('#sf').click());tg('swBgm',()=>$('#bm').click());
  tg('swHint',()=>{U.hint=!U.hint;store.set('hint',U.hint);if(G.b&&$('#s4').classList.contains('on')){G.hintK=null;G.hint=null;draw(G.over?$('#st').textContent:undefined)}});
+ tg('swGate',()=>{store.set('gate',!gateOn());UNL=null});$('#swBk').onclick=()=>{closeM('mSet');openBackup()};
  tg('swRm',()=>{PF.rm=!PF.rm;store.set('rm',PF.rm);applyPf()});tg('swFxs',()=>{PF.fxs=!PF.fxs;store.set('fxs',PF.fxs)});
  $('#swClr').onclick=()=>ask(TR('저장 데이터 삭제','Delete saved data'),TR('설정과 내 프리셋이 모두 삭제됩니다. 계속할까요?','Your settings and all presets will be deleted. Continue?'),()=>{try{Object.keys(localStorage).filter(k=>k.startsWith('bc_')).forEach(k=>localStorage.removeItem(k))}catch(e){}myPre=[];PF.rm=false;applyPf();renderMyPre();buildSet();toast(TR('삭제했습니다','Deleted'))})}
 $('#bSet').onclick=()=>{buildSet();openM('mSet')};
@@ -4117,9 +4128,14 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.4.3';
+const APP_VER='1.4.4';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.4.4',TR('스토리 완결 · 기물 해금 패치','Story Finale · Piece Unlock Patch'),[
+  TR('📖 스토리 모드 20스테이지 완결 — 서장부터 종장까지 5개 시점의 군상극, 스테이지마다 더 길어진 대사와 세계관 설명','📖 Story Mode now has all 20 stages — an ensemble tale from prologue to finale told through five viewpoints, with longer dialogue and world-building in every stage'),
+  TR('🔓 기물 해금: 처음에는 킹·퀸·룩·비숍·나이트·폰만 사용할 수 있고, 스토리 스테이지를 클리어할 때마다 새 기물이 열려요 (AI 관전·연습장·튜토리얼·도감은 제한 없음 / 설정에서 「기물 해금 제한」을 끌 수 있어요)','🔓 Piece unlock: you start with King, Queen, Rook, Bishop, Knight and Pawn, and every cleared story stage opens new pieces (AI-vs-AI, practice, tutorial and the piece guide are unrestricted / switch off “Piece unlock limit” in Settings)'),
+  TR('📚 스토리 목록에 「세계관」 보기 추가 — 클리어하면 새 항목이 열려요','📚 A “World” viewer was added to the story list — new entries open as you clear stages'),
+  TR('💾 스토리 진행도 백업 — 설정과 스토리 화면에서 코드 복사·파일 저장·불러오기','💾 Story progress backup — copy a code, save a file or restore it from Settings or the story screen')]],
  ['1.4.3',TR('스토리 모드 패치','Story Mode Patch'),[
   TR('📖 스토리 모드 추가(서장~1장 · 5스테이지): 게임 설정 화면 아래 그라데이션 버튼에서 시작 · 킹·엠페러·데몬·대통령·갓 군상극 · 진행도는 기기에 저장','📖 Story Mode added (Prologue–Chapter 1, 5 stages): start from the gradient button below the game setup · an ensemble tale of the King, Emperor, Demon, President and God · progress is saved on this device'),
   TR('🎵 새 대국 BGM 추가 — 스토리 모드와 일반 대국에서 기존 곡과 함께 무작위로 재생','🎵 New battle music added — plays at random alongside the existing tracks in Story Mode and regular games'),
@@ -4873,55 +4889,289 @@ function rtdbRoom(){
    join:async nm=>{const r=await make(nm);return r}})})().catch(e=>{rtdbLobby=null;throw e});
  return rtdbLobby}
 
-/* ===== 스토리 모드 (1.4.3) — 20 스테이지 구조 · 1장(서장~5) 수록 ===== */
+/* ===== 스토리 모드 데이터 (1.4.4) — 20 스테이지 · 대사 · 세계관 ===== */
 const SCH={K:TR('킹','King'),E:TR('엠페러','Emperor'),d:TR('데몬','Demon'),'Ṗ':TR('대통령','President'),g:TR('갓','God')};
-const stRng=s=>{s>>>=0;return()=>{s=(s+0x6D2B79F5)>>>0;let t=s;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}};
 const nr=(ko,en)=>({x:TR(ko,en)});                                   // 나레이션
 const sy=(s,wk,we,ko,en)=>({s,w:TR(wk,we),x:TR(ko,en)});             // 대사 (s: 초상 기물)
 const STCH=[TR('서장 · 왕의 승전','Prologue · The King\'s Victory'),TR('1장 · 변방의 불씨','Chapter 1 · Sparks on the Frontier'),TR('2장 · 군단의 시대','Chapter 2 · Age of Legions'),TR('3장 · 엇갈린 깃발','Chapter 3 · Crossed Banners'),TR('4장 · 왕좌의 그림자','Chapter 4 · Shadow of the Throne'),TR('종장 · 마지막 한 수','Finale · The Last Move')];
+/* new: 이 스테이지를 클리어하면 대국에서 쓸 수 있게 되는 기물 */
 const STAGES=[
- {ch:0,t:TR('왕의 마지막 전투','The King\'s Last Battle'),pov:'K',lv:0,cl:1,me:'QRRBBNNPPPPPPPP',foe:'QRRBBNNPPPPPPPP',
-  tip:TR('킹을 잡으면 승리해요. 기본 체스 규칙을 천천히 익혀 보세요.','Capture the enemy King to win. Take your time with the basic chess rules.'),new:[],
-  pre:[nr('긴 전쟁의 마지막 날. 왕의 군대는 가장 오래된 진형으로 적 앞에 섰다.','The last day of a long war. The King\'s army faced the enemy in the oldest formation of all.'),
-   sy('K','킹','King','기본으로 돌아간다. 폰은 한 칸씩, 비숍은 대각선, 룩은 직선. 우리가 지켜 온 건 이 진형 하나뿐이다.','Back to basics. Pawns step forward, bishops run the diagonals, rooks hold the lines. This formation is all we have ever protected.'),
-   sy('K','적 장군','Enemy General','왕의 목을 가져가라! 이 한 판으로 끝이다!','Take the King\'s head! One last game ends it all!')],
-  post:[sy('K','킹','King','끝났다… 이제 이 땅에도 평화가 오겠지.','It is over… Peace will finally come to this land.'),
-   nr('그러나 승전보가 퍼진 그날 밤, 사방의 변경에서 낯선 깃발들이 올랐다. 왕이 이긴 땅은 주인 없는 군단들의 무대가 되었다.','But the night the victory spread, strange banners rose on every frontier. The land the King had won became a stage for masterless legions.')]},
- {ch:1,t:TR('북방의 황제','The Northern Emperor'),pov:'E',lv:1,me:'EyNNRABSSSSŁŁL',foe:'SSSSSLLLɃɃɃpA',
-  tip:TR('엠페러는 킹을 대신하는 기물이에요. 잡히면 패배하지만 원거리 공격에는 면역이에요.','The Emperor replaces the King. Losing it means defeat, but it is immune to ranged attacks.'),new:['E','y','L'],
-  pre:[nr('북방 제국령. 왕의 승전을 기리는 연회가 한창이던 밤, 국경 요새에서 봉화가 올랐다.','The northern empire. On the night of the victory feast, a beacon flared from the border fortress.'),
-   sy('E','엠페러','Emperor','짐은 이 땅의 황제다. 왕이 이겼다 하여 짐의 영토를 도적 떼가 넘봐도 된다는 뜻은 아니지.','I am emperor of this land. The King\'s victory does not give bandits leave to covet my realm.'),
-   sy('S','도적 두목','Bandit Chief','황제도 군대 없이는 한 줌이야! 몰려가라, 애들아!','An emperor without an army is just a handful of dust! Swarm them, boys!')],
-  post:[sy('E','엠페러','Emperor','도적 떼가 이런 장비를 갖출 리 없다. 누군가 뒤에서 무기를 쥐여 줬군.','Bandits could never afford such gear. Someone put weapons in their hands.'),
-   nr('쓰러진 두목의 품에서 낯선 인장이 나왔다. 검붉은 뿔 모양—북방의 것이 아니었다.','A strange seal fell from the chief\'s coat — a dark red horn. It was not northern work.')]},
- {ch:1,t:TR('균열의 마계','The Rift Below'),pov:'d',lv:2,me:'dḶDDezpÑSSSŁɃ',foe:'HHIIlSSSPPPŁŁ',
-  tip:TR('데몬은 킹 대신 쓰는 기물이에요. 적을 3기 처치하면 악마화해서 훨씬 넓게 움직여요.','The Demon replaces the King. After three kills it turns demonic and moves much farther.'),new:['d','D','Ḷ'],
-  pre:[nr('마계의 균열. 인간 왕의 승전 따위 흥미 없던 데몬의 영토에, 하얀 법의의 순례단이 몰려들었다.','The Rift. The Demon cared nothing for a human king\'s victory — until white-robed pilgrims flooded into his domain.'),
-   sy('d','데몬','Demon','내 영토에서 소란을 피우는 게 누구냐. 신의 이름이라도 팔러 왔나?','Who dares make noise in my domain? Come to sell me some god\'s name?'),
-   sy('H','순례단 사제','Pilgrim Priest','균열을 봉인하라! 신께서 보고 계신다!','Seal the rift! The Divine is watching!')],
-  post:[sy('d','데몬','Demon','신이라… 그 이름을 입에 올리는 자가 아직 있다니.','A god… I did not think anyone still dared speak that name.'),
-   nr('순례단의 지팡이에도 같은 인장이 새겨져 있었다. 뿔 위에 하얀 날개가 겹친 모양이었다.','The pilgrims\' staffs bore the same seal — the horn, now overlaid with white wings.')]},
- {ch:1,t:TR('공화국의 방패','Shield of the Republic'),pov:'Ṗ',lv:2,me:'ṖOUUCĊĊSSSŁŁɃɃA',foe:'FFTZnSSSŁŁɃɃ',
-  tip:TR('대통령의 스킬 「엄호」는 1코스트 기물 1기를 주변 3x3 안의 빈칸으로 옮겨 줘요.','The President\'s “Cover” skill moves one 1-cost ally to any empty square in the surrounding 3x3.'),new:['Ṗ','O','Ċ','C'],
-  pre:[nr('서쪽 공화국. 왕이 아닌 투표로 세워진 나라의 국경에 먼지구름이 일었다.','The Republic in the west — a nation founded by votes, not by a throne. Dust rose along its border.'),
-   sy('Ṗ','대통령','President','국민 여러분, 동요하지 마십시오. 공화국 방위군은 오늘도 투표로 정한 국경을 지킵니다.','Citizens, please remain calm. The Republican Guard defends the border you voted for.'),
-   sy('F','유목민 족장','Nomad Chief','땅은 강한 자의 것! 투표는 말 위에서 하는 거다!','Land belongs to the strong! We vote from horseback!')],
-  post:[sy('Ṗ','대통령','President','이상하군. 유목민이 쓰는 신식 장비에 도적, 순례단과 같은 문장이 새겨져 있다.','Strange. These nomads carry modern gear stamped with the same crest as the bandits and the pilgrims.'),
-   nr('뿔, 날개, 그리고 톱니바퀴. 서로 다른 세 군단—그러나 같은 손이 만든 인장이었다.','A horn, wings, and now a cogwheel. Three different legions — one and the same hand behind the seals.')]},
- {ch:1,t:TR('흩어진 깃발','Scattered Banners'),pov:'K',lv:3,me:'QRRBNNIAPPPP',foe:'yDĊOHFnUSSŁŁɃ',
-  tip:TR('1장의 마지막 전투예요. 앞서 만난 군단의 기물들이 한꺼번에 나와요.','The finale of Chapter 1. Pieces from every legion you met so far fight together.'),new:['I','A'],
-  pre:[nr('수도 앞 평원. 황제, 마왕, 대통령… 승전 뒤에 일어난 군단들이 저마다의 깃발을 들고 왕의 영토를 에워쌌다.','The plain before the capital. Emperor, demon lord, president… the legions born after the victory surrounded the King\'s land under their own banners.'),
-   sy('R','참모','Adviser','폐하, 연합 반군이 수도 앞까지 왔습니다!','Majesty, the allied rebels have reached the capital!'),
-   sy('K','킹','King','내 깃발 아래서 싸운 자들이 아니었나… 좋다. 왕정이 아직 한물간 게 아님을 보여 주지.','Weren\'t they all fighting under my banner… Very well. I will show them the crown is not finished yet.'),
-   sy('y','반군 지휘관','Rebel Commander','왕정은 끝났다! 새 시대의 군단이 왕을 쓸어버린다!','The monarchy is over! The legions of a new age sweep the King away!')],
-  post:[sy('K','킹','King','이 반란… 누군가 판을 짜고 있다. 모든 군단이 같은 손에 쥐어진 말처럼 움직였어.','This rebellion… someone is arranging the board. Every legion moved like pieces held in the same hand.'),
-   nr('그날 밤, 하늘 위. 체스판을 내려다보는 누군가가 낮게 웃었다. “—이제 다음 수를 둘 차례로군.”','That night, high above, someone looked down at the board and chuckled softly. “— Now, time for the next move.”'),
-   nr('2장 「군단의 시대」는 다음 업데이트에서 이어집니다.','Chapter 2, “Age of Legions”, continues in a future update.')]},
- // ---- 이어질 이야기 (준비 중) ----
- ...[[2,'황제의 원정','The Emperor\'s Campaign','E'],[2,'마계의 연회','Banquet of the Rift','d'],[2,'공화국의 선거','The Republic Votes','Ṗ'],[2,'신의 사도','Apostle of the Divine','g'],[2,'군단 회담','Council of Legions','K'],
-  [3,'배신의 성','Castle of Betrayal','E'],[3,'폭풍의 전장','Storm Battlefield','d'],[3,'금지된 무기','Forbidden Arms','Ṗ'],[3,'신의 시험','The Divine\'s Trial','g'],[3,'왕의 결단','The King\'s Decision','K'],
-  [4,'진짜 적','The True Enemy','K'],[4,'불편한 동맹','Uneasy Alliance','E'],[4,'신의 체스판','The Divine\'s Chessboard','g'],[4,'마지막 군단','The Final Legion','Ṗ'],[5,'마지막 한 수','The Last Move','g']].map(a=>({ch:a[0],t:TR(a[1],a[2]),pov:a[3],soon:true}))
+/* 1 */ {ch:0,t:TR('왕의 마지막 전투','The King\'s Last Battle'),pov:'K',lv:0,cl:1,me:'QRRBBNNPPPPPPPP',foe:'QRRBBNNPPPPPPPP',new:[],
+  lore:TR('카이사 대륙은 체스판처럼 흑과 백으로 나뉜 땅이에요. 천 년 동안 백의 왕국과 흑의 왕국이 같은 진형으로 맞서 왔고, 오늘이 그 전쟁의 마지막 날이에요.','The continent of Kaissa is split into black and white like a chessboard. For a thousand years the white and black kingdoms have faced each other in the same formation — and today is the last day of that war.'),
+  tip:TR('킹을 잡으면 승리해요. 기본 체스 규칙을 천천히 익혀 보세요.','Capture the enemy King to win. Take your time with the basic chess rules.'),
+  pre:[nr(`카이사 대륙. 이 땅은 오래전부터 체스판처럼 흑과 백으로 나뉘어 있었고, 두 왕국은 천 년 동안 똑같은 진형으로 서로를 마주 보았다.`,`The continent of Kaissa. Since ancient times this land has been divided like a chessboard, black and white, and for a thousand years the two kingdoms stared at each other in the very same formation.`),
+   nr(`오늘은 그 전쟁의 마지막 날이다. 백의 왕은 직접 진형 한가운데에 서 있었다.`,`Today is the last day of that war. The white King stood in the very center of the formation himself.`),
+   sy('K','킹','King',`기본으로 돌아간다. 폰은 한 칸씩, 비숍은 대각선, 룩은 직선, 나이트는 건너뛴다. 천 년 동안 우리가 지켜 온 건 이 진형 하나뿐이다.`,`Back to basics. Pawns step forward, bishops run the diagonals, rooks hold the lines, knights leap. This formation is all we have protected for a thousand years.`),
+   sy('Q','퀸 (원수)','Queen (Marshal)',`폐하, 선봉은 제게 맡기십시오. 오늘 흑의 왕을 끝내겠습니다.`,`Majesty, leave the vanguard to me. I will end the black King today.`),
+   sy('K','킹','King',`서두르지 마라. 이 전쟁을 끝내는 건 한 수가 아니라 올바른 순서다.`,`Do not rush. What ends this war is not one move, but the right order of moves.`),
+   sy('K','흑의 왕','Black King',`천 년을 이어 온 판이다! 그렇게 쉽게 끝날 줄 알았나, 백의 왕이여!`,`A game a thousand years old! Did you think it would end so easily, White King?`)],
+  post:[sy('K','킹','King',`끝났다… 이제 이 땅에도 평화가 오겠지.`,`It is over… Peace will finally come to this land.`),
+   sy('Q','퀸 (원수)','Queen (Marshal)',`폐하의 승리입니다! 두 왕국이 하나가 됩니다.`,`Victory, Majesty! The two kingdoms become one.`),
+   nr(`하나가 된 대륙. 그러나 승전보가 퍼진 그날 밤, 사방의 변경에서 낯선 깃발들이 올랐다.`,`One continent at last. But on the night the victory spread, strange banners rose on every frontier.`),
+   nr(`지금까지 흑과 백뿐이던 판에, 처음으로 다른 색이 나타난 것이다.`,`For the first time, a board of only black and white showed another color.`)]},
+/* 2 */ {ch:1,t:TR('북방의 황제','The Northern Emperor'),pov:'E',lv:1,me:'EyLLSSSSNNRBBPN',foe:'SSSSSLLPNNBRNBR',new:['E','y','L','S'],
+  lore:TR('대륙 북쪽의 설원 제국 노르디아. 왕국에 복속된 적 없는 이 나라의 황제는 승전 소식을 듣고도 왕관을 내려놓지 않았어요.','Nordia, the snowbound empire in the north. Its emperor has never bowed to the kingdom, and even on hearing of the victory he did not lay down his crown.'),
+  tip:TR('엠페러는 킹을 대신하는 기물이에요. 잡히면 패배하지만 원거리 공격에는 면역이에요.','The Emperor replaces the King. Losing it means defeat, but it is immune to ranged attacks.'),
+  pre:[nr(`북방 설원의 제국 노르디아. 왕국에 복속된 적 없는 이 나라는 천 년 동안 흑백의 전쟁에 한 번도 끼어들지 않았다.`,`Nordia, the empire of the northern snows. It never once joined the thousand-year war between black and white.`),
+   nr(`그래서 황제는 승전 소식을 듣고도 왕관을 내려놓지 않았다. 그날 밤 연회장에 봉화가 올랐다. 국경 요새 세 곳이 한꺼번에 습격당한 것이다.`,`So when the news of victory arrived, the emperor kept his crown. That night a beacon flared over the banquet hall: three border fortresses had been attacked at once.`),
+   sy('E','엠페러','Emperor',`짐은 이 땅의 황제다. 왕이 이겼다 하여 짐의 영토를 도적 떼가 넘봐도 된다는 뜻은 아니지.`,`I am emperor of this land. The King's victory does not give bandits leave to covet my realm.`),
+   sy('y','창기병대장','Lancer Captain',`폐하, 놈들의 수가 많습니다. 하나같이 새 무기를 들었습니다.`,`Majesty, they are many — and every one carries new weapons.`),
+   sy('E','엠페러','Emperor',`창기병은 앞서고 보병은 뒤를 받친다. 짐은 화살이 닿지 않는 곳에서 지휘한다. 황제의 이름으로 한 놈도 남기지 마라.`,`Lancers ahead, infantry behind them. I command where arrows cannot reach. In the emperor's name, leave none of them standing.`),
+   sy('S','도적 두목','Bandit Chief',`황제도 군대 없이는 한 줌이야! 몰려가라, 애들아!`,`An emperor without an army is just a handful of dust! Swarm them, boys!`)],
+  post:[sy('E','엠페러','Emperor',`도적 떼가 이런 장비를 갖출 리 없다. 누군가 뒤에서 무기를 쥐여 줬군.`,`Bandits could never afford such gear. Someone put weapons in their hands.`),
+   sy('y','창기병대장','Lancer Captain',`두목의 품에서 이런 게 나왔습니다. 인장 같습니다.`,`This was in the chief's coat, sire. It looks like a seal.`),
+   nr(`검붉은 뿔 모양의 인장. 북방의 어느 가문도 쓰지 않는 문양이었다.`,`A seal in the shape of a dark red horn — a mark no northern house had ever used.`),
+   nr(`황제는 인장을 장갑 안에 감추고 입을 닫았다. 이 일은 아직 왕에게 알릴 때가 아니었다.`,`The emperor hid the seal inside his gauntlet and said nothing. It was not yet the time to tell the King.`)]},
+/* 3 */ {ch:1,t:TR('균열의 마계','The Rift Below'),pov:'d',lv:2,me:'dḶDDNNBBRPPPSSS',foe:'HHBBRNNPPPSSLLP',new:['d','D','Ḷ'],
+  lore:TR('대륙 동쪽 끝의 균열 너머에는 마계가 있어요. 군주 데몬은 인간 왕의 승전에 관심이 없었지만, 균열 앞에 하얀 법의의 순례단이 나타났어요.','Beyond the Rift at the far east of the continent lies the demon realm. Its lord cared nothing for a human king\'s victory — until white-robed pilgrims appeared at the Rift.'),
+  tip:TR('데몬은 킹 대신 쓰는 기물이에요. 적을 3기 처치하면 악마화해서 훨씬 넓게 움직여요.','The Demon replaces the King. After three kills it turns demonic and moves much farther.'),
+  pre:[nr(`대륙 동쪽 끝의 균열. 이 땅이 체스판이 되기 전부터 있었다는 틈 너머에 마계가 있다.`,`The Rift at the far east. A crack older than the chessboard itself, with the demon realm on the other side.`),
+   nr(`마계의 군주 데몬은 인간 왕의 승전 따위에 흥미가 없었다. 균열 앞에 하얀 법의의 순례단이 나타나기 전까지는.`,`The demon lord had no interest in a human king's victory — until a company of pilgrims in white robes arrived before the Rift.`),
+   sy('H','순례단 사제','Pilgrim Priest',`균열을 봉인하라! 신께서 보고 계신다!`,`Seal the Rift! The Divine is watching!`),
+   sy('d','데몬','Demon',`내 영토에서 소란을 피우는 게 누구냐. 신의 이름이라도 팔러 왔나?`,`Who dares make noise in my domain? Come to sell me some god's name?`),
+   sy('Ḷ','루시퍼','Lucifer',`주군, 저들의 지팡이를 보십시오. 마계의 문을 두드리는 법을 정확히 알고 있습니다.`,`My lord, look at their staffs. They know exactly how to knock on the door of our realm.`),
+   sy('d','데몬','Demon',`그렇다면 더더욱 돌려보낼 수 없지. 흑룡을 풀어라. 이 땅의 주인이 누군지 가르쳐 주마.`,`Then I cannot send them home. Release the black dragons. Let them learn who owns this land.`)],
+  post:[sy('d','데몬','Demon',`신이라… 그 이름을 입에 올리는 자가 아직 있다니.`,`A god… I did not think anyone still dared speak that name.`),
+   sy('Ḷ','루시퍼','Lucifer',`지팡이 끝에 인장이 있습니다. 뿔 위에 하얀 날개가 겹친 모양입니다.`,`There is a seal at the tip of the staff, my lord: a horn overlaid with white wings.`),
+   nr(`뿔은 북방의 도적이 지녔던 그 인장이다. 서로 아무 상관 없는 두 군단이 같은 표식을 지닌 것이다.`,`The horn is the same seal the northern bandits carried. Two unrelated forces bearing one mark.`),
+   nr(`데몬은 처음으로 이 소란이 우연이 아니라는 걸 깨달았다.`,`For the first time, the demon lord realized this uproar was no coincidence.`)]},
+/* 4 */ {ch:1,t:TR('공화국의 방패','Shield of the Republic'),pov:'Ṗ',lv:2,me:'ṖOĊĊCNNBBRPPPSS',foe:'FFTNNZRPPSSPN',new:['Ṗ','O','Ċ','C'],
+  lore:TR('서쪽의 공화국 베스트리아. 왕이 아닌 투표로 세워진 이 나라는 대륙에서 가장 늦게 총을 든 나라였어요.','Westria, the republic of the west. Founded by votes instead of a throne, it was the last nation on the continent to take up firearms.'),
+  tip:TR('대통령의 스킬 「엄호」는 1코스트 기물 1기를 주변 3x3 안의 빈칸으로 옮겨 줘요.','The President\'s “Cover” skill moves one 1-cost ally to any empty square in the surrounding 3x3.'),
+  pre:[nr(`서쪽 공화국 베스트리아. 왕이 아닌 투표로 세워진 이 나라는, 대륙에서 가장 늦게 총을 든 나라이기도 했다.`,`Westria, the republic of the west. A nation built on votes rather than a crown — and the last on the continent to take up firearms.`),
+   nr(`승전 소식이 도착한 날, 국경에 먼지구름이 일었다. 초원의 유목민 부족들이 하나로 뭉쳐 몰려오고 있었다.`,`The day the victory news arrived, dust rose along the border. The steppe tribes had united into one host and were charging in.`),
+   sy('Ṗ','대통령','President',`국민 여러분, 동요하지 마십시오. 공화국 방위군은 오늘도 투표로 정한 국경을 지킵니다.`,`Citizens, please remain calm. The Republican Guard defends the border you voted for.`),
+   sy('O','방위군 사령관','Guard Commander',`각하, 유목민치고는 진형이 너무 정돈돼 있습니다.`,`Mr. President, for nomads their formation is far too orderly.`),
+   sy('F','유목민 족장','Nomad Chief',`땅은 강한 자의 것! 투표는 말 위에서 하는 거다!`,`Land belongs to the strong! We vote from horseback!`),
+   sy('Ṗ','대통령','President',`위급할 때는 제가 직접 전선의 병사를 지키겠습니다. 엄호 사격, 준비!`,`In an emergency I will cover the soldiers at the front myself. Covering fire — ready!`)],
+  post:[sy('Ṗ','대통령','President',`이상하군. 유목민이 쓰는 신식 장비에 도적, 순례단과 같은 문장이 새겨져 있다.`,`Strange. These nomads carry modern gear stamped with the same crest as the bandits and the pilgrims.`),
+   nr(`뿔, 날개, 그리고 톱니바퀴. 서로 다른 세 군단—그러나 같은 손이 만든 인장이었다.`,`A horn, wings, and now a cogwheel. Three different forces — one and the same hand behind the seals.`),
+   sy('O','방위군 사령관','Guard Commander',`각하, 공화국 정보부는 이 문장의 출처를 모릅니다. 장부에도 흔적이 없습니다.`,`Sir, Republican intelligence has no record of this crest. It is in no ledger at all.`),
+   sy('Ṗ','대통령','President',`투표로 뽑힌 자가 모르는 권력이 있다면, 그건 국민이 모르는 권력이다. 끝까지 찾아내겠다.`,`If there is a power unknown to the one elected to lead, then it is a power unknown to the people. I will find it.`)]},
+/* 5 */ {ch:1,t:TR('흩어진 깃발','Scattered Banners'),pov:'K',lv:3,me:'QRBBNNIAHPPPP',foe:'yDĊOHFnUSSŁŁɃP',new:['I','A','H'],
+  lore:TR('승전 후 보름 만에 왕의 영토는 갈라졌어요. 제국, 마계, 공화국, 그리고 이름 없는 반군이 수도 룩하임 앞 평원에 모였어요.','Within a fortnight of the victory the King\'s realm had split. Empire, demons, republic and a nameless rebel host gathered on the plain before the capital, Rookheim.'),
+  tip:TR('1장의 마지막 전투예요. 앞서 만난 군단의 기물들이 한꺼번에 나와요.','The finale of Chapter 1. Pieces from every legion you met so far fight together.'),
+  pre:[nr(`수도 룩하임 앞 평원. 승전 후 보름 만에 왕의 영토는 갈라졌다. 제국, 마계, 공화국. 그리고 이름 없는 반군.`,`The plain before the capital, Rookheim. Within a fortnight of the victory the King's realm had split: empire, demon realm, republic — and a nameless rebel host.`),
+   sy('Q','퀸 (원수)','Queen (Marshal)',`폐하, 연합 반군이 수도 앞까지 왔습니다. 각지의 군단이 같은 깃발 아래 모였습니다.`,`Majesty, the allied rebels have reached the capital. Forces from every region stand under one banner.`),
+   sy('K','킹','King',`내 깃발 아래서 싸운 자들이 아니었나… 아니, 이들은 처음부터 내 깃발이 아니었다.`,`Were they not fighting under my banner… No. They were never under my banner to begin with.`),
+   sy('y','반군 지휘관','Rebel Commander',`왕정은 끝났다! 새 시대의 군단이 왕을 쓸어버린다!`,`The monarchy is over! The legions of a new age sweep the King away!`),
+   sy('K','킹','King',`좋다. 왕정이 아직 끝나지 않았음을 보여 주지. 비숍, 사제와 의무병을 후방에 세워라.`,`Very well. I will show them the crown is not finished yet. Bishop — put priests and medics in the rear.`),
+   sy('B','비숍 대주교','Archbishop Bishop',`예, 폐하. 아군을 지키는 것이 신의 뜻입니다… 아마도.`,`Yes, Majesty. Protecting our own is the will of the Divine… presumably.`)],
+  post:[sy('K','킹','King',`이 반란… 누군가 판을 짜고 있다. 모든 군단이 같은 손에 쥐어진 말처럼 움직였어.`,`This rebellion… someone is arranging the board. Every legion moved like pieces held in the same hand.`),
+   sy('Q','퀸 (원수)','Queen (Marshal)',`폐하, 포로의 갑옷 안쪽에도 같은 인장이 있었습니다.`,`Majesty, the prisoners' armor bears the same seals on the inside.`),
+   nr(`그날 밤, 하늘 위. 체스판을 내려다보는 누군가가 낮게 웃었다. “—이제 다음 수를 둘 차례로군.”`,`That night, high above, someone looked down at the board and chuckled softly. “— Now, time for the next move.”`),
+   nr(`1장 「변방의 불씨」 끝. 그러나 판은 이제 막 열렸을 뿐이다.`,`End of Chapter 1, “Sparks on the Frontier”. But the board has only just opened.`)]},
+/* 6 */ {ch:2,t:TR('황제의 원정','The Emperor\'s Campaign'),pov:'E',lv:2,me:'EQRRBBNNT',foe:'QRRBBNNPPPPPPPP',new:['T','V','Y'],
+  lore:TR('도적의 인장을 쥔 황제는 이 판을 짠 자가 왕이라고 확신하고 군을 남쪽으로 움직였어요.','Clutching the bandits\' seal, the emperor was certain the King had arranged all this, and marched his army south.'),
+  tip:TR('스트라이커·뱅가드·이글은 제국의 기동 부대예요. 앞줄에서 길을 열고 측면을 노려 보세요.','Striker, Vanguard and Eagle are the empire\'s mobile troops. Open the road at the front and strike the flanks.'),
+  pre:[nr(`북방 제국의 겨울은 길다. 그러나 황제는 겨울이 끝나기도 전에 남쪽으로 군을 움직였다.`,`Winters in the northern empire are long. Yet the emperor moved south before this one had even ended.`),
+   nr(`도적의 인장을 쥔 채, 그는 하나의 결론에 도달해 있었다. 이 판을 짠 자는 왕이다.`,`Seal in hand, he had reached a single conclusion: the one behind all this was the King.`),
+   sy('y','창기병대장','Lancer Captain',`폐하, 왕국 변방군이 강 너머에 진을 쳤습니다. 군기는 정통 체스 진형입니다.`,`Majesty, the kingdom's border army has dug in across the river, in classic chess formation.`),
+   sy('E','엠페러','Emperor',`천 년 된 진형이군. 낡았지만 방심하지 마라. 스트라이커와 뱅가드가 선봉에 서고, 이글은 측면을 돌아라.`,`A thousand-year-old formation. Old, but do not grow careless. Strikers and Vanguards lead; Eagles, circle the flank.`),
+   sy('N','왕국 변방 기사단장','Border Knight Commander',`제국의 황제가 국경을 넘다니! 왕의 땅을 한 뼘도 내줄 수 없다!`,`An emperor crossing our border! Not one handspan of the King's land will be yielded!`),
+   sy('E','엠페러','Emperor',`질문에 답하라. 이 도적들에게 인장을 쥐여 준 건 네 왕이냐.`,`Answer me. Did your king put this seal into the hands of those bandits?`),
+   sy('N','왕국 변방 기사단장','Border Knight Commander',`무슨 소리냐! 우리는 도적과 아무 상관이 없다!`,`What are you talking about! We have nothing to do with bandits!`)],
+  post:[sy('E','엠페러','Emperor',`…거짓말을 하는 얼굴이 아니었다. 이 자들도 모른다.`,`…That was not the face of a liar. These men know nothing, either.`),
+   nr(`쓰러진 기사단장의 방패 안쪽에서, 황제는 아는 문양을 찾았다. 검붉은 뿔. 왕국의 군기에도 같은 인장이 숨어 있었던 것이다.`,`On the inside of the fallen commander's shield, the emperor found a familiar mark: a dark red horn. The seal was hidden in the kingdom's banners, too.`),
+   nr(`제국과 왕국을 서로 의심하게 만든 것은 같은 손이었다. 황제는 철수 명령을 내렸다.`,`The same hand had made empire and kingdom suspect each other. The emperor ordered the retreat.`),
+   sy('E','엠페러','Emperor',`짐은 누구의 말도 되고 싶지 않다. 이 판을 짠 자를 찾아내겠다.`,`I refuse to be anyone's piece. I will find whoever arranged this board.`)]},
+/* 7 */ {ch:2,t:TR('마계의 연회','Banquet of the Rift'),pov:'d',lv:3,me:'dMepRRBBNP',foe:'ḶDDDeNNBPPSSFPP',new:['e','M','p'],
+  lore:TR('천 년에 한 번 군주를 갱신하는 마계의 연회. 올해는 모든 귀족의 식탁에 날개 인장이 찍힌 초대장이 놓여 있었어요.','The demon realm\'s once-a-millennium banquet, where the lord is renewed. This year every noble\'s table held an invitation stamped with a winged seal.'),
+  tip:TR('플레임·메두사·바드는 마계의 귀족 부대예요. 플레임의 마그마 영역을 길목에 깔아 보세요.','Flame, Medusa and Bard are the demon nobility. Try laying Flame\'s magma zone across a choke point.'),
+  pre:[nr(`균열 속 마계의 도시, 불의 궁정. 마계의 귀족들은 천 년에 한 번 군주를 갱신하는 연회를 연다.`,`The Court of Fire, the demon city inside the Rift. Once every thousand years its nobles hold a banquet to renew their lord.`),
+   nr(`올해 연회는 평소와 달랐다. 초대장 한 장이 모든 귀족의 식탁에 놓여 있었다. 날개 모양의 인장이 찍힌 초대장이었다.`,`This year's banquet was different. One invitation lay on every noble's table, stamped with a winged seal.`),
+   sy('Ḷ','루시퍼','Lucifer',`주군, 귀족 절반이 연회장에서 반기를 들 모양입니다. 메두사 공작이 앞장섰습니다.`,`My lord, half the nobles mean to rise against you in the hall. Duchess Medusa leads them.`),
+   sy('d','데몬','Demon',`초대장의 주인은 누구냐. 손님을 부르면서 이름도 밝히지 않는 자는 처음 본다.`,`Who sent the invitation? I have never met a host who calls guests without giving his name.`),
+   sy('M','메두사 공작','Duchess Medusa',`데몬! 인간 땅이나 기웃거리는 군주는 필요 없다! 새로운 질서가 오고 있다!`,`Demon! We need no lord who peers into human lands! A new order is coming!`),
+   sy('d','데몬','Demon',`새로운 질서라… 누가 그 이름을 속삭이던가. 플레임, 바드, 앞으로.`,`A new order… and who whispered that name to you? Flame, Bard — forward.`)],
+  post:[sy('M','메두사 공작','Duchess Medusa',`…우리는 그저 초대받았을 뿐이다. 판이 열린다고 했다. 새 판이.`,`…We were merely invited. They said a game was opening. A new game.`),
+   sy('d','데몬','Demon',`판이라고?`,`A game?`),
+   nr(`쓰러진 공작의 입에서 나온 단어는 북방 도적도, 공화국의 유목민도 입에 올린 적 없는 말이었다. ‘판’.`,`The word from the fallen duchess's lips was one no bandit or nomad had ever spoken: “the board”.`),
+   nr(`데몬은 초대장을 불태우지 않았다. 대신 소매 깊숙이 넣었다. 이 초대장이 어디서 왔는지 알아야 했다.`,`The demon lord did not burn the invitation. He slipped it deep into his sleeve. He had to learn where it came from.`)]},
+/* 8 */ {ch:2,t:TR('공화국의 선거','The Republic Votes'),pov:'Ṗ',lv:2,me:'ṖQRRBBNNŁrPPP',foe:'UUCFSSPPNBRPN',new:['h','J','Ł','r'],
+  lore:TR('4년에 한 번 열리는 대통령 선거를 사흘 앞두고 수도 아고라 곳곳에서 총성이 울렸어요.','Three days before the once-every-four-years presidential election, gunfire echoed across the capital, Agora.'),
+  tip:TR('스나이퍼와 샷건은 강한 원거리 화력이에요. 라이너·론도 같은 값싼 기물로 길목을 막아 주세요.','Sniper and Shotgun are heavy ranged firepower. Block the lanes with cheap pieces like Liner and Rondo.'),
+  pre:[nr(`공화국의 수도 아고라. 4년에 한 번 열리는 대통령 선거를 사흘 앞두고 도시 곳곳에서 총성이 울렸다.`,`Agora, capital of the republic. Three days before the quadrennial presidential election, gunfire rang out across the city.`),
+   nr(`선거를 방해하는 용병단. 그들의 장비에는 톱니바퀴 인장이 새겨져 있었다.`,`Mercenaries were disrupting the vote. Their equipment bore the cogwheel seal.`),
+   sy('Ṗ','대통령','President',`선거는 어떤 상황에서도 열립니다. 총성은 투표를 막지 못합니다.`,`The election will be held in any circumstance. Gunfire does not stop a vote.`),
+   sy('O','방위군 사령관','Guard Commander',`각하, 용병단장이 조건을 제시했습니다. 인장의 출처를 알려 주는 대신 선거를 연기하라고.`,`Sir, the mercenary captain made an offer: he will tell us where the seals come from if you postpone the election.`),
+   sy('Ṗ','대통령','President',`거래하지 않습니다. 저는 국민이 정한 날짜에 투표소를 열 것입니다. 저격수는 옥상에, 라이너는 골목을 막아라.`,`No deal. I will open the polling places on the day the people chose. Snipers to the rooftops, Liners — seal the alleys.`),
+   sy('w','용병단장','Mercenary Captain',`대통령, 민주주의는 총알 한 발에 흔들리는 장난감이다!`,`President, democracy is a toy that falls to a single bullet!`)],
+  post:[sy('Ṗ','대통령','President',`선거는 예정대로 열립니다. 총성이 멈췄으니까요.`,`The election goes ahead as scheduled — the gunfire has stopped.`),
+   nr(`용병단장의 증언에 따르면 인장은 하늘 위의 교단에서 나왔다. 서쪽 국경의 순례단, 마계의 날개 인장과 같은 근원이었다.`,`According to the captain, the seals came from a church in the sky — the same source as the pilgrims and the winged seal in the demon realm.`),
+   nr(`대통령은 연단에 서서 국민에게 말했다. “우리 중 누구도 이 판의 주인이 아닙니다. 그러나 우리는 말이 아니라 사람입니다.”`,`The president stepped to the podium and told the people: “None of us owns this board. But we are not pieces — we are people.”`)]},
+/* 9 */ {ch:2,t:TR('신의 사도','Apostles of the Divine'),pov:'g',lv:3,me:'gqlRRBBNNPPPPPPP',foe:'RBBNNPPPPPPP',new:['l','q','g'],
+  lore:TR('구름 위의 성소 엠피레오. 대륙의 누구도 올라 본 적 없는 이곳에서 판을 내려다보는 자가 있어요. 사람들은 그를 신이라 불러요.','Empyreo, the sanctuary above the clouds, where no one from the continent has ever climbed — and where someone watches the board. People call him a god.'),
+  tip:TR('갓은 킹 대신 쓰는 무료 기물이에요. 프린세스·럭키·프리스트로 사도 부대를 꾸려 보세요.','God is a free piece that replaces the King. Build an apostle corps from Princess, Lucky and Priests.'),
+  pre:[nr(`구름 위의 성소 엠피레오. 대륙의 누구도 올라 본 적 없는 이곳에, 판을 내려다보는 자가 있었다.`,`Empyreo, the sanctuary above the clouds. No one from the continent had ever climbed here — and here someone looked down on the board.`),
+   nr(`사람들은 그를 신이라 불렀다. 그는 스스로를 ‘갓’이라 부르는 데 만족했다. 이름이 길수록 기억되지 않는 법이니까.`,`People called him a god. He was content to call himself simply “God” — the longer a name, the less it is remembered.`),
+   sy('g','갓','God',`한 판이 끝났다. 흑이 지고 백이 이겼지. 천 년을 기다려 얻은 결말이 겨우 이것인가.`,`A game has ended. Black lost, white won. A thousand years of waiting, and this is all the ending there is?`),
+   sy('q','프린세스 (성녀)','Princess (Saint)',`주군, 지상의 왕국 조사단이 성소 아래까지 인장을 추적해 왔습니다.`,`My lord, the kingdom's investigators have traced the seals all the way beneath the sanctuary.`),
+   sy('l','럭키','Lucky',`그냥 두면 재미가 없죠. 한 번 맛보게 해 줍시다. 운이 좋으면 올라올지도 모르니까요.`,`Leaving them be is no fun. Let them have a taste. With luck, they might even climb up.`),
+   sy('g','갓','God',`판은 내가 짠다. 올라오는 건 상관없지만, 판을 엎게 둘 수는 없다. 사제들, 내려가라.`,`I arrange the board. I do not mind their climbing, but I cannot let them overturn it. Priests — descend.`)],
+  post:[sy('g','갓','God',`모든 기물이 제자리에서 움직이는군. 지루할 만큼.`,`Every piece moves exactly where it should. Tediously so.`),
+   sy('q','프린세스 (성녀)','Princess (Saint)',`하지만 그들 중 일부는 이미 판 밖을 보기 시작했습니다. 인장은 제 역할을 했습니다.`,`Yet some of them have already begun to look beyond the board. The seals did their work.`),
+   nr(`신은 오래전부터 ‘말’이 되지 못한 자였다. 판을 만든 대가로 판 위에 올라설 수 없게 된 자.`,`The god had long been one who could not be a “piece” — the price of making the board was never being allowed to stand on it.`),
+   nr(`그에게 남은 즐거움은 말들이 스스로 움직이게 만드는 일뿐이었다. 새 판의 불씨는 이미 지상에 던져졌다.`,`His only remaining joy was to make the pieces move on their own. The spark of a new game had already been thrown to the earth.`)]},
+/* 10 */ {ch:2,t:TR('군단 회담','Council of Legions'),pov:'K',lv:4,me:'ZkGQRRBPP',foe:'ÄwiFFPPSSNB',new:['Z','k','G'],
+  lore:TR('중립 도시 스테일메이트. 이름 그대로 누구도 이기지 못하는 땅에서, 킹·엠페러·데몬·대통령이 처음으로 한 테이블에 앉았어요.','The neutral city of Stalemate. On ground where, true to its name, no one can win, the King, Emperor, Demon and President sit at one table for the first time.'),
+  tip:TR('암살단의 기습이에요. 골렘으로 방어선을 잡고 샤크·워해머로 반격하세요.','An assassin ambush. Hold the line with Golem and counter with Shark and Warhammer.'),
+  pre:[nr(`중립 도시 스테일메이트. 이름 그대로 누구도 이기지 못하는 땅에서 네 사람이 처음으로 한 테이블에 앉았다.`,`The neutral city of Stalemate. On ground where, as its name says, nobody can win, four rulers sat at one table for the first time.`),
+   sy('K','킹','King',`나는 너희를 정복하러 온 게 아니다. 인장을 같은 손이 만들었다는 것만 확인하고 싶다.`,`I did not come to conquer you. I only want to confirm that one hand made all these seals.`),
+   sy('E','엠페러','Emperor',`짐도 같은 인장을 가졌다. 왕이 짠 판이 아니라는 것은 알겠다.`,`I hold the same seal. I accept now that this is not the King's design.`),
+   sy('Ṗ','대통령','President',`증언이 일치합니다. 인장의 출처는 하늘입니다.`,`The testimonies agree. The seals come from the sky.`),
+   sy('d','데몬','Demon',`하늘이라… (소매에서 초대장을 꺼낸다) 이건 ‘판’으로의 초대장이다.`,`The sky… (draws an invitation from his sleeve) This is an invitation to “the board”.`),
+   nr(`그때 회담장의 천장이 열렸다. 검은 복면의 암살자들이 쏟아져 내렸다.`,`Then the ceiling of the hall opened. Black-masked assassins poured down.`),
+   sy('Ä','암살단장','Assassin Leader',`회담은 여기까지다. 판 위의 말들이 서로 만나서는 안 되지.`,`The talks end here. Pieces on the board must never meet one another.`)],
+  post:[sy('K','킹','King',`모두 무사한가.`,`Is everyone unharmed?`),
+   sy('d','데몬','Demon',`우리를 죽이려던 건 아니었다. 저들은 의심의 씨앗을 뿌렸을 뿐이다.`,`They did not mean to kill us. They only meant to plant seeds of doubt.`),
+   nr(`암살자들의 칼에는 서로 다른 세 군단의 문양이 각각 새겨져 있었다. 서로의 소행처럼 보이도록.`,`The assassins' blades each carried the mark of a different legion, so that each would blame the other.`),
+   nr(`회담은 결렬됐다. 각자 자신의 땅으로 돌아가며 서로를 의심했다. 2장 「군단의 시대」 끝.`,`The council collapsed. Each ruler rode home suspecting the others. End of Chapter 2, “Age of Legions”.`)]},
+/* 11 */ {ch:3,t:TR('배신의 성','Castle of Betrayal'),pov:'E',lv:3,me:'EQRRBBNNtÑP',foe:'ÄÄwiFFPPS',new:['Ä','t','Ñ'],
+  lore:TR('회담 결렬 후 돌아온 황제를 맞이한 것은 닫힌 성문이었어요. 가장 신임한 재상이 반역을 일으켰어요.','The emperor returned from the failed council to find the gates of his capital shut. His most trusted chancellor had rebelled.'),
+  tip:TR('어쌔신은 암살에 특화된 기물이에요. 호퍼와 노비는 값싸고 의외의 수를 만들어 줘요.','Assassin specializes in assassination. Hopper and Nobi are cheap pieces that create surprising moves.'),
+  pre:[nr(`제국의 수도 크라운홀드. 회담 결렬 후 돌아온 황제를 맞이한 것은 닫힌 성문이었다.`,`Crownhold, capital of the empire. When the emperor returned from the failed council, the gates were shut against him.`),
+   nr(`재상이 반역을 일으켜 성을 장악했다. 재상의 손에는 뿔 모양 인장이 새겨진 반지가 끼워져 있었다.`,`The chancellor had rebelled and seized the castle. On his hand was a ring engraved with the horn seal.`),
+   sy('E','엠페러','Emperor',`재상. 짐이 가장 신임한 자가 가장 먼저 등을 보였군.`,`Chancellor. The man I trusted most was the first to turn his back.`),
+   sy('Ä','재상의 암살자','Chancellor\'s Assassin',`황제 폐하, 재상께서는 약속을 받았습니다. 황제의 자리를. 인장의 주인께서 주신 약속입니다.`,`Your Majesty, the chancellor was promised the throne — a promise made by the owner of the seal.`),
+   sy('y','창기병대장','Lancer Captain',`폐하, 성안의 근위대는 이미 반이 넘어갔습니다.`,`Majesty, more than half the guards inside have already gone over.`),
+   sy('E','엠페러','Emperor',`괜찮다. 황제의 칼은 성문이 열릴 때만 필요한 게 아니다. 호퍼, 노비 — 성벽을 넘어라.`,`No matter. An emperor's blade is not needed only when the gates open. Hopper, Nobi — over the wall.`)],
+  post:[sy('E','엠페러','Emperor',`…재상, 인장의 주인은 네게 무엇을 약속했나.`,`…Chancellor, what did the owner of the seal promise you?`),
+   nr(`재상은 웃으며 대답했다. “판 위에서 말이 아닌 자가 되는 것.” 그는 그 의미를 끝내 설명하지 못했다.`,`The chancellor smiled and answered: “To become something other than a piece on the board.” He never managed to explain what that meant.`),
+   nr(`황제는 성을 되찾았다. 그러나 이 전쟁이 왕과 황제의 싸움이 아님을 확실히 알았다. 말이 말을 거부하게 만드는 자가 있었다.`,`The emperor retook his castle. And he was certain now: this was no war between king and emperor. Someone was making pieces refuse to be pieces.`)]},
+/* 12 */ {ch:3,t:TR('폭풍의 전장','Storm Battlefield'),pov:'d',lv:4,me:'dḶXfuRRBBP',foe:'ṖOĊĊCNNBBRPPPSS',new:['X','f','u'],
+  lore:TR('마계와 공화국이 맞닿은 협곡. 푸른 폭풍이 바깥에서부터 밀려들어 판을 좁혀 오고 있었어요.','A gorge where the demon realm meets the republic. A blue storm rolled in from the edges, narrowing the board.'),
+  tip:TR('자기장이 밀려와요. 오래 끌면 판 가장자리부터 사라지니 중앙을 차지하고 서둘러 승부를 내세요.','The storm closes in. Hold the center and finish quickly, or the edges of the board will vanish.'),
+  pre:[nr(`마계와 공화국이 맞닿은 국경 협곡. 이곳에서 데몬은 처음으로 하늘이 닫히는 광경을 보았다.`,`A border gorge where the demon realm meets the republic. Here the demon lord first watched the sky close.`),
+   nr(`푸른 폭풍이 협곡 바깥에서부터 서서히 밀려들고 있었다. 폭풍에 닿은 것은 기물이든 지형이든 사라졌다.`,`A blue storm crept inward from beyond the gorge. Whatever it touched — piece or terrain — vanished.`),
+   sy('d','데몬','Demon',`이것이 판의 가장자리인가. 판이 좁아지고 있다.`,`Is this the edge of the board? The board is shrinking.`),
+   sy('Ḷ','루시퍼','Lucifer',`주군, 공화국군이 협곡 입구를 막았습니다. 폭풍이 오기 전에 길을 열어야 합니다.`,`My lord, republican troops hold the mouth of the gorge. We must open the road before the storm arrives.`),
+   sy('O','공화국 정찰대장','Republic Scout Captain',`마계의 군주여! 우리는 싸우러 온 게 아니다. 폭풍이 밀려오고 있다!`,`Lord of the demons! We did not come to fight. The storm is coming!`),
+   sy('d','데몬','Demon',`알고 있다. 그러니 서둘러 끝내자. 폭풍은 승패를 가리지 않는다.`,`I know. So let us finish this quickly. The storm does not care who wins.`)],
+  post:[sy('d','데몬','Demon',`협곡이 완전히 닫히기 전에 빠져나가야 한다.`,`We must get out before the gorge closes completely.`),
+   nr(`폭풍은 정해진 시간이 지나면 판 전체를 삼켰다. 마치 보이지 않는 체스 시계가 흐르는 것처럼.`,`After a fixed span of moves the storm swallowed the whole board — as if an invisible chess clock were running.`),
+   nr(`데몬은 깨달았다. 신이 짠 판에는 제한 시간이 있다. 판이 너무 오래 끌지 않도록. 지루해지기 전에 끝내도록.`,`The demon lord understood: the board the god arranged has a time limit — to keep it from dragging on, to end it before he grows bored.`)]},
+/* 13 */ {ch:3,t:TR('금지된 무기','Forbidden Arms'),pov:'Ṗ',lv:2,me:'ṖQRRBBNNs',foe:'aUCFSSPPNBRPN',new:['s','x','a'],
+  lore:TR('공화국 비밀 연구소가 인장의 설계도를 해독해 병기 둘을 만들었어요. 하나는 땅을 새로 짓고, 하나는 하늘에서 쏘는 무기예요.','A secret republican laboratory deciphered the seals\' blueprints and built two weapons: one that reshapes the ground, one that fires from the sky.'),
+  tip:TR('제네시스와 오르빗은 강력하지만 값이 비싸요. 핸드가 이끄는 연구소 경비대를 돌파하세요.','Genesis and Orbit are powerful but costly. Break through the lab guards led by Hand.'),
+  pre:[nr(`공화국 비밀 연구소. 인장의 설계도를 해독한 과학자들이 끝내 만들어 낸 것은 두 개의 병기였다. ‘제네시스’와 ‘오르빗’.`,`A secret republican laboratory. Scientists who had deciphered the seals' blueprints finally produced two weapons: “Genesis” and “Orbit”.`),
+   nr(`하나는 땅을 새로 짓고, 하나는 하늘에서 쏜다. 신이 쓰는 방식을 흉내 낸 무기였다.`,`One builds new ground; the other fires from the heavens. They were weapons that imitated the way a god works.`),
+   sy('Ṗ','대통령','President',`이 병기는 폐기합니다. 비상 대통령령을 발동합니다.`,`These weapons will be scrapped. I am invoking an emergency presidential order.`),
+   sy('O','방위군 사령관','Guard Commander',`각하, 연구소 소장이 병기를 탈취해 농성 중입니다. 소장은 신을 쓰러뜨릴 유일한 방법이라고 말합니다.`,`Sir, the lab director has seized the weapons and barricaded himself in. He says they are the only way to topple the god.`),
+   sy('a','연구소 소장','Lab Director',`우리가 신의 힘을 쥘 수 있는데 왜 버리라 하십니까!`,`We can hold the power of a god — why would you tell us to throw it away?`),
+   sy('Ṗ','대통령','President',`힘은 쥐는 순간 누군가의 것이 됩니다. 그리고 그 누군가는 투표로 뽑히지 않습니다.`,`Power belongs to someone the moment it is held — and that someone is not chosen by vote.`)],
+  post:[sy('Ṗ','대통령','President',`설계도는 모두 소각하십시오. 병기도 해체합니다.`,`Burn every blueprint. Dismantle the weapons.`),
+   nr(`소각 직전, 설계도 한 장이 눈에 띄었다. 오르빗의 조준 장치에 새겨진 마지막 문장. “이 병기는 신에게도 닿는다.”`,`Just before the burning, one blueprint caught his eye: the last line inscribed on Orbit's targeting rig. “This weapon can reach even a god.”`),
+   nr(`누가 이 문장을 써 넣었는가. 대통령은 설계도 한 장을 태우지 않았다. 신이 정말 닿을 수 있는 존재라면 그 사실은 알아 두어야 했다.`,`Who had written this line? The president did not burn that one sheet. If a god truly could be reached, he needed to know it.`)]},
+/* 14 */ {ch:3,t:TR('신의 시험','The Divine\'s Trial'),pov:'g',lv:2,me:'gRRBBNNjcP',foe:'qRRBBNNPPPPSSPN',new:['j','c','w'],
+  lore:TR('성소에 처음으로 금이 갔어요. 가장 가까이에서 섬기던 성녀가 지상의 소식을 듣고 신을 의심하기 시작했어요.','For the first time, a crack ran through the sanctuary. The saint who served closest to the god heard the news from below and began to doubt him.'),
+  tip:TR('마검사·크리티컬·스파클은 신의 직속 정예예요. 성녀의 호위대를 상대로 한 방을 노려 보세요.','Magic Swordsman, Critical and Sparkle are the god\'s elite guard. Aim for decisive blows against the saint\'s escort.'),
+  pre:[nr(`성소 엠피레오에 처음으로 금이 갔다. 신의 가장 가까이에서 섬기던 성녀가 지상의 소식을 들은 것이다.`,`For the first time, a crack ran through Empyreo. The saint who served nearest the god had heard the news from below.`),
+   sy('q','프린세스 (성녀)','Princess (Saint)',`주군, 저는 보았습니다. 도적도, 유목민도, 순례단도 모두 스스로 싸웠다고 믿고 있었습니다. 그들은 말이 아닙니다.`,`My lord, I saw it. Bandits, nomads, pilgrims — all of them believed they fought of their own will. They are not mere pieces.`),
+   sy('g','갓','God',`말이다. 내가 정한 길을 걸으며 그 길을 자기 의지라 믿는 말.`,`They are pieces. Pieces that walk the road I set and believe it is their own will.`),
+   sy('q','프린세스 (성녀)','Princess (Saint)',`그렇다면 주군께서는 외롭지 않으십니까.`,`Then, my lord — are you not lonely?`),
+   sy('l','럭키','Lucky',`성녀님이 오늘 주군께 맞서실 모양인데요! 이거 재미있습니다!`,`The saint looks ready to defy you today, my lord! Now this is fun!`),
+   sy('g','갓','God',`…시험이다. 나의 사도들이 나를 따르는지, 이 판이 나 없이도 돌아가는지. 제압하라. 단, 성녀는 다치게 하지 마라.`,`…A test. Whether my apostles follow me, whether this board runs without me. Subdue them. But do not harm the saint.`)],
+  post:[sy('q','프린세스 (성녀)','Princess (Saint)',`…주군께서는 저를 다치게 하지 않으셨군요.`,`…You did not harm me, my lord.`),
+   sy('g','갓','God',`판이 스스로 흔들리도록 둔 건 나다. 너는 그 흔들림이 어디까지 가는지 보여 주었다.`,`It was I who let the board shake by itself. You showed me how far the shaking goes.`),
+   nr(`신은 처음으로 자신이 외로웠다는 사실을 부정하지 못했다. 그리고 그 사실을 말에게 들켜 버렸다는 것도.`,`For the first time the god could not deny that he had been lonely — or that a piece had discovered it.`),
+   nr(`성소의 문이 열렸다. 지상으로 이어지는 계단이 놓였다. 신이 스스로 만든 판에 처음으로 길을 낸 것이다.`,`The sanctuary's gate opened. A staircase to the earth appeared. For the first time the god had made a road on his own board.`)]},
+/* 15 */ {ch:3,t:TR('왕의 결단','The King\'s Decision'),pov:'K',lv:4,me:'biHzRRBBNP',foe:'bbiiFFSSN',new:['b','i','z'],
+  lore:TR('진실을 알게 된 왕은 군단을 정복하지 않고 연합으로 이끌기로 했어요. 하지만 신의 이름 없는 군단이 길을 막았어요.','Having learned the truth, the King resolved to lead the legions not by conquest but by alliance. But the god\'s nameless legion barred his road.'),
+  tip:TR('부시도·인파이터·매지션은 신의 이름 없는 군단이에요. 근접 전투가 격렬하니 앞줄을 두텁게 하세요.','Bushido, Infighter and Magician are the god\'s nameless legion. Close combat is fierce, so thicken your front line.'),
+  pre:[nr(`룩하임 왕궁. 왕은 회담장에서 얻은 단서와 포로가 된 사도의 입에서 마침내 진실을 들었다.`,`Rookheim palace. From the clues gathered at the council and the lips of a captured apostle, the King finally heard the truth.`),
+   nr(`판을 짠 자는 하늘 위의 신. 그는 이 세계를 지루해했고, 그래서 군단들을 부추겨 새 판을 열려 했다.`,`The one who arranged the board was a god in the sky. Bored with this world, he had incited the legions to open a new game.`),
+   sy('K','킹','King',`군단들을 모아야 한다. 정복이 아니라 연합으로.`,`We must gather the legions — not by conquest, but by alliance.`),
+   sy('Q','퀸 (원수)','Queen (Marshal)',`폐하, 제국도 마계도 공화국도 왕국을 믿지 않습니다.`,`Majesty, neither empire, demon realm nor republic trusts the kingdom.`),
+   sy('K','킹','King',`믿게 만들 필요는 없다. 같은 적을 가리키면 된다.`,`They need not trust us. We only need to point at the same enemy.`),
+   sy('b','무명 군단 지휘관','Nameless Commander',`우리는 이름이 없다. 판이 우리를 지우고 다시 쓴다. 비켜라, 왕이여!`,`We have no names. The board erases us and writes us again. Stand aside, King!`),
+   sy('K','킹','King',`이름이 없다면 내가 이름을 짓겠다. 지금은 길을 열어라.`,`If you have no name, I will give you one. For now, open the road.`)],
+  post:[sy('K','킹','King',`사절을 보내라. 황제에게, 마왕에게, 대통령에게. 회담이 아니라 출전 요청이다.`,`Send envoys to the emperor, the demon lord and the president. Not a council — a call to march.`),
+   nr(`왕은 처음으로 왕관을 벗어 탁자에 내려놓았다. 이 전쟁은 왕이 이기는 전쟁이 아니라 말들이 이기는 전쟁이어야 했다.`,`For the first time the King took off his crown and set it on the table. This was not to be a war the king wins, but a war the pieces win.`),
+   nr(`3장 「엇갈린 깃발」 끝. 흩어졌던 깃발이 처음으로 같은 방향을 가리키기 시작했다.`,`End of Chapter 3, “Crossed Banners”. For the first time the scattered banners began to point the same way.`)]},
+/* 16 */ {ch:4,t:TR('진짜 적','The True Enemy'),pov:'K',lv:4,me:'QRRBBNNnHP',foe:'BnnvvooPSSP',new:['n','v','o'],
+  lore:TR('연합 출전을 선포하기 전날 밤, 왕궁 안에서 칼이 뽑혔어요. 가장 오래 곁을 지킨 대주교가 근위대를 이끌고 있었어요.','The night before the alliance was to march, swords were drawn inside the palace. The archbishop who had stood beside the King longest led the guard.'),
+  tip:TR('마운틴·버티컬·호라이즌은 왕궁 근위대예요. 복도 같은 좁은 전장이니 중앙 장악이 중요해요.','Mountain, Vertical and Horizon are the palace guard. In this narrow, corridor-like battlefield, controlling the center matters.'),
+  pre:[nr(`연합 출전을 선포하기 전날 밤, 왕궁 안에서 칼이 뽑혔다. 왕의 근위대가 왕을 향했다.`,`The night before the alliance march was to be proclaimed, swords were drawn inside the palace. The King's own guard turned on him.`),
+   nr(`가장 오래 곁을 지킨 대주교 비숍이 근위대 앞에 서 있었다. 그의 법의 아래에는 날개 인장이 있었다.`,`Archbishop Bishop, the one who had stood beside him longest, stood before the guard. Beneath his robes was the winged seal.`),
+   sy('B','비숍 대주교','Archbishop Bishop',`폐하, 저는 천 년 전부터 이 판의 기록자였습니다. 신께서 말씀하셨습니다. 왕이 판을 바꾸려 한다면 막으라고.`,`Majesty, I have been this board's chronicler for a thousand years. The Divine told me: if the King tries to change the board, stop him.`),
+   sy('K','킹','King',`비숍, 대각선만 걷던 그대가 이런 길을 걸을 줄은 몰랐다.`,`Bishop — I never thought you, who only ever walked the diagonals, would walk this road.`),
+   sy('B','비숍 대주교','Archbishop Bishop',`저는 대각선으로만 걸을 수 있는 말입니다. 판이 정한 대로요. 폐하는 그 규칙을 깨려 하시지 않습니까.`,`I am a piece that can only walk the diagonal — as the board decreed. Yet you mean to break that rule, do you not?`),
+   sy('Q','퀸 (원수)','Queen (Marshal)',`폐하, 근위대는 마운틴과 버티컬을 앞세웠습니다. 왕궁 복도가 전장입니다.`,`Majesty, the guard has put Mountains and Verticals in front. The palace corridors are the battlefield.`),
+   sy('K','킹','King',`규칙을 깨는 게 아니다. 규칙을 우리 손에 되찾으려는 것이다.`,`I am not breaking the rules. I am taking them back into our own hands.`)],
+  post:[sy('B','비숍 대주교','Archbishop Bishop',`…폐하께서 이기셨군요. 이제 저는 어느 칸으로 걸어야 합니까.`,`…You have won, Majesty. Now — which square am I to walk to?`),
+   sy('K','킹','King',`원하는 칸으로 걸어라. 그것이 이 판에서 처음으로 허용되는 한 수다.`,`Walk to whichever square you wish. That is the first move this board has ever allowed.`),
+   nr(`비숍은 대각선 대신 곧게 걸었다. 법의 아래의 인장이 조용히 떨어졌다.`,`Bishop walked straight instead of on the diagonal. The seal beneath his robe fell away without a sound.`),
+   nr(`진짜 적은 하늘에만 있지 않았다. 말들 속에 심어진 ‘규칙을 지키려는 마음’ 그 자체도 적이었다.`,`The true enemy was not only in the sky. The very instinct to obey the rules, planted inside the pieces, was an enemy too.`)]},
+/* 17 */ {ch:4,t:TR('불편한 동맹','Uneasy Alliance'),pov:'E',lv:4,me:'ERRBBNNɃWƤPP',foe:'ƤWWɃɃɃDNPSSPNBR',new:['Ƀ','W','Ƥ'],
+  lore:TR('연합군은 하늘로 오르는 길을 찾아 사막으로 향했어요. 모래의 왕릉에는 신이 처음 판을 만들 때 쓰고 버린 말이 잠들어 있었어요.','The allied army marched into the desert to find the road to the sky. In the Tomb of Sands slept a piece the god had used and discarded when he first made the board.'),
+  tip:TR('파라오와 백룡은 버려진 말들이에요. 바운스는 첫 이동에서 두 칸 나아가 의외의 기습을 해요.','Pharaoh and White Dragon are discarded pieces. Bounce moves two squares on its first move for surprise strikes.'),
+  pre:[nr(`연합군은 하늘로 오르는 길을 찾아 사막으로 향했다. 모래의 왕릉이 열려 있었다.`,`The allied army marched into the desert to find the road to the sky. The Tomb of Sands stood open.`),
+   nr(`이곳에는 천 년 전 신이 처음 판을 만들 때 쓰고 버린 말, 파라오가 잠들어 있었다. 신의 인장이 그를 깨웠다.`,`Here slept a piece the god had used and discarded when he first made the board — the Pharaoh. The god's seal had woken him.`),
+   sy('E','엠페러','Emperor',`마왕, 이 사막에서 짐과 같은 편에 서게 될 줄은 몰랐군.`,`Demon lord, I never thought I would stand on the same side as you in this desert.`),
+   sy('d','데몬','Demon',`나도 그렇다, 황제. 그러나 저 무덤 속 파라오는 우리 둘 다 적이라 여기는 모양이다.`,`Nor did I, emperor. But the pharaoh in that tomb seems to count us both as enemies.`),
+   sy('Ƥ','파라오','Pharaoh',`신이 나를 버렸다. 이제 새 판이 열린다니, 나도 말로 돌아가겠다. 너희를 짓밟고!`,`The god discarded me. Now that a new game opens, I will return to being a piece — by trampling you!`),
+   sy('E','엠페러','Emperor',`짐은 누구의 발판도 되지 않는다. 바운스, 백룡 — 모래를 걷어 내라.`,`I will be no one's stepping stone. Bounce, White Dragon — sweep the sand aside.`)],
+  post:[sy('d','데몬','Demon',`끝났군. 이 자도 말이었다. 버려진 말.`,`It is over. He was a piece too — a discarded one.`),
+   sy('E','엠페러','Emperor',`신은 버려진 말을 부활시켜 다시 쓰고 있었다. 이 판은 이번이 처음이 아니다.`,`The god was reviving discarded pieces to use them again. This is not the first board.`),
+   nr(`파라오의 마지막 말은 간단했다. “이번 판은 끝나지 않기를 바랐다.” 신의 진짜 두려움을 아는 자의 목소리였다.`,`The Pharaoh's last words were simple: “I hoped this game would never end.” The voice of one who knew the god's true fear.`),
+   nr(`사막 위로 계단이 나타났다. 하늘의 성소로 오르는 길이었다.`,`A staircase appeared above the desert — the road up to the sanctuary in the sky.`)]},
+/* 18 */ {ch:4,t:TR('신의 체스판','The Divine\'s Chessboard'),pov:'g',lv:3,me:'gmFRRBBNNPPPPPP',foe:'RRBBNNPPPPPPPP',new:['m','F'],
+  lore:TR('엠피레오의 가장 높은 층. 신은 처음으로 지상의 군단들이 계단을 오르는 모습을 내려다보고 있었어요.','The highest floor of Empyreo. For the first time the god watched the legions of the earth climbing his stairs.'),
+  tip:TR('마더의 보호 영역과 울프의 기동력으로 연합군 선봉을 막아 내세요.','Hold off the allied vanguard with Mother\'s protective zone and Wolf\'s mobility.'),
+  pre:[nr(`엠피레오의 가장 높은 층. 신은 처음으로 지상의 군단들이 계단을 오르는 모습을 내려다보고 있었다.`,`The highest floor of Empyreo. For the first time the god watched the legions of the earth climb his staircase.`),
+   nr(`이 판은 오래전부터 신이 혼자 두던 체스였다. 흑도 백도, 그 자신의 손으로 움직였다. 이제 말들이 스스로 움직이기 시작했다.`,`This board was a chess game the god had long played alone. Black and white, both moved by his own hand. Now the pieces had begun to move by themselves.`),
+   sy('g','갓','God',`그들이 올라온다. 판 바깥으로.`,`They are climbing. Out beyond the board.`),
+   sy('l','럭키','Lucky',`주군, 지금이라도 이 판을 접으시죠. 아직 말들은 위험하지 않습니다.`,`My lord, fold the board now, while the pieces are still not dangerous.`),
+   sy('g','갓','God',`접으면 끝이다. 나는 끝을 두려워한다. 말들이 판을 끝내기 전에 내가 끝내야 한다.`,`Folding it is the end. I fear the end. I must end it before the pieces do.`),
+   sy('m','마더','Mother',`어린 말들을 다치게 하지 마세요, 주군. 저들은 여전히 주군의 아이들입니다.`,`Do not hurt the young pieces, my lord. They are still your children.`),
+   sy('g','갓','God',`알고 있다. 그래서 더 아프다. 막아라. 방패가 되어라.`,`I know. That is why it hurts more. Hold them back. Be my shield.`)],
+  post:[sy('g','갓','God',`…방패가 뚫렸다.`,`…The shield has been pierced.`),
+   nr(`신의 근위대는 선봉을 막아 냈다. 그러나 선봉은 미끼였다. 본대는 이미 천상문 앞에 도달해 있었다.`,`The god's guard held the vanguard back. But the vanguard was a decoy: the main army had already reached the Heavenly Gate.`),
+   nr(`신은 처음으로 직접 판 위에 올라서야 한다는 것을 알았다. 말이 되지 못한 자의 마지막 한 수가 가까이 와 있었다.`,`For the first time the god understood he would have to step onto the board himself. The last move of one who could never be a piece was drawing near.`)]},
+/* 19 */ {ch:4,t:TR('마지막 군단','The Final Legion'),pov:'Ṗ',lv:2,me:'ṖRRBBNNUOĊPPP',foe:'qfffGGRRBPP',new:['U'],
+  lore:TR('천상문. 구름이 갈라지고 문이 열리자 신의 마지막 수호 군단이 나타났어요.','The Heavenly Gate. As the clouds parted and the gate opened, the god\'s last guardian legion appeared.'),
+  tip:TR('프로즌이 이동을 봉쇄하고 골렘이 길을 막아요. 크로스보우로 방패 너머를 노리세요.','Frozen locks movement and Golem blocks the road. Use Crossbow to reach past the shields.'),
+  pre:[nr(`천상문. 구름이 갈라지고 문이 열리자 신의 마지막 수호 군단이 나타났다. 얼음의 방패와 거인의 벽.`,`The Heavenly Gate. As the clouds parted and the gate opened, the god's last guardian legion appeared: shields of ice and walls of giants.`),
+   nr(`연합군의 선봉은 공화국의 대통령. 그는 왕도, 황제도, 군주도 아닌 평범한 사람이었기에 가장 먼저 문 앞에 섰다.`,`The allied vanguard was led by the republic's president. Being neither king, emperor nor lord, only an ordinary person, he was the first to stand before the gate.`),
+   sy('Ṗ','대통령','President',`투표로 정한 일은 아닙니다. 하지만 지금 이 순간, 이 문을 여는 데에는 제가 가장 적합합니다.`,`This was not decided by vote. But at this moment I am the best suited to open this gate.`),
+   sy('U','크로스보우 병사','Crossbow Soldier',`각하, 천사의 방패는 총알도 막습니다!`,`Mr. President, the angels' shields stop even bullets!`),
+   sy('Ṗ','대통령','President',`방패는 한 방향만 막습니다. 엄호! 라이너는 측면으로. 크로스보우, 위에서!`,`A shield only blocks one direction. Cover! Liners to the flank. Crossbows — from above!`),
+   sy('f','수호군 지휘관','Guardian Commander',`이 문을 넘는 자는 신의 판에서 지워진다!`,`Whoever crosses this gate is erased from the god's board!`)],
+  post:[sy('Ṗ','대통령','President',`문이 열립니다. 각하들께서 먼저 오르십시오.`,`The gate opens. Your Majesties, please go up first.`),
+   sy('K','킹','King',`대통령, 당신은?`,`President — and you?`),
+   sy('Ṗ','대통령','President',`저는 국민에게 돌아가 투표를 열겠습니다. 신이 어떤 결말을 맞이하든, 그 뒤의 세계를 정하는 건 투표여야 하니까요.`,`I will return to the people and open the polls. Whatever ending the god meets, it must be a vote that decides the world after it.`),
+   nr(`대통령은 문 밖에 남았다. 판 위에 서는 대신 판 바깥에서 판을 지키는 일을 택했다.`,`The president stayed outside the gate. Instead of standing on the board, he chose to guard the world beyond it.`)]},
+/* 20 */ {ch:5,t:TR('마지막 한 수','The Last Move'),pov:'K',lv:5,me:'QRRBBNNPPPPPPPP',foe:'gjwcsqRP',new:[],
+  lore:TR('천상의 성소 중앙. 흑백의 격자가 끝없이 펼쳐진 곳에서 왕과 신이 마주 섰어요.','At the center of the sanctuary. On an endless black-and-white lattice, the King and the god stood face to face.'),
+  tip:TR('마지막 전투예요. 신의 군대는 최강의 기물들로 이루어져 있어요. 기본 진형으로 맞서거나, 직접 군대를 짜서 도전하세요.','The final battle. The god\'s army is made of the strongest pieces. Face it in the classic formation or build your own army and challenge it.'),
+  pre:[nr(`천상의 성소 중앙. 흑백의 격자가 바닥에 끝없이 펼쳐진 곳에서 왕과 신이 마주 섰다.`,`The center of the sanctuary. On a floor of endless black and white squares, the King and the god stood face to face.`),
+   nr(`신은 오래전의 흑의 왕처럼 서 있었다. 그리고 왕은 천 년 전 백의 왕처럼 서 있었다. 모든 것이 처음 자리로 돌아와 있었다.`,`The god stood as the black King once had. The King stood as the white King had a thousand years ago. Everything had returned to where it began.`),
+   sy('g','갓','God',`왕이여. 한 판 더 두자. 내가 이기면 판을 다시 접겠다. 네가 이기면…`,`King. One more game. If I win, I fold the board again. If you win…`),
+   sy('K','킹','King',`내가 이기면 판은 말들의 것이다.`,`If I win, the board belongs to the pieces.`),
+   sy('g','갓','God',`좋다. 한 수 한 수가 마지막인 판이다.`,`Good. Every move of this game is a last move.`),
+   sy('K','킹','King',`기본으로 돌아간다. 폰은 한 칸씩, 비숍은 대각선, 룩은 직선. 그러나 이 판에서는 모두가 스스로 길을 고른다.`,`Back to basics. Pawns step forward, bishops run the diagonals, rooks hold the lines. But in this game, everyone chooses their own road.`)],
+  post:[sy('g','갓','God',`지는 것이 이렇게 가벼운 일이었나. 천 년 동안 두려워한 끝이 이렇게 고요하다니.`,`Is losing such a light thing? The end I feared for a thousand years is this quiet.`),
+   sy('K','킹','King',`끝이 아니다, 갓. 이번엔 다음 판을 우리가 정한다. 너도 함께.`,`It is not the end, God. This time we decide the next game together — you as well.`),
+   nr(`신은 처음으로 판 위에 내려섰다. 말이 되는 것이 아니라, 함께 두는 자로.`,`For the first time the god stepped down onto the board — not to become a piece, but to play alongside the others.`),
+   nr(`카이사 대륙의 흑백 격자가 걷혔다. 이제 땅은 체스판이 아니었다. 그러나 사람들은 오래도록 체스를 두었다. 이번엔 누구도 시키지 않았는데도.`,`The black-and-white lattice of Kaissa lifted. The land was no longer a chessboard. Yet people went on playing chess for a long time — this time, with no one telling them to.`),
+   nr(`— 끝 —  모든 기물이 열렸습니다.`,`— The End —  Every piece is now open to you.`)]}
 ];
+/* 세계관 사전: req = 이 스테이지를 클리어하면 열려요 (스포일러 방지) */
+const WORLD=[
+ {req:0,e:'👑',t:TR('카이사 대륙','The Continent of Kaissa'),x:TR('체스판처럼 흑과 백으로 나뉜 대륙이에요. 천 년 동안 백의 왕국과 흑의 왕국이 같은 진형으로 맞서 왔어요. 이 땅에서는 모든 군대가 폰·룩·나이트·비숍·퀸·킹의 진형에서 시작한다고 전해져요.','A continent divided like a chessboard into black and white. For a thousand years the white and black kingdoms faced each other in the same formation. Every army here is said to begin from the formation of pawns, rooks, knights, bishops, queen and king.')},
+ {req:1,e:'❄️',t:TR('노르디아 제국 (엠페러)','The Nordic Empire (Emperor)'),x:TR('북쪽 설원의 제국이에요. 황제는 화살이 닿지 않는 곳에서 지휘하는 전통이 있고, 창기병과 기병이 주력이에요. 흑백의 전쟁에는 한 번도 끼어들지 않았어요.','An empire of the northern snows. Its emperor traditionally commands where arrows cannot reach, and lancers and cavalry form its core. It never took part in the black-and-white war.')},
+ {req:2,e:'🔥',t:TR('균열과 마계 (데몬)','The Rift and the Demon Realm (Demon)'),x:TR('이 땅이 체스판이 되기 전부터 있었다는 틈 너머의 세계예요. 군주 데몬은 적을 쓰러뜨릴수록 악마화하고, 흑룡과 루시퍼가 그를 섬겨요.','A world beyond a crack said to predate the chessboard itself. Its lord, the Demon, grows more demonic with each kill, served by black dragons and Lucifer.')},
+ {req:3,e:'🗳️',t:TR('베스트리아 공화국 (대통령)','The Republic of Westria (President)'),x:TR('투표로 세워진 서쪽의 나라예요. 대륙에서 가장 늦게 총을 든 대신 가장 빠르게 기술을 쌓았어요. 대통령은 국민을 지키기 위해 병사를 엄호해요.','A western nation founded by vote. The last to take up firearms, it has been the fastest to build technology. Its president shields soldiers to protect the people.')},
+ {req:4,e:'🧿',t:TR('세 개의 인장','The Three Seals'),x:TR('뿔, 날개, 톱니바퀴. 서로 무관한 군단이 같은 손이 만든 인장을 지니고 있었어요. 인장의 정체는 아직 아무도 몰라요.','A horn, wings and a cogwheel. Unrelated forces carried seals made by one hand. No one yet knows what the seals truly are.')},
+ {req:9,e:'☁️',t:TR('엠피레오와 갓','Empyreo and God'),x:TR('구름 위의 성소예요. 판을 만든 대가로 판 위에 올라설 수 없게 된 신이 홀로 체스를 두던 곳이에요. 사도로는 프린세스와 럭키가 있어요.','A sanctuary above the clouds, where the god who made the board — and by doing so can never stand on it — played chess alone. His apostles include Princess and Lucky.')},
+ {req:10,e:'🏛️',t:TR('스테일메이트','Stalemate'),x:TR('누구도 이기지 못하는 중립 도시예요. 대륙의 지도자들이 모여 회담을 여는 유일한 장소지만 번번이 파국으로 끝나요.','A neutral city where no one can win. The only place the continent\'s leaders can meet to talk — and talks there usually end in disaster.')},
+ {req:12,e:'⛈️',t:TR('신의 체스 시계','The God\'s Chess Clock'),x:TR('판을 좁혀 오는 푸른 폭풍은 정해진 수가 지나면 판 전체를 삼켜요. 신이 지루해지기 전에 판을 끝내기 위한 제한 시간이에요.','The blue storm that narrows the board swallows everything after a set number of moves — a time limit to end the game before the god grows bored.')},
+ {req:17,e:'🏜️',t:TR('모래의 왕릉','The Tomb of Sands'),x:TR('신이 처음 판을 만들 때 쓰고 버린 말들이 잠든 곳이에요. 인장은 그들을 깨워 다시 쓰고 있었어요.','Where the pieces the god used and discarded at the first board sleep. The seals were waking them to use them again.')},
+ {req:20,e:'🌅',t:TR('새로운 판','A New Game'),x:TR('신과 왕이 마주 앉아 다음 판을 함께 정하기로 했어요. 이제 모든 기물이 열려 있고, 판은 말들의 것이에요.','The god and the King sat down together to decide the next game. Every piece is now open, and the board belongs to the pieces.')}
+];
+/* ===== 스토리 모드 로직 (1.4.4) — 데이터는 story_data.js ===== */
+const stRng=s=>{s>>>=0;return()=>{s=(s+0x6D2B79F5)>>>0;let t=s;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}};
 $('#stH').textContent=TR('📖 스토리 모드','📖 Story Mode');$('#homeS').textContent=TR('🏠 메뉴로','🏠 Menu');
 $('#goStory').innerHTML=`<span class="sbi_"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="stgd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3a8"/><stop offset="1" stop-color="#ffb300"/></linearGradient></defs><path d="M24 17c-4.5-3.2-11-4.2-18-3.2v24.4c7-1 13.5 0 18 3.2 4.5-3.2 11-4.2 18-3.2V13.800c-7-1-13.500 0-18 3.200z" fill="#fff" fill-opacity=".95"/><path d="M24 17v24.400" stroke="#7b2ff7" stroke-width="2" fill="none"/><path d="M10 20.500c4-.7 9 .2 11 1.800M10 26c4-.7 9 .2 11 1.800M38 20.500c-4-.7-9 .2-11 1.800M38 26c-4-.7-9 .2-11 1.800" stroke="#b9a3f5" stroke-width="1.600" fill="none" stroke-linecap="round"/><path d="M14 11.500l3.800 3.200L24 6l6.200 8.700 3.800-3.200-1.800 8.300H15.800z" fill="url(#stgd)" stroke="#a15c00" stroke-width="1.200" stroke-linejoin="round"/></svg></span><span class="sbt"><b>${TR('스토리 모드','Story Mode')}</b><small>${TR('왕의 승전 이후, 각지에서 일어난 군단들의 이야기','Tales of the legions that rose after the King\'s victory')}</small></span><span class="sbc">›</span>`;
 $('#sbGo').textContent=TR('▶ 출격 (추천 군대·배치)','▶ Deploy (suggested army)');$('#sbEd').textContent=TR('🛠 편성·배치 조정','🛠 Edit army & placement');$('#sbNo').textContent=TR('닫기','Close');
@@ -4932,12 +5182,13 @@ const stOpen=i=>{const s=STAGES[i-1];return !!s&&!s.soon&&(i===1||stDone(i-1))};
 function stShort(t){return (DEF[t].d||'').split(' · ')[0]}
 function stIcons(l,cls){return l.split('').map(t=>`<span class="sti" title="${DEF[t].n}">${icon(t)}</span>`).join('')}
 function drawStory(){
- const sv=stSave(),n=Object.keys(sv.c).length;let h=`<div class="card stin"><b>${TR('왕의 승전 이후, 각지에서 군단이 일어났다.','After the King\'s victory, legions rose across the land.')}</b><p class="note">${TR('킹 · 엠페러 · 데몬 · 대통령 · 갓, 다섯 시점으로 이어지는 군상극','An ensemble tale told through the King, Emperor, Demon, President and God')}</p><div class="stpb"><i style="width:${n/20*100}%"></i></div><p class="note">${TR('클리어','Cleared')} ${n} / 20</p></div>`;
+ const sv=stSave(),n=Object.keys(sv.c).length,un=[...unl()].length;let h=`<div class="card stin"><b>${TR('왕의 승전 이후, 각지에서 군단이 일어났다.','After the King\'s victory, legions rose across the land.')}</b><p class="note">${TR('킹 · 엠페러 · 데몬 · 대통령 · 갓, 다섯 시점으로 이어지는 군상극','An ensemble tale told through the King, Emperor, Demon, President and God')}</p><div class="stpb"><i style="width:${n/20*100}%"></i></div><p class="note">${TR('클리어','Cleared')} ${n} / 20 · ${TR('해금 기물','Unlocked')} ${un} / ${TYPES.length}</p><div class="row2 stbt"><button id="stWd">📚 ${TR('세계관','World')}</button><button id="stBk">💾 ${TR('진행도 백업','Backup')}</button></div></div>`;
  let last=-1;
  STAGES.forEach((s,k)=>{const i=k+1;if(s.ch!==last){if(last>=0)h+='</div></div>';last=s.ch;h+=`<div class="stc"><h3 class="stch">${STCH[s.ch]}</h3><div class="strow">`}
   const op=stOpen(i),dn=stDone(i),st=s.soon?'🔒':dn?'✔':op?'▶':'🔒';
   h+=`<button class="stg ${dn?'dn':''} ${op&&!dn?'nw':''}" data-i="${i}" ${op?'':'disabled'}><span class="no">${String(i).padStart(2,'0')}</span><span class="sts">${st}</span><span class="pv">${icon(s.pov)}</span><span class="tt">${op||dn?s.t:'???'}<small>${s.soon?TR('준비 중','Coming soon'):SCH[s.pov]+(dn?' · '+sv.c[i]+TR('수','pl'):'')}</small></span></button>`});
  h+='</div></div>';$('#stList').innerHTML=h;
+ $('#stWd').onclick=()=>{sfx('place');openWorld()};$('#stBk').onclick=()=>{sfx('place');openBackup()};
  $$('#stList .strow').forEach(r=>{const c=r.querySelector('.stg.nw');if(c)r.scrollLeft=Math.max(0,c.offsetLeft-r.offsetLeft-8)})}
 function stList(){drawStory();show('s6');window.scrollTo(0,0)}
 $('#stList').onclick=e=>{const b=e.target.closest('.stg');if(!b||b.disabled)return;sfx('place');stBrief(+b.dataset.i)};
@@ -4947,7 +5198,7 @@ let stCur=0,stD=null;
 function stBrief(i){stCur=i;const s=STAGES[i-1];
  $('#sbT').textContent=`${String(i).padStart(2,'0')} · ${s.t}`;$('#sbC').textContent=STCH[s.ch];
  const nw=(s.new||[]).map(t=>`<div class="snw"><i class="ib">${icon(t)}</i><div><b>${DEF[t].n}</b><small>${stShort(t)}</small></div></div>`).join('');
- $('#sbB').innerHTML=`<div class="sbl"><span>${TR('시점','POV')}</span><b>${icon(s.pov)} ${SCH[s.pov]}</b><span class="sbr">${TR('AI','AI')}</span><b>${LVN[s.lv]}</b></div><div class="sbl"><span>${TR('내 군대','My army')}</span><div class="sbi">${stIcons(s.me)}</div></div><div class="sbl"><span>${TR('적 군대','Enemy')}</span><div class="sbi">${stIcons(s.foe)}</div></div>${nw?`<h4 class="ph">${TR('이번 스테이지의 기물','Pieces in this stage')}</h4><div class="snws">${nw}</div>`:''}<p class="note stip">💡 ${s.tip}</p>`;
+ $('#sbB').innerHTML=`<p class="lore">${s.lore}</p><div class="sbl"><span>${TR('시점','POV')}</span><b>${icon(s.pov)} ${SCH[s.pov]}</b><span class="sbr">${TR('AI','AI')}</span><b>${LVN[s.lv]}</b></div><div class="sbl"><span>${TR('내 군대','My army')}</span><div class="sbi">${stIcons(s.me)}</div></div><div class="sbl"><span>${TR('적 군대','Enemy')}</span><div class="sbi">${stIcons(s.foe)}</div></div>${nw?`<h4 class="ph">${TR('클리어하면 열리는 기물','Unlocked on clear')}</h4><div class="snws">${nw}</div>`:''}<p class="note stip">💡 ${s.tip}</p>`;
  openM('mSb')}
 function stDlg(lines,done){stD={l:lines,i:0,done};openM('mSt');stLine()}
 function stLine(){const d=stD,ln=d.l[d.i];
@@ -4969,16 +5220,42 @@ function stStart(i,edit){const s=STAGES[i-1],meL=s.me.split(''),foeL=s.foe.split
  if(edit){queue=['w'];setArmy(meL);SAVED.w={army:Object.assign({},army),pb:[]};G.ret='sel';pendPl={k:akey(meL),pl:mePl};nextSetup();return}
  mePl.forEach(([a,t])=>startBoard[a]=BC.newPiece(t,'w'));foePl.forEach(([a,t])=>startBoard[a]=BC.newPiece(t,'b'));
  startGame()}
-function stEnd(w,win){const i=G.story.i,s=STAGES[i-1];
+function stEnd(w,win){const i=G.story.i,s=STAGES[i-1];let newU=[];
  const show_=()=>{const nx=i<20&&STAGES[i]&&!STAGES[i].soon;
   $('#srEm').textContent=win?'🏆':w?'💀':'🤝';$('#srT').textContent=win?TR('스테이지 클리어!','Stage Clear!'):w?TR('패배…','Defeat…'):TR('무승부','Draw');
   $('#srD').textContent=win?`${String(i).padStart(2,'0')} · ${s.t} — ${G.log.length}${TR('수','pl')}`:TR('다시 도전하거나, 군대를 바꿔 볼 수 있어요.','Try again, or change your army.');
+  $('#srU').innerHTML=win&&newU.length?`<h4 class="ph">🔓 ${TR('새 기물 해금!','New pieces unlocked!')}</h4><div class="snws">${newU.map(t=>`<div class="snw"><i class="ib">${icon(t)}</i><div><b>${DEF[t].n}</b><small>${stShort(t)}</small></div></div>`).join('')}</div>`:'';
   $('#srNx').style.display=win&&nx?'':'none';$('#srNx').textContent=TR('다음 스테이지 ▶','Next Stage ▶');
   $('#srRe').textContent=win?TR('다시 하기','Replay'):TR('다시 도전','Retry');openM('mSr')};
- if(win){const sv=stSave();if(!sv.c[i]||G.log.length<sv.c[i])sv.c[i]=G.log.length;store.set('story',sv);stDlg(s.post,show_)}else show_()}
+ if(win){const sv=stSave(),was=new Set(unl());const pl_=Math.max(1,G.log.length);if(!sv.c[i]||pl_<sv.c[i])sv.c[i]=pl_;store.set('story',sv);UNL=null;newU=(s.new||[]).filter(t=>!was.has(t));stDlg(s.post,show_)}else show_()}
 $('#srNx').onclick=()=>{closeM('mSr');stBrief(stCur=G.story.i+1)};
 $('#srRe').onclick=()=>{closeM('mSr');cancelAI();startGame()};
 $('#srLs').onclick=()=>{closeM('mSr');cancelAI();G.over=true;stList()};
+
+/* ---- 세계관 보기 ---- */
+function openWorld(){
+ $('#wdB').innerHTML=WORLD.map(w=>{const ok=!w.req||stDone(w.req);return ok?`<div class="wdi"><b>${w.e} ${w.t}</b><p>${w.x}</p></div>`:`<div class="wdi lkd"><b>🔒 ???</b><p>${TR('스테이지 '+w.req+' 클리어 시 공개','Revealed after clearing stage '+w.req)}</p></div>`}).join('');
+ openM('mWd')}
+$('#wdNo').onclick=()=>closeM('mWd');$('#wdT').textContent=TR('📚 세계관','📚 World');$('#wdNo').textContent=TR('닫기','Close');
+/* ---- 진행도 백업 ---- */
+const bkSum=j=>{let k=0;for(let i=0;i<j.length;i++)k=(k*31+j.charCodeAt(i))>>>0;return k.toString(36)};
+const bkEnc=()=>{const j=JSON.stringify({v:1,c:stSave().c});return 'BC1.'+btoa(unescape(encodeURIComponent(j)))+'.'+bkSum(j)};
+function bkDec(t){const m=(t||'').match(/BC1\.([A-Za-z0-9+\/=]+)\.([0-9a-z]+)/);if(!m)return null;try{const j=decodeURIComponent(escape(atob(m[1])));if(bkSum(j)!==m[2])return null;const o=JSON.parse(j);if(!o||o.v!==1||!o.c||typeof o.c!=='object')return null;return o}catch(e){return null}}
+function openBackup(){$('#bkT').value=bkEnc();$('#bkM').textContent='';openM('mBk')}
+function bkApply(txt){const o=bkDec(txt);if(!o){$('#bkM').textContent=TR('올바른 백업이 아니에요. 코드가 잘렸거나 바뀌었는지 확인해 주세요.','That is not a valid backup. Check that the code is complete.');return}
+ const n={c:Object.assign({},stSave().c)};let add=0;for(const k of Object.keys(o.c)){const i=+k,p=+o.c[k];if(!(i>=1&&i<=20)||!(p>0))continue;if(!n.c[i]){add++;n.c[i]=p}else if(p<n.c[i])n.c[i]=p}
+ store.set('story',n);UNL=null;$('#bkT').value=bkEnc();$('#bkM').textContent=TR(`불러왔어요! 새로 열린 스테이지 ${add}개 · 현재 ${Object.keys(n.c).length}/20 클리어`,`Restored! ${add} new stages · now ${Object.keys(n.c).length}/20 cleared`);toast(TR('진행도를 불러왔어요','Progress restored'));if($('#s6').classList.contains('on'))drawStory()}
+const bkCopyFail=()=>toast(TR('길게 눌러 직접 복사해 주세요','Long-press to copy it manually'));
+$('#bkCp').onclick=()=>{const t=$('#bkT');t.value=bkEnc();t.select();const f=()=>toast(TR('코드를 복사했어요','Code copied'));let ok=false;try{ok=document.execCommand('copy')}catch(e){}
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t.value).then(f,()=>ok?f():bkCopyFail());else ok?f():bkCopyFail()};
+$('#bkSv').onclick=()=>{try{const b=new Blob([bkEnc()],{type:'text/plain'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='battlechess_story_backup.txt';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);$('#bkM').textContent=TR('파일로 저장했어요','Saved as a file')}catch(e){$('#bkM').textContent=TR('파일 저장에 실패했어요. 코드를 복사해 주세요','Could not save a file. Copy the code instead')}};
+$('#bkIm').onclick=()=>bkApply($('#bkT').value);
+$('#bkFl').onclick=()=>$('#bkF').click();
+$('#bkF').onchange=e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{$('#bkT').value=String(r.result||'').trim();bkApply($('#bkT').value)};r.readAsText(f);e.target.value=''};
+$('#bkNo').onclick=()=>closeM('mBk');
+$('#bkH').textContent=TR('💾 진행도 백업','💾 Progress Backup');
+$('#bkD').textContent=TR('스토리 클리어 기록(해금된 기물 포함)을 코드나 파일로 저장해 두세요. 다른 기기에서는 코드를 붙여 넣거나 파일을 불러오면 이어서 할 수 있어요. 불러오기는 기존 기록과 합쳐져요.','Save your story clears (including unlocked pieces) as a code or a file. On another device, paste the code or load the file to continue. Restoring merges with existing progress.');
+$('#bkCp').textContent=TR('📋 코드 복사','📋 Copy code');$('#bkSv').textContent=TR('📁 파일로 저장','📁 Save file');$('#bkIm').textContent=TR('⬇ 코드로 불러오기','⬇ Restore from code');$('#bkFl').textContent=TR('📂 파일에서 불러오기','📂 Restore from file');$('#bkNo').textContent=TR('닫기','Close');
 
 /*DBG*/
 })();
