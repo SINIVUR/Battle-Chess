@@ -847,7 +847,7 @@ body.hc .dngtx{color:#000;border-color:#000}
    <button id="goLang" type="button" aria-label="Language"><i>🌐</i><small>EN/한</small></button>
   </div>
  </div>
- <div class="ver">VERSION 1.5.7</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="ver">VERSION 1.5.8</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 <div class="modal" id="mLearn" role="dialog" aria-modal="true"><div class="mc stmc"><button class="x" data-close>닫기</button><h2>🎓 배우기</h2>
  <button class="lrn" id="goTut" type="button"><i>📖</i><span><b>튜토리얼</b><small>기본 규칙을 차근차근</small></span></button>
@@ -4530,9 +4530,11 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.5.7';
+const APP_VER='1.5.8';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.5.8',TR('난이도 낮추기 즉시 적용','Easier Mode Applies At Once'),[
+  TR('🐞 스토리에서 "난이도 낮추기"를 누른 뒤 바로 "다시 도전"해도 상대가 한 단계 약해지도록 고쳤어요','🐞 Lowering the AI level in Story now takes effect on the very next Retry')]],
  ['1.5.7',TR('위험 경고','Danger Warnings'),[
   TR('⚠ 기물을 고르면, 도착했을 때 상대에게 잡힐 수 있는 칸에 작은 경고 표시와 짧은 안내가 떠요. 공짜로 내주는 칸은 빨간색이에요 (설정에서 끌 수 있어요)','⚠ When you pick a piece, squares where it could be captured show a small warning and a short note. Squares where you would lose it for free are red (can be turned off in Settings)')]],
  ['1.5.6',TR('연습장 충돌 수정 · 화면 읽기 · 설명 카드','Practice Fix · Screen Reader · Info Card'),[
@@ -6107,7 +6109,7 @@ function stEnd(w,win){const i=G.story.i,s=STAGES[i-1],ez=G.story.ez;let newU=[],
   if(fl[i]>=3)rescue=`<div class="stcr rsc"><b>🔰 ${TR('막히셨나요? 도움을 받아 보세요','Stuck? Get some help')}</b><button id="rsEz" ${store.get('stez',{})[i]?'disabled':''}>${store.get('stez',{})[i]?TR('✔ 난이도 낮추기 적용 중','✔ Easier mode on'):TR('AI 난이도 한 단계 낮추기 (별 1개만)','Lower AI level by 1 (1 star only)')}</button><button id="rsHt" ${U.hint?'disabled':''}>${U.hint?TR('✔ 좋은 수 표시 켜짐','✔ Hints on'):TR('💡 좋은 수 표시 켜기','💡 Turn on move hints')}</button><button id="rsUd" ${store.get('stud',{})[i]?'disabled':''}>${store.get('stud',{})[i]?TR('✔ 무르기권을 받았어요','✔ Tickets received'):TR('↩ 무르기권 3장 받기 (스테이지당 1번)','↩ Get 3 Undo tickets (once per stage)')}</button></div>`;
   show_()}}
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('#rsEz,#rsHt,#rsUd');if(!b||!G||!G.story)return;const i=G.story.i,S=statGet();
- if(b.id==='rsEz'){const z=store.get('stez',{});z[i]=1;store.set('stez',z);toast(TR('난이도를 낮췄어요. 다시 도전해 보세요!','Difficulty lowered. Try again!'))}
+ if(b.id==='rsEz'){const z=store.get('stez',{});z[i]=1;store.set('stez',z);G.story.ez=true;G.lv=Math.max(0,STAGES[i-1].lv-1);toast(TR('난이도를 낮췄어요. 다시 도전해 보세요!','Difficulty lowered. Try again!'))}
  else if(b.id==='rsHt'){U.hint=true;store.set('hint',true);toast(TR('좋은 수 표시를 켰어요','Move hints on'))}
  else{const d=store.get('stud',{});d[i]=1;store.set('stud',d);const sp=shopGet();sp.ud+=3;store.set('shop',sp);toast(TR('무르기권 3장을 받았어요','Got 3 Undo tickets'))}
  S.rs++;store.set('stats',S);b.disabled=true;MH.chk()});
