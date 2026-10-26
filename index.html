@@ -847,7 +847,7 @@ body.hc .dngtx{color:#000;border-color:#000}
    <button id="goLang" type="button" aria-label="Language"><i>🌐</i><small>EN/한</small></button>
   </div>
  </div>
- <div class="ver">VERSION 1.5.8</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="ver">VERSION 1.5.9</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 <div class="modal" id="mLearn" role="dialog" aria-modal="true"><div class="mc stmc"><button class="x" data-close>닫기</button><h2>🎓 배우기</h2>
  <button class="lrn" id="goTut" type="button"><i>📖</i><span><b>튜토리얼</b><small>기본 규칙을 차근차근</small></span></button>
@@ -1916,7 +1916,7 @@ function nega(b,s,d,alpha,beta,ply){
 }
 // 레벨별 설정
 const LVL=[
- {kind:'shallow',depth:2,noise:1.6,q:false,time:500,know:.6,sp:.15},
+ {kind:'shallow',depth:2,noise:7,blun:.45,q:false,time:500,know:.6,sp:.15},
  {kind:'shallow',depth:2,noise:.9,q:true,time:700,know:.9,sk:.3,sp:.4},
  {kind:'shallow',depth:2,noise:.5,q:true,time:900,know:1,sk:.6,sp:.7},
  {kind:'deep',maxDepth:3,noise:.3,fullRoot:true,time:1100,know:1,sk:.8,s1:1,s4:2},
@@ -1947,6 +1947,7 @@ function chooseMove(b0,s,lv,opt){
  }
  // 바로 킹을 잡을 수 있으면 (중하 이상) 무조건 잡는다
  if(lv>=2){for(const m of ms){if(m[2]!==5){const tv=tacticalVal(b,m);if(tv>=1e4)return m}}}
+ if(cfg.blun&&rng()<cfg.blun)return ms[0];   // 입문용: 가끔 아무 수나 둔다
  if(cfg.kind==='random')return ms[0];
  if(cfg.kind==='greedy'){
   let bestv=0,bm=null;for(const m of ms){const v=tacticalVal(b,m);if(v>bestv){bestv=v;bm=m}}
@@ -2077,15 +2078,16 @@ function placeScoreOld(res,s){
   else if(t==='D'||t==='W'){sc+=.2*(3.5-cd)}
  }
  return sc}
-function aiPlace(types,s,rng,lv){
+function aiPlace(types,s,rng,lv){const r=aiPlace0(types,s,rng,lv,false);return r||aiPlace0(types,s,rng,lv,true)}
+function aiPlace0(types,s,rng,lv,relax){
  // types: 킹/엠페러 제외 기물 목록 + (킹 계열이 있으면 포함). 반환: [index,type] 목록
  const tl=types.slice();const kcl=tl.find(x=>x==='E'||x==='g'||x==='d'||x==='Ṗ')||null;
  const sqs=[];for(const r of zone(s))for(let c=0;c<8;c++)sqs.push(r*8+c);
  const tries=lv>=3?(lv>=5?400:150):1;let best=null,bs=-1e9;
  for(let tr=0;tr<400&&(best===null||tr<tries);tr++){
   const free=shuffle(sqs.slice(),rng);const res=[];let ok=true;
-  const ord=[(kcl||'K')].concat(tl.filter(t=>t!==kcl)).sort((x,y)=>{const a=(x==='D'||x==='W')?0:DEF[x].p.length===1?1:2,b2=(y==='D'||y==='W')?0:DEF[y].p.length===1?1:2;return a-b2});
-  for(const t of ord){const j=free.findIndex(i=>okSq(t,s,i)&&(!(t===kcl||t==='K')||(i>>3)===backRow(s)));if(j<0){ok=false;break}res.push([free[j],t]);free.splice(j,1)}
+  const ord=(relax&&kcl&&kcl!=='K'?tl.filter(t=>t!==kcl).concat([kcl]):[(kcl||'K')].concat(tl.filter(t=>t!==kcl))).sort((x,y)=>{const a=(x==='D'||x==='W')?0:DEF[x].p.length===1?1:2,b2=(y==='D'||y==='W')?0:DEF[y].p.length===1?1:2;return a-b2});
+  for(const t of ord){const j=free.findIndex(i=>okSq(t,s,i)&&((relax&&t===kcl&&t!=='K')||!(t===kcl||t==='K')||(i>>3)===backRow(s)));if(j<0){ok=false;break}res.push([free[j],t]);free.splice(j,1)}
   if(!ok)continue;
   const v=tries>1?placeScore(res,s):0;if(v>bs){bs=v;best=res}
  }
@@ -4097,7 +4099,7 @@ function applyPf(){document.body.classList.toggle('rm',!!PF.rm);document.body.cl
 function applyBv(){try{if(tg)tg.gain.value=.9*bv;if(mg)mg.gain.value=.3*bv}catch(e){}}
 function swRow(id,t,d,on){return `<div class="setr"><label for="${id}"><b>${t}</b><span class="d">${d}</span></label><button class="sw" id="${id}" role="switch" aria-label="${t}" aria-checked="${on}"></button></div>`}
 function buildSet(){$('#setBody').innerHTML=swRow('swSfx',TR('효과음','Sound effects'),TR('이동·잡기·스킬 소리','Move, capture and skill sounds'),sfxOn)+swRow('swBgm',TR('배경음악','Music'),'',music)+TR(`<div class="setr"><label for="bvR"><b>배경음악 크기 <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">기본 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="배경음악 크기"></div>`,`<div class="setr"><label for="bvR"><b>Music volume <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">Default 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="Music volume"></div>`)+swRow('swHint',TR('좋은 수 표시','Best-move hints'),TR('체스 초보를 위한 추천 수와 체크 안내 (대국 중에도 바꿀 수 있습니다)','Suggested moves and check warnings for chess beginners (can also be changed mid-game)'),!!U.hint)+swRow('swRm',TR('애니메이션 줄이기','Reduce animation'),TR('화면 효과와 움직임을 최소화합니다','Minimizes visual effects and motion'),!!PF.rm)+swRow('swGate',TR('기물 해금 제한','Piece unlock limit'),TR('스토리 모드를 클리어해야 기물이 열려요. 끄면 모든 기물을 바로 쓸 수 있어요','Pieces unlock as you clear Story Mode. Turn off to use every piece right away'),gateOn())+TR(`<div class="setr"><div><b>스토리 진행도 백업</b><span class="d">코드·파일로 저장하고 불러올 수 있어요</span></div><button id="swBk">백업</button></div>`,`<div class="setr"><div><b>Story progress backup</b><span class="d">Save and restore as a code or file</span></div><button id="swBk">Backup</button></div>`)+swRow('swFxs',TR('스킬 연출 간단히','Simple skill effects'),TR('화면이 어두워지거나 큰 글자가 뜨지 않고 가볍게 보여줍니다','No screen dimming or big titles — lighter effects'),!!PF.fxs)+swRow('swWarn',TR('위험 경고','Danger warnings'),TR('기물을 고르면 상대에게 잡힐 수 있는 도착 칸에 ⚠ 표시와 짧은 안내를 보여줘요 (초보에게 추천)','When you pick a piece, squares where it could be captured get a ⚠ and a short note (great for beginners)'),!!PF.warn)+swRow('swVib',TR('진동 효과','Vibration'),TR('이동·잡기·스킬·폭발 등 효과마다 다른 진동 (진동을 지원하는 기기에서만 동작)','Distinct vibration for moves, captures, skills and blasts (on devices that support it)'),!!PF.vib)+swRow('swBig',TR('글자 크게','Larger text'),TR('대사·안내·로그 글자를 키웁니다','Enlarges dialogue, hints and log text'),!!PF.big)+swRow('swHc',TR('고대비 모드','High contrast'),TR('테두리와 글자를 더 진하게, 포커스 표시를 더 굵게','Bolder borders, darker text and a thicker focus ring'),!!PF.hc)
- +TR(`<div class="setr"><div><b>저장 데이터 삭제</b><span class="d">설정과 내 프리셋을 모두 지웁니다</span></div><button id="swClr">삭제</button></div>${$('#s0').classList.contains('on')?'':TR('<div class="setr"><div><b>메인 메뉴로 돌아가기</b><span class="d">지금 화면을 나가 처음 화면으로 이동합니다</span></div><button id="swHome">🏠 메뉴로</button></div>','<div class="setr"><div><b>Back to the main menu</b><span class="d">Leave this screen and go to the start screen</span></div><button id="swHome">🏠 Menu</button></div>')}<p class="note" style="text-align:center;margin-top:10px">배틀체스 · VERSION ${APP_VER}</p>`,`<div class="setr"><div><b>Delete saved data</b><span class="d">Erases your settings and all your presets</span></div><button id="swClr">Delete</button></div>${$('#s0').classList.contains('on')?'':TR('<div class="setr"><div><b>메인 메뉴로 돌아가기</b><span class="d">지금 화면을 나가 처음 화면으로 이동합니다</span></div><button id="swHome">🏠 메뉴로</button></div>','<div class="setr"><div><b>Back to the main menu</b><span class="d">Leave this screen and go to the start screen</span></div><button id="swHome">🏠 Menu</button></div>')}<p class="note" style="text-align:center;margin-top:10px">Battle Chess · VERSION ${APP_VER}</p>`);
+ +TR(`<div class="setr"><div><b>저장 데이터 삭제</b><span class="d">진행도·코인·구매품·업적·기록·설정·프리셋을 모두 지웁니다</span></div><button id="swClr">삭제</button></div>${$('#s0').classList.contains('on')?'':TR('<div class="setr"><div><b>메인 메뉴로 돌아가기</b><span class="d">지금 화면을 나가 처음 화면으로 이동합니다</span></div><button id="swHome">🏠 메뉴로</button></div>','<div class="setr"><div><b>Back to the main menu</b><span class="d">Leave this screen and go to the start screen</span></div><button id="swHome">🏠 Menu</button></div>')}<p class="note" style="text-align:center;margin-top:10px">배틀체스 · VERSION ${APP_VER}</p>`,`<div class="setr"><div><b>Delete saved data</b><span class="d">Erases progress, coins, purchases, records, settings and presets</span></div><button id="swClr">Delete</button></div>${$('#s0').classList.contains('on')?'':TR('<div class="setr"><div><b>메인 메뉴로 돌아가기</b><span class="d">지금 화면을 나가 처음 화면으로 이동합니다</span></div><button id="swHome">🏠 메뉴로</button></div>','<div class="setr"><div><b>Back to the main menu</b><span class="d">Leave this screen and go to the start screen</span></div><button id="swHome">🏠 Menu</button></div>')}<p class="note" style="text-align:center;margin-top:10px">Battle Chess · VERSION ${APP_VER}</p>`);
  {const hb=$('#swHome');if(hb)hb.onclick=()=>{const inGame=G&&G.b&&!G.over&&$('#s4').classList.contains('on'),inNet=inGame&&G.net;ask(TR('메뉴로 돌아가기','Back to Main Menu'),inNet?TR('온라인 대전 중에 나가면 항복(패배) 처리됩니다. 나갈까요?','If you leave during an online game, it counts as a resignation (loss). Leave anyway?'):inGame?TR('진행 중인 게임이 종료됩니다. 메인 메뉴로 돌아갈까요?','The game in progress will end. Return to the main menu?'):TR('지금까지 고른 내용은 저장되지 않습니다. 메인 메뉴로 돌아갈까요?','Everything you picked so far will not be saved. Return to the main menu?'),()=>{closeM('mSet');if(G)G.mk=false;sfx('rm');toHome()})}}
  const tg=(id,fn)=>$('#'+id).onclick=()=>{fn();buildSet()};
  {const r=$('#bvR');r.oninput=()=>{bv=r.value/100;$('#bvP').textContent=r.value+'%';applyBv()};r.onchange=()=>store.set('bv',bv)}
@@ -4105,7 +4107,7 @@ function buildSet(){$('#setBody').innerHTML=swRow('swSfx',TR('효과음','Sound 
  tg('swHint',()=>{U.hint=!U.hint;store.set('hint',U.hint);if(G.b&&$('#s4').classList.contains('on')){G.hintK=null;G.hint=null;draw(G.over?$('#st').textContent:undefined)}});
  tg('swGate',()=>{store.set('gate',!gateOn());UNL=null});$('#swBk').onclick=()=>{closeM('mSet');openBackup()};
  tg('swRm',()=>{PF.rm=!PF.rm;store.set('rm',PF.rm);applyPf()});tg('swFxs',()=>{PF.fxs=!PF.fxs;store.set('fxs',PF.fxs)});tg('swWarn',()=>{PF.warn=!PF.warn;store.set('warn',PF.warn);if(G.b&&$('#s4').classList.contains('on'))draw(G.over?$('#st').textContent:undefined)});tg('swVib',()=>{PF.vib=!PF.vib;store.set('vib',PF.vib);if(PF.vib)VB('',[40,30,60])});tg('swBig',()=>{PF.big=!PF.big;store.set('big',PF.big);applyPf()});tg('swHc',()=>{PF.hc=!PF.hc;store.set('hc',PF.hc);applyPf()});
- $('#swClr').onclick=()=>ask(TR('저장 데이터 삭제','Delete saved data'),TR('설정과 내 프리셋이 모두 삭제됩니다. 계속할까요?','Your settings and all presets will be deleted. Continue?'),()=>{try{Object.keys(localStorage).filter(k=>k.startsWith('bc_')).forEach(k=>localStorage.removeItem(k))}catch(e){}myPre=[];PF.rm=false;applyPf();renderMyPre();buildSet();toast(TR('삭제했습니다','Deleted'))})}
+ $('#swClr').onclick=()=>ask(TR('저장 데이터 삭제','Delete saved data'),TR('스토리 진행도·코인·구매품·업적·리플레이·랭크·설정·내 프리셋이 모두 삭제되고 되돌릴 수 없어요. 먼저 스토리 화면의 백업으로 코드를 저장해 두세요. 계속할까요?','Story progress, coins, purchases, achievements, replays, rank, settings and presets will ALL be deleted and cannot be restored. Save a backup code from the Story screen first. Continue?'),()=>{try{Object.keys(localStorage).filter(k=>k.startsWith('bc_')).forEach(k=>localStorage.removeItem(k))}catch(e){}myPre=[];PF.rm=false;applyPf();renderMyPre();buildSet();toast(TR('삭제했습니다','Deleted'))})}
 $('#bSet').onclick=()=>{buildSet();openM('mSet')};
 $('#bPass').onclick=()=>passTurn(false);
 $('#bRes').onclick=()=>{if(G.over){if(G.story)openM('mSr');else if(G.daily)openM('mDr');else openM('mOver')}};
@@ -4530,9 +4532,14 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.5.8';
+const APP_VER='1.5.9';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.5.9',TR('최하 난이도 대폭 완화 · 자동 배치 수정','Easiest AI Much Easier · Auto-Place Fix'),[
+  TR('🌱 AI "최하" 단계가 정말 초보용이 되도록 크게 약하게 만들었어요. 가끔 아무 수나 두기 때문에 체스를 처음 해도 이길 수 있어요','🌱 The lowest AI level is now truly beginner-friendly: it sometimes plays a random move'),
+  TR('🐞 상점에서 산 뒤 예전 백업을 불러오면 코인이 되돌아오던 문제를 고쳤어요. 두 창을 열어도 코인 표시가 함께 갱신돼요','🐞 Restoring an old backup no longer refunds spent coins; coin display syncs across open windows'),
+  TR('ℹ️ "저장 데이터 삭제" 안내를 실제 삭제 범위(진행도·코인·구매품 등 전부)에 맞게 바꿨어요','ℹ️ The "Delete saved data" text now matches what is really erased'),
+  TR('🐞 데몬이 들어간 일부 군대에서 "자동 배치"가 실패하던 문제를 고쳤어요','🐞 Fixed Auto-Place failing for some armies that include the Demon')]],
  ['1.5.8',TR('난이도 낮추기 즉시 적용','Easier Mode Applies At Once'),[
   TR('🐞 스토리에서 "난이도 낮추기"를 누른 뒤 바로 "다시 도전"해도 상대가 한 단계 약해지도록 고쳤어요','🐞 Lowering the AI level in Story now takes effect on the very next Retry')]],
  ['1.5.7',TR('위험 경고','Danger Warnings'),[
@@ -6132,11 +6139,16 @@ function bkApply(txt){const o=bkDec(txt);if(!o){$('#bkM').textContent=TR('올바
  const cur=stSave(),n={c:Object.assign({},cur.c),s:Object.assign({},cur.s||{})};let add=0;for(const k of Object.keys(o.c)){const i=+k,p=+o.c[k];if(!(i>=1&&i<=STAGES.length)||!(p>0))continue;if(!n.c[i]){add++;n.c[i]=p}else if(p<n.c[i])n.c[i]=p}
  for(const k of Object.keys(o.s||{})){n.s[k]=(n.s[k]||0)|((+o.s[k])&3)}
  store.set('story',n);
- if(o.eco){const e=store.get('eco',{});store.set('eco',bkMax(e,o.eco))}
+ if(o.eco){const e=ecoGet(),bk=Object.assign({c:0,tot:0,spent:0},o.eco),m=bkMax(e,bk);
+  // 코인 잔액은 '번 돈 - 쓴 돈'으로 다시 계산한다(이미 쓴 돈이 백업으로 되돌아가지 않게)
+  m.tot=Math.max(e.tot||0,bk.tot||0);m.spent=Math.max(e.spent||0,bk.spent||0);
+  const adj=Math.max(0,((e.tot||0)-(e.spent||0))-(e.c||0),((bk.tot||0)-(bk.spent||0))-(bk.c||0));
+  m.c=Math.max(0,m.tot-m.spent-adj);store.set('eco',m)}
  if(o.sp){const sp=shopGet(),m=bkMax(sp,o.sp);m.th=sp.th;m.title=sp.title||m.title;m.pf=sp.pf;store.set('shop',m)}
  if(o.a)store.set('ach',Object.assign({},o.a,achGet()));
  if(o.st)store.set('stats',bkMax(statGet(),o.st));
  UNL=null;MH.theme();MH.chip();$('#bkT').value=bkEnc();$('#bkM').textContent=TR(`불러왔어요! 새로 열린 스테이지 ${add}개 · 현재 ${Object.keys(n.c).length}/${STAGES.length} 클리어`,`Restored! ${add} new stages · now ${Object.keys(n.c).length}/${STAGES.length} cleared`);toast(TR('진행도를 불러왔어요','Progress restored'));if($('#s6').classList.contains('on'))drawStory();MH.chk()}
+window.addEventListener('storage',e=>{try{if(e.key&&/^bc_(eco|shop|story|ach|stats)$/.test(e.key)){UNL=null;MH.chip();MH.chk&&MH.chk();if($('#s6').classList.contains('on'))drawStory()}}catch(x){}});
 const bkCopyFail=()=>toast(TR('길게 눌러 직접 복사해 주세요','Long-press to copy it manually'));
 $('#bkCp').onclick=()=>{const t=$('#bkT');t.value=bkEnc();t.select();const f=()=>toast(TR('코드를 복사했어요','Code copied'));let ok=false;try{ok=document.execCommand('copy')}catch(e){}
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t.value).then(f,()=>ok?f():bkCopyFail());else ok?f():bkCopyFail()};
