@@ -829,7 +829,7 @@ body:not(.tuting) .c.ht{box-shadow:inset 0 0 0 4px #1fa84f,inset 0 0 0 100px rgb
    <button id="goLang" type="button" aria-label="Language"><i>🌐</i><small>EN/한</small></button>
   </div>
  </div>
- <div class="ver">VERSION 1.5.2</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="ver">VERSION 1.5.3</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 <div class="modal" id="mLearn" role="dialog" aria-modal="true"><div class="mc stmc"><button class="x" data-close>닫기</button><h2>🎓 배우기</h2>
  <button class="lrn" id="goTut" type="button"><i>📖</i><span><b>튜토리얼</b><small>기본 규칙을 차근차근</small></span></button>
@@ -2781,8 +2781,8 @@ function draw(msg){
  $('#info').textContent=inf;
  chkBanner(ci);hintUpdate();
  $('#skip').style.display=((G.xm||G.dx||G.gsw)||(G.rush&&(G.rush.used.length||G.rush.lk)))&&!G.over&&!aiTurn?'':'none';$('#skip').textContent=G.rush&&!(G.xm||G.dx||G.gsw)?(G.rush.lk?TR('추가 행동 건너뛰기','Skip extra action'):G.rush.fv?TR('피버 종료','End Fever'):TR('돌격 종료','End Charge')):G.gsw?TR('이동 종료','End moves'):G.dx?TR('추가 행동 건너뛰기','Skip extra action'):TR('추가 이동 건너뛰기','Skip extra move');
- $('#pkok').style.display=G.pk&&((G.pk.t==='G'&&G.pk.s.length)||(G.pk.t==='Z'&&G.pk.s.length&&pkZ().some(x=>x[4].length===G.pk.s.length))||(G.pk.t==='X'&&G.pk.sw.length)||G.pk.t==='F'||(G.pk.t==='N'&&G.pk.a!=null)||(G.pk.t==='L'&&G.pk.a!=null))?'':'none';
- $('#pkx').style.display=G.pk||G.skp||(G.rush&&!G.rush.used.length&&!G.rush.lk)?'':'none';
+ $('#pkok').style.display=!aiTurn&&G.pk&&((G.pk.t==='G'&&G.pk.s.length)||(G.pk.t==='Z'&&G.pk.s.length&&pkZ().some(x=>x[4].length===G.pk.s.length))||(G.pk.t==='X'&&G.pk.sw.length)||G.pk.t==='F'||(G.pk.t==='N'&&G.pk.a!=null)||(G.pk.t==='L'&&G.pk.a!=null))?'':'none';
+ $('#pkx').style.display=!aiTurn&&(G.pk||G.skp||(G.rush&&!G.rush.used.length&&!G.rush.lk))?'':'none';
  skUpdate();
  $('#bResign').disabled=G.over||aiTurn;{const bp=$('#bPass');if(bp){bp.style.display=G.stuck&&!G.over&&!aiTurn?'':'none'}}$('#bResign').style.display=G.mode==='sim'?'none':'';$('#bPause').style.display=$('#bSpd').style.display=G.mode==='sim'&&!G.over?'':'none';$('#bPause').textContent=G.pause?TR('▶ 재개','▶ Resume'):TR('⏸ 일시정지','⏸ Pause');$('#bSpd').textContent=TR('속도: ','Speed: ')+SPD[U.sp][0];
  drawSide();showCard();
@@ -4507,9 +4507,12 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.5.2';
+const APP_VER='1.5.3';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.5.3',TR('밸런스·버그 수정','Balance & Bug Fixes'),[
+  TR('⚖️ 스토리 8·22·24번 난이도를 낮췄어요','⚖️ Eased the difficulty of story stages 8, 22 and 24'),
+  TR('🐞 AI 턴에 스킬 취소·확정 버튼이 보이던 문제 수정','🐞 Fixed Cancel/Confirm Skill buttons showing during the AI turn')]],
  ['1.5.2',TR('스토리 대본 전면 개정','Story Script Overhaul'),[
   TR('📖 스토리 전 구간(서장~후일담)을 왕을 중심축으로 이어지는 서사로 다시 썼고, 대사 분량을 크게 늘렸어요','📖 The whole story (Prologue to Epilogue) was rewritten as one continuous narrative with the King at its center, with far longer dialogue'),
   TR('👑 엠페러·데몬·대통령·갓 각자의 이야기가 킹의 여정과 만나도록 장면을 보강했어요','👑 Added scenes so the Emperor, Demon, President and God each meet the King\'s journey'),
@@ -5399,7 +5402,7 @@ const STAGES=[
    sy('d','데몬','Demon',`판이라고?`,`A game?`),
    nr(`쓰러진 공작의 입에서 나온 단어는 북방 도적도, 공화국의 유목민도 입에 올린 적 없는 말이었다. ‘판’.`,`The word from the fallen duchess's lips was one no bandit or nomad had ever spoken: “the board”.`),
    nr(`데몬은 초대장을 불태우지 않았다. 대신 소매 깊숙이 넣었다. 이 초대장이 어디서 왔는지 알아야 했다.`,`The demon lord did not burn the invitation. He slipped it deep into his sleeve. He had to learn where it came from.`)]},
-/* 8 */ {ch:2,t:TR('공화국의 선거','The Republic Votes'),pov:'Ṗ',par:80,lv:2,me:'ṖQRRBBNNŁrPPP',foe:'UUCFSSPPNBRPN',new:['h','J','Ł','r'],
+/* 8 */ {ch:2,t:TR('공화국의 선거','The Republic Votes'),pov:'Ṗ',par:80,lv:1,me:'ṖQRRBBNNŁrPPP',foe:'UUCFSSPPNBRPN',new:['h','J','Ł','r'],
   lore:TR('4년에 한 번 열리는 대통령 선거를 사흘 앞두고 수도 아고라 곳곳에서 총성이 울렸어요.','Three days before the once-every-four-years presidential election, gunfire echoed across the capital, Agora.'),
   tip:TR('스나이퍼와 샷건은 강한 원거리 화력이에요. 라이너·론도 같은 값싼 기물로 길목을 막아 주세요.','Sniper and Shotgun are heavy ranged firepower. Block the lanes with cheap pieces like Liner and Rondo.'),
   pre:[nr(`공화국의 수도 아고라. 4년에 한 번 열리는 대통령 선거를 사흘 앞두고 도시 곳곳에서 총성이 울렸다.`,`Agora, capital of the republic. Three days before the quadrennial presidential election, gunfire rang out across the city.`),
@@ -5578,7 +5581,7 @@ const STAGES=[
    sy('K','킹','King',`좋다. 무엇을 쓰든 결국 한 수씩이지.`,`Good. Whatever I field, it still comes down to one move at a time.`)],
   post:[sy('E','엠페러','Emperor',`졌군. 그런데 이상하게 후련하다.`,`I lost. Strangely, it feels refreshing.`),
    nr(`관중석에서 박수가 터졌다. 누가 이겼는지보다 판이 아름다웠다는 이유로.`,`Applause rose from the stands — less for who had won than for how beautiful the game had been.`)]},
-/* 22 */ {ch:6,t:TR('마왕의 도전장','The Demon Lord\'s Challenge'),pov:'d',par:110,lv:4,free:1,me:'dḶDRRBBNNPPPP',foe:'ṖOĊUCRRBBNP',new:[],
+/* 22 */ {ch:6,t:TR('마왕의 도전장','The Demon Lord\'s Challenge'),pov:'d',par:110,lv:3,free:1,me:'dḶDRRBBNNPPPP',foe:'ṖOĊUCRRBBNP',new:[],
   lore:TR('대회 이틀째, 공화국 대통령이 마왕에게 도전장을 보냈어요. 투표로 정해진 규칙이라면 마왕도 따를 수밖에 없다면서요.','On day two, the Republic\'s president sends the Demon Lord a challenge — arguing that rules decided by vote bind even a demon.'),
   tip:TR('상대는 총기와 엄호를 쓰는 공화국군이에요. 데몬의 악마화를 노려 보세요.','Your opponent fields the Republic\'s guns and cover tactics. Aim for the Demon\'s transformation.'),
   pre:[sy('Ṗ','대통령','President',`마왕님, 투표 결과입니다. 오늘의 대국은 찬성 312표로 가결되었습니다.`,`Lord Demon, the results are in. Today's match was approved with 312 votes in favor.`),
@@ -5595,7 +5598,7 @@ const STAGES=[
    sy('O','방위군 사령관','Guard Commander',`각하, 이번 대국에는 공화국 전체가 방송을 보고 있습니다.`,`Sir, the whole Republic is watching this match.`)],
   post:[sy('M','메두사 공작','Duchess Medusa',`훌륭한 수였습니다. 다음에는 제가 이기겠습니다.`,`A fine game. Next time, I win.`),
    nr(`대통령은 연단에서 손을 흔들었다. 투표가 아니라 박수로 정해진 승부였다.`,`The president waved from the podium. This result was decided not by a vote but by applause.`)]},
-/* 24 */ {ch:6,t:TR('모래 속의 재회','Reunion in the Sands'),pov:'E',par:110,lv:4,free:1,me:'EyTQRRBPP',foe:'ƤWɃɃɃDRRBBNN',new:[],
+/* 24 */ {ch:6,t:TR('모래 속의 재회','Reunion in the Sands'),pov:'E',par:110,lv:3,free:1,me:'EyTQRRBPP',foe:'ƤWɃɃDRRBN',new:[],
   lore:TR('사막의 왕릉에서 잠들었던 파라오가 다시 판 위에 나타났어요. 이번에는 적이 아니라 대등한 상대로요.','The pharaoh who slept in the Tomb of Sands appears on the board again — this time not as an enemy, but as an equal.'),
   tip:TR('최상 난이도예요. 바운스의 첫 두 칸 이동과 백룡의 화력을 조심하세요.','Highest difficulty. Beware Bounce\'s double-step and the White Dragons\' firepower.'),
   pre:[sy('Ƥ','파라오','Pharaoh',`신이 만든 판 위에서 나는 버려졌다. 이제는 내가 고른 판에서 이기고 싶다.`,`On the god's board I was discarded. Now I want to win on a board I chose.`),
