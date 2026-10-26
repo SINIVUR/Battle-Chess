@@ -779,6 +779,27 @@ body:has(#s0.on){padding-bottom:14px!important}
 /* 하단 버튼 글자 잘림 방지 */
 #s4 .act2{flex-wrap:wrap!important}#s4 .act2 button,#s4 .act2 #bHint{flex:1 1 auto!important;min-width:max-content!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;padding-left:9px!important;padding-right:9px!important}
 #mAsk{z-index:90}
+/* ===== 1.5.1 PC 최적화: 큰 화면에서 보드 키우기 ===== */
+@media(min-width:900px){:root{--rs:330px;--bw:clamp(240px,calc(100dvh - var(--rs) - var(--rsx,0px)),720px);--gw:max(520px,calc(var(--bw) + 40px))}
+main:has(#s4.on){max-width:calc(var(--gw) + 380px)}
+#s4.on{grid-template-columns:minmax(0,var(--gw)) 340px}
+.bd{width:min(100%,var(--bw))}
+#s4.on>#pcard{left:calc(50% + (var(--gw) - 320px)/2 + 30px)}
+#coach{left:calc(50% + 90px + (var(--gw) - 520px)/2)}
+#side .lgl{max-height:min(44vh,340px)!important;overflow:auto}}
+@media(min-width:900px) and (min-height:861px){:root{--rs:420px}}
+.skb button.hs{box-shadow:0 0 0 3px #1fa84f,0 0 14px 4px rgba(31,168,79,.55)!important;border-color:#1fa84f!important;background:#e9ffee}
+#hintb{white-space:pre-line}
+/* 1.5.1 도우미: 해당 기물/버튼 초록 강조 */
+@keyframes hgp{0%,100%{filter:none}50%{filter:brightness(1.18) saturate(1.2)}}
+@keyframes hgb{0%,100%{box-shadow:0 0 0 3px #1fa84f,0 0 8px 2px rgba(31,168,79,.45)}50%{box-shadow:0 0 0 4px #1fa84f,0 0 20px 8px rgba(31,168,79,.8)}}
+body:not(.tuting) .c.hf{box-shadow:inset 0 0 0 4px #1fa84f,inset 0 0 0 100px rgba(31,168,79,.28);animation:hgp 1.1s ease-in-out infinite}
+body:not(.tuting) .c.ht{box-shadow:inset 0 0 0 4px #1fa84f,inset 0 0 0 100px rgba(31,168,79,.40);animation:hgp 1.1s ease-in-out infinite}
+.skb button.hs{position:relative;animation:hgb 1.1s ease-in-out infinite!important;color:#0b5d27!important;font-weight:800}
+.skb button.hs::before{content:'👇';position:absolute;left:50%;top:-16px;margin-left:-8px;font-size:15px;line-height:1;filter:drop-shadow(0 1px 1px #0006);animation:hgd .8s ease-in-out infinite;pointer-events:none;z-index:3}
+@keyframes hgd{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
+#bd4 .c.hf:not(.ht)::before{content:'👇';position:absolute;left:50%;top:-4px;margin-left:-.5em;font-size:min(4.2vw,20px);line-height:1;z-index:6;pointer-events:none;filter:drop-shadow(0 1px 1px #0008);animation:hgd .8s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.c.hf,.c.ht,.skb button.hs,.skb button.hs::before{animation:none!important}}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -808,7 +829,7 @@ body:has(#s0.on){padding-bottom:14px!important}
    <button id="goLang" type="button" aria-label="Language"><i>🌐</i><small>EN/한</small></button>
   </div>
  </div>
- <div class="ver">VERSION 1.5.0</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="ver">VERSION 1.5.1</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 <div class="modal" id="mLearn" role="dialog" aria-modal="true"><div class="mc stmc"><button class="x" data-close>닫기</button><h2>🎓 배우기</h2>
  <button class="lrn" id="goTut" type="button"><i>📖</i><span><b>튜토리얼</b><small>기본 규칙을 차근차근</small></span></button>
@@ -2596,7 +2617,7 @@ function cellClass(i){let c='';if(pyrAt(i))c+='pyr ';if(vzAt(i)){c+='vzn ';const
   if(G.hint2&&hintOn()){if(i===G.hint2.from)c+='hf ';if(i===G.hint2.to)c+='ht '}
   return c+tutHl(i)}
 {const r0=i>>3,c0=i&7;for(let j=0;j<64;j++){const z=G.b[j];if(z&&z.t==='m'&&z.md&&j!==i&&Math.abs((j>>3)-r0)<=1&&Math.abs((j&7)-c0)<=1){c+='mp ';break}}}{const r0=i>>3,c0=i&7;for(let j=0;j<64;j++){const z=G.b[j];if(z&&z.t==='f'&&BC.iceHas(z,j,i)){c+='fz ';break}}}
- const lm=G.lm;if(lm&&(i===lm[0]||i===lm[1]))c+='lm ';if(i===G.sel)c+='sel ';
+ const lm=G.lm;if(lm&&(i===lm[0]||i===lm[1]))c+='lm ';if(i===G.sel&&!(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me)))c+='sel ';
  if(G.pk&&G.pk.t==='L'){if(G.pk.a===i)c+='hlp ';else if(G.legal.some(x=>x[2]===28&&x[1]===i))c+='hlz ';return c+' '+pkH(i)+tutHl(i)}
  if(G.pk&&G.pk.t==='N'){const ri=i>>3;if(G.pk.a===i)c+='hlp ';else if(ri>=2&&ri<=5)c+='hlz ';return c+' '+pkH(i)+tutHl(i)}
  if(G.pk&&G.pk.t==='F'){const a=G.pk.a,ri=i>>3,ci=i&7;if(a!=null&&ri>=(a>>3)&&ri<=(a>>3)+1&&ci>=(a&7)&&ci<=(a&7)+1)c+='mgq ';else if(ri>=2&&ri<=5)c+='mgz ';return c+' '+pkH(i)+tutHl(i)}
@@ -2605,10 +2626,11 @@ function cellClass(i){let c='';if(pyrAt(i))c+='pyr ';if(vzAt(i)){c+='vzn ';const
  if(G.tut&&G.tut.hl){const h=G.tut.hl;if(h.f===i)c+='hf ';if(h.t===i||(h.m&&h.m.indexOf(i)>=0))c+='ht '}
  if(hintShown()&&G.hint){if(i===G.hint.from)c+='hf ';if(i===G.hint.to)c+='ht '}
  else if(G.hint2&&(G.rush||G.xm||G.dx||G.gsw)&&hintOn()){if(i===G.hint2.from)c+='hf ';if(i===G.hint2.to)c+='ht '}
- const m=G.legal.find(x=>x[1]===i&&x[2]!==19&&x[2]!==27&&x[2]!==28);
- if(!m&&G.legal.some(x=>x[1]===i&&x[2]===28))c+='hlz ';
- if(!m&&(i>>3)>=2&&(i>>3)<=5&&G.legal.some(x=>x[2]===19))c+='mgz ';
- if(!m&&(i>>3)>=2&&(i>>3)<=5&&G.legal.some(x=>x[2]===27))c+='hlz ';
+ const LGL=(G.mode==='sim'||(G.mode==='pve'&&G.turn!==G.human)||(G.net&&G.turn!==G.net.me))?[]:G.legal;
+ const m=LGL.find(x=>x[1]===i&&x[2]!==19&&x[2]!==27&&x[2]!==28);
+ if(!m&&LGL.some(x=>x[1]===i&&x[2]===28))c+='hlz ';
+ if(!m&&(i>>3)>=2&&(i>>3)<=5&&LGL.some(x=>x[2]===19))c+='mgz ';
+ if(!m&&(i>>3)>=2&&(i>>3)<=5&&LGL.some(x=>x[2]===27))c+='hlz ';
  if(m)c+=m[2]===14?'cap ':(m[2]===1||m[2]===6||m[2]===43||m[2]===46)?'rg ':m[2]>=2?'sk ':(G.b[i]?'cap ':'mv ');
  if(isLocked(i))c+=' lk';
  return c}
@@ -4485,9 +4507,14 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.5.0';
+const APP_VER='1.5.1';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.5.1',TR('PC 최적화 · 도우미 강화','PC Optimization · Better Hints'),[
+  TR('🖥️ PC 화면 대폭 최적화 — 해상도별 보드·로그·펫 칸 크기 조정, 수량 선택창 정리','🖥️ PC layout optimized — board, log and pet slot scale with resolution'),
+  TR('🟢 좋은 수 도우미가 펫 전용 스킬과 내 스킬을 쓸 타이밍을 초록색으로 알려줘요','🟢 Hints now highlight in green when to use pet and player skills'),
+  TR('🔵 AI 턴(추가 이동 포함)에 파란 이동 표시가 보이던 문제 수정','🔵 Fixed blue move markers showing during AI turns'),
+  TR('🐞 전반적인 버그 수정','🐞 General bug fixes')]],
  ['1.5.0',TR('유대를 증진하라! — 코인 · 프로필 · 펫 대규모 패치','Strengthen the Bond! — Coins · Profile · Pets Mega Patch'),[
   TR('💰 코인 추가 — 스토리·일일 도전·업적·일반 대국 승리로 벌고, 상점에서 보드 테마·프로필 꾸미기·기물 조기 해금·무르기권에 써요','💰 Coins added — earn them from story, daily challenges, achievements and wins; spend them on board themes, profile cosmetics, early piece unlocks and Undo tickets'),
   TR('📇 플레이어 프로필 — 처음 실행할 때 이름과 아바타를 정하고, 칭호·프레임·배경·이름 색으로 꾸밀 수 있어요','📇 Player profile — create it on first launch and decorate it with titles, frames, backgrounds and name styles'),
@@ -4705,13 +4732,13 @@ function mgDraw(){
  const tl=MEGA.map((c,i)=>`<button class="mgn ${i===mgSel?'on':''} ${i===MEGA.length-1?'cur':''}" data-c="${i}"><b>${i+1}</b><span>${esc(c.t)}</span><small>v${c.v}</small></button>`).join('<i class="mgl"></i>');
  const c=MEGA[mgSel];
  const pcs=c.pc.map(t=>`<div class="mgp"><div class="ib">${icon(t)}</div><b>${esc(DEF[t].n)}</b><small>${TR(DEF[t].c+' 코스트',DEF[t].c+' cost')}</small></div>`).join('');
- $('#mgB').innerHTML=`<div class="mgtl">${tl}</div><div class="mgc"><div class="mgh"><span class="mgb">${esc(c.n)}</span><h3>“${esc(c.t)}”</h3><small>v${c.v} · ${esc(c.tag)}${mgSel===MEGA.length-1?TR(' · 현재 버전',' · current'):''}</small></div>
+ $('#mgB').innerHTML=`<div class="mgtl">${tl}</div><div class="mgc"><div class="mgh"><span class="mgb">${esc(c.n)}</span><h3>“${esc(c.t)}”</h3><small>v${c.v} · ${esc(c.tag)}${mgSel===MEGA.length-1?TR(' · 최신 대규모 패치',' · latest'):''}</small></div>
  <h4>${TR('신규 기물','New pieces')}</h4><div class="mgg">${pcs}</div>
  <h4>${TR('신규 시스템','New systems')}</h4><ul>${c.sy.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
  <h4>${TR('주요 변경','Key changes')}</h4><ul>${c.ch.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
  if(window.emoDom)emoDom($('#mgB'))}
 function mgOpen(){mgSel=MEGA.length-1;mgDraw();openM('mMega');sfx('sel')}
-{const gm=$('#goMega');if(gm){gm.innerHTML=`<b>v${APP_VER}</b> ${TR('대규모 패치','Mega Patch')} “${esc(TR('유대를 증진하라!','Strengthen the Bond!'))}” ▸`;gm.onclick=mgOpen}}
+{const gm=$('#goMega');if(gm){gm.innerHTML=`<b>v${MEGA[MEGA.length-1].v}</b> ${TR('대규모 패치','Mega Patch')} “${esc(TR('유대를 증진하라!','Strengthen the Bond!'))}” ▸`;gm.onclick=mgOpen}}
 $('#mgB').onclick=e=>{const b=e.target.closest('.mgn');if(!b)return;mgSel=+b.dataset.c;sfx('sel');mgDraw()};
 $('#mgX').onclick=()=>closeM('mMega');
 
@@ -6135,7 +6162,31 @@ function petSync(){const W=$('#petW'),bar=$('#pBot');if(!petActive()){W.hidden=t
  if(P.key!==key){P.key=key;$('#petB').innerHTML=petSvg(id,c.col,c.acc,P.mood,sz-6);$('#petB').style.width=$('#petB').style.height=(sz-6)+'px';W.style.width=W.style.height=sz+'px';bar.style.marginRight=(sz+8)+'px';bar.style.minHeight=(sz+8)+'px';$('#petB').setAttribute('aria-label',TR(`${c.nm} — 탭해서 도움 받기`,`${c.nm} — tap for help`))}
  W.style.width=W.style.height=sz+'px';bar.classList.add('pet');W.hidden=false;const op=W.offsetParent||bar.offsetParent;
  if(op){const lx=bar.offsetLeft+bar.offsetWidth+8,ly=bar.offsetTop+bar.offsetHeight/2-W.offsetHeight/2;W.style.left=lx+'px';W.style.top=ly+'px';W.classList.add('sl');W.classList.remove('sr');petBub()}}
-{const _d=draw;draw=function(m){_d(m);try{petSync()}catch(e){}}}
+function pcFit(){try{const n=[...document.querySelectorAll('#skb button')].filter(b=>!b.hidden&&b.offsetParent).length;document.documentElement.style.setProperty('--rsx',((n>4?56:0)+(petActive()?14:0))+'px')}catch(e){}}
+/* ---- 1.5.1 좋은 수 도우미: 상점 스킬·펫 스킬 타이밍을 초록색으로 ---- */
+function exHint(){try{
+ const sb=$('#skb');if(!sb||!hintShown()||G.net)return;
+ sb.querySelectorAll('button[data-ex]').forEach(b=>{b.classList.remove('hs');b.removeAttribute('data-ex')});
+ document.querySelectorAll('#bd4 .c.hfx').forEach(e=>e.classList.remove('hfx','hf'));
+ const me=G.turn;if(me!==(G.mode==='pve'?G.human:me))return;
+ const b=G.b,tips=[],mark=(k,sqs)=>{const el=sb.querySelector(`[data-sk="${k}"]`);if(el&&!el.hidden&&!el.disabled){el.classList.add('hs');el.setAttribute('data-ex','1');return true}return false};
+ const cell=i=>{const e=document.querySelector(`#bd4 .c[data-i="${i}"]`);if(e){e.classList.add('hf','hfx')}};
+ const cst=p=>isKing(p.t)?99:(DEF[p.t]?DEF[p.t].c:0);
+ const pl=(G.plies||0);
+ // 🌱 아직 기회는 남았다!
+ if(G.sk&&G.sk[me]&&G.sk[me].hope&&skAvail('hope')){const dd=(b.dead[me]||[]).filter(x=>!isKing(x.t)).sort((x,y)=>cst(y)-cst(x))[0];if(dd&&mark('hope')){tips.push(TR(`🌱 아직 기회는 남았다! — ${DEF[dd.t].n} 부활 타이밍`,`🌱 Hope — revive ${DEF[dd.t].n}`))}}
+ // 🧲 자기장 보호막!
+ if(G.sk&&G.sk[me]&&G.sk[me].mag&&skAvail('mag')){const w=pl+2>=90?3:pl+2>=80?2:pl+2>=60?1:0;if(w){let best=-1,bs=-1;for(let i=0;i<64;i++){const p=b[i];if(!p||p.s!==me||p.zp||p.t==='u')continue;const r=i>>3,c=i&7;if(Math.min(r,c,7-r,7-c)>=w)continue;const sc=cst(p)+(p.zh||0)*10;if(sc>bs){bs=sc;best=i}}
+   if(best>=0&&(bs>=5||isKing(b[best].t))&&mark('mag')){cell(best);tips.push(TR(`🧲 자기장 보호막! — ${DEF[b[best].t].n} ${pos(best)}이(가) 자기장 구역`,`🧲 Shield — ${DEF[b[best].t].n} ${pos(best)} is in the storm`))}}}
+ // ⏩ 기선제압!
+ if(G.sk&&G.sk[me]&&G.sk[me].fst&&skAvail('fst')&&G.hint&&G.hint.from!==G.hint.to&&b[G.hint.to]&&b[G.hint.to].s!==me&&mark('fst')){tips.push(TR('⏩ 기선제압! 먼저 쓰고 이 수로 잡으면 한 번 더 움직여요','⏩ First Strike first, then capture for an extra action'))}
+ // 🐾 펫 스킬
+ const pid=petOn();if(petActive()&&!P.pu&&me===petSide()){
+  if(pid==='kk'){const d=petDanger(me);if(d.sq.length){const tg=d.sq.slice().sort((x,y)=>cst(b[y])-cst(b[x]))[0];if(!(b[tg].inv)&&mark('pet')){cell(tg);tips.push(TR(`🐾 콩콩이 지켜줄게! — ${DEF[b[tg].t].n} ${pos(tg)}이(가) 위험해요`,`🐾 Kongkong — ${DEF[b[tg].t].n} ${pos(tg)} is in danger`))}}}
+  else if(pid==='dd'&&G.hint&&G.hint.from===G.hint.to&&pdOK(G.hint.from)&&mark('pet')){cell(G.hint.from);tips.push(TR(`🐾 똑똑이 백발백중! — ${DEF[b[G.hint.from].t].n}의 스킬을 2번`,`🐾 Ddokddok — use ${DEF[b[G.hint.from].t].n}'s skill twice`))}}
+ const hb=$('#hintb');if(hb&&tips.length){hb.style.display='';const base=(G.hint&&G.hint.txt)||'';hb.textContent=(base?base+'\n':'')+tips.join('\n');hb.style.whiteSpace='pre-line'}else if(hb)hb.style.whiteSpace=''
+}catch(e){}}
+{const _d=draw;draw=function(m){_d(m);try{pcFit();petSync();exHint()}catch(e){}}}
 addEventListener('resize',()=>{try{petSync()}catch(e){}});
 function petDanger(me){const e=OP(me),b=G.b,res={k:false,sq:[]};const ms=BC.gen(b,e,{ai:true,cap:true,noDbl:true});const hit=sq=>ms.some(m=>capsOn(b,m,sq));
  const ks=kingSq(b,me);if(ks>=0&&hit(ks)){res.k=true;res.sq.push(ks)}
