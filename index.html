@@ -717,7 +717,7 @@ button.pbadge{display:block;width:100%;font-family:inherit;cursor:pointer}button
 /* ---- 타이틀 화면 개편 (1.4.5) ---- */
 #s0 .tape,#s0 .fl{display:none}
 #s0{justify-content:flex-start;padding-top:calc(env(safe-area-inset-top,0px) + 6px)}
-#s0 .blob{display:none}#s0 .big{position:relative;width:fit-content;max-width:94%;margin-left:auto!important;margin-right:auto!important;padding:10px 18px 12px}#s0 .big::before{content:"";position:absolute;inset:0;z-index:-1;background:#c8ff00;border:3px solid #111;box-shadow:6px 6px 0 #111;transform:skewX(7deg);}
+#s0 .blob{display:none}#s0 .big{position:relative;width:fit-content;max-width:94%;margin-left:auto!important;margin-right:auto!important;padding:10px 18px 12px}#s0 .big::before{content:"";position:absolute;inset:0;z-index:-1;background:#c8ff00;border:3px solid #111;box-shadow:6px 6px 0 #111;}
 #s0 .big,#s0 .big{font-size:clamp(54px,19vw,108px)!important;margin-top:4px!important}#s0 .kr{font-size:14px;margin-top:12px!important}
 .t0top{width:100%;max-width:340px;display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 auto 10px}
 .pfmini{display:flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;border-radius:99px;min-width:0;flex:1;max-width:210px;text-align:left}
@@ -763,6 +763,7 @@ body:has(#s0.on){padding-bottom:14px!important}
 @media(min-width:700px){.strow{flex-wrap:wrap;overflow:visible}}
 .pc2.lk::before,.ach.lk::before,.cb.lk::before,.wdi.lkd::before{display:none!important}
 .act1 button,.act2 button,.skb button{word-break:keep-all}@media(max-width:480px){.act2 button{padding-left:7px;padding-right:7px;font-size:12.5px}}
+#s0 .big{transform:none!important;padding:12px 24px 14px 22px!important}#s0 .big::before{transform:none!important}#s0 .big b{text-align:center}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -4423,7 +4424,7 @@ function mgDraw(){
  <h4>${TR('주요 변경','Key changes')}</h4><ul>${c.ch.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
  if(window.emoDom)emoDom($('#mgB'))}
 function mgOpen(){mgSel=MEGA.length-1;mgDraw();openM('mMega');sfx('sel')}
-{const gm=$('#goMega');if(gm){gm.innerHTML=`<b>v${APP_VER}</b> ${TR('대규모 패치','Mega Patch')} “${esc(TR('1.4.0 엄호를 뚫어내라!','1.4.0 Break Through the Cover!'))}” ▸`;gm.onclick=mgOpen}}
+{const gm=$('#goMega');if(gm){gm.innerHTML=`<b>v${APP_VER}</b> ${TR('대규모 패치','Mega Patch')} 1.4.0 “${esc(TR('엄호를 뚫어내라!','Break Through the Cover!'))}” ▸`;gm.onclick=mgOpen}}
 $('#mgB').onclick=e=>{const b=e.target.closest('.mgn');if(!b)return;mgSel=+b.dataset.c;sfx('sel');mgDraw()};
 $('#mgX').onclick=()=>closeM('mMega');
 
