@@ -829,7 +829,7 @@ body:not(.tuting) .c.ht{box-shadow:inset 0 0 0 4px #1fa84f,inset 0 0 0 100px rgb
    <button id="goLang" type="button" aria-label="Language"><i>🌐</i><small>EN/한</small></button>
   </div>
  </div>
- <div class="ver">VERSION 1.5.3</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="ver">VERSION 1.5.4</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 <div class="modal" id="mLearn" role="dialog" aria-modal="true"><div class="mc stmc"><button class="x" data-close>닫기</button><h2>🎓 배우기</h2>
  <button class="lrn" id="goTut" type="button"><i>📖</i><span><b>튜토리얼</b><small>기본 규칙을 차근차근</small></span></button>
@@ -4507,9 +4507,11 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.5.3';
+const APP_VER='1.5.4';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.5.4',TR('도우미 손가락 개선','Helper Pointer Fix'),[
+  TR('👇 좋은 수·튜토리얼의 도우미 손가락이 기물이 움직이면 바로 사라져요','👇 The helper pointer in hints and the tutorial now disappears right after a piece moves')]],
  ['1.5.3',TR('밸런스·버그 수정','Balance & Bug Fixes'),[
   TR('⚖️ 스토리 8·22·24번 난이도를 낮췄어요','⚖️ Eased the difficulty of story stages 8, 22 and 24'),
   TR('🐞 AI 턴에 스킬 취소·확정 버튼이 보이던 문제 수정','🐞 Fixed Cancel/Confirm Skill buttons showing during the AI turn')]],
@@ -6536,10 +6538,13 @@ function petSync(){const W=$('#petW'),bar=$('#pBot');if(!petActive()){W.hidden=t
  if(op){const lx=bar.offsetLeft+bar.offsetWidth+8,ly=bar.offsetTop+bar.offsetHeight/2-W.offsetHeight/2;W.style.left=lx+'px';W.style.top=ly+'px';W.classList.add('sl');W.classList.remove('sr');petBub()}}
 function pcFit(){try{const n=[...document.querySelectorAll('#skb button')].filter(b=>!b.hidden&&b.offsetParent).length;document.documentElement.style.setProperty('--rsx',((n>4?56:0)+(petActive()?14:0))+'px')}catch(e){}}
 /* ---- 1.5.1 좋은 수 도우미: 상점 스킬·펫 스킬 타이밍을 초록색으로 ---- */
+const FGH={hl:null,p:0};
 function exHint(){try{
- const sb=$('#skb');if(!sb||!hintShown()||G.net)return;
+ const sb=$('#skb');if(!sb)return;
  sb.querySelectorAll('button[data-ex]').forEach(b=>{b.classList.remove('hs');b.removeAttribute('data-ex')});
  document.querySelectorAll('#bd4 .c.hfx').forEach(e=>e.classList.remove('hfx','hf'));
+ {const hl=G.tut&&G.tut.hl;if(hl!==FGH.hl){FGH.hl=hl;FGH.p=G.plies}document.body.classList.toggle('nofg',!!hl&&G.plies!==FGH.p)}
+ if(!hintShown()||G.net)return;
  const me=G.turn;if(me!==(G.mode==='pve'?G.human:me))return;
  const b=G.b,tips=[],mark=(k,sqs)=>{const el=sb.querySelector(`[data-sk="${k}"]`);if(el&&!el.hidden&&!el.disabled){el.classList.add('hs');el.setAttribute('data-ex','1');return true}return false};
  const cell=i=>{const e=document.querySelector(`#bd4 .c[data-i="${i}"]`);if(e){e.classList.add('hf','hfx')}};
