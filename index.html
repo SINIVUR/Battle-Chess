@@ -713,20 +713,91 @@ button.pbadge{display:block;width:100%;font-family:inherit;cursor:pointer}button
 .stx{margin:12px 2px 8px;font-size:16px;line-height:1.65;min-height:5.2em;animation:stIn .35s ease both;word-break:keep-all}.stx.nar{font-style:italic;color:#333}@keyframes stIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 .stft{display:flex;align-items:center;gap:8px}.stft .note{flex:1;text-align:left}.stft button{width:auto;padding:9px 14px;font-size:14px}.stft .pri{width:auto}
 @media(prefers-reduced-motion:reduce){.stx{animation:none}}
+
+/* ---- 타이틀 화면 개편 (1.4.5) ---- */
+#s0 .tape,#s0 .fl{display:none}
+#s0{justify-content:flex-start;padding-top:calc(env(safe-area-inset-top,0px) + 6px)}
+#s0 .blob{display:none}#s0 .big{position:relative;width:fit-content;max-width:94%;margin-left:auto!important;margin-right:auto!important;padding:10px 18px 12px}#s0 .big::before{content:"";position:absolute;inset:0;z-index:-1;background:#c8ff00;border:3px solid #111;box-shadow:6px 6px 0 #111;transform:skewX(7deg);}
+#s0 .big,#s0 .big{font-size:clamp(54px,19vw,108px)!important;margin-top:4px!important}#s0 .kr{font-size:14px;margin-top:12px!important}
+.t0top{width:100%;max-width:340px;display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 auto 10px}
+.pfmini{display:flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;border-radius:99px;min-width:0;flex:1;max-width:210px;text-align:left}
+.pfmini .pa{width:32px;height:32px;border-radius:50%;border:2.5px solid #111;background:#fff;display:grid;place-items:center;flex:none}.pfmini .pa .ic{font-size:18px}
+.pfmini .pfnm{font-size:13.5px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}.pfmini .pt{font-size:10.5px;opacity:.7;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#coinBtn{padding:7px 12px;border-radius:99px;font-size:14px;background:#fff8d6;flex:none}
+#s0 .sub{margin-top:6px}
+#s0 .btns{max-width:340px;gap:11px;margin-top:14px}
+#s0 #go0{padding:15px;font-size:20px;letter-spacing:.04em}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:13px 6px 11px;border-radius:16px;text-align:center;color:#111;box-shadow:4px 4px 0 #111}
+.tile i{font-style:normal;font-size:26px;line-height:1}.tile b{font-size:15px;font-weight:900;margin-top:3px}.tile small{font-size:11px;font-weight:600;opacity:.75;line-height:1.25}
+.t-st{background:linear-gradient(135deg,#ffe4a3,#ffb3d9)}.t-dy{background:#fff3b0}.t-net{background:linear-gradient(135deg,#cfe0ff,#e0d0ff)}.t-lr{background:#e3ffb0}
+.tile .dot{position:absolute;right:9px;top:8px;width:12px;height:12px;border-radius:50%;background:#ff2e63;border:2px solid #111}
+#s0 .btns>.tiles>.tile{box-shadow:4px 4px 0 #111}#s0 .btns>#goNet{background:none;border:2.5px solid #111;box-shadow:4px 4px 0 #111}
+#s0 .btns>#goNet.tile{background:linear-gradient(135deg,#cfe0ff,#e0d0ff)}
+#s0 .pbadge{max-width:none;width:100%;padding:7px 10px;font-size:13px;margin:0}#s0 .pbadge small{display:none}
+.dock{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:2px}
+#s0 .btns>.dock>button{box-shadow:2px 2px 0 #111;padding:7px 0 5px;border-radius:12px;display:flex;flex-direction:column;align-items:center;gap:1px;background:#fff}
+.dock i{font-style:normal;font-size:19px;line-height:1.1}.dock small{font-size:9.5px;font-weight:700;white-space:nowrap;letter-spacing:-.02em}
+@media(max-width:340px){.dock small{font-size:8.5px}}
+#s0 .ver{margin-top:14px}
+.lrn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px;margin-top:9px;border-radius:14px;box-shadow:3px 3px 0 #111}
+.lrn i{font-style:normal;font-size:28px;flex:none}.lrn b{display:block;font-size:15px}.lrn small{display:block;font-size:12px;opacity:.75;font-weight:600;margin-top:2px}
+
+/* ===== v1.4.5 PC 대응 ===== */
+#s0 .big{padding:10px 30px 12px 22px!important}
+@media(min-width:700px){
+body:has(#s0.on) main{align-self:flex-start;margin-top:6px}
+body:has(#s0.on){padding-bottom:14px!important}
+#s0{zoom:1!important;min-height:0!important;padding-top:64px!important}
+#s0 .big{font-size:clamp(54px,min(15vw,10.2vh),96px)!important}
+}
+@media(min-width:700px) and (max-height:860px){#s0{zoom:.92!important}}
+@media(min-width:700px) and (max-height:800px){#s0{zoom:.84!important}}
+@media(min-width:700px) and (max-height:730px){#s0{zoom:.76!important}}
+@media(min-width:700px) and (max-height:660px){#s0{zoom:.68!important}}
+@media(min-width:700px) and (max-height:600px){#s0{zoom:.6!important}}
+
+.scr>*{min-width:0}.stl,.stc,.stl .card{min-width:0;max-width:100%;box-sizing:border-box}.strow{max-width:100%}
+@media(min-width:700px){body:not(:has(#s0.on)){padding-top:66px!important}}
+#s6.on:has(#stList){display:flex!important;flex-direction:column}#s6:has(#stList)>*{grid-column:auto!important}.stl{width:100%}
+@media(min-width:700px){.strow{flex-wrap:wrap;overflow:visible}}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
 
 <section class="scr on" id="s0">
  <div class="blob"></div>
- <div class="tape t1"><i>BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ BATTLE CHESS ✕ 39 COST ✕ NO MERCY ✕ </i></div><div class="tape t2"><i>KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ KILL OR BE KILLED ✕ BUILD YOUR ARMY ✕ </i></div>
+ <div class="t0top"><button id="t0Pf" class="pfmini" type="button" aria-label="프로필"></button><button id="coinBtn" type="button" aria-label="코인"></button></div>
  <p class="sub">CUSTOM CHESS · COST 39</p>
  <h1 class="big"><b data-t="BATTLE">BATTLE</b><b class="o" data-t="CHESS">CHESS</b></h1>
  <p class="kr">배 틀 체 스</p>
- <div class="fl"><span class="ic">@K</span><span class="ic">@d</span><span class="ic">@C</span><span class="ic">@F</span><span class="ic">@A</span><span class="ic">@D</span></div>
- <button class="pbadge" id="goMega" type="button"></button>
-  <div class="btns"><button class="pri" id="go0">▶ START</button><div class="row3"><button id="goTut" style="border:2px solid #1f6feb;color:#1f6feb;font-weight:700">📖 튜토리얼</button><button id="goGuide" style="border:2px solid #1f6feb;background:#1f6feb;color:#fff;font-weight:700">🎮 체험형 튜토리얼</button><button id="goLab" style="border:2.5px solid #111;background:#c8ff00;font-weight:900;color:#111">🧪 연습장</button></div><div class="row2"><button class="pri" id="goNet" style="background:linear-gradient(135deg,#1f6feb,#7b3fe4)">🌐 온라인 대전</button><button id="goHelp">기물 도감 · 규칙</button></div><button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button><div class="row2 mrow"><button id="goPatch">📢 공지·패치</button><button id="goFb">💬 건의하기</button><button id="goShare">📤 공유</button><button id="goLang" aria-label="Language">🌐 EN/한</button></div></div><div class="ver">VERSION 1.4.4</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="btns">
+  <button class="pri" id="go0">▶ START</button>
+  <div class="tiles">
+   <button class="tile t-st" id="goStory2" type="button"><i>📖</i><b>스토리</b><small>25 스테이지</small></button>
+   <button class="tile t-dy" id="goDaily" type="button"><i>🗓</i><b>일일 도전</b><small>매일 새 군대</small><u class="dot" hidden></u></button>
+   <button class="tile t-net" id="goNet" type="button"><i>🌐</i><b>온라인 대전</b><small>랭크 · 친구전</small></button>
+   <button class="tile t-lr" id="goLearn" type="button"><i>🎓</i><b>배우기</b><small>튜토리얼 · 연습장 · 도감</small></button>
+  </div>
+  <button class="pbadge" id="goMega" type="button"></button>
+  <button id="goInstall" hidden>📲 앱으로 설치 · 홈 화면에 추가</button>
+  <div class="dock">
+   <button id="goHub" type="button"><i>🏆</i><small>기록·업적</small></button>
+   <button id="goShop" type="button"><i>🛒</i><small>상점</small></button>
+   <button id="goPatch" type="button"><i>📢</i><small>공지·패치</small></button>
+   <button id="goFb" type="button"><i>💬</i><small>건의</small></button>
+   <button id="goShare" type="button"><i>📤</i><small>공유</small></button>
+   <button id="goLang" type="button" aria-label="Language"><i>🌐</i><small>EN/한</small></button>
+  </div>
+ </div>
+ <div class="ver">VERSION 1.4.5</div><div class="prod">Prod by. SINIVUR</div>
 </section>
+<div class="modal" id="mLearn" role="dialog" aria-modal="true"><div class="mc stmc"><button class="x" data-close>닫기</button><h2>🎓 배우기</h2>
+ <button class="lrn" id="goTut" type="button"><i>📖</i><span><b>튜토리얼</b><small>기본 규칙을 차근차근</small></span></button>
+ <button class="lrn" id="goGuide" type="button"><i>🎮</i><span><b>체험형 튜토리얼</b><small>직접 움직이며 배워요</small></span></button>
+ <button class="lrn" id="goLab" type="button"><i>🧪</i><span><b>연습장</b><small>기물을 자유롭게 시험해요</small></span></button>
+ <button class="lrn" id="goHelp" type="button"><i>📚</i><span><b>기물 도감 · 규칙</b><small>모든 기물의 이동 범위</small></span></button>
+</div></div>
 
 <section class="scr" id="s5">
  <h2>🌐 온라인 대전</h2>
@@ -2243,8 +2314,8 @@ const listOf=()=>Object.keys(army).filter(t=>t!=='K').reduce((a,t)=>a.concat(Arr
 /* ---- 기물 해금 (1.4.4): 스토리 클리어로 열림 ---- */
 let UNL=null;
 const gateOn=()=>store.get('gate',true)!==false;
-const unl=()=>{if(UNL)return UNL;const s=new Set('KQRBNP'.split(''));try{const c=store.get('story',{c:{}}).c||{};if(typeof STAGES!=='undefined')STAGES.forEach((st,k)=>{if(c[k+1])(st.new||[]).forEach(t=>s.add(t))})}catch(e){}return UNL=s};
-const locked=t=>gateOn()&&!!G&&!G.story&&G.mode!=='sim'&&!unl().has(t);
+const unl=()=>{if(UNL)return UNL;const s=new Set('KQRBNP'.split(''));try{const c=store.get('story',{c:{}}).c||{};if(typeof STAGES!=='undefined')STAGES.forEach((st,k)=>{if(c[k+1])(st.new||[]).forEach(t=>s.add(t))});(store.get('shop',{}).unl||[]).forEach(t=>s.add(t))}catch(e){}return UNL=s};
+const locked=t=>gateOn()&&!!G&&!G.story&&!G.daily&&G.mode!=='sim'&&!unl().has(t);
 function canAdd(t){
  if(locked(t))return false;
  if(KCL.includes(t)){const cur=kcOf();if(cur===t)return false;const base=listOf().filter(x=>!'EgdṖ'.includes(x));
@@ -2316,6 +2387,7 @@ $('#n3').onclick=()=>{if(G.mk){G.mk=false;saveCur(true);setTimeout(netOpen,60);r
 
 /* ===== 4. 대전 ===== */
 function startGame(){
+ MH.sg();
  G.ret=null;{const br=$('#bRes');if(br)br.style.display='none'}
  G.b=BC.cloneBoard(startBoard);G.turn='w';G.sel=null;G.legal=[];G.pk=null;G.xm=null;G.lm=null;G.over=false;G.busy=false;G.stuck=false;G.pasd=false;G.since=0;G.plies=0;G.b.pl=0;G.seen={};G.lost={w:[],b:[]};G.hist=[];G.insp=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;G.log=[];G.dx=false;G.dbq=0;G.tc=false;G.sk={w:{ret:1,rush:1,fin:1,fever:1},b:{ret:1,rush:1,fin:1,fever:1}};G.skp=null;G.rush=null;G.pre=null;
  G.flip=(G.mode==='pve'&&G.human==='b')||(!!G.net&&G.net.me==='b');G.seen[BC.hash(G.b,'w')]=1;G.lastTxt='';G.dh=null;
@@ -2325,7 +2397,7 @@ function startGame(){
 const SVK='bc_save';
 function clearSave(){try{localStorage.removeItem(SVK)}catch(e){}}
 function saveGame(){try{
- if(!G.b||G.over||G.tut||G.lab||G.net||G.story||G.mode==='sim')return;const b=G.b;
+ if(!G.b||G.over||G.tut||G.lab||G.net||G.story||G.daily||G.mode==='sim')return;const b=G.b;
  const o={v:1,mode:G.mode,lv:G.lv,human:G.human,lvs:G.lvs,seed:G.seed,turn:G.turn,plies:G.plies,since:G.since,seen:G.seen,lost:G.lost,log:G.log,sk:G.sk,flip:G.flip,
   bd:b.map(p=>p?Object.assign({},p,{tp:undefined,tl:p.tp?1:0}):null),dead:b.dead,mg:b.mg||null,mf:b.mf||null,hl:b.hl||null,fn:b.fn||null,py:b.py||null,pl:b.pl||0,t:Date.now()};
  localStorage.setItem(SVK,JSON.stringify(o))}catch(e){}}
@@ -2799,7 +2871,7 @@ function killFx(j,side,n,ty,from){const c=cell(j);if(!c)return;
   D(){H.glow('#6a1bb5',2.2,520);H.pop('🔥',2,750,0,0,'hue-rotate(250deg) saturate(1.4)');H.ring('#b36bff',1.9,500);H.burst(['#6a1bb5','#222','#b36bff'],16,.9);shake()},
   W(){H.glow('#9be4ff',2.2,520);H.pop('❄️',1.9,750);H.ring('#fff',1.9,500);H.burst(['#9be4ff','#fff','#6ac'],16,.9,false)},
   X(){const e=H.pop('🌪️',2,900,720);H.ring('#9aa8b5',2,600);H.emo('🍃',8,1,800);H.burst(['#9aa8b5','#fff'],10,.9)},
-  Y(){H.slash(ang+30,'#fff',140,7);H.slash(ang-30,'#caa56a',140,7,50);H.emo('🪶',7,1,800);H.pop('🦅',1.3,650,0,40);H.burst(['#fff','#caa56a','#7a5a30'],8,.6)},
+  Y(){H.slash(ang+30,'#fff',140,7);H.slash(ang-30,'#caa56a',140,7,50);H.emo('🖊️',7,1,800);H.pop('🦅',1.3,650,0,40);H.burst(['#fff','#caa56a','#7a5a30'],8,.6)},
   J(){H.pop('🎯',1.1,420);mk('inset:0;border:2px solid #f33;border-radius:50%;',[{transform:'scale(2.6)',opacity:.2},{transform:'scale(1)',opacity:1,offset:.5},{transform:'scale(.8)',opacity:0}],{duration:360});H.bullet('#ff3b3b',.9,70,230,0,3);H.flash('rgba(255,50,50,.55)',220,290);at(300,()=>{H.burst(['#ff3b3b','#fff'],10,.6,false);H.ring('#f33',1.5,300)})},
   U(){H.bullet('#4ad0ff',1.4,110,0,0,4);H.bullet('#fff',1.0,110,30,0,2);at(100,()=>{H.pop('💥',1.2,400);H.ring('#4ad0ff',1.7,380);H.burst(['#4ad0ff','#fff'],10,.7,false)})},
   O(){for(let k=0;k<6;k++){H.bullet('#ffe9a0',.4,90,k*55,(rnd()-.5)*sz*.35);at(k*55+80,()=>{H.pop('✨',.9,260)})}at(300,()=>{H.burst(gold,12,.7,false);H.ring('#ffd84a',1.5,300)})},
@@ -3135,6 +3207,7 @@ function endTurn(){
  G.turn=OP(G.turn);G.since++;G.pre=G.b.mg?BC.magPre(G.b,G.turn):null;
  const h=BC.hash(G.b,G.turn);G.seen[h]=(G.seen[h]||0)+1;
  G.plies=(G.plies||0)+1;G.b.pl=G.plies;if(G.lab){G.plies=0;G.b.pl=0}
+ MH.et();
  if(G.plies>=LIMIT){finish(BC.adjudicate(G.b),'lim');return}
  saveGame();
  stormAlert(G.plies);if(G.plies%20===0)phaseAlert(G.plies);else if(G.plies>=LIMIT-5)countdown(LIMIT-G.plies);
@@ -3158,8 +3231,9 @@ function finish(w,why){
  draw(t+' · '+d);
  setTimeout(()=>sfx(!w?'rm':solo&&!humanWins?'lose':'win'),350);
  {const ek=!w?'scale':solo?(humanWins?'trophy':'skull'):G.mode==='sim'?'flag':'star';const eo=$('#ovEm');eo.innerHTML=ug(ek);eo.className='em '+(!w?'draw':solo&&!humanWins?'lose':'win');{const nt=!!G.net;['ovAgain','ovPlace','ovSel'].forEach(i=>{const e=$('#'+i);if(e)(e.closest('.row2')&&i!=='ovAgain'?e.style:e.style).display=nt?'none':''});const on=$('#ovNet');if(on)on.style.display=nt?'':'none'}$('#ovT').textContent=t;$('#ovD').textContent=d;$('#ovS').innerHTML=TR(`<span>총 ${G.log.length}수</span><span>백 손실 ${G.lost.w.length}기</span><span>흑 손실 ${G.lost.b.length}기</span>`,`<span>${G.log.length} moves total</span><span>White lost ${G.lost.w.length}</span><span>Black lost ${G.lost.b.length}</span>`);const br=$('#bRes');if(br)br.style.display=''}
+ MH.fin(w,why,solo,humanWins);
  if(G.net&&typeof netResult==='function')netResult(w);
- setTimeout(()=>{if(G.over){if(G.story)stEnd(w,solo&&humanWins);else openM('mOver')}},900)}
+ setTimeout(()=>{if(G.over){if(G.story)stEnd(w,solo&&humanWins);else if(G.daily)MH.dEnd(w,solo&&humanWins);else openM('mOver')}},900)}
 $('#ovAgain').onclick=()=>{closeM('mOver');cancelAI();startGame()};
 const backTo=m=>{closeM('mOver');cancelAI();startBoard=BC.emptyBoard();queue=G.mode==='pve'?[G.human]:['w','b'];G.ret=m;nextSetup()};
 $('#ovPlace').onclick=()=>backTo('place');
@@ -3708,7 +3782,7 @@ function buildSet(){$('#setBody').innerHTML=swRow('swSfx',TR('효과음','Sound 
  $('#swClr').onclick=()=>ask(TR('저장 데이터 삭제','Delete saved data'),TR('설정과 내 프리셋이 모두 삭제됩니다. 계속할까요?','Your settings and all presets will be deleted. Continue?'),()=>{try{Object.keys(localStorage).filter(k=>k.startsWith('bc_')).forEach(k=>localStorage.removeItem(k))}catch(e){}myPre=[];PF.rm=false;applyPf();renderMyPre();buildSet();toast(TR('삭제했습니다','Deleted'))})}
 $('#bSet').onclick=()=>{buildSet();openM('mSet')};
 $('#bPass').onclick=()=>passTurn(false);
-$('#bRes').onclick=()=>{if(G.over){if(G.story)openM('mSr');else openM('mOver')}};
+$('#bRes').onclick=()=>{if(G.over){if(G.story)openM('mSr');else if(G.daily)openM('mDr');else openM('mOver')}};
 
 /* --- 접근성: 모달 포커스, ESC, 키보드 보드 조작 --- */
 const FOC='button:not([disabled]),[href],input,textarea,[tabindex]:not([tabindex="-1"])';
@@ -3746,7 +3820,7 @@ function playScene(k){if(!music)return;try{if(!ac())return;
   g.gain.linearRampToValueAtTime(want==='game'?1.25:want==='bat'?1.1:1,AC.currentTime+1.2);curSrc=s;curG=g;curK=want})}catch(e){}}
 function setScene(k){if(scene===k)return;scene=k;if(music&&AC&&AC.state!=='suspended')playScene(k)}
 let gameTrk=null;
-function sceneFor(id){if(id==='s4'){if(G&&G.tut)return 'game';if(!gameTrk){const L=['game','menu','bat'];gameTrk=L[Math.random()*L.length|0]}return gameTrk}gameTrk=null;return id==='s5'?'menu':'calm'}
+function sceneFor(id){if(id==='s4'){if(G&&G.tut)return 'game';if(!gameTrk){const L=['game','menu','bat'];gameTrk=L[Math.random()*L.length|0]}return gameTrk}gameTrk=null;return id==='s5'?'menu':(id==='s6'&&document.querySelector('#stList')&&document.querySelector('#stList').offsetParent)?'game':'calm'}
 {const _show=show;show=function(id){_show(id);setScene(sceneFor(id))}}
 $('#bm').onclick=e=>{e.stopPropagation();music=!music;store.set('music',music);syncSnd();if(music)playScene(scene);else stopMusic()};
 function tryMusic(){if(!music)return;try{const a=ac();if(!a)return;const go=()=>{if(music&&!curSrc&&!tmr)playScene(scene)};if(a.state==='running')go();else a.resume().then(go,()=>{})}catch(e){}}
@@ -3890,8 +3964,9 @@ function netResult(w){
  rkPts=Math.max(0,Math.min(2000,rkPts+d));store.set('rk',rkPts);
  const tb=rkTier(before),ta=rkTier(rkPts);
  const tx=TR(`랭크 ${rkPts>before?'+':rkPts<before?'−':'±'}${Math.abs(rkPts-before)}점 → ${rkName(rkPts)} ${rkPts}점`,`Rank ${rkPts>before?'+':rkPts<before?'−':'±'}${Math.abs(rkPts-before)} pts → ${rkName(rkPts)} ${rkPts} pts`)+(ta>tb?TR(' · 🎉 승급!',' · 🎉 Promoted!'):ta<tb?TR(' · 강등',' · Demoted'):'');
- const o=$('#ovD');if(o)o.textContent+=' · '+tx;
- setTimeout(()=>toast(tx),1200)}
+ let tx2='';if(ta>(store.get('rkbest',0)||0)){store.set('rkbest',ta);const c=50*ta;coinAdd(c);tx2=TR(` · 💰 승급 보상 +${c}`,` · 💰 Promotion reward +${c}`)}
+ const o=$('#ovD');if(o)o.textContent+=' · '+tx+tx2;MH.chk();
+ setTimeout(()=>toast(tx+tx2),1200)}
 /* --- 로비 UI --- */
 function netChoices(){
  const o=[];
@@ -4128,9 +4203,17 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.4.4';
+const APP_VER='1.4.5';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.4.5',TR('코인 · 프로필 · 도전 대규모 패치','Coins · Profile · Challenges Mega Patch'),[
+  TR('💰 코인 추가 — 스토리·일일 도전·업적·일반 대국 승리로 벌고, 상점에서 보드 테마·프로필 꾸미기·기물 조기 해금·무르기권에 써요','💰 Coins added — earn them from story, daily challenges, achievements and wins; spend them on board themes, profile cosmetics, early piece unlocks and Undo tickets'),
+  TR('📇 플레이어 프로필 — 처음 실행할 때 이름과 아바타를 정하고, 칭호·프레임·배경·이름 색으로 꾸밀 수 있어요','📇 Player profile — create it on first launch and decorate it with titles, frames, backgrounds and name styles'),
+  TR('⭐ 스토리 별 평가(클리어·손실 적게·빠른 승리) · 🛟 막힘 구제(3번 지면 난이도 낮추기·힌트·무르기권) · 🌅 후일담 5스테이지(직접 군대 편성)','⭐ Story star ratings (clear · few losses · fast win) · 🛟 stuck rescue (after 3 losses: easier mode, hints, Undo tickets) · 🌅 5 epilogue stages with your own army'),
+  TR('🗓 일일 도전 — 매일 바뀌는 군대와 상대, 연속 클리어 보너스','🗓 Daily Challenge — a new army and opponent every day, with streak bonuses'),
+  TR('🎨 타이틀 화면을 새로 정리 — START 아래 핵심 4타일(스토리·일일 도전·온라인·배우기)과 하단 아이콘 바','🎨 Cleaner title screen — four main tiles (Story, Daily, Online, Learn) under START plus an icon dock'),
+  TR('🏆 업적 40개 이상과 📊 통계 · 🎞 리플레이 자동 저장·코드/파일 공유 · ↩ 무르기','🏆 40+ achievements, 📊 stats, 🎞 auto-saved replays shared by code or file, and ↩ Undo'),
+  TR('💾 백업에 코인·별·구매·업적·통계 포함','💾 Backups now include coins, stars, purchases, achievements and stats')]],
  ['1.4.4',TR('스토리 완결 · 기물 해금 패치','Story Finale · Piece Unlock Patch'),[
   TR('📖 스토리 모드 20스테이지 완결 — 서장부터 종장까지 5개 시점의 군상극, 스테이지마다 더 길어진 대사와 세계관 설명','📖 Story Mode now has all 20 stages — an ensemble tale from prologue to finale told through five viewpoints, with longer dialogue and world-building in every stage'),
   TR('🔓 기물 해금: 처음에는 킹·퀸·룩·비숍·나이트·폰만 사용할 수 있고, 스토리 스테이지를 클리어할 때마다 새 기물이 열려요 (AI 관전·연습장·튜토리얼·도감은 제한 없음 / 설정에서 「기물 해금 제한」을 끌 수 있어요)','🔓 Piece unlock: you start with King, Queen, Rook, Bishop, Knight and Pawn, and every cleared story stage opens new pieces (AI-vs-AI, practice, tutorial and the piece guide are unrestricted / switch off “Piece unlock limit” in Settings)'),
@@ -4335,7 +4418,7 @@ function mgDraw(){
  <h4>${TR('주요 변경','Key changes')}</h4><ul>${c.ch.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
  if(window.emoDom)emoDom($('#mgB'))}
 function mgOpen(){mgSel=MEGA.length-1;mgDraw();openM('mMega');sfx('sel')}
-{const gm=$('#goMega');if(gm){const c=MEGA[MEGA.length-1];gm.innerHTML=`<b>v${APP_VER}</b> ${TR('대규모 패치','Mega Patch')} “${esc(c.t)}”<small>${TR('신규 기물 2종 · 엄호 · 매혹','2 new pieces · Cover · Charm')} ▸ ${TR('내역 보기','View history')}</small>`;gm.onclick=mgOpen}}
+{const gm=$('#goMega');if(gm){gm.innerHTML=`<b>v${APP_VER}</b> ${TR('대규모 패치','Mega Patch')} “${esc(TR('1.4.0 엄호를 뚫어내라!','1.4.0 Break Through the Cover!'))}” ▸`;gm.onclick=mgOpen}}
 $('#mgB').onclick=e=>{const b=e.target.closest('.mgn');if(!b)return;mgSel=+b.dataset.c;sfx('sel');mgDraw()};
 $('#mgX').onclick=()=>closeM('mMega');
 
@@ -4724,7 +4807,7 @@ const TOURS=()=>({
   {sel:'#n2',t:TR('<b>다음: 기물 배치 ▶</b><br>다 골랐으면 눌러서 배치하러 가요!','<b>Next: Place Pieces ▶</b><br>When you are done, tap here to go place them!')}],
  s3:[{sel:'#pal',t:TR('<b>🎒 내 기물 목록</b><br>놓을 기물을 여기서 골라요. 남은 수량이 ×숫자로 표시돼요. 하나 눌러 보세요!','<b>🎒 Your pieces</b><br>Pick the piece to place here. The remaining count is shown as ×number. Tap one!'),tap:1},
   {sel:'#bd3',t:TR('<b>♟️ 배치 보드</b><br>연두색 칸이 놓을 수 있는 칸이에요. 눌러서 놓고, 놓은 기물을 다시 누르면 회수돼요. 킹은 뒤쪽에 숨기세요. 흑룡·백룡은 후열의 같은 색 칸에만 놓여요.','<b>♟️ Placement board</b><br>Green squares are legal. Tap to place; tap a placed piece to take it back. Hide your King in the back. Dragons only go on same-colored back-row squares.'),tap:1},
-  {sel:'#auto',t:TR('<b>🪄 자동 배치</b><br>귀찮다면 이 버튼! 남은 기물을 알아서 놓아 줘요.','<b>🪄 Auto place</b><br>Too lazy? This places the remaining pieces for you.')},
+  {sel:'#auto',t:TR('<b>✨ 자동 배치</b><br>귀찮다면 이 버튼! 남은 기물을 알아서 놓아 줘요.','<b>✨ Auto place</b><br>Too lazy? This places the remaining pieces for you.')},
   {sel:'#clr',t:TR('<b>🧹 배치 초기화</b><br>처음부터 다시 놓고 싶을 때 눌러요.','<b>🧹 Clear placement</b><br>Tap to start the placement over.')},
   {sel:'#svpl',t:TR('<b>💾 프리셋으로 저장</b><br>구성과 배치를 함께 저장해 두면 온라인 대전에서도 쓸 수 있어요.','<b>💾 Save as preset</b><br>Saving army + placement lets you use them in online play too.')},
   {sel:'#n3',t:TR('<b>배치 완료 ▶</b><br>준비됐다면 눌러서 대국을 시작해요!','<b>Finish placing ▶</b><br>Ready? Tap to start the game!')}],
@@ -4736,7 +4819,7 @@ const TOURS=()=>({
  help:[{sel:'#htabs',t:TR('<b>📚 매뉴얼 탭</b><br>규칙 / 기물 도감 / 화면 안내를 오갈 수 있어요. 지금은 <b>기물 도감</b>이에요.','<b>📚 Manual tabs</b><br>Switch between Rules, Piece Codex and Screen Guide. You are in the <b>Piece Codex</b>.')},
   {sel:'#hchips',t:TR('<b>🔎 필터</b><br>전열·후열·킹/퀸 계열·원거리/스킬 기물만 골라 볼 수 있어요. 눌러 보세요!','<b>🔎 Filters</b><br>Show only front-row, back-row, King/Queen-class or ranged/skill pieces. Try one!'),tap:1},
   {sel:'#hpane .mlg',t:TR('<b>🎨 색깔 범례</b><br>미니 보드의 색이 뜻하는 걸 알려줘요: 이동 · 잡기 · 원거리 공격 · 스킬 범위.','<b>🎨 Color legend</b><br>What the mini-board colors mean: move · capture · ranged attack · skill range.')},
-  {sel:'#hpane .pcd-h',t:TR('<b>🪪 기물 이름표</b><br>이름, 코스트, 전열/후열 구분과 킹·퀸 계열 표시가 있어요.','<b>🪪 Name tag</b><br>Name, cost, front/back-row tag and King/Queen-class marks.')},
+  {sel:'#hpane .pcd-h',t:TR('<b>📇 기물 이름표</b><br>이름, 코스트, 전열/후열 구분과 킹·퀸 계열 표시가 있어요.','<b>📇 Name tag</b><br>Name, cost, front/back-row tag and King/Queen-class marks.')},
   {sel:'#hpane .pcd .mini',t:TR('<b>🗺️ 이동 범위 미니 보드</b><br>가운데 기물이 갈 수 있는 칸을 색으로 보여 줘요.','<b>🗺️ Mini range board</b><br>Shows the squares the center piece can reach, in color.')},
   {sel:'#hpane .pcd .rows',t:TR('<b>📖 능력 설명</b><br><span style="color:#1f6feb">이동</span> · <span style="color:#e07b00">스킬</span>(턴을 쓰는 능력) · <span style="color:#7b3fe4">특수</span>(자동 발동) 순서로 읽어요.','<b>📖 Abilities</b><br><span style="color:#1f6feb">Move</span> · <span style="color:#e07b00">Skill</span> (costs your turn) · <span style="color:#7b3fe4">Special</span> (automatic).')}]
 });
@@ -4893,10 +4976,10 @@ function rtdbRoom(){
 const SCH={K:TR('킹','King'),E:TR('엠페러','Emperor'),d:TR('데몬','Demon'),'Ṗ':TR('대통령','President'),g:TR('갓','God')};
 const nr=(ko,en)=>({x:TR(ko,en)});                                   // 나레이션
 const sy=(s,wk,we,ko,en)=>({s,w:TR(wk,we),x:TR(ko,en)});             // 대사 (s: 초상 기물)
-const STCH=[TR('서장 · 왕의 승전','Prologue · The King\'s Victory'),TR('1장 · 변방의 불씨','Chapter 1 · Sparks on the Frontier'),TR('2장 · 군단의 시대','Chapter 2 · Age of Legions'),TR('3장 · 엇갈린 깃발','Chapter 3 · Crossed Banners'),TR('4장 · 왕좌의 그림자','Chapter 4 · Shadow of the Throne'),TR('종장 · 마지막 한 수','Finale · The Last Move')];
+const STCH=[TR('서장 · 왕의 승전','Prologue · The King\'s Victory'),TR('1장 · 변방의 불씨','Chapter 1 · Sparks on the Frontier'),TR('2장 · 군단의 시대','Chapter 2 · Age of Legions'),TR('3장 · 엇갈린 깃발','Chapter 3 · Crossed Banners'),TR('4장 · 왕좌의 그림자','Chapter 4 · Shadow of the Throne'),TR('종장 · 마지막 한 수','Finale · The Last Move'),TR('후일담 · 새로운 판','Epilogue · A New Game')];
 /* new: 이 스테이지를 클리어하면 대국에서 쓸 수 있게 되는 기물 */
 const STAGES=[
-/* 1 */ {ch:0,t:TR('왕의 마지막 전투','The King\'s Last Battle'),pov:'K',lv:0,cl:1,me:'QRRBBNNPPPPPPPP',foe:'QRRBBNNPPPPPPPP',new:[],
+/* 1 */ {ch:0,t:TR('왕의 마지막 전투','The King\'s Last Battle'),pov:'K',par:85,lv:0,cl:1,me:'QRRBBNNPPPPPPPP',foe:'QRRBBNNPPPPPPPP',new:[],
   lore:TR('카이사 대륙은 체스판처럼 흑과 백으로 나뉜 땅이에요. 천 년 동안 백의 왕국과 흑의 왕국이 같은 진형으로 맞서 왔고, 오늘이 그 전쟁의 마지막 날이에요.','The continent of Kaissa is split into black and white like a chessboard. For a thousand years the white and black kingdoms have faced each other in the same formation — and today is the last day of that war.'),
   tip:TR('킹을 잡으면 승리해요. 기본 체스 규칙을 천천히 익혀 보세요.','Capture the enemy King to win. Take your time with the basic chess rules.'),
   pre:[nr(`카이사 대륙. 이 땅은 오래전부터 체스판처럼 흑과 백으로 나뉘어 있었고, 두 왕국은 천 년 동안 똑같은 진형으로 서로를 마주 보았다.`,`The continent of Kaissa. Since ancient times this land has been divided like a chessboard, black and white, and for a thousand years the two kingdoms stared at each other in the very same formation.`),
@@ -4909,7 +4992,7 @@ const STAGES=[
    sy('Q','퀸 (원수)','Queen (Marshal)',`폐하의 승리입니다! 두 왕국이 하나가 됩니다.`,`Victory, Majesty! The two kingdoms become one.`),
    nr(`하나가 된 대륙. 그러나 승전보가 퍼진 그날 밤, 사방의 변경에서 낯선 깃발들이 올랐다.`,`One continent at last. But on the night the victory spread, strange banners rose on every frontier.`),
    nr(`지금까지 흑과 백뿐이던 판에, 처음으로 다른 색이 나타난 것이다.`,`For the first time, a board of only black and white showed another color.`)]},
-/* 2 */ {ch:1,t:TR('북방의 황제','The Northern Emperor'),pov:'E',lv:1,me:'EyLLSSSSNNRBBPN',foe:'SSSSSLLPNNBRNBR',new:['E','y','L','S'],
+/* 2 */ {ch:1,t:TR('북방의 황제','The Northern Emperor'),pov:'E',par:90,lv:1,me:'EyLLSSSSNNRBBPN',foe:'SSSSSLLPNNBRNBR',new:['E','y','L','S'],
   lore:TR('대륙 북쪽의 설원 제국 노르디아. 왕국에 복속된 적 없는 이 나라의 황제는 승전 소식을 듣고도 왕관을 내려놓지 않았어요.','Nordia, the snowbound empire in the north. Its emperor has never bowed to the kingdom, and even on hearing of the victory he did not lay down his crown.'),
   tip:TR('엠페러는 킹을 대신하는 기물이에요. 잡히면 패배하지만 원거리 공격에는 면역이에요.','The Emperor replaces the King. Losing it means defeat, but it is immune to ranged attacks.'),
   pre:[nr(`북방 설원의 제국 노르디아. 왕국에 복속된 적 없는 이 나라는 천 년 동안 흑백의 전쟁에 한 번도 끼어들지 않았다.`,`Nordia, the empire of the northern snows. It never once joined the thousand-year war between black and white.`),
@@ -4922,7 +5005,7 @@ const STAGES=[
    sy('y','창기병대장','Lancer Captain',`두목의 품에서 이런 게 나왔습니다. 인장 같습니다.`,`This was in the chief's coat, sire. It looks like a seal.`),
    nr(`검붉은 뿔 모양의 인장. 북방의 어느 가문도 쓰지 않는 문양이었다.`,`A seal in the shape of a dark red horn — a mark no northern house had ever used.`),
    nr(`황제는 인장을 장갑 안에 감추고 입을 닫았다. 이 일은 아직 왕에게 알릴 때가 아니었다.`,`The emperor hid the seal inside his gauntlet and said nothing. It was not yet the time to tell the King.`)]},
-/* 3 */ {ch:1,t:TR('균열의 마계','The Rift Below'),pov:'d',lv:2,me:'dḶDDNNBBRPPPSSS',foe:'HHBBRNNPPPSSLLP',new:['d','D','Ḷ'],
+/* 3 */ {ch:1,t:TR('균열의 마계','The Rift Below'),pov:'d',par:85,lv:2,me:'dḶDDNNBBRPPPSSS',foe:'HHBBRNNPPPSSLLP',new:['d','D','Ḷ'],
   lore:TR('대륙 동쪽 끝의 균열 너머에는 마계가 있어요. 군주 데몬은 인간 왕의 승전에 관심이 없었지만, 균열 앞에 하얀 법의의 순례단이 나타났어요.','Beyond the Rift at the far east of the continent lies the demon realm. Its lord cared nothing for a human king\'s victory — until white-robed pilgrims appeared at the Rift.'),
   tip:TR('데몬은 킹 대신 쓰는 기물이에요. 적을 3기 처치하면 악마화해서 훨씬 넓게 움직여요.','The Demon replaces the King. After three kills it turns demonic and moves much farther.'),
   pre:[nr(`대륙 동쪽 끝의 균열. 이 땅이 체스판이 되기 전부터 있었다는 틈 너머에 마계가 있다.`,`The Rift at the far east. A crack older than the chessboard itself, with the demon realm on the other side.`),
@@ -4935,7 +5018,7 @@ const STAGES=[
    sy('Ḷ','루시퍼','Lucifer',`지팡이 끝에 인장이 있습니다. 뿔 위에 하얀 날개가 겹친 모양입니다.`,`There is a seal at the tip of the staff, my lord: a horn overlaid with white wings.`),
    nr(`뿔은 북방의 도적이 지녔던 그 인장이다. 서로 아무 상관 없는 두 군단이 같은 표식을 지닌 것이다.`,`The horn is the same seal the northern bandits carried. Two unrelated forces bearing one mark.`),
    nr(`데몬은 처음으로 이 소란이 우연이 아니라는 걸 깨달았다.`,`For the first time, the demon lord realized this uproar was no coincidence.`)]},
-/* 4 */ {ch:1,t:TR('공화국의 방패','Shield of the Republic'),pov:'Ṗ',lv:2,me:'ṖOĊĊCNNBBRPPPSS',foe:'FFTNNZRPPSSPN',new:['Ṗ','O','Ċ','C'],
+/* 4 */ {ch:1,t:TR('공화국의 방패','Shield of the Republic'),pov:'Ṗ',par:85,lv:2,me:'ṖOĊĊCNNBBRPPPSS',foe:'FFTNNZRPPSSPN',new:['Ṗ','O','Ċ','C'],
   lore:TR('서쪽의 공화국 베스트리아. 왕이 아닌 투표로 세워진 이 나라는 대륙에서 가장 늦게 총을 든 나라였어요.','Westria, the republic of the west. Founded by votes instead of a throne, it was the last nation on the continent to take up firearms.'),
   tip:TR('대통령의 스킬 「엄호」는 1코스트 기물 1기를 주변 3x3 안의 빈칸으로 옮겨 줘요.','The President\'s “Cover” skill moves one 1-cost ally to any empty square in the surrounding 3x3.'),
   pre:[nr(`서쪽 공화국 베스트리아. 왕이 아닌 투표로 세워진 이 나라는, 대륙에서 가장 늦게 총을 든 나라이기도 했다.`,`Westria, the republic of the west. A nation built on votes rather than a crown — and the last on the continent to take up firearms.`),
@@ -4948,7 +5031,7 @@ const STAGES=[
    nr(`뿔, 날개, 그리고 톱니바퀴. 서로 다른 세 군단—그러나 같은 손이 만든 인장이었다.`,`A horn, wings, and now a cogwheel. Three different forces — one and the same hand behind the seals.`),
    sy('O','방위군 사령관','Guard Commander',`각하, 공화국 정보부는 이 문장의 출처를 모릅니다. 장부에도 흔적이 없습니다.`,`Sir, Republican intelligence has no record of this crest. It is in no ledger at all.`),
    sy('Ṗ','대통령','President',`투표로 뽑힌 자가 모르는 권력이 있다면, 그건 국민이 모르는 권력이다. 끝까지 찾아내겠다.`,`If there is a power unknown to the one elected to lead, then it is a power unknown to the people. I will find it.`)]},
-/* 5 */ {ch:1,t:TR('흩어진 깃발','Scattered Banners'),pov:'K',lv:3,me:'QRBBNNIAHPPPP',foe:'yDĊOHFnUSSŁŁɃP',new:['I','A','H'],
+/* 5 */ {ch:1,t:TR('흩어진 깃발','Scattered Banners'),pov:'K',par:100,lv:3,me:'QRBBNNIAHPPPP',foe:'yDĊOHFnUSSŁŁɃP',new:['I','A','H'],
   lore:TR('승전 후 보름 만에 왕의 영토는 갈라졌어요. 제국, 마계, 공화국, 그리고 이름 없는 반군이 수도 룩하임 앞 평원에 모였어요.','Within a fortnight of the victory the King\'s realm had split. Empire, demons, republic and a nameless rebel host gathered on the plain before the capital, Rookheim.'),
   tip:TR('1장의 마지막 전투예요. 앞서 만난 군단의 기물들이 한꺼번에 나와요.','The finale of Chapter 1. Pieces from every legion you met so far fight together.'),
   pre:[nr(`수도 룩하임 앞 평원. 승전 후 보름 만에 왕의 영토는 갈라졌다. 제국, 마계, 공화국. 그리고 이름 없는 반군.`,`The plain before the capital, Rookheim. Within a fortnight of the victory the King's realm had split: empire, demon realm, republic — and a nameless rebel host.`),
@@ -4961,7 +5044,7 @@ const STAGES=[
    sy('Q','퀸 (원수)','Queen (Marshal)',`폐하, 포로의 갑옷 안쪽에도 같은 인장이 있었습니다.`,`Majesty, the prisoners' armor bears the same seals on the inside.`),
    nr(`그날 밤, 하늘 위. 체스판을 내려다보는 누군가가 낮게 웃었다. “—이제 다음 수를 둘 차례로군.”`,`That night, high above, someone looked down at the board and chuckled softly. “— Now, time for the next move.”`),
    nr(`1장 「변방의 불씨」 끝. 그러나 판은 이제 막 열렸을 뿐이다.`,`End of Chapter 1, “Sparks on the Frontier”. But the board has only just opened.`)]},
-/* 6 */ {ch:2,t:TR('황제의 원정','The Emperor\'s Campaign'),pov:'E',lv:2,me:'EQRRBBNNT',foe:'QRRBBNNPPPPPPPP',new:['T','V','Y'],
+/* 6 */ {ch:2,t:TR('황제의 원정','The Emperor\'s Campaign'),pov:'E',par:100,lv:2,me:'EQRRBBNNT',foe:'QRRBBNNPPPPPPPP',new:['T','V','Y'],
   lore:TR('도적의 인장을 쥔 황제는 이 판을 짠 자가 왕이라고 확신하고 군을 남쪽으로 움직였어요.','Clutching the bandits\' seal, the emperor was certain the King had arranged all this, and marched his army south.'),
   tip:TR('스트라이커·뱅가드·이글은 제국의 기동 부대예요. 앞줄에서 길을 열고 측면을 노려 보세요.','Striker, Vanguard and Eagle are the empire\'s mobile troops. Open the road at the front and strike the flanks.'),
   pre:[nr(`북방 제국의 겨울은 길다. 그러나 황제는 겨울이 끝나기도 전에 남쪽으로 군을 움직였다.`,`Winters in the northern empire are long. Yet the emperor moved south before this one had even ended.`),
@@ -4975,7 +5058,7 @@ const STAGES=[
    nr(`쓰러진 기사단장의 방패 안쪽에서, 황제는 아는 문양을 찾았다. 검붉은 뿔. 왕국의 군기에도 같은 인장이 숨어 있었던 것이다.`,`On the inside of the fallen commander's shield, the emperor found a familiar mark: a dark red horn. The seal was hidden in the kingdom's banners, too.`),
    nr(`제국과 왕국을 서로 의심하게 만든 것은 같은 손이었다. 황제는 철수 명령을 내렸다.`,`The same hand had made empire and kingdom suspect each other. The emperor ordered the retreat.`),
    sy('E','엠페러','Emperor',`짐은 누구의 말도 되고 싶지 않다. 이 판을 짠 자를 찾아내겠다.`,`I refuse to be anyone's piece. I will find whoever arranged this board.`)]},
-/* 7 */ {ch:2,t:TR('마계의 연회','Banquet of the Rift'),pov:'d',lv:3,me:'dMepRRBBNP',foe:'ḶDDDeNNBPPSSFPP',new:['e','M','p'],
+/* 7 */ {ch:2,t:TR('마계의 연회','Banquet of the Rift'),pov:'d',par:95,lv:3,me:'dMepRRBBNP',foe:'ḶDDDeNNBPPSSFPP',new:['e','M','p'],
   lore:TR('천 년에 한 번 군주를 갱신하는 마계의 연회. 올해는 모든 귀족의 식탁에 날개 인장이 찍힌 초대장이 놓여 있었어요.','The demon realm\'s once-a-millennium banquet, where the lord is renewed. This year every noble\'s table held an invitation stamped with a winged seal.'),
   tip:TR('플레임·메두사·바드는 마계의 귀족 부대예요. 플레임의 마그마 영역을 길목에 깔아 보세요.','Flame, Medusa and Bard are the demon nobility. Try laying Flame\'s magma zone across a choke point.'),
   pre:[nr(`균열 속 마계의 도시, 불의 궁정. 마계의 귀족들은 천 년에 한 번 군주를 갱신하는 연회를 연다.`,`The Court of Fire, the demon city inside the Rift. Once every thousand years its nobles hold a banquet to renew their lord.`),
@@ -4988,7 +5071,7 @@ const STAGES=[
    sy('d','데몬','Demon',`판이라고?`,`A game?`),
    nr(`쓰러진 공작의 입에서 나온 단어는 북방 도적도, 공화국의 유목민도 입에 올린 적 없는 말이었다. ‘판’.`,`The word from the fallen duchess's lips was one no bandit or nomad had ever spoken: “the board”.`),
    nr(`데몬은 초대장을 불태우지 않았다. 대신 소매 깊숙이 넣었다. 이 초대장이 어디서 왔는지 알아야 했다.`,`The demon lord did not burn the invitation. He slipped it deep into his sleeve. He had to learn where it came from.`)]},
-/* 8 */ {ch:2,t:TR('공화국의 선거','The Republic Votes'),pov:'Ṗ',lv:2,me:'ṖQRRBBNNŁrPPP',foe:'UUCFSSPPNBRPN',new:['h','J','Ł','r'],
+/* 8 */ {ch:2,t:TR('공화국의 선거','The Republic Votes'),pov:'Ṗ',par:80,lv:2,me:'ṖQRRBBNNŁrPPP',foe:'UUCFSSPPNBRPN',new:['h','J','Ł','r'],
   lore:TR('4년에 한 번 열리는 대통령 선거를 사흘 앞두고 수도 아고라 곳곳에서 총성이 울렸어요.','Three days before the once-every-four-years presidential election, gunfire echoed across the capital, Agora.'),
   tip:TR('스나이퍼와 샷건은 강한 원거리 화력이에요. 라이너·론도 같은 값싼 기물로 길목을 막아 주세요.','Sniper and Shotgun are heavy ranged firepower. Block the lanes with cheap pieces like Liner and Rondo.'),
   pre:[nr(`공화국의 수도 아고라. 4년에 한 번 열리는 대통령 선거를 사흘 앞두고 도시 곳곳에서 총성이 울렸다.`,`Agora, capital of the republic. Three days before the quadrennial presidential election, gunfire rang out across the city.`),
@@ -5000,7 +5083,7 @@ const STAGES=[
   post:[sy('Ṗ','대통령','President',`선거는 예정대로 열립니다. 총성이 멈췄으니까요.`,`The election goes ahead as scheduled — the gunfire has stopped.`),
    nr(`용병단장의 증언에 따르면 인장은 하늘 위의 교단에서 나왔다. 서쪽 국경의 순례단, 마계의 날개 인장과 같은 근원이었다.`,`According to the captain, the seals came from a church in the sky — the same source as the pilgrims and the winged seal in the demon realm.`),
    nr(`대통령은 연단에 서서 국민에게 말했다. “우리 중 누구도 이 판의 주인이 아닙니다. 그러나 우리는 말이 아니라 사람입니다.”`,`The president stepped to the podium and told the people: “None of us owns this board. But we are not pieces — we are people.”`)]},
-/* 9 */ {ch:2,t:TR('신의 사도','Apostles of the Divine'),pov:'g',lv:3,me:'gqlRRBBNNPPPPPPP',foe:'RBBNNPPPPPPP',new:['l','q','g'],
+/* 9 */ {ch:2,t:TR('신의 사도','Apostles of the Divine'),pov:'g',par:85,lv:3,me:'gqlRRBBNNPPPPPPP',foe:'RBBNNPPPPPPP',new:['l','q','g'],
   lore:TR('구름 위의 성소 엠피레오. 대륙의 누구도 올라 본 적 없는 이곳에서 판을 내려다보는 자가 있어요. 사람들은 그를 신이라 불러요.','Empyreo, the sanctuary above the clouds, where no one from the continent has ever climbed — and where someone watches the board. People call him a god.'),
   tip:TR('갓은 킹 대신 쓰는 무료 기물이에요. 프린세스·럭키·프리스트로 사도 부대를 꾸려 보세요.','God is a free piece that replaces the King. Build an apostle corps from Princess, Lucky and Priests.'),
   pre:[nr(`구름 위의 성소 엠피레오. 대륙의 누구도 올라 본 적 없는 이곳에, 판을 내려다보는 자가 있었다.`,`Empyreo, the sanctuary above the clouds. No one from the continent had ever climbed here — and here someone looked down on the board.`),
@@ -5013,7 +5096,7 @@ const STAGES=[
    sy('q','프린세스 (성녀)','Princess (Saint)',`하지만 그들 중 일부는 이미 판 밖을 보기 시작했습니다. 인장은 제 역할을 했습니다.`,`Yet some of them have already begun to look beyond the board. The seals did their work.`),
    nr(`신은 오래전부터 ‘말’이 되지 못한 자였다. 판을 만든 대가로 판 위에 올라설 수 없게 된 자.`,`The god had long been one who could not be a “piece” — the price of making the board was never being allowed to stand on it.`),
    nr(`그에게 남은 즐거움은 말들이 스스로 움직이게 만드는 일뿐이었다. 새 판의 불씨는 이미 지상에 던져졌다.`,`His only remaining joy was to make the pieces move on their own. The spark of a new game had already been thrown to the earth.`)]},
-/* 10 */ {ch:2,t:TR('군단 회담','Council of Legions'),pov:'K',lv:4,me:'ZkGQRRBPP',foe:'ÄwiFFPPSSNB',new:['Z','k','G'],
+/* 10 */ {ch:2,t:TR('군단 회담','Council of Legions'),pov:'K',par:110,lv:4,me:'ZkGQRRBPP',foe:'ÄwiFFPPSSNB',new:['Z','k','G'],
   lore:TR('중립 도시 스테일메이트. 이름 그대로 누구도 이기지 못하는 땅에서, 킹·엠페러·데몬·대통령이 처음으로 한 테이블에 앉았어요.','The neutral city of Stalemate. On ground where, true to its name, no one can win, the King, Emperor, Demon and President sit at one table for the first time.'),
   tip:TR('암살단의 기습이에요. 골렘으로 방어선을 잡고 샤크·워해머로 반격하세요.','An assassin ambush. Hold the line with Golem and counter with Shark and Warhammer.'),
   pre:[nr(`중립 도시 스테일메이트. 이름 그대로 누구도 이기지 못하는 땅에서 네 사람이 처음으로 한 테이블에 앉았다.`,`The neutral city of Stalemate. On ground where, as its name says, nobody can win, four rulers sat at one table for the first time.`),
@@ -5027,7 +5110,7 @@ const STAGES=[
    sy('d','데몬','Demon',`우리를 죽이려던 건 아니었다. 저들은 의심의 씨앗을 뿌렸을 뿐이다.`,`They did not mean to kill us. They only meant to plant seeds of doubt.`),
    nr(`암살자들의 칼에는 서로 다른 세 군단의 문양이 각각 새겨져 있었다. 서로의 소행처럼 보이도록.`,`The assassins' blades each carried the mark of a different legion, so that each would blame the other.`),
    nr(`회담은 결렬됐다. 각자 자신의 땅으로 돌아가며 서로를 의심했다. 2장 「군단의 시대」 끝.`,`The council collapsed. Each ruler rode home suspecting the others. End of Chapter 2, “Age of Legions”.`)]},
-/* 11 */ {ch:3,t:TR('배신의 성','Castle of Betrayal'),pov:'E',lv:3,me:'EQRRBBNNtÑP',foe:'ÄÄwiFFPPS',new:['Ä','t','Ñ'],
+/* 11 */ {ch:3,t:TR('배신의 성','Castle of Betrayal'),pov:'E',par:100,lv:3,me:'EQRRBBNNtÑP',foe:'ÄÄwiFFPPS',new:['Ä','t','Ñ'],
   lore:TR('회담 결렬 후 돌아온 황제를 맞이한 것은 닫힌 성문이었어요. 가장 신임한 재상이 반역을 일으켰어요.','The emperor returned from the failed council to find the gates of his capital shut. His most trusted chancellor had rebelled.'),
   tip:TR('어쌔신은 암살에 특화된 기물이에요. 호퍼와 노비는 값싸고 의외의 수를 만들어 줘요.','Assassin specializes in assassination. Hopper and Nobi are cheap pieces that create surprising moves.'),
   pre:[nr(`제국의 수도 크라운홀드. 회담 결렬 후 돌아온 황제를 맞이한 것은 닫힌 성문이었다.`,`Crownhold, capital of the empire. When the emperor returned from the failed council, the gates were shut against him.`),
@@ -5039,7 +5122,7 @@ const STAGES=[
   post:[sy('E','엠페러','Emperor',`…재상, 인장의 주인은 네게 무엇을 약속했나.`,`…Chancellor, what did the owner of the seal promise you?`),
    nr(`재상은 웃으며 대답했다. “판 위에서 말이 아닌 자가 되는 것.” 그는 그 의미를 끝내 설명하지 못했다.`,`The chancellor smiled and answered: “To become something other than a piece on the board.” He never managed to explain what that meant.`),
    nr(`황제는 성을 되찾았다. 그러나 이 전쟁이 왕과 황제의 싸움이 아님을 확실히 알았다. 말이 말을 거부하게 만드는 자가 있었다.`,`The emperor retook his castle. And he was certain now: this was no war between king and emperor. Someone was making pieces refuse to be pieces.`)]},
-/* 12 */ {ch:3,t:TR('폭풍의 전장','Storm Battlefield'),pov:'d',lv:4,me:'dḶXfuRRBBP',foe:'ṖOĊĊCNNBBRPPPSS',new:['X','f','u'],
+/* 12 */ {ch:3,t:TR('폭풍의 전장','Storm Battlefield'),pov:'d',par:100,lv:4,me:'dḶXfuRRBBP',foe:'ṖOĊĊCNNBBRPPPSS',new:['X','f','u'],
   lore:TR('마계와 공화국이 맞닿은 협곡. 푸른 폭풍이 바깥에서부터 밀려들어 판을 좁혀 오고 있었어요.','A gorge where the demon realm meets the republic. A blue storm rolled in from the edges, narrowing the board.'),
   tip:TR('자기장이 밀려와요. 오래 끌면 판 가장자리부터 사라지니 중앙을 차지하고 서둘러 승부를 내세요.','The storm closes in. Hold the center and finish quickly, or the edges of the board will vanish.'),
   pre:[nr(`마계와 공화국이 맞닿은 국경 협곡. 이곳에서 데몬은 처음으로 하늘이 닫히는 광경을 보았다.`,`A border gorge where the demon realm meets the republic. Here the demon lord first watched the sky close.`),
@@ -5051,7 +5134,7 @@ const STAGES=[
   post:[sy('d','데몬','Demon',`협곡이 완전히 닫히기 전에 빠져나가야 한다.`,`We must get out before the gorge closes completely.`),
    nr(`폭풍은 정해진 시간이 지나면 판 전체를 삼켰다. 마치 보이지 않는 체스 시계가 흐르는 것처럼.`,`After a fixed span of moves the storm swallowed the whole board — as if an invisible chess clock were running.`),
    nr(`데몬은 깨달았다. 신이 짠 판에는 제한 시간이 있다. 판이 너무 오래 끌지 않도록. 지루해지기 전에 끝내도록.`,`The demon lord understood: the board the god arranged has a time limit — to keep it from dragging on, to end it before he grows bored.`)]},
-/* 13 */ {ch:3,t:TR('금지된 무기','Forbidden Arms'),pov:'Ṗ',lv:2,me:'ṖQRRBBNNs',foe:'aUCFSSPPNBRPN',new:['s','x','a'],
+/* 13 */ {ch:3,t:TR('금지된 무기','Forbidden Arms'),pov:'Ṗ',par:65,lv:2,me:'ṖQRRBBNNs',foe:'aUCFSSPPNBRPN',new:['s','x','a'],
   lore:TR('공화국 비밀 연구소가 인장의 설계도를 해독해 병기 둘을 만들었어요. 하나는 땅을 새로 짓고, 하나는 하늘에서 쏘는 무기예요.','A secret republican laboratory deciphered the seals\' blueprints and built two weapons: one that reshapes the ground, one that fires from the sky.'),
   tip:TR('제네시스와 오르빗은 강력하지만 값이 비싸요. 핸드가 이끄는 연구소 경비대를 돌파하세요.','Genesis and Orbit are powerful but costly. Break through the lab guards led by Hand.'),
   pre:[nr(`공화국 비밀 연구소. 인장의 설계도를 해독한 과학자들이 끝내 만들어 낸 것은 두 개의 병기였다. ‘제네시스’와 ‘오르빗’.`,`A secret republican laboratory. Scientists who had deciphered the seals' blueprints finally produced two weapons: “Genesis” and “Orbit”.`),
@@ -5063,7 +5146,7 @@ const STAGES=[
   post:[sy('Ṗ','대통령','President',`설계도는 모두 소각하십시오. 병기도 해체합니다.`,`Burn every blueprint. Dismantle the weapons.`),
    nr(`소각 직전, 설계도 한 장이 눈에 띄었다. 오르빗의 조준 장치에 새겨진 마지막 문장. “이 병기는 신에게도 닿는다.”`,`Just before the burning, one blueprint caught his eye: the last line inscribed on Orbit's targeting rig. “This weapon can reach even a god.”`),
    nr(`누가 이 문장을 써 넣었는가. 대통령은 설계도 한 장을 태우지 않았다. 신이 정말 닿을 수 있는 존재라면 그 사실은 알아 두어야 했다.`,`Who had written this line? The president did not burn that one sheet. If a god truly could be reached, he needed to know it.`)]},
-/* 14 */ {ch:3,t:TR('신의 시험','The Divine\'s Trial'),pov:'g',lv:2,me:'gRRBBNNjcP',foe:'qRRBBNNPPPPSSPN',new:['j','c','w'],
+/* 14 */ {ch:3,t:TR('신의 시험','The Divine\'s Trial'),pov:'g',par:95,lv:2,me:'gRRBBNNjcP',foe:'qRRBBNNPPPPSSPN',new:['j','c','w'],
   lore:TR('성소에 처음으로 금이 갔어요. 가장 가까이에서 섬기던 성녀가 지상의 소식을 듣고 신을 의심하기 시작했어요.','For the first time, a crack ran through the sanctuary. The saint who served closest to the god heard the news from below and began to doubt him.'),
   tip:TR('마검사·크리티컬·스파클은 신의 직속 정예예요. 성녀의 호위대를 상대로 한 방을 노려 보세요.','Magic Swordsman, Critical and Sparkle are the god\'s elite guard. Aim for decisive blows against the saint\'s escort.'),
   pre:[nr(`성소 엠피레오에 처음으로 금이 갔다. 신의 가장 가까이에서 섬기던 성녀가 지상의 소식을 들은 것이다.`,`For the first time, a crack ran through Empyreo. The saint who served nearest the god had heard the news from below.`),
@@ -5076,7 +5159,7 @@ const STAGES=[
    sy('g','갓','God',`판이 스스로 흔들리도록 둔 건 나다. 너는 그 흔들림이 어디까지 가는지 보여 주었다.`,`It was I who let the board shake by itself. You showed me how far the shaking goes.`),
    nr(`신은 처음으로 자신이 외로웠다는 사실을 부정하지 못했다. 그리고 그 사실을 말에게 들켜 버렸다는 것도.`,`For the first time the god could not deny that he had been lonely — or that a piece had discovered it.`),
    nr(`성소의 문이 열렸다. 지상으로 이어지는 계단이 놓였다. 신이 스스로 만든 판에 처음으로 길을 낸 것이다.`,`The sanctuary's gate opened. A staircase to the earth appeared. For the first time the god had made a road on his own board.`)]},
-/* 15 */ {ch:3,t:TR('왕의 결단','The King\'s Decision'),pov:'K',lv:4,me:'biHzRRBBNP',foe:'bbiiFFSSN',new:['b','i','z'],
+/* 15 */ {ch:3,t:TR('왕의 결단','The King\'s Decision'),pov:'K',par:115,lv:4,me:'biHzRRBBNP',foe:'bbiiFFSSN',new:['b','i','z'],
   lore:TR('진실을 알게 된 왕은 군단을 정복하지 않고 연합으로 이끌기로 했어요. 하지만 신의 이름 없는 군단이 길을 막았어요.','Having learned the truth, the King resolved to lead the legions not by conquest but by alliance. But the god\'s nameless legion barred his road.'),
   tip:TR('부시도·인파이터·매지션은 신의 이름 없는 군단이에요. 근접 전투가 격렬하니 앞줄을 두텁게 하세요.','Bushido, Infighter and Magician are the god\'s nameless legion. Close combat is fierce, so thicken your front line.'),
   pre:[nr(`룩하임 왕궁. 왕은 회담장에서 얻은 단서와 포로가 된 사도의 입에서 마침내 진실을 들었다.`,`Rookheim palace. From the clues gathered at the council and the lips of a captured apostle, the King finally heard the truth.`),
@@ -5089,7 +5172,7 @@ const STAGES=[
   post:[sy('K','킹','King',`사절을 보내라. 황제에게, 마왕에게, 대통령에게. 회담이 아니라 출전 요청이다.`,`Send envoys to the emperor, the demon lord and the president. Not a council — a call to march.`),
    nr(`왕은 처음으로 왕관을 벗어 탁자에 내려놓았다. 이 전쟁은 왕이 이기는 전쟁이 아니라 말들이 이기는 전쟁이어야 했다.`,`For the first time the King took off his crown and set it on the table. This was not to be a war the king wins, but a war the pieces win.`),
    nr(`3장 「엇갈린 깃발」 끝. 흩어졌던 깃발이 처음으로 같은 방향을 가리키기 시작했다.`,`End of Chapter 3, “Crossed Banners”. For the first time the scattered banners began to point the same way.`)]},
-/* 16 */ {ch:4,t:TR('진짜 적','The True Enemy'),pov:'K',lv:4,me:'QRRBBNNnHP',foe:'BnnvvooPSSP',new:['n','v','o'],
+/* 16 */ {ch:4,t:TR('진짜 적','The True Enemy'),pov:'K',par:110,lv:4,me:'QRRBBNNnHP',foe:'BnnvvooPSSP',new:['n','v','o'],
   lore:TR('연합 출전을 선포하기 전날 밤, 왕궁 안에서 칼이 뽑혔어요. 가장 오래 곁을 지킨 대주교가 근위대를 이끌고 있었어요.','The night before the alliance was to march, swords were drawn inside the palace. The archbishop who had stood beside the King longest led the guard.'),
   tip:TR('마운틴·버티컬·호라이즌은 왕궁 근위대예요. 복도 같은 좁은 전장이니 중앙 장악이 중요해요.','Mountain, Vertical and Horizon are the palace guard. In this narrow, corridor-like battlefield, controlling the center matters.'),
   pre:[nr(`연합 출전을 선포하기 전날 밤, 왕궁 안에서 칼이 뽑혔다. 왕의 근위대가 왕을 향했다.`,`The night before the alliance march was to be proclaimed, swords were drawn inside the palace. The King's own guard turned on him.`),
@@ -5103,7 +5186,7 @@ const STAGES=[
    sy('K','킹','King',`원하는 칸으로 걸어라. 그것이 이 판에서 처음으로 허용되는 한 수다.`,`Walk to whichever square you wish. That is the first move this board has ever allowed.`),
    nr(`비숍은 대각선 대신 곧게 걸었다. 법의 아래의 인장이 조용히 떨어졌다.`,`Bishop walked straight instead of on the diagonal. The seal beneath his robe fell away without a sound.`),
    nr(`진짜 적은 하늘에만 있지 않았다. 말들 속에 심어진 ‘규칙을 지키려는 마음’ 그 자체도 적이었다.`,`The true enemy was not only in the sky. The very instinct to obey the rules, planted inside the pieces, was an enemy too.`)]},
-/* 17 */ {ch:4,t:TR('불편한 동맹','Uneasy Alliance'),pov:'E',lv:4,me:'ERRBBNNɃWƤPP',foe:'ƤWWɃɃɃDNPSSPNBR',new:['Ƀ','W','Ƥ'],
+/* 17 */ {ch:4,t:TR('불편한 동맹','Uneasy Alliance'),pov:'E',par:100,lv:4,me:'ERRBBNNɃWƤPP',foe:'ƤWWɃɃɃDNPSSPNBR',new:['Ƀ','W','Ƥ'],
   lore:TR('연합군은 하늘로 오르는 길을 찾아 사막으로 향했어요. 모래의 왕릉에는 신이 처음 판을 만들 때 쓰고 버린 말이 잠들어 있었어요.','The allied army marched into the desert to find the road to the sky. In the Tomb of Sands slept a piece the god had used and discarded when he first made the board.'),
   tip:TR('파라오와 백룡은 버려진 말들이에요. 바운스는 첫 이동에서 두 칸 나아가 의외의 기습을 해요.','Pharaoh and White Dragon are discarded pieces. Bounce moves two squares on its first move for surprise strikes.'),
   pre:[nr(`연합군은 하늘로 오르는 길을 찾아 사막으로 향했다. 모래의 왕릉이 열려 있었다.`,`The allied army marched into the desert to find the road to the sky. The Tomb of Sands stood open.`),
@@ -5116,7 +5199,7 @@ const STAGES=[
    sy('E','엠페러','Emperor',`신은 버려진 말을 부활시켜 다시 쓰고 있었다. 이 판은 이번이 처음이 아니다.`,`The god was reviving discarded pieces to use them again. This is not the first board.`),
    nr(`파라오의 마지막 말은 간단했다. “이번 판은 끝나지 않기를 바랐다.” 신의 진짜 두려움을 아는 자의 목소리였다.`,`The Pharaoh's last words were simple: “I hoped this game would never end.” The voice of one who knew the god's true fear.`),
    nr(`사막 위로 계단이 나타났다. 하늘의 성소로 오르는 길이었다.`,`A staircase appeared above the desert — the road up to the sanctuary in the sky.`)]},
-/* 18 */ {ch:4,t:TR('신의 체스판','The Divine\'s Chessboard'),pov:'g',lv:3,me:'gmFRRBBNNPPPPPP',foe:'RRBBNNPPPPPPPP',new:['m','F'],
+/* 18 */ {ch:4,t:TR('신의 체스판','The Divine\'s Chessboard'),pov:'g',par:100,lv:3,me:'gmFRRBBNNPPPPPP',foe:'RRBBNNPPPPPPPP',new:['m','F'],
   lore:TR('엠피레오의 가장 높은 층. 신은 처음으로 지상의 군단들이 계단을 오르는 모습을 내려다보고 있었어요.','The highest floor of Empyreo. For the first time the god watched the legions of the earth climbing his stairs.'),
   tip:TR('마더의 보호 영역과 울프의 기동력으로 연합군 선봉을 막아 내세요.','Hold off the allied vanguard with Mother\'s protective zone and Wolf\'s mobility.'),
   pre:[nr(`엠피레오의 가장 높은 층. 신은 처음으로 지상의 군단들이 계단을 오르는 모습을 내려다보고 있었다.`,`The highest floor of Empyreo. For the first time the god watched the legions of the earth climb his staircase.`),
@@ -5129,7 +5212,7 @@ const STAGES=[
   post:[sy('g','갓','God',`…방패가 뚫렸다.`,`…The shield has been pierced.`),
    nr(`신의 근위대는 선봉을 막아 냈다. 그러나 선봉은 미끼였다. 본대는 이미 천상문 앞에 도달해 있었다.`,`The god's guard held the vanguard back. But the vanguard was a decoy: the main army had already reached the Heavenly Gate.`),
    nr(`신은 처음으로 직접 판 위에 올라서야 한다는 것을 알았다. 말이 되지 못한 자의 마지막 한 수가 가까이 와 있었다.`,`For the first time the god understood he would have to step onto the board himself. The last move of one who could never be a piece was drawing near.`)]},
-/* 19 */ {ch:4,t:TR('마지막 군단','The Final Legion'),pov:'Ṗ',lv:2,me:'ṖRRBBNNUOĊPPP',foe:'qfffGGRRBPP',new:['U'],
+/* 19 */ {ch:4,t:TR('마지막 군단','The Final Legion'),pov:'Ṗ',par:95,lv:2,me:'ṖRRBBNNUOĊPPP',foe:'qfffGGRRBPP',new:['U'],
   lore:TR('천상문. 구름이 갈라지고 문이 열리자 신의 마지막 수호 군단이 나타났어요.','The Heavenly Gate. As the clouds parted and the gate opened, the god\'s last guardian legion appeared.'),
   tip:TR('프로즌이 이동을 봉쇄하고 골렘이 길을 막아요. 크로스보우로 방패 너머를 노리세요.','Frozen locks movement and Golem blocks the road. Use Crossbow to reach past the shields.'),
   pre:[nr(`천상문. 구름이 갈라지고 문이 열리자 신의 마지막 수호 군단이 나타났다. 얼음의 방패와 거인의 벽.`,`The Heavenly Gate. As the clouds parted and the gate opened, the god's last guardian legion appeared: shields of ice and walls of giants.`),
@@ -5142,7 +5225,7 @@ const STAGES=[
    sy('K','킹','King',`대통령, 당신은?`,`President — and you?`),
    sy('Ṗ','대통령','President',`저는 국민에게 돌아가 투표를 열겠습니다. 신이 어떤 결말을 맞이하든, 그 뒤의 세계를 정하는 건 투표여야 하니까요.`,`I will return to the people and open the polls. Whatever ending the god meets, it must be a vote that decides the world after it.`),
    nr(`대통령은 문 밖에 남았다. 판 위에 서는 대신 판 바깥에서 판을 지키는 일을 택했다.`,`The president stayed outside the gate. Instead of standing on the board, he chose to guard the world beyond it.`)]},
-/* 20 */ {ch:5,t:TR('마지막 한 수','The Last Move'),pov:'K',lv:5,me:'QRRBBNNPPPPPPPP',foe:'gjwcsqRP',new:[],
+/* 20 */ {ch:5,t:TR('마지막 한 수','The Last Move'),pov:'K',par:110,lv:5,me:'QRRBBNNPPPPPPPP',foe:'gjwcsqRP',new:[],
   lore:TR('천상의 성소 중앙. 흑백의 격자가 끝없이 펼쳐진 곳에서 왕과 신이 마주 섰어요.','At the center of the sanctuary. On an endless black-and-white lattice, the King and the god stood face to face.'),
   tip:TR('마지막 전투예요. 신의 군대는 최강의 기물들로 이루어져 있어요. 기본 진형으로 맞서거나, 직접 군대를 짜서 도전하세요.','The final battle. The god\'s army is made of the strongest pieces. Face it in the classic formation or build your own army and challenge it.'),
   pre:[nr(`천상의 성소 중앙. 흑백의 격자가 바닥에 끝없이 펼쳐진 곳에서 왕과 신이 마주 섰다.`,`The center of the sanctuary. On a floor of endless black and white squares, the King and the god stood face to face.`),
@@ -5155,7 +5238,53 @@ const STAGES=[
    sy('K','킹','King',`끝이 아니다, 갓. 이번엔 다음 판을 우리가 정한다. 너도 함께.`,`It is not the end, God. This time we decide the next game together — you as well.`),
    nr(`신은 처음으로 판 위에 내려섰다. 말이 되는 것이 아니라, 함께 두는 자로.`,`For the first time the god stepped down onto the board — not to become a piece, but to play alongside the others.`),
    nr(`카이사 대륙의 흑백 격자가 걷혔다. 이제 땅은 체스판이 아니었다. 그러나 사람들은 오래도록 체스를 두었다. 이번엔 누구도 시키지 않았는데도.`,`The black-and-white lattice of Kaissa lifted. The land was no longer a chessboard. Yet people went on playing chess for a long time — this time, with no one telling them to.`),
-   nr(`— 끝 —  모든 기물이 열렸습니다.`,`— The End —  Every piece is now open to you.`)]}
+   nr(`— 끝 —  모든 기물이 열렸습니다.`,`— The End —  Every piece is now open to you.`)]},
+
+/* 21 */ {ch:6,t:TR('개막전','The Opening Match'),pov:'K',par:110,lv:5,free:1,me:'QRRBBNNPPPPPPPP',foe:'EyTVYLQPP',new:[],
+  lore:TR('전쟁이 끝난 뒤 스테일메이트에서 첫 「친선 체스 대회」가 열렸어요. 개막전은 왕과 황제의 대국이에요. 이번에는 군대를 직접 짜서 나가요.','After the war, the first Friendly Chess Tournament opens in Stalemate. The opening match pits the King against the Emperor — and this time you build your own army.'),
+  tip:TR('후일담부터는 내 군대를 직접 편성해요. 추천 편성을 그대로 써도 좋아요.','From the epilogue on you build your own army. The suggested one is fine too.'),
+  pre:[nr(`전쟁이 끝나고 한 계절이 지났다. 스테일메이트의 광장에는 천 개의 체스판이 놓였다. 누구도 이기지 못하던 땅에서 이제는 모두가 이기려고 둔다.`,`A season has passed since the war. A thousand chessboards fill the square of Stalemate. In a city where no one could win, now everyone plays to win.`),
+   sy('K','킹','King',`개막전 상대가 황제라니. 대회 진행자는 짓궂군.`,`The Emperor for the opening match. The organizers have a sense of humor.`),
+   sy('E','엠페러','Emperor',`짐은 전쟁보다 체스가 더 어렵다고 느끼기 시작했다. 봐주지 않겠다.`,`I have begun to find chess harder than war. I will not go easy on you.`),
+   sy('Q','퀸 (원수)','Queen (Marshal)',`이번에는 폐하께서 직접 군대를 고르십시오. 규칙은 같습니다. 예산은 39.`,`This time, choose your own army, Majesty. The rules are the same. The budget is 39.`),
+   sy('K','킹','King',`좋다. 무엇을 쓰든 결국 한 수씩이지.`,`Good. Whatever I field, it still comes down to one move at a time.`)],
+  post:[sy('E','엠페러','Emperor',`졌군. 그런데 이상하게 후련하다.`,`I lost. Strangely, it feels refreshing.`),
+   nr(`관중석에서 박수가 터졌다. 누가 이겼는지보다 판이 아름다웠다는 이유로.`,`Applause rose from the stands — less for who had won than for how beautiful the game had been.`)]},
+/* 22 */ {ch:6,t:TR('마왕의 도전장','The Demon Lord\'s Challenge'),pov:'d',par:110,lv:4,free:1,me:'dḶDRRBBNNPPPP',foe:'ṖOĊUCRRBBNP',new:[],
+  lore:TR('대회 이틀째, 공화국 대통령이 마왕에게 도전장을 보냈어요. 투표로 정해진 규칙이라면 마왕도 따를 수밖에 없다면서요.','On day two, the Republic\'s president sends the Demon Lord a challenge — arguing that rules decided by vote bind even a demon.'),
+  tip:TR('상대는 총기와 엄호를 쓰는 공화국군이에요. 데몬의 악마화를 노려 보세요.','Your opponent fields the Republic\'s guns and cover tactics. Aim for the Demon\'s transformation.'),
+  pre:[sy('Ṗ','대통령','President',`마왕님, 투표 결과입니다. 오늘의 대국은 찬성 312표로 가결되었습니다.`,`Lord Demon, the results are in. Today's match was approved with 312 votes in favor.`),
+   sy('d','데몬','Demon',`내 대국이 투표로 정해지다니, 인간들은 정말 신기한 놈들이다.`,`My match decided by a vote. Humans are truly strange creatures.`),
+   sy('Ḷ','루시퍼','Lucifer',`주군, 관중이 모두 공화국 편입니다. 이기시면 소란이 날지도.`,`My lord, the crowd is all for the Republic. If you win, there may be an uproar.`),
+   sy('d','데몬','Demon',`소란은 즐겁지. 시작하자.`,`Uproar is fun. Let us begin.`)],
+  post:[sy('Ṗ','대통령','President',`패배를 인정합니다. 다음 선거 공약에 마계 문화 교류를 넣겠습니다.`,`I concede. Demon cultural exchange goes into my next campaign pledge.`),
+   sy('d','데몬','Demon',`…그건 사양하겠다. 아니, 생각해 보지.`,`…I decline. No, I shall consider it.`)]},
+/* 23 */ {ch:6,t:TR('대토론회의 밤','Night of the Great Debate'),pov:'Ṗ',par:110,lv:3,free:1,me:'ṖOĊQRRBBNP',foe:'dMepDDLRRPP',new:[],
+  lore:TR('공화국의 대토론회는 체스로 끝나요. 마계의 귀족 메두사가 토론의 상대를 자청했어요.','The Republic\'s great debate ends in chess. Duchess Medusa of the Rift volunteers to be your opponent.'),
+  tip:TR('메두사와 플레임의 영역 기물이 까다로워요. 엄호로 전열을 유지하세요.','Medusa and Flame\'s zone pieces are tricky. Keep your line with Cover.'),
+  pre:[sy('M','메두사 공작','Duchess Medusa',`말로는 이겨도 판 위에서는 별개지요, 대통령 각하.`,`Winning with words is a different matter from winning on the board, Mr. President.`),
+   sy('Ṗ','대통령','President',`토론은 끝났습니다. 이제 수로 말씀드리겠습니다.`,`The debate is over. Now I will speak in moves.`),
+   sy('O','방위군 사령관','Guard Commander',`각하, 이번 대국에는 공화국 전체가 방송을 보고 있습니다.`,`Sir, the whole Republic is watching this match.`)],
+  post:[sy('M','메두사 공작','Duchess Medusa',`훌륭한 수였습니다. 다음에는 제가 이기겠습니다.`,`A fine game. Next time, I win.`),
+   nr(`대통령은 연단에서 손을 흔들었다. 투표가 아니라 박수로 정해진 승부였다.`,`The president waved from the podium. This result was decided not by a vote but by applause.`)]},
+/* 24 */ {ch:6,t:TR('모래 속의 재회','Reunion in the Sands'),pov:'E',par:110,lv:4,free:1,me:'EyTQRRBPP',foe:'ƤWɃɃɃDRRBBNN',new:[],
+  lore:TR('사막의 왕릉에서 잠들었던 파라오가 다시 판 위에 나타났어요. 이번에는 적이 아니라 대등한 상대로요.','The pharaoh who slept in the Tomb of Sands appears on the board again — this time not as an enemy, but as an equal.'),
+  tip:TR('최상 난이도예요. 바운스의 첫 두 칸 이동과 백룡의 화력을 조심하세요.','Highest difficulty. Beware Bounce\'s double-step and the White Dragons\' firepower.'),
+  pre:[sy('Ƥ','파라오','Pharaoh',`신이 만든 판 위에서 나는 버려졌다. 이제는 내가 고른 판에서 이기고 싶다.`,`On the god's board I was discarded. Now I want to win on a board I chose.`),
+   sy('E','엠페러','Emperor',`좋다. 짐이 상대해 주마. 이번에는 둘 다 말이 아니라 선수다.`,`Good. I shall face you. This time, neither of us is a piece — we are players.`),
+   sy('y','창기병대장','Lancer Captain',`폐하, 이 사막의 모래가 판을 덮고 있습니다. 발밑을 조심하십시오.`,`Majesty, the desert sand covers the board. Mind your footing.`)],
+  post:[sy('Ƥ','파라오','Pharaoh',`…졌다. 그런데 처음으로 끝나는 게 두렵지 않군.`,`…I lost. And for the first time, ending does not frighten me.`),
+   nr(`파라오는 모래 속으로 걸어 들어갔다. 이번에는 잠들기 위해서가 아니라, 다음 대국을 준비하기 위해서였다.`,`The pharaoh walked into the sands — not to sleep this time, but to prepare for the next match.`)]},
+/* 25 */ {ch:6,t:TR('신의 마지막 과제','The God\'s Final Assignment'),pov:'g',par:120,lv:4,free:1,me:'gqlRRBBNNPPPPPPP',foe:'ṖjwcsqN',new:[],
+  lore:TR('신은 이제 말들과 같은 자리에서 둬요. 마지막 후일담은 모든 기물을 아는 신과, 모든 기물을 뽑아 든 연합 대표의 한 판이에요.','The god now plays at the same table as the pieces. The last epilogue is a game between a god who knows every piece and the allied champion who fields a hand-picked army.'),
+  tip:TR('가장 어려운 도전이에요. 직접 짠 군대로 별 3개를 노려 보세요.','The hardest challenge. Build your own army and go for three stars.'),
+  pre:[sy('g','갓','God',`나는 이제 지는 것도 즐겁다. 그러니 전력으로 와라.`,`I now enjoy even losing. So come at me with everything.`),
+   sy('q','프린세스 (성녀)','Princess (Saint)',`주군께서 웃으셨습니다. 천 년 만에 처음 보는 표정입니다.`,`My lord smiled. It is a look I have not seen in a thousand years.`),
+   sy('K','킹','King',`나는 이 한 판을 위해 군대를 꾸렸다. 이제 판은 모두의 것이다.`,`I built this army for this one game. The board belongs to everyone now.`),
+   sy('l','럭키','Lucky',`이거 재미있겠네요! 누가 이기든!`,`This will be fun! No matter who wins!`)],
+  post:[sy('g','갓','God',`한 수 한 수가 이렇게 즐거운 것이었구나.`,`So every single move was this much fun.`),
+   nr(`신은 말들과 함께 웃었다. 카이사 대륙의 이야기는 여기서 끝나지만, 판은 아직 열려 있다.`,`The god laughed with the pieces. The tale of Kaissa ends here, but the board remains open.`),
+   nr(`— 후일담 끝 —  모든 이야기를 완주했습니다!`,`— End of the Epilogue —  You have completed every tale!`)]}
 ];
 /* 세계관 사전: req = 이 스테이지를 클리어하면 열려요 (스포일러 방지) */
 const WORLD=[
@@ -5168,7 +5297,9 @@ const WORLD=[
  {req:10,e:'🏛️',t:TR('스테일메이트','Stalemate'),x:TR('누구도 이기지 못하는 중립 도시예요. 대륙의 지도자들이 모여 회담을 여는 유일한 장소지만 번번이 파국으로 끝나요.','A neutral city where no one can win. The only place the continent\'s leaders can meet to talk — and talks there usually end in disaster.')},
  {req:12,e:'⛈️',t:TR('신의 체스 시계','The God\'s Chess Clock'),x:TR('판을 좁혀 오는 푸른 폭풍은 정해진 수가 지나면 판 전체를 삼켜요. 신이 지루해지기 전에 판을 끝내기 위한 제한 시간이에요.','The blue storm that narrows the board swallows everything after a set number of moves — a time limit to end the game before the god grows bored.')},
  {req:17,e:'🏜️',t:TR('모래의 왕릉','The Tomb of Sands'),x:TR('신이 처음 판을 만들 때 쓰고 버린 말들이 잠든 곳이에요. 인장은 그들을 깨워 다시 쓰고 있었어요.','Where the pieces the god used and discarded at the first board sleep. The seals were waking them to use them again.')},
- {req:20,e:'🌅',t:TR('새로운 판','A New Game'),x:TR('신과 왕이 마주 앉아 다음 판을 함께 정하기로 했어요. 이제 모든 기물이 열려 있고, 판은 말들의 것이에요.','The god and the King sat down together to decide the next game. Every piece is now open, and the board belongs to the pieces.')}
+ {req:20,e:'🌅',t:TR('새로운 판','A New Game'),x:TR('신과 왕이 마주 앉아 다음 판을 함께 정하기로 했어요. 이제 모든 기물이 열려 있고, 판은 말들의 것이에요.','The god and the King sat down together to decide the next game. Every piece is now open, and the board belongs to the pieces.')},
+ {req:21,e:'🎪',t:TR('친선 체스 대회','The Friendly Chess Tournament'),x:TR('전쟁이 끝난 뒤 스테일메이트에서 매년 열리는 대회예요. 지도자도 평민도 같은 판 위에서 겨루고, 승패는 박수로 기록돼요.','An annual tournament in Stalemate after the war. Leaders and commoners play on the same boards, and results are recorded with applause.')},
+ {req:25,e:'📜',t:TR('열린 판','The Open Board'),x:TR('신이 짠 판은 이제 모두의 것이에요. 카이사 대륙에는 오늘도 체스를 두는 사람들이 있어요. 아무도 시키지 않았는데도요.','The board the god arranged now belongs to everyone. On Kaissa, people still play chess today — though no one tells them to.')}
 ];
 /* ===== 스토리 모드 로직 (1.4.4) — 데이터는 story_data.js ===== */
 const stRng=s=>{s>>>=0;return()=>{s=(s+0x6D2B79F5)>>>0;let t=s;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}};
@@ -5179,14 +5310,16 @@ $('#stSk').textContent=TR('건너뛰기','Skip');$('#srRe').textContent=TR('다�
 const stSave=()=>store.get('story',{c:{}});
 const stDone=i=>!!stSave().c[i];
 const stOpen=i=>{const s=STAGES[i-1];return !!s&&!s.soon&&(i===1||stDone(i-1))};
+const stStars=(sv,i)=>{const b=(sv.s&&sv.s[i])||0;return '★'+(b&1?'★':'☆')+(b&2?'★':'☆')};
+const stN0=s=>s.me.length+(/[EgdṖ]/.test(s.me)?0:1),stMaxLoss=s=>Math.ceil(stN0(s)*0.4);
 function stShort(t){return (DEF[t].d||'').split(' · ')[0]}
 function stIcons(l,cls){return l.split('').map(t=>`<span class="sti" title="${DEF[t].n}">${icon(t)}</span>`).join('')}
 function drawStory(){
- const sv=stSave(),n=Object.keys(sv.c).length,un=[...unl()].length;let h=`<div class="card stin"><b>${TR('왕의 승전 이후, 각지에서 군단이 일어났다.','After the King\'s victory, legions rose across the land.')}</b><p class="note">${TR('킹 · 엠페러 · 데몬 · 대통령 · 갓, 다섯 시점으로 이어지는 군상극','An ensemble tale told through the King, Emperor, Demon, President and God')}</p><div class="stpb"><i style="width:${n/20*100}%"></i></div><p class="note">${TR('클리어','Cleared')} ${n} / 20 · ${TR('해금 기물','Unlocked')} ${un} / ${TYPES.length}</p><div class="row2 stbt"><button id="stWd">📚 ${TR('세계관','World')}</button><button id="stBk">💾 ${TR('진행도 백업','Backup')}</button></div></div>`;
+ const sv=stSave(),n=Object.keys(sv.c).length,un=[...unl()].length;let h=`<div class="card stin"><b>${TR('왕의 승전 이후, 각지에서 군단이 일어났다.','After the King\'s victory, legions rose across the land.')}</b><p class="note">${TR('킹 · 엠페러 · 데몬 · 대통령 · 갓, 다섯 시점으로 이어지는 군상극','An ensemble tale told through the King, Emperor, Demon, President and God')}</p><div class="stpb"><i style="width:${n/STAGES.length*100}%"></i></div><p class="note">${TR('클리어','Cleared')} ${n} / ${STAGES.length} · ⭐ ${starsOf()} / ${STAGES.length*3} · ${TR('해금 기물','Unlocked')} ${un} / ${TYPES.length}</p><div class="row2 stbt"><button id="stWd">📚 ${TR('세계관','World')}</button><button id="stBk">💾 ${TR('진행도 백업','Backup')}</button></div></div>`;
  let last=-1;
  STAGES.forEach((s,k)=>{const i=k+1;if(s.ch!==last){if(last>=0)h+='</div></div>';last=s.ch;h+=`<div class="stc"><h3 class="stch">${STCH[s.ch]}</h3><div class="strow">`}
   const op=stOpen(i),dn=stDone(i),st=s.soon?'🔒':dn?'✔':op?'▶':'🔒';
-  h+=`<button class="stg ${dn?'dn':''} ${op&&!dn?'nw':''}" data-i="${i}" ${op?'':'disabled'}><span class="no">${String(i).padStart(2,'0')}</span><span class="sts">${st}</span><span class="pv">${icon(s.pov)}</span><span class="tt">${op||dn?s.t:'???'}<small>${s.soon?TR('준비 중','Coming soon'):SCH[s.pov]+(dn?' · '+sv.c[i]+TR('수','pl'):'')}</small></span></button>`});
+  h+=`<button class="stg ${dn?'dn':''} ${op&&!dn?'nw':''}" data-i="${i}" ${op?'':'disabled'}><span class="no">${String(i).padStart(2,'0')}</span><span class="sts">${st}</span><span class="pv">${icon(s.pov)}</span><span class="tt">${op||dn?s.t:'???'}<small>${s.soon?TR('준비 중','Coming soon'):SCH[s.pov]+(dn?' · '+sv.c[i]+TR('수','pl'):'')}</small>${dn?`<span class="sst">${stStars(sv,i)}</span>`:''}</span></button>`});
  h+='</div></div>';$('#stList').innerHTML=h;
  $('#stWd').onclick=()=>{sfx('place');openWorld()};$('#stBk').onclick=()=>{sfx('place');openBackup()};
  $$('#stList .strow').forEach(r=>{const c=r.querySelector('.stg.nw');if(c)r.scrollLeft=Math.max(0,c.offsetLeft-r.offsetLeft-8)})}
@@ -5198,8 +5331,10 @@ let stCur=0,stD=null;
 function stBrief(i){stCur=i;const s=STAGES[i-1];
  $('#sbT').textContent=`${String(i).padStart(2,'0')} · ${s.t}`;$('#sbC').textContent=STCH[s.ch];
  const nw=(s.new||[]).map(t=>`<div class="snw"><i class="ib">${icon(t)}</i><div><b>${DEF[t].n}</b><small>${stShort(t)}</small></div></div>`).join('');
- $('#sbB').innerHTML=`<p class="lore">${s.lore}</p><div class="sbl"><span>${TR('시점','POV')}</span><b>${icon(s.pov)} ${SCH[s.pov]}</b><span class="sbr">${TR('AI','AI')}</span><b>${LVN[s.lv]}</b></div><div class="sbl"><span>${TR('내 군대','My army')}</span><div class="sbi">${stIcons(s.me)}</div></div><div class="sbl"><span>${TR('적 군대','Enemy')}</span><div class="sbi">${stIcons(s.foe)}</div></div>${nw?`<h4 class="ph">${TR('클리어하면 열리는 기물','Unlocked on clear')}</h4><div class="snws">${nw}</div>`:''}<p class="note stip">💡 ${s.tip}</p>`;
+ $('#sbB').innerHTML=`<p class="lore">${s.lore}</p><div class="sbl"><span>${TR('시점','POV')}</span><b>${icon(s.pov)} ${SCH[s.pov]}</b><span class="sbr">${TR('AI','AI')}</span><b>${LVN[s.lv]}</b></div><div class="sbl"><span>${TR('내 군대','My army')}</span><div class="sbi">${stIcons(s.me)}</div></div><div class="sbl"><span>${TR('적 군대','Enemy')}</span><div class="sbi">${stIcons(s.foe)}</div></div>${nw?`<h4 class="ph">${TR('클리어하면 열리는 기물','Unlocked on clear')}</h4><div class="snws">${nw}</div>`:''}<p class="note stip">💡 ${s.tip}</p>${stCrit(i)}`;
  openM('mSb')}
+function stCrit(i){const s=STAGES[i-1],sv=stSave(),b=(sv.s&&sv.s[i])||0,dn=!!sv.c[i],ez=store.get('stez',{})[i];
+ return `<div class="stcr"><b>⭐ ${TR('별 목표','Star goals')}</b><div class="${dn?'ok':''}">★ ${TR('스테이지 클리어','Clear the stage')}</div><div class="${b&1?'ok':''}">★ ${TR('내 기물 손실 '+stMaxLoss(s)+'기 이하로 승리','Win losing at most '+stMaxLoss(s)+' pieces')}</div><div class="${b&2?'ok':''}">★ ${TR(s.par+'수 이내에 승리','Win within '+s.par+' plies')}</div>${ez?`<div class="ez">🛟 ${TR('난이도 낮추기 적용 중 — 별은 1개만 받을 수 있어요','Easier mode active — only 1 star available')}</div>`:''}</div>`}
 function stDlg(lines,done){stD={l:lines,i:0,done};openM('mSt');stLine()}
 function stLine(){const d=stD,ln=d.l[d.i];
  $('#stSp').innerHTML=ln.s?`<span class="stp">${icon(ln.s)}</span><b>${ln.w}</b>`:`<span class="stp">📜</span><b>${TR('나레이션','Narration')}</b>`;
@@ -5209,25 +5344,41 @@ function stNext(){if(!stD)return;stD.i++;if(stD.i>=stD.l.length)stEndDlg();else{
 function stEndDlg(){const f=stD&&stD.done;stD=null;closeM('mSt');if(f)f()}
 $('#stNx').onclick=stNext;$('#stBox').onclick=e=>{if(e.target.id!=='stSk'&&e.target.id!=='stNx')stNext()};$('#stSk').onclick=e=>{e.stopPropagation();stEndDlg()};
 $('#sbNo').onclick=()=>closeM('mSb');
-$('#sbGo').onclick=()=>{const i=stCur;closeM('mSb');stDlg(STAGES[i-1].pre,()=>stStart(i,false))};
+$('#sbGo').onclick=()=>{const i=stCur;closeM('mSb');stDlg(STAGES[i-1].pre,()=>stStart(i,!!STAGES[i-1].free))};
 $('#sbEd').onclick=()=>{const i=stCur;closeM('mSb');stDlg(STAGES[i-1].pre,()=>stStart(i,true))};
 function stStart(i,edit){const s=STAGES[i-1],meL=s.me.split(''),foeL=s.foe.split('');
  const CL=PRESETS[0].pl;
  const mePl=s.cl?CL:BC.aiPlace(meL,'w',stRng(i*101+7),5),foePl=s.cl?CL.map(([a,t])=>[a^56,t]):BC.aiPlace(foeL,'b',stRng(i*101+13),5);
  if(!mePl||!foePl){toast(TR('스테이지를 준비하지 못했어요','Could not set up the stage'));return}
- G={mode:'pve',lv:s.lv,human:'w',lvs:{w:0,b:0},pause:false,seed:(i*7919)|0,story:{i}};simTally={w:0,b:0,d:0};
+ const ez=!!store.get('stez',{})[i];G={mode:'pve',lv:ez?Math.max(0,s.lv-1):s.lv,human:'w',lvs:{w:0,b:0},pause:false,seed:(i*7919)|0,story:{i,ez}};simTally={w:0,b:0,d:0};
  startBoard=BC.emptyBoard();SAVED={};G.aiPl=foePl;
  if(edit){queue=['w'];setArmy(meL);SAVED.w={army:Object.assign({},army),pb:[]};G.ret='sel';pendPl={k:akey(meL),pl:mePl};nextSetup();return}
  mePl.forEach(([a,t])=>startBoard[a]=BC.newPiece(t,'w'));foePl.forEach(([a,t])=>startBoard[a]=BC.newPiece(t,'b'));
  startGame()}
-function stEnd(w,win){const i=G.story.i,s=STAGES[i-1];let newU=[];
- const show_=()=>{const nx=i<20&&STAGES[i]&&!STAGES[i].soon;
+function stEnd(w,win){const i=G.story.i,s=STAGES[i-1],ez=G.story.ez;let newU=[],rw='',rescue='';
+ const show_=()=>{const nx=i<STAGES.length&&STAGES[i]&&!STAGES[i].soon;
   $('#srEm').textContent=win?'🏆':w?'💀':'🤝';$('#srT').textContent=win?TR('스테이지 클리어!','Stage Clear!'):w?TR('패배…','Defeat…'):TR('무승부','Draw');
   $('#srD').textContent=win?`${String(i).padStart(2,'0')} · ${s.t} — ${G.log.length}${TR('수','pl')}`:TR('다시 도전하거나, 군대를 바꿔 볼 수 있어요.','Try again, or change your army.');
-  $('#srU').innerHTML=win&&newU.length?`<h4 class="ph">🔓 ${TR('새 기물 해금!','New pieces unlocked!')}</h4><div class="snws">${newU.map(t=>`<div class="snw"><i class="ib">${icon(t)}</i><div><b>${DEF[t].n}</b><small>${stShort(t)}</small></div></div>`).join('')}</div>`:'';
+  $('#srU').innerHTML=rw+(win&&newU.length?`<h4 class="ph">🔓 ${TR('새 기물 해금!','New pieces unlocked!')}</h4><div class="snws">${newU.map(t=>`<div class="snw"><i class="ib">${icon(t)}</i><div><b>${DEF[t].n}</b><small>${stShort(t)}</small></div></div>`).join('')}</div>`:'')+rescue;
   $('#srNx').style.display=win&&nx?'':'none';$('#srNx').textContent=TR('다음 스테이지 ▶','Next Stage ▶');
   $('#srRe').textContent=win?TR('다시 하기','Replay'):TR('다시 도전','Retry');openM('mSr')};
- if(win){const sv=stSave(),was=new Set(unl());const pl_=Math.max(1,G.log.length);if(!sv.c[i]||pl_<sv.c[i])sv.c[i]=pl_;store.set('story',sv);UNL=null;newU=(s.new||[]).filter(t=>!was.has(t));stDlg(s.post,show_)}else show_()}
+ const fl=store.get('stf',{});
+ if(win){const sv=stSave(),was=new Set(unl()),first=!sv.c[i];const pl_=Math.max(1,G.log.length);if(first||pl_<sv.c[i])sv.c[i]=pl_;
+  const lost=(G.lost.w||[]).length,mx=Math.max(1,Math.ceil(((G.n0&&G.n0.w)||stN0(s))*0.4)),pl=G.plies||pl_;
+  const s2=!ez&&lost<=mx,s3=!ez&&pl<=s.par;sv.s=sv.s||{};const ob=sv.s[i]||0,nb=ob|(s2?1:0)|(s3?2:0);sv.s[i]=nb;
+  store.set('story',sv);UNL=null;newU=(s.new||[]).filter(t=>!was.has(t));
+  let coin=first?15+i*4:5;const ns=((nb&1)&&!(ob&1)?1:0)+((nb&2)&&!(ob&2)?1:0);coin+=ns*12;coinAdd(coin);
+  rw=`<div class="stcr"><b>${TR('결과','Result')}</b><div class="ok">★ ${TR('스테이지 클리어','Clear')}</div><div class="${s2?'ok':''}">★ ${TR('기물 손실 '+lost+'기 (목표 '+mx+'기 이하)','Lost '+lost+' (goal ≤ '+mx+')')}</div><div class="${s3?'ok':''}">★ ${TR(pl+'수 (목표 '+s.par+'수 이내)',pl+' plies (goal ≤ '+s.par+')')}</div>${ez?`<div class="ez">🛟 ${TR('난이도 낮추기를 써서 별 1개만 받아요','Easier mode: 1 star only')}</div>`:''}<div class="cn">+${coin} 💰${first?' · '+TR('첫 클리어 보너스','first-clear bonus'):''}</div></div>`;
+  delete fl[i];store.set('stf',fl);if(ez){const e=store.get('stez',{});delete e[i];store.set('stez',e)}
+  MH.chk();stDlg(s.post,show_)}
+ else{fl[i]=(fl[i]||0)+1;store.set('stf',fl);
+  if(fl[i]>=3)rescue=`<div class="stcr rsc"><b>🛟 ${TR('막히셨나요? 도움을 받아 보세요','Stuck? Get some help')}</b><button id="rsEz" ${store.get('stez',{})[i]?'disabled':''}>${store.get('stez',{})[i]?TR('✔ 난이도 낮추기 적용 중','✔ Easier mode on'):TR('AI 난이도 한 단계 낮추기 (별 1개만)','Lower AI level by 1 (1 star only)')}</button><button id="rsHt" ${U.hint?'disabled':''}>${U.hint?TR('✔ 좋은 수 표시 켜짐','✔ Hints on'):TR('💡 좋은 수 표시 켜기','💡 Turn on move hints')}</button><button id="rsUd" ${store.get('stud',{})[i]?'disabled':''}>${store.get('stud',{})[i]?TR('✔ 무르기권을 받았어요','✔ Tickets received'):TR('↩ 무르기권 3장 받기 (스테이지당 1번)','↩ Get 3 Undo tickets (once per stage)')}</button></div>`;
+  show_()}}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('#rsEz,#rsHt,#rsUd');if(!b||!G||!G.story)return;const i=G.story.i,S=statGet();
+ if(b.id==='rsEz'){const z=store.get('stez',{});z[i]=1;store.set('stez',z);toast(TR('난이도를 낮췄어요. 다시 도전해 보세요!','Difficulty lowered. Try again!'))}
+ else if(b.id==='rsHt'){U.hint=true;store.set('hint',true);toast(TR('좋은 수 표시를 켰어요','Move hints on'))}
+ else{const d=store.get('stud',{});d[i]=1;store.set('stud',d);const sp=shopGet();sp.ud+=3;store.set('shop',sp);toast(TR('무르기권 3장을 받았어요','Got 3 Undo tickets'))}
+ S.rs++;store.set('stats',S);b.disabled=true;MH.chk()});
 $('#srNx').onclick=()=>{closeM('mSr');stBrief(stCur=G.story.i+1)};
 $('#srRe').onclick=()=>{closeM('mSr');cancelAI();startGame()};
 $('#srLs').onclick=()=>{closeM('mSr');cancelAI();G.over=true;stList()};
@@ -5239,12 +5390,19 @@ function openWorld(){
 $('#wdNo').onclick=()=>closeM('mWd');$('#wdT').textContent=TR('📚 세계관','📚 World');$('#wdNo').textContent=TR('닫기','Close');
 /* ---- 진행도 백업 ---- */
 const bkSum=j=>{let k=0;for(let i=0;i<j.length;i++)k=(k*31+j.charCodeAt(i))>>>0;return k.toString(36)};
-const bkEnc=()=>{const j=JSON.stringify({v:1,c:stSave().c});return 'BC1.'+btoa(unescape(encodeURIComponent(j)))+'.'+bkSum(j)};
-function bkDec(t){const m=(t||'').match(/BC1\.([A-Za-z0-9+\/=]+)\.([0-9a-z]+)/);if(!m)return null;try{const j=decodeURIComponent(escape(atob(m[1])));if(bkSum(j)!==m[2])return null;const o=JSON.parse(j);if(!o||o.v!==1||!o.c||typeof o.c!=='object')return null;return o}catch(e){return null}}
+const bkEnc=()=>{const sv=stSave(),j=JSON.stringify({v:2,c:sv.c,s:sv.s||{},eco:store.get('eco',{}),sp:store.get('shop',{}),a:store.get('ach',{}),st:store.get('stats',{})});return 'BC2.'+btoa(unescape(encodeURIComponent(j)))+'.'+bkSum(j)};
+function bkDec(t){const m=(t||'').match(/BC([12])\.([A-Za-z0-9+\/=]+)\.([0-9a-z]+)/);if(!m)return null;try{const j=decodeURIComponent(escape(atob(m[2])));if(bkSum(j)!==m[3])return null;const o=JSON.parse(j);if(!o||!o.c||typeof o.c!=='object')return null;return o}catch(e){return null}}
+const bkMax=(a,b)=>{a=a||{};const o=Object.assign({},a);for(const k in b||{}){const x=b[k],y=a[k];if(typeof x==='number')o[k]=(typeof y==='number')?(k==='fw'?Math.min(x,y):Math.max(x,y)):x;else if(x&&typeof x==='object'&&!Array.isArray(x))o[k]=bkMax(y,x);else if(Array.isArray(x))o[k]=[...new Set([...(Array.isArray(y)?y:[]),...x])];else if(y===undefined||y==='')o[k]=x}return o};
 function openBackup(){$('#bkT').value=bkEnc();$('#bkM').textContent='';openM('mBk')}
 function bkApply(txt){const o=bkDec(txt);if(!o){$('#bkM').textContent=TR('올바른 백업이 아니에요. 코드가 잘렸거나 바뀌었는지 확인해 주세요.','That is not a valid backup. Check that the code is complete.');return}
- const n={c:Object.assign({},stSave().c)};let add=0;for(const k of Object.keys(o.c)){const i=+k,p=+o.c[k];if(!(i>=1&&i<=20)||!(p>0))continue;if(!n.c[i]){add++;n.c[i]=p}else if(p<n.c[i])n.c[i]=p}
- store.set('story',n);UNL=null;$('#bkT').value=bkEnc();$('#bkM').textContent=TR(`불러왔어요! 새로 열린 스테이지 ${add}개 · 현재 ${Object.keys(n.c).length}/20 클리어`,`Restored! ${add} new stages · now ${Object.keys(n.c).length}/20 cleared`);toast(TR('진행도를 불러왔어요','Progress restored'));if($('#s6').classList.contains('on'))drawStory()}
+ const cur=stSave(),n={c:Object.assign({},cur.c),s:Object.assign({},cur.s||{})};let add=0;for(const k of Object.keys(o.c)){const i=+k,p=+o.c[k];if(!(i>=1&&i<=STAGES.length)||!(p>0))continue;if(!n.c[i]){add++;n.c[i]=p}else if(p<n.c[i])n.c[i]=p}
+ for(const k of Object.keys(o.s||{})){n.s[k]=(n.s[k]||0)|((+o.s[k])&3)}
+ store.set('story',n);
+ if(o.eco){const e=store.get('eco',{});store.set('eco',bkMax(e,o.eco))}
+ if(o.sp){const sp=shopGet(),m=bkMax(sp,o.sp);m.th=sp.th;m.title=sp.title||m.title;m.pf=sp.pf;store.set('shop',m)}
+ if(o.a)store.set('ach',Object.assign({},o.a,achGet()));
+ if(o.st)store.set('stats',bkMax(statGet(),o.st));
+ UNL=null;MH.theme();MH.chip();$('#bkT').value=bkEnc();$('#bkM').textContent=TR(`불러왔어요! 새로 열린 스테이지 ${add}개 · 현재 ${Object.keys(n.c).length}/${STAGES.length} 클리어`,`Restored! ${add} new stages · now ${Object.keys(n.c).length}/${STAGES.length} cleared`);toast(TR('진행도를 불러왔어요','Progress restored'));if($('#s6').classList.contains('on'))drawStory();MH.chk()}
 const bkCopyFail=()=>toast(TR('길게 눌러 직접 복사해 주세요','Long-press to copy it manually'));
 $('#bkCp').onclick=()=>{const t=$('#bkT');t.value=bkEnc();t.select();const f=()=>toast(TR('코드를 복사했어요','Code copied'));let ok=false;try{ok=document.execCommand('copy')}catch(e){}
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t.value).then(f,()=>ok?f():bkCopyFail());else ok?f():bkCopyFail()};
@@ -5254,8 +5412,302 @@ $('#bkFl').onclick=()=>$('#bkF').click();
 $('#bkF').onchange=e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{$('#bkT').value=String(r.result||'').trim();bkApply($('#bkT').value)};r.readAsText(f);e.target.value=''};
 $('#bkNo').onclick=()=>closeM('mBk');
 $('#bkH').textContent=TR('💾 진행도 백업','💾 Progress Backup');
-$('#bkD').textContent=TR('스토리 클리어 기록(해금된 기물 포함)을 코드나 파일로 저장해 두세요. 다른 기기에서는 코드를 붙여 넣거나 파일을 불러오면 이어서 할 수 있어요. 불러오기는 기존 기록과 합쳐져요.','Save your story clears (including unlocked pieces) as a code or a file. On another device, paste the code or load the file to continue. Restoring merges with existing progress.');
+$('#bkD').textContent=TR('스토리 기록·별·코인·상점 구매·업적·통계를 코드나 파일로 저장해 두세요. (리플레이는 따로 공유해요) 다른 기기에서는 코드를 붙여 넣거나 파일을 불러오면 이어서 할 수 있어요. 불러오기는 기존 기록과 합쳐져요.','Save your story progress, stars, coins, purchases, achievements and stats as a code or a file (replays are shared separately). On another device, paste the code or load the file to continue. Restoring merges with existing progress.');
 $('#bkCp').textContent=TR('📋 코드 복사','📋 Copy code');$('#bkSv').textContent=TR('📁 파일로 저장','📁 Save file');$('#bkIm').textContent=TR('⬇ 코드로 불러오기','⬇ Restore from code');$('#bkFl').textContent=TR('📂 파일에서 불러오기','📂 Restore from file');$('#bkNo').textContent=TR('닫기','Close');
+/* ===== meta_a.js (1.5.0) — 코인 · 통계 · 업적 · 상점 · 무르기 · 리플레이 기록 ===== */
+const MH={};
+const dayKey=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const dayNum=k=>{const a=k.split('-').map(Number);return Math.round(Date.UTC(a[0],a[1]-1,a[2])/864e5)};
+/* ---- 저장소 ---- */
+const ecoGet=()=>Object.assign({c:0,tot:0,spent:0,day:'',dayc:0,boost:0},store.get('eco',{}));
+const shopGet=()=>{const o=Object.assign({th:'classic',own:['classic'],unl:[],ud:0,title:'',titles:[],buys:0},store.get('shop',{}));o.pf=Object.assign({av:'K',fr:'none',bg:'plain',nc:'def',ni:''},o.pf||{});return o};
+const statGet=()=>Object.assign({g:0,w:0,l:0,d:0,lw:{},pv:0,nt:0,nw:0,cap:0,lost:0,pf:0,fw:999,maxp:0,st:0,bs:0,time:0,u:{},e:{},ud:0,rs:0,sh:0,dc:0,ds:0,dl:'',dbs:0},store.get('stats',{}));
+const achGet=()=>store.get('ach',{});
+function coinAdd(n,note){const e=ecoGet();n=Math.round(n);if(!n)return 0;e.c=Math.max(0,e.c+n);if(n>0)e.tot+=n;store.set('eco',e);MH.chip();return n}
+function coinGame(n,nocap){const e=ecoGet(),t=dayKey();if(e.day!==t){e.day=t;e.dayc=0}
+ const room=nocap?n:Math.max(0,300-e.dayc);let g=Math.min(n,room);if(e.boost>Date.now())g*=2;g=Math.round(g);if(!nocap)e.dayc+=Math.min(n,room);e.c+=g;e.tot+=g;store.set('eco',e);MH.chip();return g}
+MH.chip=()=>{const e=ecoGet(),b=$('#coinBtn');if(b)b.innerHTML=`💰 <b>${e.c.toLocaleString()}</b>`;const h=$('#hubCoin');if(h)h.textContent=e.c.toLocaleString();const s=$('#shopCoin');if(s)s.textContent=e.c.toLocaleString()};
+/* ---- 업적 ---- */
+const stg=()=>store.get('story',{c:{}});
+const starsOf=()=>{const s=stg();let n=0;for(const k in s.c){n+=1+((s.s&&s.s[k])?(s.s[k]&1?1:0)+(s.s[k]&2?1:0):0)}return n};
+const AC_=(id,e,nk,ne,dk,de,rw,f,pr)=>({id,e,n:TR(nk,ne),d:TR(dk,de),rw,f,pr});
+const ACH=[
+ AC_('g1','👣','첫 걸음','First Steps','대국을 1판 마쳐요','Finish 1 game',10,c=>c.S.g>=1,c=>[c.S.g,1]),
+ AC_('g10','🎮','열정','Enthusiast','대국 10판','10 games',20,c=>c.S.g>=10,c=>[c.S.g,10]),
+ AC_('g50','🎖','베테랑','Veteran','대국 50판','50 games',50,c=>c.S.g>=50,c=>[c.S.g,50]),
+ AC_('g200','🏛','백전노장','Old Guard','대국 200판','200 games',150,c=>c.S.g>=200,c=>[c.S.g,200]),
+ AC_('w1','🏆','첫 승리','First Victory','AI 또는 상대에게 첫 승리','Win your first game',15,c=>c.S.w>=1,c=>[c.S.w,1]),
+ AC_('w10','🥉','10승','10 Wins','누적 10승','10 total wins',30,c=>c.S.w>=10,c=>[c.S.w,10]),
+ AC_('w50','🥈','50승','50 Wins','누적 50승','50 total wins',80,c=>c.S.w>=50,c=>[c.S.w,50]),
+ AC_('w100','🥇','100승','100 Wins','누적 100승','100 total wins',150,c=>c.S.w>=100,c=>[c.S.w,100]),
+ AC_('lv3','⚔','중급 격파','Mid-Level Slayer','AI 「중」 이상을 이겨요','Beat an AI at Mid or higher',30,c=>[3,4,5,6].some(l=>c.S.lw[l]),null),
+ AC_('lv5','🔥','고수','Expert','AI 「상」 이상을 이겨요','Beat an AI at High or higher',70,c=>[5,6].some(l=>c.S.lw[l]),null),
+ AC_('lv6','👑','최강의 벽','The Final Wall','AI 「최상」을 이겨요','Beat the Highest AI',150,c=>!!c.S.lw[6],null),
+ AC_('st3','🔗','3연승','3-Win Streak','연속 3승','3 wins in a row',25,c=>c.S.bs>=3,c=>[c.S.bs,3]),
+ AC_('st7','⚡','7연승','7-Win Streak','연속 7승','7 wins in a row',90,c=>c.S.bs>=7,c=>[c.S.bs,7]),
+ AC_('fast','💨','전광석화','Lightning','40수 이내에 승리','Win within 40 plies',40,c=>c.S.fw<=40,null),
+ AC_('long','🐢','마라톤','Marathon','100수 이상 이어진 대국','A game lasting 100+ plies',20,c=>c.S.maxp>=100,null),
+ AC_('cap100','🗡','사냥꾼','Hunter','적 기물 누적 100기 처치','Capture 100 enemy pieces',30,c=>c.S.cap>=100,c=>[c.S.cap,100]),
+ AC_('cap500','☠','학살자','Slaughterer','적 기물 누적 500기 처치','Capture 500 enemy pieces',100,c=>c.S.cap>=500,c=>[c.S.cap,500]),
+ AC_('pf1','💎','무결점','Flawless','내 기물을 하나도 잃지 않고 승리','Win without losing a single piece',50,c=>c.S.pf>=1,null),
+ AC_('pf5','💠','완벽주의','Perfectionist','무결점 승리 5회','5 flawless wins',120,c=>c.S.pf>=5,c=>[c.S.pf,5]),
+ AC_('use20','🧩','수집가','Collector','서로 다른 기물 20종으로 대국','Play with 20 different piece types',40,c=>Object.keys(c.S.u).length>=20,c=>[Object.keys(c.S.u).length,20]),
+ AC_('use40','🧬','도감 마스터','Codex Master','서로 다른 기물 40종으로 대국','Play with 40 different piece types',120,c=>Object.keys(c.S.u).length>=40,c=>[Object.keys(c.S.u).length,40]),
+ AC_('net1','🌐','온라인 데뷔','Online Debut','온라인 대전 첫 승리','First online win',40,c=>c.S.nw>=1,c=>[c.S.nw,1]),
+ AC_('net10','📡','온라인 강자','Online Ace','온라인 대전 10승','10 online wins',120,c=>c.S.nw>=10,c=>[c.S.nw,10]),
+ AC_('pvp10','🤝','친선 대전','Friendly Matches','한 기기 대전 10판','10 same-device games',30,c=>c.S.pv>=10,c=>[c.S.pv,10]),
+ AC_('s1','📖','서장 완료','Prologue','스토리 1스테이지 클리어','Clear story stage 1',10,c=>c.cl>=1,null),
+ AC_('s5','📗','1장 완료','Chapter 1','스토리 5스테이지 클리어','Clear 5 story stages',40,c=>c.cl>=5,c=>[c.cl,5]),
+ AC_('s10','📘','반환점','Halfway','스토리 10스테이지 클리어','Clear 10 story stages',70,c=>c.cl>=10,c=>[c.cl,10]),
+ AC_('s20','📙','대서사시','Epic','본편 20스테이지 클리어','Clear all 20 main stages',200,c=>c.cm>=20,c=>[c.cm,20]),
+ AC_('s25','🌅','후일담','Epilogue','후일담 5스테이지까지 클리어','Clear the epilogue',200,c=>c.cl>=25,c=>[c.cl,25]),
+ AC_('star30','⭐','별 모으기','Star Gatherer','별 30개 획득','Earn 30 stars',60,c=>c.st>=30,c=>[c.st,30]),
+ AC_('star60','🌟','별의 수호자','Star Keeper','별 60개 획득','Earn 60 stars',150,c=>c.st>=60,c=>[c.st,60]),
+ AC_('star75','✨','만점','Full Marks','별 75개 모두 획득','Earn all 75 stars',400,c=>c.st>=75,c=>[c.st,75]),
+ AC_('unl','🔓','전부 열렸다','All Unlocked','모든 기물 해금','Unlock every piece',100,c=>c.un>=TYPES.length,c=>[c.un,TYPES.length]),
+ AC_('dc1','🗓','오늘의 도전','Daily Debut','일일 도전 첫 클리어','Clear your first daily challenge',25,c=>c.S.dc>=1,null),
+ AC_('dc7','📆','일주일 연속','Week Streak','일일 도전 7일 연속 클리어','7-day daily streak',100,c=>c.S.dbs>=7,c=>[c.S.dbs,7]),
+ AC_('dc30','🏅','개근상','Perfect Attendance','일일 도전 누적 30회','30 daily challenges cleared',250,c=>c.S.dc>=30,c=>[c.S.dc,30]),
+ AC_('rp1','📤','명장면 공유','Share a Replay','리플레이 코드 복사 또는 저장','Copy or save a replay code',20,c=>c.S.sh>=1,null),
+ AC_('shop1','🛒','첫 쇼핑','First Purchase','상점에서 아이템 구매','Buy something in the shop',15,c=>c.sp.buys>=1,null),
+ AC_('th3','🎨','인테리어','Interior Designer','보드 테마 3종 보유','Own 3 board themes',40,c=>c.sp.own.filter(x=>x!=='classic').length>=3,c=>[c.sp.own.filter(x=>x!=='classic').length,3]),
+ AC_('ud1','↩','한 수 물러줘','Take Back','무르기를 처음 사용','Use Undo for the first time',10,c=>c.S.ud>=1,null),
+ AC_('rs1','🛟','도움의 손길','Helping Hand','막힘 구제를 사용','Use stage rescue',10,c=>c.S.rs>=1,null),
+ AC_('coin1k','💰','부자','Rich','누적 코인 1,000 획득','Earn 1,000 coins in total',0,c=>c.eco.tot>=1000,c=>[c.eco.tot,1000])
+];
+MH.ctx=()=>{const s=stg(),cl=Object.keys(s.c).length,cm=Object.keys(s.c).filter(k=>+k<=20).length;return{S:statGet(),sp:shopGet(),eco:ecoGet(),cl,cm,st:starsOf(),un:unl().size}};
+let achQ=[],achBusy=false;
+function achPop(){if(achBusy||!achQ.length)return;achBusy=true;const a=achQ.shift();const e=$('#achT');e.innerHTML=`<span class="ae">${a.e}</span><span><b>${TR('업적 달성','Achievement')}: ${a.n}</b><small>${a.d}${a.rw?' · +'+a.rw+' 💰':''}</small></span>`;e.classList.add('on');sfx('win');setTimeout(()=>{e.classList.remove('on');setTimeout(()=>{achBusy=false;achPop()},300)},2600)}
+MH.chk=()=>{const c=MH.ctx(),got=achGet();let ch=false;ACH.forEach(a=>{if(got[a.id])return;let ok=false;try{ok=!!a.f(c)}catch(e){}if(ok){got[a.id]=Date.now();ch=true;if(a.rw)coinAdd(a.rw);achQ.push(a)}});if(ch){store.set('ach',got);achPop()}};
+/* ---- 대국 훅: 리플레이 기록 · 통계 · 보상 ---- */
+const rpSnap=b=>{const a=new Array(64);for(let i=0;i<64;i++){const p=b[i];a[i]=p?p.t+p.s:''}return a};
+MH.sg=()=>{const s=rpSnap(startBoard);G.rp={ini:s,cur:s,df:[],tx:[],lm:[],t0:Date.now()};G.und=null;G.und0=null;let w=0,b=0;s.forEach(x=>{if(x){x.endsWith('w')?w++:b++}});G.n0={w,b}};
+MH.et=()=>{if(!G.b)return;if(!G.rp){const s=rpSnap(G.b);G.rp={ini:s,cur:s,df:[],tx:[],lm:[],t0:Date.now(),part:1}}
+ const R=G.rp,cur=rpSnap(G.b),d=[];for(let i=0;i<64;i++)if(cur[i]!==R.cur[i])d.push([i,cur[i]]);R.df.push(d);R.cur=cur;R.tx.push(String(G.log[G.log.length-1]||'').replace(/<[^>]*>/g,'').slice(0,70));R.lm.push(G.lm?[G.lm[0],G.lm[1]]:null);
+ if(G.mode==='pve'&&!G.net&&!G.over&&G.turn===G.human&&!G.lab&&!G.tut){MH.mkUnd()}else if(!(G.mode==='pve'&&!G.net&&!G.lab&&!G.tut)){G.und=null;G.und0=null}}
+MH.mkUnd=()=>{const R=G.rp;if(!R)return;G.und0=G.und||null;G.und={b:BC.cloneBoard(G.b),plies:G.plies,since:G.since,seen:Object.assign({},G.seen),log:G.log.slice(),lost:{w:G.lost.w.slice(),b:G.lost.b.slice()},sk:JSON.parse(JSON.stringify(G.sk)),pre:G.pre,nr:R.df.length,cur:R.cur}};
+MH.fin=(w,why,solo,hw)=>{if(G.mode==='sim'||G.tut||G.lab||!G.b)return;
+ const S=statGet(),net=!!G.net,me=net?G.net.me:(G.mode==='pve'?G.human:null),op=me?OP(me):null,pl=G.plies||0,R=G.rp;let coin=0,note='';
+ S.g++;S.maxp=Math.max(S.maxp,pl);if(R)S.time+=Math.min(7200,Math.round((Date.now()-R.t0)/1000));
+ if(me){const myL=(G.lost[me]||[]).length,enL=G.lost[op]||[];S.cap+=enL.length;S.lost+=myL;enL.forEach(t=>S.e[t]=(S.e[t]||0)+1);if(R)R.ini.forEach(x=>{if(x&&x.endsWith(me)&&x[0]!=='K')S.u[x.slice(0,-1)]=1});
+  if(net)S.nt++;
+  if(w===me){S.w++;S.st++;S.bs=Math.max(S.bs,S.st);if(net)S.nw++;else if(G.mode==='pve')S.lw[G.lv]=(S.lw[G.lv]||0)+1;if(pl<S.fw)S.fw=pl;if(myL===0)S.pf++}
+  else if(!w){S.d++}else{S.l++;S.st=0}
+  if(!G.story&&!G.daily){const base=net?(w===me?25:3):(w===me?4+3*(G.lv||0):w?1:2);coin=coinGame(base,net);if(coin)note=`+${coin} 💰`}}
+ else{S.pv++}
+ store.set('stats',S);
+ if(R&&!R.part&&pl>=4)MH.saveRep(w,why);
+ if(note){const e=$('#ovS');if(e)e.insertAdjacentHTML('beforeend',`<span class="coinr">${note}</span>`)}
+ MH.chk()};
+MH.saveRep=(w,why)=>{const R=G.rp,me=G.net?G.net.me:(G.mode==='pve'?G.human:null);const rec={v:1,d:Date.now(),m:G.net?'net':G.mode,lv:G.lv||0,w:w||'',me:me||'',n:G.plies||0,ini:R.ini,df:R.df,tx:R.tx,lm:R.lm,sy:G.story?G.story.i:G.daily?'D':0};
+ const L=store.get('rep',[]);L.unshift(rec);while(L.length>15){let k=L.length-1;for(;k>=0;k--)if(!L[k].pin)break;if(k<0)k=L.length-1;L.splice(k,1)}
+ try{localStorage.setItem('bc_rep',JSON.stringify(L))}catch(e){L.pop();try{localStorage.setItem('bc_rep',JSON.stringify(L))}catch(x){}}}
+/* ---- 무르기 ---- */
+function undoNow(){const sp=shopGet();if(!G.und0||G.over||G.busy||G.turn!==G.human||G.mode!=='pve'||G.net)return;
+ if(sp.ud<=0){toast(TR('무르기권이 없어요. 상점에서 살 수 있어요.','No Undo tickets. You can buy them in the shop.'));return}
+ const u=G.und0;G.und=u;G.und0=null;cancelAI();sp.ud--;store.set('shop',sp);const S=statGet();S.ud++;store.set('stats',S);
+ G.b=BC.cloneBoard(u.b);G.plies=u.plies;G.b.pl=u.plies;G.since=u.since;G.seen=Object.assign({},u.seen);G.log=u.log.slice();G.lost={w:u.lost.w.slice(),b:u.lost.b.slice()};G.sk=JSON.parse(JSON.stringify(u.sk));G.pre=u.pre;G.turn=G.human;
+ G.sel=null;G.legal=[];G.pk=null;G.xm=null;G.lm=null;G.hint=null;G.hintK=null;G.pend=null;G.fx=null;G.dx=false;G.rush=null;G.skp=null;G.lastTxt='';
+ const R=G.rp;if(R){R.df.length=u.nr;R.tx.length=u.nr;R.lm.length=u.nr;R.cur=u.cur}
+ sfx('rm');draw();saveGame();MH.ub();MH.chk()}
+MH.ub=()=>{let b=$('#bUndo');const rs=$('#bResign');if(!b&&rs){b=document.createElement('button');b.id='bUndo';rs.parentNode.insertBefore(b,rs);b.onclick=undoNow}
+ if(!b)return;const on=!!G&&G.mode==='pve'&&!G.net&&!G.lab&&!G.tut&&!!G.b&&!G.over&&$('#s4')&&$('#s4').classList.contains('on');b.style.display=on?'':'none';
+ if(on){const n=shopGet().ud;b.textContent=TR('↩ 무르기 ('+n+')','↩ Undo ('+n+')');if(G.mode==='pve'&&G.b&&G.turn===G.human&&!G.und&&!G.und0&&G.plies===0&&!G.busy&&!G.lab&&!G.tut&&G.rp&&G.rp.cur){MH.mkUnd();G.und0=null}b.disabled=!G.und0||G.busy||G.turn!==G.human}};
+setInterval(()=>{try{MH.ub()}catch(e){}},500);
+/* ---- 상점 데이터 ---- */
+const THEMES=[
+ {id:'classic',n:TR('클래식','Classic'),p:0,l:'#f2f2f2',d:'#a9a9a9'},
+ {id:'neon',n:TR('네온 라임','Neon Lime'),p:150,l:'#f4ffc2',d:'#a8d400'},
+ {id:'forest',n:TR('숲속','Forest'),p:200,l:'#e9f0d2',d:'#6f9a52'},
+ {id:'sunset',n:TR('노을','Sunset'),p:200,l:'#ffe6c9',d:'#e0795f'},
+ {id:'ice',n:TR('얼음 호수','Ice Lake'),p:250,l:'#e8f5ff',d:'#7fb3d9'},
+ {id:'candy',n:TR('캔디','Candy'),p:250,l:'#ffe4f1',d:'#f08bc0'},
+ {id:'obsid',n:TR('흑요석','Obsidian'),p:400,l:'#8f8fa0',d:'#363644'},
+ {id:'royal',n:TR('왕실','Royal'),p:600,l:'#f6e7b4',d:'#7b2fb5'}];
+const TITLES=[
+ {id:'t1',n:TR('견습 기사','Squire'),p:60},{id:'t2',n:TR('전술가','Tactician'),p:120},{id:'t3',n:TR('승부사','Gambler'),p:200},{id:'t4',n:TR('군단장','Legion Commander'),p:300},
+ {id:'t5',n:TR('폭풍의 지배자','Storm Lord'),p:400},{id:'t6',n:TR('체스에 미친 자','Chess Maniac'),p:500},{id:'t7',n:TR('전설','Legend'),p:800},{id:'t8',n:TR('왕관의 주인','Crown Bearer'),p:1500}];
+const upPrice=t=>Math.max(40,DEF[t].c*30);
+MH.theme=()=>{const sp=shopGet(),t=THEMES.find(x=>x.id===sp.th)||THEMES[0];const r=document.documentElement.style;if(t.id==='classic'){r.removeProperty('--sl');r.removeProperty('--sd')}else{r.setProperty('--sl',t.l);r.setProperty('--sd',t.d)}};
+MH.theme();
+/* ===== meta_b.js (1.4.5) — 프로필 · 상점 · 일일 도전 · 기록 허브 · 리플레이 뷰어 ===== */
+const FRAMES=[{id:'none',n:TR('없음','None'),p:0},{id:'gold',n:TR('황금','Gold'),p:120},{id:'neon',n:TR('네온','Neon'),p:150},{id:'ice',n:TR('서리','Frost'),p:200},{id:'flame',n:TR('불꽃','Flame'),p:250},{id:'royal',n:TR('왕실','Royal'),p:400},{id:'rainbow',n:TR('무지개','Rainbow'),p:500}];
+const BGS=[{id:'plain',n:TR('기본','Plain'),p:0},{id:'sunset',n:TR('노을','Sunset'),p:100},{id:'night',n:TR('밤하늘','Night'),p:100},{id:'mint',n:TR('민트','Mint'),p:100},{id:'check',n:TR('체크판','Checker'),p:150},{id:'crimson',n:TR('진홍','Crimson'),p:200},{id:'aurora',n:TR('오로라','Aurora'),p:250},{id:'galaxy',n:TR('은하','Galaxy'),p:350}];
+const NCS=[{id:'def',n:TR('기본','Default'),p:0},{id:'gold',n:TR('금색','Gold'),p:80},{id:'mint',n:TR('민트색','Mint'),p:80},{id:'pink',n:TR('분홍색','Pink'),p:80},{id:'rainbow',n:TR('무지개','Rainbow'),p:300},{id:'flame',n:TR('불꽃','Flame'),p:300}];
+/* 코인 전용 기물·스킬 — 기획 확정 후 여기에 항목을 추가해요: {id,k:'piece'|'skill',n,d,p} */
+const EXCL=[];
+const owns=id=>{const sp=shopGet();return sp.own.includes(id)};
+const avOK=t=>!locked_(t);
+const locked_=t=>!unl().has(t)&&t!=='K';
+const profGet=()=>{const sp=shopGet(),p=sp.pf;if(!p.ni)p.ni=(typeof NT!=='undefined'&&NT.nick)||'';return p};
+const titleName=id=>{const t=TITLES.find(x=>x.id===id);return t?t.n:''};
+function pfCard(){const sp=shopGet(),p=profGet(),tt=titleName(sp.title);
+ return `<div class="pfc bg-${p.bg}"><div class="pfa fr-${p.fr}">${icon(p.av)}</div><div class="pfi"><div class="pfn nc-${p.nc}">${esc(p.ni||TR('이름 없음','Unnamed'))}</div><div class="pft">${tt?'「'+tt+'」':TR('칭호 없음','No title')}</div></div></div>`}
+MH.profileFirst=false;
+/* ---- DOM 주입 ---- */
+(function(){
+ const st=document.createElement('style');st.textContent=`
+#metaRow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}#metaRow button{font-size:13px;padding:9px 4px;font-weight:800}#coinBtn{background:#fff8d6}
+.mrow2{margin-top:8px}
+#achT{visibility:hidden;position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 10px);transform:translate(-50%,-140%);z-index:99999;background:#111;color:#fff;border:2.5px solid #c8ff00;border-radius:14px;padding:9px 14px;display:flex;gap:10px;align-items:center;max-width:min(92vw,420px);transition:transform .35s;box-shadow:4px 4px 0 #c8ff00;pointer-events:none}#achT.on{visibility:visible;transform:translate(-50%,0)}#achT .ae{font-size:26px}#achT b{display:block;font-size:13px}#achT small{display:block;font-size:11.5px;opacity:.85}
+.coinr{display:inline-block;margin-left:6px;font-weight:800;color:#a15c00}
+.pfc{display:flex;gap:12px;align-items:center;padding:12px;border:2.5px solid #111;border-radius:14px;box-shadow:4px 4px 0 #111;background:#fff;position:relative;overflow:hidden}
+.pfa{width:58px;height:58px;flex:none;border-radius:50%;border:3px solid #111;background:#fff;display:grid;place-items:center;font-size:30px;position:relative}.pfa .ic{font-size:32px}
+.pfn{font-size:18px;font-weight:900;word-break:break-all}.pft{font-size:12.5px;opacity:.85;margin-top:2px}.pfi{min-width:0}
+.bg-sunset{background:linear-gradient(120deg,#ffd29a,#ff8fa3)}.bg-night{background:linear-gradient(120deg,#1b1f4b,#4b2e83);color:#fff}.bg-mint{background:linear-gradient(120deg,#c9ffe6,#8fe3ff)}.bg-crimson{background:linear-gradient(120deg,#ffb3b3,#d9304f);color:#fff}
+.bg-check{background:conic-gradient(#fff 25%,#d8d8d8 0 50%,#fff 0 75%,#d8d8d8 0) 0 0/28px 28px}.bg-galaxy{background:radial-gradient(circle at 20% 30%,#7b2ff7,transparent 55%),radial-gradient(circle at 80% 70%,#e8139f,transparent 50%),#0b0b2a;color:#fff}
+.bg-aurora{background:linear-gradient(115deg,#6df0c2,#4a8cff,#b46bff,#6df0c2);background-size:300% 100%;animation:aur 7s linear infinite;color:#111}@keyframes aur{to{background-position:300% 0}}
+.fr-gold{border-color:#d49a00;box-shadow:0 0 0 3px #ffd84a}.fr-neon{border-color:#a8d400;box-shadow:0 0 0 3px #e8ff7a,0 0 14px #c8ff00}.fr-ice{border-color:#4a9fd8;box-shadow:0 0 0 3px #cfeaff,0 0 12px #9fd8ff}.fr-royal{border-color:#6a2ff0;box-shadow:0 0 0 3px #ffd84a,0 0 0 6px #6a2ff0}
+.fr-flame{border-color:#e8470f;box-shadow:0 0 0 3px #ffb300,0 0 14px #ff5a1f;animation:flm 1.2s ease-in-out infinite alternate}@keyframes flm{to{box-shadow:0 0 0 3px #ff8a00,0 0 22px #ff2e00}}
+.fr-rainbow{border-color:#111;box-shadow:0 0 0 4px #e8139f,0 0 0 7px #ff8a00,0 0 0 10px #6a2ff0}
+.nc-gold{color:#b97b00}.nc-mint{color:#0a9f77}.nc-pink{color:#d6307f}.nc-rainbow{background:linear-gradient(90deg,#e8139f,#ff8a00,#6a2ff0,#1e6eff);-webkit-background-clip:text;background-clip:text;color:transparent}.nc-flame{background:linear-gradient(90deg,#ff2e00,#ffb300);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bg-night .pft,.bg-galaxy .pft,.bg-crimson .pft{opacity:.9}
+.hubtop{display:flex;flex-direction:column;gap:8px}.hubcoin{text-align:right;font-weight:800;font-size:14px}
+.achl{display:flex;flex-direction:column;gap:7px}.ach{display:flex;gap:10px;align-items:center;padding:9px 10px;border:2.5px solid #111;border-radius:12px;background:#fff}.ach.lk::before{display:none!important}.ach.lk{opacity:.55;border-style:dashed}.ach .ae{font-size:26px;width:34px;text-align:center;flex:none}.ach b{font-size:14px}.ach small{display:block;font-size:12px;opacity:.85}.ach .ar{margin-left:auto;font-size:12px;font-weight:800;white-space:nowrap}.apb{height:6px;border:1.5px solid #111;border-radius:99px;background:#eee;margin-top:4px;overflow:hidden}.apb i{display:block;height:100%;background:#a3e635}
+.sgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.sg{padding:10px;border:2.5px solid #111;border-radius:12px;background:#fff}.sg small{display:block;font-size:11.5px;opacity:.75}.sg b{font-size:18px}.sg.wide{grid-column:1/-1}.lvbar{display:flex;align-items:center;gap:6px;font-size:12px;margin:3px 0}.lvbar i{display:block;height:9px;background:#a3e635;border:1.5px solid #111;border-radius:99px}
+.shi{display:flex;align-items:center;gap:10px;padding:9px 10px;border:2.5px solid #111;border-radius:12px;background:#fff;margin-bottom:7px}.shi .ic2{font-size:26px;width:40px;text-align:center;flex:none}.shi .tx{flex:1;min-width:0}.shi b{font-size:14px}.shi small{display:block;font-size:12px;opacity:.8}.shi button{white-space:nowrap;font-size:13px}.shi.on{background:#eaffc2}
+.swt{display:inline-block;width:42px;height:28px;border:2px solid #111;border-radius:6px;vertical-align:middle}
+.rpl{display:flex;flex-direction:column;gap:8px}.rpi{padding:10px;border:2.5px solid #111;border-radius:12px;background:#fff}.rpi .t{font-weight:800;font-size:14px}.rpi small{display:block;font-size:12px;opacity:.8}.rpi .rb{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.rpi .rb button{font-size:12.5px;padding:5px 9px}
+#s9 .rpc{display:flex;gap:6px;justify-content:center;margin:10px 0;flex-wrap:wrap}#s9 .rpc button{min-width:44px}#rpR{width:100%}#rpTx{min-height:2.6em;text-align:center;font-size:13.5px;margin:6px 0}
+.dyl{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:13.5px}.dyl .sbi{flex:1}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:6px}.pgrid button{padding:6px 2px;font-size:22px;line-height:1}.pgrid button.on{background:#c8ff00}.pgrid button.lkd{opacity:.35}
+.pfsec{margin:10px 0 4px;font-weight:800;font-size:13px}.chipr{display:flex;gap:6px;flex-wrap:wrap}.chipr button{padding:5px 10px;font-size:12.5px;border-radius:99px}.chipr button.on{background:#c8ff00}.chipr button.lkd{opacity:.45;border-style:dashed}
+`;document.head.appendChild(st);
+ const m=document.querySelector('main');
+ m.insertAdjacentHTML('beforeend',`
+<section class="scr" id="s7"><div class="hrow"><h2>🏆 ${TR('기록 · 업적','Records')}</h2><button id="hubHome" class="hbtn">🏠 ${TR('메뉴로','Menu')}</button></div>
+<div class="hubtop"><div id="hubPf"></div><div class="hubcoin">💰 <span id="hubCoin"></span></div><div class="row2"><button id="hubEd">✏️ ${TR('프로필 꾸미기','Edit profile')}</button><button id="hubShop">🛒 ${TR('상점','Shop')}</button></div></div>
+<div class="chips" id="hubTabs" style="margin-top:10px"><button data-t="a">🏆 ${TR('업적','Achievements')}</button><button data-t="s">📊 ${TR('통계','Stats')}</button><button data-t="r">🎞 ${TR('리플레이','Replays')}</button></div><div id="hubBody"></div></section>
+<section class="scr" id="s8"><div class="hrow"><h2>🛒 ${TR('상점','Shop')}</h2><button id="shopHome" class="hbtn">🏠 ${TR('메뉴로','Menu')}</button></div>
+<div class="hubcoin">💰 <span id="shopCoin"></span></div><div class="chips" id="shopTabs"><button data-t="th">🎨 ${TR('보드','Boards')}</button><button data-t="pf">📇 ${TR('프로필','Profile')}</button><button data-t="up">🔓 ${TR('기물 해금','Unlock')}</button><button data-t="it">🎒 ${TR('아이템','Items')}</button><button data-t="ex">💎 ${TR('코인 전용','Exclusive')}</button></div><div id="shopBody"></div></section>
+<section class="scr" id="s9"><div class="hrow"><h2>🎞 ${TR('리플레이','Replay')}</h2><button id="rpBack" class="hbtn">⬅ ${TR('목록','List')}</button></div>
+<p class="note" id="rpT" style="text-align:center"></p><div class="bd" id="bdR"></div><div id="rpTx"></div><input type="range" id="rpR" min="0" max="0" value="0" aria-label="move"><div class="rpc"><button id="rpF0">⏮</button><button id="rpB">◀</button><button id="rpP">▶ ${TR('재생','Play')}</button><button id="rpN">▶|</button><button id="rpF1">⏭</button><button id="rpFl">🔄</button></div></section>`);
+ document.body.insertAdjacentHTML('beforeend',`
+<div id="achT" role="status" aria-live="polite"></div>
+<div class="modal" id="mDy" role="dialog" aria-modal="true"><div class="mc stmc"><p class="note" id="dyC"></p><h2 id="dyT"></h2><div id="dyB"></div><button class="pri" id="dyGo" style="margin-top:14px"></button><div class="row2" style="margin-top:8px"><button id="dyEd"></button><button id="dyNo"></button></div></div></div>
+<div class="modal" id="mDr" role="dialog" aria-modal="true"><div class="mc res"><div class="em" id="drEm"></div><h2 id="drT"></h2><p class="note" id="drD"></p><div class="row2" style="margin-top:14px"><button id="drRe"></button><button class="pri" id="drLs" style="width:auto"></button></div></div></div>
+<div class="modal" id="mPf" role="dialog" aria-modal="true"><div class="mc stmc"><h2 id="pfH"></h2><div id="pfPrev"></div><label class="pfsec" for="pfNi">${TR('이름','Name')}</label><input id="pfNi" maxlength="12" autocomplete="off" style="width:100%;box-sizing:border-box;padding:9px;border:2.5px solid #111;border-radius:10px;font:inherit"><div id="pfBody"></div><button class="pri" id="pfOk" style="margin-top:14px"></button></div></div>`);
+})();
+/* ---- 프로필 ---- */
+let pfFirst=false;
+function pfDraw(){const sp=shopGet(),p=sp.pf,un=unl();
+ $('#pfPrev').innerHTML=pfCard();
+ const chip=(kind,list,cur)=>`<div class="chipr">${list.map(x=>{const ok=!x.p||owns(kind+'_'+x.id);return `<button data-k="${kind}" data-i="${x.id}" class="${cur===x.id?'on':''} ${ok?'':'lkd'}">${ok?'':'🔒 '}${x.n}</button>`}).join('')}</div>`;
+ const av=TYPES.filter(t=>un.has(t)||t==='K');
+ $('#pfBody').innerHTML=`<div class="pfsec">${TR('아바타 (해금한 기물)','Avatar (unlocked pieces)')}</div><div class="pgrid">${av.map(t=>`<button data-k="av" data-i="${t}" class="${p.av===t?'on':''}" title="${DEF[t].n}">${icon(t)}</button>`).join('')}</div>${pfFirst?`<p class="note">${TR('칭호·프레임·배경은 나중에 코인으로 꾸밀 수 있어요','Titles, frames and backgrounds can be bought later with coins')}</p>`:''}
+ <div class="pfx" ${pfFirst?'hidden':''}><div class="pfsec">${TR('칭호','Title')}</div><div class="chipr"><button data-k="ti" data-i="" class="${!sp.title?'on':''}">${TR('없음','None')}</button>${TITLES.map(x=>{const ok=sp.titles.includes(x.id);return `<button data-k="ti" data-i="${x.id}" class="${sp.title===x.id?'on':''} ${ok?'':'lkd'}">${ok?'':'🔒 '}${x.n}</button>`}).join('')}</div>
+ <div class="pfsec">${TR('프레임','Frame')}</div>${chip('fr',FRAMES,p.fr)}<div class="pfsec">${TR('배경','Background')}</div>${chip('bg',BGS,p.bg)}<div class="pfsec">${TR('이름 색','Name style')}</div>${chip('nc',NCS,p.nc)}
+ <p class="note">🔒 ${TR('잠긴 항목은 상점에서 살 수 있어요','Locked items can be bought in the shop')}</p></div>`}
+$('#pfBody').onclick=e=>{const b=e.target.closest('button');if(!b)return;const sp=shopGet(),k=b.dataset.k,i=b.dataset.i;sfx('sel');
+ if(k==='av')sp.pf.av=i;else if(k==='ti'){if(i&&!sp.titles.includes(i)){toast(TR('상점에서 먼저 구매해 주세요','Buy it in the shop first'));return}sp.title=i}
+ else{const list={fr:FRAMES,bg:BGS,nc:NCS}[k],it=list.find(x=>x.id===i);if(it.p&&!sp.own.includes(k+'_'+i)){toast(TR('상점에서 먼저 구매해 주세요','Buy it in the shop first'));return}sp.pf[k]=i}
+ store.set('shop',sp);pfDraw()};
+$('#pfNi').oninput=()=>{const sp=shopGet();sp.pf.ni=$('#pfNi').value.slice(0,12);store.set('shop',sp);$('#pfPrev').innerHTML=pfCard()};
+function openPf(first){pfFirst=!!first;const p=profGet();$('#pfH').textContent=first?TR('📇 프로필을 만들어 주세요','📇 Create your profile'):TR('📇 프로필 꾸미기','📇 Edit profile');$('#pfNi').value=p.ni||'';$('#pfOk').textContent=first?TR('시작하기 ▶','Start ▶'):TR('완료','Done');pfDraw();openM('mPf')}
+$('#pfOk').onclick=()=>{const sp=shopGet();let n=$('#pfNi').value.trim();if(!n){if(pfFirst){toast(TR('이름을 입력해 주세요','Please enter a name'));return}n=sp.pf.ni||''}sp.pf.ni=n;store.set('shop',sp);store.set('profDone',true);if(typeof NT!=='undefined'&&n&&typeof nkClean==='function')NT.nick=nkClean(n)||NT.nick;closeM('mPf');MH.chip();if($('#s7').classList.contains('on'))hubDraw()};
+MH.firstRun=()=>{if(store.get('profDone',false))return;const t=setInterval(()=>{if(!document.querySelector('.modal.on')&&$('#s0').classList.contains('on')){clearInterval(t);const sp=shopGet();if(!sp.pf.ni)sp.pf.ni='';openPf(true)}},700)};
+/* ---- 허브 (업적 · 통계 · 리플레이) ---- */
+let hubTab='a';
+function hubDraw(){$('#hubPf').innerHTML=pfCard();MH.chip();$$('#hubTabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===hubTab));
+ const B=$('#hubBody');
+ if(hubTab==='a'){const got=achGet(),c=MH.ctx(),n=ACH.filter(a=>got[a.id]).length;
+  B.innerHTML=`<p class="note" style="text-align:center">${TR('달성','Done')} <b>${n} / ${ACH.length}</b></p><div class="achl">`+ACH.slice().sort((a,b)=>(got[b.id]?1:0)-(got[a.id]?1:0)).map(a=>{const ok=!!got[a.id];let pr=null;if(!ok&&a.pr){try{pr=a.pr(c)}catch(e){}}
+   return `<div class="ach ${ok?'':'lk'}"><span class="ae">${ok?a.e:'🔒'}</span><div style="flex:1;min-width:0"><b>${a.n}</b><small>${a.d}</small>${pr?`<div class="apb"><i style="width:${Math.min(100,pr[0]/pr[1]*100)}%"></i></div>`:''}</div><span class="ar">${ok?'✔':pr?Math.min(pr[0],pr[1])+'/'+pr[1]:''}${a.rw?`<br>💰${a.rw}`:''}</span></div>`}).join('')+'</div>'}
+ else if(hubTab==='s'){const S=statGet(),c=MH.ctx(),eco=c.eco,wr=S.g?Math.round(S.w/(S.g-S.pv||1)*100):0;
+  const fav=Object.keys(S.e).sort((a,b)=>S.e[b]-S.e[a])[0],tm=Math.floor(S.time/3600)+TR('시간 ','h ')+Math.floor(S.time%3600/60)+TR('분','m');
+  const mx=Math.max(1,...[0,1,2,3,4,5,6].map(l=>S.lw[l]||0));
+  const T=(k,v)=>`<div class="sg"><small>${k}</small><b>${v}</b></div>`;
+  B.innerHTML=`<div class="sgrid">${T(TR('총 대국','Games'),S.g)}${T(TR('승률 (AI·온라인)','Win rate'),wr+'%')}${T(TR('승 / 패 / 무','W / L / D'),S.w+' / '+S.l+' / '+S.d)}${T(TR('최고 연승','Best streak'),S.bs)}${T(TR('처치한 기물','Captures'),S.cap)}${T(TR('잃은 기물','Pieces lost'),S.lost)}${T(TR('최단 승리','Fastest win'),S.fw<999?S.fw+TR('수',' plies'):'-')}${T(TR('최장 대국','Longest'),S.maxp+TR('수',' plies'))}${T(TR('쓴 기물 종류','Piece types used'),Object.keys(S.u).length+' / '+TYPES.length)}${T(TR('가장 많이 잡은 기물','Most captured'),fav?icon(fav)+' '+DEF[fav].n:'-')}${T(TR('플레이 시간','Play time'),tm)}${T(TR('온라인 승','Online wins'),S.nw)}
+  ${T(TR('스토리','Story'),c.cl+' / 25')}${T(TR('별','Stars'),'⭐ '+c.st+' / 75')}${T(TR('일일 도전','Daily clears'),S.dc+' · 🔥'+S.ds)}${T(TR('업적','Achievements'),Object.keys(achGet()).length+' / '+ACH.length)}${T(TR('누적 획득 코인','Coins earned'),'💰 '+eco.tot.toLocaleString())}${T(TR('사용한 코인','Coins spent'),'💰 '+eco.spent.toLocaleString())}
+  <div class="sg wide"><small>${TR('AI 레벨별 승리','Wins by AI level')}</small>${[0,1,2,3,4,5,6].map(l=>`<div class="lvbar"><span style="width:44px">${LVN[l]}</span><i style="width:${(S.lw[l]||0)/mx*60+2}%"></i><span>${S.lw[l]||0}</span></div>`).join('')}</div></div>`}
+ else{const L=store.get('rep',[]);
+  B.innerHTML=`<p class="note">${TR('최근 대국이 자동 저장돼요 (최대 15개 · 📌은 보존)','Recent games are saved automatically (up to 15 · 📌 keeps one)')}</p><div class="rpl">`+(L.length?L.map((r,k)=>{const dt=new Date(r.d),res=r.me?(r.w===r.me?TR('승리','Win'):r.w?TR('패배','Loss'):TR('무승부','Draw')):(r.w?SN[r.w]+TR(' 승',' won'):TR('무승부','Draw'));
+   const kind=r.sy==='D'?TR('일일 도전','Daily'):r.sy?TR('스토리 ','Story ')+r.sy:r.m==='net'?TR('온라인','Online'):r.m==='pvp'?TR('한 기기 대전','Local'):'AI '+LVN[r.lv];
+   return `<div class="rpi"><div class="t">${r.pin?'📌 ':''}${kind} · ${res} · ${r.n}${TR('수',' plies')}</div><small>${dt.getMonth()+1}/${dt.getDate()} ${String(dt.getHours()).padStart(2,'0')}:${String(dt.getMinutes()).padStart(2,'0')}</small><div class="rb"><button data-a="v" data-k="${k}">▶ ${TR('보기','Watch')}</button><button data-a="c" data-k="${k}">📋 ${TR('코드','Code')}</button><button data-a="f" data-k="${k}">📁 ${TR('파일','File')}</button><button data-a="p" data-k="${k}">📌</button><button data-a="d" data-k="${k}">🗑</button></div></div>`}).join(''):`<p class="note" style="text-align:center">${TR('아직 저장된 대국이 없어요','No saved games yet')}</p>`)+`</div>
+   <h4 class="ph">${TR('리플레이 가져오기','Import a replay')}</h4><textarea id="rpIm" rows="3" spellcheck="false" style="width:100%;box-sizing:border-box;font:12px monospace;border:2.5px solid #111;border-radius:10px;padding:8px" placeholder="BCR1.…"></textarea><div class="row2" style="margin-top:6px"><button id="rpImGo">⬇ ${TR('코드로 가져오기','Import code')}</button><button id="rpImFl">📂 ${TR('파일로 가져오기','Import file')}</button></div><input type="file" id="rpImF" accept=".txt,text/plain" hidden><p class="note" id="rpMsg"></p>`}}
+$('#hubTabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;hubTab=b.dataset.t;sfx('sel');hubDraw()};
+function hubOpen(tab){if(tab)hubTab=tab;hubDraw();show('s7');window.scrollTo(0,0)}
+$('#goHub').onclick=()=>{sfx('place');hubOpen()};$('#hubHome').onclick=()=>{sfx('rm');show('s0')};$('#hubEd').onclick=()=>openPf(false);$('#hubShop').onclick=()=>shopOpen();
+$('#coinBtn').onclick=()=>{sfx('place');shopOpen()};$('#goShop').onclick=()=>{sfx('place');shopOpen()};$('#goStory2').onclick=()=>{sfx('place');stList()};$('#goLearn').onclick=()=>{sfx('place');openM('mLearn')};$('#t0Pf').onclick=()=>{sfx('place');hubOpen()};
+$('#mLearn').addEventListener('click',e=>{if(e.target.closest('.lrn'))closeM('mLearn')});
+/* ---- 리플레이 공유 · 뷰어 ---- */
+const rpSum=j=>{let k=0;for(let i=0;i<j.length;i++)k=(k*31+j.charCodeAt(i))>>>0;return k.toString(36)};
+const rpEnc=r=>{const j=JSON.stringify(r);return 'BCR1.'+btoa(unescape(encodeURIComponent(j)))+'.'+rpSum(j)};
+function rpDec(t){const m=(t||'').match(/BCR1\.([A-Za-z0-9+\/=]+)\.([0-9a-z]+)/);if(!m)return null;try{const j=decodeURIComponent(escape(atob(m[1])));if(rpSum(j)!==m[2])return null;const r=JSON.parse(j);if(!r||r.v!==1||!Array.isArray(r.ini)||r.ini.length!==64||!Array.isArray(r.df))return null;return r}catch(e){return null}}
+function rpAdd(r){const L=store.get('rep',[]);r.d=r.d||Date.now();delete r.pin;L.unshift(r);while(L.length>15)L.pop();try{localStorage.setItem('bc_rep',JSON.stringify(L))}catch(e){}}
+$('#hubBody').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.id==='rpImGo'){const r=rpDec($('#rpIm').value);$('#rpMsg').textContent=r?TR('가져왔어요!','Imported!'):TR('올바른 리플레이 코드가 아니에요','Not a valid replay code');if(r){rpAdd(r);hubDraw();$('#rpMsg').textContent=TR('가져왔어요!','Imported!')}return}
+ if(b.id==='rpImFl'){$('#rpImF').click();return}
+ const a=b.dataset.a;if(!a)return;const L=store.get('rep',[]),k=+b.dataset.k,r=L[k];if(!r)return;
+ if(a==='v')rpOpen(r);
+ else if(a==='c'){const t=rpEnc(r);const done=()=>{toast(TR('코드를 복사했어요','Code copied'));const S=statGet();S.sh++;store.set('stats',S);MH.chk()};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,()=>prompt?toast(TR('복사하지 못했어요. 파일로 저장해 주세요','Could not copy — save as a file')):0);else toast(TR('복사하지 못했어요. 파일로 저장해 주세요','Could not copy — save as a file'))}
+ else if(a==='f'){try{const bl=new Blob([rpEnc(r)],{type:'text/plain'}),an=document.createElement('a');an.href=URL.createObjectURL(bl);an.download='battlechess_replay.txt';document.body.appendChild(an);an.click();setTimeout(()=>{URL.revokeObjectURL(an.href);an.remove()},500);const S=statGet();S.sh++;store.set('stats',S);MH.chk()}catch(x){toast(TR('저장하지 못했어요','Could not save'))}}
+ else if(a==='p'){r.pin=!r.pin;store.set('rep',L);hubDraw()}
+ else if(a==='d'){ask(TR('리플레이 삭제','Delete replay'),TR('이 리플레이를 지울까요?','Delete this replay?'),()=>{L.splice(k,1);store.set('rep',L);hubDraw()})}};
+document.addEventListener('change',e=>{if(e.target&&e.target.id==='rpImF'){const f=e.target.files&&e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{const r=rpDec(String(rd.result||''));if(r){rpAdd(r);hubDraw();$('#rpMsg').textContent=TR('가져왔어요!','Imported!')}else $('#rpMsg').textContent=TR('올바른 리플레이 파일이 아니에요','Not a valid replay file')};rd.readAsText(f);e.target.value=''}});
+let RP=null,rpTimer=null;
+function rpFrames(r){const F=[r.ini.slice()];r.df.forEach(d=>{const c=F[F.length-1].slice();d.forEach(([i,v])=>c[i]=v);F.push(c)});return F}
+function rpOpen(r){RP={r,F:rpFrames(r),k:0,fl:r.me==='b'};const kind=r.me?(r.w===r.me?TR('승리','Win'):r.w?TR('패배','Loss'):TR('무승부','Draw')):(r.w?SN[r.w]+TR(' 승',' won'):TR('무승부','Draw'));
+ $('#rpT').textContent=(r.m==='net'?TR('온라인','Online'):r.m==='pvp'?TR('한 기기 대전','Local'):'AI '+LVN[r.lv])+' · '+kind+' · '+r.n+TR('수',' plies');$('#rpR').max=RP.F.length-1;rpGo(0);show('s9');window.scrollTo(0,0)}
+function rpGo(k){if(!RP)return;k=Math.max(0,Math.min(RP.F.length-1,k));RP.k=k;const f=RP.F[k],arr=f.map(c=>c?BC.newPiece(c.slice(0,-1),c.slice(-1)):null);const lm=k>0&&RP.r.lm[k-1]||[];
+ board($('#bdR'),arr,RP.fl,i=>lm.includes(i)?'lm':'');$('#rpR').value=k;
+ $('#rpTx').textContent=k===0?TR('대국 시작 위치','Starting position'):`${k}${TR('수','')} · ${RP.r.tx[k-1]||''}`}
+function rpStop(){clearInterval(rpTimer);rpTimer=null;$('#rpP').textContent='▶ '+TR('재생','Play')}
+$('#rpR').oninput=()=>{rpStop();rpGo(+$('#rpR').value)};$('#rpF0').onclick=()=>{rpStop();rpGo(0)};$('#rpF1').onclick=()=>{rpStop();rpGo(1e9)};$('#rpB').onclick=()=>{rpStop();rpGo(RP.k-1)};$('#rpN').onclick=()=>{rpStop();rpGo(RP.k+1)};$('#rpFl').onclick=()=>{RP.fl=!RP.fl;rpGo(RP.k)};
+$('#rpP').onclick=()=>{if(rpTimer){rpStop();return}if(RP.k>=RP.F.length-1)rpGo(0);$('#rpP').textContent='⏸ '+TR('정지','Pause');rpTimer=setInterval(()=>{if(RP.k>=RP.F.length-1){rpStop();return}rpGo(RP.k+1)},750)};
+$('#rpBack').onclick=()=>{rpStop();hubOpen('r')};
+/* ---- 상점 ---- */
+let shopTab='th';
+function buy(price,label,apply){const e=ecoGet();if(e.c<price){toast(TR('코인이 부족해요','Not enough coins'));return}
+ ask(TR('구매','Purchase'),`${label} — 💰 ${price}`,()=>{const e2=ecoGet();if(e2.c<price)return;e2.c-=price;e2.spent+=price;store.set('eco',e2);const sp=shopGet();apply(sp);sp.buys++;store.set('shop',sp);sfx('win');toast(TR('구매했어요!','Purchased!'));MH.chip();MH.chk();shopDraw()})}
+function shopDraw(){MH.chip();$$('#shopTabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===shopTab));const sp=shopGet(),B=$('#shopBody');
+ const row=(ic,n,d,btn)=>`<div class="shi"><span class="ic2">${ic}</span><div class="tx"><b>${n}</b><small>${d||''}</small></div>${btn}</div>`;
+ if(shopTab==='th'){B.innerHTML=THEMES.map(t=>{const own=sp.own.includes(t.id),on=sp.th===t.id;return `<div class="shi ${on?'on':''}"><span class="ic2"><i class="swt" style="background:linear-gradient(90deg,${t.l} 50%,${t.d} 50%)"></i></span><div class="tx"><b>${t.n}</b><small>${on?TR('사용 중','In use'):own?TR('보유','Owned'):'💰 '+t.p}</small></div>${on?'':own?`<button data-a="use" data-i="${t.id}">${TR('적용','Use')}</button>`:`<button data-a="bth" data-i="${t.id}">${TR('구매','Buy')}</button>`}</div>`}).join('')}
+ else if(shopTab==='pf'){const sec=(h,list,kind)=>`<h4 class="ph">${h}</h4>`+list.filter(x=>x.p).map(x=>{const own=sp.own.includes(kind+'_'+x.id);const prev=kind==='fr'?`<span class="pfa fr-${x.id}" style="width:34px;height:34px;font-size:16px">${icon(sp.pf.av)}</span>`:kind==='bg'?`<span class="swt bg-${x.id}"></span>`:`<b class="nc-${x.id}">Aa</b>`;
+   return row(prev,x.n,own?TR('보유 · 프로필에서 장착','Owned · equip in profile'):'💰 '+x.p,own?'':`<button data-a="bpf" data-k="${kind}" data-i="${x.id}">${TR('구매','Buy')}</button>`)}).join('');
+  B.innerHTML=`<div style="margin-bottom:8px">${pfCard()}</div><button id="shEd" style="width:100%;margin-bottom:6px">✏️ ${TR('프로필 꾸미기','Edit profile')}</button><h4 class="ph">${TR('칭호','Titles')}</h4>`+TITLES.map(x=>{const own=sp.titles.includes(x.id);return row('「」',x.n,own?TR('보유','Owned'):'💰 '+x.p,own?'':`<button data-a="bti" data-i="${x.id}">${TR('구매','Buy')}</button>`)}).join('')+sec(TR('프레임','Frames'),FRAMES,'fr')+sec(TR('배경','Backgrounds'),BGS,'bg')+sec(TR('이름 색','Name styles'),NCS,'nc')}
+ else if(shopTab==='up'){const un=unl(),ls=TYPES.filter(t=>!un.has(t));
+  B.innerHTML=`<p class="note">${TR('스토리를 클리어하지 않아도 코인으로 기물을 미리 열 수 있어요. (스토리를 깨면 그 기물은 그대로 열려요)','Spend coins to open a piece early without clearing the story.')}</p>`+(ls.length?ls.map(t=>row(icon(t),DEF[t].n,`${DEF[t].c} ${TR('코스트','cost')} · ${stShort(t)}`,`<button data-a="bup" data-i="${t}">💰 ${upPrice(t)}</button>`)).join(''):`<p class="note" style="text-align:center">${TR('모든 기물이 열려 있어요!','Every piece is unlocked!')}</p>`)}
+ else if(shopTab==='it'){const bo=ecoGet().boost>Date.now();
+  B.innerHTML=row('↩',TR('무르기권 1장','Undo ×1'),TR('AI 대국·스토리에서 한 수 되돌려요 · 보유 ','Take back a move vs AI / in Story · own ')+sp.ud,`<button data-a="bud" data-n="1" data-p="25">💰 25</button>`)+row('↩',TR('무르기권 5장 묶음','Undo ×5'),TR('개당 20 코인','20 coins each'),`<button data-a="bud" data-n="5" data-p="100">💰 100</button>`)+row('⏫',TR('코인 부스터 (24시간)','Coin Booster (24h)'),bo?TR('적용 중 · 일반 대국 코인 2배','Active · 2× coins from regular games'):TR('일반 대국 코인이 2배가 돼요','Doubles coins from regular games'),bo?'':`<button data-a="bbo">💰 150</button>`)}
+ else{B.innerHTML=`<p class="note">${TR('코인으로만 살 수 있는 특별한 기물과 스킬이에요.','Special pieces and skills available only with coins.')}</p>`+(EXCL.length?EXCL.map(x=>{const own=sp.own.includes('ex_'+x.id);return row(x.e||'💎',x.n,x.d,own?`<span>✔</span>`:`<button data-a="bex" data-i="${x.id}">💰 ${x.p}</button>`)}).join(''):`<div class="shi"><span class="ic2">🛠</span><div class="tx"><b>${TR('준비 중','Coming soon')}</b><small>${TR('곧 공개돼요','To be revealed soon')}</small></div></div>`)}}
+$('#shopBody').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.id==='shEd'){openPf(false);return}const a=b.dataset.a,i=b.dataset.i;if(!a)return;const sp=shopGet();
+ if(a==='use'){sp.th=i;store.set('shop',sp);MH.theme();sfx('place');shopDraw()}
+ else if(a==='bth'){const t=THEMES.find(x=>x.id===i);buy(t.p,TR('보드 테마 ','Board theme ')+t.n,s=>{s.own.push(i);s.th=i;store.set('shop',s);MH.theme()})}
+ else if(a==='bpf'){const k=b.dataset.k,x={fr:FRAMES,bg:BGS,nc:NCS}[k].find(y=>y.id===i);buy(x.p,x.n,s=>{s.own.push(k+'_'+i);s.pf[k]=i})}
+ else if(a==='bti'){const x=TITLES.find(y=>y.id===i);buy(x.p,'「'+x.n+'」',s=>{s.titles.push(i);s.title=i})}
+ else if(a==='bup'){buy(upPrice(i),DEF[i].n+TR(' 기물 해금',' — unlock'),s=>{if(!s.unl.includes(i))s.unl.push(i);UNL=null})}
+ else if(a==='bud'){const n=+b.dataset.n;buy(+b.dataset.p,TR('무르기권 ','Undo ×')+n,s=>{s.ud+=n})}
+ else if(a==='bbo'){buy(150,TR('코인 부스터 24시간','Coin Booster 24h'),()=>{const e=ecoGet();e.boost=Date.now()+864e5;store.set('eco',e)})}
+ else if(a==='bex'){const x=EXCL.find(y=>y.id===i);buy(x.p,x.n,s=>{s.own.push('ex_'+i);if(x.k==='piece'&&!s.unl.includes(x.t)){s.unl.push(x.t);UNL=null}})}};
+$('#shopTabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;shopTab=b.dataset.t;sfx('sel');shopDraw()};
+function shopOpen(tab){if(tab)shopTab=tab;shopDraw();show('s8');window.scrollTo(0,0)}
+$('#shopHome').onclick=()=>{sfx('rm');show('s0')};
+/* ---- 일일 도전 ---- */
+const dSeed=()=>dayNum(dayKey())*7919+13;
+function dCfg(){const wd=new Date().getDay(),lv=[4,2,2,3,3,4,5][wd],seed=dSeed();let me=null,foe=null,mp=null,fp=null;
+ for(let k=0;k<20&&!(mp&&fp);k++){me=BC.aiArmy(5,stRng(seed+k*17));foe=BC.aiArmy(lv,stRng(seed+1000+k*17));mp=BC.aiPlace(me,'w',stRng(seed+7+k),5);fp=BC.aiPlace(foe,'b',stRng(seed+9+k),5)}
+ return{lv,me,foe,mp,fp,seed}}
+function dOpen(){store.set('dseen',dayKey());{const _d=document.querySelector('#goDaily .dot');if(_d)_d.hidden=true}const S=statGet(),k=dayKey(),done=S.dl===k,c=dCfg(),yest=dayKey.call?null:null;
+ $('#dyC').textContent=k;$('#dyT').textContent='🗓 '+TR('오늘의 도전','Daily Challenge');
+ const bonus=40+Math.min(7,(S.dl&&dayNum(k)-dayNum(S.dl)===1?S.ds+1:1))*5;
+ $('#dyB').innerHTML=`<div class="dyl"><span>${TR('상대 AI','Opponent')}</span><b>${LVN[c.lv]}</b><span style="margin-left:auto">🔥 ${S.ds}${TR('일 연속','-day streak')}</span></div><div class="sbl"><span>${TR('내 군대','My army')}</span><div class="sbi">${stIcons(c.me.join(''))}</div></div><div class="sbl"><span>${TR('적 군대','Enemy')}</span><div class="sbi">${stIcons(c.foe.join(''))}</div></div><p class="note">${done?'✔ '+TR('오늘 보상을 받았어요. 다시 도전은 자유예요!','Today\'s reward claimed. Feel free to play again!'):TR('오늘 처음 이기면 💰 '+bonus+' (연속일수 보너스 포함)','First win today: 💰 '+bonus+' (streak bonus included)')}</p><p class="note">${TR('매일 날짜로 정해지는 군대예요. 모든 기물을 해금 없이 쓸 수 있어요.','Armies are fixed by the date. Every piece is available without unlocks.')}</p>`;
+ $('#dyGo').textContent=TR('▶ 출격','▶ Deploy');$('#dyEd').textContent=TR('🛠 편성·배치 조정','🛠 Edit army & placement');$('#dyNo').textContent=TR('닫기','Close');openM('mDy')}
+$('#goDaily').onclick=()=>{sfx('place');dOpen()};$('#dyNo').onclick=()=>closeM('mDy');
+function dStart(edit){closeM('mDy');const c=dCfg();if(!c.mp||!c.fp){toast(TR('도전을 준비하지 못했어요','Could not prepare the challenge'));return}
+ G={mode:'pve',lv:c.lv,human:'w',lvs:{w:0,b:0},pause:false,seed:c.seed|0,daily:{d:dayKey()}};simTally={w:0,b:0,d:0};startBoard=BC.emptyBoard();SAVED={};G.aiPl=c.fp;
+ if(edit){queue=['w'];setArmy(c.me);SAVED.w={army:Object.assign({},army),pb:[]};G.ret='sel';pendPl={k:akey(c.me),pl:c.mp};nextSetup();return}
+ c.mp.forEach(([a,t])=>startBoard[a]=BC.newPiece(t,'w'));c.fp.forEach(([a,t])=>startBoard[a]=BC.newPiece(t,'b'));startGame()}
+$('#dyGo').onclick=()=>dStart(false);$('#dyEd').onclick=()=>dStart(true);
+MH.dEnd=(w,win)=>{const S=statGet(),k=G.daily.d;let msg='',coin=0;
+ if(win){if(S.dl!==k){const y=S.dl&&dayNum(k)-dayNum(S.dl)===1;S.ds=y?S.ds+1:1;S.dbs=Math.max(S.dbs,S.ds);S.dc++;S.dl=k;coin=40+Math.min(7,S.ds)*5;store.set('stats',S);coinAdd(coin);msg=TR(`첫 클리어! 💰 +${coin} · 🔥 ${S.ds}일 연속`,`First clear! 💰 +${coin} · 🔥 ${S.ds}-day streak`)}else msg=TR('오늘은 이미 보상을 받았어요','Today\'s reward was already claimed')}
+ else msg=TR('아쉬워요. 다시 도전해 보세요!','So close. Try again!');
+ $('#drEm').textContent=win?'🗓':w?'💀':'🤝';$('#drT').textContent=win?TR('일일 도전 성공!','Daily Challenge cleared!'):TR('도전 실패','Challenge failed');$('#drD').textContent=msg;$('#drRe').textContent=TR('다시 하기','Replay');$('#drLs').textContent=TR('메뉴로','Menu');openM('mDr');MH.chk()};
+$('#drRe').onclick=()=>{closeM('mDr');cancelAI();startGame()};$('#drLs').onclick=()=>{closeM('mDr');cancelAI();G.over=true;toHome()};
+{const _c=MH.chip;MH.chip=()=>{_c();const mn=$('#t0Pf');if(mn){const p=profGet(),sp=shopGet(),tt=titleName(sp.title);mn.innerHTML=`<span class="pa fr-${p.fr}">${icon(p.av)}</span><span style="min-width:0;display:block;flex:1;overflow:hidden"><b class="pfnm nc-${p.nc}">${esc(p.ni||TR('내 프로필','My profile'))}</b><span class="pt">${tt?'「'+tt+'」':TR('프로필 · 업적 보기','Profile · Records')}</span></span>`}
+ const dt=document.querySelector('#goDaily .dot');if(dt)dt.hidden=statGet().dl===dayKey()||store.get('dseen','')===dayKey()}}
+MH.chip();MH.firstRun();
+(function(){const st=document.createElement('style');st.textContent=`.sst{display:block;font-size:12px;color:#d49a00;letter-spacing:1px;margin-top:2px}.stcr{margin:10px 0;padding:9px 11px;border:2.5px solid #111;border-radius:12px;background:#fff;text-align:left;font-size:13px}.stcr div{margin:3px 0;opacity:.55}.stcr div.ok{opacity:1;font-weight:700}.stcr div.ok::first-letter{color:#d49a00}.stcr .cn{opacity:1;font-weight:800;color:#a15c00}.stcr .ez{opacity:1;color:#1f6feb}.rsc button{display:block;width:100%;margin-top:6px}`;document.head.appendChild(st)})();
 
 /*DBG*/
 })();
