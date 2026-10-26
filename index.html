@@ -6083,7 +6083,7 @@ const petImg=(id,px,mood)=>{const c=petCfg(id);return petSvg(id,c.col,c.acc,mood
 document.querySelector('#shopTabs').insertAdjacentHTML('beforeend',`<button data-t="bk">🌈 ${TR('배경','Themes')}</button><button data-t="pt">🐾 ${TR('펫','Pets')}</button>`);
 (function(){const st=document.createElement('style');st.textContent=`.bbx{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.bbx button.on{background:#c8ff00;font-weight:800}.bksw{display:inline-block;width:34px;height:34px;border:2.5px solid #111;border-radius:9px}.ptc{display:flex;gap:12px;align-items:center;padding:10px;border:2.5px solid #111;border-radius:14px;background:#fff;margin-bottom:9px;box-shadow:3px 3px 0 #111}.ptc.on{background:#eaffc2}.ptc .pv{flex:none;width:76px;height:76px;display:flex;align-items:center;justify-content:center}.ptc .tx{flex:1;min-width:0}.ptc b{font-size:15px}.ptc small{display:block;font-size:12.5px;line-height:1.45;margin-top:3px;opacity:.85}.ptc .bb{display:flex;flex-direction:column;gap:6px}.ptc button{white-space:nowrap;font-size:13px}.rl{display:inline-block;font-size:11px;font-weight:800;padding:1px 7px;border:1.5px solid #111;border-radius:99px;margin-left:6px;background:#fff8d6}
 #petW{position:absolute;z-index:6;width:60px;height:60px;pointer-events:none;border-radius:50%;background:#fff;border:2.5px solid #111;box-shadow:3px 3px 0 #111;box-sizing:border-box;display:grid;place-items:center}#petW[hidden]{display:none}#petB{pointer-events:auto;width:52px;height:52px;padding:0;border:none;background:none;box-shadow:none;cursor:pointer;border-radius:50%;display:block;animation:petB 2.4s ease-in-out infinite}#petB:hover:not(:disabled){border:none}#petB:focus-visible{outline:3px solid #2b6cff;outline-offset:2px}#petB{touch-action:none}#petB.hop{animation:petH .55s ease-out}@keyframes petB{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes petH{0%{transform:translateY(0)}35%{transform:translateY(-14px) scale(1.06)}70%{transform:translateY(0) scale(.96)}100%{transform:none}}
-#petS{position:absolute;right:0;top:calc(100% + 4px);width:max-content;max-width:min(160px,48vw);padding:4px 8px;font-size:11px;line-height:1.3;font-weight:700;background:#fff;color:#111;border:2px solid #111;border-radius:10px;box-shadow:2px 2px 0 #111;pointer-events:none;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s;text-align:left;word-break:keep-all;overflow-wrap:anywhere}#petS.on{opacity:1;transform:none;pointer-events:auto;cursor:pointer}#petS::after{content:"";position:absolute;top:var(--ty,10px);width:8px;height:8px;background:#fff}#petW.sr #petS::after{left:-5px;border-left:2px solid #111;border-bottom:2px solid #111;transform:rotate(45deg)}#petW.sl #petS::after{right:-5px;left:auto;border-right:2px solid #111;border-top:2px solid #111;transform:rotate(45deg)}
+#petS{position:absolute;right:0;top:calc(100% + 4px);width:max-content;max-width:min(210px,60vw);padding:6px 10px;font-size:13.5px;line-height:1.35;font-weight:700;background:#fff;color:#111;border:2px solid #111;border-radius:10px;box-shadow:2px 2px 0 #111;pointer-events:none;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s;text-align:left;word-break:keep-all;overflow-wrap:anywhere}#petS.on{opacity:1;transform:none;pointer-events:auto;cursor:pointer}#petS::after{content:"";position:absolute;top:var(--ty,10px);width:8px;height:8px;background:#fff}#petW.sr #petS::after{left:-5px;border-left:2px solid #111;border-bottom:2px solid #111;transform:rotate(45deg)}#petW.sl #petS::after{right:-5px;left:auto;border-right:2px solid #111;border-top:2px solid #111;transform:rotate(45deg)}
 #bd4 .c.pwarn{animation:pwn .6s ease-in-out 4;box-shadow:inset 0 0 0 3px #ff2e63}@keyframes pwn{50%{box-shadow:inset 0 0 0 5px #ff2e63,0 0 10px #ff2e63}}#s4{position:relative}
 body.rm #petB,body.rm #petB.hop{animation:none}@media(prefers-reduced-motion:reduce){#petB,#petB.hop{animation:none}}
 .pskr{margin-top:8px;padding:8px 10px;border:2.5px dashed #111;border-radius:10px;font-size:13px;background:#fff8d6}.pnam{width:100%;box-sizing:border-box;padding:9px;border:2.5px solid #111;border-radius:10px;font:inherit}`;document.head.appendChild(st)})();
@@ -6126,7 +6126,7 @@ const petActive=()=>!!petOn()&&!!G.b&&$('#s4').classList.contains('on')&&!G.tut&
 const pick=a=>a[Math.random()*a.length|0];
 function petSay(txt,mood,ms){if(!petActive())return;const s=$('#petS');s.textContent=txt;s.classList.add('on');petBub();clearTimeout(P.tm);P.tm=setTimeout(()=>{s.classList.remove('on');petMood('ok')},ms||3600);petMood(mood||'ok')}
 function petMood(m){if(P.mood===m)return;P.mood=m;P.key='';petSync()}
-function petBub(){try{const W=$('#petW'),S=$('#petS'),op=W.offsetParent;if(!op||W.hidden)return;S.style.maxWidth=Math.min(160,op.clientWidth*.46)+'px';const bw=S.offsetWidth,bh=S.offsetHeight,lx=W.offsetLeft,ly=W.offsetTop,gap=10;const right=(lx+W.offsetWidth/2)<op.clientWidth/2;W.classList.toggle('sr',right);W.classList.toggle('sl',!right);
+function petBub(){try{const W=$('#petW'),S=$('#petS'),op=W.offsetParent;if(!op||W.hidden)return;S.style.maxWidth=Math.min(210,op.clientWidth*.6)+'px';const bw=S.offsetWidth,bh=S.offsetHeight,lx=W.offsetLeft,ly=W.offsetTop,gap=10;const right=(lx+W.offsetWidth/2)<op.clientWidth/2;W.classList.toggle('sr',right);W.classList.toggle('sl',!right);
  let ax=right?lx+W.offsetWidth+gap:lx-gap-bw;ax=Math.max(6,Math.min(op.clientWidth-6-bw,ax));let ay=ly+W.offsetHeight/2-bh/2;ay=Math.max(4,Math.min(op.clientHeight-4-bh,ay));
  S.style.left=(ax-lx)+'px';S.style.right='auto';S.style.top=(ay-ly)+'px';S.style.bottom='auto';S.style.setProperty('--ty',Math.max(6,Math.min(bh-14,ly+W.offsetHeight/2-ay-5))+'px')}catch(e){}}
 function petHop(){const b=$('#petB');b.classList.remove('hop');void b.offsetWidth;b.classList.add('hop')}
@@ -6142,21 +6142,21 @@ function petDanger(me){const e=OP(me),b=G.b,res={k:false,sq:[]};const ms=BC.gen(
  for(let i=0;i<64;i++){const p=b[i];if(p&&p.s===me&&!isKing(p.t)&&DEF[p.t]&&DEF[p.t].c>=3&&hit(i))res.sq.push(i)}return res}
 function petFlash(arr){setTimeout(()=>{arr.forEach(i=>{const el=document.querySelector(`#bd4 .c[data-i="${i}"]`);if(el)el.classList.add('pwarn')})},120)}
 function petHint(){const me=petSide();
- if(G.net)return petSay(TR('온라인 대전에서는 조언을 해줄 수 없어요!','I can\'t give advice in online play!'),'worry');
+ if(G.net)return petSay(TR('온라인에선 조언 못 해요!','No hints online!'),'worry');
  if(G.over||G.turn!==me||G.busy)return petSay(TR('내 차례에 불러줘!','Call me on your turn!'),'ok');
- if(G.rush||G.skp||G.xm||G.dx||G.gsw||G.pk)return petSay(TR('지금은 스킬을 쓰는 중이라 도와줄 수 없어…','I can\'t help in the middle of a skill…'),'worry');
- if(P.hl<=0)return petSay(TR('이번 판 조언은 다 썼어. 스스로 해낼 수 있어!','No more hints this game. You can do it!'),'ok');
- P.hl--;petMood('think');petSay(TR('음… 최상급 AI처럼 깊이 생각 중이야!','Hmm… thinking like the top AI!'),'think',6000);const id=++hintId,pl=G.plies;
- const done=m=>{if(G.over||G.plies!==pl||!m){if(!G.over)petSay(TR('이번엔 못 찾겠어. 다시 불러줘!','Couldn\'t find one. Ask again!'),'worry');P.hl++;return}
-  const h=hintFor(m);petSay(h.txt.replace(/^💡\s*/,'')+' ('+TR('남은 조언 ','left ')+P.hl+')','happy',6500);petHop();
+ if(G.rush||G.skp||G.xm||G.dx||G.gsw||G.pk)return petSay(TR('스킬 중이라 못 도와줘…','Can\'t help mid-skill…'),'worry');
+ if(P.hl<=0)return petSay(TR('조언은 다 썼어!','No more hints!'),'ok');
+ P.hl--;petMood('think');petSay(TR('음… 생각 중이야!','Hmm… thinking!'),'think',6000);const id=++hintId,pl=G.plies;
+ const done=m=>{if(G.over||G.plies!==pl||!m){if(!G.over)petSay(TR('못 찾겠어. 다시!','Not found. Retry!'),'worry');P.hl++;return}
+  const h=hintFor(m);petSay(h.txt.replace(/^💡\s*/,'').replace(/^(추천|Tip): ?/,'').split(/ · | — /)[0]+' ('+P.hl+'/3)','happy',6500);petHop();
   petFlash([h.from,h.to]);setTimeout(()=>{[h.from,h.to].forEach(i=>{const el=document.querySelector(`#bd4 .c[data-i="${i}"]`);if(el){el.classList.remove('pwarn');el.classList.add(i===h.to?'ht':'hf')}})},150)};
  hcb[id]=done;const bb=BC.cloneBoard(G.b);
  if(worker)worker.postMessage({id,b:bb,dead:bb.dead,pl:bb.pl||0,s:G.turn,lv:6,seen:G.seen,seed:G.seed,h:1,skills:skFlags(),sa:1,tm:5000});
  else setTimeout(()=>{delete hcb[id];done(BC.chooseMove(bb,G.turn,6,{seen:G.seen,seed:G.seed,time:4000,skills:skFlags(),skillAll:1}))},80)}
 function petTap(){if(!petActive())return;const id=petOn(),me=petSide();petHop();sfx('sel');
  if(id==='dd')petHint();
- else if(id==='tt'){const d=petDanger(me);if(d.sq.length){petSay(d.k?TR('킹이 위험해!! 지켜야 해!','Your King is in danger!!'):TR('저 기물이 위험해! 조심해!','That piece is in danger!'),'worry');petFlash(d.sq)}else petSay(TR('지금은 안전해! 내가 지키고 있어 탱!','All safe! I\'m on guard!'),'happy')}
- else petSay(pick([TR('넌 할 수 있어! 콩콩!','You can do it! Kong-kong!'),TR('천천히 생각해도 괜찮아~','Take your time~'),TR('오늘도 멋져!','You\'re awesome!')]),'happy')}
+ else if(id==='tt'){const d=petDanger(me);if(d.sq.length){petSay(d.k?TR('킹이 위험해!!','King in danger!!'):TR('기물이 위험해!','Piece in danger!'),'worry');petFlash(d.sq)}else petSay(TR('안전해! 내가 지켜 탱!','All safe! Tang!'),'happy')}
+ else petSay(pick([TR('넌 할 수 있어! 콩콩!','You can do it! Kong-kong!'),TR('천천히 해도 돼~','Take your time~'),TR('오늘도 멋져!','You\'re awesome!')]),'happy')}
 
 /* ---- 펫 시전 스킬 (한 판에 1번) ---- */
 P.pu=0;
@@ -6179,8 +6179,8 @@ $('#skb').addEventListener('click',e=>{const b=e.target.closest('[data-sk="pet"]
  if(!skHuman()||P.pu||G.turn!==petSide())return;
  G.sel=null;G.legal=[];G.insp=null;G.skp={t:id==='kk'?'pk':'pd',a:null};sfx('sel');petHop();draw()},true);
 MH.pk=function(i){const k=G.skp,p=G.b[i],me=petSide();if(!k||!p||p.s!==me)return;
- if(k.t==='pk'){if(p.ipc)return;p.inv=1;p.ipc=3;P.pu=1;G.skp=null;G.lm=[i,i];G.lastTxt=SN[me]+TR(` 펫 스킬 🐾 지켜줄게! ${DEF[p.t].n} ${pos(i)} — 3턴 무적`,` Pet skill 🐾 I'll protect you! ${DEF[p.t].n} ${pos(i)} — invincible for 3 turns`);sfx('empower');setTimeout(()=>{fxCell(i,'🛡️');fxCell(i,'✨')},80);petSay(TR('지켜줄게! 3턴 동안 무적이야!','I\'ll protect you! Invincible for 3 turns!'),'happy');draw()}
- else if(k.t==='pd'){if(!pdOK(i))return;G.dd={p};P.pu=1;G.skp=null;G.lastTxt=SN[me]+TR(` 펫 스킬 🐾 백발백중! ${DEF[p.t].n} — 이번 턴 스킬 2번`,` Pet skill 🐾 Bullseye! ${DEF[p.t].n} — 2 skills this turn`);sfx('empower');setTimeout(()=>fxCell(i,'🎯'),80);petSay(TR('백발백중! 스킬을 두 번 써봐!','Bullseye! Use the skill twice!'),'happy');draw()}};
+ if(k.t==='pk'){if(p.ipc)return;p.inv=1;p.ipc=3;P.pu=1;G.skp=null;G.lm=[i,i];G.lastTxt=SN[me]+TR(` 펫 스킬 🐾 지켜줄게! ${DEF[p.t].n} ${pos(i)} — 3턴 무적`,` Pet skill 🐾 I'll protect you! ${DEF[p.t].n} ${pos(i)} — invincible for 3 turns`);sfx('empower');setTimeout(()=>{fxCell(i,'🛡️');fxCell(i,'✨')},80);petSay(TR('지켜줄게! 3턴 무적!','Protected for 3 turns!'),'happy');draw()}
+ else if(k.t==='pd'){if(!pdOK(i))return;G.dd={p};P.pu=1;G.skp=null;G.lastTxt=SN[me]+TR(` 펫 스킬 🐾 백발백중! ${DEF[p.t].n} — 이번 턴 스킬 2번`,` Pet skill 🐾 Bullseye! ${DEF[p.t].n} — 2 skills this turn`);sfx('empower');setTimeout(()=>fxCell(i,'🎯'),80);petSay(TR('백발백중! 스킬 2번!','Bullseye! 2 skills!'),'happy');draw()}};
 MH.tt=function(m,who){if(!petSkOn()||petOn()!=='tt'||P.pu)return;const me=petSide();if(who===me||m[2]===0||m[2]===14||m[2]===16)return;
  const mine=b=>{const o=[];for(let i=0;i<64;i++){const q=b[i];if(q&&q.s===me)o.push(q)}return o};
  const dead=(sim,orig)=>{const o=[];for(let i=0;i<64;i++){const q=orig[i];if(q&&q.s===me&&!q.sh){const r=sim[i];if(!r||r.s!==me||r.t!==q.t)o.push(i)}}return o};
@@ -6190,11 +6190,11 @@ MH.tt=function(m,who){if(!petSkOn()||petOn()!=='tt'||P.pu)return;const me=petSid
  const s2=BC.cloneBoard(G.b);s2[vi].sh=1;try{BC.make(s2,m,false)}catch(e){return}
  if(dead(s2,G.b).indexOf(vi)>=0)return;
  G.b[vi].sh=1;P.pu=1;const nm=DEF[G.b[vi].t].n;
- setTimeout(()=>{petSay(TR(`내게 맡겨! 공격을 막았어! (${nm})`,`Leave it to me! Blocked it! (${nm})`),'happy',4200);petHop();fxCell(vi,'🛡️');sfx('empower')},700)};
+ setTimeout(()=>{petSay(TR('내게 맡겨! 막았어!','Blocked it!'),'happy',4200);petHop();fxCell(vi,'🛡️');sfx('empower')},700)};
 $('#petB').onclick=()=>{if(P.dg){P.dg=0;return}petTap()};
 
 $('#petS').onclick=()=>{$('#petS').classList.remove('on');clearTimeout(P.tm);petMood('ok')};
-{const _sg=startGame;startGame=function(){_sg.apply(this,arguments);try{P.hl=3;P.pu=0;P.idle=0;P.l0=[0,0];P.key='';P.th=0;clearTimeout(P.tm);$('#petS').classList.remove('on');setTimeout(()=>{if(!petActive())return;const id=petOn();petSay(id==='kk'?TR('오늘도 같이 힘내자! 콩콩!','Let\'s do our best! Kong-kong!'):id==='tt'?TR('내가 지켜줄게! 탱탱!','I\'ll guard you! Tang-tang!'):TR('어려우면 나를 눌러줘. 조언은 3번!','Tap me if you\'re stuck. 3 hints!'),'happy',4200)},900)}catch(e){}}}
+{const _sg=startGame;startGame=function(){_sg.apply(this,arguments);try{P.hl=3;P.pu=0;P.idle=0;P.l0=[0,0];P.key='';P.th=0;clearTimeout(P.tm);$('#petS').classList.remove('on');setTimeout(()=>{if(!petActive())return;const id=petOn();petSay(id==='kk'?TR('같이 힘내자! 콩콩!','Let\'s go! Kong-kong!'):id==='tt'?TR('내가 지켜줄게! 탱탱!','I\'ll guard you! Tang-tang!'):TR('막히면 눌러줘! 조언 3번','Tap me! 3 hints'),'happy',4200)},900)}catch(e){}}}
 {const _et=MH.et;MH.et=function(){_et();try{if(!petActive())return;const me=petSide(),id=petOn(),op=OP(me),L=[G.lost.w.length,G.lost.b.length],mine=G.lost[me].length,en=G.lost[op].length,pm=P.l0[me==='w'?0:1],pe=P.l0[op==='w'?0:1];P.l0=L;P.idle++;
  setTimeout(()=>{if(!petActive()||G.over)return;
   if(G.turn===me&&id==='tt'){const d=petDanger(me);if(d.sq.length){petSay(d.k?TR('킹이 위험해!! 탱!','King in danger!! Tang!'):TR('기물이 위험해! 탱탱!','A piece is in danger! Tang!'),'worry',4200);petFlash(d.sq);return}}
