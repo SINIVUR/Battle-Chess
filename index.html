@@ -642,13 +642,13 @@ input[type=range]:focus-visible{outline:3px solid var(--lm);outline-offset:3px}
 #s5 #nSetup>h3{display:none}
 @media(min-width:760px){#s5.on{grid-template-columns:1fr 1fr 1fr}#s5>h2{grid-column:1/3}#s5>.tourbtn{grid-column:3}#s5 .nlist{max-height:36vh}}
 
-#s6>.note{display:none}#s6{gap:6px}#s6 .hrow{margin:0}#s6 .card{padding:7px 9px}#s6 .card h3{margin:0 0 4px;font-size:13px}
-#s6 .labc{flex-wrap:nowrap;overflow-x:auto;gap:4px}#s6 .labc button{flex:1 0 auto;padding:4px 6px;font-size:12px}
-#s6 .labg{grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0}#s6 .lpw{position:relative}#s6 .lp{width:100%;padding:6px 2px 4px;gap:1px;box-shadow:2px 2px 0 #111;min-height:62px}#s6 .lp .ic{font-size:26px}#s6 .lp b{font-size:12.5px}#s6 .lp small{display:block;font-size:10.5px}
+#sLab>.note{display:none}#sLab{gap:6px}#sLab .hrow{margin:0}#sLab .card{padding:7px 9px}#sLab .card h3{margin:0 0 4px;font-size:13px}
+#sLab .labc{flex-wrap:nowrap;overflow-x:auto;gap:4px}#sLab .labc button{flex:1 0 auto;padding:4px 6px;font-size:12px}
+#sLab .labg{grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0}#sLab .lpw{position:relative}#sLab .lp{width:100%;padding:6px 2px 4px;gap:1px;box-shadow:2px 2px 0 #111;min-height:62px}#sLab .lp .ic{font-size:26px}#sLab .lp b{font-size:12.5px}#sLab .lp small{display:block;font-size:10.5px}
 .lpi{position:absolute;top:-3px;right:-3px;width:26px;height:26px;padding:0;border:0;border-radius:50%;background:transparent;box-shadow:none;font-size:17px;line-height:1;color:var(--mut);z-index:2}
 .lpi::after{content:'';position:absolute;inset:-6px}
-#s6 .seg button{padding:6px 8px;font-size:13px}#s6 #labGo{padding:10px}
-@media(min-width:760px){#s6.on{display:grid;grid-template-columns:1fr 1fr;column-gap:12px}#s6>.hrow,#s6>#labGo{grid-column:1/-1}#s6 .labg{grid-template-columns:repeat(5,1fr)}}
+#sLab .seg button{padding:6px 8px;font-size:13px}#sLab #labGo{padding:10px}
+@media(min-width:760px){#sLab.on{display:grid;grid-template-columns:1fr 1fr;column-gap:12px}#sLab>.hrow,#sLab>#labGo{grid-column:1/-1}#sLab .labg{grid-template-columns:repeat(5,1fr)}}
 
 #s2 .gtabs{gap:4px;flex-wrap:nowrap;overflow-x:auto}#s2 .gtabs button{flex:1 0 auto;padding:5px 6px;font-size:12px}
 #s2 .s2h{gap:8px}#s2 #cost2{font-size:12px;line-height:1.3;margin:0}#s2 #cost2 b{font-size:17px!important}#s2 #n2{padding:8px 10px;font-size:14px}
@@ -659,16 +659,16 @@ input[type=range]:focus-visible{outline:3px solid var(--lm);outline-offset:3px}
 
 @media(min-width:700px){#s2 #sel{grid-template-columns:repeat(3,1fr)}}
 
-@media(max-height:800px) and (max-width:759px){#s6 .labg{grid-template-columns:repeat(5,1fr);gap:5px}#s6 .lp{min-height:50px}#s6 .lp .ic{font-size:21px}#s6 .lp b{font-size:11px}#s6 .lp small{display:none}#s6 .lpi{width:22px;height:22px;font-size:14px;top:-4px;right:-4px}}
+@media(max-height:800px) and (max-width:759px){#sLab .labg{grid-template-columns:repeat(5,1fr);gap:5px}#sLab .lp{min-height:50px}#sLab .lp .ic{font-size:21px}#sLab .lp b{font-size:11px}#sLab .lp small{display:none}#sLab .lpi{width:22px;height:22px;font-size:14px;top:-4px;right:-4px}}
 #mLabBot .lpi{display:none}
-@media(min-width:760px){#s6 .labg{grid-template-columns:repeat(3,1fr);gap:8px}#s6 .lp{min-height:72px;padding:8px 4px 6px}#s6 .lp .ic{font-size:30px}#s6 .lp b{font-size:14px;max-width:100%;overflow-wrap:anywhere;text-align:center;line-height:1.2}#s6 .lp small{display:block;font-size:12px}#s6 .lpi{width:28px;height:28px;font-size:19px}}
-@media(min-width:760px){#s6 .labg{grid-template-columns:repeat(3,1fr);gap:8px}#s6 .lp{min-height:72px;padding:8px 4px 6px}#s6 .lp .ic{font-size:30px}#s6 .lp b{font-size:14px;max-width:100%;overflow-wrap:anywhere;text-align:center;line-height:1.2}#s6 .lp small{display:block;font-size:12px}#s6 .lpi{width:28px;height:28px;font-size:19px}}
-#s2 .gtabs,#s2 .pre,#s6 .labc,#mLabBot .labc,.chips,.pre,.gtabs{scrollbar-width:none;-ms-overflow-style:none}
-#s2 .gtabs::-webkit-scrollbar,#s2 .pre::-webkit-scrollbar,#s6 .labc::-webkit-scrollbar,#mLabBot .labc::-webkit-scrollbar,.chips::-webkit-scrollbar,.pre::-webkit-scrollbar,.gtabs::-webkit-scrollbar{display:none;width:0;height:0}
+@media(min-width:760px){#sLab .labg{grid-template-columns:repeat(3,1fr);gap:8px}#sLab .lp{min-height:72px;padding:8px 4px 6px}#sLab .lp .ic{font-size:30px}#sLab .lp b{font-size:14px;max-width:100%;overflow-wrap:anywhere;text-align:center;line-height:1.2}#sLab .lp small{display:block;font-size:12px}#sLab .lpi{width:28px;height:28px;font-size:19px}}
+@media(min-width:760px){#sLab .labg{grid-template-columns:repeat(3,1fr);gap:8px}#sLab .lp{min-height:72px;padding:8px 4px 6px}#sLab .lp .ic{font-size:30px}#sLab .lp b{font-size:14px;max-width:100%;overflow-wrap:anywhere;text-align:center;line-height:1.2}#sLab .lp small{display:block;font-size:12px}#sLab .lpi{width:28px;height:28px;font-size:19px}}
+#s2 .gtabs,#s2 .pre,#sLab .labc,#mLabBot .labc,.chips,.pre,.gtabs{scrollbar-width:none;-ms-overflow-style:none}
+#s2 .gtabs::-webkit-scrollbar,#s2 .pre::-webkit-scrollbar,#sLab .labc::-webkit-scrollbar,#mLabBot .labc::-webkit-scrollbar,.chips::-webkit-scrollbar,.pre::-webkit-scrollbar,.gtabs::-webkit-scrollbar{display:none;width:0;height:0}
 .dragx{cursor:grab;user-select:none;-webkit-user-select:none}.dragx.dragging{cursor:grabbing}.dragx.dragging *{pointer-events:none}
 *{scrollbar-width:none}*::-webkit-scrollbar{display:none;width:0;height:0}
 .lp b{white-space:nowrap;overflow-wrap:normal!important}.lp small{white-space:nowrap}.lp.ln b{zoom:.84}.lp.l4 b{zoom:.93}
-#s2 .gtabs,#s2 .pre,#s6 .labc,#mLabBot .labc,.chips.gtabs,.chips.labc{overflow-y:hidden!important;overscroll-behavior-x:contain;padding-top:2px;padding-bottom:5px;padding-right:4px}
+#s2 .gtabs,#s2 .pre,#sLab .labc,#mLabBot .labc,.chips.gtabs,.chips.labc{overflow-y:hidden!important;overscroll-behavior-x:contain;padding-top:2px;padding-bottom:5px;padding-right:4px}
 .tg.kc{background:var(--blue);color:#fff;border:2px solid #111;box-shadow:2px 2px 0 #111;padding:4px 10px;border-radius:8px;font-weight:900;font-size:11px;float:none}
 .bd{position:relative}
 .fnc{position:absolute;z-index:6;pointer-events:none;background:repeating-linear-gradient(90deg,#4a4a4a 0 5px,#2b2b2b 5px 7px);box-shadow:0 0 0 1.5px #111;border-radius:2px}
@@ -808,6 +808,12 @@ button:focus-visible,.c:focus-visible,[role=button]:focus-visible,input:focus-vi
 .pfmini .prk b{font-size:11.5px!important}.pfmini .prk small{font-size:11px!important}.pfmini .prk b,.pfmini .prk span,.pfmini .prk em,.pfmini .prk small{font-size:11.5px}
 body.big .stx{font-size:20px}body.big .mc p,body.big .mc li,body.big .setr .d,body.big #info,body.big #hintb,body.big #log,body.big .lore,body.big .tip,body.big .note,body.big .setr b{font-size:1.15em}
 body.hc{--ink:#000}body.hc button,body.hc .mc,body.hc .card{border-width:3px!important}body.hc .d,body.hc .note,body.hc small,body.hc .sub,body.hc .stx.nar{color:#000!important;opacity:1!important}body.hc button:disabled{opacity:.75!important}body.hc button:focus-visible,body.hc .c:focus-visible{outline-width:5px!important}
+#s6{gap:6px}#s6 .hrow{margin:0}
+/* 1.5.6 기물 설명 카드: 작은 화면에서 한 줄 요약 + 펼치기, 가로 화면은 보드 옆 */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#pcxp{display:none}
+@media(max-height:780px) and (max-width:899px){#s4 #pcard{max-height:44px;overflow:hidden;padding:4px 8px}#s4 #pcard.open{max-height:min(46vh,300px);overflow:auto}#pcxp{display:inline-block}#s4 #pcard:not(.open) .pk3,#s4 #pcard:not(.open) .inf{display:none}#s4 #pcard:not(.open) .pk2{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100vw - 150px)}#s4 #pcard.open .pk2{white-space:normal}#s4:has(#pcard:not([style*="none"])){padding-bottom:64px}}
+@media(max-height:500px) and (orientation:landscape){#s4 #pcard{left:8px;right:auto;width:min(250px,calc(50vw - 150px));bottom:8px;max-height:min(50vh,180px)}#s4 #pcard.open{max-height:calc(100vh - 16px)}#s4 #pcard:not(.open) .pk2{max-width:none;white-space:normal}#s4:has(#pcard:not([style*="none"])){padding-bottom:0}}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -837,7 +843,7 @@ body.hc{--ink:#000}body.hc button,body.hc .mc,body.hc .card{border-width:3px!imp
    <button id="goLang" type="button" aria-label="Language"><i>🌐</i><small>EN/한</small></button>
   </div>
  </div>
- <div class="ver">VERSION 1.5.5</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="ver">VERSION 1.5.6</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 <div class="modal" id="mLearn" role="dialog" aria-modal="true"><div class="mc stmc"><button class="x" data-close>닫기</button><h2>🎓 배우기</h2>
  <button class="lrn" id="goTut" type="button"><i>📖</i><span><b>튜토리얼</b><small>기본 규칙을 차근차근</small></span></button>
@@ -863,7 +869,7 @@ body.hc{--ink:#000}body.hc button,body.hc .mc,body.hc .card{border-width:3px!imp
  <p class="note" id="nNote">온라인 대전은 이 페이지를 로그인 상태로 열고, 같은 페이지를 연 다른 사람과 연결됩니다. 상대 기물은 대전 시작 때 공개됩니다.</p>
 </section>
 
-<section class="scr" id="s6"></section>
+<section class="scr" id="sLab"></section>
 <section class="scr" id="s1">
  <div class="hrow"><h2>게임 설정</h2><button id="home1" class="hbtn">🏠 메뉴로</button></div>
  <div class="card"><h3>게임 모드</h3><div class="seg" id="gm"><button data-v="pve">PvE · AI 대전</button><button data-v="pvp">PvP · 한 기기 2인 대전</button><button data-v="sim">🤖 AI 관전</button></div></div>
@@ -909,7 +915,7 @@ body.hc{--ink:#000}body.hc button,body.hc .mc,body.hc .card{border-width:3px!imp
  <div class="thud" id="tHud" aria-label="진행 상황"><div class="thr"><b id="thN"></b><span id="thP"></span></div><div class="thb"><i id="thF"></i></div></div>
  <div class="st" id="st" role="status" aria-live="polite"></div>
  <div class="chkb" id="chkb"></div>
- <div class="bd" id="bd4"></div>
+ <div class="bd" id="bd4"></div><div id="selLive" class="sr" aria-live="polite" aria-atomic="true"></div>
  <div class="pbar" id="pBot"></div>
  <div class="info" id="info" aria-live="polite"></div>
  <div class="hintb" id="hintb" style="display:none"></div>
@@ -2546,10 +2552,11 @@ $('#pre').onclick=e=>{const k=e.target.closest('button');if(!k)return;const p=k.
 $('#n2').onclick=()=>{const lk=Object.keys(army).filter(t=>army[t]&&locked(t));if(lk.length){toast(TR('아직 열리지 않은 기물이 있어요: ','Some pieces are still locked: ')+lk.map(t=>DEF[t].n).join(', '));return}left={};if(!kcOf())left.K=1;for(const t in army)if(army[t])left[t]=army[t];pb=BC.emptyBoard();selT=kcOf()||'K';flipSetup=G.mode==='pve'&&side==='b';drawPlace();show('s3');window.scrollTo(0,0)};
 
 /* ===== 3. 기물 배치 ===== */
+function cellState(cz){const k=' '+cz+' ',o=[];let sel=/ sel /.test(k);if(sel)o.push(TR('선택됨','selected'));if(/ mv /.test(k))o.push(TR('이동 가능','can move here'));if(/ cap /.test(k)&&!/ sel /.test(k))o.push(TR('잡기 가능','can capture'));if(/ rg /.test(k))o.push(TR('원거리 공격 대상','ranged target'));if(/ sk /.test(k))o.push(TR('스킬 대상','skill target'));if(/ (hlz|mgz|mgq|hlp) /.test(k))o.push(TR('스킬 구역','skill zone'));if(/ hf /.test(k))o.push(TR('추천 출발','suggested start'));if(/ ht /.test(k))o.push(TR('추천 도착','suggested target'));return{sel,t:o.join(', ')}}
 function board(el,arr,fl,cls){let h='';
  for(let y=0;y<8;y++)for(let x=0;x<8;x++){const r=fl?7-y:y,c=fl?7-x:x,i=r*8+c,p=(G.dh&&arr===G.b&&G.dh.j===i&&arr[i])?Object.assign({},arr[i],{t:G.dh.t}):arr[i];
   const co=(x===0?`<i class="co r">${8-r}</i>`:'')+(y===7?`<i class="co f">${'abcdefgh'[c]}</i>`:'');
-  h+=`<div class="c ${(r+c)%2?'dk':'l'} ${cls(i)}" data-i="${i}" role="button" tabindex="-1" aria-label="${pos(i)} ${p?SN[p.s]+' '+DEF[p.t].n:TR('빈 칸','empty square')}">${co}${p?`<span class="pc p${p.s}${p.inv?' inv':''}${p.frz?' frz':''}${p.db?' db':''}${p.rv?' rvd':''}${p.md&&p.t!=='Ẍ'?(p.t==='f'?' fzm':p.t==='m'?' mmd':p.t==='b'?' shth':p.t==='t'?' swm':' mdm'):''}${p.sh?' shd':''}${p.slw?' slwd':''}${p.st?' stl':''}${p.t==='d'&&p.kc>=3?' dmn':''}${G.pf&&G.pf[i]?' '+G.pf[i]:''} ${TC(p.t)}" title="${DEF[p.t].n}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i>${p.sh?'<b class="bdg sh">♪</b>':''}${p.slw?'<b class="bdg sl">⛓</b>':''}${p.st?`<b class="bdg stb" aria-label="${TR('은신','Stealth')} ${p.st}">${p.st}</b>`:''}${p.fe?'<b class="bdg fe">!</b>':''}${p.jw?'<b class="bdg jw">◆</b>':''}${p.evp?'<b class="bdg ev">▲</b>':''}${p.cd?`<b class="bdg cdb">${p.cd}</b>`:''}${p.ipc?`<b class="bdg ip">${p.ipc}</b>`:''}${p.zp?'<b class="bdg ev">🧲</b>':''}${G.dd&&G.dd.p===p?'<b class="bdg ev">🎯</b>':''}${p.t==='Š'&&p.kc?`<b class="bdg stk">${p.kc+1}</b>`:''}${p.zh?`<b class="zb" aria-label="${TR('자기장 피격','Storm hits')} ${p.zh}/3">⚡${p.zh}</b>`:''}</span>`:''}</div>`}
+  const cz=cls(i),cst=cellState(cz);h+=`<div class="c ${(r+c)%2?'dk':'l'} ${cz}" data-i="${i}" role="button" tabindex="-1"${cst.sel?' aria-pressed="true"':''} aria-label="${pos(i)} ${p?SN[p.s]+' '+DEF[p.t].n:TR('빈 칸','empty square')}${cst.t?', '+cst.t:''}">${co}${p?`<span class="pc p${p.s}${p.inv?' inv':''}${p.frz?' frz':''}${p.db?' db':''}${p.rv?' rvd':''}${p.md&&p.t!=='Ẍ'?(p.t==='f'?' fzm':p.t==='m'?' mmd':p.t==='b'?' shth':p.t==='t'?' swm':' mdm'):''}${p.sh?' shd':''}${p.slw?' slwd':''}${p.st?' stl':''}${p.t==='d'&&p.kc>=3?' dmn':''}${G.pf&&G.pf[i]?' '+G.pf[i]:''} ${TC(p.t)}" title="${DEF[p.t].n}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i>${p.sh?'<b class="bdg sh">♪</b>':''}${p.slw?'<b class="bdg sl">⛓</b>':''}${p.st?`<b class="bdg stb" aria-label="${TR('은신','Stealth')} ${p.st}">${p.st}</b>`:''}${p.fe?'<b class="bdg fe">!</b>':''}${p.jw?'<b class="bdg jw">◆</b>':''}${p.evp?'<b class="bdg ev">▲</b>':''}${p.cd?`<b class="bdg cdb">${p.cd}</b>`:''}${p.ipc?`<b class="bdg ip">${p.ipc}</b>`:''}${p.zp?'<b class="bdg ev">🧲</b>':''}${G.dd&&G.dd.p===p?'<b class="bdg ev">🎯</b>':''}${p.t==='Š'&&p.kc?`<b class="bdg stk">${p.kc+1}</b>`:''}${p.zh?`<b class="zb" aria-label="${TR('자기장 피격','Storm hits')} ${p.zh}/3">⚡${p.zh}</b>`:''}</span>`:''}</div>`}
  const hf=el._f!=null&&el.contains(document.activeElement);el.innerHTML=h;{const cs=el.children;let f=el._f!=null&&el.querySelector('[data-i="'+el._f+'"]')||cs[0];if(f){f.tabIndex=0;if(hf)f.focus({preventScroll:true})}}}
 function drawPlace(){
  $('#t3').textContent=(G.mode==='pvp'?SN[side]+TR(' 플레이어 · ',' Player · '):G.mode==='sim'?SN[side]+TR(' AI 군대 · ',' AI Army · '):'')+TR('기물 배치','Place Pieces');
@@ -3332,8 +3339,8 @@ function showCard(){
  if(p.nsk)tg.push(TR('스킬 사용 불가 (이동 직후 1턴)','Skill locked (1 turn after moving)'));if(p.jm)tg.push(TR('공격 불가 (이동 직후 1턴)','Cannot attack (1 turn after moving)'));if(p.ja)tg.push(TR('이동 불가 (공격 직후 1턴)','Cannot move (1 turn after attacking)'));if(p.ocd)tg.push(TR('이동 불가 (이동·잡기 직후 1턴)','Cannot move (1 turn after moving or capturing)'));if(G.b.hl&&BC.hillAt(G.b,i)&&!isKing(p.t)&&!'QMqm'.includes(p.t))tg.push(TR('언덕 위 — 원거리 면역 · 상하좌우 1칸 이동','On a hill — ranged-immune · 1-step orthogonal moves'));
  if(isLocked(i))tg.push(TR('저격 대상으로 지정됨','Targeted by a Sniper'));if(p.tp&&G.b[p.ts]===p.tp)tg.push(TR('저격 대기 중 → ','Sniper aiming → ')+pos(p.ts));
  el.style.display='';
- el.innerHTML=TR(`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">${D.c} 코스트</span> ${plTags(p.t)} <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcx" aria-label="설명 닫기">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">이동 범위 보기</button>`,`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">Cost ${D.c}</span> ${plTags(p.t)} <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcx" aria-label="Close description">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">Show move range</button>`);
- $('#pcx').onclick=()=>{G.insp=null;showCard()};$('#pcmore').onclick=()=>showPiece(p.t)}
+ el.innerHTML=TR(`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">${D.c} 코스트</span> ${plTags(p.t)} <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcxp" aria-expanded="false" aria-label="${TR('설명 펼치기','Expand')}">▾</button><button class="x2" id="pcx" aria-label="설명 닫기">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">이동 범위 보기</button>`,`<div class="pk1"><span class="pc p${p.s} ${TC(p.t)}"><i class="ic">${gl(p.t,p.t==='d'&&(p.kc||0)>=3)}</i></span><div class="pk2"><b>${D.n}</b> <span class="cb">Cost ${D.c}</span> ${plTags(p.t)} <span class="tg x">${SN[p.s]}</span>${tg.map(x=>`<span class="tg st">${x}</span>`).join('')}</div><button class="x2" id="pcxp" aria-expanded="false" aria-label="${TR('설명 펼치기','Expand')}">▾</button><button class="x2" id="pcx" aria-label="Close description">×</button></div><div class="pk3 rows">${rowsHtml(p.t)}</div><button class="inf" id="pcmore">Show move range</button>`);
+ if(G._pci!==i){G._pci=i;G.pcOpen=false}el.classList.toggle('open',!!G.pcOpen);{const xp=$('#pcxp');xp.setAttribute('aria-expanded',!!G.pcOpen);xp.onclick=()=>{G.pcOpen=!G.pcOpen;el.classList.toggle('open',G.pcOpen);xp.setAttribute('aria-expanded',G.pcOpen)}}$('#pcx').onclick=()=>{G.insp=null;showCard()};$('#pcmore').onclick=()=>showPiece(p.t)}
 function drawSide(){
  const el=$('#side');if(!el)return;
  const top=G.flip?'w':'b',bot=OP(top);
@@ -4153,14 +4160,14 @@ function labPalette(kind){const gs=LGR(),m=kind==='m',sel=m?LAB.me:LAB.bot;
  return `<div class="chips labc" data-k="${kind}">${gs.map((g,k)=>`<button data-c="${k}" class="${k===ci?'on':''}">${g[0]}</button>`).join('')}</div>
  <div class="labg" data-k="${kind}">${ts.length?ts.map(t=>`<div class="lpw"><button data-t="${t}" class="lp${t===sel?' on':''}${[...DEF[t].n].length>=5?' ln':[...DEF[t].n].length===4?' l4':''}">${icon(t)}<b>${DEF[t].n}</b><small>${DEF[t].c}${TR(' 코스트',' cost')}</small></button><button class="lpi" data-i="${t}" aria-label="${DEF[t].n} ${TR('자세히 보기','details')}">ⓘ</button></div>`).join(''):`<p class="note">${TR('이 계열은 봇으로 고를 수 없어요 (킹이 잡히면 게임이 끝나요)','This class cannot be a dummy (a captured King would end the game)')}</p>`}</div>
 `}
-function labSetup(){const el=$('#s6');
+function labSetup(){const el=$('#sLab');
  el.innerHTML=`<div class="hrow"><h2>${TR('🧪 기물 체험하기','🧪 Piece Lab')}</h2><button id="home6" class="hbtn">${TR('🏠 메뉴로','🏠 Menu')}</button></div>
  <p class="note">${TR('내 기물 1개와 연습용 봇을 골라, 움직이고 · 공격하고 · 스킬을 마음껏 써 보세요. 봇은 기본적으로 가만히 서 있고, 원하는 만큼 여러 기를 놓을 수 있어요. 체험 중 \'🕹 적 기물도 조작\'을 켜면 적 기물도 직접 움직여 볼 수 있어요.','Pick 1 piece of yours and a practice dummy, then move, attack and use skills freely. Dummies stand still by default, and you can place as many as you like. During the lab, turn on \'🕹 Control enemy too\' to move the enemy pieces yourself.')}</p>
  <div class="card"><h3>${TR('① 내 기물','① Your piece')}</h3>${labPalette('m')}</div>
  <div class="card"><h3>${TR('② 연습용 봇 (여러 기 가능)','② Practice dummy (as many as you like)')}</h3><div class="seg" id="labSd"><button data-s="b" class="${LAB.side==='b'?'on':''}">${TR('적군 (공격 연습)','Enemy (attack practice)')}</button><button data-s="w" class="${LAB.side==='w'?'on':''}">${TR('아군 (지원 스킬 연습)','Ally (support skill practice)')}</button></div>${labPalette('b')}</div>
  <button class="pri" id="labGo">${TR('▶ 체험 시작 · 봇 놓으러 가기','▶ Start · Place dummies')}</button>`;
- show('s6');window.scrollTo(0,0)}
-$('#s6').addEventListener('click',e=>{const t=e.target;
+ show('sLab');window.scrollTo(0,0)}
+$('#sLab').addEventListener('click',e=>{const t=e.target;
  if(t.closest('#home6')){sfx('sel');show('s0');return}
  if(t.closest('#labGo')){sfx('sel');labStart();return}
  const sd=t.closest('#labSd [data-s]');if(sd){LAB.side=sd.dataset.s;store.set('labSide',LAB.side);sfx('sel');labSetup();return}
@@ -4518,9 +4525,13 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.5.5';
+const APP_VER='1.5.6';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.5.6',TR('연습장 충돌 수정 · 화면 읽기 · 설명 카드','Practice Fix · Screen Reader · Info Card'),[
+  TR('🐞 연습장을 쓴 뒤 스토리에 들어가면 두 화면이 함께 보이던 문제를 고쳤어요','🐞 Fixed the Piece Lab and Story screens appearing together after visiting the Lab'),
+  TR('📋 작은 화면에서 기물 설명 카드를 한 줄 요약으로 줄이고 눌러서 펼치게 했어요. 가로 화면에서는 보드 옆에 표시돼요','📋 On small screens the piece card is now a one-line summary you can expand; in landscape it sits beside the board'),
+  TR('🔊 화면 읽기: 선택한 칸, 이동·잡기·스킬 가능 칸을 칸 이름과 안내로 읽어 줘요','🔊 Screen readers now announce the selected piece and which squares can move, capture or be targeted')]],
  ['1.5.5',TR('접근성 · 진동 효과','Accessibility · Vibration'),[
   TR('📳 이동·잡기·스킬·폭발·승패·폭풍 경고 등 효과마다 다른 진동을 넣었어요 (설정에서 끌 수 있어요)','📳 Added distinct vibration for moves, captures, skills, blasts, results and storm warnings (can be turned off in Settings)'),
   TR('👆 터치 화면에서 버튼 터치 영역을 44px 이상으로 키웠어요','👆 Enlarged touch targets to at least 44px on touch screens'),
@@ -6651,6 +6662,9 @@ MH.bk();
 /* ---- 1.5.5 진동: 경고·업적·스킬 연출 ---- */
 try{const obs=(id,pat)=>{const el=document.getElementById(id);if(!el)return;new MutationObserver(()=>{if((el.textContent||'').trim())VB('',pat)}).observe(el,{childList:true,characterData:true,subtree:true})};
  obs('stormAl',[70,40,70,40,110]);obs('phaseAl',[40,30,40]);obs('skAl',[24,24,40]);obs('achT',[20,40,20,40,70]);obs('toast',[10])}catch(e){}
+
+/* ---- 1.5.6 화면 읽기: 선택·가능 행동 안내 ---- */
+{const _d2=draw;draw=function(x){_d2(x);try{const L=$('#selLive');if(!L)return;let t='';if(G.sel!=null&&G.b&&G.b[G.sel]&&!G.over){const p=G.b[G.sel],tg=(G.legal||[]).map(m=>m[1]).filter((v,k,a)=>a.indexOf(v)===k).slice(0,14).map(pos);t=`${SN[p.s]} ${DEF[p.t].n} ${pos(G.sel)} ${TR('선택','selected')}. `+(tg.length?TR('가능한 칸: ','Available squares: ')+tg.join(', '):TR('가능한 행동 없음','No available actions'))}if(L._t!==t){L._t=t;L.textContent=t}}catch(e){}}}
 
 /*DBG*/
 })();
