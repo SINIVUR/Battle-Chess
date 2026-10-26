@@ -6082,9 +6082,9 @@ const petImg=(id,px,mood)=>{const c=petCfg(id);return petSvg(id,c.col,c.acc,mood
 /* 상점 — 배경·펫 탭 */
 document.querySelector('#shopTabs').insertAdjacentHTML('beforeend',`<button data-t="bk">🌈 ${TR('배경','Themes')}</button><button data-t="pt">🐾 ${TR('펫','Pets')}</button>`);
 (function(){const st=document.createElement('style');st.textContent=`.bbx{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.bbx button.on{background:#c8ff00;font-weight:800}.bksw{display:inline-block;width:34px;height:34px;border:2.5px solid #111;border-radius:9px}.ptc{display:flex;gap:12px;align-items:center;padding:10px;border:2.5px solid #111;border-radius:14px;background:#fff;margin-bottom:9px;box-shadow:3px 3px 0 #111}.ptc.on{background:#eaffc2}.ptc .pv{flex:none;width:76px;height:76px;display:flex;align-items:center;justify-content:center}.ptc .tx{flex:1;min-width:0}.ptc b{font-size:15px}.ptc small{display:block;font-size:12.5px;line-height:1.45;margin-top:3px;opacity:.85}.ptc .bb{display:flex;flex-direction:column;gap:6px}.ptc button{white-space:nowrap;font-size:13px}.rl{display:inline-block;font-size:11px;font-weight:800;padding:1px 7px;border:1.5px solid #111;border-radius:99px;margin-left:6px;background:#fff8d6}
-#petW{position:absolute;z-index:6;width:54px;height:54px;pointer-events:none}#petW[hidden]{display:none}#petB{pointer-events:auto;width:54px;height:54px;padding:0;border:none;background:none;box-shadow:none;cursor:pointer;border-radius:50%;display:block;animation:petB 2.4s ease-in-out infinite}#petB:hover:not(:disabled){border:none}#petB:focus-visible{outline:3px solid #2b6cff;outline-offset:2px}#petW.bl #petS{left:0;right:auto}#petW.bu #petS{top:auto;bottom:calc(100% + 4px)}#petW.bu #petS::after{bottom:auto;top:100%;transform:translateY(-6px) rotate(225deg)}#petB{touch-action:none}#petB.hop{animation:petH .55s ease-out}@keyframes petB{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes petH{0%{transform:translateY(0)}35%{transform:translateY(-14px) scale(1.06)}70%{transform:translateY(0) scale(.96)}100%{transform:none}}
-#petS{position:absolute;right:0;top:calc(100% + 4px);width:max-content;max-width:min(230px,66vw);padding:7px 10px;font-size:13px;line-height:1.4;font-weight:700;background:#fff;color:#111;border:2.5px solid #111;border-radius:12px;box-shadow:3px 3px 0 #111;pointer-events:none;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s;text-align:left;word-break:keep-all;overflow-wrap:anywhere}#petS.on{opacity:1;transform:none;pointer-events:auto;cursor:pointer}#petS::after{content:"";position:absolute;left:var(--tx,auto);right:auto;bottom:100%;width:10px;height:10px;background:#fff;border-left:2.5px solid #111;border-top:2.5px solid #111;transform:translateY(6px) rotate(45deg)}
-#pBot.pet{padding-right:62px}#bd4 .c.pwarn{animation:pwn .6s ease-in-out 4;box-shadow:inset 0 0 0 3px #ff2e63}@keyframes pwn{50%{box-shadow:inset 0 0 0 5px #ff2e63,0 0 10px #ff2e63}}#s4{position:relative}
+#petW{position:absolute;z-index:6;width:60px;height:60px;pointer-events:none;border-radius:50%;background:#fff;border:2.5px solid #111;box-shadow:3px 3px 0 #111;box-sizing:border-box;display:grid;place-items:center}#petW[hidden]{display:none}#petB{pointer-events:auto;width:52px;height:52px;padding:0;border:none;background:none;box-shadow:none;cursor:pointer;border-radius:50%;display:block;animation:petB 2.4s ease-in-out infinite}#petB:hover:not(:disabled){border:none}#petB:focus-visible{outline:3px solid #2b6cff;outline-offset:2px}#petB{touch-action:none}#petB.hop{animation:petH .55s ease-out}@keyframes petB{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes petH{0%{transform:translateY(0)}35%{transform:translateY(-14px) scale(1.06)}70%{transform:translateY(0) scale(.96)}100%{transform:none}}
+#petS{position:absolute;right:0;top:calc(100% + 4px);width:max-content;max-width:min(160px,48vw);padding:4px 8px;font-size:11px;line-height:1.3;font-weight:700;background:#fff;color:#111;border:2px solid #111;border-radius:10px;box-shadow:2px 2px 0 #111;pointer-events:none;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s;text-align:left;word-break:keep-all;overflow-wrap:anywhere}#petS.on{opacity:1;transform:none;pointer-events:auto;cursor:pointer}#petS::after{content:"";position:absolute;top:var(--ty,10px);width:8px;height:8px;background:#fff}#petW.sr #petS::after{left:-5px;border-left:2px solid #111;border-bottom:2px solid #111;transform:rotate(45deg)}#petW.sl #petS::after{right:-5px;left:auto;border-right:2px solid #111;border-top:2px solid #111;transform:rotate(45deg)}
+#bd4 .c.pwarn{animation:pwn .6s ease-in-out 4;box-shadow:inset 0 0 0 3px #ff2e63}@keyframes pwn{50%{box-shadow:inset 0 0 0 5px #ff2e63,0 0 10px #ff2e63}}#s4{position:relative}
 body.rm #petB,body.rm #petB.hop{animation:none}@media(prefers-reduced-motion:reduce){#petB,#petB.hop{animation:none}}
 .pskr{margin-top:8px;padding:8px 10px;border:2.5px dashed #111;border-radius:10px;font-size:13px;background:#fff8d6}.pnam{width:100%;box-sizing:border-box;padding:9px;border:2.5px solid #111;border-radius:10px;font:inherit}`;document.head.appendChild(st)})();
 const _shopDraw0=shopDraw;
@@ -6103,7 +6103,7 @@ $('#shopBody').addEventListener('click',e=>{const b=e.target.closest('button[dat
  else if(x==='poff'){sp.pets.on='';store.set('shop',sp);sfx('sel');shopDraw()}
  else if(x==='pcu')petOpen(i)});
 /* 꾸미기 창 */
-document.body.insertAdjacentHTML('beforeend',`<div class="modal" id="mPet" role="dialog" aria-modal="true"><div class="mc stmc"><h2 id="ptH"></h2><div id="ptPrev" style="text-align:center"></div><div id="ptBody"></div><div class="pskr" id="ptSk"></div><button id="ptPos" style="margin-top:8px;width:100%">${TR('📍 펫 위치 초기화 (대국 중 펫을 끌어서 옮길 수 있어요)','📍 Reset pet position (drag the pet in-game to move it)')}</button><button class="pri" id="ptOk" style="margin-top:12px;width:100%">${TR('완료','Done')}</button></div></div>`);
+document.body.insertAdjacentHTML('beforeend',`<div class="modal" id="mPet" role="dialog" aria-modal="true"><div class="mc stmc"><h2 id="ptH"></h2><div id="ptPrev" style="text-align:center"></div><div id="ptBody"></div><div class="pskr" id="ptSk"></div><button class="pri" id="ptOk" style="margin-top:12px;width:100%">${TR('완료','Done')}</button></div></div>`);
 let petCur='kk';
 function petOpen(id){petCur=id;petDrawM();openM('mPet')}
 function petDrawM(){const sp=shopGet(),d=petDef(petCur),c=petCfg(petCur);$('#ptH').textContent=`${d.n} · ${d.role}`;$('#ptPrev').innerHTML=petImg(petCur,120);
@@ -6115,7 +6115,6 @@ $('#ptBody').onclick=e=>{const b=e.target.closest('button');if(!b)return;const k
  const set=s=>{s.pets.cfg[petCur]=Object.assign(s.pets.cfg[petCur]||{},{[k]:i})};
  if(own){set(sp);store.set('shop',sp);sfx('place');petDrawM()}else buy(it.p,it.n,s=>{s.own.push((k==='col'?'pc_':'pa_')+i);set(s)});};
 {const _s=shopDraw;shopDraw=function(){_s();if($('#mPet').classList.contains('on'))petDrawM()}}
-$('#ptPos').onclick=()=>{store.set('petpos',null);sfx('sel');toast(TR('펫 위치를 초기화했어요','Pet position reset'))};
 $('#ptOk').onclick=()=>{closeM('mPet');shopDraw()};
 
 /* ---- 대국 중 펫 ---- */
@@ -6127,16 +6126,15 @@ const petActive=()=>!!petOn()&&!!G.b&&$('#s4').classList.contains('on')&&!G.tut&
 const pick=a=>a[Math.random()*a.length|0];
 function petSay(txt,mood,ms){if(!petActive())return;const s=$('#petS');s.textContent=txt;s.classList.add('on');petBub();clearTimeout(P.tm);P.tm=setTimeout(()=>{s.classList.remove('on');petMood('ok')},ms||3600);petMood(mood||'ok')}
 function petMood(m){if(P.mood===m)return;P.mood=m;P.key='';petSync()}
-function petBub(){try{const W=$('#petW'),S=$('#petS'),op=W.offsetParent;if(!op||W.hidden)return;S.style.maxWidth=Math.min(230,op.clientWidth-16)+'px';const bw=S.offsetWidth,lx=W.offsetLeft;let rel=W.classList.contains('bl')?0:54-bw;let ab=lx+rel;ab=Math.max(8,Math.min(op.clientWidth-8-bw,ab));S.style.left=(ab-lx)+'px';S.style.right='auto';S.style.setProperty('--tx',Math.max(12,Math.min(bw-24,lx+22-ab))+'px')}catch(e){}}
+function petBub(){try{const W=$('#petW'),S=$('#petS'),op=W.offsetParent;if(!op||W.hidden)return;S.style.maxWidth=Math.min(160,op.clientWidth*.46)+'px';const bw=S.offsetWidth,bh=S.offsetHeight,lx=W.offsetLeft,ly=W.offsetTop,gap=10;const right=(lx+W.offsetWidth/2)<op.clientWidth/2;W.classList.toggle('sr',right);W.classList.toggle('sl',!right);
+ let ax=right?lx+W.offsetWidth+gap:lx-gap-bw;ax=Math.max(6,Math.min(op.clientWidth-6-bw,ax));let ay=ly+W.offsetHeight/2-bh/2;ay=Math.max(4,Math.min(op.clientHeight-4-bh,ay));
+ S.style.left=(ax-lx)+'px';S.style.right='auto';S.style.top=(ay-ly)+'px';S.style.bottom='auto';S.style.setProperty('--ty',Math.max(6,Math.min(bh-14,ly+W.offsetHeight/2-ay-5))+'px')}catch(e){}}
 function petHop(){const b=$('#petB');b.classList.remove('hop');void b.offsetWidth;b.classList.add('hop')}
-function petSync(){const W=$('#petW'),bar=$('#pBot');if(!petActive()){W.hidden=true;bar.classList.remove('pet');return}
- const id=petOn(),c=petCfg(id),key=id+c.col+c.acc+c.nm+P.mood;
- if(P.key!==key){P.key=key;$('#petB').innerHTML=petSvg(id,c.col,c.acc,P.mood,52);$('#petB').setAttribute('aria-label',TR(`${c.nm} — 탭해서 도움 받기`,`${c.nm} — tap for help`))}
- W.hidden=false;const pp=store.get('petpos',null),op=W.offsetParent||bar.offsetParent;let lx,ly;
- if(pp&&op&&op.clientWidth){bar.classList.remove('pet');lx=Math.max(2,Math.min(op.clientWidth-56,pp.x*op.clientWidth));ly=Math.max(2,Math.min(op.clientHeight-56,pp.y*op.clientHeight))}
- else{bar.classList.remove('pet');const sd=$('#side');if(sd&&sd.offsetWidth&&op){lx=sd.offsetLeft+sd.offsetWidth-62;ly=sd.offsetTop-60}else{lx=bar.offsetLeft+bar.offsetWidth-58;ly=bar.offsetTop+bar.offsetHeight/2-27}}
- W.style.left=lx+'px';W.style.top=ly+'px';
- if(op&&op.clientWidth){W.classList.toggle('bl',lx+27<op.clientWidth/2);W.classList.toggle('bu',ly+27>op.clientHeight/2);petBub()}}
+function petSync(){const W=$('#petW'),bar=$('#pBot');if(!petActive()){W.hidden=true;bar.classList.remove('pet');bar.style.marginRight='';bar.style.minHeight='';return}
+ const id=petOn(),c=petCfg(id),sz=54,key=id+c.col+c.acc+c.nm+P.mood+sz;
+ if(P.key!==key){P.key=key;$('#petB').innerHTML=petSvg(id,c.col,c.acc,P.mood,sz-6);$('#petB').style.width=$('#petB').style.height=(sz-6)+'px';W.style.width=W.style.height=sz+'px';bar.style.marginRight=(sz+8)+'px';bar.style.minHeight=(sz+8)+'px';$('#petB').setAttribute('aria-label',TR(`${c.nm} — 탭해서 도움 받기`,`${c.nm} — tap for help`))}
+ W.style.width=W.style.height=sz+'px';bar.classList.add('pet');W.hidden=false;const op=W.offsetParent||bar.offsetParent;
+ if(op){const lx=bar.offsetLeft+bar.offsetWidth+8,ly=bar.offsetTop+bar.offsetHeight/2-W.offsetHeight/2;W.style.left=lx+'px';W.style.top=ly+'px';W.classList.add('sl');W.classList.remove('sr');petBub()}}
 {const _d=draw;draw=function(m){_d(m);try{petSync()}catch(e){}}}
 addEventListener('resize',()=>{try{petSync()}catch(e){}});
 function petDanger(me){const e=OP(me),b=G.b,res={k:false,sq:[]};const ms=BC.gen(b,e,{ai:true,cap:true,noDbl:true});const hit=sq=>ms.some(m=>capsOn(b,m,sq));
@@ -6194,13 +6192,7 @@ MH.tt=function(m,who){if(!petSkOn()||petOn()!=='tt'||P.pu)return;const me=petSid
  G.b[vi].sh=1;P.pu=1;const nm=DEF[G.b[vi].t].n;
  setTimeout(()=>{petSay(TR(`내게 맡겨! 공격을 막았어! (${nm})`,`Leave it to me! Blocked it! (${nm})`),'happy',4200);petHop();fxCell(vi,'🛡️');sfx('empower')},700)};
 $('#petB').onclick=()=>{if(P.dg){P.dg=0;return}petTap()};
-{const B=$('#petB');let st=null;B.style.touchAction='none';
- B.addEventListener('pointerdown',e=>{const op=$('#petW').offsetParent;if(!op)return;st={x:e.clientX,y:e.clientY,l:$('#petW').offsetLeft,t:$('#petW').offsetTop,mv:0,op};try{B.setPointerCapture(e.pointerId)}catch(_){}});
- B.addEventListener('pointermove',e=>{if(!st)return;const dx=e.clientX-st.x,dy=e.clientY-st.y;if(!st.mv&&Math.hypot(dx,dy)<8)return;st.mv=1;e.preventDefault();
-  const op=st.op,nx=Math.max(2,Math.min(op.clientWidth-56,st.l+dx)),ny=Math.max(2,Math.min(op.clientHeight-56,st.t+dy));
-  store.set('petpos',{x:nx/op.clientWidth,y:ny/op.clientHeight});petSync()});
- const en=()=>{if(st&&st.mv){P.dg=1;setTimeout(()=>{P.dg=0},350)}st=null};
- B.addEventListener('pointerup',en);B.addEventListener('pointercancel',en)}
+
 $('#petS').onclick=()=>{$('#petS').classList.remove('on');clearTimeout(P.tm);petMood('ok')};
 {const _sg=startGame;startGame=function(){_sg.apply(this,arguments);try{P.hl=3;P.pu=0;P.idle=0;P.l0=[0,0];P.key='';P.th=0;clearTimeout(P.tm);$('#petS').classList.remove('on');setTimeout(()=>{if(!petActive())return;const id=petOn();petSay(id==='kk'?TR('오늘도 같이 힘내자! 콩콩!','Let\'s do our best! Kong-kong!'):id==='tt'?TR('내가 지켜줄게! 탱탱!','I\'ll guard you! Tang-tang!'):TR('어려우면 나를 눌러줘. 조언은 3번!','Tap me if you\'re stuck. 3 hints!'),'happy',4200)},900)}catch(e){}}}
 {const _et=MH.et;MH.et=function(){_et();try{if(!petActive())return;const me=petSide(),id=petOn(),op=OP(me),L=[G.lost.w.length,G.lost.b.length],mine=G.lost[me].length,en=G.lost[op].length,pm=P.l0[me==='w'?0:1],pe=P.l0[op==='w'?0:1];P.l0=L;P.idle++;
