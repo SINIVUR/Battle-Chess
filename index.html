@@ -778,6 +778,7 @@ body:has(#s0.on){padding-bottom:14px!important}
 .cb.shpb{background:#ffe9a8;color:#6a4a00}
 /* 하단 버튼 글자 잘림 방지 */
 #s4 .act2{flex-wrap:wrap!important}#s4 .act2 button,#s4 .act2 #bHint{flex:1 1 auto!important;min-width:max-content!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;padding-left:9px!important;padding-right:9px!important}
+#mAsk{z-index:90}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -6039,7 +6040,7 @@ const PETS=[
  {id:'dd',n:TR('똑똑이','Ddokddok'),p:400,dc:'#ffe08a',role:TR('조언 담당','Advisor'),d:TR('어려울 땐 탭해서 물어보세요. 한 판에 3번, 좋은 수를 짚어줘요. (온라인 대전 제외)','Tap when stuck — suggests a good move up to 3 times per game (not in online play).'),sk:{n:TR('백발백중!','Bullseye!'),d:TR('스킬을 쓸 수 있는 기물 1기를 골라 이번 턴에 스킬을 2번 쓰게 해요. 한 판에 1번, 턴을 쓰지 않아요. (온라인 제외)','Pick a piece with a skill — it can use its skill twice this turn. Once per game, costs no turn (not in online play).')}}
 ];
 const petDef=id=>PETS.find(x=>x.id===id);
-const petCfg=id=>{const sp=shopGet(),c=sp.pets.cfg[id]||{};return{nm:c.nm||petDef(id).n,col:c.col||'def',acc:c.acc||'none'}};
+const petCfg=id=>{const sp=shopGet(),c=sp.pets.cfg[id]||{};return{nm:petDef(id).n,col:c.col||'def',acc:c.acc||'none'}};
 const petHex=(id,col)=>col==='def'?petDef(id).dc:(PCOL.find(x=>x.id===col)||{h:petDef(id).dc}).h;
 function petEyes(x1,x2,y,mood,r){r=r||3.3;
  if(mood==='happy')return [x1,x2].map(x=>`<path d="M${x-4.5} ${y+1.5}Q${x} ${y-5} ${x+4.5} ${y+1.5}" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>`).join('');
@@ -6068,7 +6069,7 @@ const petImg=(id,px,mood)=>{const c=petCfg(id);return petSvg(id,c.col,c.acc,mood
 /* 상점 — 배경·펫 탭 */
 document.querySelector('#shopTabs').insertAdjacentHTML('beforeend',`<button data-t="bk">🌈 ${TR('배경','Themes')}</button><button data-t="pt">🐾 ${TR('펫','Pets')}</button>`);
 (function(){const st=document.createElement('style');st.textContent=`.bbx{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.bbx button.on{background:#c8ff00;font-weight:800}.bksw{display:inline-block;width:34px;height:34px;border:2.5px solid #111;border-radius:9px}.ptc{display:flex;gap:12px;align-items:center;padding:10px;border:2.5px solid #111;border-radius:14px;background:#fff;margin-bottom:9px;box-shadow:3px 3px 0 #111}.ptc.on{background:#eaffc2}.ptc .pv{flex:none;width:76px;height:76px;display:flex;align-items:center;justify-content:center}.ptc .tx{flex:1;min-width:0}.ptc b{font-size:15px}.ptc small{display:block;font-size:12.5px;line-height:1.45;margin-top:3px;opacity:.85}.ptc .bb{display:flex;flex-direction:column;gap:6px}.ptc button{white-space:nowrap;font-size:13px}.rl{display:inline-block;font-size:11px;font-weight:800;padding:1px 7px;border:1.5px solid #111;border-radius:99px;margin-left:6px;background:#fff8d6}
-#petW{position:absolute;z-index:6;width:54px;height:54px;pointer-events:none}#petW[hidden]{display:none}#petB{pointer-events:auto;width:54px;height:54px;padding:0;border:none;background:none;box-shadow:none;cursor:pointer;border-radius:50%;display:block;animation:petB 2.4s ease-in-out infinite}#petB:hover:not(:disabled){border:none}#petB:focus-visible{outline:3px solid #2b6cff;outline-offset:2px}#petB.hop{animation:petH .55s ease-out}@keyframes petB{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes petH{0%{transform:translateY(0)}35%{transform:translateY(-14px) scale(1.06)}70%{transform:translateY(0) scale(.96)}100%{transform:none}}
+#petW{position:absolute;z-index:6;width:54px;height:54px;pointer-events:none}#petW[hidden]{display:none}#petB{pointer-events:auto;width:54px;height:54px;padding:0;border:none;background:none;box-shadow:none;cursor:pointer;border-radius:50%;display:block;animation:petB 2.4s ease-in-out infinite}#petB:hover:not(:disabled){border:none}#petB:focus-visible{outline:3px solid #2b6cff;outline-offset:2px}#petW.bl #petS{left:0;right:auto}#petW.bu #petS{top:auto;bottom:calc(100% + 4px)}#petB{touch-action:none}#petB.hop{animation:petH .55s ease-out}@keyframes petB{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes petH{0%{transform:translateY(0)}35%{transform:translateY(-14px) scale(1.06)}70%{transform:translateY(0) scale(.96)}100%{transform:none}}
 #petS{position:absolute;right:0;top:calc(100% + 4px);width:max-content;max-width:min(230px,66vw);padding:7px 10px;font-size:13px;line-height:1.4;font-weight:700;background:#fff;color:#111;border:2.5px solid #111;border-radius:12px;box-shadow:3px 3px 0 #111;pointer-events:none;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s;text-align:left;word-break:keep-all;overflow-wrap:anywhere}#petS.on{opacity:1;transform:none;pointer-events:auto;cursor:pointer}#petS::after{content:"";position:absolute;right:18px;bottom:100%;width:10px;height:10px;background:#fff;border-left:2.5px solid #111;border-top:2.5px solid #111;transform:translateY(6px) rotate(45deg)}
 #pBot.pet{padding-right:62px}#bd4 .c.pwarn{animation:pwn .6s ease-in-out 4;box-shadow:inset 0 0 0 3px #ff2e63}@keyframes pwn{50%{box-shadow:inset 0 0 0 5px #ff2e63,0 0 10px #ff2e63}}#s4{position:relative}
 body.rm #petB,body.rm #petB.hop{animation:none}@media(prefers-reduced-motion:reduce){#petB,#petB.hop{animation:none}}
@@ -6079,7 +6080,7 @@ shopDraw=function(){if(shopTab!=='bk'&&shopTab!=='pt'){_shopDraw0();return}
  if(shopTab==='bk'){B.innerHTML=`<p class="note">${TR('타이틀·모든 창의 배경과 대국 화면의 배경색을 따로 고를 수 있어요. 한 번 사면 둘 다 쓸 수 있어요.','Pick the background for the title and every screen, and a separate one for the game screen. Buy once, use for both.')}</p>`+BKS.map(b=>{const own=!b.p||sp.own.includes('bk_'+b.id);const sw=`<span class="bksw" style="background:${b.g||b.c}"></span>`;
    const btns=own?`<span class="bbx"><button data-x="bku" data-i="${b.id}" class="${sp.bk.u===b.id?'on':''}">${TR('화면','Screen')}${sp.bk.u===b.id?' ✔':''}</button><button data-x="bkg" data-i="${b.id}" class="${sp.bk.g===b.id?'on':''}">${TR('대국','Game')}${sp.bk.g===b.id?' ✔':''}</button></span>`:`<button data-x="bbk" data-i="${b.id}">💰 ${b.p}</button>`;
    return `<div class="shi"><span class="ic2">${sw}</span><div class="tx"><b>${b.n}</b><small>${own?TR('보유','Owned'):'💰 '+b.p}</small></div>${btns}</div>`}).join('')}
- else{const on=sp.pets.on;B.innerHTML=`<p class="note">${TR('귀여운 펫이 대국 중 내 옆에서 도와줘요. 이름·색·꾸미기도 바꿀 수 있어요. 펫 전용 스킬은 곧 공개돼요.','A pet sits beside you during games and helps out. Rename and dress it up. Pet-only skills are coming soon.')}</p>`+PETS.map(d=>{const own=sp.pets.own.includes(d.id),c=petCfg(d.id);
+ else{const on=sp.pets.on;B.innerHTML=`<p class="note">${TR('귀여운 펫이 대국 중 내 옆에서 도와줘요. 색·꾸미기를 바꾸고, 대국 중 끌어서 위치도 옮길 수 있어요.','A pet sits beside you during games and helps out. Change its color and look, and drag it in-game to move it.')}</p>`+PETS.map(d=>{const own=sp.pets.own.includes(d.id),c=petCfg(d.id);
    return `<div class="ptc ${on===d.id?'on':''}"><span class="pv">${petImg(d.id,72)}</span><div class="tx"><b>${esc(c.nm)}</b><span class="rl">${d.role}</span><small>${d.d}</small></div><div class="bb">${own?`<button data-x="pon" data-i="${d.id}" ${on===d.id?'disabled':''}>${on===d.id?TR('함께 하는 중','With you'):TR('함께하기','Choose')}</button><button data-x="pcu" data-i="${d.id}">${TR('꾸미기','Customize')}</button>`:`<button data-x="bpt" data-i="${d.id}">💰 ${d.p}</button>`}</div></div>`}).join('')+(sp.pets.on?`<button data-x="poff" style="width:100%">${TR('펫 없이 하기','Play without a pet')}</button>`:'')}};
 $('#shopBody').addEventListener('click',e=>{const b=e.target.closest('button[data-x]');if(!b)return;const x=b.dataset.x,i=b.dataset.i,sp=shopGet();
  if(x==='bku'||x==='bkg'){sp.bk[x==='bku'?'u':'g']=i;store.set('shop',sp);MH.bk();sfx('place');shopDraw()}
@@ -6089,10 +6090,10 @@ $('#shopBody').addEventListener('click',e=>{const b=e.target.closest('button[dat
  else if(x==='poff'){sp.pets.on='';store.set('shop',sp);sfx('sel');shopDraw()}
  else if(x==='pcu')petOpen(i)});
 /* 꾸미기 창 */
-document.body.insertAdjacentHTML('beforeend',`<div class="modal" id="mPet" role="dialog" aria-modal="true"><div class="mc stmc"><h2 id="ptH"></h2><div id="ptPrev" style="text-align:center"></div><label class="pfsec" for="ptNm">${TR('이름','Name')}</label><input id="ptNm" class="pnam" maxlength="8" autocomplete="off"><div id="ptBody"></div><div class="pskr" id="ptSk"></div><button class="pri" id="ptOk" style="margin-top:12px;width:100%">${TR('완료','Done')}</button></div></div>`);
+document.body.insertAdjacentHTML('beforeend',`<div class="modal" id="mPet" role="dialog" aria-modal="true"><div class="mc stmc"><h2 id="ptH"></h2><div id="ptPrev" style="text-align:center"></div><div id="ptBody"></div><div class="pskr" id="ptSk"></div><button id="ptPos" style="margin-top:8px;width:100%">${TR('📍 펫 위치 초기화 (대국 중 펫을 끌어서 옮길 수 있어요)','📍 Reset pet position (drag the pet in-game to move it)')}</button><button class="pri" id="ptOk" style="margin-top:12px;width:100%">${TR('완료','Done')}</button></div></div>`);
 let petCur='kk';
 function petOpen(id){petCur=id;petDrawM();openM('mPet')}
-function petDrawM(){const sp=shopGet(),d=petDef(petCur),c=petCfg(petCur);$('#ptH').textContent=`${d.n} · ${d.role}`;$('#ptPrev').innerHTML=petImg(petCur,120);if(document.activeElement!==$('#ptNm'))$('#ptNm').value=sp.pets.cfg[petCur]&&sp.pets.cfg[petCur].nm||'';$('#ptNm').placeholder=d.n;
+function petDrawM(){const sp=shopGet(),d=petDef(petCur),c=petCfg(petCur);$('#ptH').textContent=`${d.n} · ${d.role}`;$('#ptPrev').innerHTML=petImg(petCur,120);
  const chip=(k,list,cur,lab)=>`<div class="pfsec">${lab}</div><div class="chipr">`+list.map(x=>{const own=!x.p||sp.own.includes((k==='col'?'pc_':'pa_')+x.id);const t=k==='col'?`<i style="display:inline-block;width:12px;height:12px;border-radius:50%;border:1.5px solid #111;background:${x.h};vertical-align:-1px"></i> `:(x.e+' ');return `<button data-k="${k}" data-i="${x.id}" class="${cur===x.id?'on':''} ${own?'':'lkd'}">${t}${x.n}${own?'':' 💰'+x.p}</button>`}).join('')+'</div>';
  const cols=[{id:'def',n:TR('기본','Default'),h:d.dc,p:0}].concat(PCOL);
  $('#ptBody').innerHTML=chip('col',cols,c.col,TR('몸 색','Color'))+chip('acc',PACC,c.acc,TR('꾸미기','Accessory'));
@@ -6101,7 +6102,7 @@ $('#ptBody').onclick=e=>{const b=e.target.closest('button');if(!b)return;const k
  const set=s=>{s.pets.cfg[petCur]=Object.assign(s.pets.cfg[petCur]||{},{[k]:i})};
  if(own){set(sp);store.set('shop',sp);sfx('place');petDrawM()}else buy(it.p,it.n,s=>{s.own.push((k==='col'?'pc_':'pa_')+i);set(s)});};
 {const _s=shopDraw;shopDraw=function(){_s();if($('#mPet').classList.contains('on'))petDrawM()}}
-$('#ptNm').oninput=()=>{const sp=shopGet();sp.pets.cfg[petCur]=Object.assign(sp.pets.cfg[petCur]||{},{nm:$('#ptNm').value.trim().slice(0,8)});store.set('shop',sp);$('#ptPrev').innerHTML=petImg(petCur,120)};
+$('#ptPos').onclick=()=>{store.set('petpos',null);sfx('sel');toast(TR('펫 위치를 초기화했어요','Pet position reset'))};
 $('#ptOk').onclick=()=>{closeM('mPet');shopDraw()};
 
 /* ---- 대국 중 펫 ---- */
@@ -6111,13 +6112,18 @@ const petSide=()=>G.net?G.net.me:(G.mode==='pve'?G.human:(G.flip?'b':'w'));
 const petOn=()=>{const sp=shopGet();return sp.pets.on&&petDef(sp.pets.on)?sp.pets.on:''};
 const petActive=()=>!!petOn()&&!!G.b&&$('#s4').classList.contains('on')&&!G.tut&&!G.lab&&G.mode!=='sim';
 const pick=a=>a[Math.random()*a.length|0];
-function petSay(txt,mood,ms){if(!petActive())return;const s=$('#petS');s.textContent=txt;s.classList.add('on');clearTimeout(P.tm);P.tm=setTimeout(()=>{s.classList.remove('on');petMood('ok')},ms||3600);petMood(mood||'ok')}
+function petSay(txt,mood,ms){if(!petActive())return;const s=$('#petS');s.textContent=txt;s.classList.add('on');petBub();clearTimeout(P.tm);P.tm=setTimeout(()=>{s.classList.remove('on');petMood('ok')},ms||3600);petMood(mood||'ok')}
 function petMood(m){if(P.mood===m)return;P.mood=m;P.key='';petSync()}
+function petBub(){try{const W=$('#petW'),S=$('#petS'),op=W.offsetParent;if(!op||W.hidden)return;S.style.maxWidth=Math.min(230,op.clientWidth-16)+'px';const bw=S.offsetWidth,lx=W.offsetLeft;let rel=W.classList.contains('bl')?0:54-bw;let ab=lx+rel;ab=Math.max(8,Math.min(op.clientWidth-8-bw,ab));S.style.left=(ab-lx)+'px';S.style.right='auto'}catch(e){}}
 function petHop(){const b=$('#petB');b.classList.remove('hop');void b.offsetWidth;b.classList.add('hop')}
 function petSync(){const W=$('#petW'),bar=$('#pBot');if(!petActive()){W.hidden=true;bar.classList.remove('pet');return}
  const id=petOn(),c=petCfg(id),key=id+c.col+c.acc+c.nm+P.mood;
  if(P.key!==key){P.key=key;$('#petB').innerHTML=petSvg(id,c.col,c.acc,P.mood,52);$('#petB').setAttribute('aria-label',TR(`${c.nm} — 탭해서 도움 받기`,`${c.nm} — tap for help`))}
- bar.classList.add('pet');W.hidden=false;const w=bar.offsetWidth;W.style.left=(bar.offsetLeft+w-58)+'px';W.style.top=(bar.offsetTop+bar.offsetHeight/2-27)+'px'}
+ W.hidden=false;const pp=store.get('petpos',null),op=W.offsetParent||bar.offsetParent;let lx,ly;
+ if(pp&&op&&op.clientWidth){bar.classList.remove('pet');lx=Math.max(2,Math.min(op.clientWidth-56,pp.x*op.clientWidth));ly=Math.max(2,Math.min(op.clientHeight-56,pp.y*op.clientHeight))}
+ else{bar.classList.add('pet');lx=bar.offsetLeft+bar.offsetWidth-58;ly=bar.offsetTop+bar.offsetHeight/2-27}
+ W.style.left=lx+'px';W.style.top=ly+'px';
+ if(op&&op.clientWidth){W.classList.toggle('bl',lx+27<op.clientWidth/2);W.classList.toggle('bu',ly+27>op.clientHeight/2);petBub()}}
 {const _d=draw;draw=function(m){_d(m);try{petSync()}catch(e){}}}
 addEventListener('resize',()=>{try{petSync()}catch(e){}});
 function petDanger(me){const e=OP(me),b=G.b,res={k:false,sq:[]};const ms=BC.gen(b,e,{ai:true,cap:true,noDbl:true});const hit=sq=>ms.some(m=>capsOn(b,m,sq));
@@ -6174,7 +6180,15 @@ MH.tt=function(m,who){if(!petSkOn()||petOn()!=='tt'||P.pu)return;const me=petSid
  if(dead(s2,G.b).indexOf(vi)>=0)return;
  G.b[vi].sh=1;P.pu=1;const nm=DEF[G.b[vi].t].n;
  setTimeout(()=>{petSay(TR(`내게 맡겨! 공격을 막았어! (${nm})`,`Leave it to me! Blocked it! (${nm})`),'happy',4200);petHop();fxCell(vi,'🛡️');sfx('empower')},700)};
-$('#petB').onclick=petTap;$('#petS').onclick=()=>{$('#petS').classList.remove('on');clearTimeout(P.tm);petMood('ok')};
+$('#petB').onclick=()=>{if(P.dg){P.dg=0;return}petTap()};
+{const B=$('#petB');let st=null;B.style.touchAction='none';
+ B.addEventListener('pointerdown',e=>{const op=$('#petW').offsetParent;if(!op)return;st={x:e.clientX,y:e.clientY,l:$('#petW').offsetLeft,t:$('#petW').offsetTop,mv:0,op};try{B.setPointerCapture(e.pointerId)}catch(_){}});
+ B.addEventListener('pointermove',e=>{if(!st)return;const dx=e.clientX-st.x,dy=e.clientY-st.y;if(!st.mv&&Math.hypot(dx,dy)<8)return;st.mv=1;e.preventDefault();
+  const op=st.op,nx=Math.max(2,Math.min(op.clientWidth-56,st.l+dx)),ny=Math.max(2,Math.min(op.clientHeight-56,st.t+dy));
+  store.set('petpos',{x:nx/op.clientWidth,y:ny/op.clientHeight});petSync()});
+ const en=()=>{if(st&&st.mv){P.dg=1;setTimeout(()=>{P.dg=0},350)}st=null};
+ B.addEventListener('pointerup',en);B.addEventListener('pointercancel',en)}
+$('#petS').onclick=()=>{$('#petS').classList.remove('on');clearTimeout(P.tm);petMood('ok')};
 {const _sg=startGame;startGame=function(){_sg.apply(this,arguments);try{P.hl=3;P.pu=0;P.idle=0;P.l0=[0,0];P.key='';P.th=0;clearTimeout(P.tm);$('#petS').classList.remove('on');setTimeout(()=>{if(!petActive())return;const id=petOn();petSay(id==='kk'?TR('오늘도 같이 힘내자! 콩콩!','Let\'s do our best! Kong-kong!'):id==='tt'?TR('내가 지켜줄게! 탱탱!','I\'ll guard you! Tang-tang!'):TR('어려우면 나를 눌러줘. 조언은 3번!','Tap me if you\'re stuck. 3 hints!'),'happy',4200)},900)}catch(e){}}}
 {const _et=MH.et;MH.et=function(){_et();try{if(!petActive())return;const me=petSide(),id=petOn(),op=OP(me),L=[G.lost.w.length,G.lost.b.length],mine=G.lost[me].length,en=G.lost[op].length,pm=P.l0[me==='w'?0:1],pe=P.l0[op==='w'?0:1];P.l0=L;P.idle++;
  setTimeout(()=>{if(!petActive()||G.over)return;
