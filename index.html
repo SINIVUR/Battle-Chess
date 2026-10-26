@@ -5607,7 +5607,7 @@ $('#stSk').textContent=TR('건너뛰기','Skip');$('#srRe').textContent=TR('다�
 const stSave=()=>store.get('story',{c:{}});
 const stDone=i=>!!stSave().c[i];
 const stOpen=i=>{const s=STAGES[i-1];return !!s&&!s.soon&&(i===1||stDone(i-1))};
-const stStars=(sv,i)=>{const b=(sv.s&&sv.s[i])||0;return '★'+(b&1?'★':'☆')+(b&2?'★':'☆')};
+const stStars=(sv,i)=>{const b=(sv.s&&sv.s[i])||0;const n=1+(b&1?1:0)+(b&2?1:0);return '★'.repeat(n)+'☆'.repeat(3-n)};
 const stN0=s=>s.me.length+(/[EgdṖ]/.test(s.me)?0:1),stMaxLoss=s=>Math.ceil(stN0(s)*0.4);
 function stShort(t){return (DEF[t].d||'').split(' · ')[0]}
 function stIcons(l,cls){return l.split('').map(t=>`<span class="sti" title="${DEF[t].n}">${icon(t)}</span>`).join('')}
@@ -5717,7 +5717,7 @@ const dayKey=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMont
 const dayNum=k=>{const a=k.split('-').map(Number);return Math.round(Date.UTC(a[0],a[1]-1,a[2])/864e5)};
 /* ---- 저장소 ---- */
 const ecoGet=()=>Object.assign({c:0,tot:0,spent:0,day:'',dayc:0,boost:0},store.get('eco',{}));
-const shopGet=()=>{const o=Object.assign({th:'classic',own:['classic'],unl:[],ud:0,title:'',titles:[],buys:0},store.get('shop',{}));o.pf=Object.assign({av:'K',fr:'none',bg:'plain',nc:'def',ni:''},o.pf||{});o.bk=Object.assign({u:'plain',g:'plain'},o.bk||{});o.pets=Object.assign({own:[],on:'',cfg:{}},o.pets||{});if(!o.pets.cfg)o.pets.cfg={};return o};
+const shopGet=()=>{const o=Object.assign({th:'classic',own:['classic'],unl:[],ud:0,title:'',titles:[],buys:0},store.get('shop',{}));o.pf=Object.assign({av:'K',fr:'none',bg:'plain',nc:'def',ab:'plain',ni:''},o.pf||{});o.bk=Object.assign({u:'plain',g:'plain'},o.bk||{});o.pets=Object.assign({own:[],on:'',cfg:{}},o.pets||{});if(!o.pets.cfg)o.pets.cfg={};return o};
 const statGet=()=>Object.assign({g:0,w:0,l:0,d:0,lw:{},pv:0,nt:0,nw:0,cap:0,lost:0,pf:0,fw:999,maxp:0,st:0,bs:0,time:0,u:{},e:{},ud:0,rs:0,sh:0,dc:0,ds:0,dl:'',dbs:0},store.get('stats',{}));
 const achGet=()=>store.get('ach',{});
 function coinAdd(n,note){const e=ecoGet();n=Math.round(n);if(!n)return 0;e.c=Math.max(0,e.c+n);if(n>0)e.tot+=n;store.set('eco',e);MH.chip();return n}
@@ -5830,6 +5830,7 @@ MH.theme();
 /* ===== meta_b.js (1.4.5) — 프로필 · 상점 · 일일 도전 · 기록 허브 · 리플레이 뷰어 ===== */
 const FRAMES=[{id:'none',n:TR('없음','None'),p:0},{id:'gold',n:TR('황금','Gold'),p:120},{id:'neon',n:TR('네온','Neon'),p:150},{id:'ice',n:TR('서리','Frost'),p:200},{id:'flame',n:TR('불꽃','Flame'),p:250},{id:'royal',n:TR('왕실','Royal'),p:400},{id:'rainbow',n:TR('무지개','Rainbow'),p:500}];
 const BGS=[{id:'plain',n:TR('기본','Plain'),p:0},{id:'sunset',n:TR('노을','Sunset'),p:100},{id:'night',n:TR('밤하늘','Night'),p:100},{id:'mint',n:TR('민트','Mint'),p:100},{id:'check',n:TR('체크판','Checker'),p:150},{id:'crimson',n:TR('진홍','Crimson'),p:200},{id:'aurora',n:TR('오로라','Aurora'),p:250},{id:'galaxy',n:TR('은하','Galaxy'),p:350}];
+const ABS=[{id:'plain',n:TR('기본','Plain'),p:0},{id:'sun',n:TR('햇살','Sunburst'),p:150},{id:'argyle',n:TR('왕실 격자','Royal Lattice'),p:200},{id:'circuit',n:TR('회로','Circuit'),p:200},{id:'stars',n:TR('별빛','Starlight'),p:250},{id:'checker',n:TR('체스판','Chessboard'),p:150},{id:'ember',n:TR('불씨','Embers'),p:250},{id:'wave',n:TR('물결','Ripples'),p:200},{id:'vortex',n:TR('소용돌이','Vortex'),p:350},{id:'holo',n:TR('홀로그램','Hologram'),p:400},{id:'blade',n:TR('칼날 무늬','Blades'),p:300}];
 const NCS=[{id:'def',n:TR('기본','Default'),p:0},{id:'gold',n:TR('금색','Gold'),p:80},{id:'mint',n:TR('민트색','Mint'),p:80},{id:'pink',n:TR('분홍색','Pink'),p:80},{id:'rainbow',n:TR('무지개','Rainbow'),p:300},{id:'flame',n:TR('불꽃','Flame'),p:300}];
 /* 코인 전용 기물·스킬 — 기획 확정 후 여기에 항목을 추가해요: {id,k:'piece'|'skill',n,d,p} */
 const EXCL=['Ð','Ẍ','Ë','Ĝ','Ḃ','Ž','Š','Ṫ','Ĵ','Ẇ'].map(t=>({id:'p'+t.codePointAt(0).toString(16),k:'piece',t,get n(){return DEF[t].n},get d(){return `${DEF[t].c} ${TR('코스트','cost')} · ${stShort(t)}`},get e(){return icon(t)},p:DEF[t].c*50})).concat([
@@ -5842,7 +5843,7 @@ const locked_=t=>!unl().has(t)&&t!=='K';
 const profGet=()=>{const sp=shopGet(),p=sp.pf;if(!p.ni)p.ni=(typeof NT!=='undefined'&&NT.nick)||'';return p};
 const titleName=id=>{const t=TITLES.find(x=>x.id===id);return t?t.n:''};
 function pfCard(){const sp=shopGet(),p=profGet(),tt=titleName(sp.title);
- return `<div class="pfc bg-${p.bg}"><div class="pfa fr-${p.fr}">${icon(p.av)}</div><div class="pfi"><div class="pfn nc-${p.nc}">${esc(p.ni||TR('이름 없음','Unnamed'))}</div><div class="pft">${tt?'「'+tt+'」':TR('칭호 없음','No title')}</div></div></div>`}
+ return `<div class="pfc bg-${p.bg}"><div class="pfa fr-${p.fr} ab-${p.ab||'plain'}">${icon(p.av)}</div><div class="pfi"><div class="pfn nc-${p.nc}">${esc(p.ni||TR('이름 없음','Unnamed'))}</div><div class="pft">${tt?'「'+tt+'」':TR('칭호 없음','No title')}</div></div></div>`}
 MH.profileFirst=false;
 /* ---- DOM 주입 ---- */
 (function(){
@@ -5853,6 +5854,17 @@ MH.profileFirst=false;
 .coinr{display:inline-block;margin-left:6px;font-weight:800;color:#a15c00}
 .pfc{display:flex;gap:12px;align-items:center;padding:12px;border:2.5px solid #111;border-radius:14px;box-shadow:4px 4px 0 #111;background:#fff;position:relative;overflow:hidden}
 .pfa{width:58px;height:58px;flex:none;border-radius:50%;border:3px solid #111;background:#fff;display:grid;place-items:center;font-size:30px;position:relative}.pfa .ic{font-size:32px}
+.pfa{overflow:hidden}.pfa[class*="ab-"]:not(.ab-plain) .ic{filter:drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 2px #fff) drop-shadow(0 0 3px rgba(255,255,255,.8))}
+.ab-sun{background:repeating-conic-gradient(#ffe27a 0 10deg,#ffb300 10deg 20deg)}
+.ab-argyle{background:linear-gradient(45deg,#4b1f9e 25%,transparent 25% 75%,#4b1f9e 75%) 0 0/16px 16px,linear-gradient(45deg,#4b1f9e 25%,#f3d27a 25% 75%,#4b1f9e 75%) 8px 8px/16px 16px}
+.ab-circuit{background:linear-gradient(#0a2b25 0 0),#0a2b25;background-image:linear-gradient(90deg,rgba(60,255,170,.55) 2px,transparent 2px),linear-gradient(rgba(60,255,170,.55) 2px,transparent 2px),radial-gradient(circle,#3cffaa 2.5px,transparent 3px);background-size:14px 14px,14px 14px,14px 14px;background-color:#082019}
+.ab-stars{background:radial-gradient(1.5px 1.5px at 20% 25%,#fff,transparent),radial-gradient(1.5px 1.5px at 70% 18%,#fff,transparent),radial-gradient(2px 2px at 45% 60%,#ffe27a,transparent),radial-gradient(1.5px 1.5px at 82% 70%,#fff,transparent),radial-gradient(1.5px 1.5px at 15% 80%,#bfe0ff,transparent),linear-gradient(160deg,#0b1040,#3b1a74)}
+.ab-checker{background:conic-gradient(#fff 25%,#222 0 50%,#fff 0 75%,#222 0) 0 0/16px 16px}
+.ab-ember{background:radial-gradient(circle at 50% 120%,#ffd23a,#ff5a1f 45%,#4a0d00 85%)}
+.ab-wave{background:repeating-radial-gradient(circle at 50% 50%,#cfeeff 0 4px,#6fc3ff 4px 8px)}
+.ab-vortex{background:conic-gradient(from 0deg,#ff2e93,#ffb300,#38e07b,#2e9bff,#a24bff,#ff2e93);animation:abv 4s linear infinite}@keyframes abv{to{filter:hue-rotate(360deg)}}
+.ab-holo{background:linear-gradient(125deg,#ff9ad5,#9ad8ff,#b6ffd8,#fff3a8,#ff9ad5);background-size:300% 300%;animation:abh 3.5s ease-in-out infinite}@keyframes abh{50%{background-position:100% 100%}}
+.ab-blade{background:repeating-linear-gradient(135deg,#161616 0 6px,#d92b2b 6px 9px,#161616 9px 15px,#e9e9e9 15px 17px)}
 .pfn{font-size:18px;font-weight:900;word-break:break-all}.pft{font-size:12.5px;opacity:.85;margin-top:2px}.pfi{min-width:0}
 .bg-sunset{background:linear-gradient(120deg,#ffd29a,#ff8fa3)}.bg-night{background:linear-gradient(120deg,#1b1f4b,#4b2e83);color:#fff}.bg-mint{background:linear-gradient(120deg,#c9ffe6,#8fe3ff)}.bg-crimson{background:linear-gradient(120deg,#ffb3b3,#d9304f);color:#fff}
 .bg-check{background:conic-gradient(#fff 25%,#d8d8d8 0 50%,#fff 0 75%,#d8d8d8 0) 0 0/28px 28px}.bg-galaxy{background:radial-gradient(circle at 20% 30%,#7b2ff7,transparent 55%),radial-gradient(circle at 80% 70%,#e8139f,transparent 50%),#0b0b2a;color:#fff}
@@ -5896,11 +5908,11 @@ function pfDraw(){const sp=shopGet(),p=sp.pf,un=unl();
  const av=TYPES.filter(t=>un.has(t)||t==='K');
  $('#pfBody').innerHTML=`<div class="pfsec">${TR('아바타 (해금한 기물)','Avatar (unlocked pieces)')}</div><div class="pgrid">${av.map(t=>`<button data-k="av" data-i="${t}" class="${p.av===t?'on':''}" title="${DEF[t].n}">${icon(t)}</button>`).join('')}</div>${pfFirst?`<p class="note">${TR('칭호·프레임·배경은 나중에 코인으로 꾸밀 수 있어요','Titles, frames and backgrounds can be bought later with coins')}</p>`:''}
  <div class="pfx" ${pfFirst?'hidden':''}><div class="pfsec">${TR('칭호','Title')}</div><div class="chipr"><button data-k="ti" data-i="" class="${!sp.title?'on':''}">${TR('없음','None')}</button>${TITLES.map(x=>{const ok=sp.titles.includes(x.id);return `<button data-k="ti" data-i="${x.id}" class="${sp.title===x.id?'on':''} ${ok?'':'lkd'}">${ok?'':'🔒 '}${x.n}</button>`}).join('')}</div>
- <div class="pfsec">${TR('프레임','Frame')}</div>${chip('fr',FRAMES,p.fr)}<div class="pfsec">${TR('배경','Background')}</div>${chip('bg',BGS,p.bg)}<div class="pfsec">${TR('이름 색','Name style')}</div>${chip('nc',NCS,p.nc)}
+ <div class="pfsec">${TR('프레임','Frame')}</div>${chip('fr',FRAMES,p.fr)}<div class="pfsec">${TR('배경','Background')}</div>${chip('bg',BGS,p.bg)}<div class="pfsec">${TR('아바타 배경','Avatar background')}</div>${chip('ab',ABS,p.ab||'plain')}<div class="pfsec">${TR('이름 색','Name style')}</div>${chip('nc',NCS,p.nc)}
  <p class="note">🔒 ${TR('잠긴 항목은 상점에서 살 수 있어요','Locked items can be bought in the shop')}</p></div>`}
 $('#pfBody').onclick=e=>{const b=e.target.closest('button');if(!b)return;const sp=shopGet(),k=b.dataset.k,i=b.dataset.i;sfx('sel');
  if(k==='av')sp.pf.av=i;else if(k==='ti'){if(i&&!sp.titles.includes(i)){toast(TR('상점에서 먼저 구매해 주세요','Buy it in the shop first'));return}sp.title=i}
- else{const list={fr:FRAMES,bg:BGS,nc:NCS}[k],it=list.find(x=>x.id===i);if(it.p&&!sp.own.includes(k+'_'+i)){toast(TR('상점에서 먼저 구매해 주세요','Buy it in the shop first'));return}sp.pf[k]=i}
+ else{const list={fr:FRAMES,bg:BGS,nc:NCS,ab:ABS}[k],it=list.find(x=>x.id===i);if(it.p&&!sp.own.includes(k+'_'+i)){toast(TR('상점에서 먼저 구매해 주세요','Buy it in the shop first'));return}sp.pf[k]=i}
  store.set('shop',sp);pfDraw()};
 $('#pfNi').oninput=()=>{const sp=shopGet();sp.pf.ni=$('#pfNi').value.slice(0,12);store.set('shop',sp);$('#pfPrev').innerHTML=pfCard()};
 function openPf(first){pfFirst=!!first;const p=profGet();$('#pfH').textContent=first?TR('📇 프로필을 만들어 주세요','📇 Create your profile'):TR('📇 프로필 꾸미기','📇 Edit profile');$('#pfNi').value=p.ni||'';$('#pfOk').textContent=first?TR('시작하기 ▶','Start ▶'):TR('완료','Done');pfDraw();openM('mPf')}
@@ -5963,9 +5975,9 @@ function buy(price,label,apply){const e=ecoGet();if(e.c<price){toast(TR('코인�
 function shopDraw(){MH.chip();$$('#shopTabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===shopTab));const sp=shopGet(),B=$('#shopBody');
  const row=(ic,n,d,btn)=>`<div class="shi"><span class="ic2">${ic}</span><div class="tx"><b>${n}</b><small>${d||''}</small></div>${btn}</div>`;
  if(shopTab==='th'){B.innerHTML=THEMES.map(t=>{const own=sp.own.includes(t.id),on=sp.th===t.id;return `<div class="shi ${on?'on':''}"><span class="ic2"><i class="swt" style="background:linear-gradient(90deg,${t.l} 50%,${t.d} 50%)"></i></span><div class="tx"><b>${t.n}</b><small>${on?TR('사용 중','In use'):own?TR('보유','Owned'):'💰 '+t.p}</small></div>${on?'':own?`<button data-a="use" data-i="${t.id}">${TR('적용','Use')}</button>`:`<button data-a="bth" data-i="${t.id}">${TR('구매','Buy')}</button>`}</div>`}).join('')}
- else if(shopTab==='pf'){const sec=(h,list,kind)=>`<h4 class="ph">${h}</h4>`+list.filter(x=>x.p).map(x=>{const own=sp.own.includes(kind+'_'+x.id);const prev=kind==='fr'?`<span class="pfa fr-${x.id}" style="width:34px;height:34px;font-size:16px">${icon(sp.pf.av)}</span>`:kind==='bg'?`<span class="swt bg-${x.id}"></span>`:`<b class="nc-${x.id}">Aa</b>`;
+ else if(shopTab==='pf'){const sec=(h,list,kind)=>`<h4 class="ph">${h}</h4>`+list.filter(x=>x.p).map(x=>{const own=sp.own.includes(kind+'_'+x.id);const prev=kind==='fr'?`<span class="pfa fr-${x.id}" style="width:34px;height:34px;font-size:16px">${icon(sp.pf.av)}</span>`:kind==='bg'?`<span class="swt bg-${x.id}"></span>`:kind==='ab'?`<span class="pfa ab-${x.id}" style="width:34px;height:34px;font-size:16px">${icon(sp.pf.av)}</span>`:`<b class="nc-${x.id}">Aa</b>`;
    return row(prev,x.n,own?TR('보유 · 프로필에서 장착','Owned · equip in profile'):'💰 '+x.p,own?'':`<button data-a="bpf" data-k="${kind}" data-i="${x.id}">${TR('구매','Buy')}</button>`)}).join('');
-  B.innerHTML=`<div style="margin-bottom:8px">${pfCard()}</div><button id="shEd" style="width:100%;margin-bottom:6px">✏️ ${TR('프로필 꾸미기','Edit profile')}</button><h4 class="ph">${TR('칭호','Titles')}</h4>`+TITLES.map(x=>{const own=sp.titles.includes(x.id);return row('「」',x.n,own?TR('보유','Owned'):'💰 '+x.p,own?'':`<button data-a="bti" data-i="${x.id}">${TR('구매','Buy')}</button>`)}).join('')+sec(TR('프레임','Frames'),FRAMES,'fr')+sec(TR('배경','Backgrounds'),BGS,'bg')+sec(TR('이름 색','Name styles'),NCS,'nc')}
+  B.innerHTML=`<div style="margin-bottom:8px">${pfCard()}</div><button id="shEd" style="width:100%;margin-bottom:6px">✏️ ${TR('프로필 꾸미기','Edit profile')}</button><h4 class="ph">${TR('칭호','Titles')}</h4>`+TITLES.map(x=>{const own=sp.titles.includes(x.id);return row('「」',x.n,own?TR('보유','Owned'):'💰 '+x.p,own?'':`<button data-a="bti" data-i="${x.id}">${TR('구매','Buy')}</button>`)}).join('')+sec(TR('프레임','Frames'),FRAMES,'fr')+sec(TR('배경','Backgrounds'),BGS,'bg')+sec(TR('아바타 배경','Avatar backgrounds'),ABS,'ab')+sec(TR('이름 색','Name styles'),NCS,'nc')}
  else if(shopTab==='up'){const un=unl(),ls=BC.PICKT.filter(t=>!un.has(t));
   B.innerHTML=`<p class="note">${TR('스토리를 클리어하지 않아도 코인으로 기물을 미리 열 수 있어요. (스토리를 깨면 그 기물은 그대로 열려요)','Spend coins to open a piece early without clearing the story.')}</p>`+(ls.length?ls.map(t=>row(icon(t),DEF[t].n,`${DEF[t].c} ${TR('코스트','cost')} · ${stShort(t)}`,`<button data-a="bup" data-i="${t}">💰 ${upPrice(t)}</button>`)).join(''):`<p class="note" style="text-align:center">${TR('모든 기물이 열려 있어요!','Every piece is unlocked!')}</p>`)}
  else if(shopTab==='it'){const bo=ecoGet().boost>Date.now();
@@ -5974,7 +5986,7 @@ function shopDraw(){MH.chip();$$('#shopTabs button').forEach(b=>b.classList.togg
 $('#shopBody').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.id==='shEd'){openPf(false);return}const a=b.dataset.a,i=b.dataset.i;if(!a)return;const sp=shopGet();
  if(a==='use'){sp.th=i;store.set('shop',sp);MH.theme();sfx('place');shopDraw()}
  else if(a==='bth'){const t=THEMES.find(x=>x.id===i);buy(t.p,TR('보드 테마 ','Board theme ')+t.n,s=>{s.own.push(i);s.th=i;store.set('shop',s);MH.theme()})}
- else if(a==='bpf'){const k=b.dataset.k,x={fr:FRAMES,bg:BGS,nc:NCS}[k].find(y=>y.id===i);buy(x.p,x.n,s=>{s.own.push(k+'_'+i);s.pf[k]=i})}
+ else if(a==='bpf'){const k=b.dataset.k,x={fr:FRAMES,bg:BGS,nc:NCS,ab:ABS}[k].find(y=>y.id===i);buy(x.p,x.n,s=>{s.own.push(k+'_'+i);s.pf[k]=i})}
  else if(a==='bti'){const x=TITLES.find(y=>y.id===i);buy(x.p,'「'+x.n+'」',s=>{s.titles.push(i);s.title=i})}
  else if(a==='bup'){buy(upPrice(i),DEF[i].n+TR(' 기물 해금',' — unlock'),s=>{if(!s.unl.includes(i))s.unl.push(i);UNL=null})}
  else if(a==='bud'){const n=+b.dataset.n;buy(+b.dataset.p,TR('무르기권 ','Undo ×')+n,s=>{s.ud+=n})}
