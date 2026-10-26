@@ -800,6 +800,14 @@ body:not(.tuting) .c.ht{box-shadow:inset 0 0 0 4px #1fa84f,inset 0 0 0 100px rgb
 @keyframes hgd{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
 #bd4 .c.hf:not(.ht)::before{content:'👇';position:absolute;left:50%;top:-4px;margin-left:-.5em;font-size:min(4.2vw,20px);line-height:1;z-index:6;pointer-events:none;filter:drop-shadow(0 1px 1px #0008);animation:hgd .8s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){.c.hf,.c.ht,.skb button.hs,.skb button.hs::before{animation:none!important}}
+/* 1.5.5 접근성: 터치 영역·글자·포커스·옵션 */
+button:focus-visible,.c:focus-visible,[role=button]:focus-visible,input:focus-visible{outline:3px solid #0057ff!important;outline-offset:2px;box-shadow:0 0 0 2px #fff}
+.dock small{font-size:11px}.pfmini .pt{font-size:11.5px}.sub{font-size:12px}.tile small{font-size:12px}#s2 .pc2 .nm .cb,#s2 .pc2 .nm .tg{font-size:11.5px}#skAl small,#stormAl small,#phaseAl small{font-size:11.5px}
+@media (pointer:coarse){#shopTabs button,.chips button,#s2 .chips button,.tabs button,#gtabs button,#lgOpen,#coinBtn,#goMega,.act2 button,.skb button,#s0 .dock button,.hbtn,.pre button,#pre button,#shopBody button,#n2,#preSave,#preMng,#stWd,#stBk,#homeS,#shopHome,.mc button{min-height:44px}}
+@media (pointer:coarse){.pc2 button[data-d]{position:relative}.pc2 button[data-d]::after{content:'';position:absolute;inset:-8px}}
+.pfmini .prk b{font-size:11.5px!important}.pfmini .prk small{font-size:11px!important}.pfmini .prk b,.pfmini .prk span,.pfmini .prk em,.pfmini .prk small{font-size:11.5px}
+body.big .stx{font-size:20px}body.big .mc p,body.big .mc li,body.big .setr .d,body.big #info,body.big #hintb,body.big #log,body.big .lore,body.big .tip,body.big .note,body.big .setr b{font-size:1.15em}
+body.hc{--ink:#000}body.hc button,body.hc .mc,body.hc .card{border-width:3px!important}body.hc .d,body.hc .note,body.hc small,body.hc .sub,body.hc .stx.nar{color:#000!important;opacity:1!important}body.hc button:disabled{opacity:.75!important}body.hc button:focus-visible,body.hc .c:focus-visible{outline-width:5px!important}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -829,7 +837,7 @@ body:not(.tuting) .c.ht{box-shadow:inset 0 0 0 4px #1fa84f,inset 0 0 0 100px rgb
    <button id="goLang" type="button" aria-label="Language"><i>🌐</i><small>EN/한</small></button>
   </div>
  </div>
- <div class="ver">VERSION 1.5.4</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="ver">VERSION 1.5.5</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 <div class="modal" id="mLearn" role="dialog" aria-modal="true"><div class="mc stmc"><button class="x" data-close>닫기</button><h2>🎓 배우기</h2>
  <button class="lrn" id="goTut" type="button"><i>📖</i><span><b>튜토리얼</b><small>기본 규칙을 차근차근</small></span></button>
@@ -3537,7 +3545,10 @@ Object.assign(SFX,{
  heart:()=>{[880,1109,1319,1760,1568].forEach((f,i)=>tone(f,.22,'sine',.2,sg,T()+i*.1,1.12));tone(2093,.4,'triangle',.1,sg,T()+.5)},radio:()=>{noise(.18,.3);[1568,1319,1568,1319,1568,1319,1568].forEach((f,i)=>tone(f,.09,'square',.09,sg,T()+.2+i*.1));noise(.08,.22,sg,T()+1.05)},hitHeart:()=>{[1760,1397,1175,880].forEach((f,i)=>tone(f,.14,'sine',.16,sg,T()+i*.05,.8));noise(.25,.3,sg,T()+.3);[3136,2637,2093].forEach((f,i)=>tone(f,.2,'triangle',.1,sg,T()+.3+i*.04,.6))},chime:()=>[784,988,1175,1568,1319,1047].forEach((f,i)=>tone(f,.45,'sine',.15,sg,T()+i*.09)),
  swarm:()=>{for(let i=0;i<14;i++)tone(180+Math.random()*70,.09,'sawtooth',.08,sg,T()+i*.045,.7);tone(300,.6,'triangle',.1,sg,T(),1.6)}
 });
-function sfx(n){if(!sfxOn)return;try{if(!ac())return;SFX[n]()}catch(e){}}
+const VBP={sel:8,move:10,cap:[22],place:10,rm:8,shoot:14,shot:[18],buff:[14,30,14],empower:[16,30,26],promo:[20,40,20,40,50],door:[30],zap:[16,18,16,18,28],hitZap:[20,16,20,16,34],warp:[12,24,22],blade:[18],hitSlash:[24],shield:[34],prot:[34],revive:[20,40,20,40,60],heart:[16,40,16],hitHeart:[22,30,22],chime:[10,30,10],lucky:[14,30,14,30,24],lfail:[50],crit:[40,20,60],sparkle:[8,24,8],counter:[26,20,40],demon:[50,30,60],freeze:[28,16,28],thaw:[14,26,14],hitP:[22],hitGun:[28],hitArrow:[20],hitBoom:[70,30,90],hitMagic:[26,16,26],hitCrash:[44],hitBite:[24,14,24],hitSniper:[36],boom:[80,40,120],quake:[60,30,60,30,90],wind:[10,20,10,20,10],stone:[40],magma:[30,20,50],magmaDie:[50],kill:[44,24,60],kill2:[60,26,60,26,100],win:[40,40,40,40,140],lose:[120,60,160],sheathe:[16],iaido:[10,14,50],hex:[20,30,20],radio:[10,20,10],swarm:[10,16,10,16,10,16,10]};
+let vbT=0;
+function VB(n,force){try{if(!PF.vib||!navigator.vibrate||document.hidden)return;const p=force||VBP[n];if(!p)return;const t=Date.now();if(t-vbT<30)return;vbT=t;navigator.vibrate(p)}catch(e){}}
+function sfx(n){VB(n);if(!sfxOn)return;try{if(!ac())return;SFX[n]()}catch(e){}}
 /* ===== FX2 (v11.1.2): 합성 사운드 확장 + 시네마틱 연출 도구 ===== */
 let KV=3; // 마지막으로 잡힌 기물의 코스트(타격 강약)
 const vsc=()=>Math.min(1.5,.55+.12*(KV||3));
@@ -4069,11 +4080,11 @@ $('#mpImp').onclick=()=>{const v=$('#mpCode').value.trim();try{if(!v.startsWith(
   if(addPre(n,o.l,pl)){renderMng();renderMyPre();$('#mpCode').value='';toast('“'+n+TR('” 프리셋을 가져왔습니다','” preset imported'))}}catch(e){toast(TR('올바른 프리셋 코드가 아닙니다','That is not a valid preset code'))}};
 
 /* --- 설정 --- */
-const PF={rm:store.get('rm',false),fxs:store.get('fxs',false)};
-function applyPf(){document.body.classList.toggle('rm',!!PF.rm)}
+const PF={rm:store.get('rm',false),fxs:store.get('fxs',false),vib:store.get('vib',true),big:store.get('big',false),hc:store.get('hc',false)};
+function applyPf(){document.body.classList.toggle('rm',!!PF.rm);document.body.classList.toggle('big',!!PF.big);document.body.classList.toggle('hc',!!PF.hc)}applyPf();
 function applyBv(){try{if(tg)tg.gain.value=.9*bv;if(mg)mg.gain.value=.3*bv}catch(e){}}
 function swRow(id,t,d,on){return `<div class="setr"><label for="${id}"><b>${t}</b><span class="d">${d}</span></label><button class="sw" id="${id}" role="switch" aria-label="${t}" aria-checked="${on}"></button></div>`}
-function buildSet(){$('#setBody').innerHTML=swRow('swSfx',TR('효과음','Sound effects'),TR('이동·잡기·스킬 소리','Move, capture and skill sounds'),sfxOn)+swRow('swBgm',TR('배경음악','Music'),'',music)+TR(`<div class="setr"><label for="bvR"><b>배경음악 크기 <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">기본 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="배경음악 크기"></div>`,`<div class="setr"><label for="bvR"><b>Music volume <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">Default 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="Music volume"></div>`)+swRow('swHint',TR('좋은 수 표시','Best-move hints'),TR('체스 초보를 위한 추천 수와 체크 안내 (대국 중에도 바꿀 수 있습니다)','Suggested moves and check warnings for chess beginners (can also be changed mid-game)'),!!U.hint)+swRow('swRm',TR('애니메이션 줄이기','Reduce animation'),TR('화면 효과와 움직임을 최소화합니다','Minimizes visual effects and motion'),!!PF.rm)+swRow('swGate',TR('기물 해금 제한','Piece unlock limit'),TR('스토리 모드를 클리어해야 기물이 열려요. 끄면 모든 기물을 바로 쓸 수 있어요','Pieces unlock as you clear Story Mode. Turn off to use every piece right away'),gateOn())+TR(`<div class="setr"><div><b>스토리 진행도 백업</b><span class="d">코드·파일로 저장하고 불러올 수 있어요</span></div><button id="swBk">백업</button></div>`,`<div class="setr"><div><b>Story progress backup</b><span class="d">Save and restore as a code or file</span></div><button id="swBk">Backup</button></div>`)+swRow('swFxs',TR('스킬 연출 간단히','Simple skill effects'),TR('화면이 어두워지거나 큰 글자가 뜨지 않고 가볍게 보여줍니다','No screen dimming or big titles — lighter effects'),!!PF.fxs)
+function buildSet(){$('#setBody').innerHTML=swRow('swSfx',TR('효과음','Sound effects'),TR('이동·잡기·스킬 소리','Move, capture and skill sounds'),sfxOn)+swRow('swBgm',TR('배경음악','Music'),'',music)+TR(`<div class="setr"><label for="bvR"><b>배경음악 크기 <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">기본 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="배경음악 크기"></div>`,`<div class="setr"><label for="bvR"><b>Music volume <span id="bvP">${Math.round(bv*100)}%</span></b><span class="d">Default 50%</span></label><input id="bvR" type="range" min="0" max="100" step="5" value="${Math.round(bv*100)}" aria-label="Music volume"></div>`)+swRow('swHint',TR('좋은 수 표시','Best-move hints'),TR('체스 초보를 위한 추천 수와 체크 안내 (대국 중에도 바꿀 수 있습니다)','Suggested moves and check warnings for chess beginners (can also be changed mid-game)'),!!U.hint)+swRow('swRm',TR('애니메이션 줄이기','Reduce animation'),TR('화면 효과와 움직임을 최소화합니다','Minimizes visual effects and motion'),!!PF.rm)+swRow('swGate',TR('기물 해금 제한','Piece unlock limit'),TR('스토리 모드를 클리어해야 기물이 열려요. 끄면 모든 기물을 바로 쓸 수 있어요','Pieces unlock as you clear Story Mode. Turn off to use every piece right away'),gateOn())+TR(`<div class="setr"><div><b>스토리 진행도 백업</b><span class="d">코드·파일로 저장하고 불러올 수 있어요</span></div><button id="swBk">백업</button></div>`,`<div class="setr"><div><b>Story progress backup</b><span class="d">Save and restore as a code or file</span></div><button id="swBk">Backup</button></div>`)+swRow('swFxs',TR('스킬 연출 간단히','Simple skill effects'),TR('화면이 어두워지거나 큰 글자가 뜨지 않고 가볍게 보여줍니다','No screen dimming or big titles — lighter effects'),!!PF.fxs)+swRow('swVib',TR('진동 효과','Vibration'),TR('이동·잡기·스킬·폭발 등 효과마다 다른 진동 (진동을 지원하는 기기에서만 동작)','Distinct vibration for moves, captures, skills and blasts (on devices that support it)'),!!PF.vib)+swRow('swBig',TR('글자 크게','Larger text'),TR('대사·안내·로그 글자를 키웁니다','Enlarges dialogue, hints and log text'),!!PF.big)+swRow('swHc',TR('고대비 모드','High contrast'),TR('테두리와 글자를 더 진하게, 포커스 표시를 더 굵게','Bolder borders, darker text and a thicker focus ring'),!!PF.hc)
  +TR(`<div class="setr"><div><b>저장 데이터 삭제</b><span class="d">설정과 내 프리셋을 모두 지웁니다</span></div><button id="swClr">삭제</button></div>${$('#s0').classList.contains('on')?'':TR('<div class="setr"><div><b>메인 메뉴로 돌아가기</b><span class="d">지금 화면을 나가 처음 화면으로 이동합니다</span></div><button id="swHome">🏠 메뉴로</button></div>','<div class="setr"><div><b>Back to the main menu</b><span class="d">Leave this screen and go to the start screen</span></div><button id="swHome">🏠 Menu</button></div>')}<p class="note" style="text-align:center;margin-top:10px">배틀체스 · VERSION ${APP_VER}</p>`,`<div class="setr"><div><b>Delete saved data</b><span class="d">Erases your settings and all your presets</span></div><button id="swClr">Delete</button></div>${$('#s0').classList.contains('on')?'':TR('<div class="setr"><div><b>메인 메뉴로 돌아가기</b><span class="d">지금 화면을 나가 처음 화면으로 이동합니다</span></div><button id="swHome">🏠 메뉴로</button></div>','<div class="setr"><div><b>Back to the main menu</b><span class="d">Leave this screen and go to the start screen</span></div><button id="swHome">🏠 Menu</button></div>')}<p class="note" style="text-align:center;margin-top:10px">Battle Chess · VERSION ${APP_VER}</p>`);
  {const hb=$('#swHome');if(hb)hb.onclick=()=>{const inGame=G&&G.b&&!G.over&&$('#s4').classList.contains('on'),inNet=inGame&&G.net;ask(TR('메뉴로 돌아가기','Back to Main Menu'),inNet?TR('온라인 대전 중에 나가면 항복(패배) 처리됩니다. 나갈까요?','If you leave during an online game, it counts as a resignation (loss). Leave anyway?'):inGame?TR('진행 중인 게임이 종료됩니다. 메인 메뉴로 돌아갈까요?','The game in progress will end. Return to the main menu?'):TR('지금까지 고른 내용은 저장되지 않습니다. 메인 메뉴로 돌아갈까요?','Everything you picked so far will not be saved. Return to the main menu?'),()=>{closeM('mSet');if(G)G.mk=false;sfx('rm');toHome()})}}
  const tg=(id,fn)=>$('#'+id).onclick=()=>{fn();buildSet()};
@@ -4081,7 +4092,7 @@ function buildSet(){$('#setBody').innerHTML=swRow('swSfx',TR('효과음','Sound 
  tg('swSfx',()=>$('#sf').click());tg('swBgm',()=>$('#bm').click());
  tg('swHint',()=>{U.hint=!U.hint;store.set('hint',U.hint);if(G.b&&$('#s4').classList.contains('on')){G.hintK=null;G.hint=null;draw(G.over?$('#st').textContent:undefined)}});
  tg('swGate',()=>{store.set('gate',!gateOn());UNL=null});$('#swBk').onclick=()=>{closeM('mSet');openBackup()};
- tg('swRm',()=>{PF.rm=!PF.rm;store.set('rm',PF.rm);applyPf()});tg('swFxs',()=>{PF.fxs=!PF.fxs;store.set('fxs',PF.fxs)});
+ tg('swRm',()=>{PF.rm=!PF.rm;store.set('rm',PF.rm);applyPf()});tg('swFxs',()=>{PF.fxs=!PF.fxs;store.set('fxs',PF.fxs)});tg('swVib',()=>{PF.vib=!PF.vib;store.set('vib',PF.vib);if(PF.vib)VB('',[40,30,60])});tg('swBig',()=>{PF.big=!PF.big;store.set('big',PF.big);applyPf()});tg('swHc',()=>{PF.hc=!PF.hc;store.set('hc',PF.hc);applyPf()});
  $('#swClr').onclick=()=>ask(TR('저장 데이터 삭제','Delete saved data'),TR('설정과 내 프리셋이 모두 삭제됩니다. 계속할까요?','Your settings and all presets will be deleted. Continue?'),()=>{try{Object.keys(localStorage).filter(k=>k.startsWith('bc_')).forEach(k=>localStorage.removeItem(k))}catch(e){}myPre=[];PF.rm=false;applyPf();renderMyPre();buildSet();toast(TR('삭제했습니다','Deleted'))})}
 $('#bSet').onclick=()=>{buildSet();openM('mSet')};
 $('#bPass').onclick=()=>passTurn(false);
@@ -4507,9 +4518,14 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.5.4';
+const APP_VER='1.5.5';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.5.5',TR('접근성 · 진동 효과','Accessibility · Vibration'),[
+  TR('📳 이동·잡기·스킬·폭발·승패·폭풍 경고 등 효과마다 다른 진동을 넣었어요 (설정에서 끌 수 있어요)','📳 Added distinct vibration for moves, captures, skills, blasts, results and storm warnings (can be turned off in Settings)'),
+  TR('👆 터치 화면에서 버튼 터치 영역을 44px 이상으로 키웠어요','👆 Enlarged touch targets to at least 44px on touch screens'),
+  TR('🔠 작은 글자를 키우고, 설정에 글자 크게 · 고대비 모드를 추가했어요','🔠 Enlarged tiny text and added Larger Text and High Contrast options'),
+  TR('⌨️ 키보드 포커스 표시를 더 잘 보이게 바꿨어요','⌨️ Made the keyboard focus ring more visible')]],
  ['1.5.4',TR('도우미 손가락 개선','Helper Pointer Fix'),[
   TR('👇 좋은 수·튜토리얼의 도우미 손가락이 기물이 움직이면 바로 사라져요','👇 The helper pointer in hints and the tutorial now disappears right after a piece moves')]],
  ['1.5.3',TR('밸런스·버그 수정','Balance & Bug Fixes'),[
@@ -6632,6 +6648,9 @@ $('#petS').onclick=()=>{$('#petS').classList.remove('on');clearTimeout(P.tm);pet
 {const _f=finish;finish=function(w,why){_f.apply(this,arguments);try{if(!petActive()||G.lab||G.tut)return;const me=petSide(),win=(G.mode==='pvp'&&!G.net)?null:w===me,id=petOn();
  setTimeout(()=>{if(win===null)petSay(TR('둘 다 멋졌어!','You both played great!'),'happy',5000);else if(win)petSay(id==='kk'?TR('우리가 이겼다! 콩콩콩!!','We won! Kong-kong-kong!!'):id==='tt'?TR('완벽한 승리야! 탱탱!','A perfect win! Tang-tang!'):TR('역시 우리 팀이야!','That\'s our team!'),'happy',6000);else petSay(id==='kk'?TR('다음엔 꼭 이길 수 있어!','Next time for sure!'):id==='tt'?TR('괜찮아, 같이 다시 도전하자!','It\'s okay, let\'s retry!'):TR('복기하면 더 강해질 거야.','Review it and grow stronger.'),'worry',6000);if(win)petHop()},900)}catch(e){}}}
 MH.bk();
+/* ---- 1.5.5 진동: 경고·업적·스킬 연출 ---- */
+try{const obs=(id,pat)=>{const el=document.getElementById(id);if(!el)return;new MutationObserver(()=>{if((el.textContent||'').trim())VB('',pat)}).observe(el,{childList:true,characterData:true,subtree:true})};
+ obs('stormAl',[70,40,70,40,110]);obs('phaseAl',[40,30,40]);obs('skAl',[24,24,40]);obs('achT',[20,40,20,40,70]);obs('toast',[10])}catch(e){}
 
 /*DBG*/
 })();
