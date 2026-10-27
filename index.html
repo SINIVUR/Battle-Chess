@@ -823,6 +823,9 @@ body.hc{--ink:#000}body.hc button,body.hc .mc,body.hc .card{border-width:3px!imp
 .c .wrn{position:absolute;right:2px;top:1px;z-index:5;font-size:12px;line-height:1;font-style:normal;color:#b36b00;text-shadow:0 0 2px #fff,0 0 2px #fff;pointer-events:none}.c .wrn.f{color:#d11a1a;font-size:14px}
 .dngtx{font-size:12px;line-height:1.35;color:#8a3b00;background:#fff4d6;border:1.5px solid #e0a53a;border-radius:8px;padding:3px 8px;margin:2px 0;order:2}
 body.hc .dngtx{color:#000;border-color:#000}
+
+#s4 #pcard #pcxp,#s4 #pcard #pcx{width:30px;height:30px;min-height:0;min-width:0;padding:0;font-size:14px;line-height:1;display:inline-flex;align-items:center;justify-content:center;flex:none;border-radius:8px;box-shadow:2px 2px 0 #111;margin:0}
+#s4 #pcard #pcxp{font-size:12px}#s4 #pcard .pk1{align-items:center}#s4 #pcard #pcx{font-size:17px}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -2226,7 +2229,7 @@ Object.assign(GLY,{
 'Ġ':'<rect x="2.500" y="4.500" width="19" height="13" rx="2.200" fill="none" stroke-width="2.200"/><path d="M8 21h8" fill="none" stroke-width="2.200"/><rect x="5.500" y="8" width="7" height="2.200" stroke="none"/><rect x="9.500" y="11.600" width="9" height="2.200" stroke="none"/><rect x="6.500" y="14" width="4" height="1.600" stroke="none"/>',
 'Ẅ':'<path d="M2.800 12.500a9.200 9.200 0 0118.400 0v3.200a4.300 4.300 0 01-4.300 4.300H7.100a4.300 4.300 0 01-4.300-4.300z"/><circle cx="8.600" cy="9.800" r="1.700" fill="'+TK+'" stroke="none"/><circle cx="15.400" cy="9.800" r="1.700" fill="'+TK+'" stroke="none"/><path d="M5.200 14l1.900 3 1.900-3 1.900 3 1.900-3 1.900 3 1.900-3" fill="none" stroke="'+TK+'" stroke-width="1.500"/>',
 'Ȧ':'<circle cx="12" cy="12" r="2.600"/><path d="M12 1.800l3 4h-6zM12 22.200l-3-4h6zM1.800 12l4-3v6zM22.200 12l-4 3v-6z" stroke-width=".8"/><path d="M17.500 3.500h2.500v6M6.500 20.500H4v-6" fill="none" stroke-width="1.600" stroke-dasharray="2 1.800"/>',
-'Ƅ':'<circle cx="12" cy="10.500" r="7.200" fill="none" stroke-width="2"/><circle cx="12" cy="10.500" r="2.200"/><path d="M12 1.200v3.400M12 16.400v1.200M2.700 10.500h3.400M17.900 10.500h3.400" fill="none" stroke-width="1.800"/><path d="M8 20.200h8L12 23.400z" stroke-width=".8"/>',
+'Ƅ':'<path d="M4.500 3.500Q12 13 19.500 3.500" fill="none" stroke-width="2.200"/><path d="M4.500 3.500h15" fill="none" stroke-width="1.200"/><path d="M12 3.500v13.500" fill="none" stroke-width="2.200"/><path d="M7.600 15.500l4.400 6.600 4.400-6.600z" stroke-width=".8"/>',
 });
 function gl(t,alt){if(alt&&GLY[t+'+'])t=t+'+';return '<svg class="gl" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.400" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(GLY[t]||'')+'</svg>'}
 
@@ -2408,7 +2411,7 @@ const plTags=t=>DEF[t].p==='fb'?TR('<span class="tg f">전열</span><span class=
 const tagCls=t=>DEF[t].p==='f'?'f':DEF[t].p==='b'?'b':'x';
 
 /* ===== 도움말 ===== */
-const GR=[[TR('킹 계열','King class'),TR('킹, 엠페러, 갓, 데몬, 대통령 중 1기','Pick 1: King, Emperor, God, Demon or President'),['E','g','d','Ṗ']],[TR('퀸 계열','Queen class'),TR('퀸, 메두사, 프린세스, 마더, 루시퍼 중 1기','Pick 1: Queen, Medusa, Princess, Mother or Lucifer'),['Q','M','q','m','Ḷ']],[TR('기동 계열','Mobility class'),TR('빠른 이동·순간이동·침투로 전장을 휘젓는 기물','Pieces that rush around with fast moves, teleports and infiltration'),['T','N','Z','Y','F','r','u','t','x','Ƀ','Ð','Ẇ']],[TR('원거리 계열','Ranged class'),TR('멀리서 적을 제거하는 기물','Pieces that eliminate enemies from afar'),['S','L','A','O','U','J','C','h','j','Ċ','Ḃ','Ṫ']],[TR('근접 계열','Melee class'),TR('정면에서 부딪혀 잡는 기물','Pieces that charge in and capture head-on'),['P','B','R','G','c','i','b','k','y','Ñ','Ẍ','Š']],[TR('유틸 계열','Support class'),TR('보호·회복·재배치로 아군을 돕는 기물','Pieces that protect, heal and reposition allies'),['H','I','a','V','l','f','z','p','Ł','Ƥ','Ĝ','Ž']],[TR('특수 계열','Special class'),TR('독특한 규칙을 가진 기물','Pieces with unique rules'),['X','s','w','v','o','D','W','e','n','Ä','Ë','Ĵ']]];
+const GR=[[TR('킹 계열','King class'),TR('킹, 엠페러, 갓, 데몬, 대통령 중 1기','Pick 1: King, Emperor, God, Demon or President'),['E','g','d','Ṗ']],[TR('퀸 계열','Queen class'),TR('퀸, 메두사, 프린세스, 마더, 루시퍼 중 1기','Pick 1: Queen, Medusa, Princess, Mother or Lucifer'),['Q','M','q','m','Ḷ']],[TR('기동 계열','Mobility class'),TR('빠른 이동·순간이동·침투로 전장을 휘젓는 기물','Pieces that rush around with fast moves, teleports and infiltration'),['T','N','Z','Y','F','r','u','t','x','Ƀ','Ð','Ẇ','Ȧ']],[TR('원거리 계열','Ranged class'),TR('멀리서 적을 제거하는 기물','Pieces that eliminate enemies from afar'),['S','L','A','O','U','J','C','h','j','Ċ','Ḃ','Ṫ','Ƅ']],[TR('근접 계열','Melee class'),TR('정면에서 부딪혀 잡는 기물','Pieces that charge in and capture head-on'),['P','B','R','G','c','i','b','k','y','Ñ','Ẍ','Š','Ẅ']],[TR('유틸 계열','Support class'),TR('보호·회복·재배치로 아군을 돕는 기물','Pieces that protect, heal and reposition allies'),['H','I','a','V','l','f','z','p','Ł','Ƥ','Ĝ','Ž','Ġ']],[TR('특수 계열','Special class'),TR('독특한 규칙을 가진 기물','Pieces with unique rules'),['X','s','w','v','o','D','W','e','n','Ä','Ë','Ĵ','Ɓ']]];
 let selTab=0;
 GR.splice(2,3,GR[4],GR[2],GR[3]);   // 분류 순서 통일: 킹 · 퀸 · 근접 · 기동 · 원거리 · 유틸 · 특수
 const CLN=()=>[TR('킹 계열','King class'),TR('퀸 계열','Queen class'),TR('근접','Melee'),TR('기동','Mobility'),TR('원거리','Ranged'),TR('유틸','Support'),TR('특수','Special')];
