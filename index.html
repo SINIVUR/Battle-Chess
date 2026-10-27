@@ -3042,7 +3042,7 @@ function play(m,hold,seq){if(m&&m[2]===16)G.pasd=true;
  if(u.mk){u.mk.forEach(x=>G.lost[x[1].s].push(x[1].t));const mk=u.mk.slice();setTimeout(()=>{mk.forEach(x=>killFx(x[0],x[1].s,mk.length,'e',null));sfx('magmaDie')},520)}
  if(u.zk)stormReport(u,who);
  {const ks=[],kty=m[2]===0?u.pt:p.t,kfrom=m[2]===12?null:m[0];if(u.cap&&(m[2]<2||m[2]===11)&&!(u.jwv&&u.jwv.some(x=>x[1]===u.cap)))ks.push([m[1],u.cap.s]);if(u.kl)u.kl.forEach(x=>ks.push([x[0],x[1].s]));if(u.kd)u.kd.forEach(x=>ks.push([x[0],x[1].s]));if(u.jwk)u.jwk.forEach(x=>ks.push([x[0],x[1].s]));
-  if(ks.length){ks.forEach(x=>setTimeout(()=>killFx(x[0],x[1],ks.length,kty,kfrom),90+KDL(m,x[0])));const kd0=Math.min(...ks.map(x=>KDL(m,x[0])));const kv=Math.max(1,...[u.cap].concat((u.kl||[]).map(x=>x[1])).filter(Boolean).map(q=>isKing(q.t)?9:(DEF[q.t].c||1)));setTimeout(()=>killSfx(kty,ks.length,kv),70+kd0);setTimeout(()=>softShake(kv),95+kd0);G.kfx=1}
+  if(ks.length){const noKfx=m[2]===1&&p.t==='Ƅ';ks.forEach(x=>{if(!noKfx)setTimeout(()=>killFx(x[0],x[1],ks.length,kty,kfrom),90+KDL(m,x[0]))});const kd0=Math.min(...ks.map(x=>KDL(m,x[0])));const kv=Math.max(1,...[u.cap].concat((u.kl||[]).map(x=>x[1])).filter(Boolean).map(q=>isKing(q.t)?9:(DEF[q.t].c||1)));setTimeout(()=>killSfx(kty,ks.length,kv),70+kd0);setTimeout(()=>softShake(kv),95+kd0);G.kfx=1}
   if(m[2]===0&&m[4]&&p.t==='c')setTimeout(()=>{critFx(m[4][0]);sfx('crit')},330);
   if(m[5])setTimeout(()=>{counterFx(m[1],who);sfx('counter')},420);
   if(dem)setTimeout(()=>{demonFx(m[1]);sfx('demon')},600)}
