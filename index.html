@@ -4537,6 +4537,7 @@ const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
  ['1.5.9',TR('최하 난이도 대폭 완화 · 자동 배치 수정','Easiest AI Much Easier · Auto-Place Fix'),[
   TR('🌱 AI "최하" 단계가 정말 초보용이 되도록 크게 약하게 만들었어요. 가끔 아무 수나 두기 때문에 체스를 처음 해도 이길 수 있어요','🌱 The lowest AI level is now truly beginner-friendly: it sometimes plays a random move'),
+  TR('💎 상점 "코인 전용"을 기물과 스킬 두 분류로 나눠서 골라 볼 수 있어요','💎 The Coin-only shop tab is now split into pieces and skills'),
   TR('✏️ 이름 색을 사면 칭호도 같은 색으로 표시돼요','✏️ Your name color now also colors your title'),
   TR('🎨 상점의 프레임·아바타 배경 미리보기를 같은 크기로 맞추고, 배경 무늬가 한눈에 보이게 키웠어요','🎨 Shop previews for frames and avatar backgrounds are the same size, and avatar-background patterns are much easier to see'),
   TR('🐾 상점의 펫 카드에 각 펫의 스킬 이름과 효과를 보여줘요','🐾 Shop pet cards now show each pet\'s skill and what it does'),
@@ -6287,6 +6288,7 @@ const BGS=[{id:'plain',n:TR('기본','Plain'),p:0},{id:'sunset',n:TR('노을','S
 const ABS=[{id:'plain',n:TR('기본','Plain'),p:0},{id:'sun',n:TR('햇살','Sunburst'),p:150},{id:'argyle',n:TR('왕실 격자','Royal Lattice'),p:200},{id:'circuit',n:TR('회로','Circuit'),p:200},{id:'stars',n:TR('별빛','Starlight'),p:250},{id:'checker',n:TR('체스판','Chessboard'),p:150},{id:'ember',n:TR('불씨','Embers'),p:250},{id:'wave',n:TR('물결','Ripples'),p:200},{id:'vortex',n:TR('소용돌이','Vortex'),p:350},{id:'holo',n:TR('홀로그램','Hologram'),p:400},{id:'blade',n:TR('칼날 무늬','Blades'),p:300}];
 const NCS=[{id:'def',n:TR('기본','Default'),p:0},{id:'gold',n:TR('금색','Gold'),p:80},{id:'mint',n:TR('민트색','Mint'),p:80},{id:'pink',n:TR('분홍색','Pink'),p:80},{id:'rainbow',n:TR('무지개','Rainbow'),p:300},{id:'flame',n:TR('불꽃','Flame'),p:300}];
 /* 코인 전용 기물·스킬 — 기획 확정 후 여기에 항목을 추가해요: {id,k:'piece'|'skill',n,d,p} */
+let exSub='piece';
 const EXCL=['Ð','Ẍ','Ë','Ĝ','Ḃ','Ž','Š','Ṫ','Ĵ','Ẇ'].map(t=>({id:'p'+t.codePointAt(0).toString(16),k:'piece',t,get n(){return DEF[t].n},get d(){return `${DEF[t].c} ${TR('코스트','cost')} · ${stShort(t)}`},get e(){return icon(t)},p:DEF[t].c*50})).concat([
  {id:'hope',k:'skill',e:'🌱',get n(){return TR('아직 기회는 남았다!','Not Over Yet!')},get d(){return TR('사용 스킬 · 내 기물이 5기 이하일 때, 제거된 아군 1기를 아군 진영 빈 칸에 부활 (비용 제한 없음)','Player Skill · with 5 or fewer pieces, revive 1 fallen ally on an empty square in your zone (any cost)')},p:250},
  {id:'mag',k:'skill',e:'🧲',get n(){return TR('자기장 보호막!','Storm Ward!')},get d(){return TR('사용 스킬 · 아군 기물 1기에게 자기장 영구 보호막','Player Skill · give 1 ally a permanent storm shield')},p:250},
@@ -6437,9 +6439,10 @@ function shopDraw(){MH.chip();$$('#shopTabs button').forEach(b=>b.classList.togg
   B.innerHTML=`<p class="note">${TR('스토리를 클리어하지 않아도 코인으로 기물을 미리 열 수 있어요. (스토리를 깨면 그 기물은 그대로 열려요)','Spend coins to open a piece early without clearing the story.')}</p>`+(ls.length?ls.map(t=>row(icon(t),DEF[t].n,`${DEF[t].c} ${TR('코스트','cost')} · ${stShort(t)}`,`<button data-a="bup" data-i="${t}">💰 ${upPrice(t)}</button>`)).join(''):`<p class="note" style="text-align:center">${TR('모든 기물이 열려 있어요!','Every piece is unlocked!')}</p>`)}
  else if(shopTab==='it'){const bo=ecoGet().boost>Date.now();
   B.innerHTML=row('↩',TR('무르기권 1장','Undo ×1'),TR('AI 대국·스토리에서 한 수 되돌려요 · 보유 ','Take back a move vs AI / in Story · own ')+sp.ud,`<button data-a="bud" data-n="1" data-p="25">💰 25</button>`)+row('↩',TR('무르기권 5장 묶음','Undo ×5'),TR('개당 20 코인','20 coins each'),`<button data-a="bud" data-n="5" data-p="100">💰 100</button>`)+row('⏫',TR('코인 부스터 (24시간)','Coin Booster (24h)'),bo?TR('적용 중 · 일반 대국 코인 2배','Active · 2× coins from regular games'):TR('일반 대국 코인이 2배가 돼요','Doubles coins from regular games'),bo?'':`<button data-a="bbo">💰 150</button>`)}
- else{B.innerHTML=`<p class="note">${TR('코인으로만 살 수 있는 특별한 기물과 스킬이에요.','Special pieces and skills available only with coins.')}</p>`+(EXCL.length?EXCL.map(x=>{const own=sp.own.includes('ex_'+x.id);return row(x.e||'💎',x.n,x.d,own?`<span>✔</span>`:`<button data-a="bex" data-i="${x.id}">💰 ${x.p}</button>`)}).join(''):`<div class="shi"><span class="ic2">🛠</span><div class="tx"><b>${TR('준비 중','Coming soon')}</b><small>${TR('곧 공개돼요','To be revealed soon')}</small></div></div>`)}}
+ else{B.innerHTML=`<p class="note">${TR('코인으로만 살 수 있는 특별한 기물과 스킬이에요.','Special pieces and skills available only with coins.')}</p>`+`<div class="chipr exsub"><button data-a="exs" data-i="piece" class="${exSub==='piece'?'on':''}">♟ ${TR('코인 전용 기물','Coin-only pieces')} (${EXCL.filter(y=>y.k==='piece').length})</button><button data-a="exs" data-i="skill" class="${exSub==='skill'?'on':''}">✨ ${TR('코인 전용 스킬','Coin-only skills')} (${EXCL.filter(y=>y.k==='skill').length})</button></div>`+(EXCL.length?EXCL.filter(x=>x.k===exSub).map(x=>{const own=sp.own.includes('ex_'+x.id);return row(x.e||'💎',x.n,x.d,own?`<span>✔</span>`:`<button data-a="bex" data-i="${x.id}">💰 ${x.p}</button>`)}).join(''):`<div class="shi"><span class="ic2">🛠</span><div class="tx"><b>${TR('준비 중','Coming soon')}</b><small>${TR('곧 공개돼요','To be revealed soon')}</small></div></div>`)}}
 $('#shopBody').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.id==='shEd'){openPf(false);return}const a=b.dataset.a,i=b.dataset.i;if(!a)return;const sp=shopGet();
- if(a==='use'){sp.th=i;store.set('shop',sp);MH.theme();sfx('place');shopDraw()}
+ if(a==='exs'){exSub=i;sfx('sel');shopDraw()}
+ else if(a==='use'){sp.th=i;store.set('shop',sp);MH.theme();sfx('place');shopDraw()}
  else if(a==='bth'){const t=THEMES.find(x=>x.id===i);buy(t.p,TR('보드 테마 ','Board theme ')+t.n,s=>{s.own.push(i);s.th=i;store.set('shop',s);MH.theme()})}
  else if(a==='bpf'){const k=b.dataset.k,x={fr:FRAMES,bg:BGS,nc:NCS,ab:ABS}[k].find(y=>y.id===i);buy(x.p,x.n,s=>{s.own.push(k+'_'+i);s.pf[k]=i})}
  else if(a==='bti'){const x=TITLES.find(y=>y.id===i);buy(x.p,'「'+x.n+'」',s=>{s.titles.push(i);s.title=i})}
