@@ -3117,14 +3117,17 @@ function play(m,hold,seq){if(m&&m[2]===16)G.pasd=true;
 const KEF={j:800,'Ḷ':800,L:700,'Ƀ':700,s:760,D:700,E:700,g:760,W:700,X:760,B:700,M:700,e:700};
 const DUEL_MS=3000;
 const KDL=(m,j)=>{const k=m[2];if(k===1&&G.b[m[0]]&&G.b[m[0]].t==='Ƅ')return 700;if(k===14&&m[4]&&G.b[m[1]]&&G.b[m[1]].t==='Ẅ')return Math.max(0,m[4].indexOf(j))*230+80;if(k===0&&G.b[m[1]]&&G.b[m[1]].t==='Ẇ')return 350;if(k===43)return j===m[1]?770:1620;if(k===46)return 620;if(k===47){try{return 280+Math.max(0,BC.wheelRing(G.b,m[0],Math.max(Math.abs((m[1]>>3)-(m[0]>>3)),Math.abs((m[1]&7)-(m[0]&7)))).indexOf(j))*52}catch(e){return 600}}return 0};
+/* 투사체가 날아가는 기물은 '맞는 순간'부터 흔들리게: 타격까지 걸리는 시간(ms) */
+function projDly(m,p,j,lst){const k=m[2];if(p.t==='Ƅ'&&k===1)return 790;if(p.t==='A')return 230;if(p.t==='j')return 510;if(k===6)return 320+Math.max(0,lst.indexOf(j))*90;if(p.t==='Ṫ'||k===1)return 320;return 0}
 function ghostKill(u,m,p){try{if(m[2]===0&&m[7]!==undefined&&u.cap&&u.cap.t==='Ñ')return;const lst=[],whl=m[2]===0&&p.t==='Ẇ'&&u.cap;if(u.cap&&(m[2]===1||m[2]===11||whl))lst.push(m[1]);if(u.kl)u.kl.forEach(x=>{if(!lst.includes(x[0]))lst.push(x[0])});if((m[2]===43||m[2]===46||m[2]===47)&&u.kd)u.kd.forEach(x=>{if(!lst.includes(x[0]))lst.push(x[0])});
  const ty=m[2]===0?u.pt:p.t,hold=90+(KEF[ty]||540);
  lst.forEach(j=>{const hold=whl?480:(m[2]===1&&p.t==='Ƅ')?790:(m[2]===43||m[2]===46||m[2]===47||(m[2]===14&&p.t==='Ẅ'))?KDL(m,j)+420:90+(KEF[ty]||540);const c=cell(j),pc=c&&c.querySelector('.pc');if(!pc)return;const R=c.getBoundingClientRect();if(!R.width)return;
   const w=document.createElement('div');w.style.cssText=`position:fixed;left:${R.left}px;top:${R.top}px;width:${R.width}px;height:${R.height}px;z-index:4;pointer-events:none;display:flex;align-items:center;justify-content:center`;
   const cl=pc.cloneNode(true);w.appendChild(cl);document.body.appendChild(w);
   {let on=true;const track=()=>{if(!on||!w.isConnected)return;const c2=cell(j);if(c2){const R2=c2.getBoundingClientRect();if(R2.width){w.style.left=R2.left+'px';w.style.top=R2.top+'px';w.style.width=R2.width+'px';w.style.height=R2.height+'px'}}requestAnimationFrame(track)};requestAnimationFrame(track);setTimeout(()=>{on=false},hold+300)}
-  w.animate([{filter:'brightness(1)',transform:'translate(0,0) scale(1)',opacity:1},{filter:'brightness(1)',transform:'translate(0,0) scale(1)',opacity:1,offset:Math.max(.05,(70)/(hold+200))},{filter:'brightness(2.4)',transform:'translate(3px,0) scale(1.06)',opacity:1,offset:Math.max(.1,(120)/(hold+200))},{filter:'brightness(1.6)',transform:'translate(-3px,0) scale(1.03)',opacity:1,offset:Math.max(.15,(190)/(hold+200))},{filter:'brightness(1)',transform:'translate(0,0) scale(1)',opacity:1,offset:hold/(hold+200)},{filter:'brightness(2)',transform:'translate(0,0) scale(.6)',opacity:0}],{duration:hold+200,fill:'forwards'});
-  setTimeout(()=>w.remove(),hold+260)})}catch(e){}}
+  const noSh=p.t==='Ƅ'&&m[2]===1,dly=noSh?0:projDly(m,p,j,lst);const hd=dly>0?Math.max(hold,dly+220):hold;
+  w.animate(noSh?[{filter:'brightness(1)',transform:'translate(0,0) scale(1)',opacity:1},{filter:'brightness(1)',transform:'translate(0,0) scale(1)',opacity:1,offset:hd/(hd+200)},{filter:'brightness(2)',transform:'translate(0,0) scale(.6)',opacity:0}]:[{filter:'brightness(1)',transform:'translate(0,0) scale(1)',opacity:1},{filter:'brightness(1)',transform:'translate(0,0) scale(1)',opacity:1,offset:Math.max(.05,(70+dly)/(hd+200))},{filter:'brightness(2.4)',transform:'translate(3px,0) scale(1.06)',opacity:1,offset:Math.max(.1,(120+dly)/(hd+200))},{filter:'brightness(1.6)',transform:'translate(-3px,0) scale(1.03)',opacity:1,offset:Math.max(.15,(190+dly)/(hd+200))},{filter:'brightness(1)',transform:'translate(0,0) scale(1)',opacity:1,offset:hd/(hd+200)},{filter:'brightness(2)',transform:'translate(0,0) scale(.6)',opacity:0}],{duration:hd+200,fill:'forwards'});
+  setTimeout(()=>w.remove(),hd+260)})}catch(e){}}
 function killFx(j,side,n,ty,from){const c=cell(j);if(!c)return;
  const R=c.getBoundingClientRect(),sz=R.width,w=document.createElement('div');w.className='kfx';
  w.style.cssText=`left:${R.left}px;top:${R.top}px;width:${R.width}px;height:${R.height}px`;document.body.appendChild(w);
@@ -4659,7 +4662,8 @@ const PATCH=[
  ['1.6.1',TR('백슈터 화살 연출 · 연습장 자기장','Backshooter Arrows · Practice Storm'),[
   TR('🏹 백슈터가 공격하면 화면이 어두워지며 "백 슈팅!" 글씨와 함께 화살이 날아가 처치하는 연출·사운드를 넣었어요','🏹 Backshooter attacks now dim the screen with "Back Shooting!", an arrow flies in, and the hit has its own sound'),
   TR('🌪 연습장에 자기장 버튼을 추가했어요. 누를 때마다 자기장이 1줄씩 생기고(최대 3줄), "자기장 끄기"를 누르면 사라져요','🌪 Practice lab: a Storm button adds one storm row per press (up to 3) and "Storm off" clears it'),
-  TR('🐾 모든 펫 시전 스킬을 온라인 대전에서도 쓸 수 있어요 (콩콩이·탱탱이·똑똑이·뾰롱이). 상대 화면에도 똑같이 적용돼요','🐾 Every pet skill now works in online matches (Kongkong, Tangtang, Ddokddok, Ppyorong) and shows on your opponent\'s screen too'),
+  TR('🎯 아처·스파클·탱크·백슈터처럼 투사체를 날리는 기물은 투사체가 닿은 뒤에 적이 흔들려요','🎯 For projectile pieces (Archer, Sparkle, Tank, Backshooter) the target now reacts only after the shot lands'),
+ TR('🐾 모든 펫 시전 스킬을 온라인 대전에서도 쓸 수 있어요 (콩콩이·탱탱이·똑똑이·뾰롱이). 상대 화면에도 똑같이 적용돼요','🐾 Every pet skill now works in online matches (Kongkong, Tangtang, Ddokddok, Ppyorong) and shows on your opponent\'s screen too'),
  TR('🧩 신규 기물 5종이 기물 선택 목록에 나오지 않던 문제와 백슈터 아이콘, 기물 정보 버튼 크기를 고쳤어요','🧩 Fixed the 5 new pieces missing from the piece picker, plus the Backshooter icon and info-bar button size')]],
  ['1.6.0',TR('정당하게 승부하라! · 신규 기물 5종 · 뾰롱이','Play Fair! · 5 New Pieces · Ppyorong'),[
   TR('🆕 상점 전용 기물: 🚫 밴(1) · 📺 글리치(2) · 🏹 백슈터(3) · 🌀 어질리티(5) · 😋 와구와구(8)','🆕 Shop-only pieces: Ban(1) · Glitch(2) · Backshooter(3) · Agility(5) · Waguwagu(8)'),
