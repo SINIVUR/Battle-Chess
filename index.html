@@ -3971,16 +3971,16 @@ Object.assign(SCN,{
   X2.beam(O,c0.x,c0.y,c1.x,c1.y,'rgba(255,207,90,.55)',4,120,420);
   setTimeout(()=>{X2.flash(O,'#fff0c0',0,.8);X2.glow(O,c1.x,c1.y,s*3.2,'#ff9a3a',0,700);X2.ring(O,c1.x,c1.y,s*2.4,'#ffb347',0,700,5);X2.emo(O,c1.x,c1.y,'💥',s*.9,[{transform:'scale(.3)',opacity:0},{transform:'scale(2.3)',opacity:1,offset:.3},{transform:'scale(2.8)',opacity:0}],0,800);X2.sparks(O,c1.x,c1.y,26,['#fff','#ffb347','#ff5a2a','#444'],s*2.6,0,900);shk2(600)},620)},
  /* 휠: 바깥줄을 실제로 한 바퀴 */
- 47(m,p,who){const O=cinOpen({fj:m[0],dur:2300,out:'rgba(24,12,0,.88)',inn:'rgba(255,200,120,.1)',title:'旋回',sub:'',tc:'#ffe9c4',ts:'#6a3a00',td:200});if(!O)return;const c=O.p(m[0]);if(!c)return;const s=c.s;
+ 47(m,p,who){const O=cinOpen({fj:m[0],dur:1700,out:'rgba(24,12,0,.88)',inn:'rgba(255,200,120,.1)',title:'旋回',sub:'',tc:'#ffe9c4',ts:'#6a3a00',td:200});if(!O)return;const c=O.p(m[0]);if(!c)return;const s=c.s;
   let rg=[];try{rg=BC.wheelRing(G.b,m[0],Math.max(Math.abs((m[1]>>3)-(m[0]>>3)),Math.abs((m[1]&7)-(m[0]&7))))}catch(e){}
   {const ti=rg.indexOf(m[1]);if(ti>=0)rg=rg.slice(ti+1).concat(rg.slice(0,ti+1));}
-  const TOT=1500;try{const vis=q=>[...document.querySelectorAll(q)].find(x=>x.getClientRects().length)||null;
+  const TOT=650;try{const vis=q=>[...document.querySelectorAll(q)].find(x=>x.getClientRects().length)||null;
    const e=vis('.c[data-i="'+m[0]+'"] .pc')||vis('.c[data-i="'+m[1]+'"] .pc');const rc=k=>{const c=vis('.c[data-i="'+k+'"]');return c?c.getBoundingClientRect():null};const R0=rc(m[0]);
-   if(e&&R0){const st=document.createElement('style');st.textContent='.c[data-i="'+m[0]+'"] .pc,.c[data-i="'+m[1]+'"] .pc{visibility:hidden!important}';document.head.appendChild(st);
-    const P=rg.concat([m[1]]),fr=[{transform:'translate(0px,0px)',offset:0}];const N=P.length;P.forEach((k,i)=>{const r=rc(k);if(r)fr.push({transform:'translate('+(r.left-R0.left)+'px,'+(r.top-R0.top)+'px) rotate('+((i+1)*360/N)+'deg)',offset:(i+1)/N})});
+   if(e&&R0){const st=document.createElement('style');st.textContent='.c[data-i="'+m[0]+'"] .pc{visibility:hidden!important}';document.head.appendChild(st);setTimeout(()=>{try{st.textContent='.c[data-i="'+m[0]+'"] .pc,.c[data-i="'+m[1]+'"] .pc{visibility:hidden!important}'}catch(x){}},150+TOT);
+    const P=rg[rg.length-1]===m[1]?rg:rg.concat([m[1]]),fr=[{transform:'translate(0px,0px)',offset:0}];const N=P.length;P.forEach((k,i)=>{const r=rc(k);if(r)fr.push({transform:'translate('+(r.left-R0.left)+'px,'+(r.top-R0.top)+'px) rotate('+((i+1)*360/N)+'deg)'+(i===N-1?' scale(1.25)':''),offset:(i+1)/N})});
     const g=document.createElement('div');g.style.cssText='display:flex;align-items:center;justify-content:center;font-size:'+getComputedStyle(e.parentNode).fontSize+';position:fixed;pointer-events:none;z-index:80;left:'+R0.left+'px;top:'+R0.top+'px;width:'+R0.width+'px;height:'+R0.height+'px';const ce=e.cloneNode(true);ce.style.visibility='visible';g.appendChild(ce);document.body.appendChild(g);
-    const done=()=>{try{g.remove();st.remove()}catch(x){}};const an=g.animate(fr,{duration:TOT,delay:150,easing:'linear',fill:'both'});an.onfinish=done;an.oncancel=done;setTimeout(done,TOT+900)}}catch(x){}
-  rg.forEach((j,i)=>{const q=O.p(j);if(!q)return;const d=150+i*(1300/Math.max(1,rg.length));X2.glow(O,q.x,q.y,s*1.1,'#ffb347',d,380,.9);X2.sparks(O,q.x,q.y,4,['#fff','#ffb347'],s*.8,d,400)});
+    const done=()=>{try{g.remove();st.remove()}catch(x){}};const an=g.animate(fr,{duration:TOT,delay:150,easing:'linear',fill:'both'});an.oncancel=done;setTimeout(done,TOT+950)}}catch(x){}
+  rg.forEach((j,i)=>{const q=O.p(j);if(!q)return;const d=150+i*(TOT/Math.max(1,rg.length));X2.glow(O,q.x,q.y,s*1.1,'#ffb347',d,380,.9);X2.sparks(O,q.x,q.y,4,['#fff','#ffb347'],s*.8,d,400)});
   const t=O.p(m[1]);if(t){const ix=Math.max(0,rg.indexOf(m[1])),d=150+TOT;setTimeout(()=>{X2.flash(O,'#fff3d0',0,.7);X2.glow(O,t.x,t.y,s*2.6,'#ff9a3a',0,600);X2.ring(O,t.x,t.y,s*2,'#fff',0,600,4);X2.emo(O,t.x,t.y,'💥',s*.8,[{transform:'scale(.3)',opacity:0},{transform:'scale(2)',opacity:1,offset:.3},{transform:'scale(2.4)',opacity:0}],0,700);X2.sparks(O,t.x,t.y,20,['#fff','#ffb347','#ff5a2a'],s*2.2,0,800);shk2(450)},d)}},
  /* 사격/관통 사격 */
  6(m,p){const O=cinOpen({fj:m[0],dur:1700,out:'rgba(12,12,16,.86)',inn:'rgba(255,220,150,.08)',title:'射撃',sub:p.t==='h'?TR('전방 사격!','Fire ahead!'):TR('관통 사격!','Pierce shot!'),tc:'#fff3d8',ts:'#4a3000',td:200});if(!O)return;const c0=O.p(m[0]);if(!c0)return;const s=c0.s;
