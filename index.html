@@ -4544,7 +4544,7 @@ async function netEnter(op,id,role){
  NT.failT=setTimeout(()=>{if(!NT.started&&NT.phase==='joining')netFail(TR('상대가 응답하지 않습니다','The opponent is not responding'))},20000)}
 function netSendHi(){
  if(!NT.gr)return;
- const d={nk:NT.nk,l:NT.mine.l,pl:NT.mine.pl,rk:rkPts,av:APP_VER,sx:exMine()};if(NT.role==='host'){d.hc=NT.hc;d.seed=NT.seed}
+ const d={nk:NT.nk,l:NT.mine.l,pl:NT.mine.pl,rk:rkPts,av:APP_VER,sx:exMine(),pt:(MH.petId&&MH.petId())||''};if(NT.role==='host'){d.hc=NT.hc;d.seed=NT.seed}
  NT.gr.emit('hi',d).catch(()=>{})}
 function netFail(msg){
  toast(msg+TR(' — 다시 상대를 찾습니다',' — looking for another opponent'));
@@ -4556,7 +4556,7 @@ function onHi(msg){
  if(d.av!==APP_VER){netFail(TR('상대와 게임 버전이 달라요 (상대 v','Your game versions differ (opponent v')+String(d.av||'?').slice(0,10)+TR(', 나 v',', you v')+APP_VER+TR(') — 새로고침 후 다시 시도해 주세요',') — please refresh and try again'));return}
  const nk=nkClean(d.nk);if(!nk||typeof d.l!=='string'||!Array.isArray(d.pl))return;
  const first=!NT.gotHi;
- NT.opp.rk=Math.max(0,Math.min(2000,Math.floor(+d.rk)||0));NT.opp.nk=nk;NT.opp.l=d.l;NT.opp.pl=d.pl;NT.opp.sx=Array.isArray(d.sx)?d.sx.filter(k=>EXSK.includes(k)):[];
+ NT.opp.rk=Math.max(0,Math.min(2000,Math.floor(+d.rk)||0));NT.opp.nk=nk;NT.opp.l=d.l;NT.opp.pl=d.pl;NT.opp.sx=Array.isArray(d.sx)?d.sx.filter(k=>EXSK.includes(k)):[];NT.opp.pt=['kk','tt','dd','pr'].includes(d.pt)?d.pt:'';
  if(NT.role==='guest'){if(d.hc!=='w'&&d.hc!=='b')return;NT.hc=d.hc;NT.seed=Number.isInteger(d.seed)?d.seed:0}
  NT.gotHi=true;if(first)netSendHi();
  if(NT.phase==='joining')netBegin()}
@@ -4635,6 +4635,7 @@ function netApply(a){
    if(!m||G.turn!==opc||!Number.isInteger(m[0])||!G.b[m[0]]||!Number.isInteger(m[1]))throw new Error('bad move');
    play(m,Array.isArray(a.h)?{d:a.h}:null,a.s?true:undefined)}
   else if(a.k==='sk'){if(!['ret','fin','hope','mag','fst'].includes(a.t)||G.turn!==opc||!G.sk[opc][a.t]||(G.plies||0)>=SUDDEN)throw new Error('bad skill');if(a.t==='mag'&&!(G.b[a.a]&&G.b[a.a].s===opc))throw new Error('bad skill');if(a.t==='hope'&&!(G.b.dead[opc][a.a]&&!G.b[a.to]&&inZone(opc,a.to)&&myCount(opc)<=5))throw new Error('bad skill');if(a.t==='fst'){G.sk[opc].fst=0;G.fstA=opc;skillAlert('fst',opc);G.lastTxt=SN[opc]+TR(' 사용 스킬 ⏩ 기선제압! 준비',' Player Skill ⏩ First Strike! armed');draw()}else skApply(a.t,a.a,a.to)}
+  else if(a.k==='pet'){if(G.turn!==opc||!MH.petRem||!MH.petRem(a,opc))throw new Error('bad pet skill')}
   else if(a.k==='rush'){const fv=!!a.fv;if(G.turn!==opc||!G.sk[opc][fv?'fever':'rush']||(fv?(G.plies||0)<SUDDEN:(G.plies||0)>=SUDDEN))throw new Error('bad rush');startRush(fv?1:0)}
   else if(a.k==='pass'){if(G.turn!==opc||BC.gen(G.b,opc,{noDbl:true}).length)throw new Error('bad pass');passTurn(true)}
   else if(a.k==='skip'){if(G.turn!==opc)throw new Error('bad skip');doSkip()}
@@ -4658,7 +4659,8 @@ const PATCH=[
  ['1.6.1',TR('백슈터 화살 연출 · 연습장 자기장','Backshooter Arrows · Practice Storm'),[
   TR('🏹 백슈터가 공격하면 화면이 어두워지며 "백 슈팅!" 글씨와 함께 화살이 날아가 처치하는 연출·사운드를 넣었어요','🏹 Backshooter attacks now dim the screen with "Back Shooting!", an arrow flies in, and the hit has its own sound'),
   TR('🌪 연습장에 자기장 버튼을 추가했어요. 누를 때마다 자기장이 1줄씩 생기고(최대 3줄), "자기장 끄기"를 누르면 사라져요','🌪 Practice lab: a Storm button adds one storm row per press (up to 3) and "Storm off" clears it'),
-  TR('🧩 신규 기물 5종이 기물 선택 목록에 나오지 않던 문제와 백슈터 아이콘, 기물 정보 버튼 크기를 고쳤어요','🧩 Fixed the 5 new pieces missing from the piece picker, plus the Backshooter icon and info-bar button size')]],
+  TR('🐾 모든 펫 시전 스킬을 온라인 대전에서도 쓸 수 있어요 (콩콩이·탱탱이·똑똑이·뾰롱이). 상대 화면에도 똑같이 적용돼요','🐾 Every pet skill now works in online matches (Kongkong, Tangtang, Ddokddok, Ppyorong) and shows on your opponent\'s screen too'),
+ TR('🧩 신규 기물 5종이 기물 선택 목록에 나오지 않던 문제와 백슈터 아이콘, 기물 정보 버튼 크기를 고쳤어요','🧩 Fixed the 5 new pieces missing from the piece picker, plus the Backshooter icon and info-bar button size')]],
  ['1.6.0',TR('정당하게 승부하라! · 신규 기물 5종 · 뾰롱이','Play Fair! · 5 New Pieces · Ppyorong'),[
   TR('🆕 상점 전용 기물: 🚫 밴(1) · 📺 글리치(2) · 🏹 백슈터(3) · 🌀 어질리티(5) · 😋 와구와구(8)','🆕 Shop-only pieces: Ban(1) · Glitch(2) · Backshooter(3) · Agility(5) · Waguwagu(8)'),
   TR('🐾 신규 펫 뾰롱이: 재치 있는 말을 쉬지 않고 하고, 전용 스킬로 턴을 써서 5코스트 이하 아군을 원하는 빈 칸으로 옮겨요 (한 판에 1번)','🐾 New pet Ppyorong: constant quips, and a skill that spends your turn to move an ally of cost 5 or less to any empty square (once per game)'),
@@ -6670,9 +6672,9 @@ const PACC=[{id:'none',n:TR('없음','None'),p:0,e:'—'},{id:'ribbon',n:TR('리
 /* sk: 펫 전용 스킬 슬롯 — 기획 확정 후 {n,d,cd,use(){}} 형태로 채워요 */
 const PETS=[
  {id:'kk',n:TR('콩콩이','Kongkong'),p:200,dc:'#ffd6e6',role:TR('응원 담당','Cheerleader'),d:TR('수를 둘 때마다 신나게 응원해 줘요. 기물을 잡으면 같이 기뻐하고, 잃으면 토닥여 줘요.','Cheers you on every move — celebrates your captures and comforts you after a loss.'),sk:{n:TR('지켜줄게!','I\'ll protect you!'),d:TR('아군 기물 1기를 3턴 동안 무적 상태로 만들어요. 한 판에 1번, 턴을 쓰지 않아요.','Makes 1 ally invincible for 3 turns. Once per game, costs no turn.')}},
- {id:'tt',n:TR('탱탱이','Tangtang'),p:300,dc:'#bfe9ff',role:TR('경호 담당','Guardian'),d:TR('내 킹이나 중요한 기물이 공격받으면 먼저 알려줘요. 탭하면 지금 위험한 기물을 짚어줘요.','Warns you when your King or a key piece is under attack. Tap to point out what is in danger.'),sk:{n:TR('내게 맡겨!','Leave it to me!'),d:TR('패시브 · 아군 기물 1기가 원거리 공격이나 스킬로 처치될 때 탱탱이가 1번 막아줘요. (한 판에 1번, 온라인 제외)','Passive · blocks 1 ally from dying to a ranged attack or skill, once per game (not in online play).')}},
- {id:'dd',n:TR('똑똑이','Ddokddok'),p:400,dc:'#ffe08a',role:TR('조언 담당','Advisor'),d:TR('어려울 땐 탭해서 물어보세요. 한 판에 3번, 좋은 수를 짚어줘요. (온라인 대전 제외)','Tap when stuck — suggests a good move up to 3 times per game (not in online play).'),sk:{n:TR('백발백중!','Bullseye!'),d:TR('스킬을 쓸 수 있는 기물 1기를 골라 이번 턴에 스킬을 2번 쓰게 해요. 한 판에 1번, 턴을 쓰지 않아요. (온라인 제외)','Pick a piece with a skill — it can use its skill twice this turn. Once per game, costs no turn (not in online play).')}},
- {id:'pr',n:TR('뾰롱이','Ppyorong'),p:450,dc:'#8fe388',role:TR('재치 담당','Wit'),d:TR('한마디도 지지 않는 새침한 초록 멍멍이. 대국 내내 재치 있는 말을 쉬지 않고 던져요. 탭하면 한마디 더!','A sassy little green pup with a quip for every moment. Tap for one more!'),sk:{n:TR('요기로 와봐!','Come over here!'),d:TR('턴을 소모하여 아군의 5코스트 이하 기물 1기를 원하는 빈 칸으로 옮겨요. 한 판에 1번. (온라인 제외)','Spend your turn to move 1 ally of cost 5 or less to any empty square. Once per game (not in online play).')}}
+ {id:'tt',n:TR('탱탱이','Tangtang'),p:300,dc:'#bfe9ff',role:TR('경호 담당','Guardian'),d:TR('내 킹이나 중요한 기물이 공격받으면 먼저 알려줘요. 탭하면 지금 위험한 기물을 짚어줘요.','Warns you when your King or a key piece is under attack. Tap to point out what is in danger.'),sk:{n:TR('내게 맡겨!','Leave it to me!'),d:TR('패시브 · 아군 기물 1기가 원거리 공격이나 스킬로 처치될 때 탱탱이가 1번 막아줘요. (한 판에 1번)','Passive · blocks 1 ally from dying to a ranged attack or skill, once per game.')}},
+ {id:'dd',n:TR('똑똑이','Ddokddok'),p:400,dc:'#ffe08a',role:TR('조언 담당','Advisor'),d:TR('어려울 땐 탭해서 물어보세요. 한 판에 3번, 좋은 수를 짚어줘요. (온라인 대전 제외)','Tap when stuck — suggests a good move up to 3 times per game (not in online play).'),sk:{n:TR('백발백중!','Bullseye!'),d:TR('스킬을 쓸 수 있는 기물 1기를 골라 이번 턴에 스킬을 2번 쓰게 해요. 한 판에 1번, 턴을 쓰지 않아요.','Pick a piece with a skill — it can use its skill twice this turn. Once per game, costs no turn.')}},
+ {id:'pr',n:TR('뾰롱이','Ppyorong'),p:450,dc:'#8fe388',role:TR('재치 담당','Wit'),d:TR('한마디도 지지 않는 새침한 초록 멍멍이. 대국 내내 재치 있는 말을 쉬지 않고 던져요. 탭하면 한마디 더!','A sassy little green pup with a quip for every moment. Tap for one more!'),sk:{n:TR('요기로 와봐!','Come over here!'),d:TR('턴을 소모하여 아군의 5코스트 이하 기물 1기를 원하는 빈 칸으로 옮겨요. 한 판에 1번.','Spend your turn to move 1 ally of cost 5 or less to any empty square. Once per game.')}}
 ];
 const PRL={
  tap:[TR('왜 불렀어? 심심해?','Why poke me? Bored?'),TR('나 건드리면 요금 나와요~','Poking me costs extra~'),TR('나 지금 너보다 잘 두는 중.','I\'m playing better than you right now.'),TR('한 수 물러달라고? 안 돼.','Take it back? Nope.'),TR('고민하는 척 하지 말고 두세요~','Stop pretending to think~'),TR('킹은 소중하게. 말 안 해도 알지?','Cherish your king. Obviously.'),TR('오, 지금 표정 좋은데? 불안해 보여.','Nice face. Looks nervous.'),TR('체스는 멘탈이야. 멘탈 챙겨!','Chess is mental. Keep yours!'),TR('나는 귀엽고 너는 열심이고.','I\'m cute, you\'re trying hard.'),TR('자기장이 더 무서운 건 알고 있지?','The storm is scarier than me, y\'know.'),TR('내 조언? 비싸다니까~','My advice? It\'s pricey~'),TR('그 기물, 오늘 컨디션 별로래.','That piece says it\'s off today.'),TR('이기면 내 덕, 지면 운이 나빴던 거야.','Win = thanks to me. Lose = bad luck.'),TR('한 번만 더 누르면 졸 취급할 거야.','One more poke and you\'re a pawn.'),TR('나 오늘 새침 모드야.','I\'m in sassy mode today.'),TR('이 판, 어쩐지 재밌어지는데?','This game is getting fun, huh?')],
@@ -6707,7 +6709,7 @@ function petSvg(id,col,acc,mood,px){mood=mood||'ok';const f=petHex(id,col);let b
  else if(id==='tt'){A={ty:36,ey:58,ny:80,x1:38,x2:62};
   b=`<g stroke="#111" stroke-width="3" stroke-linejoin="round"><path d="M30 42L33 26L45 38Z" fill="${f}"/><path d="M70 42L67 26L55 38Z" fill="${f}"/><path d="M14 72Q10 42 50 37Q90 42 86 72Q84 92 50 92Q16 92 14 72Z" fill="${f}"/></g><ellipse cx="33" cy="52" rx="9" ry="4.6" fill="#fff" opacity=".7" transform="rotate(-24 33 52)"/><path d="M50 74L61 77V84Q61 89 50 92Q39 89 39 84V77Z" fill="#fff" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><path d="M50 78V89" stroke="#111" stroke-width="1.8" opacity=".5"/>`+petEyes(38,62,58,mood,3.6)+petMouth(50,68,mood)}
  else if(id==='pr'){A={ty:28,ey:52,ny:80,x1:36,x2:64};
-  b=`<g stroke="#111" stroke-width="3" stroke-linejoin="round"><ellipse cx="17" cy="48" rx="10" ry="22" fill="${f}" transform="rotate(14 17 48)"/><ellipse cx="83" cy="48" rx="10" ry="22" fill="${f}" transform="rotate(-14 83 48)"/><ellipse cx="50" cy="58" rx="33" ry="31" fill="${f}"/><ellipse cx="38" cy="93" rx="9" ry="4.5" fill="${f}"/><ellipse cx="62" cy="93" rx="9" ry="4.5" fill="${f}"/><ellipse cx="50" cy="68" rx="15" ry="11" fill="#fff" opacity=".85"/></g><ellipse cx="50" cy="63" rx="5" ry="3.4" fill="#111"/><path d="M27 41L44 46" stroke="#111" stroke-width="3" stroke-linecap="round" fill="none"/>${petEyes(36,64,52,mood,3.4)}<path d="M50 66v4M43 72Q50 78 57 72" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round"/><path d="M47 75Q50 86 53 75Z" fill="#ff7aa8" stroke="#111" stroke-width="2"/>`}
+  b=`<g stroke="#111" stroke-width="3" stroke-linejoin="round"><ellipse cx="17" cy="48" rx="10" ry="22" fill="${f}" transform="rotate(14 17 48)"/><ellipse cx="83" cy="48" rx="10" ry="22" fill="${f}" transform="rotate(-14 83 48)"/><ellipse cx="50" cy="58" rx="33" ry="31" fill="${f}"/><ellipse cx="38" cy="93" rx="9" ry="4.5" fill="${f}"/><ellipse cx="62" cy="93" rx="9" ry="4.5" fill="${f}"/><ellipse cx="50" cy="68" rx="15" ry="11" fill="#fff" opacity=".85"/></g><ellipse cx="50" cy="63" rx="5" ry="3.4" fill="#111"/><path d="M27 41L44 46M73 41L56 46" stroke="#111" stroke-width="3" stroke-linecap="round" fill="none"/>${petEyes(36,64,52,mood,3.4)}<path d="M50 66v4M43 72Q50 78 57 72" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round"/><path d="M47 75Q50 86 53 75Z" fill="#ff7aa8" stroke="#111" stroke-width="2"/>`}
  else if(id==='dd'){A={ty:27,ey:47,ny:76,x1:37,x2:63};
   b=`<g stroke="#111" stroke-width="3" stroke-linejoin="round"><path d="M24 36L26 15L41 30Z" fill="${f}"/><path d="M76 36L74 15L59 30Z" fill="${f}"/><ellipse cx="19" cy="66" rx="7.5" ry="15" fill="${f}" transform="rotate(14 19 66)"/><ellipse cx="81" cy="66" rx="7.5" ry="15" fill="${f}" transform="rotate(-14 81 66)"/><ellipse cx="50" cy="60" rx="32" ry="33" fill="${f}"/><ellipse cx="40" cy="93" rx="8" ry="4" fill="#ff9d3d"/><ellipse cx="60" cy="93" rx="8" ry="4" fill="#ff9d3d"/></g><ellipse cx="50" cy="76" rx="17" ry="14" fill="#fff" opacity=".7"/><circle cx="37" cy="47" r="11" fill="#fff" stroke="#111" stroke-width="3"/><circle cx="63" cy="47" r="11" fill="#fff" stroke="#111" stroke-width="3"/><path d="M50 58L44 52H56Z" fill="#ff9d3d" stroke="#111" stroke-width="2.2" stroke-linejoin="round"/>`+(mood==='happy'?petEyes(37,63,47,'happy'):petEyes(37,63,47+(mood==='think'?-1:0),mood==='worry'?'worry':'ok',4.6))+`<path d="M48 65Q50 68 52 65" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" opacity=".0"/>`}
  return `<svg class="psv" viewBox="0 0 100 100" width="${px}" height="${px}" aria-hidden="true" focusable="false">${b}${petAcc(acc,A)}</svg>`}
@@ -6828,10 +6830,10 @@ function petTap(){if(!petActive())return;const id=petOn(),me=petSide();petHop();
 
 /* ---- 펫 시전 스킬 (한 판에 1번) ---- */
 P.pu=0;
-const pdOK=i=>{const p=G.b[i],me=petSide();return !!p&&p.s===me&&BC.gen(G.b,me,{noDbl:true}).some(m=>m[0]===i&&isSkMove(m))};
+const pdOK=(i,sd)=>{const p=G.b[i],me=sd||petSide();return !!p&&p.s===me&&BC.gen(G.b,me,{noDbl:true}).some(m=>m[0]===i&&isSkMove(m))};
 MH.pdOK=pdOK;
 const ppOK=i=>{const p=G.b[i];return !!p&&p.s===petSide()&&!isKing(p.t)&&!!DEF[p.t]&&DEF[p.t].c<=5};MH.ppOK=ppOK;
-function petSkOn(){const id=petOn();return !!id&&petActive()&&!G.net&&G.mode!=='sim'}
+function petSkOn(){const id=petOn();return !!id&&petActive()&&G.mode!=='sim'}
 function petSkUi(){const el=$('#skb'),b=el&&el.querySelector('[data-sk="pet"]');if(!b)return;
  const id=petOn(),d=id&&petDef(id);
  if(!d||!d.sk||!petSkOn()||el.style.display==='none'){b.hidden=true;return}
@@ -6847,16 +6849,30 @@ $('#skb').addEventListener('click',e=>{const b=e.target.closest('[data-sk="pet"]
  if(G.skp&&(G.skp.t==='pk'||G.skp.t==='pd'||G.skp.t==='pp')){G.skp=null;sfx('rm');draw();return}
  if(!skHuman()||P.pu||G.turn!==petSide())return;
  G.sel=null;G.legal=[];G.insp=null;G.skp={t:id==='kk'?'pk':id==='pr'?'pp':'pd',a:null};sfx('sel');petHop();draw()},true);
-MH.pk=function(i){const k=G.skp,p=G.b[i],me=petSide();if(k&&k.t==='pp'){
+/* 펫 스킬 실제 효과 — 내 것(rem=false)과 온라인 상대 것(rem=true)에 같은 코드를 써서 두 화면이 똑같이 움직여요 */
+function petDo(side,t,a,to,rem){const p=G.b[a];if(!p||p.s!==side)return false;
+ if(t==='pk'){if(p.ipc)return false;p.inv=1;p.ipc=3;G.skp=null;G.lm=[a,a];G.lastTxt=SN[side]+TR(` 펫 스킬 🐾 지켜줄게! ${DEF[p.t].n} ${pos(a)} — 3턴 무적`,` Pet skill 🐾 I'll protect you! ${DEF[p.t].n} ${pos(a)} — invincible for 3 turns`);sfx('empower');setTimeout(()=>{fxCell(a,'🛡️');fxCell(a,'✨')},80);if(!rem)petSay(TR('지켜줄게! 3턴 무적!','Protected for 3 turns!'),'happy');draw()}
+ else if(t==='pd'){if(!pdOK(a,side))return false;G.dd={p};G.skp=null;G.lastTxt=SN[side]+TR(` 펫 스킬 🐾 백발백중! ${DEF[p.t].n} — 이번 턴 스킬 2번`,` Pet skill 🐾 Bullseye! ${DEF[p.t].n} — 2 skills this turn`);sfx('empower');setTimeout(()=>fxCell(a,'🎯'),80);if(!rem)petSay(TR('백발백중! 스킬 2번!','Bullseye! 2 skills!'),'happy');draw()}
+ else if(t==='pp'){if(G.b[to]||isKing(p.t)||!DEF[p.t]||DEF[p.t].c>5)return false;G.skp=null;G.pend=[[a,to,0],rcOf(a)];G.b[to]=p;G.b[a]=null;G.lm=[a,to];G.since=0;
+  G.lastTxt=SN[side]+TR(` 펫 스킬 🐾 요기로 와봐! ${DEF[p.t].n} ${pos(a)} → ${pos(to)}`,` Pet skill 🐾 Come over here! ${DEF[p.t].n} ${pos(a)} → ${pos(to)}`);sfx('warp');setTimeout(()=>{fxCell(a,'💨');fxCell(to,'✨');fxCell(to,'💖')},80);
+  if(!rem){petSay(pick([TR('짜잔~ 순간이동! 내 덕이지?','Ta-da~ teleport! You owe me!'),TR('거기가 명당이래. 내 말 믿어!','Best seat in the house. Trust me!'),TR('이 정도는 식은 죽 먹기지~','Piece of cake~')]),'happy',4200);petHop()}
+  wrapUp(side,null,-1,true)}
+ else return false;
+ if(rem)P.opu=1;else P.pu=1;return true}
+MH.petDo=petDo;
+/* 온라인 상대가 보낸 펫 스킬 */
+MH.petRem=function(a,opc){if(P.opu||!['pk','pd','pp'].includes(a.t)||!Number.isInteger(a.a)||(a.t==='pp'&&!Number.isInteger(a.to)))return false;return petDo(opc,a.t,a.a,a.to,true)};
+MH.petId=()=>{try{return petOn()}catch(e){return ''}};
+MH.pk=function(i){const k=G.skp,p=G.b[i],me=petSide();if(!k)return;
+ const done=(t,a,to)=>{if(petDo(me,t,a,to,false)&&G.net&&!G._rem)netSend({k:'pet',t:t,a:a,to:to})};
+ if(k.t==='pp'){
   if(k.a==null){if(ppOK(i)){k.a=i;sfx('sel');draw()}else if(p&&p.s===me){petSay(pick([TR('걔는 너무 무거워! 5코스트 이하만!','Too heavy! Cost 5 or less only!'),TR('킹이랑 큰 기물은 못 옮겨~','No kings or big pieces~')]),'worry')}return}
   if(p){if(ppOK(i)&&i!==k.a){k.a=i;sfx('sel');draw()}else if(i===k.a){k.a=null;sfx('rm');draw()}return}
-  const a=k.a,q=G.b[a];if(!q)return;P.pu=1;G.skp=null;G.pend=[[a,i,0],rcOf(a)];G.b[i]=q;G.b[a]=null;G.lm=[a,i];G.since=0;
-  G.lastTxt=SN[me]+TR(` 펫 스킬 🐾 요기로 와봐! ${DEF[q.t].n} ${pos(a)} → ${pos(i)}`,` Pet skill 🐾 Come over here! ${DEF[q.t].n} ${pos(a)} → ${pos(i)}`);sfx('warp');setTimeout(()=>{fxCell(a,'💨');fxCell(i,'✨');fxCell(i,'💖')},80);
-  petSay(pick([TR('짜잔~ 순간이동! 내 덕이지?','Ta-da~ teleport! You owe me!'),TR('거기가 명당이래. 내 말 믿어!','Best seat in the house. Trust me!'),TR('이 정도는 식은 죽 먹기지~','Piece of cake~')]),'happy',4200);petHop();wrapUp(me,null,-1,true);return}
- if(!k||!p||p.s!==me)return;
- if(k.t==='pk'){if(p.ipc)return;p.inv=1;p.ipc=3;P.pu=1;G.skp=null;G.lm=[i,i];G.lastTxt=SN[me]+TR(` 펫 스킬 🐾 지켜줄게! ${DEF[p.t].n} ${pos(i)} — 3턴 무적`,` Pet skill 🐾 I'll protect you! ${DEF[p.t].n} ${pos(i)} — invincible for 3 turns`);sfx('empower');setTimeout(()=>{fxCell(i,'🛡️');fxCell(i,'✨')},80);petSay(TR('지켜줄게! 3턴 무적!','Protected for 3 turns!'),'happy');draw()}
- else if(k.t==='pd'){if(!pdOK(i))return;G.dd={p};P.pu=1;G.skp=null;G.lastTxt=SN[me]+TR(` 펫 스킬 🐾 백발백중! ${DEF[p.t].n} — 이번 턴 스킬 2번`,` Pet skill 🐾 Bullseye! ${DEF[p.t].n} — 2 skills this turn`);sfx('empower');setTimeout(()=>fxCell(i,'🎯'),80);petSay(TR('백발백중! 스킬 2번!','Bullseye! 2 skills!'),'happy');draw()}};
-MH.tt=function(m,who){if(!petSkOn()||petOn()!=='tt'||P.pu)return;const me=petSide();if(who===me||m[2]===0||m[2]===14||m[2]===16)return;
+  done('pp',k.a,i);return}
+ if(!p||p.s!==me)return;
+ if(k.t==='pk')done('pk',i);
+ else if(k.t==='pd'){if(!pdOK(i))return;done('pd',i)}};
+function ttGuard(m,who,me,own){if(who===me||m[2]===0||m[2]===14||m[2]===16)return;
  const mine=b=>{const o=[];for(let i=0;i<64;i++){const q=b[i];if(q&&q.s===me)o.push(q)}return o};
  const dead=(sim,orig)=>{const o=[];for(let i=0;i<64;i++){const q=orig[i];if(q&&q.s===me&&!q.sh){const r=sim[i];if(!r||r.s!==me||r.t!==q.t)o.push(i)}}return o};
  const s1=BC.cloneBoard(G.b);try{BC.make(s1,m,false)}catch(e){return}
@@ -6864,12 +6880,16 @@ MH.tt=function(m,who){if(!petSkOn()||petOn()!=='tt'||P.pu)return;const me=petSid
  v.sort((a,b)=>(isKing(G.b[b].t)?99:DEF[G.b[b].t].c)-(isKing(G.b[a].t)?99:DEF[G.b[a].t].c));const vi=v[0];
  const s2=BC.cloneBoard(G.b);s2[vi].sh=1;try{BC.make(s2,m,false)}catch(e){return}
  if(dead(s2,G.b).indexOf(vi)>=0)return;
- G.b[vi].sh=1;P.pu=1;const nm=DEF[G.b[vi].t].n;
- setTimeout(()=>{petSay(TR('내게 맡겨! 막았어!','Blocked it!'),'happy',4200);petHop();fxCell(vi,'🛡️');sfx('empower')},700)};
+ G.b[vi].sh=1;if(own)P.pu=1;else P.opu=1;
+ setTimeout(()=>{if(own){petSay(TR('내게 맡겨! 막았어!','Blocked it!'),'happy',4200);petHop()}fxCell(vi,'🛡️');sfx('empower')},700)}
+/* 탱탱이 패시브: 내 것 + 온라인 상대 것 둘 다 같은 규칙으로 계산해요 */
+MH.tt=function(m,who){if(G.mode==='sim'||G.lab||G.tut)return;const me=petSide();
+ if(petSkOn()&&petOn()==='tt'&&!P.pu)ttGuard(m,who,me,true);
+ if(G.net&&typeof NT!=='undefined'&&NT.opp&&NT.opp.pt==='tt'&&!P.opu)ttGuard(m,who,OP(me),false)};
 $('#petB').onclick=()=>{if(P.dg){P.dg=0;return}petTap()};
 
 $('#petS').onclick=()=>{$('#petS').classList.remove('on');clearTimeout(P.tm);petMood('ok')};
-{const _sg=startGame;startGame=function(){_sg.apply(this,arguments);try{P.hl=3;P.pu=0;P.idle=0;P.l0=[0,0];P.key='';P.th=0;clearTimeout(P.tm);$('#petS').classList.remove('on');setTimeout(()=>{if(!petActive())return;const id=petOn();petSay(id==='kk'?TR('같이 힘내자! 콩콩!','Let\'s go! Kong-kong!'):id==='tt'?TR('내가 지켜줄게! 탱탱!','I\'ll guard you! Tang-tang!'):TR('막히면 눌러줘! 조언 3번','Tap me! 3 hints'),'happy',4200);if(id==='pr')petSay(pick(PRL.start),'happy',4200)},900)}catch(e){}}}
+{const _sg=startGame;startGame=function(){_sg.apply(this,arguments);try{P.hl=3;P.pu=0;P.opu=0;P.idle=0;P.l0=[0,0];P.key='';P.th=0;clearTimeout(P.tm);$('#petS').classList.remove('on');setTimeout(()=>{if(!petActive())return;const id=petOn();petSay(id==='kk'?TR('같이 힘내자! 콩콩!','Let\'s go! Kong-kong!'):id==='tt'?TR('내가 지켜줄게! 탱탱!','I\'ll guard you! Tang-tang!'):TR('막히면 눌러줘! 조언 3번','Tap me! 3 hints'),'happy',4200);if(id==='pr')petSay(pick(PRL.start),'happy',4200)},900)}catch(e){}}}
 {const _et=MH.et;MH.et=function(){_et();try{if(!petActive())return;const me=petSide(),id=petOn(),op=OP(me),L=[G.lost.w.length,G.lost.b.length],mine=G.lost[me].length,en=G.lost[op].length,pm=P.l0[me==='w'?0:1],pe=P.l0[op==='w'?0:1];P.l0=L;P.idle++;
  setTimeout(()=>{if(!petActive()||G.over)return;
   if(G.turn===me&&id==='pr'){const d=petDanger(me);if(d.k){petSay(pick(PRL.kd),'worry',4200);petFlash(d.sq);return}}
