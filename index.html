@@ -855,7 +855,7 @@ body.hc .dngtx{color:#000;border-color:#000}
    <button id="goLang" type="button" aria-label="Language"><i>🌐</i><small>EN/한</small></button>
   </div>
  </div>
- <div class="ver">VERSION 1.6.0</div><div class="prod">Prod by. SINIVUR</div>
+ <div class="ver">VERSION 1.6.1</div><div class="prod">Prod by. SINIVUR</div>
 </section>
 <div class="modal" id="mLearn" role="dialog" aria-modal="true"><div class="mc stmc"><button class="x" data-close>닫기</button><h2>🎓 배우기</h2>
  <button class="lrn" id="goTut" type="button"><i>📖</i><span><b>튜토리얼</b><small>기본 규칙을 차근차근</small></span></button>
@@ -3521,7 +3521,7 @@ function endTurn(){
  G.xm=null;G.sel=null;G.legal=[];
  G.turn=OP(G.turn);G.since++;G.pre=G.b.mg?BC.magPre(G.b,G.turn):null;
  const h=BC.hash(G.b,G.turn);G.seen[h]=(G.seen[h]||0)+1;
- G.plies=(G.plies||0)+1;G.b.pl=G.plies;if(G.lab){G.plies=0;G.b.pl=0}
+ G.plies=(G.plies||0)+1;G.b.pl=G.plies;if(G.lab&&!G.lab.storm){G.plies=0;G.b.pl=0}
  MH.et();
  if(G.plies>=LIMIT){finish(BC.adjudicate(G.b),'lim');return}
  saveGame();
@@ -4093,7 +4093,12 @@ function fx2Cap(m,p,u){const d=SCN0[p.t];if(!d||!u||!u.cap)return false;const cf
  if(c0&&m[0]!==m[1])X2.beam(O,c0.x,c0.y,c1.x,c1.y,cf.col,9,0,300);
  setTimeout(()=>{X2.flash(O,'#fff',0,.7);X2.glow(O,c1.x,c1.y,s*2.8,cf.col,0,600);X2.ring(O,c1.x,c1.y,s*2,'#fff',0,600,4);X2.rays(O,c1.x,c1.y,s*3.4,cf.col,0,800,12);(p.t==='Ẍ'?[0,90]:[]).forEach((an,ii)=>{const ang=(dgl?45:0)+an;O.mk(`left:${c1.x-s*1.25}px;top:${c1.y-5}px;width:${s*2.5}px;height:10px;border-radius:6px;background:linear-gradient(90deg,transparent,${cf.col} 20%,#fff 50%,${cf.col} 80%,transparent);box-shadow:0 0 14px 3px ${cf.col};`,[{transform:`rotate(${ang}deg) scaleX(0)`,opacity:1},{transform:`rotate(${ang}deg) scaleX(1)`,opacity:1,offset:.3},{transform:`rotate(${ang}deg) scaleX(1)`,opacity:.9,offset:.7},{transform:`rotate(${ang}deg) scaleX(1.1)`,opacity:0}],{duration:700,delay:ii*80,easing:'ease-out'})});
  if(p.t!=='Ẍ'&&cf.em)X2.emo(O,c1.x,c1.y,cf.em,s*.8,[{transform:'scale(.3)',opacity:0},{transform:'scale(2)',opacity:1,offset:.35},{transform:'scale(2.5)',opacity:0}],0,800);X2.sparks(O,c1.x,c1.y,22,['#fff',cf.col],s*2.2,0,800);shk2(450)},c0&&m[0]!==m[1]?260:40);return true}
+function fxArrow(m){try{const q=i=>[...document.querySelectorAll('.c[data-i="'+i+'"]')].find(x=>x.getClientRects().length),a=q(m[0]),b=q(m[1]);if(!a||!b)return;const A=a.getBoundingClientRect(),B=b.getBoundingClientRect(),x1=A.left+A.width/2,y1=A.top+A.height/2,x2=B.left+B.width/2,y2=B.top+B.height/2,L=Math.hypot(x2-x1,y2-y1),ang=Math.atan2(y2-y1,x2-x1)*180/Math.PI,w=Math.min(46,A.width*.9);
+ const g=document.createElement('div');g.style.cssText='position:fixed;z-index:90;pointer-events:none;left:'+(x1-w/2)+'px;top:'+(y1-3)+'px;width:'+w+'px;height:6px;transform-origin:50% 50%;';
+ g.innerHTML='<div style="position:absolute;left:0;right:7px;top:2px;height:2px;background:#6a4a1a;border-radius:2px"></div><div style="position:absolute;right:0;top:-1px;border-left:9px solid #333;border-top:4px solid transparent;border-bottom:4px solid transparent"></div><div style="position:absolute;left:0;top:-1px;width:7px;height:8px;background:linear-gradient(135deg,#e24 50%,transparent 50%)"></div>';
+ document.body.appendChild(g);const dur=Math.max(260,Math.min(520,L*.9));const an=g.animate([{transform:'rotate('+ang+'deg) translateX(0)',opacity:1},{transform:'rotate('+ang+'deg) translateX('+L+'px)',opacity:1,offset:.94},{transform:'rotate('+ang+'deg) translateX('+L+'px)',opacity:0}],{duration:dur,easing:'cubic-bezier(.3,.1,.6,1)'});an.onfinish=()=>{g.remove();const h=document.createElement('div');h.style.cssText='position:fixed;z-index:90;pointer-events:none;border-radius:50%;left:'+(x2-18)+'px;top:'+(y2-18)+'px;width:36px;height:36px;background:radial-gradient(circle,#fff,#ffb347 45%,transparent 70%)';document.body.appendChild(h);h.animate([{transform:'scale(.3)',opacity:1},{transform:'scale(1.4)',opacity:0}],{duration:300}).onfinish=()=>h.remove()}}catch(e){}}
 function fx2Scene(m,p,who,u){try{const k=m[2];
+ if(k===1&&p.t==='Ƅ')fxArrow(m);
  if(u&&u.pyx)setTimeout(()=>fxPyrOut(u.pyx),30);
  if(u&&u.pyn){try{const pe=G.b.py&&G.b.py[G.b.py.length-1];if(pe){const sel=[];for(let x=0;x<3;x++)for(let y=0;y<3;y++)sel.push('.c[data-i="'+(pe[0]+x*8+y)+'"]');const st=document.createElement('style');st.textContent=sel.map(q=>q+'.pyr.l{background:var(--sl)!important;box-shadow:none!important}'+q+'.pyr.dk{background:var(--sd)!important;box-shadow:none!important}'+q+'.pyr::before{display:none!important}').join('');document.head.appendChild(st);setTimeout(()=>{try{st.remove()}catch(x){}},(k===0?900:1700)+2000)}}catch(x){}setTimeout(()=>fxPyr(u),k===0?900:1700)}
  if(k===0&&u&&u.cap&&u.cap.t==='Ñ'&&m[7]!==undefined)fxDuel(m,p,u);
@@ -4291,7 +4296,7 @@ function labStart(){cancelAI();const b=BC.emptyBoard();b[52]=BC.newPiece(LAB.me,
  document.body.classList.add('lab');labBar();startGame();G.sk=null;G.lab.msg=PLMSG();draw()}
 function labLeave(){document.body.classList.remove('lab');if(G)G.lab=null}
 function labBar(){const el=$('#labBar');
- el.innerHTML=[['bot',''],['kind',TR('🧬 봇 종류','🧬 Dummy type')],['side',''],['ctl',''],['clear',TR('🗑 봇 모두 치우기','🗑 Clear dummies')],['me',TR('📍 내 기물 위치','📍 Move my piece')],['reset',TR('↺ 처음 상태','↺ Reset')],['wait',TR('⏭ 턴 넘기기','⏭ Pass turn')],['swap',TR('🔁 기물 바꾸기','🔁 Change pieces')],['home',TR('🏠 메뉴로','🏠 Menu')]].map(x=>`<button data-a="${x[0]}">${x[1]}</button>`).join('')}
+ el.innerHTML=[['bot',''],['kind',TR('🧬 봇 종류','🧬 Dummy type')],['side',''],['ctl',''],['storm',''],['clear',TR('🗑 봇 모두 치우기','🗑 Clear dummies')],['me',TR('📍 내 기물 위치','📍 Move my piece')],['reset',TR('↺ 처음 상태','↺ Reset')],['wait',TR('⏭ 턴 넘기기','⏭ Pass turn')],['swap',TR('🔁 기물 바꾸기','🔁 Change pieces')],['home',TR('🏠 메뉴로','🏠 Menu')]].map(x=>`<button data-a="${x[0]}">${x[1]}</button>`).join('')}
 function labClear(){G.sel=null;G.legal=[];G.pk=null;G.skp=null;G.rush=null;G.xm=null;G.dx=false;G.dbq=0;G.gsw=false;G.gs=null;G.insp=null;G.hint=null}
 const PLMSG=()=>TR(`🎯 ${DEF[LAB.bot].n} 봇을 놓을 빈 칸을 눌러 주세요 (여러 기 가능 · 끝나면 내 기물을 누르세요)`,`🎯 Tap empty squares to place ${DEF[LAB.bot].n} dummies (as many as you like · tap your piece when done)`);
 function labPlace(i){const L=G.lab;
@@ -4312,6 +4317,7 @@ function labAct(a){if(!G||!G.lab)return;const L=G.lab;
  if(a==='clear'){labClear();for(const j of labBots())G.b[j]=null;L.bots=[];L.place='bot';L.msg=PLMSG();sfx('rm');draw();return}
  if(a==='me'){labClear();L.place=L.place==='me'?null:'me';L.msg=L.place?TR('📍 내 기물을 옮길 빈 칸을 눌러 주세요 (다시 누르면 취소)','📍 Tap an empty square to move your piece there (press again to cancel)'):null;sfx('sel');draw();return}
  if(a==='ctl'){labClear();L.ctl=!L.ctl;LAB.ctl=L.ctl;store.set('labCtl',L.ctl?1:0);G.mode=L.ctl?'pvp':'pve';sfx('sel');draw();if(!L.ctl)aiCheck();return}
+ if(a==='storm'){L.storm=!L.storm;if(!L.storm){G.plies=0;G.b.pl=0}sfx('sel');draw();return}
  if(a==='side'){LAB.side=LAB.side==='b'?'w':'b';store.set('labSide',LAB.side);sfx('sel');draw();return}
  if(a==='reset'){labReset(true);return}
  if(a==='wait'){if(G.over||(G.turn!==G.human&&!L.ctl)||G.pk||G.skp||G.rush||G.xm||G.dx||G.gsw||L.place)return;passTurn(true)}}
@@ -4327,6 +4333,7 @@ function labUi(st,msg){const L=G.lab;
  const sb=$('#labBar [data-a=side]');if(sb)sb.textContent=TR(`↔ 새 봇 진영: ${sd}`,`↔ New dummy side: ${sd}`);
  $('#labBar').querySelectorAll('[data-a=bot]').forEach(b=>{b.classList.toggle('hot',!!(L.place==='bot'));b.textContent=L.place==='bot'?TR('✅ 봇 놓기 끝내기','✅ Done placing'):TR('➕ 봇 놓기','➕ Place dummies')});
  const cb=$('#labBar [data-a=ctl]');if(cb){cb.classList.toggle('hot',!!L.ctl);cb.textContent=L.ctl?TR('🕹 적 기물도 조작: 켬','🕹 Control enemy too: ON'):TR('🕹 적 기물도 조작: 끔','🕹 Control enemy too: OFF')}
+ const tb=$('#labBar [data-a=storm]');if(tb){tb.classList.toggle('hot',!!L.storm);tb.textContent=L.storm?TR('🌪 자기장 좁히기: 켬','🌪 Storm shrinking: ON'):TR('🌪 자기장 좁히기: 끔','🌪 Storm shrinking: OFF')}
  const mb=$('#labBar [data-a=me]');if(mb)mb.classList.toggle('hot',L.place==='me')}
 
 $('#goLab').onclick=()=>{sfx('sel');labSetup()};
@@ -4635,9 +4642,13 @@ function netLeave(keepNet){
 $('#ovNet').onclick=()=>{closeM('mOver');netLeave();netOpen()};
 
 /* ===== 패치 노트 · 건의하기 · 공유 ===== */
-const APP_VER='1.6.0';
+const APP_VER='1.6.1';
 const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
+ ['1.6.1',TR('백슈터 화살 연출 · 연습장 자기장','Backshooter Arrows · Practice Storm'),[
+  TR('🏹 백슈터가 공격할 때 화살이 날아가는 연출을 넣었어요','🏹 Backshooter attacks now show an arrow flying to the target'),
+  TR('🌪 연습장에 "자기장 좁히기" 켜기/끄기 버튼을 추가했어요. 켜면 수가 지날수록 자기장이 좁혀져서 자기장 규칙을 연습할 수 있어요','🌪 The practice lab has a Storm shrinking toggle: turn it on to practice with the closing storm'),
+  TR('🧩 신규 기물 5종이 기물 선택 목록에 나오지 않던 문제와 백슈터 아이콘, 기물 정보 버튼 크기를 고쳤어요','🧩 Fixed the 5 new pieces missing from the piece picker, plus the Backshooter icon and info-bar button size')]],
  ['1.6.0',TR('정당하게 승부하라! · 신규 기물 5종 · 뾰롱이','Play Fair! · 5 New Pieces · Ppyorong'),[
   TR('🆕 상점 전용 기물: 🚫 밴(1) · 📺 글리치(2) · 🏹 백슈터(3) · 🌀 어질리티(5) · 😋 와구와구(8)','🆕 Shop-only pieces: Ban(1) · Glitch(2) · Backshooter(3) · Agility(5) · Waguwagu(8)'),
   TR('🐾 신규 펫 뾰롱이: 재치 있는 말을 쉬지 않고 하고, 전용 스킬로 턴을 써서 5코스트 이하 아군을 원하는 빈 칸으로 옮겨요 (한 판에 1번)','🐾 New pet Ppyorong: constant quips, and a skill that spends your turn to move an ally of cost 5 or less to any empty square (once per game)'),
