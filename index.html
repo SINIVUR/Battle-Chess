@@ -1049,7 +1049,7 @@ const DEF={
  'Š':{n:'스타',e:'⭐',c:9,p:'fb',av:7.2,shop:1,d:'상하좌우대각 1칸 이동·잡기 · 적을 처치할 때마다 최대 이동 칸 수가 1씩 늘어남'},
  'Ṫ':{n:'탱크',e:'🚜',c:8,p:'fb',av:6.4,shop:1,d:'상하 최대 3칸·좌우 1칸 이동(잡기 불가) · 상하좌우 최대 2칸 원거리 공격(중간에 기물이 있으면 불가) · 7코스트 이상 기물과 킹·퀸 계열만 탱크를 잡을 수 있음 · 좌우 이동한 다음 턴엔 공격 불가'},
  'Ĵ':{n:'쥬얼',e:'💎',c:7,p:'b',av:4.4,shop:1,d:'상하좌우대각 최대 2칸 이동(잡기 불가) · 스킬: 보석 강화 — 주변 3x3의 킹·퀸 계열 외 아군 1기에게 부활 보호를 주고 자신은 사라짐'},
- 'Ẇ':{n:'휠',e:'🎡',c:4,p:'f',av:4.6,shop:1,d:'상하좌우대각 1칸 이동(잡기 불가) · 자신 주변 5x5의 가장 바깥줄을 제자리에서 한 바퀴 돌며 자신보다 코스트가 낮은 적 1기를 처치'},
+ 'Ẇ':{n:'휠',e:'🎡',c:3,p:'f',av:3.8,shop:1,d:'상하좌우대각 1칸 이동(잡기 불가) · 자신 주변 3x3 또는 5x5의 가장 바깥줄을 한 바퀴 돌며 자신보다 코스트가 낮은 적 1기를 처치하고 그 칸으로 잡기 이동'},
 };
 const TYPES=Object.keys(DEF);
 const PICKT=TYPES.filter(t=>!DEF[t].shop&&!DEF[t].evo);
@@ -1135,11 +1135,11 @@ const znStay=(b,from,to)=>!(b.zn&&zRow(from)&&!zRow(to));
 const canTank=a=>DEF[a.t].c>=7||isKing(a.t)||isQueenCl(a.t);
 // 빔 반사 후보: 맞은 칸 주변 5x5 (킹·퀸 계열·빔 자신 제외, 방어 불가 기물 제외)
 function beamRefl(b,t,from){const r=t>>3,c=t&7,o=[];for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){const x=r+dr,y=c+dc;if((!dr&&!dc)||x<0||x>7||y<0||y>7)continue;const j=x*8+y,q=b[j];if(!q||j===from||isKing(q.t)||isQueenCl(q.t)||q.inv||q.rg||q.st||(b[from]&&q.s===b[from].s))continue;o.push(j)}return o}
-// 휠 회전 범위(5x5): 자신을 중심으로 한 5x5의 가장 바깥줄(16칸)
-function wheelRing(b,i){const r=i>>3,c=i&7,o=[];const add=(x,y)=>{if(x>=0&&x<8&&y>=0&&y<8)o.push(x*8+y)};
- for(let y=c-2;y<=c+2;y++)add(r-2,y);for(let x=r-1;x<=r+2;x++)add(x,c+2);for(let y=c+1;y>=c-2;y--)add(r+2,y);for(let x=r+1;x>r-2;x--)add(x,c-2);return o}
+// 휠 회전 범위: 자신 주변 3x3 또는 5x5의 가장 바깥줄(8칸 / 16칸) 중 하나를 한 바퀴 돈다
+function wheelRing(b,i,rad){rad=rad||2;const r=i>>3,c=i&7,o=[];const add=(x,y)=>{if(x>=0&&x<8&&y>=0&&y<8)o.push(x*8+y)};
+ for(let y=c-rad;y<=c+rad;y++)add(r-rad,y);for(let x=r-rad+1;x<=r+rad;x++)add(x,c+rad);for(let y=c+rad-1;y>=c-rad;y--)add(r+rad,y);for(let x=r+rad-1;x>r-rad;x--)add(x,c-rad);return o}
 function wheelT(b,i){const p=b[i],s=p.s,T=[];
- for(const j of wheelRing(b,i)){if(j===i)continue;const q=b[j];if(q&&q.s!==s&&!isKing(q.t)&&!isQueenCl(q.t)&&DEF[q.t].c<DEF[p.t].c&&!rimm(b,j))T.push(j)}
+ for(const rad of[1,2])for(const j of wheelRing(b,i,rad)){if(j===i)continue;const q=b[j];if(q&&q.s!==s&&!isKing(q.t)&&!isQueenCl(q.t)&&DEF[q.t].c<DEF[p.t].c&&!rimm(b,j))T.push(j)}
  return T}
 function jkill(b,u,j){const q=b[j];if(!q)return null;if(q.sh){JF(u,q,'sh',0);(u.shb||(u.shb=[])).push(q);return null}
  JC(u,b,j,null);u.n=(u.n||0)+1;(u.kd||(u.kd=[])).push([j,q]);if(b.dead&&!q.rv)JD(u,b.dead[q.s],q);return q}
@@ -1313,7 +1313,7 @@ function gen0(b,s,opt){
    case'Ĵ':{for(const[dr,dc]of D8){let rr=r+dr,cc=c+dc,k=0;while(k<2&&at(rr,cc)===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}}
     if(!gcap)for(const[dr,dc]of D8){const x=r+dr,y=c+dc;if(x<0||x>7||y<0||y>7)continue;const q=b[x*8+y];if(q&&q.s===s&&!isKing(q.t)&&!isQueenCl(q.t)&&!q.jw)gout.push([i,x*8+y,44])}break}
    case'Ẇ':{for(const[dr,dc]of D8)if(at(r+dr,c+dc)===null)mv(r+dr,c+dc,0);
-    for(const j of wheelT(b,i))gout.push([i,j,47]);break}
+    for(const j of wheelT(b,i))mv(j>>3,j&7,0);break}
    case'K':for(const[dr,dc]of D8){const q=at(r+dr,c+dc);if(q===null||(q&&q.s!==s))mv(r+dr,c+dc,0)}break;
    case'B':for(const[dr,dc]of DD){let rr=r+dr,cc=c+dc,q,k=0;while(k<4&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<4&&q&&q.s!==s)mv(rr,cc,0)}break;
    case'R':for(const[dr,dc]of D4){let rr=r+dr,cc=c+dc,q,k=0;while(k<4&&(q=at(rr,cc))===null){mv(rr,cc,0);rr+=dr;cc+=dc;k++}if(k<4&&q&&q.s!==s)mv(rr,cc,0)}break;
@@ -2327,7 +2327,7 @@ const EN_DEF={
  'Š':['Star','Moves or captures 1 square in any direction · Every time it eliminates an enemy, its maximum move distance grows by 1 · Shop-exclusive'],
  'Ṫ':['Tank','Moves up to 3 squares vertically or 1 square sideways (cannot capture) · Ranged attack: up to 2 squares orthogonally (not through pieces) · Only pieces of cost 7+ and King/Queen-class pieces can capture the Tank · Cannot shoot the turn after moving sideways · Shop-exclusive'],
  'Ĵ':['Jewel','Moves up to 2 squares in any direction (cannot capture) · Skill: Jewel Boost — gives one non-King/Queen-class ally in the surrounding 3x3 a jewel boost and removes itself; when a boosted ally is killed, it instantly revives on that square and removes whatever stood there · Shop-exclusive'],
- 'Ẇ':['Wheel','Moves 1 square in any direction (cannot capture) · Spins once around the outer ring of the 5x5 area centered on itself (staying in place) and eliminates 1 enemy of lower cost than itself on that ring · Shop-exclusive'],
+ 'Ẇ':['Wheel','Moves 1 square in any direction (cannot capture) · Spins once around the outer ring of the 3x3 or the 5x5 area centered on itself, eliminates 1 enemy of lower cost than itself on that ring and moves onto its square (capture move) · Shop-exclusive'],
 };
 
 if(EN)TYPES.forEach(t=>{DEF[t].n=EN_DEF[t][0];DEF[t].dd=EN_DEF[t][1]});
@@ -2409,13 +2409,13 @@ function patt(t,alt){const key=t+(alt?'+':'');if(PAT[key])return PAT[key];
  if(t==='p')for(const[dr,dc]of BC.D8){const x=pi+dr*8+dc;res[x]=mvs.has(x)?'qmk':'qsk'}
  if(t==='Ĝ'||t==='Ĵ')for(const[dr,dc]of BC.D8){const x=pi+dr*8+dc;if(x>=0&&x<64)res[x]=mvs.has(x)?'qmk':'qsk'}
  if(t==='Ž')for(let x=16;x<48;x++)if(!res[x])res[x]='qsk';
- if(t==='Ẇ'){const T=BC.wheelT((()=>{const b=BC.emptyBoard();b[pi]=BC.newPiece('Ẇ','w');for(let x=0;x<64;x++)if(x!==pi&&Math.abs((x>>3)-pr)<=2&&Math.abs((x&7)-pc)<=2)b[x]=BC.newPiece('P','b');return b})(),pi);for(const x of T)res[x]='qsk'}
+ if(t==='Ẇ'){const T=BC.wheelT((()=>{const b=BC.emptyBoard();b[pi]=BC.newPiece('Ẇ','w');for(let x=0;x<64;x++)if(x!==pi&&Math.abs((x>>3)-pr)<=2&&Math.abs((x&7)-pc)<=2)b[x]=BC.newPiece('P','b');return b})(),pi);for(const x of T)res[x]='qcap'}
  if(t==='t')for(const[dr,dc]of[[1,3],[3,1],[-1,3],[-3,1],[1,-3],[3,-1],[-1,-3],[-3,-1]]){const rr=pr+dr,cc=pc+dc;if(rr>=0&&rr<8&&cc>=0&&cc<8)res[rr*8+cc]='qmv'}
  return PAT[key]=res}
 function miniHtml(t,alt){const pt=patt(t,alt),d=DEMO[t]||[4,3],me=d[0]*8+d[1];let h='<div class="mini" aria-hidden="true">';
  for(let i=0;i<64;i++){const r=i>>3,c=i&7;h+=`<i class="${(r+c)%2?'d':'l'} ${pt[i]}${i===me?' me':''}">${i===me?gl(t,alt):''}</i>`}
  return h+'</div>'}
-const ROWOV={'Ḃ':{1:'a',2:'t',3:'t',4:'t'},'Ṫ':{2:'t',3:'t'},'Ĉ':{0:'t'},'Ƒ':{0:'t'},'Ẍ':{1:'t'}};
+const ROWOV={'Ḃ':{1:'a',2:'t',3:'t',4:'t'},'Ṫ':{2:'t',3:'t'},'Ĉ':{0:'t'},'Ƒ':{0:'t'},'Ẍ':{1:'t'},'Ẇ':{1:'c'}};
 function rowsHtml(t){const parts=DEF[t].d.split(' · '),pe=EN?DEF[t].dd.split(' · '):null;
  return parts.map((p,pi)=>{let k=TR('이동','Move'),c='qmv',x=p;
   if(/^스킬:/.test(p)){k=TR('스킬','Skill');c='qsk';x=p.replace(/^스킬:\s*/,'')}
@@ -2425,7 +2425,7 @@ function rowsHtml(t){const parts=DEF[t].d.split(' · '),pe=EN?DEF[t].dd.split(' 
   else if(/^돌파:|백도어/.test(p)){k=TR('특수','Special');c='qcap';x=p.replace(/^돌파:\s*/,'')}
   else if(/원거리|포격|사격|저격|관통/.test(p)&&!/이동/.test(p.split(/원거리|포격|사격|저격|관통/)[0])){k=TR('공격','Attack');c='qrg'}
   else if(/처치하면|잡은 뒤|돌파|폭멸|추가 이동|킹·엠페러|처치되|사라짐/.test(p)&&parts.length>1){k=TR('특수','Special');c='qcap'}
-  {const ov=ROWOV[t]&&ROWOV[t][pi];if(ov==='a'){k=TR('공격','Attack');c='qrg'}else if(ov==='t'){k=TR('특징','Trait');c='qgy'}}
+  {const ov=ROWOV[t]&&ROWOV[t][pi];if(ov==='a'){k=TR('공격','Attack');c='qrg'}else if(ov==='c'){k=TR('잡기','Capture');c='qcap'}else if(ov==='t'){k=TR('특징','Trait');c='qgy'}}
   if(EN)x=pe[pi].replace(/^(Skill|Special|Trait|Breakthrough):\s*/,'');
   return `<div class="rw"><b class="rk ${c}">${k}</b><span>${pnIco(x)}</span></div>`}).join('')}
 function tagsHtml(t){const tg=[plTags(t)];
@@ -3025,7 +3025,7 @@ function play(m,hold,seq){if(m&&m[2]===16)G.pasd=true;
   else if(k===43||k===46){P(m[0],'cast')}
   else if(k===44){P(m[1],'prot');fl.push([m[0],'💨'],[m[1],'💎'],[m[1],'✨'],[m[1],'🌟'])}
   else if(k===45){P(m[0],'cast');fl.push([m[0],'⭕'],[m[0],'✨']);setTimeout(()=>toast(TR('⭕ 존의 영역 전개! 중앙 8x4 안의 기물은 5턴 동안 나갈 수 없어요','⭕ Zone opened! Pieces inside the central 8x4 cannot leave for 5 turns')),300)}
-  else if(k===47){P(m[0],'cast');const rg=BC.wheelRing(G.b,m[0]);rg.forEach((j,n)=>setTimeout(()=>fxCell(j,'💨'),n*45));setTimeout(()=>fxCell(m[1],'💥'),Math.max(0,rg.indexOf(m[1]))*45+60);fl.push([m[0],'🎡'])}
+  else if(k===47){P(m[0],'cast');const rg=BC.wheelRing(G.b,m[0],Math.max(Math.abs((m[1]>>3)-(m[0]>>3)),Math.abs((m[1]&7)-(m[0]&7))));rg.forEach((j,n)=>setTimeout(()=>fxCell(j,'💨'),n*45));setTimeout(()=>fxCell(m[1],'💥'),Math.max(0,rg.indexOf(m[1]))*45+60);fl.push([m[0],'🎡'])}
   else if(k===5){nb(m[0],j=>fl.push([j,'🌪️']));const L=m[4]||[];L.forEach(j=>P(j,'spin'));P(m[0],'spin')}
   {const bl=[];if(u.blk)bl.push(u.blk);if(u.shb)u.shb.forEach(q=>bl.push(q));bl.forEach(q=>{const bi=G.b.indexOf(q);if(bi>=0)setTimeout(()=>{shieldBlockFx(bi);sfx('shield')},260)})}
   if(u.jwv)u.jwv.forEach(x=>{P(x[0],'rise');fl.push([x[0],'💎'],[x[0],'✨'],[x[0],'🌟'])});
@@ -3055,7 +3055,7 @@ function play(m,hold,seq){if(m&&m[2]===16)G.pasd=true;
 /* 처치되는 기물을 이펙트가 끝날 때까지 그 자리에 남겨 두었다가 사라지게 한다 */
 const KEF={j:800,'Ḷ':800,L:700,'Ƀ':700,s:760,D:700,E:700,g:760,W:700,X:760,B:700,M:700,e:700};
 const DUEL_MS=3000;
-const KDL=(m,j)=>{const k=m[2];if(k===43)return j===m[1]?770:1620;if(k===46)return 620;if(k===47){try{return 280+Math.max(0,BC.wheelRing(G.b,m[0]).indexOf(j))*52}catch(e){return 600}}return 0};
+const KDL=(m,j)=>{const k=m[2];if(k===43)return j===m[1]?770:1620;if(k===46)return 620;if(k===47){try{return 280+Math.max(0,BC.wheelRing(G.b,m[0],Math.max(Math.abs((m[1]>>3)-(m[0]>>3)),Math.abs((m[1]&7)-(m[0]&7)))).indexOf(j))*52}catch(e){return 600}}return 0};
 function ghostKill(u,m,p){try{if(m[2]===0&&m[7]!==undefined&&u.cap&&u.cap.t==='Ñ')return;const lst=[];if(u.cap&&(m[2]===1||m[2]===11))lst.push(m[1]);if(u.kl)u.kl.forEach(x=>{if(!lst.includes(x[0]))lst.push(x[0])});if((m[2]===43||m[2]===46||m[2]===47)&&u.kd)u.kd.forEach(x=>{if(!lst.includes(x[0]))lst.push(x[0])});
  const ty=m[2]===0?u.pt:p.t,hold=90+(KEF[ty]||540);
  lst.forEach(j=>{const hold=(m[2]===43||m[2]===46||m[2]===47)?KDL(m,j)+420:90+(KEF[ty]||540);const c=cell(j),pc=c&&c.querySelector('.pc');if(!pc)return;const R=c.getBoundingClientRect();if(!R.width)return;
@@ -3972,7 +3972,7 @@ Object.assign(SCN,{
   setTimeout(()=>{X2.flash(O,'#fff0c0',0,.8);X2.glow(O,c1.x,c1.y,s*3.2,'#ff9a3a',0,700);X2.ring(O,c1.x,c1.y,s*2.4,'#ffb347',0,700,5);X2.emo(O,c1.x,c1.y,'💥',s*.9,[{transform:'scale(.3)',opacity:0},{transform:'scale(2.3)',opacity:1,offset:.3},{transform:'scale(2.8)',opacity:0}],0,800);X2.sparks(O,c1.x,c1.y,26,['#fff','#ffb347','#ff5a2a','#444'],s*2.6,0,900);shk2(600)},620)},
  /* 휠: 바깥줄을 쏵 한 바퀴 */
  47(m,p,who){const O=cinOpen({fj:m[0],dur:2000,out:'rgba(24,12,0,.88)',inn:'rgba(255,200,120,.1)',title:'旋回',sub:TR('한 바퀴 쏵!','Full spin!'),tc:'#ffe9c4',ts:'#6a3a00',td:200});if(!O)return;const c=O.p(m[0]);if(!c)return;const s=c.s;
-  let rg=[];try{rg=BC.wheelRing(G.b,m[0])}catch(e){}
+  let rg=[];try{rg=BC.wheelRing(G.b,m[0],Math.max(Math.abs((m[1]>>3)-(m[0]>>3)),Math.abs((m[1]&7)-(m[0]&7))))}catch(e){}
   X2.emo(O,c.x,c.y,'🎡',s*.8,[{transform:'scale(.6) rotate(0)',opacity:1},{transform:'scale(1.8) rotate(720deg)',opacity:1,offset:.7},{transform:'scale(2) rotate(900deg)',opacity:0}],0,1300);
   rg.forEach((j,i)=>{const q=O.p(j);if(!q)return;const d=200+i*52;X2.glow(O,q.x,q.y,s*1.1,'#ffb347',d,380,.9);X2.sparks(O,q.x,q.y,4,['#fff','#ffb347'],s*.8,d,400)});
   const t=O.p(m[1]);if(t){const ix=Math.max(0,rg.indexOf(m[1])),d=200+ix*52+80;setTimeout(()=>{X2.flash(O,'#fff3d0',0,.7);X2.glow(O,t.x,t.y,s*2.6,'#ff9a3a',0,600);X2.ring(O,t.x,t.y,s*2,'#fff',0,600,4);X2.emo(O,t.x,t.y,'💥',s*.8,[{transform:'scale(.3)',opacity:0},{transform:'scale(2)',opacity:1,offset:.3},{transform:'scale(2.4)',opacity:0}],0,700);X2.sparks(O,t.x,t.y,20,['#fff','#ffb347','#ff5a2a'],s*2.2,0,800);shk2(450)},d)}},
@@ -4006,6 +4006,7 @@ function fx2Scene(m,p,who,u){try{const k=m[2];
  if(u&&u.pyn){try{const pe=G.b.py&&G.b.py[G.b.py.length-1];if(pe){const sel=[];for(let x=0;x<3;x++)for(let y=0;y<3;y++)sel.push('.c[data-i="'+(pe[0]+x*8+y)+'"]');const st=document.createElement('style');st.textContent=sel.map(q=>q+'.pyr.l{background:var(--sl)!important;box-shadow:none!important}'+q+'.pyr.dk{background:var(--sd)!important;box-shadow:none!important}'+q+'.pyr::before{display:none!important}').join('');document.head.appendChild(st);setTimeout(()=>{try{st.remove()}catch(x){}},(k===0?900:1700)+2000)}}catch(x){}setTimeout(()=>fxPyr(u),k===0?900:1700)}
  if(k===0&&u&&u.cap&&u.cap.t==='Ñ'&&m[7]!==undefined)fxDuel(m,p,u);
  if(k===0&&u&&p.t==='\u0243')fxHop(m,u);
+ if(k===0&&u&&u.cap&&p.t==='Ẇ'&&SCN[47]){SCN[47](m,p,who,u);return}
  if(k===0&&u&&u.cap&&SCN0[p.t]&&fx2Cap(m,p,u))return;
  {const sk=(k===12&&p.t==='Ṗ')?'12P':k;if(SCN[sk]&&!(k===0)){SCN[sk](m,p,who,u);return}}
  if(k===0&&(p.t==='D'||p.t==='W'))fxDragon(m,p);
@@ -4547,7 +4548,7 @@ const PATCH=[
  ['1.5.9',TR('최하 난이도 대폭 완화 · 자동 배치 수정','Easiest AI Much Easier · Auto-Place Fix'),[
   TR('🌱 AI "최하" 단계가 정말 초보용이 되도록 크게 약하게 만들었어요. 가끔 아무 수나 두기 때문에 체스를 처음 해도 이길 수 있어요','🌱 The lowest AI level is now truly beginner-friendly: it sometimes plays a random move'),
   TR('📖 기물 설명 정리: 빔·탱크의 줄 색을 공격/특징으로 바로잡고, 탱크는 "탱크를 잡을 수 있는 기물"로 문구 수정. 크로스는 대각선/상하좌우 모드, 에그는 에그→치킨→봉황 범위를 버튼으로 볼 수 있어요','📖 Piece cards: Beam/Tank row colors fixed, Tank wording clarified, Cross shows both modes and Egg shows each evolution via buttons'),
-  TR('🎡 휠: 회전 범위를 자신을 중심으로 한 5x5의 가장 바깥줄(16칸)로 바꿨어요','🎡 Wheel: now spins around the outer ring of the 5x5 centered on itself'),
+  TR('🎡 휠: 코스트 4 → 3. 자신 주변 3x3 또는 5x5의 가장 바깥줄을 한 바퀴 돌아, 자신보다 코스트가 낮은 적 1기를 처치하고 그 칸으로 잡기 이동해요','🎡 Wheel: cost 4 → 3. Spins around the outer ring of the 3x3 or 5x5 around itself, eliminates 1 enemy of lower cost and moves onto its square'),
   TR('💎 상점 "코인 전용"을 기물과 스킬 두 분류로 나눠서 골라 볼 수 있어요','💎 The Coin-only shop tab is now split into pieces and skills'),
   TR('✏️ 이름 색을 사면 칭호도 같은 색으로 표시돼요','✏️ Your name color now also colors your title'),
   TR('🎨 상점의 프레임·아바타 배경 미리보기를 같은 크기로 맞추고, 배경 무늬가 한눈에 보이게 키웠어요','🎨 Shop previews for frames and avatar backgrounds are the same size, and avatar-background patterns are much easier to see'),
