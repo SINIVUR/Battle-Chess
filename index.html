@@ -1088,7 +1088,7 @@ const DEF={
  'Ž':{n:'존',e:'⭕',c:5,p:'f',av:3.6,shop:1,d:'상하좌우 1칸 + 나이트식 이동(잡기 불가) · 스킬: 존의 영역 — 중앙 8x4 칸 안의 기물은 양쪽 합쳐 5수 동안 밖으로 나갈 수 없음(밖에서 들어오는 건 가능)'},
  'Š':{n:'스타',e:'⭐',c:9,p:'fb',av:7.2,shop:1,d:'상하좌우대각 1칸 이동·잡기 · 적을 처치할 때마다 최대 이동 칸 수가 1씩 늘어남'},
  'Ṫ':{n:'탱크',e:'🚜',c:8,p:'fb',av:6.4,shop:1,d:'상하 최대 3칸·좌우 1칸 이동(잡기 불가) · 상하좌우 최대 2칸 원거리 공격(중간에 기물이 있으면 불가) · 7코스트 이상 기물과 킹·퀸 계열만 탱크를 잡을 수 있음 · 좌우 이동한 다음 턴엔 공격 불가'},
- 'Ĵ':{n:'쥬얼',e:'💎',c:7,p:'b',av:4.4,shop:1,d:'상하좌우대각 최대 2칸 이동(잡기 불가) · 스킬: 보석 강화 — 주변 3x3의 킹·퀸 계열 외 아군 1기에게 부활 보호를 주고 자신은 사라짐'},
+ 'Ĵ':{n:'쥬얼',e:'💎',c:5,p:'b',av:4.4,shop:1,d:'상하좌우대각 최대 2칸 이동(잡기 불가) · 스킬: 보석 강화 — 주변 3x3의 킹·퀸 계열 외 아군 1기에게 부활 보호를 주고 자신은 사라짐'},
  'Ẇ':{n:'휠',e:'🎡',c:4,p:'f',av:3.8,shop:1,d:'상하좌우 1칸 이동(잡기 불가) · 자신 주변 5x5의 가장 바깥줄을 한 바퀴 돌며 코스트 3 이하의 적 1기를 처치하고 그 칸으로 잡기 이동'},
  'Ɓ':{n:'밴',e:'🚫',c:1,p:'f',av:1.8,shop:1,d:'전진 1칸 이동·잡기 · 스킬: 금지 — 자신을 제거하고, 양쪽 턴을 합쳐 4턴 동안 모든 스킬 사용을 봉인'},
  'Ġ':{n:'글리치',e:'📺',c:2,p:'b',av:3.6,shop:1,d:'대각선 4방향 1칸 이동(잡기 불가) · 스킬: 글리치 — 그 자리에 멈추고 자신 주변 5x5에 글리치 영역 생성(자기장 면역, 영역 안에서는 서로 스킬 사용 불가). 한 번 더 쓰면 영역이 사라지고 다시 이동 가능'},
@@ -2498,7 +2498,7 @@ const plTags=t=>DEF[t].p==='fb'?TR('<span class="tg f">전열</span><span class=
 const tagCls=t=>DEF[t].p==='f'?'f':DEF[t].p==='b'?'b':'x';
 
 /* ===== 도움말 ===== */
-const GR=[[TR('킹 계열','King class'),TR('킹, 엠페러, 갓, 데몬, 대통령 중 1기','Pick 1: King, Emperor, God, Demon or President'),['E','g','d','Ṗ']],[TR('퀸 계열','Queen class'),TR('퀸, 메두사, 프린세스, 마더, 루시퍼 중 1기','Pick 1: Queen, Medusa, Princess, Mother or Lucifer'),['Q','M','q','m','Ḷ']],[TR('기동 계열','Mobility class'),TR('빠른 이동·순간이동·침투로 전장을 휘젓는 기물','Pieces that rush around with fast moves, teleports and infiltration'),['T','N','Z','Y','F','r','u','t','x','Ƀ','Ð','Ẇ','Ȧ','Ç']],[TR('원거리 계열','Ranged class'),TR('멀리서 적을 제거하는 기물','Pieces that eliminate enemies from afar'),['S','L','A','O','U','J','C','h','j','Ċ','Ḃ','Ṫ','Ƅ','Ṙ']],[TR('근접 계열','Melee class'),TR('정면에서 부딪혀 잡는 기물','Pieces that charge in and capture head-on'),['P','B','R','G','c','i','b','k','y','Ñ','Ẍ','Š','Ẅ']],[TR('유틸 계열','Support class'),TR('보호·회복·재배치로 아군을 돕는 기물','Pieces that protect, heal and reposition allies'),['H','I','a','V','l','f','z','p','Ł','Ƥ','Ĝ','Ž','Ġ','Ď','Ƈ']],[TR('특수 계열','Special class'),TR('독특한 규칙을 가진 기물','Pieces with unique rules'),['X','s','w','v','o','D','W','e','n','Ä','Ë','Ĵ','Ɓ','Ɉ']]];
+const GR=[[TR('킹 계열','King class'),TR('킹, 엠페러, 갓, 데몬, 대통령 중 1기','Pick 1: King, Emperor, God, Demon or President'),['E','g','d','Ṗ']],[TR('퀸 계열','Queen class'),TR('퀸, 메두사, 프린세스, 마더, 루시퍼 중 1기','Pick 1: Queen, Medusa, Princess, Mother or Lucifer'),['Q','M','q','m','Ḷ']],[TR('기동 계열','Mobility class'),TR('빠른 이동·순간이동·침투로 전장을 휘젓는 기물','Pieces that rush around with fast moves, teleports and infiltration'),['T','N','Z','Y','F','r','u','t','x','Ƀ','Ð','Ẇ','Ȧ','Ç']],[TR('원거리 계열','Ranged class'),TR('멀리서 적을 제거하는 기물','Pieces that eliminate enemies from afar'),['S','L','A','O','U','J','C','h','j','Ċ','Ḃ','Ṫ','Ƅ','Ṙ']],[TR('근접 계열','Melee class'),TR('정면에서 부딪혀 잡는 기물','Pieces that charge in and capture head-on'),['P','B','R','G','c','i','b','k','y','Ñ','Ẍ','Š','Ẅ']],[TR('유틸 계열','Support class'),TR('보호·회복·재배치로 아군을 돕는 기물','Pieces that protect, heal and reposition allies'),['H','I','a','V','l','f','z','p','Ł','Ĵ','Ĝ','Ž','Ġ','Ď','Ƈ']],[TR('특수 계열','Special class'),TR('독특한 규칙을 가진 기물','Pieces with unique rules'),['X','s','w','v','o','D','W','e','n','Ä','Ë','Ƥ','Ɓ','Ɉ']]];
 let selTab=0;
 GR.splice(2,3,GR[4],GR[2],GR[3]);   // 분류 순서 통일: 킹 · 퀸 · 근접 · 기동 · 원거리 · 유틸 · 특수
 const CLN=()=>[TR('킹 계열','King class'),TR('퀸 계열','Queen class'),TR('근접','Melee'),TR('기동','Mobility'),TR('원거리','Ranged'),TR('유틸','Support'),TR('특수','Special')];
@@ -4819,6 +4819,7 @@ const PATCH=[
   TR('🚚 캐리어 모두이동: 모든 기물이 동시에 떠올라 함께 이동해요','🚚 Carrier haul: every piece lifts off at once and moves together'),
   TR('🥫 드링크: 하늘색 캔 아이콘과 푸른 이펙트, 연출은 한 번만 나와요','🥫 Drink: a sky-blue can icon and blue effect that plays only once'),
   TR('🔫 라이플은 돌격소총, 카빈은 볼트액션 소총 아이콘으로 바꿨어요','🔫 New icons: Rifle is an assault rifle, Carbine a bolt-action rifle'),
+  TR('💎 쥬얼: 코스트 5, 유틸 계열로 이동 · 🔱 파라오: 특수 계열로 이동','💎 Jewel: cost 5, moved to the Support class · 🔱 Pharaoh: moved to the Special class'),
   TR('🎬 게임을 켜면 로딩 화면이 나오고, 대규모 패치 내역 창을 1~6차 카드 목록으로 개편했어요 · 🧪 연습장에서 내 기물은 e4에서 시작해요','🎬 New loading screen and a 1–6 card list in the Mega Patch window · 🧪 In the Practice Lab your piece starts on e4')]],
  ['1.7.0',TR('기세를 잡아라! 대규모 패치','Seize the Momentum! Mega Patch'),[
   TR('🐾 신규 펫 팡팡이(공격 담당): 안전하게 잡을 수 있는 타이밍을 알려주고, 스킬 「연사 팡팡!」으로 한 판에 한 번 원거리 공격을 한 번 더 할 수 있어요 (온라인 지원)','🐾 New pet Pangpang (attacker): points out safe captures, and its skill “Rapid Fire!” grants one extra ranged attack once per game (works online)'),
