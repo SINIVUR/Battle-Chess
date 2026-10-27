@@ -826,6 +826,7 @@ body.hc .dngtx{color:#000;border-color:#000}
 
 #s4 #pcard #pcxp,#s4 #pcard #pcx{width:30px;height:30px;min-height:0;min-width:0;padding:0;font-size:14px;line-height:1;display:inline-flex;align-items:center;justify-content:center;flex:none;border-radius:8px;box-shadow:2px 2px 0 #111;margin:0}
 #s4 #pcard #pcxp{font-size:12px}#s4 #pcard .pk1{align-items:center}#s4 #pcard #pcx{font-size:17px}
+.mgtl{align-items:stretch!important}.mgn{justify-content:flex-start}.mgn small{margin-top:auto}.mgn span{display:flex;align-items:center;text-align:center}
 </style></head><body>
 <div class="top"><div class="brand">BATTLE CHESS</div><div class="tools"><button id="bHelp" title="기물 도감 / 규칙" aria-label="기물 도감">📖</button><button id="bSet" title="설정" aria-label="설정">⚙</button><button id="bm" title="배경음악" aria-label="배경음악">🎵</button><button id="sf" title="효과음" aria-label="효과음">🔊</button></div></div>
 <main>
@@ -3521,7 +3522,7 @@ function endTurn(){
  G.xm=null;G.sel=null;G.legal=[];
  G.turn=OP(G.turn);G.since++;G.pre=G.b.mg?BC.magPre(G.b,G.turn):null;
  const h=BC.hash(G.b,G.turn);G.seen[h]=(G.seen[h]||0)+1;
- G.plies=(G.plies||0)+1;G.b.pl=G.plies;if(G.lab&&!G.lab.storm){G.plies=0;G.b.pl=0}
+ G.plies=(G.plies||0)+1;G.b.pl=G.plies;if(G.lab){G.plies=G.lab.sp||0;G.b.pl=G.plies}
  MH.et();
  if(G.plies>=LIMIT){finish(BC.adjudicate(G.b),'lim');return}
  saveGame();
@@ -4296,7 +4297,7 @@ function labStart(){cancelAI();const b=BC.emptyBoard();b[52]=BC.newPiece(LAB.me,
  document.body.classList.add('lab');labBar();startGame();G.sk=null;G.lab.msg=PLMSG();draw()}
 function labLeave(){document.body.classList.remove('lab');if(G)G.lab=null}
 function labBar(){const el=$('#labBar');
- el.innerHTML=[['bot',''],['kind',TR('🧬 봇 종류','🧬 Dummy type')],['side',''],['ctl',''],['storm',''],['clear',TR('🗑 봇 모두 치우기','🗑 Clear dummies')],['me',TR('📍 내 기물 위치','📍 Move my piece')],['reset',TR('↺ 처음 상태','↺ Reset')],['wait',TR('⏭ 턴 넘기기','⏭ Pass turn')],['swap',TR('🔁 기물 바꾸기','🔁 Change pieces')],['home',TR('🏠 메뉴로','🏠 Menu')]].map(x=>`<button data-a="${x[0]}">${x[1]}</button>`).join('')}
+ el.innerHTML=[['bot',''],['kind',TR('🧬 봇 종류','🧬 Dummy type')],['side',''],['ctl',''],['storm',''],['stormoff',''],['clear',TR('🗑 봇 모두 치우기','🗑 Clear dummies')],['me',TR('📍 내 기물 위치','📍 Move my piece')],['reset',TR('↺ 처음 상태','↺ Reset')],['wait',TR('⏭ 턴 넘기기','⏭ Pass turn')],['swap',TR('🔁 기물 바꾸기','🔁 Change pieces')],['home',TR('🏠 메뉴로','🏠 Menu')]].map(x=>`<button data-a="${x[0]}">${x[1]}</button>`).join('')}
 function labClear(){G.sel=null;G.legal=[];G.pk=null;G.skp=null;G.rush=null;G.xm=null;G.dx=false;G.dbq=0;G.gsw=false;G.gs=null;G.insp=null;G.hint=null}
 const PLMSG=()=>TR(`🎯 ${DEF[LAB.bot].n} 봇을 놓을 빈 칸을 눌러 주세요 (여러 기 가능 · 끝나면 내 기물을 누르세요)`,`🎯 Tap empty squares to place ${DEF[LAB.bot].n} dummies (as many as you like · tap your piece when done)`);
 function labPlace(i){const L=G.lab;
@@ -4304,7 +4305,7 @@ function labPlace(i){const L=G.lab;
  if(L.place==='bot'){const p=BC.newPiece(LAB.bot,LAB.side);p.lb=1;G.b[i]=p;(L.bots||(L.bots=[])).push({i,t:LAB.bot,s:LAB.side});L.msg=TR(`🎯 ${DEF[LAB.bot].n} 봇 ${labBots().length}기 배치 · 빈 칸을 눌러 더 놓거나 내 기물을 눌러 시작하세요`,`🎯 ${labBots().length} dummies placed (${DEF[LAB.bot].n}) · tap more squares, or tap your piece to start`);sfx('place');G.lm=null;draw()}
  else if(L.place==='me'){const j=labMeIdx();if(j>=0){G.b[i]=G.b[j];G.b[j]=null}L.place=null;L.msg=null;sfx('place');G.lm=null;draw()}}
 function labReset(keepBot){const L=G.lab,keep=keepBot&&L.bots&&L.bots.length;
- G.b=BC.cloneBoard(startBoard);G.turn='w';labClear();G.lm=null;G.over=false;G.busy=false;G.since=0;G.plies=0;G.b.pl=0;G.seen={};G.lost={w:[],b:[]};G.log=[];G.lastTxt='';G.pre=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;
+ G.b=BC.cloneBoard(startBoard);G.turn='w';labClear();G.lm=null;G.over=false;G.busy=false;G.since=0;G.plies=0;G.b.pl=0;L.sw=0;L.sp=0;G.seen={};G.lost={w:[],b:[]};G.log=[];G.lastTxt='';G.pre=null;G.pend=null;G.fx=null;G.gs=null;G.gsw=false;
  L.place=null;L.msg=null;
  if(keep){for(const x of L.bots){if(!G.b[x.i]){const p=BC.newPiece(x.t,x.s);p.lb=1;G.b[x.i]=p}}}else{L.bots=[];L.place='bot';L.msg=PLMSG()}
  sfx('sel');draw()}
@@ -4317,7 +4318,8 @@ function labAct(a){if(!G||!G.lab)return;const L=G.lab;
  if(a==='clear'){labClear();for(const j of labBots())G.b[j]=null;L.bots=[];L.place='bot';L.msg=PLMSG();sfx('rm');draw();return}
  if(a==='me'){labClear();L.place=L.place==='me'?null:'me';L.msg=L.place?TR('📍 내 기물을 옮길 빈 칸을 눌러 주세요 (다시 누르면 취소)','📍 Tap an empty square to move your piece there (press again to cancel)'):null;sfx('sel');draw();return}
  if(a==='ctl'){labClear();L.ctl=!L.ctl;LAB.ctl=L.ctl;store.set('labCtl',L.ctl?1:0);G.mode=L.ctl?'pvp':'pve';sfx('sel');draw();if(!L.ctl)aiCheck();return}
- if(a==='storm'){L.storm=!L.storm;if(!L.storm){G.plies=0;G.b.pl=0}sfx('sel');draw();return}
+ if(a==='storm'){const lv=(L.sw||0)+1;if(lv>3){sfx('rm');return}L.sw=lv;L.sp=[0,60,80,90][lv];G.plies=L.sp;G.b.pl=L.sp;sfx('sel');draw();return}
+ if(a==='stormoff'){L.sw=0;L.sp=0;G.plies=0;G.b.pl=0;sfx('rm');draw();return}
  if(a==='side'){LAB.side=LAB.side==='b'?'w':'b';store.set('labSide',LAB.side);sfx('sel');draw();return}
  if(a==='reset'){labReset(true);return}
  if(a==='wait'){if(G.over||(G.turn!==G.human&&!L.ctl)||G.pk||G.skp||G.rush||G.xm||G.dx||G.gsw||L.place)return;passTurn(true)}}
@@ -4333,7 +4335,7 @@ function labUi(st,msg){const L=G.lab;
  const sb=$('#labBar [data-a=side]');if(sb)sb.textContent=TR(`↔ 새 봇 진영: ${sd}`,`↔ New dummy side: ${sd}`);
  $('#labBar').querySelectorAll('[data-a=bot]').forEach(b=>{b.classList.toggle('hot',!!(L.place==='bot'));b.textContent=L.place==='bot'?TR('✅ 봇 놓기 끝내기','✅ Done placing'):TR('➕ 봇 놓기','➕ Place dummies')});
  const cb=$('#labBar [data-a=ctl]');if(cb){cb.classList.toggle('hot',!!L.ctl);cb.textContent=L.ctl?TR('🕹 적 기물도 조작: 켬','🕹 Control enemy too: ON'):TR('🕹 적 기물도 조작: 끔','🕹 Control enemy too: OFF')}
- const tb=$('#labBar [data-a=storm]');if(tb){tb.classList.toggle('hot',!!L.storm);tb.textContent=L.storm?TR('🌪 자기장 좁히기: 켬','🌪 Storm shrinking: ON'):TR('🌪 자기장 좁히기: 끔','🌪 Storm shrinking: OFF')}
+ {const tb=$('#labBar [data-a=storm]'),to=$('#labBar [data-a=stormoff]'),w=L.sw||0;if(tb){tb.classList.toggle('hot',w>0);tb.textContent=w>=3?TR('🌪 자기장 최대 (3줄)','🌪 Storm max (3 rows)'):TR(`🌪 자기장 +1줄 (현재 ${w}줄)`,`🌪 Storm +1 row (now ${w})`)}if(to){to.disabled=!w;to.textContent=TR('🌤 자기장 끄기','🌤 Storm off')}}
  const mb=$('#labBar [data-a=me]');if(mb)mb.classList.toggle('hot',L.place==='me')}
 
 $('#goLab').onclick=()=>{sfx('sel');labSetup()};
@@ -4647,7 +4649,7 @@ const SHARE_URL='';       // 비워두면 현재 페이지 주소를 사용
 const PATCH=[
  ['1.6.1',TR('백슈터 화살 연출 · 연습장 자기장','Backshooter Arrows · Practice Storm'),[
   TR('🏹 백슈터가 공격할 때 화살이 날아가는 연출을 넣었어요','🏹 Backshooter attacks now show an arrow flying to the target'),
-  TR('🌪 연습장에 "자기장 좁히기" 켜기/끄기 버튼을 추가했어요. 켜면 수가 지날수록 자기장이 좁혀져서 자기장 규칙을 연습할 수 있어요','🌪 The practice lab has a Storm shrinking toggle: turn it on to practice with the closing storm'),
+  TR('🌪 연습장에 자기장 버튼을 추가했어요. 누를 때마다 자기장이 1줄씩 생기고(최대 3줄), "자기장 끄기"를 누르면 사라져요','🌪 Practice lab: a Storm button adds one storm row per press (up to 3) and "Storm off" clears it'),
   TR('🧩 신규 기물 5종이 기물 선택 목록에 나오지 않던 문제와 백슈터 아이콘, 기물 정보 버튼 크기를 고쳤어요','🧩 Fixed the 5 new pieces missing from the piece picker, plus the Backshooter icon and info-bar button size')]],
  ['1.6.0',TR('정당하게 승부하라! · 신규 기물 5종 · 뾰롱이','Play Fair! · 5 New Pieces · Ppyorong'),[
   TR('🆕 상점 전용 기물: 🚫 밴(1) · 📺 글리치(2) · 🏹 백슈터(3) · 🌀 어질리티(5) · 😋 와구와구(8)','🆕 Shop-only pieces: Ban(1) · Glitch(2) · Backshooter(3) · Agility(5) · Waguwagu(8)'),
