@@ -2554,17 +2554,25 @@ const CLN=()=>[TR('킹 계열','King class'),TR('퀸 계열','Queen class'),TR('
 const DEMO={a:[6,3],w:[5,3],r:[7,3],E:[7,3],P:[6,3],h:[5,3],T:[6,3],S:[5,3],L:[6,3],V:[5,3],F:[5,3],D:[4,3],W:[4,4],e:[7,3],z:[6,3],p:[6,3],k:[5,3],t:[5,3],b:[4,3],u:[4,3]};
 const PRESETS=[
  {n:TR('정통 체스','Classic Chess'),l:'QRRBBNNPPPPPPPP',pl:[[56,'R'],[57,'N'],[58,'B'],[59,'Q'],[60,'K'],[61,'B'],[62,'N'],[63,'R'],[48,'P'],[49,'P'],[50,'P'],[51,'P'],[52,'P'],[53,'P'],[54,'P'],[55,'P']]},
- {n:TR('기동 타격대','Mobile Strike Force'),l:'ÄZsFYNuSSSrŁŁŁɃ'},
- {n:TR('불과 얼음','Fire & Ice'),l:'eeḶGffuLPPPPSŁŁ'},
- {n:TR('쌍룡 강림','Twin Dragon Descent'),l:'TXDDDWWWuptPPPP'},
- {n:TR('최종병기 활','The Ultimate Bow'),l:'JvAAUUuPPSSrŁŁɃ'},
- {n:TR('악마 군림','Demon Reign'),l:'MdoluHptÑÑPPPrŁɃ'},
- {n:TR('신의 기사단','Knights of the Divine'),l:'cwauptSSSrrŁŁɃɃg'},
- {n:TR('포격 전선','Artillery Front'),l:'jhCOuĊSSrrŁŁŁɃɃ'},
- {n:TR('검술의 달인','Master Swordsman'),l:'wbyuṖPPSrrrŁŁɃɃɃ'},
- {n:TR('격투왕','Brawl King'),l:'iikquHpÑÑSSrrɃɃ'},
- {n:TR('자연의 분노','Wrath of Nature'),l:'xƤnzuPPSSSrŁŁŁɃ'},
- {n:TR('최정예 부대','Elite Corps'),l:'VVmEIuĊĊPSrrrɃɃɃ'}
+ {n:TR('질풍 기병대','Gale Cavalry'),l:'FNtZcyPzlgSŁ'},
+ {n:TR('쌍룡과 파라오','Twin Dragons & Pharaoh'),l:'DWƤbuĊYqLIg'},
+ {n:TR('중화기 포대','Heavy Battery'),l:'COhjɃGHWDrg'},
+ {n:TR('저격 부대','Sniper Corps'),l:'JUAxNÑBHgi'},
+ {n:TR('마녀의 밤','Witches\' Night'),l:'zMsÄtLGPABg'},
+ {n:TR('천재지변','Natural Disaster'),l:'fenwYṖÑPŁv'},
+ {n:TR('야전 병원','Field Hospital'),l:'HIplQXĊZFSW'},
+ {n:TR('검과 주먹','Blade & Fist'),l:'wbiuUEDNp'},
+ {n:TR('창기병 돌격','Lancer Charge'),l:'TkydZuNBPŁ'},
+ {n:TR('철벽 방어선','Iron Wall'),l:'VGmFzAṖfrpH'},
+ {n:TR('물량 폭풍','Swarm Storm'),l:'ŁɃÑƤToeqEĊB'},
+ {n:TR('보병 대군','Infantry Horde'),l:'PrhOdRUmWIS'},
+ {n:TR('왕의 행차','Royal Procession'),l:'EQRBÑGfSĊk'},
+ {n:TR('신과 악마','Gods & Demons'),l:'gḶaOZDlUNÑL'},
+ {n:TR('대통령 경호대','Presidential Guard'),l:'ṖqaJɃuŁCAGS'},
+ {n:TR('공간 지배','Space Control'),l:'vouymYENHrɃ'},
+ {n:TR('광역 폭풍','Area Storm'),l:'XxjmLṖtDPŁr'},
+ {n:TR('암살단','Assassin Guild'),l:'ÄcYMuLWEt'},
+ {n:TR('탄막 전선','Barrage Line'),l:'ĊLSVnḶszfHp'}
 ];
 const PAT={};
 function patt(t,alt){const key=t+(alt?'+':'');if(PAT[key])return PAT[key];
@@ -4934,6 +4942,7 @@ const PATCH=[
   TR('😡 광전사: 적을 처치하면 광폭화 — 원거리 공격·적의 스킬·자기장에 면역, 또 처치하면 해제','😡 Berserker: a capture triggers Berserk — immune to ranged attacks, enemy skills and the storm; the next capture ends it'),
   TR('💃 검무: 칼춤 후 2턴 동안 1턴에 2번 행동 · 🧬 오리진: 턴을 쓰지 않고 다른 기물의 행마법을 복제','💃 Sword Dancer: after the dance, acts twice per turn for 2 turns · 🧬 Origin: copy another piece\'s movement without using your turn'),
   TR('🎯 백슈터 코스트 3 → 5','🎯 Backshooter cost 3 → 5'),
+  TR('📋 기본 프리셋을 20종으로 확대 — 정통 체스 + 모든 기물을 골고루 쓰는 테마별 구성 19종','📋 Built-in presets expanded to 20 — Classic Chess plus 19 themed builds that use every piece'),
   TR('🌀 더블은 9코스트(첫 이동 1칸, 두 번째 이동 최대 2칸) · 😡 광폭화 중에는 대각선 3칸 이동·잡기도 가능','🌀 Double costs 9 (first move 1 square, second up to 2) · 😡 Berserk also allows diagonal moves/captures up to 3 squares'),
   TR('🛍 상점 아이템 추가(부스터 3일·7일, 획득 한도 확장권, 무르기권 10장) · 👤 도트 프레임을 원형으로 · 🐱 팡팡이를 고양이로 · 💎 쥬얼 코스트 5·유틸 계열, 🎭 파라오 특수 계열','🛍 New shop items (Booster 3d/7d, Daily Cap Extender, Undo ×10) · 👤 Round Pixel frame · 🐱 Pangpang is now a cat · 💎 Jewel cost 5 (Support class), 🎭 Pharaoh moved to Special class')]],
  ['1.7.1',TR('다듬기 패치','Polish Patch'),[
